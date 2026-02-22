@@ -117,6 +117,10 @@ export default function AdSlot({
 
   if (closed) return null;
 
+  // ── Kill switch until AdSense approved ──────────────────────────────────
+  const ADSENSE_APPROVED = process.env.NEXT_PUBLIC_ADSENSE_APPROVED === "true";
+  if (!ADSENSE_APPROVED) return null;
+
   return (
     <AdWrapper
       variant={variant}
