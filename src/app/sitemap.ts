@@ -2,7 +2,7 @@
 import type { MetadataRoute } from "next";
 import { tools } from "@/lib/tools";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "";
+const BASE_URL = (process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com").replace(/\/$/, "");
 if (!BASE_URL) throw new Error("NEXT_PUBLIC_BASE_URL is not set");
 
 // ─── Static pages ─────────────────────────────────────────────────────────────
@@ -54,20 +54,7 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
 // Once you add them to the tools library, REMOVE this block — they will be
 // picked up automatically by the toolUrls loop below.
 
-const UNREGISTERED_TOOL_SLUGS: string[] = [
-  // General social media tools
-  "hashtag-generator",
-  "social-media-character-counter",
-  "engagement-rate-calculator",
-  "social-media-bio-generator",
-  // Platform-specific tools
-  "instagram-post-planner",
-  "tiktok-hook-generator",
-  "twitter-thread-builder",
-  "linkedin-post-formatter",
-  "youtube-title-description-generator",
-  "facebook-ad-copy-generator",
-];
+const UNREGISTERED_TOOL_SLUGS: string[] = [];
 
 // ─── Sitemap export ───────────────────────────────────────────────────────────
 
