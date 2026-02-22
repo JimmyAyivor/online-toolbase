@@ -57,7 +57,7 @@ const SEO_TIPS: SeoTip[] = [
 ];
 
 const PLACEHOLDER_IMAGE =
-  "https://via.placeholder.com/1200x630/e5e7eb/6b7280?text=Preview+Image";
+  "https://placehold.co/1200x630/e5e7eb/6b7280?text=Preview+Image";
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
