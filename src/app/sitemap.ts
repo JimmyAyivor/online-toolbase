@@ -71,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const categoryUrls: MetadataRoute.Sitemap = Array.from(
     new Set(tools.map((tool) => tool.category.toLowerCase())),
   ).map((category) => ({
-    url:             `${BASE_URL}/tools/category/${category}`,
+  url: `${BASE_URL}/tools/category/${category.replace(/\s+/g, "-")}`,
     lastModified:    new Date(),
     changeFrequency: "weekly" as const,
     priority:        0.7,
