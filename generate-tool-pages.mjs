@@ -11,7 +11,7 @@ import fs from "fs";
 import path from "path";
 
 // ─── CONFIG — update these two lines ───────────────────────────────────────
-const SITE_URL = "https://yourdomain.com";
+const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
 const TWITTER = "@yourtwitterhandle";
 // ───────────────────────────────────────────────────────────────────────────
