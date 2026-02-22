@@ -91,8 +91,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Social Media Tools",
-      item: `${SITE_URL}/tools/category/social media`,
-    },
+{ item: `${SITE_URL}/tools/category/social-media`,    },
     {
       "@type": "ListItem",
       position: 3,

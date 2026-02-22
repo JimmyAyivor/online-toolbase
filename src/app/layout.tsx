@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   // ── Titles ──────────────────────────────────────────────────────────────
   // Homepage overrides this via its own export const metadata.
   // This is the fallback for any page that doesn't set its own title.
+  metadataBase: new URL(SITE_URL),
+
   title: {
     default: `${SITE_NAME} — Free Calculators, Converters & Generators`,
     template: `%s | ${SITE_NAME}`,
