@@ -44,6 +44,7 @@ export const metadata: Metadata = {
       "Generate engaging TikTok hooks that capture attention instantly. Free, instant, no signup.",
     images: [
       {
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Free Online TikTok Hook Generator",

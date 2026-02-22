@@ -44,6 +44,7 @@ export const metadata: Metadata = {
       "Calculate sales tax and final price for any purchase instantly. Free, instant, no signup.",
     images: [
       {
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Free Online Sales Tax Calculator",

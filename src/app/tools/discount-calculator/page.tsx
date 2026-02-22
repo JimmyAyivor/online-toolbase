@@ -44,6 +44,7 @@ export const metadata: Metadata = {
       "Calculate discounted prices and savings for any sale or promotion. Free, instant, no signup.",
     images: [
       {
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Free Online Discount Calculator",

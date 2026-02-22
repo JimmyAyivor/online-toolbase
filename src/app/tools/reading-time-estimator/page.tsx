@@ -44,6 +44,7 @@ export const metadata: Metadata = {
       "Estimate how long it will take to read any piece of text. Free, instant, no signup.",
     images: [
       {
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Free Online Reading Time Estimator",

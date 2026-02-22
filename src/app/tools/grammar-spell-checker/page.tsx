@@ -44,6 +44,7 @@ export const metadata: Metadata = {
       "Automatically correct grammar and spelling errors in your writing. Free, instant, no signup.",
     images: [
       {
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Free Online Grammar & Spell Checker",

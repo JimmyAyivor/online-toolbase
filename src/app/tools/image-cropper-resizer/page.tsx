@@ -44,6 +44,7 @@ export const metadata: Metadata = {
       "Crop and resize images quickly online without any software. Free, instant, no signup.",
     images: [
       {
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Free Online Image Cropper & Resizer",

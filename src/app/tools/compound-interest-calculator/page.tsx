@@ -45,6 +45,7 @@ export const metadata: Metadata = {
       "Calculate compound interest and see your investment grow over time. Free, instant, no signup.",
     images: [
       {
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Free Online Compound Interest Calculator",

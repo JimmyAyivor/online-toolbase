@@ -43,6 +43,7 @@ export const metadata: Metadata = {
       "Roll virtual dice online for board games, RPGs, and tabletop games. Free, instant, no signup.",
     images: [
       {
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Free Online Dice Roller",

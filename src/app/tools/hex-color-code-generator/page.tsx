@@ -44,6 +44,7 @@ export const metadata: Metadata = {
       "Generate hex color codes with a color picker, HEX, RGB, and HSL values. Free, instant, no signup.",
     images: [
       {
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Free Online Hex Color Code Generator",

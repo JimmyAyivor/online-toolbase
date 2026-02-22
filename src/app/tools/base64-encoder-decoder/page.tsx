@@ -44,6 +44,7 @@ export const metadata: Metadata = {
       "Encode or decode Base64 strings instantly in your browser. Free, instant, no signup.",
     images: [
       {
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Free Online Base64 Encoder/Decoder",

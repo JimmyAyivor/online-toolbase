@@ -44,6 +44,7 @@ export const metadata: Metadata = {
       "Look up geolocation and network information for any IP address. Free, instant, no signup.",
     images: [
       {
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Free Online IP Address Lookup",

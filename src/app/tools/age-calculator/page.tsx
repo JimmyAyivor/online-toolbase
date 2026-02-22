@@ -43,6 +43,7 @@ export const metadata: Metadata = {
       "Calculate your exact age in years, months, days, hours, and minutes from any birth date instantly. Free, instant, no signup.",
     images: [
       {
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Free Online Age Calculator",

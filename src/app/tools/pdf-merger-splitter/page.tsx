@@ -44,6 +44,7 @@ export const metadata: Metadata = {
       "Merge multiple PDF files into one or split a PDF into separate pages. Free, instant, no signup.",
     images: [
       {
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Free Online PDF Merger & Splitter",

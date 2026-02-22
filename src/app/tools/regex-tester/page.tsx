@@ -43,6 +43,7 @@ export const metadata: Metadata = {
       "Test and debug regular expressions against sample text in real time. Free, instant, no signup.",
     images: [
       {
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Free Online Regex Tester",

@@ -43,6 +43,7 @@ export const metadata: Metadata = {
       "Build a professional resume with customizable templates, downloadable as PDF. Free, instant, no signup.",
     images: [
       {
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Free Online Resume Builder",
