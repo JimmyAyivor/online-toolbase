@@ -19,7 +19,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   const { category } = await params;
 
-  const formatted = category.charAt(0).toUpperCase() + category.slice(1);
+  const formatted =
+    category.replace(/-/g, " ").charAt(0).toUpperCase() +
+    category.replace(/-/g, " ").slice(1);
 
   return {
     title: `${formatted} Tools – Free Online Utilities`,
@@ -42,7 +44,7 @@ export default async function CategoryPage({ params }: Props) {
     <div className='min-h-screen bg-gray-50'>
       <div className='max-w-6xl mx-auto px-6 py-16'>
         <h1 className='text-4xl font-bold mb-10 capitalize'>
-          {category} Tools
+          {category.replace(/-/g, " ")} Tools
         </h1>
 
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
