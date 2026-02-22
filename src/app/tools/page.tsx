@@ -28,7 +28,9 @@ export default function ToolsPage() {
         {Object.entries(groupedTools).map(([category, categoryTools]) => (
           <div key={category} className='mb-12'>
             <h2 className='text-2xl font-semibold mb-6 border-b pb-2'>
-              {category}
+              {category
+                .replace(/-/g, " ")
+                .replace(/\b\w/g, (c) => c.toUpperCase())}
             </h2>
 
             <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>

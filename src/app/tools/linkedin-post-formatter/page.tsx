@@ -4,7 +4,7 @@ import LinkedinPostFormatterClient from "./LinkedInPostFormatterClient";
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 
-const SITE_URL = "https://yourdomain.com";
+const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
 
 // ─── Slot IDs from env ────────────────────────────────────────────────────────

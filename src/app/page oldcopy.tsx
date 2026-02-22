@@ -253,7 +253,7 @@ function getColors(category: string) {
 /* ─────────────────────────────────────────────
    STATIC DATA
 ───────────────────────────────────────────── */
-const SITE_URL = "https://yourdomain.com"; // ← update this
+const SITE_URL = "https://onlinetoolbase.com"; // ← update this
 const allCategories = Array.from(new Set(tools.map((t) => t.category))).sort();
 const featuredSlugs = [
   "bmi-calculator",
