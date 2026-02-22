@@ -89,7 +89,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Health Tools",
-      item: `${SITE_URL}/?category=health`,
+      item: `${SITE_URL}/tools/category/health`,
     },
     {
       "@type": "ListItem",
@@ -125,7 +125,7 @@ export default function BmiCalculatorPage() {
           </li>
           <li>
             <a
-              href='/?category=health'
+              href='/tools/category/health'
               className='hover:text-indigo-600 transition-colors'
             >
               Health Tools

@@ -90,7 +90,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Image Tools",
-      item: `${SITE_URL}/?category=image`,
+      item: `${SITE_URL}/tools/category/image`,
     },
     {
       "@type": "ListItem",
@@ -126,7 +126,7 @@ export default function ImageFormatConverterPage() {
           </li>
           <li>
             <a
-              href='/?category=image'
+              href='/tools/category/image'
               className='hover:text-indigo-600 transition-colors'
             >
               Image Tools

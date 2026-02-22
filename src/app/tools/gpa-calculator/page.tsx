@@ -89,7 +89,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Education Tools",
-      item: `${SITE_URL}/?category=education`,
+      item: `${SITE_URL}/tools/category/education`,
     },
     {
       "@type": "ListItem",
@@ -125,7 +125,7 @@ export default function GpaCalculatorPage() {
           </li>
           <li>
             <a
-              href='/?category=education'
+              href='/tools/category/education'
               className='hover:text-indigo-600 transition-colors'
             >
               Education Tools

@@ -90,7 +90,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Utilities Tools",
-      item: `${SITE_URL}/?category=utilities`,
+      item: `${SITE_URL}/tools/category/utilities`,
     },
     {
       "@type": "ListItem",
@@ -126,7 +126,7 @@ export default function SocialMediaCharacterCounterPage() {
           </li>
           <li>
             <a
-              href='/?category=utilities'
+              href='/tools/category/utilities'
               className='hover:text-indigo-600 transition-colors'
             >
               Utilities Tools

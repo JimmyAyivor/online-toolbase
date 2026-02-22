@@ -90,7 +90,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Social Media Tools",
-      item: `${SITE_URL}/?category=social media`,
+      item: `${SITE_URL}/tools/category/social media`,
     },
     {
       "@type": "ListItem",
@@ -126,7 +126,7 @@ export default function TwitterThreadBuilderPage() {
           </li>
           <li>
             <a
-              href='/?category=social media'
+              href='/tools/category/social media'
               className='hover:text-indigo-600 transition-colors'
             >
               Social Media Tools

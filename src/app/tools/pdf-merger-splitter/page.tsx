@@ -90,7 +90,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Document Tools",
-      item: `${SITE_URL}/?category=document`,
+      item: `${SITE_URL}/tools/category/document`,
     },
     {
       "@type": "ListItem",
@@ -126,7 +126,7 @@ export default function PdfMergerSplitterPage() {
           </li>
           <li>
             <a
-              href='/?category=document'
+              href='/tools/category/document'
               className='hover:text-indigo-600 transition-colors'
             >
               Document Tools

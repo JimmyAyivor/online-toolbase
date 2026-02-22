@@ -90,7 +90,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Productivity Tools",
-      item: `${SITE_URL}/?category=productivity`,
+      item: `${SITE_URL}/tools/category/productivity`,
     },
     {
       "@type": "ListItem",
@@ -126,7 +126,7 @@ export default function TimeZoneConverterPage() {
           </li>
           <li>
             <a
-              href='/?category=productivity'
+              href='/tools/category/productivity'
               className='hover:text-indigo-600 transition-colors'
             >
               Productivity Tools

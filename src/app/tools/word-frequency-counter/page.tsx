@@ -88,7 +88,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Writing Tools",
-      item: `${SITE_URL}/?category=writing`,
+      item: `${SITE_URL}/tools/category/writing`,
     },
     {
       "@type": "ListItem",
@@ -124,7 +124,7 @@ export default function WordFrequencyCounterPage() {
           </li>
           <li>
             <a
-              href='/?category=writing'
+              href='/tools/category/writing'
               className='hover:text-indigo-600 transition-colors'
             >
               Writing Tools

@@ -90,7 +90,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Fun Tools",
-      item: `${SITE_URL}/?category=fun`,
+      item: `${SITE_URL}/tools/category/fun`,
     },
     {
       "@type": "ListItem",
@@ -126,7 +126,7 @@ export default function RandomNameGeneratorPage() {
           </li>
           <li>
             <a
-              href='/?category=fun'
+              href='/tools/category/fun'
               className='hover:text-indigo-600 transition-colors'
             >
               Fun Tools

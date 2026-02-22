@@ -90,7 +90,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Security Tools",
-      item: `${SITE_URL}/?category=security`,
+      item: `${SITE_URL}/tools/category/security`,
     },
     {
       "@type": "ListItem",
@@ -126,7 +126,7 @@ export default function PasswordGeneratorPage() {
           </li>
           <li>
             <a
-              href='/?category=security'
+              href='/tools/category/security'
               className='hover:text-indigo-600 transition-colors'
             >
               Security Tools

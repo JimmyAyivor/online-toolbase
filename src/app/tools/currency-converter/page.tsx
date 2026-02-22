@@ -89,7 +89,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Finance Tools",
-      item: `${SITE_URL}/?category=finance`,
+      item: `${SITE_URL}/tools/category/finance`,
     },
     {
       "@type": "ListItem",
@@ -125,7 +125,7 @@ export default function CurrencyConverterPage() {
           </li>
           <li>
             <a
-              href='/?category=finance'
+              href='/tools/category/finance'
               className='hover:text-indigo-600 transition-colors'
             >
               Finance Tools

@@ -92,7 +92,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Marketing Tools",
-      item: `${SITE_URL}/?category=marketing`,
+      item: `${SITE_URL}/tools/category/marketing`,
     },
     {
       "@type": "ListItem",
@@ -128,7 +128,7 @@ export default function FacebookAdCopyGeneratorPage() {
           </li>
           <li>
             <a
-              href='/?category=marketing'
+              href='/tools/category/marketing'
               className='hover:text-indigo-600 transition-colors'
             >
               Marketing Tools

@@ -92,7 +92,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Analytics Tools",
-      item: `${SITE_URL}/?category=analytics`,
+      item: `${SITE_URL}/tools/category/analytics`,
     },
     {
       "@type": "ListItem",
@@ -128,7 +128,7 @@ export default function EngagementRateCalculatorPage() {
           </li>
           <li>
             <a
-              href='/?category=analytics'
+              href='/tools/category/analytics'
               className='hover:text-indigo-600 transition-colors'
             >
               Analytics Tools

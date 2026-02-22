@@ -90,7 +90,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Business Tools",
-      item: `${SITE_URL}/?category=business`,
+      item: `${SITE_URL}/tools/category/business`,
     },
     {
       "@type": "ListItem",
@@ -126,7 +126,7 @@ export default function InvoiceGeneratorPage() {
           </li>
           <li>
             <a
-              href='/?category=business'
+              href='/tools/category/business'
               className='hover:text-indigo-600 transition-colors'
             >
               Business Tools

@@ -92,7 +92,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Calculator Tools",
-      item: `${SITE_URL}/?category=calculator`,
+      item: `${SITE_URL}/tools/category/calculator`,
     },
     {
       "@type": "ListItem",
@@ -128,7 +128,7 @@ export default function CompoundInterestCalculatorPage() {
           </li>
           <li>
             <a
-              href='/?category=calculator'
+              href='/tools/category/calculator'
               className='hover:text-indigo-600 transition-colors'
             >
               Calculator Tools

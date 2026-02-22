@@ -88,7 +88,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Developer Tools",
-      item: `${SITE_URL}/?category=developer`,
+      item: `${SITE_URL}/tools/category/developer`,
     },
     {
       "@type": "ListItem",
@@ -124,7 +124,7 @@ export default function Base64EncoderDecoderPage() {
           </li>
           <li>
             <a
-              href='/?category=developer'
+              href='/tools/category/developer'
               className='hover:text-indigo-600 transition-colors'
             >
               Developer Tools
