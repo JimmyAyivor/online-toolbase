@@ -30,7 +30,7 @@ const POPULAR_MEMES: MemeTemplate[] = [
   { name: "Two Buttons", url: "https://i.imgflip.com/1g8my4.jpg" },
   { name: "Change My Mind", url: "https://i.imgflip.com/24y43o.jpg" },
   { name: "Epic Handshake", url: "https://i.imgflip.com/28j0te.jpg" },
-  { name: "Exit 12", url: "https://i.imgflip.com/1wz1my.jpg" },
+  { name: "Exit 12", url: "https://i.imgflip.com/3lmzyx.jpg" },
 ];
 
 const FONTS: string[] = [
