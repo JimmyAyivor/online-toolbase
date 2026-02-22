@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Meta Tag Generator — Free Online Meta Tag Generator",
     description:
       "Generate SEO meta tags including Open Graph and Twitter Card tags for any page.",

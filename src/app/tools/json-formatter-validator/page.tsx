@@ -54,8 +54,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title:
       "JSON Formatter & Validator — Free Online JSON Formatter & Validator",
     description: "Format, beautify and validate JSON data easily online.",

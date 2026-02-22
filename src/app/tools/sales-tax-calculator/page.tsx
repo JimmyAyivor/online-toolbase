@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Sales Tax Calculator — Free Online Sales Tax Calculator",
     description:
       "Calculate sales tax and final price for any purchase instantly.",

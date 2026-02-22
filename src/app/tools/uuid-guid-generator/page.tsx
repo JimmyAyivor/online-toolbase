@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "UUID/GUID Generator — Free Online UUID/GUID Generator",
     description:
       "Generate unique identifiers (UUID/GUID) instantly for your applications.",

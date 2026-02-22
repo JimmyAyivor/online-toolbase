@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Word Frequency Counter — Free Online Word Frequency Counter",
     description: "Count the frequency of every word in your text.",
     images: [`${SITE_URL}/og/word-frequency-counter.png`],

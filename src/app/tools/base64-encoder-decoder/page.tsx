@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Base64 Encoder/Decoder — Free Online Base64 Encoder/Decoder",
     description: "Encode or decode Base64 strings instantly in your browser.",
     images: [`${SITE_URL}/og/base64-encoder-decoder.png`],

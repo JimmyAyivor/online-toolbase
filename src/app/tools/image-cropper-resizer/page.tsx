@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Image Cropper & Resizer — Free Online Image Cropper & Resizer",
     description: "Crop and resize images quickly online without any software.",
     images: [`${SITE_URL}/og/image-cropper-resizer.png`],

@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "LinkedIn Post Formatter — Free Online LinkedIn Post Formatter",
     description:
       "Format LinkedIn posts for better readability and professional engagement.",

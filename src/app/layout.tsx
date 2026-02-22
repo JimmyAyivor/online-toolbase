@@ -6,7 +6,7 @@ import "./globals.css";
 const SITE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
-const TWITTER = "@yourtwitterhandle";
+const TWITTER = "@onlinetoolbase";
 
 export const metadata: Metadata = {
   // ── Titles ──────────────────────────────────────────────────────────────

@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "TikTok Hook Generator — Free Online TikTok Hook Generator",
     description:
       "Generate engaging TikTok hooks that capture attention instantly.",

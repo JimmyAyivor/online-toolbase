@@ -52,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Email Validator — Free Online Email Validator",
     description: "Check if an email address is valid and properly formatted.",
     images: [`${SITE_URL}/og/email-validator.png`],

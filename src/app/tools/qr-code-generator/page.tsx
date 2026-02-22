@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "QR Code Generator — Free Online QR Code Generator",
     description:
       "Generate QR codes for URLs, text, WiFi, email, and phone numbers.",

@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Instagram Post Planner — Free Online Instagram Post Planner",
     description:
       "Plan and organize Instagram posts with captions and scheduling ideas.",

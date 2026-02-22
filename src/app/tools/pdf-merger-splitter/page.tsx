@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "PDF Merger & Splitter — Free Online PDF Merger & Splitter",
     description:
       "Merge multiple PDF files into one or split a PDF into separate pages.",

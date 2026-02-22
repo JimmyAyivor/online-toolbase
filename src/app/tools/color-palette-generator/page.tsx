@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Color Palette Generator — Free Online Color Palette Generator",
     description: "Generate harmonious color palettes for your design projects.",
     images: [`${SITE_URL}/og/color-palette-generator.png`],

@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Paraphrasing Tool — Free Online Paraphrasing Tool",
     description:
       "Rewrite any text in different words while preserving the original meaning.",

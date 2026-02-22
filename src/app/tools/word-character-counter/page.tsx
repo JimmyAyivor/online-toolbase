@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Word & Character Counter — Free Online Word & Character Counter",
     description:
       "Count words, characters, sentences, and paragraphs with reading time estimates.",

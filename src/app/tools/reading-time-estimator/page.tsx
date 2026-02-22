@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Reading Time Estimator — Free Online Reading Time Estimator",
     description: "Estimate how long it will take to read any piece of text.",
     images: [`${SITE_URL}/og/reading-time-estimator.png`],

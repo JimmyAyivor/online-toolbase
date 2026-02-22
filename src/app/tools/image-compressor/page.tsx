@@ -52,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Image Compressor — Free Online Image Compressor",
     description:
       "Compress JPG, PNG, and WebP images to reduce file size without losing quality.",

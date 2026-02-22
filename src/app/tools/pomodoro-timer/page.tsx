@@ -52,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Pomodoro Timer — Free Online Pomodoro Timer",
     description:
       "Boost your focus and productivity with the Pomodoro time management technique.",

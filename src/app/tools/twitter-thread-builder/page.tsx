@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Twitter Thread Builder — Free Online Twitter Thread Builder",
     description:
       "Create structured and engaging Twitter threads for better storytelling.",

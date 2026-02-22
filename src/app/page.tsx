@@ -12,7 +12,7 @@ import HomeClient from "./HomeClient";
 const SITE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
-const TWITTER = "@yourtwitterhandle";
+const TWITTER = "@onlinetoolbase";
 const TOOL_COUNT = tools.length; // real count, not hardcoded
 
 /* ─── Metadata (works because this file has NO "use client") ─────────────── */

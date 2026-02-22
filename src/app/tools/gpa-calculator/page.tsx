@@ -52,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "GPA Calculator — Free Online GPA Calculator",
     description:
       "Calculate your semester and cumulative GPA with multiple grading scale support.",

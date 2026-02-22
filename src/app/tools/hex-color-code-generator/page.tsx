@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Hex Color Code Generator — Free Online Hex Color Code Generator",
     description:
       "Generate hex color codes with a color picker, HEX, RGB, and HSL values.",

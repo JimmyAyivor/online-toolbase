@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Plagiarism Checker — Free Online Plagiarism Checker",
     description: "Detect duplicate content and plagiarism in your text.",
     images: [`${SITE_URL}/og/plagiarism-checker.png`],

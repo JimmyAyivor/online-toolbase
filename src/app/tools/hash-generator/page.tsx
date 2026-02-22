@@ -52,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Hash Generator — Free Online Hash Generator",
     description:
       "Generate MD5, SHA1, SHA256, and other cryptographic hashes online.",

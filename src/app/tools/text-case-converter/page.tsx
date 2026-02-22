@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    creator: "@yourtwitterhandle",
+    site: "@onlinetoolbase",
+    creator: "@onlinetoolbase",
     title: "Text Case Converter — Free Online Text Case Converter",
     description:
       "Convert text to uppercase, lowercase, title case, camelCase, and snake_case.",
