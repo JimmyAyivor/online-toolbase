@@ -125,7 +125,7 @@ export default function InstagramPostPlannerPage() {
           </li>
           <li>
             <a
-              href='/tools/category/social media'
+              href='/tools/category/social-media'
               className='hover:text-indigo-600 transition-colors'
             >
               Social Media Tools
