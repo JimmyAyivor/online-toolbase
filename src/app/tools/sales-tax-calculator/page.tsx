@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Calculate sales tax and final price for any purchase instantly. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/sales-tax-calculator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Sales Tax Calculator",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Sales Tax Calculator — Free Online Sales Tax Calculator",
     description:
       "Calculate sales tax and final price for any purchase instantly.",
-    images: [`${SITE_URL}/og/sales-tax-calculator.png`],
   },
 };
 

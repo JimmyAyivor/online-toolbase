@@ -43,7 +43,6 @@ export const metadata: Metadata = {
       "Convert between length, weight, temperature, volume, speed, and time units. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/unit-converter.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Unit Converter",
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     title: "Unit Converter — Free Online Unit Converter",
     description:
       "Convert between length, weight, temperature, volume, speed, and time units.",
-    images: [`${SITE_URL}/og/unit-converter.png`],
   },
 };
 

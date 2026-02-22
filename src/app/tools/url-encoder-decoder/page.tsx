@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Encode or decode URLs for safe web transmission. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/url-encoder-decoder.png`,
         width: 1200,
         height: 630,
         alt: "Free Online URL Encoder/Decoder",
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     creator: "@onlinetoolbase",
     title: "URL Encoder/Decoder — Free Online URL Encoder/Decoder",
     description: "Encode or decode URLs for safe web transmission.",
-    images: [`${SITE_URL}/og/url-encoder-decoder.png`],
   },
 };
 

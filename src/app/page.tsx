@@ -42,7 +42,6 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: `${SITE_URL}/og/home.png`,
         width: 1200,
         height: 630,
         alt: `${SITE_NAME} — Free Online Tools Directory`,
@@ -55,7 +54,6 @@ export const metadata: Metadata = {
     creator: TWITTER,
     title: `${SITE_NAME} — ${TOOL_COUNT}+ Free Online Tools`,
     description: `${TOOL_COUNT}+ free online tools. No signup required.`,
-    images: [`${SITE_URL}/og/home.png`],
   },
 };
 

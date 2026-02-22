@@ -43,7 +43,6 @@ export const metadata: Metadata = {
       "Build a professional resume with customizable templates, downloadable as PDF. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/resume-builder.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Resume Builder",
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     title: "Resume Builder — Free Online Resume Builder",
     description:
       "Build a professional resume with customizable templates, downloadable as PDF.",
-    images: [`${SITE_URL}/og/resume-builder.png`],
   },
 };
 

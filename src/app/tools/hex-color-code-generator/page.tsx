@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Generate hex color codes with a color picker, HEX, RGB, and HSL values. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/hex-color-code-generator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Hex Color Code Generator",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Hex Color Code Generator — Free Online Hex Color Code Generator",
     description:
       "Generate hex color codes with a color picker, HEX, RGB, and HSL values.",
-    images: [`${SITE_URL}/og/hex-color-code-generator.png`],
   },
 };
 

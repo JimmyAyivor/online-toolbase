@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Count words, characters, sentences, and paragraphs with reading time estimates. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/word-character-counter.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Word & Character Counter",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Word & Character Counter — Free Online Word & Character Counter",
     description:
       "Count words, characters, sentences, and paragraphs with reading time estimates.",
-    images: [`${SITE_URL}/og/word-character-counter.png`],
   },
 };
 

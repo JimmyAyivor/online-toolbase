@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Estimate how long it will take to read any piece of text. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/reading-time-estimator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Reading Time Estimator",
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     creator: "@onlinetoolbase",
     title: "Reading Time Estimator — Free Online Reading Time Estimator",
     description: "Estimate how long it will take to read any piece of text.",
-    images: [`${SITE_URL}/og/reading-time-estimator.png`],
   },
 };
 

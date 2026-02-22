@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Rewrite any text in different words while preserving the original meaning. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/paraphrasing-tool.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Paraphrasing Tool",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Paraphrasing Tool — Free Online Paraphrasing Tool",
     description:
       "Rewrite any text in different words while preserving the original meaning.",
-    images: [`${SITE_URL}/og/paraphrasing-tool.png`],
   },
 };
 

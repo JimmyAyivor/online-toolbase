@@ -43,7 +43,6 @@ export const metadata: Metadata = {
       "Generate MD5, SHA1, SHA256, and other cryptographic hashes online. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/hash-generator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Hash Generator",
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     title: "Hash Generator — Free Online Hash Generator",
     description:
       "Generate MD5, SHA1, SHA256, and other cryptographic hashes online.",
-    images: [`${SITE_URL}/og/hash-generator.png`],
   },
 };
 

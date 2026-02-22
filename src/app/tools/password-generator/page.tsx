@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Generate strong, secure, random passwords with customizable options. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/password-generator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Password Generator",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Password Generator — Free Online Password Generator",
     description:
       "Generate strong, secure, random passwords with customizable options.",
-    images: [`${SITE_URL}/og/password-generator.png`],
   },
 };
 

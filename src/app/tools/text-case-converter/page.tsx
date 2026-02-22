@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Convert text to uppercase, lowercase, title case, camelCase, and snake_case. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/text-case-converter.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Text Case Converter",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Text Case Converter — Free Online Text Case Converter",
     description:
       "Convert text to uppercase, lowercase, title case, camelCase, and snake_case.",
-    images: [`${SITE_URL}/og/text-case-converter.png`],
   },
 };
 

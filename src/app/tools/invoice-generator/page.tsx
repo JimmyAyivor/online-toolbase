@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Create professional invoices with itemized billing and automatic totals. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/invoice-generator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Invoice Generator",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Invoice Generator — Free Online Invoice Generator",
     description:
       "Create professional invoices with itemized billing and automatic totals.",
-    images: [`${SITE_URL}/og/invoice-generator.png`],
   },
 };
 

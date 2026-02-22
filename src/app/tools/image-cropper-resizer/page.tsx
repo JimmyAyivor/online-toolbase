@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Crop and resize images quickly online without any software. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/image-cropper-resizer.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Image Cropper & Resizer",
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     creator: "@onlinetoolbase",
     title: "Image Cropper & Resizer — Free Online Image Cropper & Resizer",
     description: "Crop and resize images quickly online without any software.",
-    images: [`${SITE_URL}/og/image-cropper-resizer.png`],
   },
 };
 

@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Look up geolocation and network information for any IP address. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/ip-address-lookup.png`,
         width: 1200,
         height: 630,
         alt: "Free Online IP Address Lookup",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "IP Address Lookup — Free Online IP Address Lookup",
     description:
       "Look up geolocation and network information for any IP address.",
-    images: [`${SITE_URL}/og/ip-address-lookup.png`],
   },
 };
 

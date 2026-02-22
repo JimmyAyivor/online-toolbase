@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Generate random names for characters, businesses, babies, or usernames. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/random-name-generator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Random Name Generator",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Random Name Generator — Free Online Random Name Generator",
     description:
       "Generate random names for characters, businesses, babies, or usernames.",
-    images: [`${SITE_URL}/og/random-name-generator.png`],
   },
 };
 

@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Generate unique identifiers (UUID/GUID) instantly for your applications. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/uuid-guid-generator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online UUID/GUID Generator",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "UUID/GUID Generator — Free Online UUID/GUID Generator",
     description:
       "Generate unique identifiers (UUID/GUID) instantly for your applications.",
-    images: [`${SITE_URL}/og/uuid-guid-generator.png`],
   },
 };
 

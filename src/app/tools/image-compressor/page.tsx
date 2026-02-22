@@ -43,7 +43,6 @@ export const metadata: Metadata = {
       "Compress JPG, PNG, and WebP images to reduce file size without losing quality. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/image-compressor.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Image Compressor",
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     title: "Image Compressor — Free Online Image Compressor",
     description:
       "Compress JPG, PNG, and WebP images to reduce file size without losing quality.",
-    images: [`${SITE_URL}/og/image-compressor.png`],
   },
 };
 

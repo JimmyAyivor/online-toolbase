@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Plan and organize Instagram posts with captions and scheduling ideas. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/instagram-post-planner.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Instagram Post Planner",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Instagram Post Planner — Free Online Instagram Post Planner",
     description:
       "Plan and organize Instagram posts with captions and scheduling ideas.",
-    images: [`${SITE_URL}/og/instagram-post-planner.png`],
   },
 };
 

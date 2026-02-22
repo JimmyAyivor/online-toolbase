@@ -45,7 +45,6 @@ export const metadata: Metadata = {
       "Format, beautify and validate JSON data easily online. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/json-formatter-validator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online JSON Formatter & Validator",
@@ -59,7 +58,6 @@ export const metadata: Metadata = {
     title:
       "JSON Formatter & Validator — Free Online JSON Formatter & Validator",
     description: "Format, beautify and validate JSON data easily online.",
-    images: [`${SITE_URL}/og/json-formatter-validator.png`],
   },
 };
 

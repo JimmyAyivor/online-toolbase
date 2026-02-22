@@ -45,7 +45,6 @@ export const metadata: Metadata = {
       "Generate optimized and creative bios for social media profiles. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/social-media-bio-generator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Social Media Bio Generator",
@@ -60,7 +59,6 @@ export const metadata: Metadata = {
       "Social Media Bio Generator — Free Online Social Media Bio Generator",
     description:
       "Generate optimized and creative bios for social media profiles.",
-    images: [`${SITE_URL}/og/social-media-bio-generator.png`],
   },
 };
 

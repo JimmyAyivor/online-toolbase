@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Count the frequency of every word in your text. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/word-frequency-counter.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Word Frequency Counter",
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     creator: "@onlinetoolbase",
     title: "Word Frequency Counter — Free Online Word Frequency Counter",
     description: "Count the frequency of every word in your text.",
-    images: [`${SITE_URL}/og/word-frequency-counter.png`],
   },
 };
 

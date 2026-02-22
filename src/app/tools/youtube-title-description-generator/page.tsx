@@ -47,7 +47,6 @@ export const metadata: Metadata = {
       "Generate optimized YouTube titles and descriptions for better visibility. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/youtube-title-description-generator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online YouTube Title & Description Generator",
@@ -62,7 +61,6 @@ export const metadata: Metadata = {
       "YouTube Title & Description Generator — Free Online YouTube Title & Description Generator",
     description:
       "Generate optimized YouTube titles and descriptions for better visibility.",
-    images: [`${SITE_URL}/og/youtube-title-description-generator.png`],
   },
 };
 

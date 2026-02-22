@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Create a custom digital signature with stylish fonts for documents and emails. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/signature-generator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Signature Generator",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Signature Generator — Free Online Signature Generator",
     description:
       "Create a custom digital signature with stylish fonts for documents and emails.",
-    images: [`${SITE_URL}/og/signature-generator.png`],
   },
 };
 

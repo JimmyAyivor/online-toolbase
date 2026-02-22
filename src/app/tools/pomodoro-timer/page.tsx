@@ -43,7 +43,6 @@ export const metadata: Metadata = {
       "Boost your focus and productivity with the Pomodoro time management technique. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/pomodoro-timer.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Pomodoro Timer",
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     title: "Pomodoro Timer — Free Online Pomodoro Timer",
     description:
       "Boost your focus and productivity with the Pomodoro time management technique.",
-    images: [`${SITE_URL}/og/pomodoro-timer.png`],
   },
 };
 

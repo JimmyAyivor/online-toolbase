@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Generate engaging TikTok hooks that capture attention instantly. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/tiktok-hook-generator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online TikTok Hook Generator",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "TikTok Hook Generator — Free Online TikTok Hook Generator",
     description:
       "Generate engaging TikTok hooks that capture attention instantly.",
-    images: [`${SITE_URL}/og/tiktok-hook-generator.png`],
   },
 };
 

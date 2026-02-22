@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Convert between 30+ world currencies with live exchange rates. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/currency-converter.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Currency Converter",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Currency Converter — Free Online Currency Converter",
     description:
       "Convert between 30+ world currencies with live exchange rates.",
-    images: [`${SITE_URL}/og/currency-converter.png`],
   },
 };
 

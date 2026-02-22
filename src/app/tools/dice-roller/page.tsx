@@ -43,7 +43,6 @@ export const metadata: Metadata = {
       "Roll virtual dice online for board games, RPGs, and tabletop games. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/dice-roller.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Dice Roller",
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     title: "Dice Roller — Free Online Dice Roller",
     description:
       "Roll virtual dice online for board games, RPGs, and tabletop games.",
-    images: [`${SITE_URL}/og/dice-roller.png`],
   },
 };
 

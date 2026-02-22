@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Generate harmonious color palettes for your design projects. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/color-palette-generator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Color Palette Generator",
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     creator: "@onlinetoolbase",
     title: "Color Palette Generator — Free Online Color Palette Generator",
     description: "Generate harmonious color palettes for your design projects.",
-    images: [`${SITE_URL}/og/color-palette-generator.png`],
   },
 };
 

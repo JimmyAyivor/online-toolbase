@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Detect duplicate content and plagiarism in your text. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/plagiarism-checker.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Plagiarism Checker",
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     creator: "@onlinetoolbase",
     title: "Plagiarism Checker — Free Online Plagiarism Checker",
     description: "Detect duplicate content and plagiarism in your text.",
-    images: [`${SITE_URL}/og/plagiarism-checker.png`],
   },
 };
 

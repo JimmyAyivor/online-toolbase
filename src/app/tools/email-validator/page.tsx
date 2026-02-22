@@ -43,7 +43,6 @@ export const metadata: Metadata = {
       "Check if an email address is valid and properly formatted. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/email-validator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Email Validator",
@@ -56,7 +55,6 @@ export const metadata: Metadata = {
     creator: "@onlinetoolbase",
     title: "Email Validator — Free Online Email Validator",
     description: "Check if an email address is valid and properly formatted.",
-    images: [`${SITE_URL}/og/email-validator.png`],
   },
 };
 

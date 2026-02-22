@@ -43,7 +43,6 @@ export const metadata: Metadata = {
       "Calculate your semester and cumulative GPA with multiple grading scale support. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/gpa-calculator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online GPA Calculator",
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     title: "GPA Calculator — Free Online GPA Calculator",
     description:
       "Calculate your semester and cumulative GPA with multiple grading scale support.",
-    images: [`${SITE_URL}/og/gpa-calculator.png`],
   },
 };
 

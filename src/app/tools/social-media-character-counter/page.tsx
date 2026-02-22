@@ -45,7 +45,6 @@ export const metadata: Metadata = {
       "Count characters and optimize posts for platform limits. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/social-media-character-counter.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Social Media Character Counter",
@@ -59,7 +58,6 @@ export const metadata: Metadata = {
     title:
       "Social Media Character Counter — Free Online Social Media Character Counter",
     description: "Count characters and optimize posts for platform limits.",
-    images: [`${SITE_URL}/og/social-media-character-counter.png`],
   },
 };
 

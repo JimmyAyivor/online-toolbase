@@ -45,7 +45,6 @@ export const metadata: Metadata = {
       "Calculate your daily calorie needs and macronutrient targets for any goal. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/calorie-macro-calculator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Calorie & Macro Calculator",
@@ -60,7 +59,6 @@ export const metadata: Metadata = {
       "Calorie & Macro Calculator — Free Online Calorie & Macro Calculator",
     description:
       "Calculate your daily calorie needs and macronutrient targets for any goal.",
-    images: [`${SITE_URL}/og/calorie-macro-calculator.png`],
   },
 };
 

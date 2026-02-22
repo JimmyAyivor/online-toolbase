@@ -45,7 +45,6 @@ export const metadata: Metadata = {
       "Calculate compound interest and see your investment grow over time. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/compound-interest-calculator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Compound Interest Calculator",
@@ -60,7 +59,6 @@ export const metadata: Metadata = {
       "Compound Interest Calculator — Free Online Compound Interest Calculator",
     description:
       "Calculate compound interest and see your investment grow over time.",
-    images: [`${SITE_URL}/og/compound-interest-calculator.png`],
   },
 };
 

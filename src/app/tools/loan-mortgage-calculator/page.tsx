@@ -45,7 +45,6 @@ export const metadata: Metadata = {
       "Calculate monthly loan payments, total interest, and amortization schedules. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/loan-mortgage-calculator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Loan & Mortgage Calculator",
@@ -60,7 +59,6 @@ export const metadata: Metadata = {
       "Loan & Mortgage Calculator — Free Online Loan & Mortgage Calculator",
     description:
       "Calculate monthly loan payments, total interest, and amortization schedules.",
-    images: [`${SITE_URL}/og/loan-mortgage-calculator.png`],
   },
 };
 

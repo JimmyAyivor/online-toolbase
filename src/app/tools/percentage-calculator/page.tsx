@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Calculate percentages, percentage changes, and percentage differences. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/percentage-calculator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Percentage Calculator",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Percentage Calculator — Free Online Percentage Calculator",
     description:
       "Calculate percentages, percentage changes, and percentage differences.",
-    images: [`${SITE_URL}/og/percentage-calculator.png`],
   },
 };
 

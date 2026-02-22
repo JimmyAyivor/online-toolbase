@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Create favicons for your website from any image, instantly. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/favicon-generator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Favicon Generator",
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     creator: "@onlinetoolbase",
     title: "Favicon Generator — Free Online Favicon Generator",
     description: "Create favicons for your website from any image, instantly.",
-    images: [`${SITE_URL}/og/favicon-generator.png`],
   },
 };
 

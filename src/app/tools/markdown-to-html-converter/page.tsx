@@ -45,7 +45,6 @@ export const metadata: Metadata = {
       "Convert Markdown text to clean HTML with live preview and syntax highlighting. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/markdown-to-html-converter.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Markdown to HTML Converter",
@@ -60,7 +59,6 @@ export const metadata: Metadata = {
       "Markdown to HTML Converter — Free Online Markdown to HTML Converter",
     description:
       "Convert Markdown text to clean HTML with live preview and syntax highlighting.",
-    images: [`${SITE_URL}/og/markdown-to-html-converter.png`],
   },
 };
 

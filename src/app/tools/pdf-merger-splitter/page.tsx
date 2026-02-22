@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Merge multiple PDF files into one or split a PDF into separate pages. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/pdf-merger-splitter.png`,
         width: 1200,
         height: 630,
         alt: "Free Online PDF Merger & Splitter",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "PDF Merger & Splitter — Free Online PDF Merger & Splitter",
     description:
       "Merge multiple PDF files into one or split a PDF into separate pages.",
-    images: [`${SITE_URL}/og/pdf-merger-splitter.png`],
   },
 };
 

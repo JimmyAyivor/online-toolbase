@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Convert time between any two time zones worldwide with daylight saving support. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/time-zone-converter.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Time Zone Converter",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Time Zone Converter — Free Online Time Zone Converter",
     description:
       "Convert time between any two time zones worldwide with daylight saving support.",
-    images: [`${SITE_URL}/og/time-zone-converter.png`],
   },
 };
 

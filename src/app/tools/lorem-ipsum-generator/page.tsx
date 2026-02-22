@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Generate placeholder lorem ipsum text in paragraphs, sentences, or words. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/lorem-ipsum-generator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Lorem Ipsum Generator",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Lorem Ipsum Generator — Free Online Lorem Ipsum Generator",
     description:
       "Generate placeholder lorem ipsum text in paragraphs, sentences, or words.",
-    images: [`${SITE_URL}/og/lorem-ipsum-generator.png`],
   },
 };
 

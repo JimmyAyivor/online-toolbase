@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Create structured and engaging Twitter threads for better storytelling. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/twitter-thread-builder.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Twitter Thread Builder",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Twitter Thread Builder — Free Online Twitter Thread Builder",
     description:
       "Create structured and engaging Twitter threads for better storytelling.",
-    images: [`${SITE_URL}/og/twitter-thread-builder.png`],
   },
 };
 

@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Generate relevant hashtags to increase reach and discoverability. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/hashtag-generator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Hashtag Generator",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Hashtag Generator — Free Online Hashtag Generator",
     description:
       "Generate relevant hashtags to increase reach and discoverability.",
-    images: [`${SITE_URL}/og/hashtag-generator.png`],
   },
 };
 

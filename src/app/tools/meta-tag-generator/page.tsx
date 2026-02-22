@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Generate SEO meta tags including Open Graph and Twitter Card tags for any page. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/meta-tag-generator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Meta Tag Generator",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Meta Tag Generator — Free Online Meta Tag Generator",
     description:
       "Generate SEO meta tags including Open Graph and Twitter Card tags for any page.",
-    images: [`${SITE_URL}/og/meta-tag-generator.png`],
   },
 };
 

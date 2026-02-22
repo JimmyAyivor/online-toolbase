@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Generate QR codes for URLs, text, WiFi, email, and phone numbers. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/qr-code-generator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online QR Code Generator",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "QR Code Generator — Free Online QR Code Generator",
     description:
       "Generate QR codes for URLs, text, WiFi, email, and phone numbers.",
-    images: [`${SITE_URL}/og/qr-code-generator.png`],
   },
 };
 

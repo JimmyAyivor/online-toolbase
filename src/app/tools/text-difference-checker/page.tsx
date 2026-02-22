@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Compare two pieces of text and highlight the differences instantly. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/text-difference-checker.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Text Difference Checker",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Text Difference Checker — Free Online Text Difference Checker",
     description:
       "Compare two pieces of text and highlight the differences instantly.",
-    images: [`${SITE_URL}/og/text-difference-checker.png`],
   },
 };
 

@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Automatically correct grammar and spelling errors in your writing. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/grammar-spell-checker.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Grammar & Spell Checker",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Grammar & Spell Checker — Free Online Grammar & Spell Checker",
     description:
       "Automatically correct grammar and spelling errors in your writing.",
-    images: [`${SITE_URL}/og/grammar-spell-checker.png`],
   },
 };
 

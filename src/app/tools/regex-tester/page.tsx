@@ -43,7 +43,6 @@ export const metadata: Metadata = {
       "Test and debug regular expressions against sample text in real time. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/regex-tester.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Regex Tester",
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     title: "Regex Tester — Free Online Regex Tester",
     description:
       "Test and debug regular expressions against sample text in real time.",
-    images: [`${SITE_URL}/og/regex-tester.png`],
   },
 };
 

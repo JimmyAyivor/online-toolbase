@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Format LinkedIn posts for better readability and professional engagement. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/linkedin-post-formatter.png`,
         width: 1200,
         height: 630,
         alt: "Free Online LinkedIn Post Formatter",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "LinkedIn Post Formatter — Free Online LinkedIn Post Formatter",
     description:
       "Format LinkedIn posts for better readability and professional engagement.",
-    images: [`${SITE_URL}/og/linkedin-post-formatter.png`],
   },
 };
 

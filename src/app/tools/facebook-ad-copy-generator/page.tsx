@@ -45,7 +45,6 @@ export const metadata: Metadata = {
       "Create high-converting Facebook ad copy for marketing campaigns. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/facebook-ad-copy-generator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Facebook Ad Copy Generator",
@@ -60,7 +59,6 @@ export const metadata: Metadata = {
       "Facebook Ad Copy Generator — Free Online Facebook Ad Copy Generator",
     description:
       "Create high-converting Facebook ad copy for marketing campaigns.",
-    images: [`${SITE_URL}/og/facebook-ad-copy-generator.png`],
   },
 };
 

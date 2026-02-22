@@ -45,7 +45,6 @@ export const metadata: Metadata = {
       "Calculate social media engagement rate using likes, comments, and followers. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/engagement-rate-calculator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Engagement Rate Calculator",
@@ -60,7 +59,6 @@ export const metadata: Metadata = {
       "Engagement Rate Calculator — Free Online Engagement Rate Calculator",
     description:
       "Calculate social media engagement rate using likes, comments, and followers.",
-    images: [`${SITE_URL}/og/engagement-rate-calculator.png`],
   },
 };
 

@@ -43,7 +43,6 @@ export const metadata: Metadata = {
       "Calculate your Body Mass Index and discover your healthy weight range. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/bmi-calculator.png`,
         width: 1200,
         height: 630,
         alt: "Free Online BMI Calculator",
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     title: "BMI Calculator — Free Online BMI Calculator",
     description:
       "Calculate your Body Mass Index and discover your healthy weight range.",
-    images: [`${SITE_URL}/og/bmi-calculator.png`],
   },
 };
 

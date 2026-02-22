@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Convert images between PNG, JPG, WebP, and other formats online. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/image-format-converter.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Image Format Converter",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Image Format Converter — Free Online Image Format Converter",
     description:
       "Convert images between PNG, JPG, WebP, and other formats online.",
-    images: [`${SITE_URL}/og/image-format-converter.png`],
   },
 };
 

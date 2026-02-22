@@ -44,7 +44,6 @@ export const metadata: Metadata = {
       "Remove image backgrounds automatically with AI-powered precision. Free, instant, no signup.",
     images: [
       {
-        url: `${SITE_URL}/og/background-remover.png`,
         width: 1200,
         height: 630,
         alt: "Free Online Background Remover",
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title: "Background Remover — Free Online Background Remover",
     description:
       "Remove image backgrounds automatically with AI-powered precision.",
-    images: [`${SITE_URL}/og/background-remover.png`],
   },
 };
 
