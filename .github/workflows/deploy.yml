@@ -20,5 +20,6 @@ jobs:
             cd /home/opc/online-tool-base
             git pull origin main
             npm ci
+            rm -rf .next
             npm run build
             pm2 restart online-tool-base
