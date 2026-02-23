@@ -2,6 +2,9 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Script from "next/script";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+
 import "./globals.css";
 
 const SITE_URL =
@@ -82,7 +85,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
       <body className='font-sans antialiased bg-gray-50'>
+        <SiteHeader />
+
         {children}
+        <SiteFooter />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
           strategy='afterInteractive'
