@@ -14,7 +14,7 @@ const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 export const metadata: Metadata = {
-  title: "Meme Generator — Free Online Meme Generator | Free Online Tools",
+  title: "Meme Generator — Free Online Meme Generator",
   description:
     "Create custom memes with top and bottom text overlay on any image. Free, instant, no signup required.",
   keywords:

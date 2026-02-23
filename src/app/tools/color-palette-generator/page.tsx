@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Color Palette Generator — Free Online Color Palette Generator | Free Online Tools",
+    "Color Palette Generator — Free Online Color Palette Generator",
   description:
     "Generate harmonious color palettes for your design projects. Free, instant, no signup required.",
   keywords:

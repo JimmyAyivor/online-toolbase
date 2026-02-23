@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Meta Tag Generator — Free Online Meta Tag Generator | Free Online Tools",
+    "Meta Tag Generator — Free Online Meta Tag Generator",
   description:
     "Generate SEO meta tags including Open Graph and Twitter Card tags for any page. Free, instant, no signup required.",
   keywords:

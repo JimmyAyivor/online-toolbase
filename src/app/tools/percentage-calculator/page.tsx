@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Percentage Calculator — Free Online Percentage Calculator | Free Online Tools",
+    "Percentage Calculator — Free Online Percentage Calculator",
   description:
     "Calculate percentages, percentage changes, and percentage differences. Free, instant, no signup required.",
   keywords:

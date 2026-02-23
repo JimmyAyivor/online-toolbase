@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Password Generator — Free Online Password Generator | Free Online Tools",
+    "Password Generator — Free Online Password Generator",
   description:
     "Generate strong, secure, random passwords with customizable options. Free, instant, no signup required.",
   keywords:

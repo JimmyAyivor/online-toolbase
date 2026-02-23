@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Text Difference Checker — Free Online Text Difference Checker | Free Online Tools",
+    "Text Difference Checker — Free Online Text Difference Checker",
   description:
     "Compare two pieces of text and highlight the differences instantly. Free, instant, no signup required.",
   keywords:

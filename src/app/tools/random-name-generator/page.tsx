@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Random Name Generator — Free Online Random Name Generator | Free Online Tools",
+    "Random Name Generator — Free Online Random Name Generator",
   description:
     "Generate random names for characters, businesses, babies, or usernames. Free, instant, no signup required.",
   keywords:

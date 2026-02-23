@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Reading Time Estimator — Free Online Reading Time Estimator | Free Online Tools",
+    "Reading Time Estimator — Free Online Reading Time Estimator",
   description:
     "Estimate how long it will take to read any piece of text. Free, instant, no signup required.",
   keywords:

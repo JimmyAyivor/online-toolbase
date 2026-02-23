@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "UUID/GUID Generator — Free Online UUID/GUID Generator | Free Online Tools",
+    "UUID/GUID Generator — Free Online UUID/GUID Generator",
   description:
     "Generate unique identifiers (UUID/GUID) instantly for your applications. Free, instant, no signup required.",
   keywords:

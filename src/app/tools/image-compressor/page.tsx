@@ -14,7 +14,7 @@ const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 export const metadata: Metadata = {
-  title: "Image Compressor — Free Online Image Compressor | Free Online Tools",
+  title: "Image Compressor — Free Online Image Compressor",
   description:
     "Compress JPG, PNG, and WebP images to reduce file size without losing quality. Free, instant, no signup required.",
   keywords:

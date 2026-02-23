@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Favicon Generator — Free Online Favicon Generator | Free Online Tools",
+    "Favicon Generator — Free Online Favicon Generator",
   description:
     "Create favicons for your website from any image, instantly. Free, instant, no signup required.",
   keywords:

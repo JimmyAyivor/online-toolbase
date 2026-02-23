@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Lorem Ipsum Generator — Free Online Lorem Ipsum Generator | Free Online Tools",
+    "Lorem Ipsum Generator — Free Online Lorem Ipsum Generator",
   description:
     "Generate placeholder lorem ipsum text in paragraphs, sentences, or words. Free, instant, no signup required.",
   keywords:

@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "YouTube Title & Description Generator — Free Online YouTube Title & Description Generator | Free Online Tools",
+    "YouTube Title & Description Generator — Free Online YouTube Title & Description Generator",
   description:
     "Generate optimized YouTube titles and descriptions for better visibility. Free, instant, no signup required.",
   keywords:

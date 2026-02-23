@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Compound Interest Calculator — Free Online Compound Interest Calculator | Free Online Tools",
+    "Compound Interest Calculator — Free Online Compound Interest Calculator",
   description:
     "Calculate compound interest and see your investment grow over time. Free, instant, no signup required.",
   keywords:

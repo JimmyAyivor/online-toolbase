@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Hashtag Generator — Free Online Hashtag Generator | Free Online Tools",
+    "Hashtag Generator — Free Online Hashtag Generator",
   description:
     "Generate relevant hashtags to increase reach and discoverability. Free, instant, no signup required.",
   keywords:

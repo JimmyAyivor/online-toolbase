@@ -14,7 +14,7 @@ const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 export const metadata: Metadata = {
-  title: "Unit Converter — Free Online Unit Converter | Free Online Tools",
+  title: "Unit Converter — Free Online Unit Converter",
   description:
     "Convert between length, weight, temperature, volume, speed, and time units. Free, instant, no signup required.",
   keywords:

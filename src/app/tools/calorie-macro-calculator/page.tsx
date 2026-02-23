@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Calorie & Macro Calculator — Free Online Calorie & Macro Calculator | Free Online Tools",
+    "Calorie & Macro Calculator — Free Online Calorie & Macro Calculator",
   description:
     "Calculate your daily calorie needs and macronutrient targets for any goal. Free, instant, no signup required.",
   keywords:

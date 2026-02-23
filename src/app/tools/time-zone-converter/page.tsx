@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Time Zone Converter — Free Online Time Zone Converter | Free Online Tools",
+    "Time Zone Converter — Free Online Time Zone Converter",
   description:
     "Convert time between any two time zones worldwide with daylight saving support. Free, instant, no signup required.",
   keywords:

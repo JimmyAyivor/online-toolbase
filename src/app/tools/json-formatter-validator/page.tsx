@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "JSON Formatter & Validator — Free Online JSON Formatter & Validator | Free Online Tools",
+    "JSON Formatter & Validator — Free Online JSON Formatter & Validator",
   description:
     "Format, beautify and validate JSON data easily online. Free, instant, no signup required.",
   keywords:

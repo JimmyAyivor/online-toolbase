@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Signature Generator — Free Online Signature Generator | Free Online Tools",
+    "Signature Generator — Free Online Signature Generator",
   description:
     "Create a custom digital signature with stylish fonts for documents and emails. Free, instant, no signup required.",
   keywords:

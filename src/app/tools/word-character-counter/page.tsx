@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Word & Character Counter — Free Online Word & Character Counter | Free Online Tools",
+    "Word & Character Counter — Free Online Word & Character Counter",
   description:
     "Count words, characters, sentences, and paragraphs with reading time estimates. Free, instant, no signup required.",
   keywords:

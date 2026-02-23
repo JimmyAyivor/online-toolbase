@@ -14,7 +14,7 @@ const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 export const metadata: Metadata = {
-  title: "Dice Roller — Free Online Dice Roller | Free Online Tools",
+  title: "Dice Roller — Free Online Dice Roller",
   description:
     "Roll virtual dice online for board games, RPGs, and tabletop games. Free, instant, no signup required.",
   keywords:

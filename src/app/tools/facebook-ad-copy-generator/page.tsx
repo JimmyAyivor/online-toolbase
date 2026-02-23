@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Facebook Ad Copy Generator — Free Online Facebook Ad Copy Generator | Free Online Tools",
+    "Facebook Ad Copy Generator — Free Online Facebook Ad Copy Generator",
   description:
     "Create high-converting Facebook ad copy for marketing campaigns. Free, instant, no signup required.",
   keywords:

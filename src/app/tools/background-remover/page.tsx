@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Background Remover — Free Online Background Remover | Free Online Tools",
+    "Background Remover — Free Online Background Remover",
   description:
     "Remove image backgrounds automatically with AI-powered precision. Free, instant, no signup required.",
   keywords:

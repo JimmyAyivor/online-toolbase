@@ -14,7 +14,7 @@ const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 export const metadata: Metadata = {
-  title: "Pomodoro Timer — Free Online Pomodoro Timer | Free Online Tools",
+  title: "Pomodoro Timer — Free Online Pomodoro Timer",
   description:
     "Boost your focus and productivity with the Pomodoro time management technique. Free, instant, no signup required.",
   keywords:

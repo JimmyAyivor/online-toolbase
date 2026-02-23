@@ -14,7 +14,7 @@ const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 export const metadata: Metadata = {
-  title: "GPA Calculator — Free Online GPA Calculator | Free Online Tools",
+  title: "GPA Calculator — Free Online GPA Calculator",
   description:
     "Calculate your semester and cumulative GPA with multiple grading scale support. Free, instant, no signup required.",
   keywords:

@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Twitter Thread Builder — Free Online Twitter Thread Builder | Free Online Tools",
+    "Twitter Thread Builder — Free Online Twitter Thread Builder",
   description:
     "Create structured and engaging Twitter threads for better storytelling. Free, instant, no signup required.",
   keywords:

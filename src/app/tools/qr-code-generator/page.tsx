@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "QR Code Generator — Free Online QR Code Generator | Free Online Tools",
+    "QR Code Generator — Free Online QR Code Generator",
   description:
     "Generate QR codes for URLs, text, WiFi, email, and phone numbers. Free, instant, no signup required.",
   keywords:

@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "LinkedIn Post Formatter — Free Online LinkedIn Post Formatter | Free Online Tools",
+    "LinkedIn Post Formatter — Free Online LinkedIn Post Formatter",
   description:
     "Format LinkedIn posts for better readability and professional engagement. Free, instant, no signup required.",
   keywords:

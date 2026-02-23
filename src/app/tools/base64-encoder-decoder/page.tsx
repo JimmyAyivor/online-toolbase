@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Base64 Encoder/Decoder — Free Online Base64 Encoder/Decoder | Free Online Tools",
+    "Base64 Encoder/Decoder — Free Online Base64 Encoder/Decoder",
   description:
     "Encode or decode Base64 strings instantly in your browser. Free, instant, no signup required.",
   keywords:

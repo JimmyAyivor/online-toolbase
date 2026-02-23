@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Text Case Converter — Free Online Text Case Converter | Free Online Tools",
+    "Text Case Converter — Free Online Text Case Converter",
   description:
     "Convert text to uppercase, lowercase, title case, camelCase, and snake_case. Free, instant, no signup required.",
   keywords:

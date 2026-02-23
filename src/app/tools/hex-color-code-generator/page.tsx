@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Hex Color Code Generator — Free Online Hex Color Code Generator | Free Online Tools",
+    "Hex Color Code Generator — Free Online Hex Color Code Generator",
   description:
     "Generate hex color codes with a color picker, HEX, RGB, and HSL values. Free, instant, no signup required.",
   keywords:

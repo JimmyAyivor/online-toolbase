@@ -14,7 +14,7 @@ const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 export const metadata: Metadata = {
-  title: "BMI Calculator — Free Online BMI Calculator | Free Online Tools",
+  title: "BMI Calculator — Free Online BMI Calculator",
   description:
     "Calculate your Body Mass Index and discover your healthy weight range. Free, instant, no signup required.",
   keywords:

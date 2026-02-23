@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Loan & Mortgage Calculator — Free Online Loan & Mortgage Calculator | Free Online Tools",
+    "Loan & Mortgage Calculator — Free Online Loan & Mortgage Calculator",
   description:
     "Calculate monthly loan payments, total interest, and amortization schedules. Free, instant, no signup required.",
   keywords:

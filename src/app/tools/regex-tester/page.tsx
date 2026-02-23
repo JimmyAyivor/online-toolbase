@@ -14,7 +14,7 @@ const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 export const metadata: Metadata = {
-  title: "Regex Tester — Free Online Regex Tester | Free Online Tools",
+  title: "Regex Tester — Free Online Regex Tester",
   description:
     "Test and debug regular expressions against sample text in real time. Free, instant, no signup required.",
   keywords:

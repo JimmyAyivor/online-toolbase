@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Word Frequency Counter — Free Online Word Frequency Counter | Free Online Tools",
+    "Word Frequency Counter — Free Online Word Frequency Counter",
   description:
     "Count the frequency of every word in your text. Free, instant, no signup required.",
   keywords:

@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Social Media Bio Generator — Free Online Social Media Bio Generator | Free Online Tools",
+    "Social Media Bio Generator — Free Online Social Media Bio Generator",
   description:
     "Generate optimized and creative bios for social media profiles. Free, instant, no signup required.",
   keywords:

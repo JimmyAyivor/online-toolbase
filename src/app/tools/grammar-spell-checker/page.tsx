@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Grammar & Spell Checker — Free Online Grammar & Spell Checker | Free Online Tools",
+    "Grammar & Spell Checker — Free Online Grammar & Spell Checker",
   description:
     "Automatically correct grammar and spelling errors in your writing. Free, instant, no signup required.",
   keywords:

@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Image Format Converter — Free Online Image Format Converter | Free Online Tools",
+    "Image Format Converter — Free Online Image Format Converter",
   description:
     "Convert images between PNG, JPG, WebP, and other formats online. Free, instant, no signup required.",
   keywords:

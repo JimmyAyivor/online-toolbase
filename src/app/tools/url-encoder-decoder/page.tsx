@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "URL Encoder/Decoder — Free Online URL Encoder/Decoder | Free Online Tools",
+    "URL Encoder/Decoder — Free Online URL Encoder/Decoder",
   description:
     "Encode or decode URLs for safe web transmission. Free, instant, no signup required.",
   keywords:

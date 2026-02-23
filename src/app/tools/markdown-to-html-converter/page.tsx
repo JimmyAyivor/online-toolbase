@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Markdown to HTML Converter — Free Online Markdown to HTML Converter | Free Online Tools",
+    "Markdown to HTML Converter — Free Online Markdown to HTML Converter",
   description:
     "Convert Markdown text to clean HTML with live preview and syntax highlighting. Free, instant, no signup required.",
   keywords:

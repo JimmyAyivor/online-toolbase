@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Engagement Rate Calculator — Free Online Engagement Rate Calculator | Free Online Tools",
+    "Engagement Rate Calculator — Free Online Engagement Rate Calculator",
   description:
     "Calculate social media engagement rate using likes, comments, and followers. Free, instant, no signup required.",
   keywords:

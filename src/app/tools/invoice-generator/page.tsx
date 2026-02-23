@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Invoice Generator — Free Online Invoice Generator | Free Online Tools",
+    "Invoice Generator — Free Online Invoice Generator",
   description:
     "Create professional invoices with itemized billing and automatic totals. Free, instant, no signup required.",
   keywords:

@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Paraphrasing Tool — Free Online Paraphrasing Tool | Free Online Tools",
+    "Paraphrasing Tool — Free Online Paraphrasing Tool",
   description:
     "Rewrite any text in different words while preserving the original meaning. Free, instant, no signup required.",
   keywords:

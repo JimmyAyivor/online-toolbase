@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "PDF Merger & Splitter — Free Online PDF Merger & Splitter | Free Online Tools",
+    "PDF Merger & Splitter — Free Online PDF Merger & Splitter",
   description:
     "Merge multiple PDF files into one or split a PDF into separate pages. Free, instant, no signup required.",
   keywords:

@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Social Media Character Counter — Free Online Social Media Character Counter | Free Online Tools",
+    "Social Media Character Counter — Free Online Social Media Character Counter",
   description:
     "Count characters and optimize posts for platform limits. Free, instant, no signup required.",
   keywords:

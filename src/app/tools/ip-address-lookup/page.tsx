@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "IP Address Lookup — Free Online IP Address Lookup | Free Online Tools",
+    "IP Address Lookup — Free Online IP Address Lookup",
   description:
     "Look up geolocation and network information for any IP address. Free, instant, no signup required.",
   keywords:

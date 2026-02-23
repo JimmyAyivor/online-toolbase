@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Plagiarism Checker — Free Online Plagiarism Checker | Free Online Tools",
+    "Plagiarism Checker — Free Online Plagiarism Checker",
   description:
     "Detect duplicate content and plagiarism in your text. Free, instant, no signup required.",
   keywords:

@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Image Cropper & Resizer — Free Online Image Cropper & Resizer | Free Online Tools",
+    "Image Cropper & Resizer — Free Online Image Cropper & Resizer",
   description:
     "Crop and resize images quickly online without any software. Free, instant, no signup required.",
   keywords:

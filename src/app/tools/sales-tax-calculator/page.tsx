@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Sales Tax Calculator — Free Online Sales Tax Calculator | Free Online Tools",
+    "Sales Tax Calculator — Free Online Sales Tax Calculator",
   description:
     "Calculate sales tax and final price for any purchase instantly. Free, instant, no signup required.",
   keywords:

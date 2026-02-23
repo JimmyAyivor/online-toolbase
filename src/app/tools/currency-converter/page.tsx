@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Currency Converter — Free Online Currency Converter | Free Online Tools",
+    "Currency Converter — Free Online Currency Converter",
   description:
     "Convert between 30+ world currencies with live exchange rates. Free, instant, no signup required.",
   keywords:

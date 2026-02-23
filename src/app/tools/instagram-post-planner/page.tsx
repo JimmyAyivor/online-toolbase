@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Instagram Post Planner — Free Online Instagram Post Planner | Free Online Tools",
+    "Instagram Post Planner — Free Online Instagram Post Planner",
   description:
     "Plan and organize Instagram posts with captions and scheduling ideas. Free, instant, no signup required.",
   keywords:

@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Discount Calculator — Free Online Discount Calculator | Free Online Tools",
+    "Discount Calculator — Free Online Discount Calculator",
   description:
     "Calculate discounted prices and savings for any sale or promotion. Free, instant, no signup required.",
   keywords:

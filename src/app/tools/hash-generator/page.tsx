@@ -14,7 +14,7 @@ const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 export const metadata: Metadata = {
-  title: "Hash Generator — Free Online Hash Generator | Free Online Tools",
+  title: "Hash Generator — Free Online Hash Generator",
   description:
     "Generate MD5, SHA1, SHA256, and other cryptographic hashes online. Free, instant, no signup required.",
   keywords:

@@ -15,7 +15,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "TikTok Hook Generator — Free Online TikTok Hook Generator | Free Online Tools",
+    "TikTok Hook Generator — Free Online TikTok Hook Generator",
   description:
     "Generate engaging TikTok hooks that capture attention instantly. Free, instant, no signup required.",
   keywords:

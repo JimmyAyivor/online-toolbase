@@ -14,7 +14,7 @@ const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 export const metadata: Metadata = {
-  title: "Tip Calculator — Free Online Tip Calculator | Free Online Tools",
+  title: "Tip Calculator — Free Online Tip Calculator",
   description:
     "Calculate tips and split bills quickly for any restaurant or service. Free, instant, no signup required.",
   keywords:

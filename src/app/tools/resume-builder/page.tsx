@@ -14,7 +14,7 @@ const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 export const metadata: Metadata = {
-  title: "Resume Builder — Free Online Resume Builder | Free Online Tools",
+  title: "Resume Builder — Free Online Resume Builder",
   description:
     "Build a professional resume with customizable templates, downloadable as PDF. Free, instant, no signup required.",
   keywords:
