@@ -420,7 +420,11 @@ export default function HomeClient() {
                       />
                     </svg>
                   </div>
-                  <span className='font-bold text-sm block'>{cat}</span>
+                  <span className='font-bold text-sm block'>
+                    {cat
+                      .replace(/-/g, " ")
+                      .replace(/\b\w/g, (c) => c.toUpperCase())}
+                  </span>
                   <span
                     className={`text-xs mt-1 block ${isActive ? "text-white/80" : "text-gray-500"}`}
                   >
