@@ -1,11 +1,14 @@
 name: Deploy to Production
+
 on:
   push:
     branches:
       - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Deploy to server
         uses: appleboy/ssh-action@v1.0.3
@@ -25,3 +28,28 @@ jobs:
               echo "❌ Build failed — PM2 not restarted, site still serving previous build"
               exit 1
             fi
+
+      # ── IndexNow: notify search engines after successful deploy ──────────────
+      # Runs on the GitHub Actions runner (not the OCI server) — no SSH needed.
+      # Only fires if the deploy step above succeeded (default behaviour).
+      # INDEXNOW_API_SECRET must be added to GitHub → Settings → Secrets.
+      - name: Submit URLs to IndexNow
+        run: |
+          RESPONSE=$(curl -s -w "\n%{http_code}" \
+            -X POST "${{ secrets.SITE_URL }}/api/indexnow" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.INDEXNOW_API_SECRET }}" \
+            -d '{"mode": "all-tools"}')
+
+          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+          BODY=$(echo "$RESPONSE" | head -n -1)
+
+          echo "Response: $BODY"
+
+          if [ "$HTTP_CODE" = "200" ]; then
+            echo "✅ IndexNow: submitted successfully"
+          else
+            echo "⚠️  IndexNow: submission returned HTTP $HTTP_CODE — deploy still succeeded"
+            # Note: we exit 0 here intentionally.
+            # A failed IndexNow submission should never fail the deployment.
+          fi
