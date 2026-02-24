@@ -22,7 +22,7 @@ jobs:
             git pull origin main
             npm ci
             if npm run build; then
-              pm2 restart online-tool-base
+              pm2 restart online-tool-base --update-env
               echo "✅ Deploy successful"
             else
               echo "❌ Build failed — PM2 not restarted, site still serving previous build"
