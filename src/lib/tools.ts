@@ -367,4 +367,146 @@ export const tools: Tool[] = [
     description: "Count characters and optimize posts for platform limits.",
     category: "Utilities",
   },
+  // ─── ADD THESE TO THE END OF your tools array in src/lib/tools.ts ───────────
+// Brings Developer → 15, Writing → 15, Social Media → 15, Calculator → 15
+
+  // ── Developer (4 new → total 15) ──────────────────────────────────────────
+  {
+    slug: "jwt-decoder",
+    name: "JWT Decoder",
+    description: "Decode and inspect JWT tokens instantly in your browser.",
+    category: "Developer",
+  },
+  {
+    slug: "binary-hex-converter",
+    name: "Binary & Hex Converter",
+    description: "Convert between binary, hexadecimal, decimal and octal.",
+    category: "Developer",
+  },
+  {
+    slug: "cron-expression-builder",
+    name: "Cron Expression Builder",
+    description: "Build and validate cron job expressions with a visual editor.",
+    category: "Developer",
+  },
+  {
+    slug: "html-entity-encoder",
+    name: "HTML Entity Encoder",
+    description: "Encode and decode HTML entities to prevent XSS vulnerabilities.",
+    category: "Developer",
+  },
+
+  // ── Writing (6 new → total 15) ────────────────────────────────────────────
+  {
+    slug: "text-summarizer",
+    name: "Text Summarizer",
+    description: "Summarize long text into concise key points instantly.",
+    category: "Writing",
+  },
+  {
+    slug: "sentence-counter",
+    name: "Sentence Counter",
+    description: "Count sentences, paragraphs and reading level of your text.",
+    category: "Writing",
+  },
+  {
+    slug: "text-to-bullet-points",
+    name: "Text to Bullet Points",
+    description: "Convert any paragraph into clean bullet point lists.",
+    category: "Writing",
+  },
+  {
+    slug: "essay-title-generator",
+    name: "Essay Title Generator",
+    description: "Generate compelling titles for essays, articles and blog posts.",
+    category: "Writing",
+  },
+  {
+    slug: "rhyme-finder",
+    name: "Rhyme Finder",
+    description: "Find rhyming words for poetry, lyrics and creative writing.",
+    category: "Writing",
+  },
+  {
+    slug: "writing-prompt-generator",
+    name: "Writing Prompt Generator",
+    description: "Generate creative writing prompts to beat writer's block instantly.",
+    category: "Writing",
+  },
+
+  // ── Social Media (5 new → total 15) ───────────────────────────────────────
+  {
+    slug: "caption-generator",
+    name: "Caption Generator",
+    description: "Generate engaging captions for photos and social media posts.",
+    category: "social-media",
+  },
+  {
+    slug: "viral-hook-generator",
+    name: "Viral Hook Generator",
+    description: "Create scroll-stopping hooks for any social media platform.",
+    category: "social-media",
+  },
+  {
+    slug: "profile-picture-resizer",
+    name: "Profile Picture Resizer",
+    description: "Resize and crop profile pictures for every social platform.",
+    category: "social-media",
+  },
+  {
+    slug: "content-calendar-planner",
+    name: "Content Calendar Planner",
+    description: "Plan and organise your social media content calendar for free.",
+    category: "social-media",
+  },
+  {
+    slug: "social-media-audit",
+    name: "Social Media Audit Tool",
+    description: "Audit your social media profiles with a guided checklist.",
+    category: "social-media",
+  },
+
+  // ── Calculator (7 new → total 15) ─────────────────────────────────────────
+  {
+    slug: "roi-calculator",
+    name: "ROI Calculator",
+    description: "Calculate return on investment for any project or campaign.",
+    category: "Calculator",
+  },
+  {
+    slug: "vat-calculator",
+    name: "VAT Calculator",
+    description: "Add or remove VAT from prices instantly.",
+    category: "Calculator",
+  },
+  {
+    slug: "body-fat-calculator",
+    name: "Body Fat Calculator",
+    description: "Estimate body fat percentage from your measurements.",
+    category: "Calculator",
+  },
+  {
+    slug: "date-difference-calculator",
+    name: "Date Difference Calculator",
+    description: "Calculate the exact number of days between two dates.",
+    category: "Calculator",
+  },
+  {
+    slug: "random-number-generator",
+    name: "Random Number Generator",
+    description: "Generate random numbers within any custom range instantly.",
+    category: "Calculator",
+  },
+  {
+    slug: "scientific-calculator",
+    name: "Scientific Calculator",
+    description: "Full-featured scientific calculator with trigonometry and logs.",
+    category: "Calculator",
+  },
+  {
+    slug: "fraction-calculator",
+    name: "Fraction Calculator",
+    description: "Add, subtract, multiply and divide fractions with steps shown.",
+    category: "Calculator",
+  },
 ];
