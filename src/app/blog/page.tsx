@@ -70,7 +70,7 @@ export default function BlogIndexPage() {
           className='block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200 mb-12'
         >
           <div className='md:flex'>
-            <div className='md:w-2/5 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center p-16'>
+            <div className='md:w-2/5 bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center p-16'>
               <span className='text-8xl'>{featured.coverEmoji}</span>
             </div>
             <div className='md:w-3/5 p-8 md:p-10 flex flex-col justify-center'>
@@ -110,7 +110,7 @@ export default function BlogIndexPage() {
               href={`/blog/${post.slug}`}
               className='block bg-white rounded-2xl shadow hover:shadow-lg hover:-translate-y-1 transition-all duration-200 overflow-hidden'
             >
-              <div className='bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center h-36'>
+              <div className='bg-linear-to-br from-gray-50 to-gray-100 flex items-center justify-center h-36'>
                 <span className='text-5xl'>{post.coverEmoji}</span>
               </div>
               <div className='p-6'>

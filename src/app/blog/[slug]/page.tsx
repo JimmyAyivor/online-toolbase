@@ -35,6 +35,7 @@ import QrCodesSmallBusinessUses from "../content/qr-codes-small-business-uses";
 import RegexBeginnersGuide from "../content/regex-beginners-guide";
 import SocialMediaEngagementRate2025 from "../content/social-media-engagement-rate-2025";
 import UnitConversionsPeopleAlwaysGoogle from "../content/unit-conversions-people-always-google";
+import Link from "next/link";
 
 const CONTENT_MAP: Record<string, React.ComponentType> = {
   "base64-encoding-explained": Base64EncodingExplained,
@@ -159,13 +160,13 @@ const KEY_TAKEAWAYS: Record<string, string[]> = {
     "Consistent posting frequency predicts account growth more reliably than posting volume.",
     "Start with the 2–3 tools that address your biggest friction points and ignore the rest.",
   ],
-  "compound-interest-explained": [
-    "Compound interest earns on interest already earned — simple interest never does.",
-    "Time matters more than rate. Starting at 25 beats saving 3× as much from age 35.",
-    "Rule of 72: divide 72 by your annual rate to find years to double.",
-    "A credit card at 24% APR doubles what you owe in just 3 years if unpaid.",
-    "Daily vs monthly compounding barely matters. Rate and time are what move the needle.",
-  ],
+  //   "compound-interest-explained": [
+  //     "Compound interest earns on interest already earned — simple interest never does.",
+  //     "Time matters more than rate. Starting at 25 beats saving 3× as much from age 35.",
+  //     "Rule of 72: divide 72 by your annual rate to find years to double.",
+  //     "A credit card at 24% APR doubles what you owe in just 3 years if unpaid.",
+  //     "Daily vs monthly compounding barely matters. Rate and time are what move the needle.",
+  //   ],
   "base64-encoding-explained": [
     "Base64 converts binary data to safe ASCII text — it's encoding, not encryption.",
     "Encoded output is always ~33% larger than the original input.",
@@ -333,9 +334,9 @@ export default async function BlogPostPage({
           <nav aria-label='Breadcrumb' className='mb-7'>
             <ol className='flex items-center gap-2 text-sm text-slate-400 flex-wrap'>
               <li>
-                <a href='/' className='hover:text-white transition-colors'>
+                <Link href='/' className='hover:text-white transition-colors'>
                   Home
-                </a>
+                </Link>
               </li>
               <li className='text-slate-600' aria-hidden='true'>
                 ›
@@ -541,7 +542,7 @@ export default async function BlogPostPage({
                     Found this helpful?
                   </p>
                   <p className='text-xs text-slate-400 mt-0.5'>
-                    Share it with someone who'd find it useful.
+                    Share it with someone who&apos;d find it useful.
                   </p>
                 </div>
                 <div className='flex items-center gap-2.5'>
