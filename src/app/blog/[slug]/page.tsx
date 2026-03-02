@@ -1,27 +1,88 @@
 // src/app/blog/[slug]/page.tsx
-// Dynamic blog post renderer. Reads content from /blog/content/[slug].tsx
-
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getBlogPost, blogPosts } from "../blog-posts";
 
+// ─── Static import map — Next.js App Router requires static imports ───────────
+// Dynamic import(`../content/${slug}`) does NOT work in App Router.
+// Every content file must be imported statically here.
+import Base64EncodingExplained from "../content/base64-encoding-explained";
+import BmiLimitationsAndWhatToUseInstead from "../content/bmi-limitations-and-what-to-use-instead";
+import CaloriesMacrosWhatToTrack from "../content/calories-macros-what-to-track";
+import CompoundInterestExplained from "../content/compound-interest-explained";
+import ContentCreatorFreeTools from "../content/content-creator-free-tools";
+import FreeDeveloperToolsBookmarks from "../content/free-developer-tools-bookmarks";
+import FreelancerInvoicingGuide from "../content/freelancer-invoicing-guide";
+import HashtagsHowTheyWork2025 from "../content/hashtags-how-they-work-2025";
+import HowToCalculateRoiCorrectly from "../content/how-to-calculate-roi-correctly";
+import HowToCreateAStrongPassword from "../content/how-to-create-a-strong-password";
+import ImageFormatsWebpAvifJpeg from "../content/image-formats-webp-avif-jpeg";
+import JsonExplainedForDevelopers from "../content/json-explained-for-developers";
+import LinkedinPostsThatGetEngagement from "../content/linkedin-posts-that-get-engagement";
+import MortgageCalculatorCompleteGuide from "../content/mortgage-calculator-complete-guide";
+import PlagiarismCheckBeforePublishing from "../content/plagiarism-check-before-publishing";
+import PomodoroTechniqueGuide from "../content/pomodoro-technique-guide";
+import QrCodesSmallBusinessUses from "../content/qr-codes-small-business-uses";
+import RegexBeginnersGuide from "../content/regex-beginners-guide";
+import SocialMediaEngagementRate2025 from "../content/social-media-engagement-rate-2025";
+import UnitConversionsPeopleAlwaysGoogle from "../content/unit-conversions-people-always-google";
+
+// ─── Slug → component map ─────────────────────────────────────────────────────
+const CONTENT_MAP: Record<string, React.ComponentType> = {
+  "base64-encoding-explained": Base64EncodingExplained,
+  "bmi-limitations-and-what-to-use-instead": BmiLimitationsAndWhatToUseInstead,
+  "calories-macros-what-to-track": CaloriesMacrosWhatToTrack,
+  "compound-interest-explained": CompoundInterestExplained,
+  "content-creator-free-tools": ContentCreatorFreeTools,
+  "free-developer-tools-bookmarks": FreeDeveloperToolsBookmarks,
+  "freelancer-invoicing-guide": FreelancerInvoicingGuide,
+  "hashtags-how-they-work-2025": HashtagsHowTheyWork2025,
+  "how-to-calculate-roi-correctly": HowToCalculateRoiCorrectly,
+  "how-to-create-a-strong-password": HowToCreateAStrongPassword,
+  "image-formats-webp-avif-jpeg": ImageFormatsWebpAvifJpeg,
+  "json-explained-for-developers": JsonExplainedForDevelopers,
+  "linkedin-posts-that-get-engagement": LinkedinPostsThatGetEngagement,
+  "mortgage-calculator-complete-guide": MortgageCalculatorCompleteGuide,
+  "plagiarism-check-before-publishing": PlagiarismCheckBeforePublishing,
+  "pomodoro-technique-guide": PomodoroTechniqueGuide,
+  "qr-codes-small-business-uses": QrCodesSmallBusinessUses,
+  "regex-beginners-guide": RegexBeginnersGuide,
+  "social-media-engagement-rate-2025": SocialMediaEngagementRate2025,
+  "unit-conversions-people-always-google": UnitConversionsPeopleAlwaysGoogle,
+};
+
+// ─── Constants ────────────────────────────────────────────────────────────────
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Online Tool Base";
 
-// ─── Static params for all posts ─────────────────────────────────────────────
+const CATEGORY_COLORS: Record<string, string> = {
+  Security: "bg-red-100 text-red-700",
+  Developer: "bg-indigo-100 text-indigo-700",
+  Writing: "bg-purple-100 text-purple-700",
+  "Social Media": "bg-pink-100 text-pink-700",
+  Finance: "bg-green-100 text-green-700",
+  "Web Performance": "bg-blue-100 text-blue-700",
+  Health: "bg-teal-100 text-teal-700",
+  Business: "bg-orange-100 text-orange-700",
+  Productivity: "bg-yellow-100 text-yellow-700",
+  "Content Creation": "bg-fuchsia-100 text-fuchsia-700",
+  Everyday: "bg-gray-100 text-gray-700",
+};
+
+// ─── Static params ────────────────────────────────────────────────────────────
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
 
-// ─── Dynamic metadata ─────────────────────────────────────────────────────────
+// ─── Metadata ─────────────────────────────────────────────────────────────────
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const post = getBlogPost(params.slug);
+  const { slug } = await params;
+  const post = getBlogPost(slug);
   if (!post) return {};
-
   return {
     title: `${post.title} | Online Tool Base Blog`,
     description: post.description,
@@ -47,6 +108,7 @@ export async function generateMetadata({
   };
 }
 
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-US", {
     year: "numeric",
@@ -55,36 +117,18 @@ function formatDate(iso: string) {
   });
 }
 
-const CATEGORY_COLORS: Record<string, string> = {
-  Security: "bg-red-100 text-red-700",
-  Developer: "bg-indigo-100 text-indigo-700",
-  Writing: "bg-purple-100 text-purple-700",
-  "Social Media": "bg-pink-100 text-pink-700",
-  Finance: "bg-green-100 text-green-700",
-  Image: "bg-blue-100 text-blue-700",
-  Health: "bg-teal-100 text-teal-700",
-  Business: "bg-orange-100 text-orange-700",
-  Productivity: "bg-yellow-100 text-yellow-700",
-  "Content Creation": "bg-fuchsia-100 text-fuchsia-700",
-};
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default async function BlogPostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = getBlogPost(params.slug);
+  const { slug } = await params;
+  const post = getBlogPost(slug);
   if (!post) notFound();
 
-  // Dynamically import the post content component
-  let PostContent: React.ComponentType;
-  try {
-    const mod = await import(`../content/${params.slug}`);
-    PostContent = mod.default;
-  } catch {
-    notFound();
-  }
+  const PostContent = CONTENT_MAP[slug];
+  if (!PostContent) notFound();
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -94,11 +138,7 @@ export default async function BlogPostPage({
     datePublished: post.publishedAt,
     dateModified: post.updatedAt ?? post.publishedAt,
     author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
-    publisher: {
-      "@type": "Organization",
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
+    publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
     url: `${SITE_URL}/blog/${post.slug}`,
     keywords: post.tags.join(", "),
   };
@@ -168,9 +208,7 @@ export default async function BlogPostPage({
       <header className='max-w-4xl mx-auto px-4 pt-6 pb-8'>
         <div className='flex items-center gap-3 mb-4'>
           <span
-            className={`text-xs font-semibold px-3 py-1 rounded-full ${
-              CATEGORY_COLORS[post.category] ?? "bg-gray-100 text-gray-600"
-            }`}
+            className={`text-xs font-semibold px-3 py-1 rounded-full ${CATEGORY_COLORS[post.category] ?? "bg-gray-100 text-gray-600"}`}
           >
             {post.category}
           </span>
@@ -197,7 +235,7 @@ export default async function BlogPostPage({
         </div>
       </header>
 
-      {/* Article body */}
+      {/* Article */}
       <article className='max-w-4xl mx-auto px-4 pb-12'>
         <div className='bg-white rounded-2xl shadow-lg p-8 md:p-12 prose prose-gray prose-headings:font-bold prose-headings:text-gray-900 prose-a:text-indigo-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 max-w-none'>
           <PostContent />
