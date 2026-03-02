@@ -350,7 +350,7 @@ export default function HomeClient() {
               aria-label='Show all tools'
               className={`w-full rounded-2xl shadow p-5 border-2 text-left hover:-translate-y-1 transition-all duration-300 ${
                 activeCategory === null
-                  ? "bg-gradient-to-br from-indigo-600 to-purple-600 border-indigo-600 text-white"
+                  ? "bg-linear-to-r from-indigo-600 to-purple-600 border-indigo-600 text-white"
                   : "bg-white border-gray-200 hover:border-indigo-300 text-gray-700"
               }`}
             >

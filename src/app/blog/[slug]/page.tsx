@@ -328,7 +328,7 @@ export default async function BlogPostPage({
       />
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <div className='bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900'>
+      <div className='bg-linear-to-b from-slate-900 via-slate-800 to-slate-900'>
         <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-14'>
           {/* Breadcrumb */}
           <nav aria-label='Breadcrumb' className='mb-7'>
@@ -394,7 +394,7 @@ export default async function BlogPostPage({
           <div className='flex flex-wrap items-center gap-x-5 gap-y-3 pt-6 border-t border-slate-700'>
             {/* Avatar + name */}
             <div className='flex items-center gap-3'>
-              <div className='w-9 h-9 rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white text-xs font-black select-none'>
+              <div className='w-9 h-9 rounded-full bg-linear-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white text-xs font-black select-none'>
                 OT
               </div>
               <div>
@@ -479,7 +479,7 @@ export default async function BlogPostPage({
                           key={i}
                           className='flex items-start gap-3 text-sm text-slate-700 leading-relaxed'
                         >
-                          <span className='mt-0.5 w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold flex items-center justify-center flex-shrink-0'>
+                          <span className='mt-0.5 w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold flex items-center justify-center shrink-0'>
                             {i + 1}
                           </span>
                           <span>{item}</span>
@@ -581,9 +581,9 @@ export default async function BlogPostPage({
 
               {/* Related tools CTA */}
               {post.relatedTools.length > 0 && (
-                <div className='mt-6 rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-700 p-7 shadow-lg'>
+                <div className='mt-6 rounded-2xl bg-linear-to-br from-indigo-600 to-violet-700 p-7 shadow-lg'>
                   <div className='flex items-start gap-4 mb-5'>
-                    <div className='w-10 h-10 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center flex-shrink-0'>
+                    <div className='w-10 h-10 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center shrink-0'>
                       <svg
                         className='w-5 h-5 text-white'
                         fill='none'
@@ -684,7 +684,7 @@ export default async function BlogPostPage({
                             {tool.label}
                           </span>
                           <svg
-                            className='w-4 h-4 text-slate-300 group-hover:text-indigo-400 transition-colors flex-shrink-0 ml-2'
+                            className='w-4 h-4 text-slate-300 group-hover:text-indigo-400 transition-colors shrink-0 ml-2'
                             fill='none'
                             stroke='currentColor'
                             viewBox='0 0 24 24'
@@ -703,7 +703,7 @@ export default async function BlogPostPage({
                 )}
 
                 {/* Promo card */}
-                <div className='rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-6 text-white'>
+                <div className='rounded-2xl bg-linear-to-br from-slate-900 to-slate-800 p-6 text-white'>
                   <div className='text-3xl mb-3'>🛠️</div>
                   <h3 className='font-black text-base mb-2 leading-snug'>
                     80+ Free Online Tools

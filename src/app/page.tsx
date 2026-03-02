@@ -3,7 +3,7 @@
 // Interactive search/filter lives in HomeClient.tsx ("use client").
 
 import type { Metadata } from "next";
-import Link from "next/link";
+//import Link from "next/link";
 import { tools } from "@/lib/tools";
 import HomeClient from "./HomeClient";
 
@@ -184,7 +184,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <div className='min-h-screen bg-gradient-to-br from-slate-50 via-white to-purple-50'>
+      <div className='min-h-screen bg-linear-to-br from-slate-50 via-white to-purple-50'>
         {/* ── Hero ─────────────────────────────────────────────────────── */}
         <section
           className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center'
@@ -195,7 +195,7 @@ export default function HomePage() {
             className='text-5xl md:text-6xl font-extrabold text-gray-900 mb-6'
           >
             {TOOL_COUNT}+ Free Online Tools —
-            <span className='block bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mt-2'>
+            <span className='block bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mt-2'>
               Calculators, Converters &amp; Generators
             </span>
           </h1>
@@ -281,7 +281,7 @@ export default function HomePage() {
             ).map((f) => (
               <li key={f.title} className='text-center group list-none'>
                 <div
-                  className={`w-16 h-16 bg-gradient-to-br ${f.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}
+                  className={`w-16 h-16 bg-linear-to-br ${f.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}
                   aria-hidden='true'
                 >
                   <svg

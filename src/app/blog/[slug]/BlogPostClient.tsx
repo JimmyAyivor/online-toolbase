@@ -49,7 +49,9 @@ export default function BlogPostClient({ postUrl, postTitle }: Props) {
       };
     });
 
-    setToc(items);
+    setTimeout(() => {
+      setToc(items);
+    }, 0);
   }, []);
 
   // Scroll-spy: highlight active section
@@ -165,12 +167,12 @@ export default function BlogPostClient({ postUrl, postTitle }: Props) {
                 >
                   {item.level === 2 && (
                     <span
-                      className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors ${isActive ? "bg-indigo-500" : "bg-slate-300"}`}
+                      className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 transition-colors ${isActive ? "bg-indigo-500" : "bg-slate-300"}`}
                     />
                   )}
                   {item.level === 3 && (
                     <span
-                      className={`mt-1.5 w-1 h-1 rounded-full flex-shrink-0 transition-colors ${isActive ? "bg-indigo-400" : "bg-slate-200"}`}
+                      className={`mt-1.5 w-1 h-1 rounded-full shrink-0 transition-colors ${isActive ? "bg-indigo-400" : "bg-slate-200"}`}
                     />
                   )}
                   <span>{item.text}</span>
