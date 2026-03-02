@@ -171,7 +171,7 @@ export default function JwtDecoderClient() {
                     <CheckCircle className='w-4 h-4' />
                   )}
                   {isExpired ? "Token is expired" : "Token is valid"}
-                  {result.payload.exp && (
+                  {typeof result?.payload?.exp === "number" && (
                     <span className='font-normal'>
                       &nbsp;· Expires {formatTs(result.payload.exp)}
                     </span>

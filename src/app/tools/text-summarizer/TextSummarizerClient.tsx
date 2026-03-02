@@ -108,7 +108,7 @@ const STOP_WORDS = new Set([
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function summarize(text: string, ratio: number): string {
-  const sentences = text.match(/[^.!?]+[.!?]+/g) ?? [];
+  const sentences = (text.match(/[^.!?]+[.!?]+/g) ?? []) as string[];
   if (sentences.length <= 3) return text.trim();
 
   const keep = Math.max(2, Math.ceil(sentences.length * ratio));
