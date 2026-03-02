@@ -14,7 +14,7 @@ export default function SiteHeader() {
           aria-label='Free Online Tools — Home'
         >
           <div
-            className='w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center'
+            className='w-10 h-10 bg-linear-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center'
             aria-hidden='true'
           >
             <svg
@@ -31,7 +31,7 @@ export default function SiteHeader() {
               />
             </svg>
           </div>
-          <span className='text-2xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent'>
+          <span className='text-2xl font-extrabold bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent'>
             Free Online Tools
           </span>
         </Link>
@@ -47,6 +47,12 @@ export default function SiteHeader() {
             className='text-gray-700 hover:text-indigo-600 font-medium transition-colors'
           >
             All Tools
+          </Link>
+          <Link
+            href='/blog'
+            className='text-gray-700 hover:text-indigo-600 font-medium transition-colors'
+          >
+            Blog
           </Link>
           <Link
             href='/#faq'

@@ -26,7 +26,7 @@ export default function SiteFooter() {
               aria-label='Free Online Tools — Home'
             >
               <div
-                className='w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center'
+                className='w-10 h-10 bg-linear-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center'
                 aria-hidden='true'
               >
                 <svg

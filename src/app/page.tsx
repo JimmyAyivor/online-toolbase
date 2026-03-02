@@ -323,23 +323,51 @@ export default function HomePage() {
             {[
               {
                 q: "Are these tools really free?",
-                a: "Yes — every tool is free with no hidden costs, subscriptions, or premium tiers. Use them as often as you like.",
+                a: "Yes — every tool on Online Tool Base is completely free with no hidden costs, subscriptions, or premium tiers. There's no freemium model where basic features are locked behind a paywall. Every feature of every tool is available to everyone, every time.",
               },
               {
                 q: "Do I need to create an account?",
-                a: "No account needed. Click any tool and start immediately — no email, no password, no friction.",
+                a: "No account needed, ever. Click any tool and start using it immediately — no email address, no password, no credit card, no friction. We built the site specifically so you can get straight to work without any sign-up barriers.",
               },
               {
                 q: "Is my data safe and private?",
-                a: "Absolutely. All tools run entirely in your browser. Nothing is sent to or stored on our servers.",
+                a: "Yes. All processing happens entirely in your browser using JavaScript — nothing you type, paste, or upload is sent to our servers. This means your text, files, passwords, and personal data never leave your device. This is especially important for sensitive tools like the Password Generator, Hash Generator, JWT Decoder, and any text-based tools you use with private content.",
               },
               {
                 q: "Can I use these tools on mobile?",
-                a: "Yes — every tool is fully responsive and tested on phones, tablets, and desktops.",
+                a: "Yes — every tool is fully responsive and works on phones, tablets, and desktops. We test across iOS and Android browsers. Some tools (like the image compressor and file converters) may be slower on older phones due to device processing power, but they will work.",
+              },
+              {
+                q: "How many tools do you have?",
+                a: "Over 80 tools across nine categories: Writing & Text, Developer & Code, Calculators & Finance, Social Media, Image & Media, Security & Privacy, Health & Fitness, Business & Productivity, and Everyday Utilities. We add new tools regularly — check the tools page for the latest additions.",
               },
               {
                 q: "Do you have social media tools?",
-                a: "Yes — we have platform-specific tools for Instagram, TikTok, X (Twitter), LinkedIn, YouTube, and Facebook, plus a hashtag generator, engagement calculator, bio generator, and more.",
+                a: "Yes — we have a dedicated Social Media category with platform-specific tools for Instagram, TikTok, X (Twitter), LinkedIn, YouTube, and Facebook. This includes a Hashtag Generator, Engagement Rate Calculator, Caption Generator, Bio Generator, Social Media Character Counter, LinkedIn Post Formatter, and YouTube Title & Description Generator.",
+              },
+              {
+                q: "What developer tools do you offer?",
+                a: "The Developer & Code category covers the daily utilities most developers reach for constantly: JSON Formatter & Validator, Base64 Encoder/Decoder, URL Encoder/Decoder, JWT Decoder, Hash Generator (MD5, SHA-1, SHA-256, SHA-512), Regex Tester, UUID/GUID Generator, Cron Expression Builder, Markdown to HTML Converter, HTML Entity Encoder, and more.",
+              },
+              {
+                q: "What's the difference between your tools and just using Google?",
+                a: "Google can give you a formula or explain a concept — it can't run the calculation for you with your specific numbers. Our tools take your input and produce an immediate, accurate result: your compound interest over 15 years, your actual engagement rate, your specific BMI, the compressed version of your actual image. They're purpose-built for doing, not just reading.",
+              },
+              {
+                q: "Do your tools work offline?",
+                a: "Most tools will continue to work if you lose your internet connection mid-session, since the processing runs in your browser rather than on a server. However, you do need an internet connection to load the page initially. If you need offline access regularly, bookmark the tool pages while you're online.",
+              },
+              {
+                q: "Can I embed or link to your tools?",
+                a: "Yes — every tool has a permanent, shareable URL you can bookmark, link to, or share with others. We don't currently offer embeddable widgets, but if that's something you'd find useful, let us know via the contact page.",
+              },
+              {
+                q: "How do you make money if everything is free?",
+                a: "Online Tool Base is supported by non-intrusive display advertising. Ads appear on the page but never interrupt your workflow — we don't use pop-ups, auto-playing video ads, or interstitials. The tools themselves are always the focus of the page. If you use an ad blocker, the tools will still work perfectly.",
+              },
+              {
+                q: "I found a bug or a tool isn't working — what should I do?",
+                a: "Please let us know via the Contact page. Include the tool name, what you were trying to do, and which browser and device you're using. We fix reported bugs quickly. If a tool is producing unexpected results, double-check the input format — many tools have specific formatting requirements described in the tool's instructions.",
               },
             ].map((faq) => (
               <div key={faq.q} className='bg-white rounded-2xl shadow-lg p-8'>
