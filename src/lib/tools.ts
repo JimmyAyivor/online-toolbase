@@ -48,7 +48,7 @@ export type Tool = {
       slug: "text-case-converter",
       name: "Text Case Converter",
       description: "Convert text between uppercase, lowercase, and more.",
-      category: "Writing",
+      category: "Text",
     },
     {
       slug: "word-character-counter",
@@ -126,7 +126,7 @@ export type Tool = {
       slug: "text-repeater",
       name: "Text Repeater",
       description: "Repeat any text or character any number of times with a custom separator.",
-      category: "Writing",
+      category: "Text",
     },
     {
       slug: "word-counter-live",
@@ -247,7 +247,7 @@ export type Tool = {
     {
       slug: "open-graph-preview",
       name: "Open Graph Preview",
-      description: "Preview how your page looks when shared on social media.",
+      description: "Preview how your page looks when shared on social-media.",
       category: "Developer",
     },
     {
@@ -597,78 +597,78 @@ export type Tool = {
       category: "Design",
     },
   
-    // ── Social Media ──────────────────────────────────────────────────────────
+    // ── social-media ──────────────────────────────────────────────────────────
     {
       slug: "instagram-post-planner",
       name: "Instagram Post Planner",
       description: "Plan and organize Instagram posts with captions and scheduling ideas.",
-      category: "Social Media",
+      category: "social-media",
     },
     {
       slug: "tiktok-hook-generator",
       name: "TikTok Hook Generator",
       description: "Generate engaging TikTok hooks that capture attention instantly.",
-      category: "Social Media",
+      category: "social-media",
     },
     {
       slug: "twitter-thread-builder",
       name: "Twitter Thread Builder",
       description: "Create structured and engaging Twitter threads for better storytelling.",
-      category: "Social Media",
+      category: "social-media",
     },
     {
       slug: "linkedin-post-formatter",
       name: "LinkedIn Post Formatter",
       description: "Format LinkedIn posts for better readability and professional engagement.",
-      category: "Social Media",
+      category: "social-media",
     },
     {
       slug: "youtube-title-description-generator",
       name: "YouTube Title & Description Generator",
       description: "Generate optimized YouTube titles and descriptions for better visibility.",
-      category: "Social Media",
+      category: "social-media",
     },
     {
       slug: "social-media-bio-generator",
-      name: "Social Media Bio Generator",
-      description: "Generate optimized and creative bios for social media profiles.",
-      category: "Social Media",
+      name: "social-media Bio Generator",
+      description: "Generate optimized and creative bios for social-media profiles.",
+      category: "social-media",
     },
     {
       slug: "hashtag-generator",
       name: "Hashtag Generator",
       description: "Generate relevant hashtags to increase reach and discoverability.",
-      category: "Social Media",
+      category: "social-media",
     },
     {
       slug: "social-media-character-counter",
-      name: "Social Media Character Counter",
+      name: "social-media Character Counter",
       description: "Count characters and optimize posts for platform limits.",
-      category: "Social Media",
+      category: "social-media",
     },
     {
       slug: "caption-generator",
       name: "Caption Generator",
-      description: "Generate engaging captions for photos and social media posts.",
-      category: "Social Media",
+      description: "Generate engaging captions for photos and social-media posts.",
+      category: "social-media",
     },
     {
       slug: "viral-hook-generator",
       name: "Viral Hook Generator",
-      description: "Create scroll-stopping hooks for any social media platform.",
-      category: "Social Media",
+      description: "Create scroll-stopping hooks for any social-media platform.",
+      category: "social-media",
     },
     {
       slug: "content-calendar-planner",
       name: "Content Calendar Planner",
-      description: "Plan and organise your social media content calendar for free.",
-      category: "Social Media",
+      description: "Plan and organise your social-media content calendar for free.",
+      category: "social-media",
     },
     {
       slug: "social-media-audit",
-      name: "Social Media Audit Tool",
-      description: "Audit your social media profiles with a guided checklist.",
-      category: "Social Media",
+      name: "social-media Audit Tool",
+      description: "Audit your social-media profiles with a guided checklist.",
+      category: "social-media",
     },
   
     // ── Marketing ─────────────────────────────────────────────────────────────
@@ -789,7 +789,7 @@ export type Tool = {
     {
       slug: "engagement-rate-calculator",
       name: "Engagement Rate Calculator",
-      description: "Calculate social media engagement rate using likes, comments, and followers.",
+      description: "Calculate social-media engagement rate using likes, comments, and followers.",
       category: "Analytics",
     },
   
@@ -809,7 +809,7 @@ export type Tool = {
     {
       slug: "flip-text-generator",
       name: "Flip Text Generator",
-      description: "Generate upside-down, mirrored, and reversed text for social media.",
+      description: "Generate upside-down, mirrored, and reversed text for social-media.",
       category: "Fun",
     },
     {
