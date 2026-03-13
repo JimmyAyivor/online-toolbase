@@ -1,4 +1,4 @@
-name: Deploy to Production with Health-Check Rollback
+name: Deploy to Production
 
 on:
   push:
@@ -6,45 +6,11 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build Next.js
-        run: |
-          export NODE_OPTIONS="--max-old-space-size=4096"
-          export NEXT_DISABLE_TURBOPACK=1
-          npm run build
-
-      - name: Prepare deployment archive
-        run: |
-          mkdir deploy
-          cp -r .next package.json package-lock.json next.config.ts public deploy/
-          cd deploy
-          tar czf ../deploy.tgz *
-          cd ..
-
-      - name: Upload deploy archive to server
-        uses: appleboy/scp-action@v0.1.4
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "deploy.tgz"
-          target: "/home/opc/deploy.tgz"
-
-      - name: Deploy on server with rollback
+      - name: Deploy to server
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -52,54 +18,49 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           command_timeout: 30m
           script: |
-            echo "🛑 Stopping existing app..."
-            pm2 delete online-tool-base || true
-
-            echo "📦 Backing up current app..."
-            cd /home/opc
-            rm -rf online-tool-base-backup
-            if [ -d online-tool-base ]; then
-              mv online-tool-base online-tool-base-backup
-            fi
-
-            echo "📦 Extracting new build..."
-            mkdir online-tool-base
-            tar xzf /home/opc/deploy.tgz -C /home/opc/online-tool-base
-
-            echo "📦 Installing production dependencies..."
             cd /home/opc/online-tool-base
-            npm ci --production
+            echo "📥 Pulling latest code..."
+            git reset --hard
+            git clean -fd
+            git pull origin main
 
-            echo "🚀 Starting app with PM2..."
-            pm2 start npm --name online-tool-base -- start
-            pm2 save
+            echo "🧹 Resetting dependencies..."
+            rm -rf node_modules .next package-lock.json
+            npm install --legacy-peer-deps
 
-            # Health check
-            echo "🔍 Checking app health..."
-            HEALTHY=0
-            for i in $(seq 1 12); do
-              HTTP=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.SITE_URL }}")
-              if [ "$HTTP" = "200" ]; then
-                HEALTHY=1
-                echo "✅ App healthy (HTTP 200) after $((i * 5))s"
-                break
+            echo "⚙️ Setting build environment..."
+            export NODE_OPTIONS="--max-old-space-size=2048"
+            export NEXT_DISABLE_TURBOPACK=1
+            export NEXT_PUBLIC_BASE_URL="${{ secrets.NEXT_PUBLIC_BASE_URL }}"
+
+            echo "🏗 Building Next.js..."
+            if npm run build; then
+              echo "🚀 Starting or restarting PM2..."
+              if pm2 describe online-tool-base > /dev/null; then
+                pm2 restart online-tool-base --update-env
+              else
+                pm2 start npm --name online-tool-base -- start
               fi
-              echo "  attempt $i/12 — got HTTP $HTTP, retrying in 5s..."
-              sleep 5
-            done
-
-            if [ "$HEALTHY" -ne 1 ]; then
-              echo "⚠️ Health check failed — rolling back"
-              pm2 delete online-tool-base || true
-              rm -rf online-tool-base
-              mv /home/opc/online-tool-base-backup /home/opc/online-tool-base
-              pm2 start npm --name online-tool-base -- start
               pm2 save
-              echo "✅ Rollback complete, old app restored"
+              echo "✅ Deploy successful"
             else
-              echo "✅ Deploy succeeded, new app running"
-              rm -rf online-tool-base-backup
+              echo "❌ Build failed — site still serving previous build"
+              exit 1
             fi
+
+      - name: Wait for server to be ready
+        run: |
+          echo "Waiting for server to come online..."
+          for i in $(seq 1 12); do
+            HTTP=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.SITE_URL }}")
+            if [ "$HTTP" = "200" ]; then
+              echo "✅ Server ready (HTTP 200) after $((i * 5))s"
+              exit 0
+            fi
+            echo "  attempt $i/12 — got HTTP $HTTP, retrying in 5s..."
+            sleep 5
+          done
+          echo "⚠️ Server did not respond with 200 after 60s — proceeding anyway"
 
       - name: Submit URLs to IndexNow
         run: |
@@ -108,9 +69,12 @@ jobs:
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.INDEXNOW_API_SECRET }}" \
             -d '{"mode": "all-tools"}')
+
           HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
           BODY=$(echo "$RESPONSE" | head -n -1)
+
           echo "Response: $BODY"
+
           if [ "$HTTP_CODE" = "200" ]; then
             echo "✅ IndexNow: submitted successfully"
           else
