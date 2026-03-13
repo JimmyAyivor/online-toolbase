@@ -19,39 +19,21 @@ jobs:
           command_timeout: 30m
           script: |
             cd /home/opc/online-tool-base
-
-            echo "Pulling latest code..."
             git pull origin main
-
-            echo "Installing dependencies..."
             npm ci
 
-            echo "Cleaning previous build..."
-            rm -rf .next
+            # Increase Node memory for Next.js build
+            export NODE_OPTIONS="--max-old-space-size=4096"
 
-            # Reduce memory issues on small OCI machines
-            export NODE_OPTIONS="--max-old-space-size=2048"
-            export NEXT_DISABLE_TURBOPACK=1
-
-            echo "Building Next.js..."
             if npm run build; then
-
-              echo "Starting or restarting PM2..."
-
-              if pm2 describe online-tool-base > /dev/null; then
-                pm2 restart online-tool-base --update-env
-              else
-                pm2 start npm --name online-tool-base -- start
-              fi
-
-              pm2 save
-
+              pm2 restart online-tool-base --update-env
               echo "✅ Deploy successful"
             else
-              echo "❌ Build failed — site still serving previous build"
+              echo "❌ Build failed — PM2 not restarted, site still serving previous build"
               exit 1
             fi
 
+      # Wait for server to be ready after PM2 restart
       - name: Wait for server to be ready
         run: |
           echo "Waiting for server to come online..."
@@ -61,11 +43,12 @@ jobs:
               echo "✅ Server ready (HTTP 200) after $((i * 5))s"
               exit 0
             fi
-            echo "attempt $i/12 — got HTTP $HTTP, retrying in 5s..."
+            echo "  attempt $i/12 — got HTTP $HTTP, retrying in 5s..."
             sleep 5
           done
-          echo "⚠️ Server did not respond with 200 after 60s — continuing"
+          echo "⚠️  Server did not respond with 200 after 60s — proceeding anyway"
 
+      # Submit URLs to IndexNow
       - name: Submit URLs to IndexNow
         run: |
           RESPONSE=$(curl -s -w "\n%{http_code}" \
@@ -80,7 +63,7 @@ jobs:
           echo "Response: $BODY"
 
           if [ "$HTTP_CODE" = "200" ]; then
-            echo "✅ IndexNow submitted"
+            echo "✅ IndexNow: submitted successfully"
           else
-            echo "⚠️ IndexNow returned HTTP $HTTP_CODE"
+            echo "⚠️  IndexNow: submission returned HTTP $HTTP_CODE — deploy still succeeded"
           fi
