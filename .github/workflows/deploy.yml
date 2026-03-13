@@ -21,6 +21,10 @@ jobs:
             cd /home/opc/online-tool-base
             git pull origin main
             npm ci
+
+            # Increase Node memory for Next.js build
+            export NODE_OPTIONS="--max-old-space-size=4096"
+
             if npm run build; then
               pm2 restart online-tool-base --update-env
               echo "✅ Deploy successful"
@@ -29,10 +33,7 @@ jobs:
               exit 1
             fi
 
-      # ── Wait for server to be ready after PM2 restart ───────────────────────
-      # PM2 restart is async — Next.js takes a few seconds to boot and bind.
-      # Without this, the IndexNow curl hits nginx before the Node process is
-      # listening and gets a 502. We poll the homepage every 5s for up to 60s.
+      # Wait for server to be ready after PM2 restart
       - name: Wait for server to be ready
         run: |
           echo "Waiting for server to come online..."
@@ -47,10 +48,7 @@ jobs:
           done
           echo "⚠️  Server did not respond with 200 after 60s — proceeding anyway"
 
-      # ── IndexNow: notify search engines after successful deploy ──────────────
-      # Runs on the GitHub Actions runner (not the OCI server) — no SSH needed.
-      # Only fires if the deploy step above succeeded (default behaviour).
-      # INDEXNOW_API_SECRET must be added to GitHub → Settings → Secrets.
+      # Submit URLs to IndexNow
       - name: Submit URLs to IndexNow
         run: |
           RESPONSE=$(curl -s -w "\n%{http_code}" \
@@ -68,6 +66,4 @@ jobs:
             echo "✅ IndexNow: submitted successfully"
           else
             echo "⚠️  IndexNow: submission returned HTTP $HTTP_CODE — deploy still succeeded"
-            # Note: we exit 0 here intentionally.
-            # A failed IndexNow submission should never fail the deployment.
           fi
