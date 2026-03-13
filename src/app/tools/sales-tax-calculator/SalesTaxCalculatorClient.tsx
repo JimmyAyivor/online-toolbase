@@ -114,13 +114,13 @@ export default function SalesTaxCalculatorClient() {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-purple-50 to-pink-100 p-4'>
-      <div className='max-w-5xl mx-auto'>
+      <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4'>
-              <ShoppingCart className='w-8 h-8 text-purple-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full mb-4 shadow-lg'>
+              <ShoppingCart className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Sales Tax Calculator
             </h2>
             <p className='text-gray-600'>
@@ -203,7 +203,7 @@ export default function SalesTaxCalculatorClient() {
                       onClick={() => setTaxRate(rate.toString())}
                       className='px-3 py-2 bg-gray-100 hover:bg-purple-100 border border-gray-200 hover:border-purple-300 rounded-lg text-sm transition-colors text-left'
                     >
-                      <div className='font-semibold text-gray-800'>{state}</div>
+                      <div className='font-semibold text-gray-900'>{state}</div>
                       <div className='text-xs text-gray-600'>{rate}%</div>
                     </button>
                   ))}
@@ -213,8 +213,8 @@ export default function SalesTaxCalculatorClient() {
 
             {/* Right column — item cart */}
             <div>
-              <div className='bg-pink-50 rounded-lg p-4 border border-pink-200 mb-4'>
-                <h3 className='font-semibold text-gray-800 mb-3 flex items-center gap-2'>
+              <div className='bg-pink-50 rounded-xl border border-pink-200 p-4 mb-4'>
+                <h3 className='font-semibold text-gray-900 mb-3 flex items-center gap-2'>
                   <Calculator className='w-4 h-4' />
                   Add Multiple Items
                 </h3>
@@ -256,8 +256,8 @@ export default function SalesTaxCalculatorClient() {
               </div>
 
               {items.length > 0 && (
-                <div className='bg-white border border-gray-200 rounded-lg p-4 max-h-64 overflow-y-auto'>
-                  <h4 className='font-semibold text-gray-800 mb-2 text-sm'>
+                <div className='bg-white border border-gray-200 rounded-xl p-4 max-h-64 overflow-y-auto'>
+                  <h4 className='font-semibold text-gray-900 mb-2 text-sm'>
                     Items
                   </h4>
                   <div className='space-y-2'>
@@ -267,7 +267,7 @@ export default function SalesTaxCalculatorClient() {
                         className='flex items-center justify-between p-2 bg-gray-50 rounded'
                       >
                         <div className='flex-1'>
-                          <div className='font-medium text-gray-800 text-sm'>
+                          <div className='font-medium text-gray-900 text-sm'>
                             {item.name}
                           </div>
                           <div className='text-xs text-gray-600'>
@@ -288,7 +288,7 @@ export default function SalesTaxCalculatorClient() {
                     <span className='font-semibold text-gray-700'>
                       Items Subtotal:
                     </span>
-                    <span className='font-bold text-gray-800'>
+                    <span className='font-bold text-gray-900'>
                       {fmt(itemsSubtotal)}
                     </span>
                   </div>
@@ -302,7 +302,7 @@ export default function SalesTaxCalculatorClient() {
             <div className='bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-200'>
               <div className='flex items-center gap-2 mb-4'>
                 <Receipt className='w-5 h-5 text-purple-600' />
-                <h3 className='font-bold text-gray-800 text-lg'>
+                <h3 className='font-bold text-gray-900 text-lg'>
                   Calculation Results
                 </h3>
               </div>
@@ -311,7 +311,7 @@ export default function SalesTaxCalculatorClient() {
                 <div className='bg-white rounded-lg p-4'>
                   <div className='flex justify-between items-center mb-2'>
                     <span className='text-gray-600'>Subtotal (Before Tax)</span>
-                    <span className='text-xl font-bold text-gray-800'>
+                    <span className='text-xl font-bold text-gray-900'>
                       {fmt(results.subtotal)}
                     </span>
                   </div>
@@ -334,7 +334,7 @@ export default function SalesTaxCalculatorClient() {
                   </div>
                 </div>
 
-                <div className='bg-purple-600 text-white rounded-lg p-4'>
+                <div className='bg-purple-600 text-white rounded-xl p-4'>
                   <div className='flex justify-between items-center'>
                     <span className='text-sm opacity-90'>Total (With Tax)</span>
                     <span className='text-3xl font-bold'>
@@ -343,8 +343,8 @@ export default function SalesTaxCalculatorClient() {
                   </div>
                 </div>
 
-                <div className='bg-white rounded-lg p-4'>
-                  <h4 className='font-semibold text-gray-800 mb-2 text-sm'>
+                <div className='bg-white rounded-xl p-4'>
+                  <h4 className='font-semibold text-gray-900 mb-2 text-sm'>
                     Breakdown
                   </h4>
                   <div className='space-y-1 text-sm'>
@@ -360,7 +360,7 @@ export default function SalesTaxCalculatorClient() {
                     ].map(({ label, value }) => (
                       <div key={label} className='flex justify-between'>
                         <span className='text-gray-600'>{label}</span>
-                        <span className='font-semibold text-gray-800'>
+                        <span className='font-semibold text-gray-900'>
                           {value.toFixed(1)}%
                         </span>
                       </div>
@@ -378,8 +378,10 @@ export default function SalesTaxCalculatorClient() {
             </div>
           )}
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Sales Tax Information:</p>
+          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+            <p className='font-semibold mb-2 text-gray-800'>
+              💡 Sales Tax Information:
+            </p>
             <ul className='list-disc list-inside space-y-1'>
               <li>
                 <strong>Add Tax:</strong> Use when you know the price before tax

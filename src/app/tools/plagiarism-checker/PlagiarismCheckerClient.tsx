@@ -6,9 +6,10 @@ import {
   CheckCircle,
   Loader2,
   ExternalLink,
+  RotateCcw,
 } from "lucide-react";
 
-// ─── Types ───────────────────────────────────────────────────────────────────
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 interface MatchItem {
   url: string;
@@ -29,19 +30,25 @@ interface ApiContentItem {
   text?: string;
 }
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function getScoreColor(score: number): string {
-  if (score >= 80) return "text-green-600";
-  if (score >= 50) return "text-yellow-600";
+  if (score >= 80) return "text-emerald-600";
+  if (score >= 50) return "text-amber-600";
   return "text-red-600";
+}
+
+function getScoreBg(score: number): string {
+  if (score >= 80) return "from-emerald-50 to-teal-50 border-emerald-200";
+  if (score >= 50) return "from-amber-50 to-yellow-50 border-amber-200";
+  return "from-red-50 to-rose-50 border-red-200";
 }
 
 function wordCount(text: string): number {
   return text.trim().split(/\s+/).filter(Boolean).length;
 }
 
-// ─── Component ───────────────────────────────────────────────────────────────
+// ─── Component ────────────────────────────────────────────────────────────────
 
 export default function PlagiarismCheckerClient() {
   const [text, setText] = useState<string>("");
@@ -100,8 +107,8 @@ export default function PlagiarismCheckerClient() {
 
           const data = (await response.json()) as { content: ApiContentItem[] };
           const textContent = data.content
-            .filter((item) => item.type === "text")
-            .map((item) => item.text ?? "")
+            .filter((i) => i.type === "text")
+            .map((i) => i.text ?? "")
             .join("\n");
 
           try {
@@ -116,7 +123,7 @@ export default function PlagiarismCheckerClient() {
               );
             }
           } catch {
-            // continue with next query
+            /* continue */
           }
         } catch (e) {
           console.error("Search error:", e);
@@ -126,7 +133,6 @@ export default function PlagiarismCheckerClient() {
       const uniqueMatches = Array.from(
         new Map(matches.map((m) => [m.url, m])).values(),
       );
-
       setResults({
         totalChecked: searchQueries.length,
         matchesFound: uniqueMatches.length,
@@ -143,245 +149,235 @@ export default function PlagiarismCheckerClient() {
 
   const words = wordCount(text);
 
-  // ─── Render ──────────────────────────────────────────────────────────────
-
   return (
-    <div className='min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4'>
-      <div className='max-w-4xl mx-auto'>
+    <div className='min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 p-4'>
+      <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
+          {/* Header */}
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4'>
-              <Search className='w-8 h-8 text-blue-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full mb-4 shadow-lg'>
+              <Search className='w-8 h-8 text-white' />
             </div>
             <h2 className='text-3xl font-bold text-gray-800 mb-2'>
               Plagiarism Checker
             </h2>
-            <p className='text-gray-600'>
-              Check your text against web sources for originality
+            <p className='text-gray-500'>
+              Check your text against live web sources for originality
             </p>
           </div>
 
-          <div className='space-y-6'>
-            {/* Input */}
-            <div>
-              <label className='block text-sm font-medium text-gray-700 mb-2'>
-                Enter Text to Check
-              </label>
-              <textarea
-                value={text}
-                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
-                  setText(e.target.value);
-                  setError("");
-                }}
-                placeholder='Paste your text here (minimum 10 words)...'
-                className='w-full h-64 p-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none'
-              />
-              <div className='flex justify-between mt-2 text-sm text-gray-500'>
-                <span>{words} words</span>
-                <span>{text.length} characters</span>
-              </div>
+          {/* Input */}
+          <div className='mb-5'>
+            <label className='block text-sm font-semibold text-gray-700 mb-2'>
+              Enter text to check
+            </label>
+            <textarea
+              value={text}
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+                setText(e.target.value);
+                setError("");
+              }}
+              placeholder='Paste your text here (minimum 10 words)…'
+              rows={8}
+              className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none'
+            />
+            <div className='flex justify-between mt-1.5 text-xs text-gray-400'>
+              <span>{words} words</span>
+              <span>{text.length} characters</span>
             </div>
+          </div>
 
-            {/* Error */}
-            {error && (
-              <div className='flex items-center gap-2 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700'>
-                <AlertCircle className='w-5 h-5 flex-shrink-0' />
-                <span>{error}</span>
-              </div>
+          {/* Error */}
+          {error && (
+            <div className='flex items-center gap-2 px-4 py-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm mb-5'>
+              <AlertCircle className='w-4 h-4 shrink-0' />
+              <span>{error}</span>
+            </div>
+          )}
+
+          {/* Submit */}
+          <button
+            onClick={checkPlagiarism}
+            disabled={loading}
+            className='w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:opacity-60 text-white font-bold py-3.5 px-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2'
+          >
+            {loading ? (
+              <>
+                <Loader2 className='w-5 h-5 animate-spin' />
+                Checking for plagiarism…
+              </>
+            ) : (
+              <>
+                <Search className='w-5 h-5' />
+                Check Plagiarism
+              </>
             )}
+          </button>
 
-            {/* Submit */}
-            <button
-              onClick={checkPlagiarism}
-              disabled={loading}
-              className='w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2'
-            >
-              {loading ? (
-                <>
-                  <Loader2 className='w-5 h-5 animate-spin' /> Checking for
-                  plagiarism…
-                </>
-              ) : (
-                <>
-                  <Search className='w-5 h-5' /> Check Plagiarism
-                </>
-              )}
-            </button>
-
-            {/* Results */}
-            {results && (
-              <div className='mt-8 space-y-6'>
-                <div className='bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200'>
-                  <h2 className='text-xl font-bold text-gray-800 mb-4'>
-                    Results
-                  </h2>
-
-                  {/* Stats */}
-                  <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mb-4'>
-                    {[
-                      {
-                        label: "Phrases Checked",
-                        value: results.totalChecked,
-                        color: "text-gray-800",
-                      },
-                      {
-                        label: "Matches Found",
-                        value: results.matchesFound,
-                        color: "text-gray-800",
-                      },
-                      {
-                        label: "Originality Score",
-                        value: `${results.originalityScore}%`,
-                        color: getScoreColor(results.originalityScore),
-                      },
-                    ].map(({ label, value, color }) => (
-                      <div
-                        key={label}
-                        className='bg-white rounded-lg p-4 text-center'
-                      >
-                        <div className={`text-2xl font-bold ${color}`}>
-                          {value}
-                        </div>
-                        <div className='text-sm text-gray-600'>{label}</div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Score badge */}
-                  {results.originalityScore >= 80 && (
-                    <ScoreBanner
-                      bg='bg-green-50'
-                      border='border-green-200'
-                      textColor='text-green-700'
-                      icon={
-                        <CheckCircle className='w-5 h-5 flex-shrink-0 mt-0.5' />
-                      }
-                      title='Good originality!'
-                      desc='Your text appears to be mostly original.'
-                    />
-                  )}
-                  {results.originalityScore < 80 &&
-                    results.originalityScore >= 50 && (
-                      <ScoreBanner
-                        bg='bg-yellow-50'
-                        border='border-yellow-200'
-                        textColor='text-yellow-700'
-                        icon={
-                          <AlertCircle className='w-5 h-5 flex-shrink-0 mt-0.5' />
-                        }
-                        title='Moderate similarity detected'
-                        desc='Some parts of your text may match existing content.'
-                      />
-                    )}
-                  {results.originalityScore < 50 && (
-                    <ScoreBanner
-                      bg='bg-red-50'
-                      border='border-red-200'
-                      textColor='text-red-700'
-                      icon={
-                        <AlertCircle className='w-5 h-5 flex-shrink-0 mt-0.5' />
-                      }
-                      title='High similarity detected'
-                      desc='Significant portions may match existing content.'
-                    />
-                  )}
+          {/* Results */}
+          {results && (
+            <div className='mt-8 space-y-5'>
+              {/* Score summary */}
+              <div
+                className={`bg-gradient-to-r ${getScoreBg(results.originalityScore)} border-2 rounded-2xl p-6`}
+              >
+                <p className='text-xs font-bold uppercase tracking-widest text-gray-400 mb-4'>
+                  Analysis Results
+                </p>
+                <div className='grid grid-cols-3 gap-4 mb-5'>
+                  {[
+                    {
+                      label: "Phrases checked",
+                      value: String(results.totalChecked),
+                      color: "text-gray-800",
+                    },
+                    {
+                      label: "Matches found",
+                      value: String(results.matchesFound),
+                      color: "text-gray-800",
+                    },
+                    {
+                      label: "Originality score",
+                      value: `${results.originalityScore}%`,
+                      color: getScoreColor(results.originalityScore),
+                    },
+                  ].map(({ label, value, color }) => (
+                    <div
+                      key={label}
+                      className='bg-white rounded-xl p-4 text-center shadow-sm'
+                    >
+                      <p className={`text-3xl font-black ${color}`}>{value}</p>
+                      <p className='text-xs text-gray-500 mt-1'>{label}</p>
+                    </div>
+                  ))}
                 </div>
 
-                {/* Match list */}
-                {results.matches.length > 0 ? (
-                  <div>
-                    <h3 className='text-lg font-semibold text-gray-800 mb-3'>
-                      Potential Matches
-                    </h3>
-                    <div className='space-y-3'>
-                      {results.matches.map((match, idx) => (
-                        <div
-                          key={`${match.url}-${idx}`}
-                          className='bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow'
-                        >
-                          <h4 className='font-semibold text-gray-800 mb-1'>
-                            {match.title}
-                          </h4>
-                          {match.snippet && (
-                            <p className='text-sm text-gray-600 mb-2'>
-                              {match.snippet}
-                            </p>
-                          )}
-                          <a
-                            href={match.url}
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='text-sm text-blue-600 hover:text-blue-700 inline-flex items-center gap-1'
-                          >
-                            {match.url.length > 60
-                              ? `${match.url.slice(0, 60)}…`
-                              : match.url}
-                            <ExternalLink className='w-3 h-3' />
-                          </a>
-                        </div>
-                      ))}
+                {results.originalityScore >= 80 && (
+                  <div className='flex items-start gap-3 px-4 py-3 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-700 text-sm'>
+                    <CheckCircle className='w-5 h-5 shrink-0 mt-0.5' />
+                    <div>
+                      <p className='font-bold'>Good originality!</p>
+                      <p>
+                        Your text appears to be mostly original based on our web
+                        search.
+                      </p>
                     </div>
                   </div>
-                ) : (
-                  <div className='text-center py-8 text-gray-600'>
-                    <CheckCircle className='w-12 h-12 text-green-500 mx-auto mb-3' />
-                    <p className='font-semibold'>No matches found!</p>
-                    <p className='text-sm'>Your text appears to be original.</p>
+                )}
+                {results.originalityScore >= 50 &&
+                  results.originalityScore < 80 && (
+                    <div className='flex items-start gap-3 px-4 py-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 text-sm'>
+                      <AlertCircle className='w-5 h-5 shrink-0 mt-0.5' />
+                      <div>
+                        <p className='font-bold'>
+                          Moderate similarity detected
+                        </p>
+                        <p>
+                          Some parts of your text may match existing web
+                          content. Review the matches below.
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                {results.originalityScore < 50 && (
+                  <div className='flex items-start gap-3 px-4 py-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm'>
+                    <AlertCircle className='w-5 h-5 shrink-0 mt-0.5' />
+                    <div>
+                      <p className='font-bold'>High similarity detected</p>
+                      <p>
+                        Significant portions of your text may match existing web
+                        content. Review and cite sources as needed.
+                      </p>
+                    </div>
                   </div>
                 )}
               </div>
-            )}
-          </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Note:</p>
+              {/* Matches */}
+              {results.matches.length > 0 ? (
+                <div>
+                  <p className='text-sm font-bold text-gray-500 uppercase tracking-widest mb-3'>
+                    Potential matches
+                  </p>
+                  <div className='space-y-3'>
+                    {results.matches.map((match, idx) => (
+                      <div
+                        key={`${match.url}-${idx}`}
+                        className='bg-gray-50 border border-gray-100 rounded-2xl p-5 hover:shadow-sm transition-shadow'
+                      >
+                        <p className='font-bold text-gray-800 text-sm mb-1'>
+                          {match.title}
+                        </p>
+                        {match.snippet && (
+                          <p className='text-sm text-gray-500 mb-2 leading-relaxed'>
+                            {match.snippet}
+                          </p>
+                        )}
+                        <a
+                          href={match.url}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='inline-flex items-center gap-1 text-xs text-indigo-600 hover:text-indigo-700 font-medium'
+                        >
+                          {match.url.length > 70
+                            ? `${match.url.slice(0, 70)}…`
+                            : match.url}
+                          <ExternalLink className='w-3 h-3' />
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className='text-center py-10 bg-emerald-50 rounded-2xl border border-emerald-100'>
+                  <CheckCircle className='w-12 h-12 text-emerald-500 mx-auto mb-3' />
+                  <p className='font-bold text-gray-800'>No matches found</p>
+                  <p className='text-sm text-gray-500 mt-1'>
+                    Your text appears to be original based on our web search.
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Reset */}
+          <button
+            onClick={() => {
+              setText("");
+              setResults(null);
+              setError("");
+            }}
+            className='flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-600 transition-colors mt-6 mb-4'
+          >
+            <RotateCcw className='w-4 h-4' />
+            Clear and start over
+          </button>
+
+          {/* Tips */}
+          <div className='p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+            <p className='font-semibold mb-2 text-gray-800'>
+              💡 How this tool works:
+            </p>
             <ul className='list-disc list-inside space-y-1'>
               <li>
-                This tool checks text against publicly available web content
+                Extracts key phrases from your text and searches them against
+                live web sources
               </li>
               <li>
-                Results are estimates and should not be considered definitive
+                Common factual phrases and widely-used expressions may show as
+                matches — this is normal
               </li>
-              <li>Common phrases and factual information may show matches</li>
               <li>
-                Always cite sources appropriately in academic and professional
-                work
+                Results are estimates; always use professional tools for
+                academic submissions
+              </li>
+              <li>
+                Always cite your sources appropriately in academic and
+                professional work
               </li>
             </ul>
           </div>
         </div>
-      </div>
-    </div>
-  );
-}
-
-// ─── Sub-components ───────────────────────────────────────────────────────────
-
-interface ScoreBannerProps {
-  bg: string;
-  border: string;
-  textColor: string;
-  icon: React.ReactNode;
-  title: string;
-  desc: string;
-}
-
-function ScoreBanner({
-  bg,
-  border,
-  textColor,
-  icon,
-  title,
-  desc,
-}: ScoreBannerProps) {
-  return (
-    <div
-      className={`flex items-start gap-2 p-4 ${bg} ${border} border rounded-lg ${textColor}`}
-    >
-      {icon}
-      <div>
-        <div className='font-semibold'>{title}</div>
-        <div className='text-sm'>{desc}</div>
       </div>
     </div>
   );

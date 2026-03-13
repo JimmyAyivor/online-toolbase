@@ -1,25 +1,19 @@
 // src/app/tools/hex-color-code-generator/page.tsx
 import type { Metadata } from "next";
 import HexColorCodeGeneratorClient from "./HexColorCodeGeneratorClient";
-import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
+import PageEditorial from "./PageEditorial";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
 
-// ─── Slot IDs from env ────────────────────────────────────────────────────────
-const SLOT_BELOW_TOOL =
-  process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
-const SLOT_LEADERBOARD =
-  process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
-
 export const metadata: Metadata = {
   title:
-    "Hex Color Code Generator — Free Online Hex Color Code Generator",
+    "Hex Color Code Generator — Pick Any Colour, Get HEX, RGB & HSL Values Free",
   description:
-    "Generate hex color codes with a color picker, HEX, RGB, and HSL values. Free, instant, no signup required.",
+    "Pick any colour with the visual colour picker and instantly get the HEX code, RGB values, HSL values, and CSS-ready colour strings. Includes a random colour generator and saved colour history. Free, no signup.",
   keywords:
-    "hex color code generator, free hex color code generator, online hex color code generator, hex color code generator free, hex color code generator online, design tool, free online hex color code generator, best hex color code generator",
+    "hex color code, hex colour picker, color code generator, RGB to HEX, HSL color, CSS color code, pick color online, hex color picker, color converter, free color tool",
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
@@ -39,9 +33,10 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/hex-color-code-generator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title: "Hex Color Code Generator — Free Online Hex Color Code Generator",
+    title:
+      "Hex Color Code Generator — Pick Any Colour, Get HEX, RGB & HSL Values Free",
     description:
-      "Generate hex color codes with a color picker, HEX, RGB, and HSL values. Free, instant, no signup.",
+      "Visual colour picker that instantly shows HEX, RGB, and HSL codes for any colour — copy with one click. Random colour generator included. Free, no signup.",
     images: [
       {
         url: `${SITE_URL}/opengraph-image`,
@@ -55,9 +50,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title: "Hex Color Code Generator — Free Online Hex Color Code Generator",
+    title:
+      "Hex Color Code Generator — Pick Any Colour, Get HEX, RGB & HSL Values Free",
     description:
-      "Generate hex color codes with a color picker, HEX, RGB, and HSL values.",
+      "Pick any colour and instantly get HEX, RGB, and HSL codes ready to paste into CSS or design tools.",
   },
 };
 
@@ -66,11 +62,10 @@ const toolJsonLd = {
   "@type": "SoftwareApplication",
   name: "Hex Color Code Generator",
   description:
-    "Generate hex color codes with a color picker, HEX, RGB, and HSL values.",
+    "Visual colour picker that generates HEX, RGB, and HSL colour codes for any selected colour. Includes a random colour generator button, one-click copy for each format, and a saved colour history panel. Useful for web design, CSS, and digital design workflows.",
   url: `${SITE_URL}/tools/hex-color-code-generator`,
   applicationCategory: "WebApplication",
   operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript. Works in all modern browsers.",
   offers: {
     "@type": "Offer",
     price: "0",
@@ -79,7 +74,6 @@ const toolJsonLd = {
   },
   provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
 };
-
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -111,12 +105,10 @@ export default function HexColorCodeGeneratorPage() {
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-
-      {/* Breadcrumb */}
       <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
         <ol className='flex items-center gap-2 text-sm text-gray-500'>
           <li>
-            <a href='/' className='hover:text-indigo-600 transition-colors'>
+            <a href='/' className='hover:text-pink-600 transition-colors'>
               Home
             </a>
           </li>
@@ -126,7 +118,7 @@ export default function HexColorCodeGeneratorPage() {
           <li>
             <a
               href='/tools/category/design'
-              className='hover:text-indigo-600 transition-colors'
+              className='hover:text-pink-600 transition-colors'
             >
               Design Tools
             </a>
@@ -141,127 +133,24 @@ export default function HexColorCodeGeneratorPage() {
           </li>
         </ol>
       </nav>
-
-      {/* Category badge + SR H1 */}
       <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1'>
+        <p className='text-xs font-semibold text-pink-600 uppercase tracking-widest mb-1'>
           Free Design Tool · No Signup · Works Instantly
         </p>
         <h1 className='sr-only'>
-          Hex Color Code Generator — Free Online Hex Color Code Generator
+          Hex Color Code Generator — Pick Any Colour, Get HEX, RGB &amp; HSL
+          Values Free
         </h1>
         <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
-          Generate hex color codes with a color picker, HEX, RGB, and HSL
-          values. Free, instant, no account needed.
+          Pick any colour and instantly get the HEX code, RGB values, and HSL
+          string — copy-ready for CSS, Figma, or any design tool.
         </p>
       </header>
-
-      {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
       <SidebarAdLayout>
-        {/* ── Tool component (main interactive area) ──────────────────── */}
         <main id='main-content' aria-label='Hex Color Code Generator tool'>
           <HexColorCodeGeneratorClient />
         </main>
-
-        {/* ── Zone G: below tool result — highest value placement ──────── */}
-        {/* Sits immediately after the tool, before any editorial content   */}
-        <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
-          {/* desktop: rectangle 336×280; mobile: medium rectangle 300×250 */}
-          <div className='hidden sm:block'>
-            <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
-          </div>
-          <div className='block sm:hidden'>
-            <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
-          </div>
-        </div>
-
-        {/* ── Zone H: between tool + How To editorial ──────────────────── */}
-        <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
-          <AdSlot
-            variant='leaderboard'
-            slotId={SLOT_LEADERBOARD}
-            className='hidden sm:flex'
-          />
-          <AdSlot
-            variant='mediumrectangle'
-            slotId={SLOT_LEADERBOARD}
-            className='flex sm:hidden'
-          />
-        </div>
-
-        {/* ── Editorial: How To + Related Tools ────────────────────────── */}
-        <section
-          aria-labelledby='about-hex-color-code-generator'
-          className='max-w-6xl mx-auto px-4 py-12'
-        >
-          <div className='bg-white rounded-2xl shadow-lg p-8 md:p-10'>
-            <h2
-              id='about-hex-color-code-generator'
-              className='text-2xl font-bold text-gray-900 mb-4'
-            >
-              How to Use This Free Hex Color Code Generator
-            </h2>
-            <p className='text-gray-600 leading-relaxed mb-4'>
-              Our free online <strong>hex color code generator</strong> is
-              designed for speed and simplicity. Generate hex color codes with a
-              color picker, HEX, RGB, and HSL values. No software installation
-              or account is required — just use the tool above and get results
-              instantly.
-            </p>
-            <p className='text-gray-600 leading-relaxed'>
-              All processing runs entirely in your browser. Your data is never
-              sent to or stored on our servers. This tool is part of our{" "}
-              <a
-                href='/'
-                className='text-indigo-600 hover:underline font-medium'
-              >
-                free online tools directory
-              </a>{" "}
-              — 60+ tools covering calculators, converters, generators, and
-              social media utilities.
-            </p>
-          </div>
-
-          {/* ── Zone I: related tools grid with native ad slot ──────────── */}
-          <div className='mt-8'>
-            <h3 className='text-lg font-bold text-gray-900 mb-4'>
-              Related Free Design Tools
-            </h3>
-            {/* 3-slot grid; the 4th card position (index 3) is reserved for */}
-            {/* a native sponsored card — set data-ad-format="fluid" in AdSense */}
-            <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
-              {[
-                {
-                  href: "/tools/color-palette-generator",
-                  label: "Color Palette Generator",
-                  desc: "Generate harmonious color palettes for your design projects.",
-                },
-                {
-                  href: "/tools/favicon-generator",
-                  label: "Favicon Generator",
-                  desc: "Create favicons for your website from any image, instantly.",
-                },
-                {
-                  href: "/tools/image-format-converter",
-                  label: "Image Format Converter",
-                  desc: "Convert images between PNG, JPG, WebP, and other formats online.",
-                },
-              ].map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className='block bg-white rounded-xl shadow p-5 border-2 border-transparent hover:border-indigo-200 hover:-translate-y-1 transition-all duration-200'
-                  aria-label={`${link.label} — ${link.desc}`}
-                >
-                  <div className='font-bold text-gray-900 text-sm mb-1'>
-                    {link.label}
-                  </div>
-                  <div className='text-xs text-gray-500'>{link.desc}</div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
+        <PageEditorial />
       </SidebarAdLayout>
     </>
   );

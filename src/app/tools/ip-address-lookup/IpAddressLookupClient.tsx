@@ -157,13 +157,13 @@ export default function IpAddressLookupClient() {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
-      <div className='max-w-4xl mx-auto'>
+      <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <Globe className='w-8 h-8 text-indigo-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full mb-4 shadow-lg'>
+              <Globe className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               IP Address Lookup
             </h2>
             <p className='text-gray-600'>
@@ -246,7 +246,7 @@ export default function IpAddressLookupClient() {
                     }}
                     className='px-3 py-2 bg-gray-100 hover:bg-indigo-100 border border-gray-200 hover:border-indigo-300 rounded-lg text-sm transition-colors text-left'
                   >
-                    <div className='font-semibold text-gray-800'>
+                    <div className='font-semibold text-gray-900'>
                       {sample.label}
                     </div>
                     <div className='font-mono text-xs text-gray-600'>
@@ -271,7 +271,7 @@ export default function IpAddressLookupClient() {
               <div className='bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200'>
                 {/* Header */}
                 <div className='flex items-center justify-between mb-4'>
-                  <h3 className='font-bold text-gray-800 text-lg'>
+                  <h3 className='font-bold text-gray-900 text-lg'>
                     IP Information
                   </h3>
                   <button
@@ -341,7 +341,7 @@ export default function IpAddressLookupClient() {
                   <div className='bg-white rounded-lg p-4 md:col-span-2'>
                     <div className='flex items-center gap-2 mb-3'>
                       <Server className='w-5 h-5 text-indigo-600' />
-                      <h4 className='font-semibold text-gray-800'>
+                      <h4 className='font-semibold text-gray-900'>
                         Network Information
                       </h4>
                     </div>
@@ -350,13 +350,13 @@ export default function IpAddressLookupClient() {
                         <span className='text-gray-600'>
                           ISP / Organization:
                         </span>
-                        <span className='font-semibold text-gray-800 text-right'>
+                        <span className='font-semibold text-gray-900 text-right'>
                           {results.isp}
                         </span>
                       </div>
                       <div className='flex justify-between'>
                         <span className='text-gray-600'>ASN:</span>
-                        <span className='font-mono font-semibold text-gray-800'>
+                        <span className='font-mono font-semibold text-gray-900'>
                           {results.asn}
                         </span>
                       </div>
@@ -368,7 +368,7 @@ export default function IpAddressLookupClient() {
               {/* Map link */}
               {hasCoords && (
                 <div className='bg-white rounded-lg p-4 border border-gray-200'>
-                  <h4 className='font-semibold text-gray-800 mb-3'>
+                  <h4 className='font-semibold text-gray-900 mb-3'>
                     Map Location
                   </h4>
                   <a
@@ -385,8 +385,10 @@ export default function IpAddressLookupClient() {
             </div>
           )}
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>About IP Lookup:</p>
+          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+            <p className='font-semibold mb-2 text-gray-800'>
+              🌐 About IP Lookup:
+            </p>
             <ul className='list-disc list-inside space-y-1'>
               <li>IP addresses can reveal approximate geographic location</li>
               <li>This tool supports both IPv4 and IPv6 addresses</li>
@@ -425,14 +427,14 @@ function InfoCard({ icon, title, rows }: InfoCardProps) {
     <div className='bg-white rounded-lg p-4'>
       <div className='flex items-center gap-2 mb-3'>
         {icon}
-        <h4 className='font-semibold text-gray-800'>{title}</h4>
+        <h4 className='font-semibold text-gray-900'>{title}</h4>
       </div>
       <div className='space-y-2 text-sm'>
         {rows.map(({ label, value, mono }) => (
           <div key={label} className='flex justify-between'>
             <span className='text-gray-600'>{label}:</span>
             <span
-              className={`font-semibold text-gray-800 ${mono ? "font-mono" : ""}`}
+              className={`font-semibold text-gray-900 ${mono ? "font-mono" : ""}`}
             >
               {value}
             </span>

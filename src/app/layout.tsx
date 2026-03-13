@@ -13,24 +13,23 @@ const SITE_NAME = "Free Online Tools";
 const TWITTER = "@onlinetoolbase";
 
 export const metadata: Metadata = {
-  // ── Titles ──────────────────────────────────────────────────────────────
-  // Homepage overrides this via its own export const metadata.
-  // This is the fallback for any page that doesn't set its own title.
   metadataBase: new URL(SITE_URL),
 
+  // Fallback title — individual pages override this with their own title.
+  // Template appends site name: "Age Calculator — Free Online Tool | Free Online Tools"
   title: {
-    default: `${SITE_NAME} — Free Calculators, Converters & Generators`,
+    default: `${SITE_NAME} — 130+ Free Calculators, Converters & Generators`,
     template: `%s | ${SITE_NAME}`,
   },
+
   description:
-    "50+ free online tools — BMI calculators, currency converters, QR code generators, password tools, and more. No signup, no download, 100% free.",
+    "130+ free online tools — calculators, converters, generators and more. BMI calculator, QR code generator, password generator, currency converter, and hundreds more. No signup, no download, 100% free.",
 
-  // ── Canonical / alternates ───────────────────────────────────────────────
-  alternates: {
-    canonical: SITE_URL,
-  },
+  keywords:
+    "free online tools, free calculators, free converters, free generators, online utilities, BMI calculator, currency converter, QR code generator, password generator, word counter, unit converter",
 
-  // ── Crawl directives ────────────────────────────────────────────────────
+  alternates: { canonical: SITE_URL },
+
   robots: {
     index: true,
     follow: true,
@@ -42,13 +41,13 @@ export const metadata: Metadata = {
     },
   },
 
-  // ── Open Graph ───────────────────────────────────────────────────────────
   openGraph: {
     type: "website",
     siteName: SITE_NAME,
     url: SITE_URL,
-    title: `${SITE_NAME} — Free Calculators, Converters & Generators`,
-    description: "50+ free online tools. Fast, private, no signup required.",
+    title: `${SITE_NAME} — 130+ Free Calculators, Converters & Generators`,
+    description:
+      "130+ free browser-based tools. No signup, no download, no cost — ever.",
     locale: "en_US",
     images: [
       {
@@ -60,24 +59,23 @@ export const metadata: Metadata = {
     ],
   },
 
-  // ── Twitter card ─────────────────────────────────────────────────────────
   twitter: {
     card: "summary_large_image",
     site: TWITTER,
     creator: TWITTER,
-    title: `${SITE_NAME} — Free Calculators, Converters & Generators`,
-    description: "50+ free online tools. Fast, private, no signup required.",
+    title: `${SITE_NAME} — 130+ Free Calculators, Converters & Generators`,
+    description: "130+ free online tools. No signup required.",
   },
 
-  // ── Authors / publisher ──────────────────────────────────────────────────
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
 
-  // ── Verification (add values when you verify in Search Console / Bing) ──
+  // Uncomment and fill in once you verify in Google Search Console:
   // verification: {
   //   google: "your-google-site-verification-token",
   //   yandex: "your-yandex-token",
+  //   bing:   "your-bing-token",
   // },
 };
 
@@ -86,9 +84,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang='en'>
       <body className='font-sans antialiased bg-gray-50'>
         <SiteHeader />
-
         {children}
         <SiteFooter />
+
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
           strategy='afterInteractive'

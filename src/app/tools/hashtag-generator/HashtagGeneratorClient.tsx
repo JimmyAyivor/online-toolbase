@@ -561,7 +561,7 @@ export default function HashtagGeneratorClient() {
             <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-violet-500 to-fuchsia-600 rounded-2xl mb-4 shadow-lg'>
               <Hash className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Hashtag Generator
             </h2>
             <p className='text-gray-600'>
@@ -632,7 +632,7 @@ export default function HashtagGeneratorClient() {
             {/* Tag browser */}
             <div className='md:col-span-2 space-y-4'>
               <div className='flex items-center justify-between'>
-                <h3 className='font-bold text-gray-800'>
+                <h3 className='font-bold text-gray-900'>
                   Browse &amp; Select Tags
                 </h3>
                 <button
@@ -715,7 +715,7 @@ export default function HashtagGeneratorClient() {
                 }`}
               >
                 <div className='flex items-center justify-between mb-1'>
-                  <span className='font-bold text-gray-800'>Selected Tags</span>
+                  <span className='font-bold text-gray-900'>Selected Tags</span>
                   <span
                     className={`text-2xl font-bold ${overLimit ? "text-red-600" : "text-violet-600"}`}
                   >

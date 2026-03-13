@@ -315,14 +315,14 @@ export default function LinkedInPostFormatterClient() {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-blue-50 to-sky-50 p-4 md:p-8'>
-      <div className='max-w-5xl mx-auto'>
+      <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           {/* Header */}
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-blue-700 rounded-2xl mb-4 shadow-lg'>
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-sky-700 rounded-2xl mb-4 shadow-lg'>
               <span className='text-2xl'>💼</span>
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               LinkedIn Post Formatter
             </h2>
             <p className='text-gray-600'>
@@ -440,7 +440,7 @@ export default function LinkedInPostFormatterClient() {
                 </div>
 
                 {/* Post content */}
-                <div className='px-4 pb-2 text-sm text-gray-800 leading-relaxed whitespace-pre-wrap min-h-[80px]'>
+                <div className='px-4 pb-2 text-sm text-gray-900 leading-relaxed whitespace-pre-wrap min-h-[80px]'>
                   {previewText || (
                     <span className='text-gray-400 italic'>
                       Your post will appear here…

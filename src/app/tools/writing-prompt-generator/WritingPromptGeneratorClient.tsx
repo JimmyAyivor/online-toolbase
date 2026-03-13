@@ -168,17 +168,17 @@ export default function WritingPromptGeneratorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
+    <div className='min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-green-100 p-4'>
       <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <BookOpen className='w-8 h-8 text-indigo-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full mb-4 shadow-lg'>
+              <BookOpen className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Writing Prompt Generator
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Generate creative writing prompts to beat writer&apos;s block
               instantly
             </p>
@@ -186,7 +186,7 @@ export default function WritingPromptGeneratorClient() {
 
           <div className='space-y-6'>
             {/* Genre selector */}
-            <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
+            <div className='bg-gray-50 rounded-xl p-4 border border-gray-200'>
               <div className='flex items-center gap-2 mb-3'>
                 <BookOpen className='w-5 h-5 text-gray-600' />
                 <h3 className='font-semibold text-gray-700'>Choose a Genre</h3>
@@ -201,7 +201,7 @@ export default function WritingPromptGeneratorClient() {
                     }}
                     className={`py-2 px-3 rounded-lg font-semibold text-sm transition-colors border flex items-center gap-2 justify-center ${
                       genre === g.key
-                        ? "bg-indigo-600 text-white border-indigo-600"
+                        ? "bg-emerald-600 text-white border-emerald-600"
                         : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
                     }`}
                   >
@@ -215,7 +215,7 @@ export default function WritingPromptGeneratorClient() {
             <div className='flex gap-3'>
               <button
                 onClick={generate}
-                className='flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition-colors'
+                className='flex-1 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg transition-colors'
               >
                 Generate Prompt
               </button>
@@ -230,12 +230,12 @@ export default function WritingPromptGeneratorClient() {
 
             {/* Prompt display */}
             {prompt && (
-              <div className='bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200'>
+              <div className='bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 border border-emerald-200'>
                 <div className='flex items-start gap-4 mb-6'>
                   <div className='text-3xl flex-shrink-0'>
                     {currentGenre.emoji}
                   </div>
-                  <p className='text-xl text-gray-800 leading-relaxed font-medium'>
+                  <p className='text-xl text-gray-900 leading-relaxed font-medium'>
                     {prompt}
                   </p>
                 </div>
@@ -259,8 +259,8 @@ export default function WritingPromptGeneratorClient() {
             )}
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Tips:</p>
+          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+            <p className='font-semibold mb-2 text-gray-800'>💡 Tips:</p>
             <ul className='list-disc list-inside space-y-1'>
               <li>
                 Set a timer for 10 minutes and write without stopping — do not

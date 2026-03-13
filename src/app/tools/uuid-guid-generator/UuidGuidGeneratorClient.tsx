@@ -149,16 +149,16 @@ export default function UuidGeneratorClient() {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-emerald-50 to-teal-100 p-4'>
-      <div className='max-w-5xl mx-auto'>
+      <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-emerald-100 rounded-full mb-4'>
-              <Hash className='w-8 h-8 text-emerald-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full mb-4 shadow-lg'>
+              <Hash className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               UUID/GUID Generator
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Generate unique identifiers instantly
             </p>
           </div>
@@ -226,8 +226,8 @@ export default function UuidGeneratorClient() {
             </div>
 
             {/* Format options */}
-            <div className='bg-teal-50 rounded-lg p-4 border border-teal-200'>
-              <h3 className='font-semibold text-gray-800 mb-3'>
+            <div className='bg-teal-50 rounded-xl p-4 border border-teal-200'>
+              <h3 className='font-semibold text-gray-900 mb-3'>
                 Format Options
               </h3>
               <div className='space-y-2'>
@@ -263,7 +263,7 @@ export default function UuidGeneratorClient() {
           {uuids.length > 0 && (
             <div className='space-y-4'>
               <div className='flex items-center justify-between'>
-                <h3 className='font-semibold text-gray-800'>
+                <h3 className='font-semibold text-gray-900'>
                   Generated UUIDs ({uuids.length})
                 </h3>
                 <div className='flex gap-2'>
@@ -297,7 +297,7 @@ export default function UuidGeneratorClient() {
                 </div>
               </div>
 
-              <div className='bg-gray-50 rounded-lg border border-gray-200 overflow-hidden'>
+              <div className='bg-gray-50 rounded-xl border border-gray-200 overflow-hidden'>
                 <div className='max-h-96 overflow-y-auto'>
                   {uuids.map((entry) => (
                     <div
@@ -305,7 +305,7 @@ export default function UuidGeneratorClient() {
                       className='flex items-center justify-between p-4 border-b border-gray-200 hover:bg-gray-100 transition-colors'
                     >
                       <div className='flex-1 mr-4'>
-                        <div className='font-mono text-sm text-gray-800 break-all'>
+                        <div className='font-mono text-sm text-gray-900 break-all'>
                           {entry.formatted}
                         </div>
                         <div className='text-xs text-gray-500 mt-1'>

@@ -8,7 +8,7 @@ import {
   RotateCcw,
 } from "lucide-react";
 
-// ─── Types ───────────────────────────────────────────────────────────────────
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 type IssueType = "grammar" | "spelling" | "punctuation" | "style";
 
@@ -25,32 +25,57 @@ interface GrammarResults {
   score: number;
 }
 
-// ─── Constants ───────────────────────────────────────────────────────────────
+// ─── Constants ────────────────────────────────────────────────────────────────
 
-const TYPE_COLORS: Record<IssueType, string> = {
-  grammar: "bg-red-100 text-red-700",
-  spelling: "bg-orange-100 text-orange-700",
-  punctuation: "bg-blue-100 text-blue-700",
-  style: "bg-purple-100 text-purple-700",
+const TYPE_STYLES: Record<IssueType, { pill: string; dot: string }> = {
+  grammar: {
+    pill: "bg-red-100 text-red-700 border border-red-200",
+    dot: "bg-red-500",
+  },
+  spelling: {
+    pill: "bg-orange-100 text-orange-700 border border-orange-200",
+    dot: "bg-orange-500",
+  },
+  punctuation: {
+    pill: "bg-blue-100 text-blue-700 border border-blue-200",
+    dot: "bg-blue-500",
+  },
+  style: {
+    pill: "bg-purple-100 text-purple-700 border border-purple-200",
+    dot: "bg-purple-500",
+  },
 };
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 
-function getScoreColor(score: number): string {
-  if (score >= 90) return "text-green-600";
-  if (score >= 70) return "text-yellow-600";
-  return "text-red-600";
-}
-
-function getTypeColor(type: string): string {
-  return TYPE_COLORS[type as IssueType] ?? "bg-gray-100 text-gray-700";
+function getScoreConfig(score: number) {
+  if (score >= 90)
+    return {
+      color: "text-emerald-600",
+      bg: "from-emerald-50 to-teal-50 border-emerald-200",
+      label: "Excellent writing!",
+      desc: "Your text has minimal issues.",
+    };
+  if (score >= 70)
+    return {
+      color: "text-amber-600",
+      bg: "from-amber-50 to-yellow-50 border-amber-200",
+      label: "Good, with room for improvement",
+      desc: "A few issues found — review the corrections below.",
+    };
+  return {
+    color: "text-red-600",
+    bg: "from-red-50 to-rose-50 border-red-200",
+    label: "Several issues found",
+    desc: "Review all corrections below to improve your text.",
+  };
 }
 
 function wordCount(text: string): number {
   return text.trim().split(/\s+/).filter(Boolean).length;
 }
 
-// ─── Component ───────────────────────────────────────────────────────────────
+// ─── Component ────────────────────────────────────────────────────────────────
 
 export default function GrammarSpellCheckerClient() {
   const [text, setText] = useState<string>("");
@@ -79,7 +104,7 @@ export default function GrammarSpellCheckerClient() {
           messages: [
             {
               role: "user",
-              content: `Analyze this text for grammar, spelling, and style issues. Return ONLY a JSON object with this exact format:
+              content: `Analyze this text for grammar, spelling, punctuation, and style issues. Return ONLY a JSON object with this exact format:
 {
   "correctedText": "the fully corrected version",
   "issues": [
@@ -102,7 +127,6 @@ Return only the JSON, no other text or markdown.`,
       });
 
       const data = await response.json();
-
       const textContent = (
         data.content as Array<{ type: string; text?: string }>
       )
@@ -111,9 +135,7 @@ Return only the JSON, no other text or markdown.`,
         .join("\n");
 
       const cleanJson = textContent.replace(/```json|```/g, "").trim();
-      const parsed = JSON.parse(cleanJson) as GrammarResults;
-
-      setResults(parsed);
+      setResults(JSON.parse(cleanJson) as GrammarResults);
     } catch (err) {
       setError("An error occurred while checking. Please try again.");
       console.error(err);
@@ -130,225 +152,237 @@ Return only the JSON, no other text or markdown.`,
     }
   };
 
-  const reset = (): void => {
-    setText("");
-    setResults(null);
-    setError("");
-  };
-
-  // ─── Render ──────────────────────────────────────────────────────────────
+  const scoreConfig = results ? getScoreConfig(results.score) : null;
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-green-50 to-teal-100 p-4'>
-      <div className='max-w-5xl mx-auto'>
+    <div className='min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-100 p-4'>
+      <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
+          {/* Header */}
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4'>
-              <CheckCircle className='w-8 h-8 text-green-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full mb-4 shadow-lg'>
+              <CheckCircle className='w-8 h-8 text-white' />
             </div>
             <h2 className='text-3xl font-bold text-gray-800 mb-2'>
               Grammar &amp; Spell Checker
             </h2>
-            <p className='text-gray-600'>
-              Get real-time writing assistance and corrections
+            <p className='text-gray-500'>
+              AI-powered writing analysis — grammar, spelling, punctuation, and
+              style
             </p>
           </div>
 
-          <div className='space-y-6'>
-            {/* Input */}
-            <div>
-              <label className='block text-sm font-medium text-gray-700 mb-2'>
-                Enter Your Text
-              </label>
-              <textarea
-                value={text}
-                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
-                  setText(e.target.value);
-                  setError("");
-                }}
-                placeholder='Type or paste your text here...'
-                className='w-full h-48 p-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none'
-              />
-              <div className='flex justify-between mt-2 text-sm text-gray-500'>
-                <span>{wordCount(text)} words</span>
-                <span>{text.length} characters</span>
-              </div>
+          {/* Input */}
+          <div className='mb-5'>
+            <label className='block text-sm font-semibold text-gray-700 mb-2'>
+              Enter your text
+            </label>
+            <textarea
+              value={text}
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+                setText(e.target.value);
+                setError("");
+              }}
+              placeholder='Type or paste your text here…'
+              rows={8}
+              className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none'
+            />
+            <div className='flex justify-between mt-1.5 text-xs text-gray-400'>
+              <span>{wordCount(text)} words</span>
+              <span>{text.length} characters</span>
             </div>
-
-            {/* Error */}
-            {error && (
-              <div className='flex items-center gap-2 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700'>
-                <AlertCircle className='w-5 h-5 flex-shrink-0' />
-                <span>{error}</span>
-              </div>
-            )}
-
-            {/* Actions */}
-            <div className='flex gap-3'>
-              <button
-                onClick={checkGrammar}
-                disabled={loading}
-                className='flex-1 bg-green-600 hover:bg-green-700 disabled:bg-green-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2'
-              >
-                {loading ? (
-                  <>
-                    <Loader2 className='w-5 h-5 animate-spin' />
-                    Checking…
-                  </>
-                ) : (
-                  <>
-                    <CheckCircle className='w-5 h-5' />
-                    Check Grammar
-                  </>
-                )}
-              </button>
-
-              {results && (
-                <button
-                  onClick={reset}
-                  className='px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold rounded-lg transition-colors flex items-center gap-2'
-                >
-                  <RotateCcw className='w-5 h-5' />
-                  Reset
-                </button>
-              )}
-            </div>
-
-            {/* Results */}
-            {results && (
-              <div className='mt-8 space-y-6'>
-                {/* Score card */}
-                <div className='bg-gradient-to-r from-green-50 to-teal-50 rounded-xl p-6 border border-green-200'>
-                  <div className='flex items-center justify-between mb-4'>
-                    <h3 className='text-xl font-bold text-gray-800'>
-                      Writing Score
-                    </h3>
-                    <div
-                      className={`text-3xl font-bold ${getScoreColor(results.score)}`}
-                    >
-                      {results.score}%
-                    </div>
-                  </div>
-
-                  {results.score >= 90 && (
-                    <div className='flex items-start gap-2 p-3 bg-green-50 border border-green-200 rounded-lg text-green-700'>
-                      <CheckCircle className='w-5 h-5 flex-shrink-0 mt-0.5' />
-                      <div className='text-sm'>
-                        <div className='font-semibold'>Excellent writing!</div>
-                        <div>Your text has minimal issues.</div>
-                      </div>
-                    </div>
-                  )}
-
-                  {results.score < 90 && results.score >= 70 && (
-                    <div className='flex items-start gap-2 p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-yellow-700'>
-                      <AlertCircle className='w-5 h-5 flex-shrink-0 mt-0.5' />
-                      <div className='text-sm'>
-                        <div className='font-semibold'>
-                          Good, with room for improvement
-                        </div>
-                        <div>
-                          A few issues were found that can be corrected.
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {results.score < 70 && (
-                    <div className='flex items-start gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700'>
-                      <AlertCircle className='w-5 h-5 flex-shrink-0 mt-0.5' />
-                      <div className='text-sm'>
-                        <div className='font-semibold'>
-                          Several issues found
-                        </div>
-                        <div>
-                          Review the corrections below to improve your text.
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Issues list */}
-                {results.issues.length > 0 && (
-                  <div>
-                    <h3 className='text-lg font-semibold text-gray-800 mb-3'>
-                      Issues Found ({results.issues.length})
-                    </h3>
-                    <div className='space-y-3'>
-                      {results.issues.map((issue, idx) => (
-                        <div
-                          key={idx}
-                          className='bg-white border border-gray-200 rounded-lg p-4'
-                        >
-                          <div className='flex items-start gap-3'>
-                            <span
-                              className={`px-2 py-1 rounded text-xs font-semibold uppercase ${getTypeColor(issue.type)}`}
-                            >
-                              {issue.type}
-                            </span>
-                            <div className='flex-1'>
-                              <div className='mb-2'>
-                                <span className='text-red-600 line-through'>
-                                  {issue.original}
-                                </span>
-                                <span className='mx-2'>→</span>
-                                <span className='text-green-600 font-semibold'>
-                                  {issue.correction}
-                                </span>
-                              </div>
-                              <p className='text-sm text-gray-600'>
-                                {issue.explanation}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Corrected text */}
-                <div>
-                  <div className='flex items-center justify-between mb-2'>
-                    <h3 className='text-lg font-semibold text-gray-800'>
-                      Corrected Text
-                    </h3>
-                    <button
-                      onClick={copyToClipboard}
-                      className='flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-lg transition-colors'
-                    >
-                      {copied ? (
-                        <>
-                          <CheckCircle className='w-4 h-4' />
-                          Copied!
-                        </>
-                      ) : (
-                        <>
-                          <Copy className='w-4 h-4' />
-                          Copy
-                        </>
-                      )}
-                    </button>
-                  </div>
-                  <div className='bg-gray-50 border border-gray-200 rounded-lg p-4'>
-                    <p className='text-gray-800 whitespace-pre-wrap'>
-                      {results.correctedText}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Tips for better writing:</p>
+          {/* Error */}
+          {error && (
+            <div className='flex items-center gap-2 px-4 py-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm mb-5'>
+              <AlertCircle className='w-4 h-4 shrink-0' />
+              <span>{error}</span>
+            </div>
+          )}
+
+          {/* Submit */}
+          <button
+            onClick={checkGrammar}
+            disabled={loading}
+            className='w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 disabled:opacity-60 text-white font-bold py-3.5 px-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2'
+          >
+            {loading ? (
+              <>
+                <Loader2 className='w-5 h-5 animate-spin' />
+                Analysing your text…
+              </>
+            ) : (
+              <>
+                <CheckCircle className='w-5 h-5' />
+                Check Grammar &amp; Spelling
+              </>
+            )}
+          </button>
+
+          {/* Results */}
+          {results && scoreConfig && (
+            <div className='mt-8 space-y-6'>
+              {/* Score card */}
+              <div
+                className={`bg-gradient-to-r ${scoreConfig.bg} border-2 rounded-2xl p-6`}
+              >
+                <div className='flex items-center justify-between mb-4'>
+                  <p className='text-xs font-bold uppercase tracking-widest text-gray-400'>
+                    Writing Score
+                  </p>
+                  <p className={`text-5xl font-black ${scoreConfig.color}`}>
+                    {results.score}
+                    <span className='text-2xl'>%</span>
+                  </p>
+                </div>
+                <div
+                  className={`flex items-start gap-3 px-4 py-3 rounded-xl text-sm ${results.score >= 90 ? "bg-emerald-50 border border-emerald-200 text-emerald-700" : results.score >= 70 ? "bg-amber-50 border border-amber-200 text-amber-700" : "bg-red-50 border border-red-200 text-red-700"}`}
+                >
+                  {results.score >= 90 ? (
+                    <CheckCircle className='w-5 h-5 shrink-0 mt-0.5' />
+                  ) : (
+                    <AlertCircle className='w-5 h-5 shrink-0 mt-0.5' />
+                  )}
+                  <div>
+                    <p className='font-bold'>{scoreConfig.label}</p>
+                    <p>{scoreConfig.desc}</p>
+                  </div>
+                </div>
+
+                {/* Type summary pills */}
+                {results.issues.length > 0 && (
+                  <div className='flex flex-wrap gap-2 mt-4'>
+                    {(
+                      [
+                        "grammar",
+                        "spelling",
+                        "punctuation",
+                        "style",
+                      ] as IssueType[]
+                    ).map((type) => {
+                      const count = results.issues.filter(
+                        (i) => i.type === type,
+                      ).length;
+                      if (!count) return null;
+                      return (
+                        <span
+                          key={type}
+                          className={`px-3 py-1 rounded-full text-xs font-bold ${TYPE_STYLES[type].pill}`}
+                        >
+                          {count} {type}
+                        </span>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+
+              {/* Issues list */}
+              {results.issues.length > 0 && (
+                <div>
+                  <p className='text-sm font-bold text-gray-500 uppercase tracking-widest mb-3'>
+                    Issues found ({results.issues.length})
+                  </p>
+                  <div className='space-y-3'>
+                    {results.issues.map((issue, idx) => (
+                      <div
+                        key={idx}
+                        className='bg-gray-50 border border-gray-100 rounded-2xl p-5'
+                      >
+                        <div className='flex items-start gap-3'>
+                          <span
+                            className={`mt-0.5 px-2.5 py-1 rounded-full text-xs font-bold uppercase shrink-0 ${TYPE_STYLES[issue.type]?.pill ?? "bg-gray-100 text-gray-600"}`}
+                          >
+                            {issue.type}
+                          </span>
+                          <div className='flex-1 min-w-0'>
+                            <div className='flex flex-wrap items-center gap-2 mb-2'>
+                              <span className='text-red-600 line-through text-sm font-medium'>
+                                {issue.original}
+                              </span>
+                              <span className='text-gray-400'>→</span>
+                              <span className='text-emerald-700 font-bold text-sm'>
+                                {issue.correction}
+                              </span>
+                            </div>
+                            <p className='text-xs text-gray-500 leading-relaxed'>
+                              {issue.explanation}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Corrected text */}
+              <div>
+                <div className='flex items-center justify-between mb-3'>
+                  <p className='text-sm font-bold text-gray-500 uppercase tracking-widest'>
+                    Corrected text
+                  </p>
+                  <button
+                    onClick={copyToClipboard}
+                    className='flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl transition-colors'
+                  >
+                    {copied ? (
+                      <>
+                        <CheckCircle className='w-4 h-4' />
+                        Copied!
+                      </>
+                    ) : (
+                      <>
+                        <Copy className='w-4 h-4' />
+                        Copy text
+                      </>
+                    )}
+                  </button>
+                </div>
+                <div className='bg-emerald-50 border-2 border-emerald-100 rounded-2xl p-5'>
+                  <p className='text-gray-800 leading-relaxed whitespace-pre-wrap'>
+                    {results.correctedText}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Reset */}
+          <button
+            onClick={() => {
+              setText("");
+              setResults(null);
+              setError("");
+            }}
+            className='flex items-center gap-2 text-sm text-gray-500 hover:text-green-600 transition-colors mt-6 mb-4'
+          >
+            <RotateCcw className='w-4 h-4' />
+            Clear and start over
+          </button>
+
+          {/* Tips */}
+          <div className='p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+            <p className='font-semibold mb-2 text-gray-800'>💡 Writing tips:</p>
             <ul className='list-disc list-inside space-y-1'>
-              <li>Use active voice instead of passive voice when possible</li>
-              <li>Keep sentences concise and clear</li>
-              <li>Avoid repetitive words and phrases</li>
-              <li>Ensure subject-verb agreement</li>
-              <li>Use proper punctuation and capitalization</li>
+              <li>
+                Use active voice instead of passive voice for more direct,
+                engaging writing
+              </li>
+              <li>Keep sentences concise — aim for 15–20 words on average</li>
+              <li>
+                Ensure subject-verb agreement throughout, especially with
+                compound subjects
+              </li>
+              <li>
+                Use consistent tense — avoid switching between past and present
+                mid-paragraph
+              </li>
+              <li>
+                Vary sentence length to maintain reader engagement and natural
+                rhythm
+              </li>
             </ul>
           </div>
         </div>

@@ -169,16 +169,16 @@ export default function ImageCropperResizerClient() {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-teal-50 to-cyan-100 p-4'>
-      <div className='max-w-7xl mx-auto'>
+      <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-teal-100 rounded-full mb-4'>
-              <Crop className='w-8 h-8 text-teal-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-full mb-4 shadow-lg'>
+              <Crop className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Image Cropper &amp; Resizer
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Crop and resize images to specific dimensions
             </p>
           </div>
@@ -209,10 +209,10 @@ export default function ImageCropperResizerClient() {
             /* ── Editor ── */
             <div className='space-y-6'>
               {/* Image info + change */}
-              <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
+              <div className='bg-gray-50 rounded-xl border border-gray-200 p-4'>
                 <div className='flex items-center justify-between mb-4'>
                   <div>
-                    <div className='font-semibold text-gray-800'>
+                    <div className='font-semibold text-gray-900'>
                       {imageName}
                     </div>
                     <div className='text-sm text-gray-600'>
@@ -280,8 +280,8 @@ export default function ImageCropperResizerClient() {
               </div>
 
               {/* Presets */}
-              <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
-                <h3 className='font-semibold text-gray-800 mb-3'>
+              <div className='bg-gray-50 rounded-xl border border-gray-200 p-4'>
+                <h3 className='font-semibold text-gray-900 mb-3'>
                   Quick Presets
                 </h3>
                 <div className='grid grid-cols-2 md:grid-cols-5 gap-2'>
@@ -300,8 +300,8 @@ export default function ImageCropperResizerClient() {
               </div>
 
               {/* Transform */}
-              <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
-                <h3 className='font-semibold text-gray-800 mb-3'>Transform</h3>
+              <div className='bg-gray-50 rounded-xl border border-gray-200 p-4'>
+                <h3 className='font-semibold text-gray-900 mb-3'>Transform</h3>
                 <div className='flex gap-2 flex-wrap'>
                   <button
                     onClick={rotate90}
@@ -336,8 +336,8 @@ export default function ImageCropperResizerClient() {
               </div>
 
               {/* Export settings */}
-              <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
-                <h3 className='font-semibold text-gray-800 mb-3'>
+              <div className='bg-gray-50 rounded-xl border border-gray-200 p-4'>
+                <h3 className='font-semibold text-gray-900 mb-3'>
                   Export Settings
                 </h3>
                 <div className='grid md:grid-cols-2 gap-4'>
@@ -377,9 +377,9 @@ export default function ImageCropperResizerClient() {
               </div>
 
               {/* Canvas preview */}
-              <div className='bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl p-6 border border-teal-200'>
-                <h3 className='font-semibold text-gray-800 mb-3'>Preview</h3>
-                <div className='bg-white rounded-lg p-4 flex items-center justify-center min-h-64 overflow-auto'>
+              <div className='bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl border border-teal-200 p-6'>
+                <h3 className='font-semibold text-gray-900 mb-3'>Preview</h3>
+                <div className='bg-white rounded-xl p-4 flex items-center justify-center min-h-64 overflow-auto'>
                   <canvas
                     ref={canvasRef}
                     className='max-w-full max-h-96 border border-gray-300'
@@ -402,7 +402,7 @@ export default function ImageCropperResizerClient() {
             </div>
           )}
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
+          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
             <p className='font-semibold mb-2'>Features:</p>
             <ul className='list-disc list-inside space-y-1'>
               <li>

@@ -293,10 +293,10 @@ export default function LoremIpsumGeneratorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-amber-50 via-white to-orange-50 p-4 md:p-8'>
+    <div className='min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 p-4'>
       <div className='max-w-6xl mx-auto'>
         <div className='text-center mb-8'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-600 to-orange-600 rounded-2xl mb-4 shadow-lg'>
+          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-600 to-orange-600 rounded-full mb-4 shadow-lg'>
             <FileText className='w-8 h-8 text-white' />
           </div>
           <h2 className='text-4xl font-bold text-gray-900 mb-2'>
@@ -476,30 +476,30 @@ export default function LoremIpsumGeneratorClient() {
               </div>
             </div>
 
-            <div className='bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl shadow-md p-6 border-2 border-amber-200'>
-              <h4 className='font-bold text-gray-900 mb-4'>
-                📚 About Lorem Ipsum
-              </h4>
-              <p className='text-sm text-gray-700 leading-relaxed mb-3'>
-                Lorem Ipsum is a placeholder text used in the design and
-                publishing industries since the 1500s.
-              </p>
-              <p className='text-sm text-gray-700 leading-relaxed'>
-                It&apos;s derived from Latin literature and helps designers
-                focus on layout without being distracted by readable content.
-              </p>
-            </div>
-
-            <div className='bg-white rounded-xl shadow-md p-6'>
-              <h4 className='font-bold text-gray-900 mb-4'>💡 Common Uses</h4>
-              <div className='space-y-2 text-sm text-gray-700'>
-                <p>• Website mockups &amp; wireframes</p>
-                <p>• Graphic design layouts</p>
-                <p>• Content management systems</p>
-                <p>• Typography demonstrations</p>
-                <p>• Print design templates</p>
-                <p>• UI/UX prototypes</p>
-              </div>
+            <div className='p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+              <p className='font-semibold mb-2 text-gray-800'>💡 Tips:</p>
+              <ul className='list-disc list-inside space-y-1'>
+                <li>
+                  Use Paragraphs mode for body text — each paragraph is 4–7
+                  sentences
+                </li>
+                <li>
+                  Use Sentences for individual UI copy placeholders like
+                  descriptions and tooltips
+                </li>
+                <li>
+                  Use Words to fill a specific character or word budget in a
+                  design mockup
+                </li>
+                <li>
+                  Use Lists to prototype bullet-point UI components and
+                  navigation items
+                </li>
+                <li>
+                  Enable "Start with Lorem ipsum" to match the traditional
+                  placeholder format
+                </li>
+              </ul>
             </div>
           </div>
         </div>

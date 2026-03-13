@@ -173,17 +173,17 @@ export default function TextSummarizerClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
+    <div className='min-h-screen bg-gradient-to-br from-indigo-50 via-blue-50 to-indigo-100 p-4'>
       <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <FileText className='w-8 h-8 text-indigo-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full mb-4 shadow-lg'>
+              <FileText className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Text Summarizer
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Summarize long text into concise key points instantly
             </p>
           </div>
@@ -209,7 +209,7 @@ export default function TextSummarizerClient() {
             </div>
 
             {/* Options */}
-            <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
+            <div className='bg-gray-50 rounded-xl p-4 border border-gray-200'>
               <div className='grid md:grid-cols-2 gap-4'>
                 <div>
                   <label className='block text-sm font-medium text-gray-700 mb-2'>
@@ -257,7 +257,7 @@ export default function TextSummarizerClient() {
               <div className='space-y-4'>
                 <div className='bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200'>
                   <div className='flex items-center justify-between mb-4'>
-                    <h3 className='text-xl font-bold text-gray-800'>Summary</h3>
+                    <h3 className='text-xl font-bold text-gray-900'>Summary</h3>
                     <button
                       onClick={copyOutput}
                       className='flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold rounded-lg transition-colors'
@@ -286,8 +286,8 @@ export default function TextSummarizerClient() {
             )}
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Tips:</p>
+          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+            <p className='font-semibold mb-2 text-gray-800'>💡 Tips:</p>
             <ul className='list-disc list-inside space-y-1'>
               <li>
                 Works best with well-structured text that uses complete

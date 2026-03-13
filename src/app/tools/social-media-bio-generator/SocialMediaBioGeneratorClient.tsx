@@ -433,14 +433,14 @@ export default function SocialMediaBioGeneratorClient() {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-amber-50 to-orange-50 p-4 md:p-8'>
-      <div className='max-w-5xl mx-auto'>
+      <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           {/* Header */}
           <div className='text-center mb-8'>
             <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl mb-4 shadow-lg'>
               <User className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Social Media Bio Generator
             </h2>
             <p className='text-gray-600'>
@@ -498,7 +498,7 @@ export default function SocialMediaBioGeneratorClient() {
                           : "border-gray-100 bg-gray-50 hover:border-amber-200"
                       }`}
                     >
-                      <div className='text-sm font-semibold text-gray-800'>
+                      <div className='text-sm font-semibold text-gray-900'>
                         {label}
                       </div>
                       <div className='text-xs text-gray-500'>{desc}</div>
@@ -548,7 +548,7 @@ export default function SocialMediaBioGeneratorClient() {
             {/* Right: output */}
             <div className='space-y-4'>
               <div className='flex items-center justify-between'>
-                <h3 className='font-bold text-gray-800'>Generated Bio</h3>
+                <h3 className='font-bold text-gray-900'>Generated Bio</h3>
                 {bio && (
                   <span
                     className={`text-xs font-semibold ${over ? "text-red-500" : "text-gray-500"}`}
@@ -577,7 +577,7 @@ export default function SocialMediaBioGeneratorClient() {
                   )}
 
                   {/* Bio preview */}
-                  <div className='bg-gray-50 border-2 border-gray-200 rounded-xl p-5 min-h-[140px] text-gray-800 text-sm whitespace-pre-wrap leading-relaxed font-medium'>
+                  <div className='bg-gray-50 border-2 border-gray-200 rounded-xl p-5 min-h-[140px] text-gray-900 text-sm whitespace-pre-wrap leading-relaxed font-medium'>
                     {bio}
                   </div>
 

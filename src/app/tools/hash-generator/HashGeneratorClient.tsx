@@ -202,16 +202,16 @@ export default function HashGeneratorClient() {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-violet-50 to-purple-100 p-4'>
-      <div className='max-w-5xl mx-auto'>
+      <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-violet-100 rounded-full mb-4'>
-              <Shield className='w-8 h-8 text-violet-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-full mb-4 shadow-lg'>
+              <Shield className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Hash Generator
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Generate MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes
             </p>
           </div>
@@ -251,7 +251,7 @@ export default function HashGeneratorClient() {
               <div className='flex items-center gap-3'>
                 <FileText className='w-5 h-5 text-blue-600 flex-shrink-0' />
                 <div className='flex-1'>
-                  <div className='font-semibold text-gray-800'>
+                  <div className='font-semibold text-gray-900'>
                     {fileInfo.name}
                   </div>
                   <div className='text-sm text-gray-600'>
@@ -283,7 +283,7 @@ export default function HashGeneratorClient() {
           {/* Hash results */}
           {hashEntries.length > 0 && (
             <div className='space-y-4'>
-              <h3 className='text-lg font-semibold text-gray-800'>
+              <h3 className='text-lg font-semibold text-gray-900'>
                 Generated Hashes
               </h3>
 
@@ -299,7 +299,7 @@ export default function HashGeneratorClient() {
                   >
                     <div className='bg-gray-100 px-4 py-3 flex items-center justify-between'>
                       <div className='flex items-center gap-3'>
-                        <span className='font-bold text-gray-800'>
+                        <span className='font-bold text-gray-900'>
                           {algorithm}
                         </span>
                         <span
@@ -331,7 +331,7 @@ export default function HashGeneratorClient() {
                     <div className='p-4'>
                       <div
                         className={`font-mono text-sm break-all ${
-                          isMd5 ? "text-red-600 italic" : "text-gray-800"
+                          isMd5 ? "text-red-600 italic" : "text-gray-900"
                         }`}
                       >
                         {hash}
@@ -351,7 +351,7 @@ export default function HashGeneratorClient() {
 
           {/* Comparison table */}
           <div className='mt-8 bg-gradient-to-r from-violet-50 to-purple-50 rounded-xl p-6 border border-violet-200'>
-            <h3 className='font-semibold text-gray-800 mb-3'>
+            <h3 className='font-semibold text-gray-900 mb-3'>
               Hash Function Comparison
             </h3>
             <div className='overflow-x-auto'>
@@ -388,8 +388,8 @@ export default function HashGeneratorClient() {
             </div>
           </div>
 
-          <div className='mt-6 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Common Uses:</p>
+          <div className='mt-6 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+            <p className='font-semibold mb-2 text-gray-800'>⚡ Common Uses:</p>
             <ul className='list-disc list-inside space-y-1'>
               <li>
                 <strong>Data Integrity:</strong> Verify files haven&apos;t been

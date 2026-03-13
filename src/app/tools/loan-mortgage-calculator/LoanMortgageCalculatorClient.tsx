@@ -149,7 +149,7 @@ export default function LoanMortgageCalculatorClient() {
           <h2 className='text-4xl font-bold text-gray-900 mb-2'>
             Loan &amp; Mortgage Calculator
           </h2>
-          <p className='text-gray-600'>
+          <p className='text-gray-500'>
             Calculate monthly payments and total costs
           </p>
         </div>

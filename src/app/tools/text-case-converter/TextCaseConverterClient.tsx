@@ -1,8 +1,15 @@
 "use client";
 import React, { useState } from "react";
-import { Type, Copy, Check, Download, Trash2, ArrowRight } from "lucide-react";
+import {
+  Type,
+  Copy,
+  Check,
+  Download,
+  RotateCcw,
+  ArrowRight,
+} from "lucide-react";
 
-// ─── Types ───────────────────────────────────────────────────────────────────
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 interface CaseType {
   id: string;
@@ -12,20 +19,7 @@ interface CaseType {
   convert: (s: string) => string;
 }
 
-interface StatItem {
-  label: string;
-  value: number;
-  color: string;
-  bg: string;
-}
-
-interface UseCaseItem {
-  dotColor: string;
-  label: string;
-  desc: string;
-}
-
-// ─── Constants ───────────────────────────────────────────────────────────────
+// ─── Constants ────────────────────────────────────────────────────────────────
 
 const MINOR_WORDS = new Set([
   "a",
@@ -49,7 +43,7 @@ const CASE_TYPES: CaseType[] = [
   {
     id: "sentence",
     name: "Sentence case",
-    description: "First letter capitalized",
+    description: "First letter capitalised",
     example: "This is sentence case",
     convert: (s) =>
       s.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, (c) => c.toUpperCase()),
@@ -71,15 +65,31 @@ const CASE_TYPES: CaseType[] = [
   {
     id: "capitalized",
     name: "Capitalized Case",
-    description: "First letter of each word capitalized",
+    description: "First letter of every word capitalised",
     example: "This Is Capitalized Case",
     convert: (s) => s.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase()),
   },
   {
+    id: "title",
+    name: "Title Case",
+    description: "Major words capitalised",
+    example: "This Is a Title Case",
+    convert: (s) =>
+      s
+        .toLowerCase()
+        .split(" ")
+        .map((w, i) =>
+          i === 0 || !MINOR_WORDS.has(w)
+            ? w.charAt(0).toUpperCase() + w.slice(1)
+            : w,
+        )
+        .join(" "),
+  },
+  {
     id: "alternating",
     name: "aLtErNaTiNg cAsE",
-    description: "Alternating between lower and upper",
-    example: "tHiS iS aLtErNaTiNg CaSe",
+    description: "Alternates lower / upper per character",
+    example: "tHiS iS aLtErNaTiNg",
     convert: (s) =>
       s
         .split("")
@@ -87,25 +97,9 @@ const CASE_TYPES: CaseType[] = [
         .join(""),
   },
   {
-    id: "title",
-    name: "Title Case",
-    description: "Major words capitalized",
-    example: "This Is Title Case",
-    convert: (s) =>
-      s
-        .toLowerCase()
-        .split(" ")
-        .map((word, i) =>
-          i === 0 || !MINOR_WORDS.has(word)
-            ? word.charAt(0).toUpperCase() + word.slice(1)
-            : word,
-        )
-        .join(" "),
-  },
-  {
     id: "inverse",
     name: "iNVERSE cASE",
-    description: "Uppercase becomes lowercase and vice versa",
+    description: "Flips uppercase ↔ lowercase",
     example: "tHIS iS iNVERSE cASE",
     convert: (s) =>
       s
@@ -118,29 +112,29 @@ const CASE_TYPES: CaseType[] = [
   {
     id: "camel",
     name: "camelCase",
-    description: "First word lowercase, rest capitalized",
+    description: "First word lowercase, rest joined",
     example: "thisIsCamelCase",
     convert: (s) =>
       s
         .toLowerCase()
         .replace(/[^a-zA-Z0-9]+(.)/g, (_, chr: string) => chr.toUpperCase())
-        .replace(/^[A-Z]/, (chr) => chr.toLowerCase()),
+        .replace(/^[A-Z]/, (c) => c.toLowerCase()),
   },
   {
     id: "pascal",
     name: "PascalCase",
-    description: "All words capitalized, no spaces",
+    description: "All words capitalised, no spaces",
     example: "ThisIsPascalCase",
     convert: (s) =>
       s
         .toLowerCase()
         .replace(/[^a-zA-Z0-9]+(.)/g, (_, chr: string) => chr.toUpperCase())
-        .replace(/^[a-z]/, (chr) => chr.toUpperCase()),
+        .replace(/^[a-z]/, (c) => c.toUpperCase()),
   },
   {
     id: "snake",
     name: "snake_case",
-    description: "Words separated by underscores",
+    description: "Words joined with underscores",
     example: "this_is_snake_case",
     convert: (s) =>
       s
@@ -151,7 +145,7 @@ const CASE_TYPES: CaseType[] = [
   {
     id: "kebab",
     name: "kebab-case",
-    description: "Words separated by hyphens",
+    description: "Words joined with hyphens",
     example: "this-is-kebab-case",
     convert: (s) =>
       s
@@ -162,7 +156,7 @@ const CASE_TYPES: CaseType[] = [
   {
     id: "dot",
     name: "dot.case",
-    description: "Words separated by dots",
+    description: "Words joined with dots",
     example: "this.is.dot.case",
     convert: (s) =>
       s
@@ -172,50 +166,7 @@ const CASE_TYPES: CaseType[] = [
   },
 ];
 
-const USE_CASES: UseCaseItem[] = [
-  {
-    dotColor: "bg-purple-600",
-    label: "Programming",
-    desc: "Convert variable names to camelCase, snake_case, or PascalCase",
-  },
-  {
-    dotColor: "bg-pink-600",
-    label: "Writing",
-    desc: "Fix text formatting for titles, headlines, or sentences",
-  },
-  {
-    dotColor: "bg-blue-600",
-    label: "URLs",
-    desc: "Convert text to kebab-case for SEO-friendly URLs",
-  },
-];
-
-// ─── Helpers ─────────────────────────────────────────────────────────────────
-
-function computeStats(text: string): StatItem[] {
-  return [
-    {
-      label: "Characters",
-      value: text.length,
-      color: "text-purple-600",
-      bg: "from-purple-50 to-pink-50",
-    },
-    {
-      label: "Words",
-      value: text.trim() ? text.trim().split(/\s+/).length : 0,
-      color: "text-blue-600",
-      bg: "from-blue-50 to-cyan-50",
-    },
-    {
-      label: "Lines",
-      value: text.split("\n").length,
-      color: "text-green-600",
-      bg: "from-green-50 to-emerald-50",
-    },
-  ];
-}
-
-// ─── Component ───────────────────────────────────────────────────────────────
+// ─── Component ────────────────────────────────────────────────────────────────
 
 export default function TextCaseConverterClient() {
   const [text, setText] = useState<string>("");
@@ -225,8 +176,8 @@ export default function TextCaseConverterClient() {
     if (text) setText(converter(text));
   };
 
-  const handleCopy = (convertedText: string, id: string): void => {
-    navigator.clipboard.writeText(convertedText);
+  const handleCopy = (val: string, id: string): void => {
+    navigator.clipboard.writeText(val);
     setCopied(id);
     setTimeout(() => setCopied(""), 2000);
   };
@@ -243,181 +194,206 @@ export default function TextCaseConverterClient() {
     URL.revokeObjectURL(url);
   };
 
-  const stats = computeStats(text);
-
-  // ─── Render ──────────────────────────────────────────────────────────────
+  const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+  const chars = text.length;
+  const lines = text.split("\n").length;
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 p-4 md:p-8'>
-      <div className='max-w-7xl mx-auto'>
-        <div className='text-center mb-8'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl mb-4 shadow-lg'>
-            <Type className='w-8 h-8 text-white' />
+    <div className='min-h-screen bg-gradient-to-br from-purple-50 via-violet-50 to-pink-100 p-4'>
+      <div className='max-w-6xl mx-auto'>
+        <div className='bg-white rounded-2xl shadow-xl p-8'>
+          {/* Header */}
+          <div className='text-center mb-8'>
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full mb-4 shadow-lg'>
+              <Type className='w-8 h-8 text-white' />
+            </div>
+            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+              Text Case Converter
+            </h2>
+            <p className='text-gray-500'>
+              Transform your text into any of 12 case formats instantly
+            </p>
           </div>
-          <h2 className='text-4xl font-bold text-gray-900 mb-2'>
-            Text Case Converter
-          </h2>
-          <p className='text-gray-600'>
-            Transform your text into any case style instantly
-          </p>
-        </div>
 
-        {/* Top row */}
-        <div className='grid lg:grid-cols-3 gap-6 mb-6'>
-          {/* Textarea + stats */}
-          <div className='lg:col-span-2 bg-white rounded-2xl shadow-xl p-6 md:p-8'>
-            <div className='flex justify-between items-center mb-4'>
-              <h3 className='font-bold text-gray-900'>Input Text</h3>
-              <div className='flex gap-2'>
-                <button
-                  onClick={handleDownload}
-                  disabled={!text}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
-                    text
-                      ? "bg-blue-600 hover:bg-blue-700 text-white"
-                      : "bg-gray-200 text-gray-400 cursor-not-allowed"
-                  }`}
-                >
-                  <Download className='w-4 h-4' />
-                  Download
-                </button>
-                <button
-                  onClick={() => {
-                    setText("");
-                    setCopied("");
-                  }}
-                  disabled={!text}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
-                    text
-                      ? "bg-red-600 hover:bg-red-700 text-white"
-                      : "bg-gray-200 text-gray-400 cursor-not-allowed"
-                  }`}
-                >
-                  <Trash2 className='w-4 h-4' />
-                  Clear
-                </button>
+          {/* Input + stats + quick actions */}
+          <div className='grid lg:grid-cols-3 gap-6 mb-6'>
+            {/* Textarea + stats */}
+            <div className='lg:col-span-2 space-y-4'>
+              <div className='flex justify-between items-center'>
+                <label className='text-sm font-semibold text-gray-700'>
+                  Enter your text
+                </label>
+                <div className='flex gap-2'>
+                  <button
+                    onClick={handleDownload}
+                    disabled={!text}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${text ? "bg-indigo-600 hover:bg-indigo-700 text-white" : "bg-gray-100 text-gray-400 cursor-not-allowed"}`}
+                  >
+                    <Download className='w-3.5 h-3.5' />
+                    Download
+                  </button>
+                  <button
+                    onClick={() => {
+                      setText("");
+                      setCopied("");
+                    }}
+                    disabled={!text}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${text ? "bg-red-500 hover:bg-red-600 text-white" : "bg-gray-100 text-gray-400 cursor-not-allowed"}`}
+                  >
+                    <RotateCcw className='w-3.5 h-3.5' />
+                    Clear
+                  </button>
+                </div>
+              </div>
+              <textarea
+                value={text}
+                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                  setText(e.target.value)
+                }
+                placeholder='Type or paste your text here…'
+                rows={9}
+                className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none'
+              />
+              <div className='grid grid-cols-3 gap-3'>
+                {[
+                  {
+                    label: "Characters",
+                    value: chars,
+                    color: "text-purple-700",
+                    bg: "bg-purple-50 border-purple-100",
+                  },
+                  {
+                    label: "Words",
+                    value: words,
+                    color: "text-violet-700",
+                    bg: "bg-violet-50 border-violet-100",
+                  },
+                  {
+                    label: "Lines",
+                    value: lines,
+                    color: "text-pink-700",
+                    bg: "bg-pink-50 border-pink-100",
+                  },
+                ].map(({ label, value, color, bg }) => (
+                  <div
+                    key={label}
+                    className={`rounded-xl border p-3 text-center ${bg}`}
+                  >
+                    <p className={`text-2xl font-black ${color}`}>{value}</p>
+                    <p className='text-xs text-gray-500 mt-0.5'>{label}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
-            <textarea
-              value={text}
-              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-                setText(e.target.value)
-              }
-              placeholder='Type or paste your text here...'
-              className='w-full h-64 px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-purple-500 resize-none transition-colors text-base leading-relaxed'
-            />
-
-            <div className='grid grid-cols-3 gap-4 mt-4'>
-              {stats.map(({ label, value, color, bg }) => (
-                <div
-                  key={label}
-                  className={`bg-gradient-to-br ${bg} rounded-xl p-4 text-center`}
-                >
-                  <div className={`text-2xl font-bold ${color}`}>{value}</div>
-                  <div className='text-sm text-gray-600'>{label}</div>
-                </div>
-              ))}
+            {/* Quick actions */}
+            <div>
+              <p className='text-sm font-semibold text-gray-700 mb-3'>
+                Quick convert
+              </p>
+              <div className='space-y-2'>
+                {CASE_TYPES.slice(0, 6).map((ct) => (
+                  <button
+                    key={ct.id}
+                    onClick={() => handleConvert(ct.convert)}
+                    disabled={!text}
+                    className={`w-full text-left px-4 py-3 rounded-xl border-2 transition-all duration-200 ${text ? "bg-gradient-to-r from-purple-50 to-pink-50 hover:from-purple-100 hover:to-pink-100 border-purple-200 hover:border-purple-400 hover:-translate-y-0.5" : "bg-gray-50 border-gray-100 cursor-not-allowed"}`}
+                  >
+                    <p className='font-semibold text-gray-900 text-sm'>
+                      {ct.name}
+                    </p>
+                    <p className='text-xs text-gray-500 mt-0.5'>
+                      {ct.description}
+                    </p>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Quick actions */}
-          <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
-            <h3 className='font-bold text-gray-900 mb-4'>Quick Actions</h3>
-            <div className='space-y-3'>
-              {CASE_TYPES.slice(0, 6).map((ct) => (
-                <button
-                  key={ct.id}
-                  onClick={() => handleConvert(ct.convert)}
-                  disabled={!text}
-                  className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-200 ${
-                    text
-                      ? "bg-gradient-to-r from-purple-50 to-pink-50 hover:from-purple-100 hover:to-pink-100 border-2 border-purple-200 hover:border-purple-300"
-                      : "bg-gray-100 border-2 border-gray-200 cursor-not-allowed"
-                  }`}
-                >
-                  <div className='font-semibold text-gray-900'>{ct.name}</div>
-                  <div className='text-xs text-gray-600 mt-1'>
-                    {ct.description}
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* All conversions */}
-        <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
-          <h3 className='font-bold text-gray-900 mb-6'>
-            All Conversion Options
-          </h3>
-          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
-            {CASE_TYPES.map((ct) => {
-              const converted = text ? ct.convert(text) : ct.example;
-              const isCopied = copied === ct.id;
-
-              return (
-                <div
-                  key={ct.id}
-                  className='bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-5 hover:shadow-md transition-shadow'
-                >
-                  <div className='flex justify-between items-start mb-3'>
-                    <div>
-                      <h4 className='font-bold text-gray-900'>{ct.name}</h4>
-                      <p className='text-xs text-gray-600 mt-1'>
-                        {ct.description}
+          {/* All conversions grid */}
+          <div>
+            <p className='text-sm font-bold text-gray-500 uppercase tracking-widest mb-4'>
+              All 12 formats
+            </p>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
+              {CASE_TYPES.map((ct) => {
+                const converted = text ? ct.convert(text) : ct.example;
+                const isCopied = copied === ct.id;
+                return (
+                  <div
+                    key={ct.id}
+                    className='bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-5 hover:shadow-md transition-shadow border border-gray-100'
+                  >
+                    <div className='flex justify-between items-start mb-3'>
+                      <div>
+                        <p className='font-bold text-gray-900 text-sm'>
+                          {ct.name}
+                        </p>
+                        <p className='text-xs text-gray-500 mt-0.5'>
+                          {ct.description}
+                        </p>
+                      </div>
+                      {text && (
+                        <button
+                          onClick={() => handleCopy(converted, ct.id)}
+                          aria-label={`Copy ${ct.name}`}
+                          className='p-2 bg-purple-100 hover:bg-purple-200 rounded-lg transition-colors shrink-0'
+                        >
+                          {isCopied ? (
+                            <Check className='w-4 h-4 text-green-600' />
+                          ) : (
+                            <Copy className='w-4 h-4 text-purple-600' />
+                          )}
+                        </button>
+                      )}
+                    </div>
+                    <div className='bg-white rounded-xl p-3 border-2 border-gray-200 min-h-[52px] flex items-center mb-3'>
+                      <p className='text-sm text-gray-700 break-all line-clamp-2'>
+                        {converted}
                       </p>
                     </div>
                     {text && (
                       <button
-                        onClick={() => handleCopy(converted, ct.id)}
-                        aria-label={`Copy ${ct.name}`}
-                        className='p-2 bg-purple-100 hover:bg-purple-200 rounded-lg transition-colors'
+                        onClick={() => handleConvert(ct.convert)}
+                        className='w-full flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-xl text-sm font-bold transition-all hover:-translate-y-0.5'
                       >
-                        {isCopied ? (
-                          <Check className='w-4 h-4 text-green-600' />
-                        ) : (
-                          <Copy className='w-4 h-4 text-purple-600' />
-                        )}
+                        Apply to input <ArrowRight className='w-4 h-4' />
                       </button>
                     )}
                   </div>
-
-                  <div className='bg-white rounded-lg p-3 border-2 border-gray-200 min-h-[60px] flex items-center'>
-                    <p className='text-sm text-gray-700 break-words line-clamp-2'>
-                      {converted}
-                    </p>
-                  </div>
-
-                  {text && (
-                    <button
-                      onClick={() => handleConvert(ct.convert)}
-                      className='mt-3 w-full flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-lg font-medium transition-all'
-                    >
-                      Convert
-                      <ArrowRight className='w-4 h-4' />
-                    </button>
-                  )}
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
 
-        {/* Use cases */}
-        <div className='mt-6 bg-white rounded-xl shadow-md p-6'>
-          <h3 className='font-bold text-gray-900 mb-4'>💡 Common Use Cases</h3>
-          <div className='grid md:grid-cols-3 gap-4 text-sm text-gray-700'>
-            {USE_CASES.map(({ dotColor, label, desc }) => (
-              <div key={label} className='flex items-start gap-3'>
-                <div
-                  className={`w-2 h-2 ${dotColor} rounded-full mt-2 flex-shrink-0`}
-                />
-                <div>
-                  <strong className='text-gray-900'>{label}:</strong> {desc}
-                </div>
-              </div>
-            ))}
+          {/* Tips */}
+          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+            <p className='font-semibold mb-2 text-gray-800'>
+              💡 Case format guide:
+            </p>
+            <ul className='list-disc list-inside space-y-1'>
+              <li>
+                Use <strong>camelCase</strong> and <strong>PascalCase</strong>{" "}
+                for JavaScript/TypeScript variable and class names
+              </li>
+              <li>
+                Use <strong>snake_case</strong> for Python variables, database
+                columns, and file names
+              </li>
+              <li>
+                Use <strong>kebab-case</strong> for URLs, CSS classes, and HTML
+                attributes
+              </li>
+              <li>
+                Use <strong>Title Case</strong> for article headlines, book
+                titles, and page headings
+              </li>
+              <li>
+                Use <strong>UPPER CASE</strong> for constants, environment
+                variables, and SQL keywords
+              </li>
+            </ul>
           </div>
         </div>
       </div>

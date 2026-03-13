@@ -93,13 +93,13 @@ export default function JwtDecoderClient() {
       <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <Key className='w-8 h-8 text-indigo-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full mb-4 shadow-lg'>
+              <Key className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               JWT Decoder
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Decode and inspect JWT tokens instantly — runs entirely in your
               browser
             </p>
@@ -180,7 +180,7 @@ export default function JwtDecoderClient() {
 
                 {/* Stats */}
                 <div className='bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200'>
-                  <h3 className='text-xl font-bold text-gray-800 mb-4'>
+                  <h3 className='text-xl font-bold text-gray-900 mb-4'>
                     Token Info
                   </h3>
                   <div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
@@ -214,7 +214,7 @@ export default function JwtDecoderClient() {
                         <div className='text-sm text-gray-600 mb-1'>
                           {label}
                         </div>
-                        <div className='font-semibold text-gray-800 truncate text-sm'>
+                        <div className='font-semibold text-gray-900 truncate text-sm'>
                           {value}
                         </div>
                       </div>
@@ -292,8 +292,8 @@ export default function JwtDecoderClient() {
             )}
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Tips:</p>
+          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+            <p className='font-semibold mb-2 text-gray-800'>💡 Tips:</p>
             <ul className='list-disc list-inside space-y-1'>
               <li>
                 JWTs have three dot-separated parts: header, payload, and

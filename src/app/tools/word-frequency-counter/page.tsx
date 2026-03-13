@@ -1,25 +1,18 @@
 // src/app/tools/word-frequency-counter/page.tsx
 import type { Metadata } from "next";
 import WordFrequencyCounterClient from "./WordFrequencyCounterClient";
-import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
+import PageEditorial from "./PageEditorial";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
 
-// ─── Slot IDs from env ────────────────────────────────────────────────────────
-const SLOT_BELOW_TOOL =
-  process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
-const SLOT_LEADERBOARD =
-  process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
-
 export const metadata: Metadata = {
-  title:
-    "Word Frequency Counter — Free Online Word Frequency Counter",
+  title: "Word Frequency Counter — Count Most Common Words in Any Text",
   description:
-    "Count the frequency of every word in your text. Free, instant, no signup required.",
+    "Analyse any text to see word frequency counts and percentages. Filter stop words, set minimum length, sort alphabetically or by frequency, and export results to CSV. Free, instant, no signup.",
   keywords:
-    "word frequency counter, free word frequency counter, online word frequency counter, word frequency counter free, word frequency counter online, writing tool, free online word frequency counter, best word frequency counter",
+    "word frequency counter, word frequency analyser, most common words, word count frequency, text analysis, stop words filter, word frequency chart, keyword frequency counter",
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
@@ -39,9 +32,9 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/word-frequency-counter`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title: "Word Frequency Counter — Free Online Word Frequency Counter",
+    title: "Word Frequency Counter — Count Most Common Words in Any Text",
     description:
-      "Count the frequency of every word in your text. Free, instant, no signup.",
+      "Analyse text to see word frequency counts, percentages, and bar charts. Filter stop words, export CSV. Free, instant, no signup.",
     images: [
       {
         url: `${SITE_URL}/opengraph-image`,
@@ -55,8 +48,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title: "Word Frequency Counter — Free Online Word Frequency Counter",
-    description: "Count the frequency of every word in your text.",
+    title: "Word Frequency Counter — Count Most Common Words in Any Text",
+    description:
+      "Analyse text to see word frequency counts and percentages. Filter stop words, export CSV. Free, instant.",
   },
 };
 
@@ -64,11 +58,11 @@ const toolJsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Word Frequency Counter",
-  description: "Count the frequency of every word in your text.",
+  description:
+    "Count the frequency of every word in your text with filters, sorting, and CSV export.",
   url: `${SITE_URL}/tools/word-frequency-counter`,
   applicationCategory: "WebApplication",
   operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript. Works in all modern browsers.",
   offers: {
     "@type": "Offer",
     price: "0",
@@ -77,7 +71,6 @@ const toolJsonLd = {
   },
   provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
 };
-
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -86,8 +79,8 @@ const breadcrumbJsonLd = {
     {
       "@type": "ListItem",
       position: 2,
-      name: "Writing Tools",
-      item: `${SITE_URL}/tools/category/writing`,
+      name: "Text Tools",
+      item: `${SITE_URL}/tools/category/text`,
     },
     {
       "@type": "ListItem",
@@ -109,8 +102,6 @@ export default function WordFrequencyCounterPage() {
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-
-      {/* Breadcrumb */}
       <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
         <ol className='flex items-center gap-2 text-sm text-gray-500'>
           <li>
@@ -123,10 +114,10 @@ export default function WordFrequencyCounterPage() {
           </li>
           <li>
             <a
-              href='/tools/category/writing'
+              href='/tools/category/text'
               className='hover:text-indigo-600 transition-colors'
             >
-              Writing Tools
+              Text Tools
             </a>
           </li>
           <li aria-hidden='true' className='text-gray-300'>
@@ -139,126 +130,23 @@ export default function WordFrequencyCounterPage() {
           </li>
         </ol>
       </nav>
-
-      {/* Category badge + SR H1 */}
       <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
         <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1'>
-          Free Writing Tool · No Signup · Works Instantly
+          Free Text Tool · No Signup · Works Instantly
         </p>
         <h1 className='sr-only'>
-          Word Frequency Counter — Free Online Word Frequency Counter
+          Word Frequency Counter — Count Most Common Words in Any Text
         </h1>
         <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
-          Count the frequency of every word in your text. Free, instant, no
-          account needed.
+          Analyse any text to see word frequency, counts, and percentages.
+          Filter stop words, set minimum word length, and export results to CSV.
         </p>
       </header>
-
-      {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
       <SidebarAdLayout>
-        {/* ── Tool component (main interactive area) ──────────────────── */}
         <main id='main-content' aria-label='Word Frequency Counter tool'>
           <WordFrequencyCounterClient />
         </main>
-
-        {/* ── Zone G: below tool result — highest value placement ──────── */}
-        {/* Sits immediately after the tool, before any editorial content   */}
-        <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
-          {/* desktop: rectangle 336×280; mobile: medium rectangle 300×250 */}
-          <div className='hidden sm:block'>
-            <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
-          </div>
-          <div className='block sm:hidden'>
-            <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
-          </div>
-        </div>
-
-        {/* ── Zone H: between tool + How To editorial ──────────────────── */}
-        <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
-          <AdSlot
-            variant='leaderboard'
-            slotId={SLOT_LEADERBOARD}
-            className='hidden sm:flex'
-          />
-          <AdSlot
-            variant='mediumrectangle'
-            slotId={SLOT_LEADERBOARD}
-            className='flex sm:hidden'
-          />
-        </div>
-
-        {/* ── Editorial: How To + Related Tools ────────────────────────── */}
-        <section
-          aria-labelledby='about-word-frequency-counter'
-          className='max-w-6xl mx-auto px-4 py-12'
-        >
-          <div className='bg-white rounded-2xl shadow-lg p-8 md:p-10'>
-            <h2
-              id='about-word-frequency-counter'
-              className='text-2xl font-bold text-gray-900 mb-4'
-            >
-              How to Use This Free Word Frequency Counter
-            </h2>
-            <p className='text-gray-600 leading-relaxed mb-4'>
-              Our free online <strong>word frequency counter</strong> is
-              designed for speed and simplicity. Count the frequency of every
-              word in your text. No software installation or account is required
-              — just use the tool above and get results instantly.
-            </p>
-            <p className='text-gray-600 leading-relaxed'>
-              All processing runs entirely in your browser. Your data is never
-              sent to or stored on our servers. This tool is part of our{" "}
-              <a
-                href='/'
-                className='text-indigo-600 hover:underline font-medium'
-              >
-                free online tools directory
-              </a>{" "}
-              — 60+ tools covering calculators, converters, generators, and
-              social media utilities.
-            </p>
-          </div>
-
-          {/* ── Zone I: related tools grid with native ad slot ──────────── */}
-          <div className='mt-8'>
-            <h3 className='text-lg font-bold text-gray-900 mb-4'>
-              Related Free Writing Tools
-            </h3>
-            {/* 3-slot grid; the 4th card position (index 3) is reserved for */}
-            {/* a native sponsored card — set data-ad-format="fluid" in AdSense */}
-            <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
-              {[
-                {
-                  href: "/tools/word-character-counter",
-                  label: "Word & Character Counter",
-                  desc: "Count words, characters, sentences, and paragraphs with reading time estimates.",
-                },
-                {
-                  href: "/tools/reading-time-estimator",
-                  label: "Reading Time Estimator",
-                  desc: "Estimate how long it will take to read any piece of text.",
-                },
-                {
-                  href: "/tools/text-difference-checker",
-                  label: "Text Difference Checker",
-                  desc: "Compare two pieces of text and highlight the differences instantly.",
-                },
-              ].map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className='block bg-white rounded-xl shadow p-5 border-2 border-transparent hover:border-indigo-200 hover:-translate-y-1 transition-all duration-200'
-                  aria-label={`${link.label} — ${link.desc}`}
-                >
-                  <div className='font-bold text-gray-900 text-sm mb-1'>
-                    {link.label}
-                  </div>
-                  <div className='text-xs text-gray-500'>{link.desc}</div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
+        <PageEditorial />
       </SidebarAdLayout>
     </>
   );

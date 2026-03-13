@@ -1,25 +1,18 @@
 // src/app/tools/reading-time-estimator/page.tsx
 import type { Metadata } from "next";
 import ReadingTimeEstimatorClient from "./ReadingTimeEstimatorClient";
-import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
+import PageEditorial from "./PageEditorial";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
 
-// ─── Slot IDs from env ────────────────────────────────────────────────────────
-const SLOT_BELOW_TOOL =
-  process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
-const SLOT_LEADERBOARD =
-  process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
-
 export const metadata: Metadata = {
-  title:
-    "Reading Time Estimator — Free Online Reading Time Estimator",
+  title: "Reading Time Estimator — How Long Does It Take to Read Any Text?",
   description:
-    "Estimate how long it will take to read any piece of text. Free, instant, no signup required.",
+    "Estimate reading time for any text at your custom reading speed. Adjustable WPM slider, image time calculator, and a comparison across slow, average, fast, and speed readers. Free, instant, no signup.",
   keywords:
-    "reading time estimator, free reading time estimator, online reading time estimator, reading time estimator free, reading time estimator online, writing tool, free online reading time estimator, best reading time estimator",
+    "reading time estimator, reading time calculator, how long to read, words per minute calculator, article reading time, blog reading time, wpm calculator, reading speed calculator",
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
@@ -39,9 +32,9 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/reading-time-estimator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title: "Reading Time Estimator — Free Online Reading Time Estimator",
+    title: "Reading Time Estimator — How Long Does It Take to Read Any Text?",
     description:
-      "Estimate how long it will take to read any piece of text. Free, instant, no signup.",
+      "Estimate reading time at your custom WPM. Includes image time, multi-speed comparison, and full text stats. Free, instant, no signup.",
     images: [
       {
         url: `${SITE_URL}/opengraph-image`,
@@ -55,8 +48,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title: "Reading Time Estimator — Free Online Reading Time Estimator",
-    description: "Estimate how long it will take to read any piece of text.",
+    title: "Reading Time Estimator — How Long Does It Take to Read Any Text?",
+    description:
+      "Estimate reading time at your custom WPM. Image time, multi-speed comparison, and text stats. Free, instant.",
   },
 };
 
@@ -64,11 +58,11 @@ const toolJsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Reading Time Estimator",
-  description: "Estimate how long it will take to read any piece of text.",
+  description:
+    "Estimate how long it takes to read any text at a custom reading speed. Includes image time and multi-speed comparison.",
   url: `${SITE_URL}/tools/reading-time-estimator`,
   applicationCategory: "WebApplication",
   operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript. Works in all modern browsers.",
   offers: {
     "@type": "Offer",
     price: "0",
@@ -77,7 +71,6 @@ const toolJsonLd = {
   },
   provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
 };
-
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -86,8 +79,8 @@ const breadcrumbJsonLd = {
     {
       "@type": "ListItem",
       position: 2,
-      name: "Writing Tools",
-      item: `${SITE_URL}/tools/category/writing`,
+      name: "Text Tools",
+      item: `${SITE_URL}/tools/category/text`,
     },
     {
       "@type": "ListItem",
@@ -109,12 +102,10 @@ export default function ReadingTimeEstimatorPage() {
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-
-      {/* Breadcrumb */}
       <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
         <ol className='flex items-center gap-2 text-sm text-gray-500'>
           <li>
-            <a href='/' className='hover:text-indigo-600 transition-colors'>
+            <a href='/' className='hover:text-amber-600 transition-colors'>
               Home
             </a>
           </li>
@@ -123,10 +114,10 @@ export default function ReadingTimeEstimatorPage() {
           </li>
           <li>
             <a
-              href='/tools/category/writing'
-              className='hover:text-indigo-600 transition-colors'
+              href='/tools/category/text'
+              className='hover:text-amber-600 transition-colors'
             >
-              Writing Tools
+              Text Tools
             </a>
           </li>
           <li aria-hidden='true' className='text-gray-300'>
@@ -139,126 +130,24 @@ export default function ReadingTimeEstimatorPage() {
           </li>
         </ol>
       </nav>
-
-      {/* Category badge + SR H1 */}
       <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1'>
-          Free Writing Tool · No Signup · Works Instantly
+        <p className='text-xs font-semibold text-amber-600 uppercase tracking-widest mb-1'>
+          Free Text Tool · No Signup · Works Instantly
         </p>
         <h1 className='sr-only'>
-          Reading Time Estimator — Free Online Reading Time Estimator
+          Reading Time Estimator — How Long Does It Take to Read Any Text?
         </h1>
         <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
-          Estimate how long it will take to read any piece of text. Free,
-          instant, no account needed.
+          Paste any text and get an instant reading time estimate at your chosen
+          WPM. Includes image time, multi-speed comparison, and full text
+          statistics.
         </p>
       </header>
-
-      {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
       <SidebarAdLayout>
-        {/* ── Tool component (main interactive area) ──────────────────── */}
         <main id='main-content' aria-label='Reading Time Estimator tool'>
           <ReadingTimeEstimatorClient />
         </main>
-
-        {/* ── Zone G: below tool result — highest value placement ──────── */}
-        {/* Sits immediately after the tool, before any editorial content   */}
-        <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
-          {/* desktop: rectangle 336×280; mobile: medium rectangle 300×250 */}
-          <div className='hidden sm:block'>
-            <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
-          </div>
-          <div className='block sm:hidden'>
-            <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
-          </div>
-        </div>
-
-        {/* ── Zone H: between tool + How To editorial ──────────────────── */}
-        <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
-          <AdSlot
-            variant='leaderboard'
-            slotId={SLOT_LEADERBOARD}
-            className='hidden sm:flex'
-          />
-          <AdSlot
-            variant='mediumrectangle'
-            slotId={SLOT_LEADERBOARD}
-            className='flex sm:hidden'
-          />
-        </div>
-
-        {/* ── Editorial: How To + Related Tools ────────────────────────── */}
-        <section
-          aria-labelledby='about-reading-time-estimator'
-          className='max-w-6xl mx-auto px-4 py-12'
-        >
-          <div className='bg-white rounded-2xl shadow-lg p-8 md:p-10'>
-            <h2
-              id='about-reading-time-estimator'
-              className='text-2xl font-bold text-gray-900 mb-4'
-            >
-              How to Use This Free Reading Time Estimator
-            </h2>
-            <p className='text-gray-600 leading-relaxed mb-4'>
-              Our free online <strong>reading time estimator</strong> is
-              designed for speed and simplicity. Estimate how long it will take
-              to read any piece of text. No software installation or account is
-              required — just use the tool above and get results instantly.
-            </p>
-            <p className='text-gray-600 leading-relaxed'>
-              All processing runs entirely in your browser. Your data is never
-              sent to or stored on our servers. This tool is part of our{" "}
-              <a
-                href='/'
-                className='text-indigo-600 hover:underline font-medium'
-              >
-                free online tools directory
-              </a>{" "}
-              — 60+ tools covering calculators, converters, generators, and
-              social media utilities.
-            </p>
-          </div>
-
-          {/* ── Zone I: related tools grid with native ad slot ──────────── */}
-          <div className='mt-8'>
-            <h3 className='text-lg font-bold text-gray-900 mb-4'>
-              Related Free Writing Tools
-            </h3>
-            {/* 3-slot grid; the 4th card position (index 3) is reserved for */}
-            {/* a native sponsored card — set data-ad-format="fluid" in AdSense */}
-            <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
-              {[
-                {
-                  href: "/tools/word-character-counter",
-                  label: "Word & Character Counter",
-                  desc: "Count words, characters, sentences, and paragraphs with reading time estimates.",
-                },
-                {
-                  href: "/tools/word-frequency-counter",
-                  label: "Word Frequency Counter",
-                  desc: "Count the frequency of every word in your text.",
-                },
-                {
-                  href: "/tools/paraphrasing-tool",
-                  label: "Paraphrasing Tool",
-                  desc: "Rewrite any text in different words while preserving the original meaning.",
-                },
-              ].map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className='block bg-white rounded-xl shadow p-5 border-2 border-transparent hover:border-indigo-200 hover:-translate-y-1 transition-all duration-200'
-                  aria-label={`${link.label} — ${link.desc}`}
-                >
-                  <div className='font-bold text-gray-900 text-sm mb-1'>
-                    {link.label}
-                  </div>
-                  <div className='text-xs text-gray-500'>{link.desc}</div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
+        <PageEditorial />
       </SidebarAdLayout>
     </>
   );

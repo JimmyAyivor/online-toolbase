@@ -186,7 +186,7 @@ export default function UnitConverterClient() {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-4 md:p-8'>
-      <div className='max-w-4xl mx-auto'>
+      <div className='max-w-6xl mx-auto'>
         <div className='text-center mb-8'>
           <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-600 rounded-2xl mb-4 shadow-lg'>
             <Zap className='w-8 h-8 text-white' />
@@ -194,7 +194,7 @@ export default function UnitConverterClient() {
           <h2 className='text-4xl font-bold text-gray-900 mb-2'>
             Unit Converter
           </h2>
-          <p className='text-gray-600'>
+          <p className='text-gray-500'>
             Fast, accurate, and easy to use conversion tool
           </p>
         </div>
@@ -289,7 +289,7 @@ export default function UnitConverterClient() {
           </div>
         </div>
 
-        <div className='bg-white rounded-xl shadow-md p-6 text-center text-sm text-gray-600'>
+        <div className='bg-white rounded-xl shadow-md p-6 text-sm text-gray-600'>
           <p>
             💡 <strong>Tip:</strong> Switch between different unit categories
             using the buttons above

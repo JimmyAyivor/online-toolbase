@@ -168,7 +168,7 @@ export default function CurrencyConverterClient() {
           <h2 className='text-4xl font-bold text-gray-900 mb-2'>
             Currency Converter
           </h2>
-          <p className='text-gray-600'>
+          <p className='text-gray-500'>
             Convert between 30+ world currencies with live exchange rates
           </p>
         </div>

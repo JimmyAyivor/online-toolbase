@@ -144,7 +144,7 @@ export default function ImageCompressorClient() {
           <h2 className='text-4xl font-bold text-gray-900 mb-2'>
             Image Compressor
           </h2>
-          <p className='text-gray-600'>
+          <p className='text-gray-500'>
             Reduce image file size without losing quality
           </p>
         </div>

@@ -159,16 +159,16 @@ export default function MarkdownToHtmlConverterClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 p-4 md:p-8'>
-      <div className='max-w-7xl mx-auto'>
+    <div className='min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 p-4'>
+      <div className='max-w-6xl mx-auto'>
         <div className='text-center mb-8'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl mb-4 shadow-lg'>
+          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full mb-4 shadow-lg'>
             <FileCode className='w-8 h-8 text-white' />
           </div>
-          <h2 className='text-4xl font-bold text-gray-900 mb-2'>
+          <h2 className='text-3xl font-bold text-gray-900 mb-2'>
             Markdown to HTML Converter
           </h2>
-          <p className='text-gray-600'>
+          <p className='text-gray-500'>
             Convert Markdown to HTML with live preview
           </p>
         </div>
@@ -176,7 +176,7 @@ export default function MarkdownToHtmlConverterClient() {
         <div className='grid lg:grid-cols-2 gap-6'>
           {/* ── Input column ── */}
           <div className='space-y-6'>
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
+            <div className='bg-white rounded-2xl shadow-xl p-6'>
               <div className='flex justify-between items-center mb-4'>
                 <h3 className='font-bold text-gray-900 flex items-center gap-2 text-xl'>
                   <Code className='w-6 h-6 text-blue-600' />
@@ -240,7 +240,7 @@ export default function MarkdownToHtmlConverterClient() {
 
           {/* ── Output column ── */}
           <div className='space-y-6'>
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
+            <div className='bg-white rounded-2xl shadow-xl p-6'>
               <div className='flex justify-between items-center mb-4'>
                 {/* Preview/HTML toggle */}
                 <div className='flex gap-2'>
@@ -318,7 +318,7 @@ export default function MarkdownToHtmlConverterClient() {
               )}
             </div>
 
-            <div className='bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-md p-6 border-2 border-blue-200'>
+            <div className='bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-200 shadow-sm p-6'>
               <h4 className='font-bold text-gray-900 mb-4'>✨ Features</h4>
               <div className='space-y-3 text-sm text-gray-700'>
                 {[

@@ -161,16 +161,16 @@ export default function EmailValidatorClient() {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-cyan-50 to-blue-100 p-4'>
-      <div className='max-w-5xl mx-auto'>
+      <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-cyan-100 rounded-full mb-4'>
-              <Mail className='w-8 h-8 text-cyan-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full mb-4 shadow-lg'>
+              <Mail className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Email Validator
             </h2>
-            <p className='text-gray-600'>Check if email addresses are valid</p>
+            <p className='text-gray-500'>Check if email addresses are valid</p>
           </div>
 
           {/* Mode toggle */}
@@ -234,7 +234,7 @@ export default function EmailValidatorClient() {
                       <XCircle className='w-8 h-8 text-red-600' />
                     )}
                     <div>
-                      <h3 className='font-bold text-lg text-gray-800'>
+                      <h3 className='font-bold text-lg text-gray-900'>
                         {results.valid ? "Valid Email" : "Invalid Email"}
                       </h3>
                       <p className='text-sm text-gray-600'>{results.email}</p>
@@ -245,19 +245,19 @@ export default function EmailValidatorClient() {
                     <div className='bg-white rounded-lg p-4 space-y-2'>
                       <div className='flex justify-between text-sm'>
                         <span className='text-gray-600'>Local Part:</span>
-                        <span className='font-mono text-gray-800'>
+                        <span className='font-mono text-gray-900'>
                           {results.localPart}
                         </span>
                       </div>
                       <div className='flex justify-between text-sm'>
                         <span className='text-gray-600'>Domain:</span>
-                        <span className='font-mono text-gray-800'>
+                        <span className='font-mono text-gray-900'>
                           {results.domain}
                         </span>
                       </div>
                       <div className='flex justify-between text-sm'>
                         <span className='text-gray-600'>TLD:</span>
-                        <span className='font-mono text-gray-800'>
+                        <span className='font-mono text-gray-900'>
                           {results.tld}
                         </span>
                       </div>
@@ -348,12 +348,12 @@ export default function EmailValidatorClient() {
               {bulkResults.length > 0 && (
                 <div className='space-y-4'>
                   <div className='bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl p-6 border border-cyan-200'>
-                    <h3 className='font-bold text-gray-800 mb-4'>
+                    <h3 className='font-bold text-gray-900 mb-4'>
                       Validation Summary
                     </h3>
                     <div className='grid md:grid-cols-3 gap-4'>
                       <div className='bg-white rounded-lg p-4'>
-                        <div className='text-2xl font-bold text-gray-800'>
+                        <div className='text-2xl font-bold text-gray-900'>
                           {bulkResults.length}
                         </div>
                         <div className='text-sm text-gray-600'>Total</div>
@@ -399,7 +399,7 @@ export default function EmailValidatorClient() {
                                   <XCircle className='w-5 h-5 text-red-600' />
                                 )}
                               </td>
-                              <td className='px-4 py-3 font-mono text-sm text-gray-800'>
+                              <td className='px-4 py-3 font-mono text-sm text-gray-900'>
                                 {result.email}
                               </td>
                               <td className='px-4 py-3 text-sm text-gray-600'>
@@ -420,8 +420,10 @@ export default function EmailValidatorClient() {
             </div>
           )}
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Validation Checks:</p>
+          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+            <p className='font-semibold mb-2 text-gray-800'>
+              ✅ Validation Checks:
+            </p>
             <ul className='list-disc list-inside space-y-1'>
               <li>Basic email format (user@domain.com)</li>
               <li>Local part length and character validation</li>

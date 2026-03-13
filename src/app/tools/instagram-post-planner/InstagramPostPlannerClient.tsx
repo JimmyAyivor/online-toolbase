@@ -239,7 +239,7 @@ export default function InstagramPostPlannerClient() {
             <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-pink-500 via-purple-500 to-orange-400 rounded-2xl mb-4 shadow-lg'>
               <span className='text-2xl'>📸</span>
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Instagram Post Planner
             </h2>
             <p className='text-gray-600'>
@@ -251,7 +251,7 @@ export default function InstagramPostPlannerClient() {
             {/* ── Left: Grid / List view ── */}
             <div>
               <div className='flex items-center justify-between mb-3'>
-                <h3 className='font-bold text-gray-800'>Content Grid</h3>
+                <h3 className='font-bold text-gray-900'>Content Grid</h3>
                 <div className='flex gap-1'>
                   <button
                     onClick={() => setView("grid")}
@@ -315,7 +315,7 @@ export default function InstagramPostPlannerClient() {
                         {CONTENT_TYPES[p.type].icon}
                       </div>
                       <div className='flex-1 min-w-0'>
-                        <div className='text-sm font-semibold text-gray-800 truncate'>
+                        <div className='text-sm font-semibold text-gray-900 truncate'>
                           {p.caption || `Post ${i + 1}`}
                         </div>
                         <div className='text-xs text-gray-500'>
@@ -365,7 +365,7 @@ export default function InstagramPostPlannerClient() {
             {/* ── Right: Post editor ── */}
             <div className='lg:col-span-2 space-y-4'>
               <div className='flex items-center justify-between'>
-                <h3 className='font-bold text-gray-800'>
+                <h3 className='font-bold text-gray-900'>
                   Editing Post {active + 1}
                 </h3>
                 {posts.length > 1 && (
@@ -416,7 +416,7 @@ export default function InstagramPostPlannerClient() {
                       }
                       className='text-left px-3 py-2 bg-gray-50 hover:bg-pink-50 border border-gray-200 hover:border-pink-300 rounded-lg transition-all'
                     >
-                      <div className='text-xs font-bold text-gray-800'>
+                      <div className='text-xs font-bold text-gray-900'>
                         {s.label}
                       </div>
                       <div className='text-xs text-gray-500'>{s.desc}</div>

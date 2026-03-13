@@ -131,13 +131,13 @@ export default function DiscountCalculatorClient() {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-red-50 to-orange-100 p-4'>
-      <div className='max-w-5xl mx-auto'>
+      <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4'>
-              <Tag className='w-8 h-8 text-red-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-500 to-orange-600 rounded-full mb-4 shadow-lg'>
+              <Tag className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Discount Calculator
             </h2>
             <p className='text-gray-600'>Calculate sale prices and savings</p>
@@ -240,8 +240,8 @@ export default function DiscountCalculatorClient() {
 
             {/* ── Right column ── */}
             <div className='space-y-4'>
-              <div className='bg-orange-50 rounded-lg p-4 border border-orange-200'>
-                <h3 className='font-semibold text-gray-800 mb-3'>
+              <div className='bg-orange-50 rounded-xl border border-orange-200 p-4'>
+                <h3 className='font-semibold text-gray-900 mb-3'>
                   Additional Options
                 </h3>
 
@@ -305,7 +305,7 @@ export default function DiscountCalculatorClient() {
             <div className='bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-6 border border-red-200'>
               <div className='flex items-center gap-2 mb-4'>
                 <ShoppingBag className='w-5 h-5 text-red-600' />
-                <h3 className='font-bold text-gray-800 text-lg'>
+                <h3 className='font-bold text-gray-900 text-lg'>
                   Price Breakdown
                 </h3>
               </div>
@@ -315,7 +315,7 @@ export default function DiscountCalculatorClient() {
                 <div className='bg-white rounded-lg p-4'>
                   <div className='flex justify-between items-center mb-2'>
                     <span className='text-gray-600'>Original Price</span>
-                    <span className='text-xl font-bold text-gray-800'>
+                    <span className='text-xl font-bold text-gray-900'>
                       {formatCurrency(results.originalPrice)}
                     </span>
                   </div>
@@ -373,7 +373,7 @@ export default function DiscountCalculatorClient() {
                 )}
 
                 {/* Total savings */}
-                <div className='bg-green-100 border border-green-300 rounded-lg p-4'>
+                <div className='bg-green-100 border border-green-300 rounded-xl p-4'>
                   <div className='flex justify-between items-center'>
                     <div>
                       <div className='text-sm text-gray-600'>Total Savings</div>
@@ -394,7 +394,7 @@ export default function DiscountCalculatorClient() {
                     <span className='text-gray-600'>
                       Subtotal After Discount
                     </span>
-                    <span className='text-xl font-bold text-gray-800'>
+                    <span className='text-xl font-bold text-gray-900'>
                       {formatCurrency(results.subtotal)}
                     </span>
                   </div>
@@ -407,7 +407,7 @@ export default function DiscountCalculatorClient() {
                       <span className='text-gray-600'>
                         Sales Tax ({taxRate}%)
                       </span>
-                      <span className='text-lg font-bold text-gray-800'>
+                      <span className='text-lg font-bold text-gray-900'>
                         +{formatCurrency(results.taxAmount)}
                       </span>
                     </div>
@@ -415,7 +415,7 @@ export default function DiscountCalculatorClient() {
                 )}
 
                 {/* Final total */}
-                <div className='bg-red-600 text-white rounded-lg p-4'>
+                <div className='bg-red-600 text-white rounded-xl p-4'>
                   <div className='flex justify-between items-center'>
                     <div>
                       <div className='text-sm opacity-90'>Final Price</div>
@@ -436,13 +436,13 @@ export default function DiscountCalculatorClient() {
 
                 {/* Summary */}
                 <div className='bg-white rounded-lg p-4'>
-                  <h4 className='font-semibold text-gray-800 mb-2 text-sm'>
+                  <h4 className='font-semibold text-gray-900 mb-2 text-sm'>
                     Summary
                   </h4>
                   <div className='space-y-1 text-sm'>
                     <div className='flex justify-between'>
                       <span className='text-gray-600'>You Pay</span>
-                      <span className='font-semibold text-gray-800'>
+                      <span className='font-semibold text-gray-900'>
                         {(
                           (results.grandTotal /
                             (results.originalPrice * results.quantity)) *
@@ -464,8 +464,10 @@ export default function DiscountCalculatorClient() {
             </div>
           )}
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Discount Tips:</p>
+          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+            <p className='font-semibold mb-2 text-gray-800'>
+              💡 Discount Tips:
+            </p>
             <ul className='list-disc list-inside space-y-1'>
               <li>
                 Stacking discounts are calculated sequentially, not added

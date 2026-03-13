@@ -104,17 +104,17 @@ export default function EssayTitleGeneratorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
+    <div className='min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-violet-100 p-4'>
       <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <Pencil className='w-8 h-8 text-indigo-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-full mb-4 shadow-lg'>
+              <Pencil className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Essay Title Generator
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Generate compelling titles for essays, articles, and blog posts
             </p>
           </div>
@@ -133,12 +133,12 @@ export default function EssayTitleGeneratorClient() {
                 }
                 onKeyDown={(e) => e.key === "Enter" && generate()}
                 placeholder='e.g. climate change, artificial intelligence, mental health...'
-                className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
+                className='w-full px-3 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-transparent'
               />
             </div>
 
             {/* Options */}
-            <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
+            <div className='bg-gray-50 rounded-xl p-4 border border-gray-200'>
               <div className='flex items-center gap-2 mb-3'>
                 <Pencil className='w-5 h-5 text-gray-600' />
                 <h3 className='font-semibold text-gray-700'>Type of Writing</h3>
@@ -150,7 +150,7 @@ export default function EssayTitleGeneratorClient() {
                     onClick={() => setType(t.key)}
                     className={`py-2 rounded-lg font-semibold text-sm transition-colors border ${
                       type === t.key
-                        ? "bg-indigo-600 text-white border-indigo-600"
+                        ? "bg-violet-600 text-white border-violet-600"
                         : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
                     }`}
                   >
@@ -163,7 +163,7 @@ export default function EssayTitleGeneratorClient() {
             <div className='flex gap-3'>
               <button
                 onClick={generate}
-                className='flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition-colors'
+                className='flex-1 py-3 bg-violet-600 hover:bg-violet-700 text-white font-semibold rounded-lg transition-colors'
               >
                 Generate Titles
               </button>
@@ -180,12 +180,12 @@ export default function EssayTitleGeneratorClient() {
             {titles.length > 0 && (
               <div className='space-y-3'>
                 <div className='flex items-center justify-between'>
-                  <h3 className='text-lg font-semibold text-gray-800'>
+                  <h3 className='text-lg font-semibold text-gray-900'>
                     Title Ideas
                   </h3>
                   <button
                     onClick={generate}
-                    className='flex items-center gap-2 text-sm text-indigo-600 hover:underline'
+                    className='flex items-center gap-2 text-sm text-violet-600 hover:underline'
                   >
                     <RefreshCw className='w-3 h-3' />
                     Regenerate
@@ -218,7 +218,7 @@ export default function EssayTitleGeneratorClient() {
                           <td className='px-4 py-3 text-right'>
                             <button
                               onClick={() => copyTitle(title)}
-                              className='flex items-center gap-1 text-sm text-indigo-600 hover:underline ml-auto'
+                              className='flex items-center gap-1 text-sm text-violet-600 hover:underline ml-auto'
                             >
                               <Copy className='w-3 h-3' />
                               {copied === title ? "Copied!" : "Copy"}
@@ -233,8 +233,8 @@ export default function EssayTitleGeneratorClient() {
             )}
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Tips:</p>
+          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+            <p className='font-semibold mb-2 text-gray-800'>💡 Tips:</p>
             <ul className='list-disc list-inside space-y-1'>
               <li>
                 Press Enter in the topic field to generate without clicking the

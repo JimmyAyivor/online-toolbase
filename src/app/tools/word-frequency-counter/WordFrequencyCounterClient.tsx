@@ -265,12 +265,12 @@ export default function WordFrequencyCounterClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
+    <div className='min-h-screen bg-gradient-to-br from-indigo-50 via-violet-50 to-blue-100 p-4'>
       <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <BarChart3 className='w-8 h-8 text-indigo-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-full mb-4 shadow-lg'>
+              <BarChart3 className='w-8 h-8 text-white' />
             </div>
             <h2 className='text-3xl font-bold text-gray-800 mb-2'>
               Word Frequency Counter
@@ -414,9 +414,9 @@ export default function WordFrequencyCounterClient() {
               <div className='space-y-6'>
                 {/* Stats */}
                 <div className='bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200'>
-                  <h2 className='text-xl font-bold text-gray-800 mb-4'>
+                  <h3 className='text-xl font-bold text-gray-800 mb-4'>
                     Statistics
-                  </h2>
+                  </h3>
                   <div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
                     {[
                       {
@@ -531,8 +531,8 @@ export default function WordFrequencyCounterClient() {
             )}
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Tips:</p>
+          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+            <p className='font-semibold mb-2 text-gray-800'>💡 Tips:</p>
             <ul className='list-disc list-inside space-y-1'>
               <li>
                 Enable &ldquo;Ignore common words&rdquo; to filter out articles,

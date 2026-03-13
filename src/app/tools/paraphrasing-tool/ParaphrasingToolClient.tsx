@@ -11,7 +11,7 @@ import {
   Trash2,
 } from "lucide-react";
 
-const ParaphrasingToolClient = () => {
+export default function ParaphrasingToolClient() {
   const [inputText, setInputText] = useState("");
   const [outputText, setOutputText] = useState("");
   const [mode, setMode] = useState("standard");
@@ -170,23 +170,23 @@ const ParaphrasingToolClient = () => {
   };
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-violet-50 via-white to-purple-50 p-4 md:p-8'>
-      <div className='max-w-7xl mx-auto'>
+    <div className='min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-violet-100 p-4'>
+      <div className='max-w-6xl mx-auto'>
         <div className='text-center mb-8'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-violet-600 to-purple-600 rounded-2xl mb-4 shadow-lg'>
+          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-violet-600 to-purple-600 rounded-full mb-4 shadow-lg'>
             <Wand2 className='w-8 h-8 text-white' />
           </div>
-          <h1 className='text-4xl font-bold text-gray-900 mb-2'>
+          <h2 className='text-3xl font-bold text-gray-900 mb-2'>
             Paraphrasing Tool
-          </h1>
-          <p className='text-gray-600'>
+          </h2>
+          <p className='text-gray-500'>
             Rewrite your text with different words while keeping the meaning
           </p>
         </div>
 
         <div className='grid lg:grid-cols-3 gap-6 mb-6'>
           <div className='lg:col-span-2 space-y-6'>
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
+            <div className='bg-white rounded-2xl shadow-xl p-6'>
               <h3 className='font-bold text-gray-900 mb-6 flex items-center gap-2 text-xl'>
                 <FileText className='w-6 h-6 text-violet-600' />
                 Original Text
@@ -196,7 +196,7 @@ const ParaphrasingToolClient = () => {
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder='Paste or type your text here to paraphrase...'
-                className='w-full h-64 px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-violet-500 resize-none transition-colors text-base leading-relaxed'
+                className='w-full h-64 px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent resize-none text-base leading-relaxed'
               />
 
               <div className='grid grid-cols-2 gap-4 mt-4'>
@@ -241,7 +241,7 @@ const ParaphrasingToolClient = () => {
             </div>
 
             {outputText && (
-              <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
+              <div className='bg-white rounded-2xl shadow-xl p-6'>
                 <div className='flex justify-between items-center mb-6'>
                   <h3 className='font-bold text-gray-900 flex items-center gap-2 text-xl'>
                     <Wand2 className='w-6 h-6 text-violet-600' />
@@ -301,7 +301,7 @@ const ParaphrasingToolClient = () => {
           </div>
 
           <div className='space-y-6'>
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8 sticky top-8'>
+            <div className='bg-white rounded-2xl shadow-xl p-6 sticky top-8'>
               <h3 className='font-bold text-gray-900 mb-6 flex items-center gap-2'>
                 <RefreshCw className='w-5 h-5 text-violet-600' />
                 Paraphrasing Mode
@@ -341,87 +341,21 @@ const ParaphrasingToolClient = () => {
               </div>
             </div>
 
-            <div className='bg-gradient-to-br from-violet-50 to-purple-50 rounded-xl shadow-md p-6 border-2 border-violet-200'>
-              <h4 className='font-bold text-gray-900 mb-4'>✨ Features</h4>
-              <div className='space-y-3 text-sm text-gray-700'>
-                <div className='flex items-start gap-2'>
-                  <div className='w-2 h-2 bg-violet-600 rounded-full mt-2 flex-shrink-0'></div>
-                  <p>
-                    <strong>Synonym Replacement:</strong> Uses contextual
-                    synonyms
-                  </p>
-                </div>
-                <div className='flex items-start gap-2'>
-                  <div className='w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0'></div>
-                  <p>
-                    <strong>Sentence Restructuring:</strong> Changes sentence
-                    structure
-                  </p>
-                </div>
-                <div className='flex items-start gap-2'>
-                  <div className='w-2 h-2 bg-pink-600 rounded-full mt-2 flex-shrink-0'></div>
-                  <p>
-                    <strong>Maintains Meaning:</strong> Preserves original
-                    intent
-                  </p>
-                </div>
-                <div className='flex items-start gap-2'>
-                  <div className='w-2 h-2 bg-fuchsia-600 rounded-full mt-2 flex-shrink-0'></div>
-                  <p>
-                    <strong>Multiple Modes:</strong> Different writing styles
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className='bg-white rounded-xl shadow-md p-6'>
-              <h4 className='font-bold text-gray-900 mb-4'>
-                💡 Best Practices
-              </h4>
-              <div className='space-y-3 text-sm text-gray-700'>
-                <div className='flex items-start gap-2'>
-                  <div className='w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0'></div>
-                  <p>Always review and edit the output</p>
-                </div>
-                <div className='flex items-start gap-2'>
-                  <div className='w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0'></div>
-                  <p>Check for accuracy and clarity</p>
-                </div>
-                <div className='flex items-start gap-2'>
-                  <div className='w-2 h-2 bg-indigo-600 rounded-full mt-2 flex-shrink-0'></div>
-                  <p>Ensure tone matches your needs</p>
-                </div>
-                <div className='flex items-start gap-2'>
-                  <div className='w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0'></div>
-                  <p>Use for inspiration, not plagiarism</p>
-                </div>
-              </div>
-            </div>
-
-            <div className='bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl shadow-md p-6 border-2 border-amber-200'>
-              <h4 className='font-bold text-gray-900 mb-3'>🎯 Common Uses</h4>
-              <div className='space-y-2 text-sm text-gray-700'>
-                <p>• Academic writing & essays</p>
-                <p>• Content creation & blogging</p>
-                <p>• Email & business communication</p>
-                <p>• Social media posts</p>
-                <p>• Research paper summaries</p>
-                <p>• Avoiding repetition in writing</p>
-              </div>
+            <div className='p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+              <p className='font-semibold mb-2 text-gray-800'>💡 Tips:</p>
+              <ul className='list-disc list-inside space-y-1'>
+                <li>Always review and edit the output before publishing</li>
+                <li>
+                  Use Formal mode for business emails and professional documents
+                </li>
+                <li>Use Simple mode to make complex text more accessible</li>
+                <li>Use Expand mode to add depth to short or thin content</li>
+                <li>Use Creative mode for marketing copy and social media</li>
+              </ul>
             </div>
           </div>
-        </div>
-
-        <div className='bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6 text-center'>
-          <p className='text-yellow-900 font-semibold'>
-            ⚠️ <strong>Note:</strong> This is a demonstration tool. For
-            production use, integrate with advanced AI APIs like OpenAI or
-            Claude for better paraphrasing quality.
-          </p>
         </div>
       </div>
     </div>
   );
-};
-
-export default ParaphrasingToolClient;
+}

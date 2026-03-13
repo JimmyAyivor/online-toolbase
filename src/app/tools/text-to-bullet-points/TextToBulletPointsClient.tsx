@@ -58,17 +58,17 @@ export default function TextToBulletPointsClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
+    <div className='min-h-screen bg-gradient-to-br from-teal-50 via-cyan-50 to-teal-100 p-4'>
       <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <List className='w-8 h-8 text-indigo-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-full mb-4 shadow-lg'>
+              <List className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Text to Bullet Points
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Convert any paragraph into clean bullet point lists instantly
             </p>
           </div>
@@ -85,7 +85,7 @@ export default function TextToBulletPointsClient() {
                   setText(e.target.value)
                 }
                 placeholder='Paste a paragraph, article, or notes here...'
-                className='w-full h-48 p-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none'
+                className='w-full h-48 p-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none'
               />
               <div className='flex justify-between mt-2 text-sm text-gray-500'>
                 <span>
@@ -96,7 +96,7 @@ export default function TextToBulletPointsClient() {
             </div>
 
             {/* Options */}
-            <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
+            <div className='bg-gray-50 rounded-xl p-4 border border-gray-200'>
               <div className='flex items-center gap-2 mb-3'>
                 <List className='w-5 h-5 text-gray-600' />
                 <h3 className='font-semibold text-gray-700'>Bullet Style</h3>
@@ -114,7 +114,7 @@ export default function TextToBulletPointsClient() {
                     onClick={() => setStyle(key)}
                     className={`py-2 rounded-lg font-semibold text-sm transition-colors border ${
                       style === key
-                        ? "bg-indigo-600 text-white border-indigo-600"
+                        ? "bg-teal-600 text-white border-teal-600"
                         : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
                     }`}
                   >
@@ -128,7 +128,7 @@ export default function TextToBulletPointsClient() {
               <button
                 onClick={convert}
                 disabled={!text.trim()}
-                className='flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 text-white font-semibold rounded-lg transition-colors'
+                className='flex-1 py-3 bg-teal-600 hover:bg-teal-700 disabled:opacity-40 text-white font-semibold rounded-lg transition-colors'
               >
                 Convert to Bullet Points
               </button>
@@ -143,10 +143,10 @@ export default function TextToBulletPointsClient() {
 
             {/* Results */}
             {output && (
-              <div className='bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200'>
+              <div className='bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl p-6 border border-teal-200'>
                 <div className='flex items-center justify-between mb-4'>
                   <div>
-                    <h3 className='text-xl font-bold text-gray-800'>
+                    <h3 className='text-xl font-bold text-gray-900'>
                       Bullet Points
                     </h3>
                     <p className='text-sm text-gray-600'>
@@ -168,8 +168,8 @@ export default function TextToBulletPointsClient() {
             )}
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Tips:</p>
+          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+            <p className='font-semibold mb-2 text-gray-800'>💡 Tips:</p>
             <ul className='list-disc list-inside space-y-1'>
               <li>
                 Each sentence becomes its own bullet point — punctuation is used

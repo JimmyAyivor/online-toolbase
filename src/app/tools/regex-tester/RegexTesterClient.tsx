@@ -238,10 +238,10 @@ export default function RegexTesterClient() {
       <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-rose-100 rounded-full mb-4'>
-              <Search className='w-8 h-8 text-rose-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-rose-500 to-pink-600 rounded-full mb-4 shadow-lg'>
+              <Search className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Regex Tester
             </h2>
             <p className='text-gray-600'>
@@ -345,7 +345,7 @@ export default function RegexTesterClient() {
             {pattern && testString && (
               <div className='bg-gradient-to-r from-rose-50 to-pink-50 rounded-xl p-6 border border-rose-200'>
                 <div className='flex items-center justify-between mb-4'>
-                  <h3 className='font-semibold text-gray-800'>Results</h3>
+                  <h3 className='font-semibold text-gray-900'>Results</h3>
                   {matches.length > 0 ? (
                     <div className='flex items-center gap-2 text-green-700'>
                       <CheckCircle className='w-5 h-5' />
@@ -381,7 +381,7 @@ export default function RegexTesterClient() {
                       {matches.map((m, idx) => (
                         <div key={idx} className='bg-white rounded-lg p-4'>
                           <div className='flex items-start justify-between mb-2'>
-                            <span className='font-semibold text-gray-800'>
+                            <span className='font-semibold text-gray-900'>
                               Match {idx + 1}
                             </span>
                             <span className='text-sm text-gray-600'>
@@ -418,7 +418,7 @@ export default function RegexTesterClient() {
             <div>
               <div className='flex items-center gap-2 mb-3'>
                 <BookOpen className='w-5 h-5 text-gray-600' />
-                <h3 className='font-semibold text-gray-800'>Common Patterns</h3>
+                <h3 className='font-semibold text-gray-900'>Common Patterns</h3>
               </div>
               <div className='grid md:grid-cols-2 gap-3'>
                 {COMMON_PATTERNS.map((ex) => (
@@ -427,7 +427,7 @@ export default function RegexTesterClient() {
                     onClick={() => loadExample(ex)}
                     className='bg-white border border-gray-200 rounded-lg p-3 hover:border-rose-300 hover:bg-rose-50 transition-colors text-left'
                   >
-                    <div className='font-semibold text-gray-800 mb-1'>
+                    <div className='font-semibold text-gray-900 mb-1'>
                       {ex.name}
                     </div>
                     <div className='font-mono text-xs text-gray-600 truncate'>
@@ -440,8 +440,10 @@ export default function RegexTesterClient() {
           </div>
 
           {/* Quick reference */}
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Quick Reference:</p>
+          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+            <p className='font-semibold mb-2 text-gray-800'>
+              ⚡ Quick Reference:
+            </p>
             <div className='grid md:grid-cols-2 gap-2'>
               {QUICK_REFS.map(({ token, desc }) => (
                 <div key={token}>

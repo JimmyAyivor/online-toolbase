@@ -31,21 +31,7 @@ interface StatCard {
   gradient: string;
 }
 
-interface Feature {
-  color: string;
-  text: string;
-}
-
 // ─── Constants ───────────────────────────────────────────────────────────────
-
-const FEATURES: Feature[] = [
-  { color: "bg-indigo-600", text: "Real-time word and character counting" },
-  { color: "bg-blue-600", text: "Reading and speaking time estimates" },
-  { color: "bg-teal-600", text: "Sentence and paragraph analysis" },
-  { color: "bg-green-600", text: "Copy and download functionality" },
-  { color: "bg-orange-600", text: "Average metrics calculation" },
-  { color: "bg-pink-600", text: "Clean, distraction-free interface" },
-];
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -154,10 +140,10 @@ export default function WordCharacterCounterClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 p-4 md:p-8'>
+    <div className='min-h-screen bg-gradient-to-br from-indigo-50 via-slate-50 to-blue-100 p-4'>
       <div className='max-w-6xl mx-auto'>
         <div className='text-center mb-8'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl mb-4 shadow-lg'>
+          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full mb-4 shadow-lg'>
             <FileText className='w-8 h-8 text-white' />
           </div>
           <h2 className='text-4xl font-bold text-gray-900 mb-2'>
@@ -189,7 +175,7 @@ export default function WordCharacterCounterClient() {
         </div>
 
         {/* Editor */}
-        <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-6'>
+        <div className='bg-white rounded-2xl shadow-xl p-6 mb-6'>
           <div className='flex flex-wrap gap-3 mb-4'>
             {[
               {
@@ -284,19 +270,30 @@ export default function WordCharacterCounterClient() {
           </div>
         </div>
 
-        {/* Features */}
-        <div className='bg-white rounded-xl shadow-md p-6'>
-          <h3 className='font-bold text-gray-900 mb-3'>✨ Features</h3>
-          <div className='grid md:grid-cols-3 gap-4 text-sm text-gray-700'>
-            {FEATURES.map(({ color, text: feat }) => (
-              <div key={feat} className='flex items-start gap-2'>
-                <div
-                  className={`w-2 h-2 ${color} rounded-full mt-2 flex-shrink-0`}
-                />
-                <span>{feat}</span>
-              </div>
-            ))}
-          </div>
+        <div className='p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+          <p className='font-semibold mb-2 text-gray-800'>💡 Tips:</p>
+          <ul className='list-disc list-inside space-y-1'>
+            <li>
+              Reading time is estimated at 200 words per minute — the average
+              adult reading speed
+            </li>
+            <li>
+              Speaking time uses 150 words per minute — typical for a
+              conversational presentation pace
+            </li>
+            <li>
+              Characters (no spaces) is the metric used by most social platforms
+              for character limits
+            </li>
+            <li>
+              Words per sentence above 20 is a readability warning — consider
+              splitting long sentences
+            </li>
+            <li>
+              Use Download to save your text as a .txt file after editing
+              directly in the counter
+            </li>
+          </ul>
         </div>
       </div>
     </div>

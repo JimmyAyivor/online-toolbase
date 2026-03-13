@@ -43,7 +43,7 @@ const SLOT_CONFIGS: Record<SlotVariant, SlotConfig> = {
 };
 
 interface AdSlotProps {
-  variant: SlotVariant;
+  variant?: SlotVariant;
   slotId: string; // AdSense data-ad-slot value, e.g. "1234567890"
   className?: string;
   // Set true only for the sticky mobile footer (Zone J)
@@ -57,7 +57,7 @@ const PUB_ID = process.env.NEXT_PUBLIC_ADSENSE_PUB_ID ?? "";
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function AdSlot({
-  variant,
+  variant = "responsive",
   slotId,
   className = "",
   sticky = false,
@@ -67,7 +67,16 @@ export default function AdSlot({
   const [visible, setVisible] = useState<boolean>(false);
   const [closed, setClosed] = useState<boolean>(false);
 
-  const cfg = SLOT_CONFIGS[variant];
+  // Runtime safety: even though `variant` is typed, bad values can still slip in
+  // (e.g. JS callers, older builds, or malformed props). Never crash the page.
+  const resolvedVariant: SlotVariant = Object.prototype.hasOwnProperty.call(
+    SLOT_CONFIGS,
+    variant,
+  )
+    ? variant
+    : "responsive";
+
+  const cfg = SLOT_CONFIGS[resolvedVariant];
 
   // ── Only render ads in production and when PUB_ID is set ─────────────────
   const isEnabled = Boolean(PUB_ID) && process.env.NODE_ENV === "production";
@@ -107,7 +116,7 @@ export default function AdSlot({
   if (!isEnabled) {
     return (
       <AdPlaceholder
-        variant={variant}
+        variant={resolvedVariant}
         cfg={cfg}
         className={className}
         sticky={sticky}
@@ -123,7 +132,7 @@ export default function AdSlot({
 
   return (
     <AdWrapper
-      variant={variant}
+      variant={resolvedVariant}
       cfg={cfg}
       className={className}
       sticky={sticky}
@@ -139,9 +148,9 @@ export default function AdSlot({
           }}
           data-ad-client={PUB_ID}
           data-ad-slot={slotId}
-          data-ad-format={variant === "responsive" ? "auto" : undefined}
+          data-ad-format={resolvedVariant === "responsive" ? "auto" : undefined}
           data-full-width-responsive={
-            variant === "responsive" ? "true" : undefined
+            resolvedVariant === "responsive" ? "true" : undefined
           }
           aria-label={cfg.label}
         />

@@ -204,7 +204,7 @@ export default function MemeGeneratorClient() {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-yellow-50 via-white to-orange-50 p-4 md:p-8'>
-      <div className='max-w-7xl mx-auto'>
+      <div className='max-w-6xl mx-auto'>
         <div className='text-center mb-8'>
           <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl mb-4 shadow-lg'>
             <Smile className='w-8 h-8 text-white' />
@@ -212,7 +212,7 @@ export default function MemeGeneratorClient() {
           <h2 className='text-4xl font-bold text-gray-900 mb-2'>
             Meme Generator
           </h2>
-          <p className='text-gray-600'>Create hilarious memes in seconds</p>
+          <p className='text-gray-500'>Create hilarious memes in seconds</p>
         </div>
 
         {!image ? (
@@ -223,7 +223,7 @@ export default function MemeGeneratorClient() {
                 onClick={() => fileInputRef.current?.click()}
                 className='border-4 border-dashed border-gray-300 rounded-2xl p-16 text-center hover:border-yellow-500 hover:bg-yellow-50 transition-all duration-300 cursor-pointer group'
               >
-                <div className='inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-yellow-100 to-orange-100 rounded-full mb-6 group-hover:scale-110 transition-transform'>
+                <div className='inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full mb-6 shadow-md group-hover:scale-110 transition-transform'>
                   <Upload className='w-12 h-12 text-yellow-600' />
                 </div>
                 <h3 className='text-2xl font-bold text-gray-900 mb-3'>

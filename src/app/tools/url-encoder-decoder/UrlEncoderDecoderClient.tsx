@@ -132,10 +132,10 @@ export default function UrlEncoderDecoderClient() {
       <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-sky-100 rounded-full mb-4'>
-              <Link className='w-8 h-8 text-sky-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-sky-500 to-blue-600 rounded-full mb-4 shadow-lg'>
+              <Link className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               URL Encoder/Decoder
             </h2>
             <p className='text-gray-600'>
@@ -202,7 +202,7 @@ export default function UrlEncoderDecoderClient() {
                       className='w-4 h-4 text-sky-600'
                     />
                     <div>
-                      <div className='font-medium text-gray-800'>{label}</div>
+                      <div className='font-medium text-gray-900'>{label}</div>
                       <div className='text-sm text-gray-600'>{desc}</div>
                     </div>
                   </label>
@@ -282,7 +282,7 @@ export default function UrlEncoderDecoderClient() {
           {/* URL parser */}
           {parsedUrl && (
             <div className='mb-6 bg-gradient-to-r from-sky-50 to-blue-50 rounded-xl p-6 border border-sky-200'>
-              <h3 className='font-semibold text-gray-800 mb-4'>URL Parser</h3>
+              <h3 className='font-semibold text-gray-900 mb-4'>URL Parser</h3>
               <div className='space-y-3'>
                 {[
                   { label: "Protocol", value: parsedUrl.protocol, show: true },
@@ -310,14 +310,14 @@ export default function UrlEncoderDecoderClient() {
                   .filter(({ show }) => show)
                   .map(({ label, value }) => (
                     <div key={label} className='bg-white rounded-lg p-3'>
-                      <div className='text-sm text-gray-600 mb-1'>{label}</div>
-                      <div className='font-mono text-gray-800'>{value}</div>
+                      <div className='text-sm text-gray-500 mb-1'>{label}</div>
+                      <div className='font-mono text-gray-900'>{value}</div>
                     </div>
                   ))}
 
                 {Object.keys(parsedUrl.params).length > 0 && (
                   <div className='bg-white rounded-lg p-3'>
-                    <div className='text-sm text-gray-600 mb-2'>
+                    <div className='text-sm text-gray-500 mb-2'>
                       Query Parameters
                     </div>
                     <div className='space-y-2'>
@@ -329,7 +329,7 @@ export default function UrlEncoderDecoderClient() {
                           <span className='font-semibold text-sky-700'>
                             {key}:
                           </span>
-                          <span className='font-mono text-gray-800'>
+                          <span className='font-mono text-gray-900'>
                             {value}
                           </span>
                         </div>
@@ -343,7 +343,7 @@ export default function UrlEncoderDecoderClient() {
 
           {/* Reference table */}
           <div className='mb-6'>
-            <h3 className='font-semibold text-gray-800 mb-3'>
+            <h3 className='font-semibold text-gray-900 mb-3'>
               Common URL Encodings
             </h3>
             <div className='bg-white border border-gray-200 rounded-lg overflow-hidden'>
@@ -363,10 +363,10 @@ export default function UrlEncoderDecoderClient() {
                 <tbody className='divide-y divide-gray-200'>
                   {COMMON_EXAMPLES.map(({ name, original, encoded }) => (
                     <tr key={name} className='hover:bg-gray-50'>
-                      <td className='px-4 py-3 text-sm text-gray-800'>
+                      <td className='px-4 py-3 text-sm text-gray-900'>
                         {name}
                       </td>
-                      <td className='px-4 py-3 text-sm font-mono text-gray-800'>
+                      <td className='px-4 py-3 text-sm font-mono text-gray-900'>
                         {original}
                       </td>
                       <td className='px-4 py-3 text-sm font-mono text-sky-600'>
@@ -379,7 +379,7 @@ export default function UrlEncoderDecoderClient() {
             </div>
           </div>
 
-          <div className='p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
+          <div className='p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
             <p className='font-semibold mb-2'>About URL Encoding:</p>
             <ul className='list-disc list-inside space-y-1'>
               <li>

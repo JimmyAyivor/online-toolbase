@@ -1,24 +1,19 @@
 // src/app/tools/rhyme-finder/page.tsx
 import type { Metadata } from "next";
 import RhymeFinderClient from "./RhymeFinderClient";
-import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
+import PageEditorial from "./PageEditorial";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
 
-// ─── Slot IDs from env ────────────────────────────────────────────────────────
-const SLOT_BELOW_TOOL =
-  process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
-const SLOT_LEADERBOARD =
-  process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
-
 export const metadata: Metadata = {
-  title: "Rhyme Finder — Free Online Rhyme Finder",
+  title:
+    "Rhyme Finder — Find Rhyming Words for Poetry & Lyrics, Free & Instant",
   description:
-    "Find rhyming words for poetry, lyrics and creative writing. Built-in rhyme dictionary — no API needed.",
+    "Find perfect rhyming words for poetry, song lyrics, and creative writing. Built-in phonetic rhyme dictionary — no API, no signup, runs entirely in your browser.",
   keywords:
-    "rhyme finder, find rhymes, rhyming words, poetry tool, rhyme dictionary, free rhyme finder, lyrics helper",
+    "rhyme finder, find rhymes online, rhyming words, poetry rhyme tool, song lyrics rhyme finder, perfect rhymes, rhyme dictionary online, words that rhyme with",
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
@@ -38,9 +33,10 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/rhyme-finder`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title: "Rhyme Finder — Free Online Rhyme Finder",
+    title:
+      "Rhyme Finder — Find Rhyming Words for Poetry & Lyrics, Free & Instant",
     description:
-      "Find rhyming words for poetry, lyrics and creative writing. Built-in rhyme dictionary — no API needed.",
+      "Find perfect rhyming words for poetry, lyrics, and creative writing. Built-in phonetic rhyme dictionary. No API, no signup, runs in your browser.",
     images: [
       {
         url: `${SITE_URL}/opengraph-image`,
@@ -54,8 +50,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title: "Rhyme Finder — Free Online Rhyme Finder",
-    description: "Find rhyming words for poetry, lyrics and creative writing.",
+    title:
+      "Rhyme Finder — Find Rhyming Words for Poetry & Lyrics, Free & Instant",
+    description:
+      "Find perfect rhymes for poetry and lyrics. Built-in phonetic dictionary, no signup, instant results.",
   },
 };
 
@@ -63,11 +61,11 @@ const toolJsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Rhyme Finder",
-  description: "Find rhyming words for poetry, lyrics and creative writing.",
+  description:
+    "Find perfect rhyming words for poetry, song lyrics, and creative writing using a built-in phonetic ending dictionary. No API or signup required.",
   url: `${SITE_URL}/tools/rhyme-finder`,
   applicationCategory: "WebApplication",
   operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript. Works in all modern browsers.",
   offers: {
     "@type": "Offer",
     price: "0",
@@ -76,7 +74,6 @@ const toolJsonLd = {
   },
   provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
 };
-
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -108,12 +105,10 @@ export default function RhymeFinderPage() {
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-
-      {/* Breadcrumb */}
       <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
         <ol className='flex items-center gap-2 text-sm text-gray-500'>
           <li>
-            <a href='/' className='hover:text-indigo-600 transition-colors'>
+            <a href='/' className='hover:text-pink-600 transition-colors'>
               Home
             </a>
           </li>
@@ -123,7 +118,7 @@ export default function RhymeFinderPage() {
           <li>
             <a
               href='/tools/category/writing'
-              className='hover:text-indigo-600 transition-colors'
+              className='hover:text-pink-600 transition-colors'
             >
               Writing Tools
             </a>
@@ -138,123 +133,23 @@ export default function RhymeFinderPage() {
           </li>
         </ol>
       </nav>
-
-      {/* Category badge + SR H1 */}
       <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1'>
+        <p className='text-xs font-semibold text-pink-600 uppercase tracking-widest mb-1'>
           Free Writing Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>Rhyme Finder — Free Online Rhyme Finder</h1>
+        <h1 className='sr-only'>
+          Rhyme Finder — Find Rhyming Words for Poetry & Lyrics, Free & Instant
+        </h1>
         <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
-          Find rhyming words for poetry, lyrics and creative writing.
+          Find perfect rhyming words for poetry, song lyrics, and creative
+          writing — built-in phonetic dictionary, click any result to copy.
         </p>
       </header>
-
-      {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
       <SidebarAdLayout>
-        {/* ── Tool component (main interactive area) ──────────────────── */}
         <main id='main-content' aria-label='Rhyme Finder tool'>
           <RhymeFinderClient />
         </main>
-
-        {/* ── Zone G: below tool result — highest value placement ──────── */}
-        {/* Sits immediately after the tool, before any editorial content   */}
-        <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
-          {/* desktop: rectangle 336×280; mobile: medium rectangle 300×250 */}
-          <div className='hidden sm:block'>
-            <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
-          </div>
-          <div className='block sm:hidden'>
-            <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
-          </div>
-        </div>
-
-        {/* ── Zone H: between tool + How To editorial ──────────────────── */}
-        <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
-          <AdSlot
-            variant='leaderboard'
-            slotId={SLOT_LEADERBOARD}
-            className='hidden sm:flex'
-          />
-          <AdSlot
-            variant='mediumrectangle'
-            slotId={SLOT_LEADERBOARD}
-            className='flex sm:hidden'
-          />
-        </div>
-
-        {/* ── Editorial: How To + Related Tools ────────────────────────── */}
-        <section
-          aria-labelledby='about-rhyme-finder'
-          className='max-w-6xl mx-auto px-4 py-12'
-        >
-          <div className='bg-white rounded-2xl shadow-lg p-8 md:p-10'>
-            <h2
-              id='about-rhyme-finder'
-              className='text-2xl font-bold text-gray-900 mb-4'
-            >
-              How to Use This Free Rhyme Finder
-            </h2>
-            <p className='text-gray-600 leading-relaxed mb-4'>
-              Our free online <strong>rhyme finder</strong> is designed for
-              speed and simplicity. Find rhyming words for poetry, lyrics and
-              creative writing. No software installation or account is required
-              — just use the tool above and get results instantly.
-            </p>
-            <p className='text-gray-600 leading-relaxed'>
-              All processing runs entirely in your browser. Your data is never
-              sent to or stored on our servers. This tool is part of our{" "}
-              <a
-                href='/'
-                className='text-indigo-600 hover:underline font-medium'
-              >
-                free online tools directory
-              </a>{" "}
-              — 80+ tools covering calculators, converters, generators, and
-              more.
-            </p>
-          </div>
-
-          {/* ── Zone I: related tools grid with native ad slot ──────────── */}
-          <div className='mt-8'>
-            <h3 className='text-lg font-bold text-gray-900 mb-4'>
-              Related Free Writing Tools
-            </h3>
-            {/* 3-slot grid; the 4th card position (index 3) is reserved for */}
-            {/* a native sponsored card — set data-ad-format="fluid" in AdSense */}
-            <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
-              {[
-                {
-                  href: "/tools/writing-prompt-generator",
-                  label: "Writing Prompt Generator",
-                  desc: "Generate creative writing prompts instantly.",
-                },
-                {
-                  href: "/tools/essay-title-generator",
-                  label: "Essay Title Generator",
-                  desc: "Generate compelling titles for essays and articles.",
-                },
-                {
-                  href: "/tools/lorem-ipsum-generator",
-                  label: "Lorem Ipsum Generator",
-                  desc: "Generate placeholder text for design or content.",
-                },
-              ].map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className='block bg-white rounded-xl shadow p-5 border-2 border-transparent hover:border-indigo-200 hover:-translate-y-1 transition-all duration-200'
-                  aria-label={`${link.label} — ${link.desc}`}
-                >
-                  <div className='font-bold text-gray-900 text-sm mb-1'>
-                    {link.label}
-                  </div>
-                  <div className='text-xs text-gray-500'>{link.desc}</div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
+        <PageEditorial />
       </SidebarAdLayout>
     </>
   );

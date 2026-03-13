@@ -1,106 +1,80 @@
 // src/app/sitemap.ts
 import type { MetadataRoute } from "next";
 import { tools } from "@/lib/tools";
-import { blogPosts } from "@/app/blog/blog-posts";
 
-const BASE_URL = (process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com").replace(/\/$/, "");
-if (!BASE_URL) throw new Error("NEXT_PUBLIC_BASE_URL is not set");
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+if (!baseUrl) throw new Error("NEXT_PUBLIC_BASE_URL is not set");
 
-// ─── Static pages ─────────────────────────────────────────────────────────────
-const STATIC_PAGES: MetadataRoute.Sitemap = [
-  {
-    url:             `${BASE_URL}`,
-    lastModified:    new Date(),
-    changeFrequency: "weekly" as const,
-    priority:        1.0,
-  },
-  {
-    url:             `${BASE_URL}/tools`,
-    lastModified:    new Date(),
-    changeFrequency: "weekly" as const,
-    priority:        0.9,
-  },
-  {
-    url:             `${BASE_URL}/blog`,
-    lastModified:    new Date(),
-    changeFrequency: "weekly" as const,
-    priority:        0.8,
-  },
-  // ── Legal / policy pages ──────────────────────────────────────────────────
-  {
-    url:             `${BASE_URL}/privacy-policy`,
-    lastModified:    new Date(),
-    changeFrequency: "yearly" as const,
-    priority:        0.4,
-  },
-  {
-    url:             `${BASE_URL}/terms-of-service`,
-    lastModified:    new Date(),
-    changeFrequency: "yearly" as const,
-    priority:        0.4,
-  },
-  {
-    url:             `${BASE_URL}/disclaimer`,
-    lastModified:    new Date(),
-    changeFrequency: "yearly" as const,
-    priority:        0.4,
-  },
-  {
-    url:             `${BASE_URL}/contact`,
-    lastModified:    new Date(),
-    changeFrequency: "monthly" as const,
-    priority:        0.5,
-  },
-];
+// Tool pages get a stable last-modified date rather than `new Date()` on every
+// build — Google ignores lastModified when it changes on every crawl.
+// Use the build date as a stable baseline; bump manually on major updates.
+const BUILD_DATE = new Date("2025-01-01");
 
-// ─── New social media tools ───────────────────────────────────────────────────
-// Tools built but not yet registered in @/lib/tools.
-// Remove slugs from here once added to the tools library.
-const UNREGISTERED_TOOL_SLUGS: string[] = [];
-
-// ─── Sitemap export ───────────────────────────────────────────────────────────
 export default function sitemap(): MetadataRoute.Sitemap {
-  // All tools registered in @/lib/tools
-  const toolUrls: MetadataRoute.Sitemap = tools.map((tool) => ({
-    url:             `${BASE_URL}/tools/${tool.slug}`,
-    lastModified:    new Date(),
-    changeFrequency: "weekly" as const,
-    priority:        0.8,
-  }));
 
-  // Category index pages (e.g. /tools/category/calculator)
-  const categoryUrls: MetadataRoute.Sitemap = Array.from(
-    new Set(tools.map((tool) => tool.category.toLowerCase())),
-  ).map((category) => ({
-    url:             `${BASE_URL}/tools/category/${category.replace(/\s+/g, "-")}`,
-    lastModified:    new Date(),
-    changeFrequency: "weekly" as const,
-    priority:        0.7,
-  }));
-
-  // Unregistered tools — temporary until added to lib
-  const unregisteredUrls: MetadataRoute.Sitemap = UNREGISTERED_TOOL_SLUGS.map(
-    (slug) => ({
-      url:             `${BASE_URL}/tools/${slug}`,
+  /* ── Static pages ────────────────────────────────────────────────────── */
+  const staticPages: MetadataRoute.Sitemap = [
+    {
+      url:             `${baseUrl}`,
       lastModified:    new Date(),
-      changeFrequency: "weekly" as const,
-      priority:        0.8,
-    }),
-  );
+      changeFrequency: "daily",
+      priority:        1.0,
+    },
+    {
+      url:             `${baseUrl}/tools`,
+      lastModified:    new Date(),
+      changeFrequency: "daily",
+      priority:        0.95,
+    },
+    {
+      url:             `${baseUrl}/about`,
+      lastModified:    BUILD_DATE,
+      changeFrequency: "monthly",
+      priority:        0.6,
+    },
+    {
+      url:             `${baseUrl}/blog`,
+      lastModified:    new Date(),
+      changeFrequency: "weekly",
+      priority:        0.7,
+    },
+    {
+      url:             `${baseUrl}/contact`,
+      lastModified:    BUILD_DATE,
+      changeFrequency: "monthly",
+      priority:        0.5,
+    },
+    {
+      url:             `${baseUrl}/privacy`,
+      lastModified:    BUILD_DATE,
+      changeFrequency: "yearly",
+      priority:        0.3,
+    },
+    {
+      url:             `${baseUrl}/terms`,
+      lastModified:    BUILD_DATE,
+      changeFrequency: "yearly",
+      priority:        0.3,
+    },
+  ];
 
-  // Blog posts — pulled from blog-posts.ts registry automatically
-  const blogUrls: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url:             `${BASE_URL}/blog/${post.slug}`,
-    lastModified:    new Date(post.updatedAt ?? post.publishedAt),
+  /* ── Individual tool pages (highest value pages for ranking) ─────────── */
+  const toolPages: MetadataRoute.Sitemap = tools.map((tool) => ({
+    url:             `${baseUrl}/tools/${tool.slug}`,
+    lastModified:    BUILD_DATE,
     changeFrequency: "monthly" as const,
-    priority:        0.7,
+    priority:        0.85,           // higher than category pages — these rank for specific queries
   }));
 
-  return [
-    ...STATIC_PAGES,
-    ...toolUrls,
-    ...unregisteredUrls,
-    ...categoryUrls,
-    ...blogUrls,
-  ];
+  /* ── Category pages ──────────────────────────────────────────────────── */
+  // Use the exact category strings from tools.ts, slugified consistently
+  const uniqueCategories = Array.from(new Set(tools.map((t) => t.category)));
+  const categoryPages: MetadataRoute.Sitemap = uniqueCategories.map((cat) => ({
+    url:             `${baseUrl}/tools/category/${cat.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")}`,
+    lastModified:    BUILD_DATE,
+    changeFrequency: "weekly" as const,
+    priority:        0.75,
+  }));
+
+  return [...staticPages, ...toolPages, ...categoryPages];
 }

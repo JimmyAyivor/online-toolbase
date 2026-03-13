@@ -96,16 +96,16 @@ export default function TipCalculatorClient() {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4'>
-      <div className='max-w-4xl mx-auto'>
+      <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4'>
-              <DollarSign className='w-8 h-8 text-green-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full mb-4 shadow-lg'>
+              <DollarSign className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Tip Calculator
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Calculate tips and split bills easily
             </p>
           </div>
@@ -202,7 +202,7 @@ export default function TipCalculatorClient() {
               <div className='bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200'>
                 <div className='flex items-center gap-2 mb-4'>
                   <Receipt className='w-5 h-5 text-green-600' />
-                  <h3 className='font-bold text-gray-800 text-lg'>
+                  <h3 className='font-bold text-gray-900 text-lg'>
                     Bill Summary
                   </h3>
                 </div>
@@ -219,7 +219,7 @@ export default function TipCalculatorClient() {
                     <div className='text-sm text-gray-600 mb-1'>
                       Total Amount
                     </div>
-                    <div className='text-3xl font-bold text-gray-800'>
+                    <div className='text-3xl font-bold text-gray-900'>
                       {fmt(results.total)}
                     </div>
                   </div>
@@ -248,8 +248,8 @@ export default function TipCalculatorClient() {
                     </div>
                   )}
 
-                  <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
-                    <h4 className='font-semibold text-gray-800 mb-3 text-sm'>
+                  <div className='bg-gray-50 rounded-xl border border-gray-200 p-4'>
+                    <h4 className='font-semibold text-gray-900 mb-3 text-sm'>
                       Breakdown
                     </h4>
                     <div className='space-y-2 text-sm'>
@@ -258,13 +258,13 @@ export default function TipCalculatorClient() {
                           label: "Subtotal",
                           value: parseFloat(billAmount),
                           bold: false,
-                          color: "text-gray-800",
+                          color: "text-gray-900",
                         },
                         {
                           label: `Tip (${activeTip}%)`,
                           value: results.tipAmount,
                           bold: false,
-                          color: "text-gray-800",
+                          color: "text-gray-900",
                         },
                       ].map(({ label, value, color }) => (
                         <div key={label} className='flex justify-between'>
@@ -275,16 +275,16 @@ export default function TipCalculatorClient() {
                         </div>
                       ))}
                       <div className='flex justify-between pt-2 border-t border-gray-300'>
-                        <span className='font-semibold text-gray-800'>
+                        <span className='font-semibold text-gray-900'>
                           Total
                         </span>
-                        <span className='font-bold text-gray-800'>
+                        <span className='font-bold text-gray-900'>
                           {fmt(results.total)}
                         </span>
                       </div>
                       {numPeople > 1 && (
                         <div className='flex justify-between pt-2 border-t border-gray-300'>
-                          <span className='font-semibold text-gray-800'>
+                          <span className='font-semibold text-gray-900'>
                             Per Person
                           </span>
                           <span className='font-bold text-green-600'>
@@ -306,8 +306,10 @@ export default function TipCalculatorClient() {
             </button>
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Tipping Guide:</p>
+          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
+            <p className='font-semibold mb-2 text-gray-800'>
+              💡 Tipping Guide:
+            </p>
             <ul className='list-disc list-inside space-y-1'>
               {TIPPING_GUIDE.map(({ pct, desc }) => (
                 <li key={pct}>

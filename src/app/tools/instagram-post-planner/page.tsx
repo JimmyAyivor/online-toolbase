@@ -1,25 +1,19 @@
 // src/app/tools/instagram-post-planner/page.tsx
 import type { Metadata } from "next";
 import InstagramPostPlannerClient from "./InstagramPostPlannerClient";
-import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
+import PageEditorial from "./PageEditorial";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
 
-// ─── Slot IDs from env ────────────────────────────────────────────────────────
-const SLOT_BELOW_TOOL =
-  process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
-const SLOT_LEADERBOARD =
-  process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
-
 export const metadata: Metadata = {
   title:
-    "Instagram Post Planner — Free Online Instagram Post Planner",
+    "Instagram Post Planner — Plan Captions, Hashtags & Post Schedule Free Online",
   description:
-    "Plan and organize Instagram posts with captions and scheduling ideas. Free, instant, no signup required.",
+    "Plan and organise Instagram posts with captions, hashtags, post type, status, and scheduled date — all in a visual content grid or list view. Export your plan as CSV. Free, no signup, runs in your browser.",
   keywords:
-    "instagram post planner, free instagram post planner, online instagram post planner, instagram post planner free, instagram post planner online, social media tool, free online instagram post planner, best instagram post planner",
+    "instagram post planner, instagram content calendar, instagram caption planner, social media content planner, instagram scheduler, plan instagram posts, content grid instagram, free instagram planner",
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
@@ -39,9 +33,10 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/instagram-post-planner`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title: "Instagram Post Planner — Free Online Instagram Post Planner",
+    title:
+      "Instagram Post Planner — Plan Captions, Hashtags & Post Schedule Free Online",
     description:
-      "Plan and organize Instagram posts with captions and scheduling ideas. Free, instant, no signup.",
+      "Plan Instagram posts with captions, hashtags, post type, status, and scheduled date. Visual content grid, list view, CSV export. Free, no signup.",
     images: [
       {
         url: `${SITE_URL}/opengraph-image`,
@@ -55,9 +50,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title: "Instagram Post Planner — Free Online Instagram Post Planner",
+    title:
+      "Instagram Post Planner — Plan Captions, Hashtags & Post Schedule Free Online",
     description:
-      "Plan and organize Instagram posts with captions and scheduling ideas.",
+      "Plan Instagram captions, hashtags, and post schedules in a visual content grid. CSV export. Free.",
   },
 };
 
@@ -66,11 +62,10 @@ const toolJsonLd = {
   "@type": "SoftwareApplication",
   name: "Instagram Post Planner",
   description:
-    "Plan and organize Instagram posts with captions and scheduling ideas.",
+    "Plan and organise Instagram posts with captions, hashtags, post type (photo, video, carousel, story, reel), status (idea, draft, scheduled, posted), scheduled date, and colour labels. View as a visual content grid or list. Export the plan as a CSV file. All data is stored in the browser — no account required.",
   url: `${SITE_URL}/tools/instagram-post-planner`,
   applicationCategory: "WebApplication",
   operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript. Works in all modern browsers.",
   offers: {
     "@type": "Offer",
     price: "0",
@@ -79,7 +74,6 @@ const toolJsonLd = {
   },
   provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
 };
-
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -111,12 +105,10 @@ export default function InstagramPostPlannerPage() {
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-
-      {/* Breadcrumb */}
       <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
         <ol className='flex items-center gap-2 text-sm text-gray-500'>
           <li>
-            <a href='/' className='hover:text-indigo-600 transition-colors'>
+            <a href='/' className='hover:text-pink-600 transition-colors'>
               Home
             </a>
           </li>
@@ -126,7 +118,7 @@ export default function InstagramPostPlannerPage() {
           <li>
             <a
               href='/tools/category/social-media'
-              className='hover:text-indigo-600 transition-colors'
+              className='hover:text-pink-600 transition-colors'
             >
               Social Media Tools
             </a>
@@ -141,127 +133,24 @@ export default function InstagramPostPlannerPage() {
           </li>
         </ol>
       </nav>
-
-      {/* Category badge + SR H1 */}
       <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1'>
+        <p className='text-xs font-semibold text-pink-600 uppercase tracking-widest mb-1'>
           Free Social Media Tool · No Signup · Works Instantly
         </p>
         <h1 className='sr-only'>
-          Instagram Post Planner — Free Online Instagram Post Planner
+          Instagram Post Planner — Plan Captions, Hashtags &amp; Post Schedule
+          Free Online
         </h1>
         <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
-          Plan and organize Instagram posts with captions and scheduling ideas.
-          Free, instant, no account needed.
+          Plan Instagram posts with captions, hashtags, post type, status, and
+          scheduled date — visual content grid or list view, CSV export.
         </p>
       </header>
-
-      {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
       <SidebarAdLayout>
-        {/* ── Tool component (main interactive area) ──────────────────── */}
         <main id='main-content' aria-label='Instagram Post Planner tool'>
           <InstagramPostPlannerClient />
         </main>
-
-        {/* ── Zone G: below tool result — highest value placement ──────── */}
-        {/* Sits immediately after the tool, before any editorial content   */}
-        <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
-          {/* desktop: rectangle 336×280; mobile: medium rectangle 300×250 */}
-          <div className='hidden sm:block'>
-            <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
-          </div>
-          <div className='block sm:hidden'>
-            <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
-          </div>
-        </div>
-
-        {/* ── Zone H: between tool + How To editorial ──────────────────── */}
-        <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
-          <AdSlot
-            variant='leaderboard'
-            slotId={SLOT_LEADERBOARD}
-            className='hidden sm:flex'
-          />
-          <AdSlot
-            variant='mediumrectangle'
-            slotId={SLOT_LEADERBOARD}
-            className='flex sm:hidden'
-          />
-        </div>
-
-        {/* ── Editorial: How To + Related Tools ────────────────────────── */}
-        <section
-          aria-labelledby='about-instagram-post-planner'
-          className='max-w-6xl mx-auto px-4 py-12'
-        >
-          <div className='bg-white rounded-2xl shadow-lg p-8 md:p-10'>
-            <h2
-              id='about-instagram-post-planner'
-              className='text-2xl font-bold text-gray-900 mb-4'
-            >
-              How to Use This Free Instagram Post Planner
-            </h2>
-            <p className='text-gray-600 leading-relaxed mb-4'>
-              Our free online <strong>instagram post planner</strong> is
-              designed for speed and simplicity. Plan and organize Instagram
-              posts with captions and scheduling ideas. No software installation
-              or account is required — just use the tool above and get results
-              instantly.
-            </p>
-            <p className='text-gray-600 leading-relaxed'>
-              All processing runs entirely in your browser. Your data is never
-              sent to or stored on our servers. This tool is part of our{" "}
-              <a
-                href='/'
-                className='text-indigo-600 hover:underline font-medium'
-              >
-                free online tools directory
-              </a>{" "}
-              — 60+ tools covering calculators, converters, generators, and
-              social media utilities.
-            </p>
-          </div>
-
-          {/* ── Zone I: related tools grid with native ad slot ──────────── */}
-          <div className='mt-8'>
-            <h3 className='text-lg font-bold text-gray-900 mb-4'>
-              Related Free Social Media Tools
-            </h3>
-            {/* 3-slot grid; the 4th card position (index 3) is reserved for */}
-            {/* a native sponsored card — set data-ad-format="fluid" in AdSense */}
-            <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
-              {[
-                {
-                  href: "/tools/social-media-bio-generator",
-                  label: "Social Media Bio Generator",
-                  desc: "Generate optimized and creative bios for social media profiles.",
-                },
-                {
-                  href: "/tools/hashtag-generator",
-                  label: "Hashtag Generator",
-                  desc: "Generate relevant hashtags to increase reach and discoverability.",
-                },
-                {
-                  href: "/tools/engagement-rate-calculator",
-                  label: "Engagement Rate Calculator",
-                  desc: "Calculate social media engagement rate using likes, comments, and followers.",
-                },
-              ].map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className='block bg-white rounded-xl shadow p-5 border-2 border-transparent hover:border-indigo-200 hover:-translate-y-1 transition-all duration-200'
-                  aria-label={`${link.label} — ${link.desc}`}
-                >
-                  <div className='font-bold text-gray-900 text-sm mb-1'>
-                    {link.label}
-                  </div>
-                  <div className='text-xs text-gray-500'>{link.desc}</div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
+        <PageEditorial />
       </SidebarAdLayout>
     </>
   );

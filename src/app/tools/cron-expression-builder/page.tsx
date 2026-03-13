@@ -1,24 +1,19 @@
 // src/app/tools/cron-expression-builder/page.tsx
 import type { Metadata } from "next";
 import CronExpressionBuilderClient from "./CronExpressionBuilderClient";
-import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
+import PageEditorial from "./PageEditorial";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
 
-// ─── Slot IDs from env ────────────────────────────────────────────────────────
-const SLOT_BELOW_TOOL =
-  process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
-const SLOT_LEADERBOARD =
-  process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
-
 export const metadata: Metadata = {
-  title: "Cron Expression Builder — Free Online Cron Expression Builder",
+  title:
+    "Cron Expression Builder — Visual Cron Job Generator & Validator, Free Online",
   description:
-    "Build and validate cron job expressions with a visual editor. Includes presets and a reference guide.",
+    "Build cron expressions with a visual editor — set minutes, hours, day of month, month, and day of week. Includes presets, plain-English descriptions, and a syntax reference. Free, no signup.",
   keywords:
-    "cron expression builder, cron generator, cron job expression, cron syntax, cron validator, developer tool",
+    "cron expression builder, cron generator, cron job expression, cron syntax, cron validator, cron schedule, cron expression tester, crontab generator, linux cron, scheduled tasks",
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
@@ -38,9 +33,10 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/cron-expression-builder`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title: "Cron Expression Builder — Free Online Cron Expression Builder",
+    title:
+      "Cron Expression Builder — Visual Cron Job Generator & Validator, Free Online",
     description:
-      "Build and validate cron job expressions with a visual editor. Includes presets and a reference guide.",
+      "Build cron expressions with a visual editor — set each field individually, use presets, and get plain-English schedule descriptions. Free, no signup.",
     images: [
       {
         url: `${SITE_URL}/opengraph-image`,
@@ -54,9 +50,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title: "Cron Expression Builder — Free Online Cron Expression Builder",
+    title:
+      "Cron Expression Builder — Visual Cron Job Generator & Validator, Free Online",
     description:
-      "Build and validate cron job expressions with a visual editor.",
+      "Build cron job schedules with a visual editor — presets, plain-English descriptions, syntax reference. Free.",
   },
 };
 
@@ -64,11 +61,11 @@ const toolJsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Cron Expression Builder",
-  description: "Build and validate cron job expressions with a visual editor.",
+  description:
+    "Build and validate cron job schedule expressions using a visual field editor. Supports minute, hour, day-of-month, month, and day-of-week fields with wildcard, step, range, and list syntax. Includes common presets and displays a plain-English description of the schedule.",
   url: `${SITE_URL}/tools/cron-expression-builder`,
   applicationCategory: "WebApplication",
   operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript. Works in all modern browsers.",
   offers: {
     "@type": "Offer",
     price: "0",
@@ -77,7 +74,6 @@ const toolJsonLd = {
   },
   provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
 };
-
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -109,8 +105,6 @@ export default function CronExpressionBuilderPage() {
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-
-      {/* Breadcrumb */}
       <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
         <ol className='flex items-center gap-2 text-sm text-gray-500'>
           <li>
@@ -139,126 +133,24 @@ export default function CronExpressionBuilderPage() {
           </li>
         </ol>
       </nav>
-
-      {/* Category badge + SR H1 */}
       <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
         <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1'>
           Free Developer Tool · No Signup · Works Instantly
         </p>
         <h1 className='sr-only'>
-          Cron Expression Builder — Free Online Cron Expression Builder
+          Cron Expression Builder — Visual Cron Job Generator &amp; Validator,
+          Free Online
         </h1>
         <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
-          Build and validate cron job expressions with a visual editor.
+          Build cron job schedules with a visual editor — set each field, use
+          presets, and get a plain-English description of when the job will run.
         </p>
       </header>
-
-      {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
       <SidebarAdLayout>
-        {/* ── Tool component (main interactive area) ──────────────────── */}
         <main id='main-content' aria-label='Cron Expression Builder tool'>
           <CronExpressionBuilderClient />
         </main>
-
-        {/* ── Zone G: below tool result — highest value placement ──────── */}
-        {/* Sits immediately after the tool, before any editorial content   */}
-        <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
-          {/* desktop: rectangle 336×280; mobile: medium rectangle 300×250 */}
-          <div className='hidden sm:block'>
-            <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
-          </div>
-          <div className='block sm:hidden'>
-            <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
-          </div>
-        </div>
-
-        {/* ── Zone H: between tool + How To editorial ──────────────────── */}
-        <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
-          <AdSlot
-            variant='leaderboard'
-            slotId={SLOT_LEADERBOARD}
-            className='hidden sm:flex'
-          />
-          <AdSlot
-            variant='mediumrectangle'
-            slotId={SLOT_LEADERBOARD}
-            className='flex sm:hidden'
-          />
-        </div>
-
-        {/* ── Editorial: How To + Related Tools ────────────────────────── */}
-        <section
-          aria-labelledby='about-cron-expression-builder'
-          className='max-w-6xl mx-auto px-4 py-12'
-        >
-          <div className='bg-white rounded-2xl shadow-lg p-8 md:p-10'>
-            <h2
-              id='about-cron-expression-builder'
-              className='text-2xl font-bold text-gray-900 mb-4'
-            >
-              How to Use This Free Cron Expression Builder
-            </h2>
-            <p className='text-gray-600 leading-relaxed mb-4'>
-              Our free online <strong>cron expression builder</strong> is
-              designed for speed and simplicity. Build and validate cron job
-              expressions with a visual editor. No software installation or
-              account is required — just use the tool above and get results
-              instantly.
-            </p>
-            <p className='text-gray-600 leading-relaxed'>
-              All processing runs entirely in your browser. Your data is never
-              sent to or stored on our servers. This tool is part of our{" "}
-              <a
-                href='/'
-                className='text-indigo-600 hover:underline font-medium'
-              >
-                free online tools directory
-              </a>{" "}
-              — 80+ tools covering calculators, converters, generators, and
-              more.
-            </p>
-          </div>
-
-          {/* ── Zone I: related tools grid with native ad slot ──────────── */}
-          <div className='mt-8'>
-            <h3 className='text-lg font-bold text-gray-900 mb-4'>
-              Related Free Developer Tools
-            </h3>
-            {/* 3-slot grid; the 4th card position (index 3) is reserved for */}
-            {/* a native sponsored card — set data-ad-format="fluid" in AdSense */}
-            <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
-              {[
-                {
-                  href: "/tools/regex-tester",
-                  label: "Regex Tester",
-                  desc: "Test regular expressions against sample text instantly.",
-                },
-                {
-                  href: "/tools/json-formatter-validator",
-                  label: "JSON Formatter & Validator",
-                  desc: "Format and validate JSON data easily.",
-                },
-                {
-                  href: "/tools/uuid-guid-generator",
-                  label: "UUID/GUID Generator",
-                  desc: "Generate unique identifiers instantly.",
-                },
-              ].map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className='block bg-white rounded-xl shadow p-5 border-2 border-transparent hover:border-indigo-200 hover:-translate-y-1 transition-all duration-200'
-                  aria-label={`${link.label} — ${link.desc}`}
-                >
-                  <div className='font-bold text-gray-900 text-sm mb-1'>
-                    {link.label}
-                  </div>
-                  <div className='text-xs text-gray-500'>{link.desc}</div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
+        <PageEditorial />
       </SidebarAdLayout>
     </>
   );

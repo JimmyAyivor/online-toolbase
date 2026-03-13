@@ -207,17 +207,17 @@ export default function SocialMediaCharacterCounterClient() {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-slate-50 to-sky-50 p-4 md:p-8'>
-      <div className='max-w-5xl mx-auto'>
+      <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           {/* Header */}
           <div className='text-center mb-8'>
             <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-sky-500 to-indigo-600 rounded-2xl mb-4 shadow-lg'>
               <span className='text-2xl'>📊</span>
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Social Media Character Counter
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Write and check character limits for every major platform
             </p>
           </div>
@@ -278,7 +278,7 @@ export default function SocialMediaCharacterCounterClient() {
                     setText(e.target.value)
                   }
                   placeholder={`Write your ${platform.name} post here…`}
-                  className='w-full h-56 p-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-sky-400 resize-none text-gray-800 leading-relaxed text-sm font-medium'
+                  className='w-full h-56 p-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-sky-400 resize-none text-gray-900 leading-relaxed text-sm font-medium'
                 />
                 <div className='absolute bottom-3 right-3 flex gap-2'>
                   <button

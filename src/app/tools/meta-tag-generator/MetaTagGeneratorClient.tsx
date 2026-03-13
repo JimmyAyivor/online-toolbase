@@ -198,13 +198,13 @@ export default function MetaTagGeneratorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-teal-50 via-white to-cyan-50 p-4 md:p-8'>
-      <div className='max-w-7xl mx-auto'>
+    <div className='min-h-screen bg-gradient-to-br from-teal-50 via-white to-cyan-50 p-4'>
+      <div className='max-w-6xl mx-auto'>
         <div className='text-center mb-8'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-600 to-cyan-600 rounded-2xl mb-4 shadow-lg'>
+          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-600 to-cyan-600 rounded-full mb-4 shadow-lg'>
             <Code className='w-8 h-8 text-white' />
           </div>
-          <h2 className='text-4xl font-bold text-gray-900 mb-2'>
+          <h2 className='text-3xl font-bold text-gray-900 mb-2'>
             Meta Tag Generator
           </h2>
           <p className='text-gray-600'>
@@ -215,7 +215,7 @@ export default function MetaTagGeneratorClient() {
         <div className='grid lg:grid-cols-3 gap-6'>
           {/* ── Form + output ── */}
           <div className='lg:col-span-2 space-y-6'>
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
+            <div className='bg-white rounded-2xl shadow-xl p-6'>
               <h3 className='font-bold text-gray-900 mb-6 flex items-center gap-2 text-xl'>
                 <Globe className='w-6 h-6 text-teal-600' />
                 Website Information
@@ -389,7 +389,7 @@ export default function MetaTagGeneratorClient() {
             </div>
 
             {/* Generated output */}
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
+            <div className='bg-white rounded-2xl shadow-xl p-6'>
               <div className='flex justify-between items-center mb-6'>
                 <h3 className='font-bold text-gray-900 flex items-center gap-2 text-xl'>
                   <Code className='w-6 h-6 text-teal-600' />

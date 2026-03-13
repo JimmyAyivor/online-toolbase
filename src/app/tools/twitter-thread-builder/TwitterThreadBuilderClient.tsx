@@ -160,17 +160,17 @@ export default function TwitterThreadBuilderClient() {
 
   return (
     <div className='min-h-screen bg-gray-50 p-4 md:p-8'>
-      <div className='max-w-4xl mx-auto'>
+      <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           {/* Header */}
           <div className='text-center mb-8'>
             <div className='inline-flex items-center justify-center w-16 h-16 bg-gray-900 rounded-2xl mb-4 shadow-lg'>
               <span className='text-2xl text-white font-black'>𝕏</span>
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Thread Builder
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Compose, reorder, and export Twitter / X threads
             </p>
           </div>
@@ -187,7 +187,7 @@ export default function TwitterThreadBuilderClient() {
                   onClick={() => loadTemplate(tpl)}
                   className='text-left px-3 py-2.5 bg-gray-50 hover:bg-gray-100 border border-gray-200 hover:border-gray-300 rounded-xl transition-all'
                 >
-                  <div className='text-sm font-bold text-gray-800'>
+                  <div className='text-sm font-bold text-gray-900'>
                     {tpl.label}
                   </div>
                   <div className='text-xs text-gray-500'>{tpl.desc}</div>
@@ -199,9 +199,9 @@ export default function TwitterThreadBuilderClient() {
           {/* Stats bar */}
           <div className='flex items-center justify-between mb-4 px-1'>
             <div className='text-sm text-gray-500'>
-              <span className='font-bold text-gray-800'>{tweets.length}</span>{" "}
+              <span className='font-bold text-gray-900'>{tweets.length}</span>{" "}
               tweets ·{" "}
-              <span className='font-bold text-gray-800'>
+              <span className='font-bold text-gray-900'>
                 {totalChars.toLocaleString()}
               </span>{" "}
               total chars
@@ -271,7 +271,7 @@ export default function TwitterThreadBuilderClient() {
                             : "Continue the thread…"
                         }
                         rows={3}
-                        className='w-full bg-transparent resize-none focus:outline-none text-gray-800 placeholder-gray-400 text-sm leading-relaxed'
+                        className='w-full bg-transparent resize-none focus:outline-none text-gray-900 placeholder-gray-400 text-sm leading-relaxed'
                       />
 
                       <div className='flex items-center justify-between mt-2'>
