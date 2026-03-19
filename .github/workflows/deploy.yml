@@ -24,13 +24,11 @@ jobs:
             BASE_DIR="/home/opc/apps"
             RELEASES_DIR="$BASE_DIR/releases"
             CURRENT_LINK="$BASE_DIR/current"
-            SHARED_DIR="$BASE_DIR/shared"
 
             NEW_RELEASE="$RELEASES_DIR/$(date +%Y%m%d%H%M%S)"
 
             echo "📁 Preparing directories..."
             mkdir -p $RELEASES_DIR
-            mkdir -p $SHARED_DIR
 
             echo "📦 Creating new release..."
             mkdir -p $NEW_RELEASE
@@ -40,8 +38,8 @@ jobs:
 
             cd $NEW_RELEASE
 
-            echo "📦 Installing dependencies (lean mode)..."
-            npm ci --omit=dev --no-audit --no-fund --legacy-peer-deps
+            echo "📦 Installing ALL dependencies (needed for build)..."
+            npm ci --no-audit --no-fund --legacy-peer-deps
 
             echo "⚙️ Setting environment..."
             export NODE_OPTIONS="--max-old-space-size=2048"
@@ -52,10 +50,13 @@ jobs:
             echo "🏗 Building app..."
             npm run build
 
+            echo "🧹 Pruning dev dependencies..."
+            npm prune --omit=dev
+
             echo "🧹 Cleaning npm cache..."
             rm -rf ~/.npm
 
-            # OPTIONAL: DB migrations (uncomment if needed)
+            # OPTIONAL: DB migrations
             # npx prisma migrate deploy
 
             echo "🔗 Switching to new release..."
