@@ -1,25 +1,19 @@
 // src/app/tools/invoice-generator/page.tsx
 import type { Metadata } from "next";
 import InvoiceGeneratorClient from "./InvoiceGeneratorClient";
-import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
+import PageEditorial from "./PageEditorial";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
 
-// ─── Slot IDs from env ────────────────────────────────────────────────────────
-const SLOT_BELOW_TOOL =
-  process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
-const SLOT_LEADERBOARD =
-  process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
-
 export const metadata: Metadata = {
   title:
-    "Invoice Generator — Free Online Invoice Generator",
+    "Invoice Generator — Create & Download Professional Invoices Free Online",
   description:
-    "Create professional invoices with itemized billing and automatic totals. Free, instant, no signup required.",
+    "Create professional invoices with itemised line items, automatic subtotal and tax calculations, payment terms, and notes. Download as PDF or print. Free, no signup, no data stored.",
   keywords:
-    "invoice generator, free invoice generator, online invoice generator, invoice generator free, invoice generator online, business tool, free online invoice generator, best invoice generator",
+    "invoice generator, free invoice generator, invoice maker, online invoice creator, invoice template, freelance invoice, small business invoice, PDF invoice, invoice download",
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
@@ -39,9 +33,10 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/invoice-generator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title: "Invoice Generator — Free Online Invoice Generator",
+    title:
+      "Invoice Generator — Create & Download Professional Invoices Free Online",
     description:
-      "Create professional invoices with itemized billing and automatic totals. Free, instant, no signup.",
+      "Create professional invoices with itemised billing, automatic totals, tax, payment terms, and notes. Download as PDF or print. Free, no signup, no data stored.",
     images: [
       {
         url: `${SITE_URL}/opengraph-image`,
@@ -55,9 +50,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title: "Invoice Generator — Free Online Invoice Generator",
+    title:
+      "Invoice Generator — Create & Download Professional Invoices Free Online",
     description:
-      "Create professional invoices with itemized billing and automatic totals.",
+      "Create invoices with itemised billing, automatic totals, tax, and payment terms. Download as PDF. Free.",
   },
 };
 
@@ -66,11 +62,10 @@ const toolJsonLd = {
   "@type": "SoftwareApplication",
   name: "Invoice Generator",
   description:
-    "Create professional invoices with itemized billing and automatic totals.",
+    "Creates professional invoices with company and client details, itemised line items (description, quantity, rate, amount), automatic subtotal, tax, and total calculations, payment terms, due dates, and notes fields. Invoices can be downloaded as PDF or printed directly. All data stays in the browser — nothing is sent to or stored on servers.",
   url: `${SITE_URL}/tools/invoice-generator`,
   applicationCategory: "WebApplication",
   operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript. Works in all modern browsers.",
   offers: {
     "@type": "Offer",
     price: "0",
@@ -79,7 +74,6 @@ const toolJsonLd = {
   },
   provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
 };
-
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -111,12 +105,10 @@ export default function InvoiceGeneratorPage() {
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-
-      {/* Breadcrumb */}
       <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
         <ol className='flex items-center gap-2 text-sm text-gray-500'>
           <li>
-            <a href='/' className='hover:text-indigo-600 transition-colors'>
+            <a href='/' className='hover:text-slate-700 transition-colors'>
               Home
             </a>
           </li>
@@ -126,7 +118,7 @@ export default function InvoiceGeneratorPage() {
           <li>
             <a
               href='/tools/category/business'
-              className='hover:text-indigo-600 transition-colors'
+              className='hover:text-slate-700 transition-colors'
             >
               Business Tools
             </a>
@@ -141,126 +133,25 @@ export default function InvoiceGeneratorPage() {
           </li>
         </ol>
       </nav>
-
-      {/* Category badge + SR H1 */}
       <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1'>
+        <p className='text-xs font-semibold text-slate-700 uppercase tracking-widest mb-1'>
           Free Business Tool · No Signup · Works Instantly
         </p>
         <h1 className='sr-only'>
-          Invoice Generator — Free Online Invoice Generator
+          Invoice Generator — Create &amp; Download Professional Invoices Free
+          Online
         </h1>
         <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
-          Create professional invoices with itemized billing and automatic
-          totals. Free, instant, no account needed.
+          Create professional invoices with itemised billing, automatic totals,
+          tax, and payment terms — download as PDF or print. Your data never
+          leaves your browser.
         </p>
       </header>
-
-      {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
       <SidebarAdLayout>
-        {/* ── Tool component (main interactive area) ──────────────────── */}
         <main id='main-content' aria-label='Invoice Generator tool'>
           <InvoiceGeneratorClient />
         </main>
-
-        {/* ── Zone G: below tool result — highest value placement ──────── */}
-        {/* Sits immediately after the tool, before any editorial content   */}
-        <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
-          {/* desktop: rectangle 336×280; mobile: medium rectangle 300×250 */}
-          <div className='hidden sm:block'>
-            <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
-          </div>
-          <div className='block sm:hidden'>
-            <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
-          </div>
-        </div>
-
-        {/* ── Zone H: between tool + How To editorial ──────────────────── */}
-        <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
-          <AdSlot
-            variant='leaderboard'
-            slotId={SLOT_LEADERBOARD}
-            className='hidden sm:flex'
-          />
-          <AdSlot
-            variant='mediumrectangle'
-            slotId={SLOT_LEADERBOARD}
-            className='flex sm:hidden'
-          />
-        </div>
-
-        {/* ── Editorial: How To + Related Tools ────────────────────────── */}
-        <section
-          aria-labelledby='about-invoice-generator'
-          className='max-w-6xl mx-auto px-4 py-12'
-        >
-          <div className='bg-white rounded-2xl shadow-lg p-8 md:p-10'>
-            <h2
-              id='about-invoice-generator'
-              className='text-2xl font-bold text-gray-900 mb-4'
-            >
-              How to Use This Free Invoice Generator
-            </h2>
-            <p className='text-gray-600 leading-relaxed mb-4'>
-              Our free online <strong>invoice generator</strong> is designed for
-              speed and simplicity. Create professional invoices with itemized
-              billing and automatic totals. No software installation or account
-              is required — just use the tool above and get results instantly.
-            </p>
-            <p className='text-gray-600 leading-relaxed'>
-              All processing runs entirely in your browser. Your data is never
-              sent to or stored on our servers. This tool is part of our{" "}
-              <a
-                href='/'
-                className='text-indigo-600 hover:underline font-medium'
-              >
-                free online tools directory
-              </a>{" "}
-              — 60+ tools covering calculators, converters, generators, and
-              social media utilities.
-            </p>
-          </div>
-
-          {/* ── Zone I: related tools grid with native ad slot ──────────── */}
-          <div className='mt-8'>
-            <h3 className='text-lg font-bold text-gray-900 mb-4'>
-              Related Free Business Tools
-            </h3>
-            {/* 3-slot grid; the 4th card position (index 3) is reserved for */}
-            {/* a native sponsored card — set data-ad-format="fluid" in AdSense */}
-            <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
-              {[
-                {
-                  href: "/tools/resume-builder",
-                  label: "Resume Builder",
-                  desc: "Build a professional resume with customizable templates, downloadable as PDF.",
-                },
-                {
-                  href: "/tools/pdf-merger-splitter",
-                  label: "PDF Merger & Splitter",
-                  desc: "Merge multiple PDF files into one or split a PDF into separate pages.",
-                },
-                {
-                  href: "/tools/signature-generator",
-                  label: "Signature Generator",
-                  desc: "Create a custom digital signature with stylish fonts for documents and emails.",
-                },
-              ].map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className='block bg-white rounded-xl shadow p-5 border-2 border-transparent hover:border-indigo-200 hover:-translate-y-1 transition-all duration-200'
-                  aria-label={`${link.label} — ${link.desc}`}
-                >
-                  <div className='font-bold text-gray-900 text-sm mb-1'>
-                    {link.label}
-                  </div>
-                  <div className='text-xs text-gray-500'>{link.desc}</div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
+        <PageEditorial />
       </SidebarAdLayout>
     </>
   );

@@ -319,10 +319,10 @@ export default function FacebookAdCopyGeneratorClient() {
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           {/* Header */}
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-2xl mb-4 shadow-lg'>
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl mb-4 shadow-lg'>
               <span className='text-2xl'>📘</span>
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Facebook Ad Copy Generator
             </h2>
             <p className='text-gray-600'>
@@ -352,7 +352,7 @@ export default function FacebookAdCopyGeneratorClient() {
                           : "border-gray-100 bg-gray-50 hover:border-blue-200"
                       }`}
                     >
-                      <div className='text-sm font-bold text-gray-800'>
+                      <div className='text-sm font-bold text-gray-900'>
                         {STAGES[s].icon} {STAGES[s].label}
                       </div>
                       <div className='text-xs text-gray-500 leading-tight mt-0.5'>
@@ -531,7 +531,7 @@ export default function FacebookAdCopyGeneratorClient() {
           </div>
 
           <div className='mt-6 p-4 bg-gray-50 rounded-xl text-sm text-gray-600'>
-            <p className='font-bold text-gray-800 mb-2'>
+            <p className='font-bold text-gray-900 mb-2'>
               📐 Facebook Ad Copy Best Practices
             </p>
             <div className='grid md:grid-cols-2 gap-x-6 gap-y-1 text-xs list-disc list-inside'>

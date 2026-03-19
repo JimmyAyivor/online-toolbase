@@ -1,0 +1,98 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          command_timeout: 120m
+          script: |
+            set -e
+
+            cd /home/opc/online-tool-base
+
+            echo "📥 Syncing repository..."
+            git fetch --all
+            git reset --hard origin/main
+            git clean -fd
+
+            echo "📦 Installing dependencies (fast mode)..."
+            npm ci --omit=dev --legacy-peer-deps
+
+            echo "⚙️ Setting build environment..."
+            export NODE_OPTIONS="--max-old-space-size=4096"
+            export NEXT_PRIVATE_BUILD_WORKERS=$(nproc)
+            export NEXT_DISABLE_TURBOPACK=1
+            export NEXT_PUBLIC_BASE_URL="${{ secrets.NEXT_PUBLIC_BASE_URL }}"
+
+            echo "🧹 Clearing previous build..."
+            rm -rf .next
+
+            echo "🏗 Building Next.js..."
+            if npm run build; then
+
+              echo "🚀 Starting or restarting PM2..."
+
+              if pm2 describe online-tool-base > /dev/null 2>&1; then
+                pm2 restart online-tool-base --update-env
+              else
+                pm2 start npm --name online-tool-base -- start
+              fi
+
+              pm2 save
+              echo "✅ Deploy successful"
+
+            else
+              echo "❌ Build failed — previous version still running"
+              exit 1
+            fi
+
+      - name: Wait for server to be ready
+        run: |
+          echo "⏳ Waiting for server to come online..."
+
+          for i in $(seq 1 12); do
+            HTTP=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.SITE_URL }}")
+
+            if [ "$HTTP" = "200" ]; then
+              echo "✅ Server ready (HTTP 200) after $((i * 5))s"
+              exit 0
+            fi
+
+            echo "  attempt $i/12 — got HTTP $HTTP, retrying in 5s..."
+            sleep 5
+          done
+
+          echo "⚠️ Server did not respond with 200 after 60s — continuing"
+
+      - name: Submit URLs to IndexNow
+        run: |
+          echo "📡 Submitting URLs to IndexNow..."
+
+          RESPONSE=$(curl -s -w "\n%{http_code}" \
+            -X POST "${{ secrets.SITE_URL }}/api/indexnow" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.INDEXNOW_API_SECRET }}" \
+            -d '{"mode": "all-tools"}')
+
+          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+          BODY=$(echo "$RESPONSE" | head -n -1)
+
+          echo "Response: $BODY"
+
+          if [ "$HTTP_CODE" = "200" ]; then
+            echo "✅ IndexNow: submitted successfully"
+          else
+            echo "⚠️ IndexNow returned HTTP $HTTP_CODE — deploy still successful"
+          fi

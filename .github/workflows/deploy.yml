@@ -1,4 +1,4 @@
-name: Deploy to Production
+name: 🚀 Deploy (OCI Optimized)
 
 on:
   push:
@@ -10,73 +10,116 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy to server
+      - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          command_timeout: 190m
+          command_timeout: 120m
+
           script: |
-            cd /home/opc/online-tool-base
-            echo "📥 Pulling latest code..."
-            git reset --hard
-            git clean -fd
-            git pull origin main
+            set -e
 
-            echo "🧹 Resetting dependencies..."
-            rm -rf node_modules .next package-lock.json
-            npm install --legacy-peer-deps
+            BASE_DIR="/home/opc/apps"
+            RELEASES_DIR="$BASE_DIR/releases"
+            CURRENT_LINK="$BASE_DIR/current"
+            SHARED_DIR="$BASE_DIR/shared"
 
-            echo "⚙️ Setting build environment..."
+            NEW_RELEASE="$RELEASES_DIR/$(date +%Y%m%d%H%M%S)"
+
+            echo "📁 Preparing directories..."
+            mkdir -p $RELEASES_DIR
+            mkdir -p $SHARED_DIR
+
+            echo "📦 Creating new release..."
+            mkdir -p $NEW_RELEASE
+
+            echo "📥 Cloning repo..."
+            git clone --depth=1 https://github.com/JimmyAyivor/online-toolbase.git $NEW_RELEASE
+
+            cd $NEW_RELEASE
+
+            echo "📦 Installing dependencies (lean mode)..."
+            npm ci --omit=dev --no-audit --no-fund --legacy-peer-deps
+
+            echo "⚙️ Setting environment..."
             export NODE_OPTIONS="--max-old-space-size=2048"
+            export NEXT_PRIVATE_BUILD_WORKERS=$(nproc)
             export NEXT_DISABLE_TURBOPACK=1
             export NEXT_PUBLIC_BASE_URL="${{ secrets.NEXT_PUBLIC_BASE_URL }}"
 
-            echo "🏗 Building Next.js..."
-            if npm run build; then
-              echo "🚀 Starting or restarting PM2..."
-              if pm2 describe online-tool-base > /dev/null; then
-                pm2 restart online-tool-base --update-env
-              else
-                pm2 start npm --name online-tool-base -- start
-              fi
-              pm2 save
-              echo "✅ Deploy successful"
+            echo "🏗 Building app..."
+            npm run build
+
+            echo "🧹 Cleaning npm cache..."
+            rm -rf ~/.npm
+
+            # OPTIONAL: DB migrations (uncomment if needed)
+            # npx prisma migrate deploy
+
+            echo "🔗 Switching to new release..."
+            ln -sfn $NEW_RELEASE $CURRENT_LINK
+
+            echo "🚀 Starting or reloading app..."
+            if pm2 describe online-tool-base > /dev/null 2>&1; then
+              pm2 reload online-tool-base --update-env
             else
-              echo "❌ Build failed — site still serving previous build"
+              pm2 start npm --name online-tool-base -- start --cwd $CURRENT_LINK
+            fi
+
+            pm2 save
+
+            echo "🧹 Cleaning old releases (keep 3)..."
+            cd $RELEASES_DIR
+            ls -dt */ | tail -n +4 | xargs -r rm -rf
+
+      - name: Health Check + Auto Rollback
+        run: |
+          echo "⏳ Checking site health..."
+
+          for i in $(seq 1 12); do
+            HTTP=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.SITE_URL }}")
+
+            if [ "$HTTP" = "200" ]; then
+              echo "✅ App is healthy"
+              exit 0
+            fi
+
+            echo "Attempt $i failed (HTTP $HTTP)... retrying"
+            sleep 5
+          done
+
+          echo "❌ Health check failed — rolling back..."
+
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+            set -e
+
+            BASE_DIR="/home/opc/apps"
+            RELEASES_DIR="$BASE_DIR/releases"
+            CURRENT_LINK="$BASE_DIR/current"
+
+            PREVIOUS=$(ls -dt $RELEASES_DIR/* | sed -n '2p')
+
+            if [ -z "$PREVIOUS" ]; then
+              echo "No previous release found — cannot rollback"
               exit 1
             fi
 
-      - name: Wait for server to be ready
-        run: |
-          echo "Waiting for server to come online..."
-          for i in $(seq 1 12); do
-            HTTP=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.SITE_URL }}")
-            if [ "$HTTP" = "200" ]; then
-              echo "✅ Server ready (HTTP 200) after $((i * 5))s"
-              exit 0
-            fi
-            echo "  attempt $i/12 — got HTTP $HTTP, retrying in 5s..."
-            sleep 5
-          done
-          echo "⚠️ Server did not respond with 200 after 60s — proceeding anyway"
+            echo "↩️ Rolling back to $PREVIOUS"
+            ln -sfn $PREVIOUS $CURRENT_LINK
 
-      - name: Submit URLs to IndexNow
+            pm2 reload online-tool-base
+            pm2 save
+          EOF
+
+          exit 1
+
+      - name: Submit to IndexNow
         run: |
-          RESPONSE=$(curl -s -w "\n%{http_code}" \
-            -X POST "${{ secrets.SITE_URL }}/api/indexnow" \
+          echo "📡 Submitting IndexNow..."
+
+          curl -X POST "${{ secrets.SITE_URL }}/api/indexnow" \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.INDEXNOW_API_SECRET }}" \
-            -d '{"mode": "all-tools"}')
-
-          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
-          BODY=$(echo "$RESPONSE" | head -n -1)
-
-          echo "Response: $BODY"
-
-          if [ "$HTTP_CODE" = "200" ]; then
-            echo "✅ IndexNow: submitted successfully"
-          else
-            echo "⚠️ IndexNow: submission returned HTTP $HTTP_CODE — deploy still succeeded"
-          fi
+            -d '{"mode":"all-tools"}' || true

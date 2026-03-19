@@ -1,25 +1,19 @@
 // src/app/tools/engagement-rate-calculator/page.tsx
 import type { Metadata } from "next";
 import EngagementRateCalculatorClient from "./EngagementRateCalculatorClient";
-import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
+import PageEditorial from "./PageEditorial";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
 
-// ─── Slot IDs from env ────────────────────────────────────────────────────────
-const SLOT_BELOW_TOOL =
-  process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
-const SLOT_LEADERBOARD =
-  process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
-
 export const metadata: Metadata = {
   title:
-    "Engagement Rate Calculator — Free Online Engagement Rate Calculator",
+    "Engagement Rate Calculator — Calculate Social Media Engagement Rate Free",
   description:
-    "Calculate social media engagement rate using likes, comments, and followers. Free, instant, no signup required.",
+    "Calculate engagement rate by followers, by reach, or by impressions for any social media platform. Enter likes, comments, shares, and follower count — get your ER% with a benchmark rating. Free, no signup.",
   keywords:
-    "engagement rate calculator, free engagement rate calculator, online engagement rate calculator, engagement rate calculator free, engagement rate calculator online, analytics tool, free online engagement rate calculator, best engagement rate calculator",
+    "engagement rate calculator, instagram engagement rate, tiktok engagement rate, social media analytics, influencer engagement rate, ER by followers, ER by reach, engagement benchmark, social media metrics",
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
@@ -40,15 +34,15 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     locale: "en_US",
     title:
-      "Engagement Rate Calculator — Free Online Engagement Rate Calculator",
+      "Engagement Rate Calculator — Calculate Social Media Engagement Rate Free",
     description:
-      "Calculate social media engagement rate using likes, comments, and followers. Free, instant, no signup.",
+      "Calculate engagement rate by followers, reach, or impressions. Enter your metrics, get your ER% with a benchmark comparison. Works for Instagram, TikTok, YouTube, and more. Free, no signup.",
     images: [
       {
         url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: "Free Online Engagement Rate Calculator",
+        alt: "Free Engagement Rate Calculator",
       },
     ],
   },
@@ -57,9 +51,9 @@ export const metadata: Metadata = {
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
     title:
-      "Engagement Rate Calculator — Free Online Engagement Rate Calculator",
+      "Engagement Rate Calculator — Calculate Social Media Engagement Rate Free",
     description:
-      "Calculate social media engagement rate using likes, comments, and followers.",
+      "Calculate ER by followers, reach, or impressions for any platform. Benchmark your result. Free.",
   },
 };
 
@@ -68,11 +62,10 @@ const toolJsonLd = {
   "@type": "SoftwareApplication",
   name: "Engagement Rate Calculator",
   description:
-    "Calculate social media engagement rate using likes, comments, and followers.",
+    "Calculates social media engagement rate (ER) by followers, by reach, or by impressions using likes, comments, shares, saves, and follower/reach/impression counts. Supports multiple posts, shows per-post breakdown, provides benchmark ratings (low/average/good/excellent) based on platform norms, and works for Instagram, TikTok, YouTube, LinkedIn, Facebook, and Twitter/X. Runs entirely in the browser.",
   url: `${SITE_URL}/tools/engagement-rate-calculator`,
   applicationCategory: "WebApplication",
   operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript. Works in all modern browsers.",
   offers: {
     "@type": "Offer",
     price: "0",
@@ -81,7 +74,6 @@ const toolJsonLd = {
   },
   provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
 };
-
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -90,8 +82,8 @@ const breadcrumbJsonLd = {
     {
       "@type": "ListItem",
       position: 2,
-      name: "Analytics Tools",
-      item: `${SITE_URL}/tools/category/analytics`,
+      name: "Social Media Tools",
+      item: `${SITE_URL}/tools/category/social-media`,
     },
     {
       "@type": "ListItem",
@@ -113,12 +105,10 @@ export default function EngagementRateCalculatorPage() {
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-
-      {/* Breadcrumb */}
       <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
         <ol className='flex items-center gap-2 text-sm text-gray-500'>
           <li>
-            <a href='/' className='hover:text-indigo-600 transition-colors'>
+            <a href='/' className='hover:text-emerald-600 transition-colors'>
               Home
             </a>
           </li>
@@ -127,10 +117,10 @@ export default function EngagementRateCalculatorPage() {
           </li>
           <li>
             <a
-              href='/tools/category/analytics'
-              className='hover:text-indigo-600 transition-colors'
+              href='/tools/category/social-media'
+              className='hover:text-emerald-600 transition-colors'
             >
-              Analytics Tools
+              Social Media Tools
             </a>
           </li>
           <li aria-hidden='true' className='text-gray-300'>
@@ -143,127 +133,25 @@ export default function EngagementRateCalculatorPage() {
           </li>
         </ol>
       </nav>
-
-      {/* Category badge + SR H1 */}
       <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1'>
-          Free Analytics Tool · No Signup · Works Instantly
+        <p className='text-xs font-semibold text-emerald-600 uppercase tracking-widest mb-1'>
+          Free Social Media Tool · No Signup · Works Instantly
         </p>
         <h1 className='sr-only'>
-          Engagement Rate Calculator — Free Online Engagement Rate Calculator
+          Engagement Rate Calculator — Calculate Social Media Engagement Rate
+          Free
         </h1>
         <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
-          Calculate social media engagement rate using likes, comments, and
-          followers. Free, instant, no account needed.
+          Calculate engagement rate by followers, reach, or impressions for any
+          platform — enter your metrics and get your ER% with a benchmark
+          rating.
         </p>
       </header>
-
-      {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
       <SidebarAdLayout>
-        {/* ── Tool component (main interactive area) ──────────────────── */}
         <main id='main-content' aria-label='Engagement Rate Calculator tool'>
           <EngagementRateCalculatorClient />
         </main>
-
-        {/* ── Zone G: below tool result — highest value placement ──────── */}
-        {/* Sits immediately after the tool, before any editorial content   */}
-        <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
-          {/* desktop: rectangle 336×280; mobile: medium rectangle 300×250 */}
-          <div className='hidden sm:block'>
-            <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
-          </div>
-          <div className='block sm:hidden'>
-            <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
-          </div>
-        </div>
-
-        {/* ── Zone H: between tool + How To editorial ──────────────────── */}
-        <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
-          <AdSlot
-            variant='leaderboard'
-            slotId={SLOT_LEADERBOARD}
-            className='hidden sm:flex'
-          />
-          <AdSlot
-            variant='mediumrectangle'
-            slotId={SLOT_LEADERBOARD}
-            className='flex sm:hidden'
-          />
-        </div>
-
-        {/* ── Editorial: How To + Related Tools ────────────────────────── */}
-        <section
-          aria-labelledby='about-engagement-rate-calculator'
-          className='max-w-6xl mx-auto px-4 py-12'
-        >
-          <div className='bg-white rounded-2xl shadow-lg p-8 md:p-10'>
-            <h2
-              id='about-engagement-rate-calculator'
-              className='text-2xl font-bold text-gray-900 mb-4'
-            >
-              How to Use This Free Engagement Rate Calculator
-            </h2>
-            <p className='text-gray-600 leading-relaxed mb-4'>
-              Our free online <strong>engagement rate calculator</strong> is
-              designed for speed and simplicity. Calculate social media
-              engagement rate using likes, comments, and followers. No software
-              installation or account is required — just use the tool above and
-              get results instantly.
-            </p>
-            <p className='text-gray-600 leading-relaxed'>
-              All processing runs entirely in your browser. Your data is never
-              sent to or stored on our servers. This tool is part of our{" "}
-              <a
-                href='/'
-                className='text-indigo-600 hover:underline font-medium'
-              >
-                free online tools directory
-              </a>{" "}
-              — 60+ tools covering calculators, converters, generators, and
-              social media utilities.
-            </p>
-          </div>
-
-          {/* ── Zone I: related tools grid with native ad slot ──────────── */}
-          <div className='mt-8'>
-            <h3 className='text-lg font-bold text-gray-900 mb-4'>
-              Related Free Analytics Tools
-            </h3>
-            {/* 3-slot grid; the 4th card position (index 3) is reserved for */}
-            {/* a native sponsored card — set data-ad-format="fluid" in AdSense */}
-            <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
-              {[
-                {
-                  href: "/tools/instagram-post-planner",
-                  label: "Instagram Post Planner",
-                  desc: "Plan and organize Instagram posts with captions and scheduling ideas.",
-                },
-                {
-                  href: "/tools/social-media-character-counter",
-                  label: "Social Media Character Counter",
-                  desc: "Count characters and optimize posts for platform limits.",
-                },
-                {
-                  href: "/tools/facebook-ad-copy-generator",
-                  label: "Facebook Ad Copy Generator",
-                  desc: "Create high-converting Facebook ad copy for marketing campaigns.",
-                },
-              ].map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className='block bg-white rounded-xl shadow p-5 border-2 border-transparent hover:border-indigo-200 hover:-translate-y-1 transition-all duration-200'
-                  aria-label={`${link.label} — ${link.desc}`}
-                >
-                  <div className='font-bold text-gray-900 text-sm mb-1'>
-                    {link.label}
-                  </div>
-                  <div className='text-xs text-gray-500'>{link.desc}</div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
+        <PageEditorial />
       </SidebarAdLayout>
     </>
   );

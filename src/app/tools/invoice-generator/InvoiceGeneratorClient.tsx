@@ -106,7 +106,7 @@ export default function InvoiceGeneratorClient() {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50 p-4 md:p-8'>
-      <div className='max-w-7xl mx-auto'>
+      <div className='max-w-6xl mx-auto'>
         <div className='text-center mb-8 print:hidden'>
           <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-slate-700 to-gray-900 rounded-2xl mb-4 shadow-lg'>
             <FileText className='w-8 h-8 text-white' />
