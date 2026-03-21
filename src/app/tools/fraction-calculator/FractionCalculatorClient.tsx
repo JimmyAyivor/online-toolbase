@@ -155,13 +155,13 @@ export default function FractionCalculatorClient() {
       <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <Divide className='w-8 h-8 text-indigo-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl mb-4 shadow-lg'>
+              <Divide className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Fraction Calculator
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Add, subtract, multiply, and divide fractions — with step-by-step
               working shown
             </p>
@@ -286,7 +286,7 @@ export default function FractionCalculatorClient() {
               <div className='space-y-4'>
                 <div className='bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200'>
                   <div className='flex items-center justify-between mb-4'>
-                    <h3 className='text-xl font-bold text-gray-800'>Result</h3>
+                    <h3 className='text-xl font-bold text-gray-900'>Result</h3>
                     <button
                       onClick={copyResult}
                       className='flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold rounded-lg transition-colors'

@@ -1,6 +1,7 @@
 // src/app/sitemap.ts
 import type { MetadataRoute } from "next";
 import { tools } from "@/lib/tools";
+import { blogPosts } from "@/app/blog/blog-posts";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 if (!baseUrl) throw new Error("NEXT_PUBLIC_BASE_URL is not set");
@@ -36,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url:             `${baseUrl}/blog`,
       lastModified:    new Date(),
       changeFrequency: "weekly",
-      priority:        0.7,
+      priority:        0.8,
     },
     {
       url:             `${baseUrl}/contact`,
@@ -63,11 +64,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url:             `${baseUrl}/tools/${tool.slug}`,
     lastModified:    BUILD_DATE,
     changeFrequency: "monthly" as const,
-    priority:        0.85,           // higher than category pages — these rank for specific queries
+    priority:        0.85,
   }));
 
   /* ── Category pages ──────────────────────────────────────────────────── */
-  // Use the exact category strings from tools.ts, slugified consistently
   const uniqueCategories = Array.from(new Set(tools.map((t) => t.category)));
   const categoryPages: MetadataRoute.Sitemap = uniqueCategories.map((cat) => ({
     url:             `${baseUrl}/tools/category/${cat.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")}`,
@@ -76,5 +76,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority:        0.75,
   }));
 
-  return [...staticPages, ...toolPages, ...categoryPages];
+  /* ── Blog index ──────────────────────────────────────────────────────── */
+  // Already included in staticPages above with priority 0.8
+
+  /* ── Individual blog posts ───────────────────────────────────────────── */
+  const blogPostPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url:             `${baseUrl}/blog/${post.slug}`,
+    lastModified:    new Date(post.updatedAt ?? post.publishedAt),
+    changeFrequency: "monthly" as const,
+    priority:        0.7,
+  }));
+
+  return [
+    ...staticPages,
+    ...toolPages,
+    ...categoryPages,
+    ...blogPostPages,
+  ];
 }

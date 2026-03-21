@@ -1,28 +1,24 @@
-// src/app/tools/color-palette-generator/page.tsx
+// src/app/tools/fraction-calculator/page.tsx
 import type { Metadata } from "next";
-import ColorPaletteGeneratorClient from "./FractionCalculatorClient";
-import AdSlot from "@/components/AdSlot";
+import FractionCalculatorClient from "./FractionCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import { Link } from "lucide-react";
+
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
 
-// ─── Slot IDs from env ────────────────────────────────────────────────────────
-const SLOT_BELOW_TOOL =
-  process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
-const SLOT_LEADERBOARD =
-  process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
-
 export const metadata: Metadata = {
-  title: "Color Palette Generator — Free Online Color Palette Generator",
+  title:
+    "Fraction Calculator — Add, Subtract, Multiply & Divide Fractions Free Online",
   description:
-    "Generate harmonious color palettes for your design projects. Free, instant, no signup required.",
+    "Calculate with fractions — add, subtract, multiply, or divide any two fractions and get the simplified result with step-by-step working shown. Free, instant, no signup.",
   keywords:
-    "color palette generator, free color palette generator, online color palette generator, color palette generator free, color palette generator online, image tool, free online color palette generator, best color palette generator",
+    "fraction calculator, add fractions, subtract fractions, multiply fractions, divide fractions, simplify fractions, fraction steps, fraction solver, GCD calculator, LCM fractions",
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
-  alternates: { canonical: `${SITE_URL}/tools/color-palette-generator` },
+  alternates: { canonical: `${SITE_URL}/tools/fraction-calculator` },
   robots: {
     index: true,
     follow: true,
@@ -35,18 +31,19 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: `${SITE_URL}/tools/color-palette-generator`,
+    url: `${SITE_URL}/tools/fraction-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title: "Color Palette Generator — Free Online Color Palette Generator",
+    title:
+      "Fraction Calculator — Add, Subtract, Multiply & Divide Fractions Free Online",
     description:
-      "Generate harmonious color palettes for your design projects. Free, instant, no signup.",
+      "Add, subtract, multiply, or divide two fractions and get the simplified result with step-by-step working. Free, no signup.",
     images: [
       {
         url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: "Free Online Color Palette Generator",
+        alt: "Free Fraction Calculator",
       },
     ],
   },
@@ -54,20 +51,22 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title: "Color Palette Generator — Free Online Color Palette Generator",
-    description: "Generate harmonious color palettes for your design projects.",
+    title:
+      "Fraction Calculator — Add, Subtract, Multiply & Divide Fractions Free Online",
+    description:
+      "Calculate fractions with step-by-step working shown. Results in simplest form. Free.",
   },
 };
 
 const toolJsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Color Palette Generator",
-  description: "Generate harmonious color palettes for your design projects.",
-  url: `${SITE_URL}/tools/color-palette-generator`,
+  name: "Fraction Calculator",
+  description:
+    "Calculates the result of adding, subtracting, multiplying, or dividing two fractions. Accepts integer numerators and denominators (including negatives). Displays result as a simplified fraction and decimal, with a numbered step-by-step working section showing the LCM for addition/subtraction, reciprocal multiplication for division, and GCD simplification. Runs in the browser.",
+  url: `${SITE_URL}/tools/fraction-calculator`,
   applicationCategory: "WebApplication",
   operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript. Works in all modern browsers.",
   offers: {
     "@type": "Offer",
     price: "0",
@@ -76,7 +75,6 @@ const toolJsonLd = {
   },
   provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
 };
-
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -85,19 +83,19 @@ const breadcrumbJsonLd = {
     {
       "@type": "ListItem",
       position: 2,
-      name: "Image Tools",
-      item: `${SITE_URL}/tools/category/image`,
+      name: "Calculator Tools",
+      item: `${SITE_URL}/tools/category/calculator`,
     },
     {
       "@type": "ListItem",
       position: 3,
-      name: "Color Palette Generator",
-      item: `${SITE_URL}/tools/color-palette-generator`,
+      name: "Fraction Calculator",
+      item: `${SITE_URL}/tools/fraction-calculator`,
     },
   ],
 };
 
-export default function ColorPaletteGeneratorPage() {
+export default function FractionCalculatorPage() {
   return (
     <>
       <script
@@ -108,8 +106,6 @@ export default function ColorPaletteGeneratorPage() {
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-
-      {/* Breadcrumb */}
       <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
         <ol className='flex items-center gap-2 text-sm text-gray-500'>
           <li>
@@ -121,48 +117,41 @@ export default function ColorPaletteGeneratorPage() {
             /
           </li>
           <li>
-            <a
-              href='/tools/category/image'
+            <Link
+              href='/tools/category/calculator'
               className='hover:text-indigo-600 transition-colors'
             >
-              Image Tools
-            </a>
+              Calculator Tools
+            </Link>
           </li>
           <li aria-hidden='true' className='text-gray-300'>
             /
           </li>
           <li>
             <span aria-current='page' className='text-gray-900 font-medium'>
-              Color Palette Generator
+              Fraction Calculator
             </span>
           </li>
         </ol>
       </nav>
-
-      {/* Category badge + SR H1 */}
       <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
         <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1'>
-          Free Image Tool · No Signup · Works Instantly
+          Free Calculator Tool · No Signup · Works Instantly
         </p>
         <h1 className='sr-only'>
-          Color Palette Generator — Free Online Color Palette Generator
+          Fraction Calculator — Add, Subtract, Multiply &amp; Divide Fractions
+          Free Online
         </h1>
         <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
-          Generate harmonious color palettes for your design projects. Free,
-          instant, no account needed.
+          Add, subtract, multiply, or divide any two fractions — get the
+          simplified result and decimal equivalent with step-by-step working
+          shown.
         </p>
       </header>
-
-      {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
       <SidebarAdLayout>
-        {/* ── Tool component (main interactive area) ──────────────────── */}
-        <main id='main-content' aria-label='Color Palette Generator tool'>
-          <ColorPaletteGeneratorClient />
+        <main id='main-content' aria-label='Fraction Calculator tool'>
+          <FractionCalculatorClient />
         </main>
-
-        {/* ── Zone G: below tool result — highest value placement ──────── */}
-        {/* Sits immediately after the tool, before any editorial content   */}
-
         <PageEditorial />
       </SidebarAdLayout>
     </>

@@ -145,13 +145,13 @@ export default function FaviconGeneratorClient() {
       <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-4'>
-              <ImageIcon className='w-8 h-8 text-orange-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-500 to-amber-600 rounded-2xl mb-4 shadow-lg'>
+              <ImageIcon className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Favicon Generator
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Create favicons from images in multiple sizes
             </p>
           </div>
@@ -182,7 +182,7 @@ export default function FaviconGeneratorClient() {
             /* ── Results ── */
             <div className='space-y-6'>
               <div className='bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-center justify-between'>
-                <div className='font-semibold text-gray-800'>
+                <div className='font-semibold text-gray-900'>
                   Source Image: {imageName}
                 </div>
                 <label className='px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg font-medium transition-colors cursor-pointer'>
@@ -206,7 +206,7 @@ export default function FaviconGeneratorClient() {
                   {/* Favicon grid */}
                   <div className='bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl p-6 border border-orange-200'>
                     <div className='flex items-center justify-between mb-4'>
-                      <h3 className='font-semibold text-gray-800'>
+                      <h3 className='font-semibold text-gray-900'>
                         Generated Favicons ({favicons.length})
                       </h3>
                       <div className='flex gap-2'>
@@ -244,7 +244,7 @@ export default function FaviconGeneratorClient() {
                             />
                           </div>
                           <div className='text-center mb-2'>
-                            <div className='font-semibold text-gray-800'>
+                            <div className='font-semibold text-gray-900'>
                               {favicon.size}×{favicon.size}
                             </div>
                             <div className='text-xs text-gray-600'>
@@ -318,7 +318,7 @@ function CodeBlock({ title, code, copied, onCopy }: CodeBlockProps) {
     <div className='bg-gray-50 rounded-lg p-6 border border-gray-200'>
       <div className='flex items-center gap-2 mb-4'>
         <Code className='w-5 h-5 text-gray-600' />
-        <h3 className='font-semibold text-gray-800'>{title}</h3>
+        <h3 className='font-semibold text-gray-900'>{title}</h3>
       </div>
       <div className='bg-gray-900 rounded-lg p-4 relative'>
         <button

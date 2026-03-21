@@ -7,13 +7,13 @@ export default function Post() {
       <p>
         The subscription creep in content creation is real. A grammar checker
         here, a caption tool there, a scheduling platform, a design app, an
-        analytics dashboard — it adds up fast. And a lot of it is genuinely
+        analytics dashboard it adds up fast. And a lot of it is genuinely
         unnecessary for most creators, especially when free alternatives do the
         job equally well.
       </p>
       <p>
         Here&apos;s the free toolkit that covers the actual work of content
-        creation — not tools that exist just to upsell you.
+        creation not tools that exist just to upsell you.
       </p>
 
       <h2>Writing and editing</h2>
@@ -22,7 +22,7 @@ export default function Post() {
       <p>
         Every piece of published content reflects on your credibility. A typo in
         a YouTube description, a grammar error in a LinkedIn article, a
-        misspelling in a caption — these are small things that accumulate into a
+        misspelling in a caption these are small things that accumulate into a
         perception of how carefully you work. Our{" "}
         <a href='/tools/grammar-spell-checker'>Grammar & Spell Checker</a>{" "}
         catches errors across any text before it goes anywhere. No browser
@@ -31,12 +31,12 @@ export default function Post() {
 
       <h3>Paraphrasing Tool</h3>
       <p>
-        If you&apos;re repurposing content across platforms — a long-form post
+        If you&apos;re repurposing content across platforms a long-form post
         into a LinkedIn article, a blog post into a newsletter, a script into a
-        caption — you don&apos;t want every version to feel like a copy-paste.
-        The <a href='/tools/paraphrasing-tool'>Paraphrasing Tool</a> rewrites
-        text in fresh language while keeping the meaning. Use it as a starting
-        point and edit the output to match your voice.
+        caption you don&apos;t want every version to feel like a copy-paste. The{" "}
+        <a href='/tools/paraphrasing-tool'>Paraphrasing Tool</a> rewrites text
+        in fresh language while keeping the meaning. Use it as a starting point
+        and edit the output to match your voice.
       </p>
 
       <h3>Text Summariser</h3>
@@ -56,7 +56,7 @@ export default function Post() {
         minimum word counts for SEO value. Email subject lines have proven sweet
         spots. The{" "}
         <a href='/tools/word-character-counter'>Word & Character Counter</a>{" "}
-        gives you real-time counts as you write — no copy-pasting to count
+        gives you real-time counts as you write no copy-pasting to count
         manually.
       </p>
 
@@ -64,8 +64,8 @@ export default function Post() {
       <p>
         The blank page problem is real even for experienced creators. The{" "}
         <a href='/tools/writing-prompt-generator'>Writing Prompt Generator</a>{" "}
-        gives you a starting point — a topic angle, a question to answer, a
-        scenario to explore — that breaks the paralysis of not knowing where to
+        gives you a starting point a topic angle, a question to answer, a
+        scenario to explore that breaks the paralysis of not knowing where to
         begin. Even if you don&apos;t use the prompt directly, having something
         to react against is often enough to get moving.
       </p>
@@ -78,9 +78,8 @@ export default function Post() {
         genuinely draining. The{" "}
         <a href='/tools/caption-generator'>Caption Generator</a> produces
         platform-appropriate options from a brief description of your image or
-        topic. They&apos;re starting points — edit them to match your voice and
-        add specifics — but they&apos;re faster than staring at a blank input
-        box.
+        topic. They&apos;re starting points edit them to match your voice and
+        add specifics but they&apos;re faster than staring at a blank input box.
       </p>
 
       <h3>Hashtag Generator</h3>
@@ -91,7 +90,7 @@ export default function Post() {
         audiences but more targeted). The{" "}
         <a href='/tools/hashtag-generator'>Hashtag Generator</a> analyses your
         topic and suggests both types across multiple platforms. Check the
-        platform-specific suggestions — Instagram and TikTok hashtag strategies
+        platform-specific suggestions Instagram and TikTok hashtag strategies
         are different.
       </p>
 
@@ -114,16 +113,16 @@ export default function Post() {
         particularly with spacing around the &quot;see more&quot; truncation
         point. The{" "}
         <a href='/tools/linkedin-post-formatter'>LinkedIn Post Formatter</a>{" "}
-        shows you how your post will actually appear — including where the
-        first-impression hook ends — so you can place the most important content
+        shows you how your post will actually appear including where the
+        first-impression hook ends so you can place the most important content
         before the cutoff.
       </p>
 
       <h3>YouTube Title & Description Generator</h3>
       <p>
         YouTube is the second largest search engine. Titles and descriptions are
-        primary ranking signals — they need to include the keywords people
-        search for without sounding robotic. The{" "}
+        primary ranking signals they need to include the keywords people search
+        for without sounding robotic. The{" "}
         <a href='/tools/youtube-title-description-generator'>
           YouTube Title & Description Generator
         </a>{" "}
@@ -139,14 +138,14 @@ export default function Post() {
         times, damage Core Web Vitals scores, and hurt SEO. Most images from
         cameras or design tools are 3–5x larger than they need to be for web
         use. Our <a href='/tools/image-compressor'>Image Compressor</a> reduces
-        file sizes by up to 80% without visible quality loss — completely in
-        your browser, nothing uploaded anywhere.
+        file sizes by up to 80% without visible quality loss completely in your
+        browser, nothing uploaded anywhere.
       </p>
 
       <h3>Profile Picture Resizer</h3>
       <p>
-        Profile picture dimensions vary meaningfully across platforms —
-        Instagram uses 110×110px, Twitter 400×400px, LinkedIn 400×400px, YouTube
+        Profile picture dimensions vary meaningfully across platforms Instagram
+        uses 110×110px, Twitter 400×400px, LinkedIn 400×400px, YouTube
         800×800px. Uploading the wrong size leads to cropping, blurring, or
         compression artefacts that undermine a professional appearance. The{" "}
         <a href='/tools/profile-picture-resizer'>Profile Picture Resizer</a>{" "}
@@ -155,9 +154,9 @@ export default function Post() {
 
       <h3>QR Code Generator</h3>
       <p>
-        If any of your content touches the physical world — event flyers,
-        product packaging, print media kits, merchandise — a QR code bridges the
-        gap to your digital presence. Link to a specific piece of content, a
+        If any of your content touches the physical world event flyers, product
+        packaging, print media kits, merchandise a QR code bridges the gap to
+        your digital presence. Link to a specific piece of content, a
         link-in-bio page, or a landing page. The{" "}
         <a href='/tools/qr-code-generator'>QR Code Generator</a> creates codes
         instantly in SVG (for print) or PNG (for digital use).
@@ -168,8 +167,8 @@ export default function Post() {
       <h3>Content Calendar Planner</h3>
       <p>
         The single most consistent predictor of account growth is posting
-        frequency. Not the highest possible frequency — just reliable
-        consistency. The{" "}
+        frequency. Not the highest possible frequency just reliable consistency.
+        The{" "}
         <a href='/tools/content-calendar-planner'>Content Calendar Planner</a>{" "}
         gives you a visual view of upcoming posts across platforms, making it
         easy to spot gaps before they become missed publishing windows.
@@ -177,7 +176,7 @@ export default function Post() {
 
       <h3>Pomodoro Timer</h3>
       <p>
-        Creating good content requires sustained, deep focus — the kind
+        Creating good content requires sustained, deep focus the kind
         that&apos;s hardest to maintain with social media notifications pulling
         at your attention. The{" "}
         <a href='/tools/pomodoro-timer'>Pomodoro Timer</a> structures your
@@ -190,8 +189,8 @@ export default function Post() {
       <h2>A note on tool overload</h2>
       <p>
         The trap is collecting tools instead of using them. Start with the two
-        or three that address your biggest friction points — for most creators
-        that&apos;s caption writing, image handling, and some form of planning —
+        or three that address your biggest friction points for most creators
+        that&apos;s caption writing, image handling, and some form of planning
         and ignore the rest until you actually feel the need. A smaller,
         well-used toolkit beats a large one you open occasionally.
       </p>
