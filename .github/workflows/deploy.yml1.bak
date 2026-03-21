@@ -19,7 +19,7 @@ jobs:
           command_timeout: 300m
 
           script: |
-            set -euo pipefail
+            set -e
 
             BASE_DIR="/home/opc/apps"
             RELEASES_DIR="$BASE_DIR/releases"
@@ -27,50 +27,53 @@ jobs:
 
             NEW_RELEASE="$RELEASES_DIR/$(date +%Y%m%d%H%M%S)"
 
-            echo "📁 Creating release directory..."
-            mkdir -p "$NEW_RELEASE"
+            echo "📁 Preparing directories..."
+            mkdir -p $RELEASES_DIR
+
+            echo "📦 Creating new release..."
+            mkdir -p $NEW_RELEASE
 
             echo "📥 Cloning repo..."
-            git clone --depth=1 git@github.com:JimmyAyivor/online-toolbase.git "$NEW_RELEASE"
+            git clone --depth=1 git@github.com:JimmyAyivor/online-toolbase.git $NEW_RELEASE
 
-            cd "$NEW_RELEASE"
+            cd $NEW_RELEASE
 
-            echo "📦 Installing dependencies..."
-            npm ci --legacy-peer-deps --no-audit --no-fund
+            echo "📦 Installing ALL dependencies (needed for build)..."
+            npm ci --no-audit --no-fund --legacy-peer-deps
 
-            echo "⚙️ Loading environment..."
-            if [ -f "$BASE_DIR/.env" ]; then
-              export $(cat "$BASE_DIR/.env" | xargs)
-            fi
-
-            export NODE_OPTIONS="--max-old-space-size=4096"
+            echo "⚙️ Setting environment..."
+            export NODE_OPTIONS="--max-old-space-size=2048"
             export NEXT_PRIVATE_BUILD_WORKERS=$(nproc)
             export NEXT_DISABLE_TURBOPACK=1
+            export NEXT_PUBLIC_BASE_URL="${{ secrets.NEXT_PUBLIC_BASE_URL }}"
 
-            echo "🏗 Building app..."
-            NODE_ENV=production npm run build
+            echo "🏗 Starting build (DEBUG MODE)..."
+            NODE_ENV=production npm run build --verbose
 
             echo "🧹 Pruning dev dependencies..."
             npm prune --omit=dev
 
-            echo "🔗 Switching release atomically..."
-            ln -sfn "$NEW_RELEASE" "$CURRENT_LINK"
+            echo "🧹 Cleaning npm cache..."
+            rm -rf ~/.npm
 
-            echo "🚀 Restarting PM2 from CURRENT (IMPORTANT)"
-            cd "$CURRENT_LINK"
+            # OPTIONAL: DB migrations
+            # npx prisma migrate deploy
 
+            echo "🔗 Switching to new release..."
+            ln -sfn $NEW_RELEASE $CURRENT_LINK
+
+            echo "🚀 Starting or reloading app..."
             if pm2 describe online-tool-base > /dev/null 2>&1; then
               pm2 reload online-tool-base --update-env
             else
-              pm2 start npm --name online-tool-base -- start
+              pm2 start npm --name online-tool-base -- start --cwd $CURRENT_LINK
             fi
 
             pm2 save
 
             echo "🧹 Cleaning old releases (keep 3)..."
-            cd "$RELEASES_DIR"
+            cd $RELEASES_DIR
             ls -dt */ | tail -n +4 | xargs -r rm -rf
-
 
       - name: Health Check + Auto Rollback
         run: |
@@ -100,24 +103,24 @@ jobs:
             PREVIOUS=$(ls -dt $RELEASES_DIR/* | sed -n '2p')
 
             if [ -z "$PREVIOUS" ]; then
-              echo "No previous release found"
+              echo "No previous release found — cannot rollback"
               exit 1
             fi
 
             echo "↩️ Rolling back to $PREVIOUS"
             ln -sfn $PREVIOUS $CURRENT_LINK
 
-            cd $CURRENT_LINK
-            pm2 reload online-tool-base --update-env
+            pm2 reload online-tool-base
             pm2 save
           EOF
 
           exit 1
 
-
       - name: Submit to IndexNow
         run: |
+          echo "📡 Submitting IndexNow..."
+
           curl -X POST "${{ secrets.SITE_URL }}/api/indexnow" \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.INDEXNOW_API_SECRET }}" \
-            -d '{"mode":"full-site"}' || true
+            -d '{"mode":"all-tools"}' || true
