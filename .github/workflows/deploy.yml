@@ -40,7 +40,9 @@ jobs:
 
             echo "⚙️ Loading environment..."
             if [ -f "$BASE_DIR/.env" ]; then
-              export $(cat "$BASE_DIR/.env" | xargs)
+              set -a
+              source "$BASE_DIR/.env"
+              set +a
             fi
 
             export NODE_OPTIONS="--max-old-space-size=4096"
