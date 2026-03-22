@@ -47,7 +47,7 @@ jobs:
             export NEXT_PRIVATE_BUILD_WORKERS=$(nproc)
             export NEXT_DISABLE_TURBOPACK=1
 
-            echo "🏗 Building app......"
+            echo "🏗 Building app......."
             NODE_ENV=production npm run build
 
             echo "🧹 Pruning dev dependencies..."
