@@ -47,13 +47,13 @@ export default function RoiCalculatorClient() {
       <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <TrendingUp className='w-8 h-8 text-indigo-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl mb-4 shadow-lg'>
+              <TrendingUp className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               ROI Calculator
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Calculate return on investment for any project or campaign
             </p>
           </div>
@@ -127,7 +127,7 @@ export default function RoiCalculatorClient() {
             {results && (
               <div className='space-y-4'>
                 <div className='bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200'>
-                  <h3 className='text-xl font-bold text-gray-800 mb-4'>
+                  <h3 className='text-xl font-bold text-gray-900 mb-4'>
                     Results
                   </h3>
                   <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
@@ -213,7 +213,7 @@ export default function RoiCalculatorClient() {
                           <td className='px-4 py-3 text-sm font-medium text-gray-700'>
                             {label}
                           </td>
-                          <td className='px-4 py-3 text-sm text-gray-800'>
+                          <td className='px-4 py-3 text-sm text-gray-900'>
                             {value}
                           </td>
                         </tr>

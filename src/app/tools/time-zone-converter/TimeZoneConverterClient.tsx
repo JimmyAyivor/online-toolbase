@@ -213,7 +213,7 @@ export default function TimeZoneConverterClient() {
           <h2 className='text-4xl font-bold text-gray-900 mb-2'>
             Time Zone Converter
           </h2>
-          <p className='text-gray-600'>
+          <p className='text-gray-500'>
             Convert time across different time zones instantly
           </p>
         </div>

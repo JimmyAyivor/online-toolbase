@@ -188,7 +188,7 @@ export default function GpaCalculatorClient() {
           <h2 className='text-4xl font-bold text-gray-900 mb-2'>
             GPA Calculator
           </h2>
-          <p className='text-gray-600'>
+          <p className='text-gray-500'>
             Calculate your semester and cumulative GPA easily
           </p>
         </div>

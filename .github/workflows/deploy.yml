@@ -49,7 +49,7 @@ jobs:
             export NEXT_PRIVATE_BUILD_WORKERS=$(nproc)
             export NEXT_DISABLE_TURBOPACK=1
 
-            echo "🏗 Building app......."
+            echo "🏗 Building app..."
             NODE_ENV=production npm run build
 
             echo "🧹 Pruning dev dependencies..."
@@ -58,20 +58,25 @@ jobs:
             echo "🔗 Switching release atomically..."
             ln -sfn "$NEW_RELEASE" "$CURRENT_LINK"
 
-            echo "🚀 Restarting PM2 from CURRENT (IMPORTANT)"
+            echo "🚀 Restarting PM2 from CURRENT"
             cd "$CURRENT_LINK"
 
             if pm2 describe online-tool-base > /dev/null 2>&1; then
               pm2 reload online-tool-base --update-env
             else
-              pm2 start npm --name online-tool-base -- start
+              pm2 start npm \
+                --name online-tool-base \
+                --cwd "$CURRENT_LINK" \
+                -- start
             fi
 
             pm2 save
 
             echo "🧹 Cleaning old releases (keep 3)..."
-            cd "$RELEASES_DIR"
-            ls -dt */ | tail -n +4 | xargs -r rm -rf
+            find "$RELEASES_DIR" -maxdepth 1 -mindepth 1 -type d \
+              | sort -r \
+              | tail -n +4 \
+              | xargs -r rm -rf
 
 
       - name: Health Check + Auto Rollback
@@ -83,6 +88,13 @@ jobs:
 
             if [ "$HTTP" = "200" ]; then
               echo "✅ App is healthy"
+
+              # IndexNow only on success
+              curl -X POST "${{ secrets.SITE_URL }}/api/indexnow" \
+                -H "Content-Type: application/json" \
+                -H "Authorization: Bearer ${{ secrets.INDEXNOW_API_SECRET }}" \
+                -d '{"mode":"full-site"}' || true
+
               exit 0
             fi
 
@@ -93,7 +105,7 @@ jobs:
           echo "❌ Health check failed — rolling back..."
 
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
-            set -e
+            set -euo pipefail
 
             BASE_DIR="/home/opc/apps"
             RELEASES_DIR="$BASE_DIR/releases"
@@ -107,19 +119,11 @@ jobs:
             fi
 
             echo "↩️ Rolling back to $PREVIOUS"
-            ln -sfn $PREVIOUS $CURRENT_LINK
+            ln -sfn "$PREVIOUS" "$CURRENT_LINK"
 
-            cd $CURRENT_LINK
+            cd "$CURRENT_LINK"
             pm2 reload online-tool-base --update-env
             pm2 save
           EOF
 
           exit 1
-
-
-      - name: Submit to IndexNow
-        run: |
-          curl -X POST "${{ secrets.SITE_URL }}/api/indexnow" \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer ${{ secrets.INDEXNOW_API_SECRET }}" \
-            -d '{"mode":"full-site"}' || true

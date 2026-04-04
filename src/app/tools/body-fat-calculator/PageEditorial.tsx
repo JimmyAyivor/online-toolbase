@@ -1,248 +1,58 @@
 "use client";
-// src/app/tools/color-palette-generator/PageEditorial.tsx
-//
-// Drop this component directly into your page.tsx inside <SidebarAdLayout>
-// after the ad units, replacing the existing editorial section.
-//
-// Requires: qrcode (npm i qrcode @types/qrcode)
-// All other deps are React + Tailwind — no extra installs.
-
+// src/app/tools/body-fat-calculator/PageEditorial.tsx
 import React, { useState, useEffect, useRef } from "react";
 import AdSlot from "@/components/AdSlot";
 
-const SLOT_BELOW_TOOL =
-  process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
-const SLOT_LEADERBOARD =
-  process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
-
-const TOOL_URL = "https://onlinetoolbase.com/tools/color-palette-generator";
-const TOOL_NAME = "Color Palette Generator";
-
-// ─── QR Modal ────────────────────────────────────────────────────────────────
+const SLOT_BELOW_TOOL = process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
+const SLOT_LEADERBOARD = process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
+const TOOL_URL = "https://onlinetoolbase.com/tools/body-fat-calculator";
+const TOOL_NAME = "Body Fat Calculator";
 
 function QRModal({ onClose }: { onClose: () => void }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
   useEffect(() => {
     let cancelled = false;
     import("qrcode").then((QRCode) => {
       if (cancelled || !canvasRef.current) return;
-      QRCode.toCanvas(canvasRef.current, TOOL_URL, {
-        width: 220,
-        margin: 2,
-        color: { dark: "#1e1b4b", light: "#faf5ff" },
-      });
+      QRCode.toCanvas(canvasRef.current, TOOL_URL, { width: 220, margin: 2, color: { dark: "#064e3b", light: "#ecfdf5" } });
     });
-    return () => {
-      cancelled = true;
-    };
+    return () => { cancelled = true; };
   }, []);
-
-  // Close on backdrop click
-  const handleBackdrop = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target === e.currentTarget) onClose();
-  };
-
   return (
-    <div
-      className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm'
-      onClick={handleBackdrop}
-    >
-      <div className='relative bg-white rounded-3xl shadow-2xl p-8 mx-4 max-w-xs w-full text-center'>
-        {/* Close */}
-        <button
-          onClick={onClose}
-          className='absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 transition-colors'
-          aria-label='Close QR code modal'
-        >
-          ✕
-        </button>
-
-        {/* Icon */}
-        <div className='inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-500 to-purple-600 mb-4 shadow-lg'>
-          <svg
-            viewBox='0 0 24 24'
-            fill='none'
-            className='w-6 h-6 text-white'
-            stroke='currentColor'
-            strokeWidth={2}
-          >
-            <rect x='3' y='3' width='7' height='7' rx='1' />
-            <rect x='14' y='3' width='7' height='7' rx='1' />
-            <rect x='3' y='14' width='7' height='7' rx='1' />
-            <rect x='14' y='14' width='3' height='3' rx='0.5' />
-            <rect x='18' y='14' width='3' height='3' rx='0.5' />
-            <rect x='14' y='18' width='3' height='3' rx='0.5' />
-            <rect x='18' y='18' width='3' height='3' rx='0.5' />
-          </svg>
-        </div>
-
-        <h3 className='text-lg font-black text-gray-900 mb-1'>
-          Take it with you
-        </h3>
-        <p className='text-sm text-gray-400 mb-5 leading-relaxed'>
-          Scan with your phone camera to open the {TOOL_NAME} on mobile
-        </p>
-
-        {/* QR canvas */}
-        <div className='inline-block rounded-2xl overflow-hidden border-4 border-purple-100 shadow-inner mb-5'>
-          <canvas ref={canvasRef} />
-        </div>
-
-        <p className='text-xs text-gray-300 font-mono break-all'>{TOOL_URL}</p>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm" onClick={(e) => e.target === e.currentTarget && onClose()}>
+      <div className="relative bg-white rounded-3xl shadow-2xl p-8 mx-4 max-w-xs w-full text-center">
+        <button onClick={onClose} className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500">✕</button>
+        <h3 className="text-lg font-black text-gray-900 mb-1">Take it with you</h3>
+        <p className="text-sm text-gray-400 mb-5">Scan to open the {TOOL_NAME} on mobile</p>
+        <div className="inline-block rounded-2xl overflow-hidden border-4 border-green-100 shadow-inner mb-5"><canvas ref={canvasRef} /></div>
+        <p className="text-xs text-gray-300 font-mono break-all">{TOOL_URL}</p>
       </div>
     </div>
   );
 }
 
-// ─── Share Bar ────────────────────────────────────────────────────────────────
-
 function ShareBar() {
   const [qrOpen, setQrOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-
-  const shareText = encodeURIComponent(
-    `Extract beautiful color palettes from any image — free, instant, no signup`,
-  );
+  const shareText = encodeURIComponent("Free body fat calculator using the US Navy circumference method. Enter measurements and get body fat %, lean mass, and category. No signup.");
   const shareUrl = encodeURIComponent(TOOL_URL);
-
-  const copyLink = () => {
-    navigator.clipboard.writeText(TOOL_URL);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
+  const copyLink = () => { navigator.clipboard.writeText(TOOL_URL); setCopied(true); setTimeout(() => setCopied(false), 2000); };
   const SHARES = [
-    {
-      label: "X / Twitter",
-      href: `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`,
-      bg: "bg-black hover:bg-gray-800",
-      icon: (
-        <svg viewBox='0 0 24 24' fill='currentColor' className='w-4 h-4'>
-          <path d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.733-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z' />
-        </svg>
-      ),
-    },
-    {
-      label: "LinkedIn",
-      href: `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`,
-      bg: "bg-[#0A66C2] hover:bg-[#004182]",
-      icon: (
-        <svg viewBox='0 0 24 24' fill='currentColor' className='w-4 h-4'>
-          <path d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z' />
-        </svg>
-      ),
-    },
-    {
-      label: "Facebook",
-      href: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`,
-      bg: "bg-[#1877F2] hover:bg-[#0c5ab9]",
-      icon: (
-        <svg viewBox='0 0 24 24' fill='currentColor' className='w-4 h-4'>
-          <path d='M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z' />
-        </svg>
-      ),
-    },
-    {
-      label: "Pinterest",
-      href: `https://pinterest.com/pin/create/button/?url=${shareUrl}&description=${shareText}`,
-      bg: "bg-[#E60023] hover:bg-[#b5001b]",
-      icon: (
-        <svg viewBox='0 0 24 24' fill='currentColor' className='w-4 h-4'>
-          <path d='M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z' />
-        </svg>
-      ),
-    },
+    { label: "X / Twitter", href: `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`, bg: "bg-black hover:bg-gray-800" },
+    { label: "LinkedIn",    href: `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`,     bg: "bg-[#0A66C2] hover:bg-[#004182]" },
+    { label: "Facebook",    href: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`,             bg: "bg-[#1877F2] hover:bg-[#0c5ab9]" },
+    { label: "WhatsApp",    href: `https://wa.me/?text=${shareText}%20${shareUrl}`,                       bg: "bg-[#25D366] hover:bg-[#1da851]" },
   ];
-
   return (
     <>
       {qrOpen && <QRModal onClose={() => setQrOpen(false)} />}
-
-      <div className='bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-5 mb-6'>
-        <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4'>
-          {/* Left */}
-          <div>
-            <p className='text-sm font-bold text-gray-900 mb-0.5'>
-              Found this useful?
-            </p>
-            <p className='text-xs text-gray-400'>
-              Share the tool or take it with you on mobile
-            </p>
-          </div>
-
-          {/* Buttons */}
-          <div className='flex flex-wrap items-center gap-2'>
-            {SHARES.map(({ label, href, bg, icon }) => (
-              <a
-                key={label}
-                href={href}
-                target='_blank'
-                rel='noopener noreferrer'
-                aria-label={`Share on ${label}`}
-                className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-white text-xs font-semibold transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 ${bg}`}
-              >
-                {icon}
-                {label}
-              </a>
-            ))}
-
-            {/* Copy link */}
-            <button
-              onClick={copyLink}
-              aria-label='Copy link to clipboard'
-              className='inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold transition-all'
-            >
-              {copied ? (
-                <>
-                  <svg
-                    viewBox='0 0 20 20'
-                    fill='currentColor'
-                    className='w-3.5 h-3.5 text-green-600'
-                  >
-                    <path
-                      fillRule='evenodd'
-                      d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                      clipRule='evenodd'
-                    />
-                  </svg>
-                  <span className='text-green-600'>Copied!</span>
-                </>
-              ) : (
-                <>
-                  <svg
-                    viewBox='0 0 20 20'
-                    fill='currentColor'
-                    className='w-3.5 h-3.5'
-                  >
-                    <path d='M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z' />
-                    <path d='M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z' />
-                  </svg>
-                  Copy link
-                </>
-              )}
-            </button>
-
-            {/* QR code — desktop only */}
-            <button
-              onClick={() => setQrOpen(true)}
-              aria-label='Open QR code to scan on mobile'
-              className='hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white text-xs font-semibold transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5'
-            >
-              <svg
-                viewBox='0 0 20 20'
-                fill='currentColor'
-                className='w-3.5 h-3.5'
-              >
-                <path
-                  fillRule='evenodd'
-                  d='M3 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2V5h1v1H5zM3 13a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3zm2 2v-1h1v1H5zM13 3a1 1 0 00-1 1v3a1 1 0 001 1h3a1 1 0 001-1V4a1 1 0 00-1-1h-3zm1 2v1h1V5h-1z'
-                  clipRule='evenodd'
-                />
-                <path d='M11 4a1 1 0 10-2 0v1a1 1 0 002 0V4zM10 7a1 1 0 011 1v1h2a1 1 0 110 2h-3a1 1 0 01-1-1V8a1 1 0 011-1zM16 9a1 1 0 100 2 1 1 0 000-2zM9 13a1 1 0 011-1h1a1 1 0 110 2v2a1 1 0 11-2 0v-3zM7 11a1 1 0 100-2H4a1 1 0 100 2h3zM17 13a1 1 0 01-1 1h-2a1 1 0 110-2h2a1 1 0 011 1zM16 17a1 1 0 100-2h-3a1 1 0 100 2h3z' />
-              </svg>
-              Scan QR
-            </button>
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-5 mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div><p className="text-sm font-bold text-gray-900 mb-0.5">Found this useful?</p><p className="text-xs text-gray-400">Share the tool or scan to open on your phone</p></div>
+          <div className="flex flex-wrap items-center gap-2">
+            {SHARES.map(({ label, href, bg }) => (<a key={label} href={href} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center px-3 py-2 rounded-xl text-white text-xs font-semibold transition-all shadow-sm hover:-translate-y-0.5 ${bg}`}>{label}</a>))}
+            <button onClick={copyLink} className="px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold">{copied ? <span className="text-green-600">✓ Copied!</span> : "Copy link"}</button>
+            <button onClick={() => setQrOpen(true)} className="hidden sm:block px-3 py-2 rounded-xl bg-gradient-to-r from-green-500 to-teal-600 text-white text-xs font-semibold hover:-translate-y-0.5 transition-all">Scan QR</button>
           </div>
         </div>
       </div>
@@ -250,398 +60,192 @@ function ShareBar() {
   );
 }
 
-// ─── Main editorial export ────────────────────────────────────────────────────
+const MALE_CATEGORIES = [
+  ["2–5%",   "Essential Fat",  "The minimum fat required for basic physiological function. Not a sustainable or healthy long-term target for most people."],
+  ["6–13%",  "Athletes",       "Typical range for competitive athletes and bodybuilders. Visible muscle definition; very lean appearance."],
+  ["14–17%", "Fitness",        "Lean and fit — visible muscle separation. Achievable with consistent training and a structured diet."],
+  ["18–24%", "Average",        "The typical range for the general population. Some visible fat but not considered unhealthy."],
+  ["25%+",   "Obese",          "Associated with increased health risks. Reduction through diet and exercise is typically recommended."],
+];
+
+const FEMALE_CATEGORIES = [
+  ["10–13%", "Essential Fat",  "Minimum fat for basic female physiological function including hormonal balance. Not sustainable for most."],
+  ["14–20%", "Athletes",       "Typical for competitive female athletes. Very lean with visible muscle definition."],
+  ["21–24%", "Fitness",        "Lean and fit — the range maintained by active women who train consistently."],
+  ["25–31%", "Average",        "Typical for the general female population. Healthy and within normal range."],
+  ["32%+",   "Obese",          "Associated with elevated health risks. Lifestyle changes are generally recommended."],
+];
+
+const FAQS = [
+  {
+    q: "How does the US Navy body fat formula work?",
+    a: "The US Navy body fat formula (also called the Hodgdon-Beckett formula) estimates body fat percentage from circumference measurements rather than weight alone. For males, it uses height, waist circumference (measured at the navel), and neck circumference (measured just below the larynx). For females, it adds hip circumference (at the widest point). The formula uses logarithms of these measurements to estimate body density, then converts body density to body fat percentage using the Siri equation. The formula was developed and validated by the US Department of Defense as a practical field measurement method that requires only a tape measure. It is consistently within 3–4 percentage points of DEXA scan results for most people, making it one of the more accurate non-laboratory methods available.",
+  },
+  {
+    q: "How accurate is this body fat calculator?",
+    a: "The US Navy circumference method is considered a moderately accurate estimation method with typical error margins of ±3–4 percentage points compared to DEXA scan results. This means a calculator result of 18% body fat likely indicates actual body fat is between approximately 14–22%. The accuracy is affected by measurement technique (inconsistent placement can shift results significantly), body shape (the formula is validated on military populations and may be less accurate for extreme body types), and hydration status (measuring after exercise or when dehydrated can affect circumference readings). More accurate methods include DEXA (dual-energy X-ray absorptiometry, considered the gold standard), hydrostatic weighing, and Bod Pod (air displacement plethysmography). Skinfold caliper measurements can also be accurate when performed by an experienced practitioner. For health monitoring and tracking progress over time, the Navy method is useful and practical — for precise body composition assessment, a professional DEXA scan is recommended.",
+  },
+  {
+    q: "How do I take accurate circumference measurements?",
+    a: "Measurement accuracy directly affects result accuracy. For waist circumference: measure at the level of the navel, not at the narrowest point of the torso. Keep the tape horizontal, parallel to the floor. Exhale normally and measure at the end of a normal exhale (not sucked in). For neck circumference: measure just below the larynx (Adam's apple for men; the lower part of the throat for women). Keep the tape perpendicular to the neck. For hip circumference (women only): measure at the widest point of the hips and buttocks, typically several inches below the waist. Keep the tape horizontal and parallel to the floor. For all measurements: use a non-stretching flexible tape measure (fabric tape measures can stretch over time — use a fibreglass or plastic measuring tape). Take each measurement twice and average the two readings if they differ. Measure at the same time of day — morning before eating and drinking gives the most consistent results.",
+  },
+  {
+    q: "What is lean body mass and why does it matter?",
+    a: "Lean body mass (LBM) is everything in your body that is not fat — including muscle, bone, organs, water, and connective tissue. It is calculated as total body weight minus fat mass. Lean body mass matters because it is the primary driver of your resting metabolic rate (the calories your body burns at rest). More lean mass means a higher metabolism and greater caloric expenditure even without additional exercise. Lean mass is also the primary tissue targeted in strength and resistance training — when someone says they want to 'gain muscle', they're increasing their lean body mass while ideally maintaining or reducing fat mass. Tracking lean mass over time (alongside body fat percentage) provides a more complete picture of body composition change than body weight alone — someone can gain 3kg of muscle and lose 3kg of fat while appearing to have made 'no progress' on the scale.",
+  },
+  {
+    q: "What is a healthy body fat percentage?",
+    a: "Healthy body fat ranges differ by sex due to physiological differences in essential fat storage. For men: 6–13% is the athletic range, 14–17% is considered fitness level, 18–24% is the typical healthy average for adult men, and 25%+ is considered above healthy range. For women: 14–20% is the athletic range, 21–24% is considered fitness level, 25–31% is the typical healthy average for adult women, and 32%+ is considered above healthy range. Women naturally carry more essential fat than men (approximately 10–13% vs 2–5%) due to hormonal and reproductive factors — this is normal and healthy. The 'ideal' body fat percentage depends on individual goals, age, and activity level. Very low body fat (below essential fat levels) is associated with health risks including hormonal disruption, bone density loss, and impaired immune function.",
+  },
+  {
+    q: "Why is body fat percentage a better measure than BMI?",
+    a: "BMI (Body Mass Index) is calculated from height and weight only — it cannot distinguish between muscle mass and fat mass. This makes it a poor indicator of body composition for muscular individuals, who may have a 'overweight' or 'obese' BMI despite having healthy or low body fat levels. Conversely, individuals with low muscle mass and high fat mass (sometimes called 'skinny fat' or metabolically obese normal weight) may have a 'healthy' BMI despite carrying excess body fat. Body fat percentage measures the actual proportion of fat in the body — it is a more direct and meaningful indicator of body composition and metabolic health risk. Research consistently shows that body fat percentage and fat distribution (particularly visceral fat around organs) are better predictors of metabolic health outcomes than BMI alone. For athletes and anyone with above-average muscle mass, body fat percentage is a significantly more accurate health metric than BMI.",
+  },
+];
+
+function FAQSection() {
+  const [open, setOpen] = useState<number | null>(null);
+  return (
+    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10">
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+      <div className="space-y-3">
+        {FAQS.map((f, i) => (
+          <div key={i} className="border border-gray-100 rounded-xl overflow-hidden">
+            <button className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors" onClick={() => setOpen(open === i ? null : i)}>
+              <span className="font-semibold text-gray-900 text-sm">{f.q}</span>
+              <span className="text-green-600 text-lg shrink-0">{open === i ? "−" : "+"}</span>
+            </button>
+            {open === i && <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed">{f.a}</div>}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function PageEditorial() {
   return (
     <>
-      {/* ── Ad: below tool ──────────────────────────────────────────────── */}
-      <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
-        <div className='hidden sm:block'>
-          <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
-        </div>
-        <div className='block sm:hidden'>
-          <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
-        </div>
+      <div className="max-w-6xl mx-auto px-4 mt-6 flex justify-center">
+        <div className="hidden sm:block"><AdSlot variant="rectangle" slotId={SLOT_BELOW_TOOL} /></div>
+        <div className="block sm:hidden"><AdSlot variant="mediumrectangle" slotId={SLOT_BELOW_TOOL} /></div>
       </div>
-
-      {/* ── Ad: leaderboard ─────────────────────────────────────────────── */}
-      <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
-        <AdSlot
-          variant='leaderboard'
-          slotId={SLOT_LEADERBOARD}
-          className='hidden sm:flex'
-        />
-        <AdSlot
-          variant='mediumrectangle'
-          slotId={SLOT_LEADERBOARD}
-          className='flex sm:hidden'
-        />
+      <div className="max-w-6xl mx-auto px-4 mt-4 flex justify-center">
+        <AdSlot variant="leaderboard" slotId={SLOT_LEADERBOARD} className="hidden sm:flex" />
+        <AdSlot variant="mediumrectangle" slotId={SLOT_LEADERBOARD} className="flex sm:hidden" />
       </div>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10"><ShareBar /></div>
 
-      {/* ── Share bar ───────────────────────────────────────────────────── */}
-      <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10'>
-        <ShareBar />
-      </div>
+      <section id="how-to-use" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">How to Use the Body Fat Calculator</h2>
+        <p className="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed">Select your sex and units, enter your measurements, and get an instant estimate of your body fat percentage, category, lean mass, and fat mass.</p>
 
-      {/* ── How to use ──────────────────────────────────────────────────── */}
-      <section
-        id='how-to-use'
-        className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10'
-        aria-labelledby='how-to-use-heading'
-      >
-        <h2
-          id='how-to-use-heading'
-          className='text-4xl font-bold text-gray-900 mb-4 text-center'
-        >
-          How to Use the Color Palette Generator
-        </h2>
-        <p className='text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed'>
-          Extract the dominant colors from any image in seconds — or generate a
-          random palette for inspiration — then copy every value or export
-          straight to CSS.
-        </p>
-
-        {/* Steps */}
-        <div className='space-y-6 mb-14'>
-          {/* Step 1 */}
-          <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-            <div className='flex-shrink-0 w-10 h-10 rounded-full bg-pink-600 text-white font-black text-lg flex items-center justify-center'>
-              1
-            </div>
-            <div>
-              <h3 className='text-lg font-bold text-gray-900 mb-2'>
-                Upload an image or generate a random palette
-              </h3>
-              <p className='text-gray-600 leading-relaxed mb-4'>
-                Click <strong>Upload Image</strong> to select any photo,
-                illustration, logo, or screenshot from your device. The tool
-                accepts all common image formats — JPG, PNG, WebP, GIF, SVG.
-                Processing starts automatically the moment the image loads.
-              </p>
-              <p className='text-gray-600 leading-relaxed mb-3'>
-                Don't have an image handy? Click <strong>Random Palette</strong>{" "}
-                to generate a set of random colours instantly — useful for
-                design exploration and finding unexpected combinations.
-              </p>
-              <div className='bg-pink-50 rounded-xl px-5 py-4 text-sm text-pink-800 leading-relaxed'>
-                <strong>Best source images for extraction:</strong> Photos with
-                clear, distinct regions produce the most useful palettes — a
-                landscape with sky, foliage, and earth; a product photo on a
-                contrasting background; a painting with deliberate colour zones.
-                Images with heavy gradients may return colours that feel very
-                similar to each other.
-              </div>
-            </div>
-          </div>
-
-          {/* Step 2 */}
-          <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-            <div className='flex-shrink-0 w-10 h-10 rounded-full bg-pink-600 text-white font-black text-lg flex items-center justify-center'>
-              2
-            </div>
-            <div>
-              <h3 className='text-lg font-bold text-gray-900 mb-2'>
-                Adjust the colour count
-              </h3>
-              <p className='text-gray-600 leading-relaxed mb-4'>
-                The <strong>Colors</strong> slider (range: 3–10) controls how
-                many distinct colours are extracted. Dragging it while an image
-                is loaded re-runs the extraction immediately with the new count.
-              </p>
-              <div className='grid sm:grid-cols-3 gap-3'>
-                {[
-                  {
-                    range: "3–4 colours",
-                    use: "Minimal brand palettes, logo design, monochromatic compositions. Forces extraction of only the most dominant hues.",
-                  },
-                  {
-                    range: "5–6 colours",
-                    use: "The most versatile range for UI design, presentations, and general creative work. Enough variety without noise.",
-                  },
-                  {
-                    range: "7–10 colours",
-                    use: "Detailed illustration reference, interior design mood boards, or when you need to capture subtle accent colours from a complex image.",
-                  },
-                ].map(({ range, use }) => (
-                  <div
-                    key={range}
-                    className='bg-gray-50 rounded-xl border border-gray-100 px-4 py-3'
-                  >
-                    <p className='text-xs font-bold text-pink-700 mb-1'>
-                      {range}
-                    </p>
-                    <p className='text-xs text-gray-500 leading-relaxed'>
-                      {use}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Step 3 */}
-          <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-            <div className='flex-shrink-0 w-10 h-10 rounded-full bg-pink-600 text-white font-black text-lg flex items-center justify-center'>
-              3
-            </div>
-            <div>
-              <h3 className='text-lg font-bold text-gray-900 mb-2'>
-                Read each colour's values
-              </h3>
-              <p className='text-gray-600 leading-relaxed mb-4'>
-                Each colour card shows three representations of the same colour.
-                All three are interchangeable — they describe exactly the same
-                hue, just in the format your tool expects:
-              </p>
-              <div className='space-y-2 mb-4'>
-                {[
-                  {
-                    format: "HEX",
-                    example: "#a855f7",
-                    use: "CSS, HTML, design tools (Figma, Sketch, Canva, Photoshop). The universal format — paste it anywhere a colour field accepts text.",
-                  },
-                  {
-                    format: "RGB",
-                    example: "168, 85, 247",
-                    use: "CSS rgb() and rgba() functions. Use when you need to control opacity (e.g. rgba(168, 85, 247, 0.5)) or when working in a colour pipeline that uses 0–255 values.",
-                  },
-                  {
-                    format: "HSL",
-                    example: "280°, 91%, 65%",
-                    use: "CSS hsl() functions and design systems. HSL is human-readable — hue (0–360°), saturation (0–100%), lightness (0–100%) — making it easy to create tints and shades by adjusting lightness alone.",
-                  },
-                ].map(({ format, example, use }) => (
-                  <div
-                    key={format}
-                    className='flex items-start gap-3 text-sm bg-gray-50 rounded-xl px-4 py-3'
-                  >
-                    <code className='text-xs font-bold bg-pink-100 text-pink-700 px-2 py-1 rounded flex-shrink-0 mt-0.5'>
-                      {format}
-                    </code>
-                    <div>
-                      <code className='text-gray-400 text-xs block mb-0.5'>
-                        {example}
-                      </code>
-                      <p className='text-gray-600 leading-relaxed'>{use}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <p className='text-sm text-gray-500'>
-                Click the HEX value text or the colour swatch itself to copy the
-                HEX code to your clipboard instantly. The swatch shows a
-                "Copied!" overlay for 2 seconds to confirm.
-              </p>
-            </div>
-          </div>
-
-          {/* Step 4 */}
-          <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-            <div className='flex-shrink-0 w-10 h-10 rounded-full bg-pink-600 text-white font-black text-lg flex items-center justify-center'>
-              4
-            </div>
-            <div>
-              <h3 className='text-lg font-bold text-gray-900 mb-2'>
-                Use the colour strip for harmony checking
-              </h3>
-              <p className='text-gray-600 leading-relaxed mb-3'>
-                The <strong>Colour Strip</strong> below the cards shows all
-                extracted colours side-by-side as equal-width segments. This is
-                the fastest way to judge whether the palette works as a set —
-                whether the tones are harmonious, whether there's enough
-                contrast between adjacent colours, and whether any colour feels
-                out of place.
-              </p>
-              <p className='text-gray-600 leading-relaxed'>
-                Clicking any segment in the strip copies that colour's HEX code,
-                the same as clicking a card swatch.
-              </p>
-            </div>
-          </div>
-
-          {/* Step 5 */}
-          <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-            <div className='flex-shrink-0 w-10 h-10 rounded-full bg-pink-600 text-white font-black text-lg flex items-center justify-center'>
-              5
-            </div>
-            <div>
-              <h3 className='text-lg font-bold text-gray-900 mb-2'>
-                Export as CSS variables
-              </h3>
-              <p className='text-gray-600 leading-relaxed mb-3'>
-                Click <strong>Export CSS</strong> to download a{" "}
-                <code className='bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm text-pink-700'>
-                  palette.css
-                </code>{" "}
-                file containing all extracted colours as CSS custom properties,
-                ready to import into any project:
-              </p>
-              <div className='bg-gray-900 rounded-xl px-5 py-4 mb-3'>
-                <pre className='text-sm text-green-400 leading-relaxed'>
-                  {`:root {
-  --color-1: #a855f7;
-  --color-2: #ec4899;
-  --color-3: #f97316;
-  --color-4: #14b8a6;
-  --color-5: #1e1b4b;
-}`}
-                </pre>
-              </div>
-              <p className='text-sm text-gray-500 leading-relaxed'>
-                Reference the variables anywhere in your stylesheet with{" "}
-                <code className='bg-gray-100 px-1.5 py-0.5 rounded font-mono text-xs'>
-                  var(--color-1)
-                </code>
-                . Rename the variables to semantic names (e.g.{" "}
-                <code className='bg-gray-100 px-1.5 py-0.5 rounded font-mono text-xs'>
-                  --color-primary
-                </code>
-                ,{" "}
-                <code className='bg-gray-100 px-1.5 py-0.5 rounded font-mono text-xs'>
-                  --color-accent
-                </code>
-                ) after downloading.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* ── How the extraction works ── */}
-        <div className='bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6'>
-          <h3 className='text-xl font-bold text-gray-900 mb-4'>
-            How the colour extraction works
-          </h3>
-          <p className='text-gray-600 leading-relaxed mb-5 text-sm'>
-            The tool uses the HTML5 Canvas API to process your image entirely in
-            the browser — nothing is uploaded to a server. Here's the three-step
-            process:
-          </p>
-          <div className='space-y-4'>
-            {[
-              {
-                n: "1",
-                title: "Downsample",
-                body: "The image is drawn onto a hidden canvas scaled down to a maximum of 200×200 pixels. This dramatically reduces the number of pixels to process while preserving colour distribution.",
-              },
-              {
-                n: "2",
-                title: "Quantise and count",
-                body: "Every 10th pixel is sampled (skipping transparent pixels). Each pixel's RGB values are rounded to the nearest 10 to group similar shades together, then counted. The result is a frequency map of the image's colour space.",
-              },
-              {
-                n: "3",
-                title: "Deduplicate by distance",
-                body: "The most frequent colours are sorted and filtered. Any candidate colour that's within a perceptual distance of 60 RGB units from an already-selected colour is skipped — this prevents the palette from being filled with near-identical shades of the same hue.",
-              },
-            ].map(({ n, title, body }) => (
-              <div key={n} className='flex items-start gap-4 text-sm'>
-                <span className='w-7 h-7 rounded-full bg-pink-100 text-pink-700 font-black text-xs flex items-center justify-center flex-shrink-0 mt-0.5'>
-                  {n}
-                </span>
-                <div>
-                  <p className='font-semibold text-gray-900 mb-0.5'>{title}</p>
-                  <p className='text-gray-500 leading-relaxed'>{body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── Use cases ── */}
-        <h3 className='text-2xl font-bold text-gray-900 mb-6'>
-          What designers use it for
-        </h3>
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14'>
+        <div className="space-y-6 mb-14">
           {[
             {
-              emoji: "🎨",
-              title: "Brand colour extraction",
-              desc: "Upload a brand photo or hero image to extract a colour palette that's guaranteed to feel native to the brand's visual world — no guessing at hex codes.",
+              n: 1,
+              title: "Select sex and unit system",
+              body: "Choose Male or Female — the formula uses different variables for each sex, and body fat categories differ between male and female. Select Metric (cm/kg) or Imperial (in/lbs) based on your measurement preference. Female users need to measure an additional hip circumference that male users don't need — the formula panel adapts automatically.",
+              enrich: <div className="bg-green-50 rounded-xl px-5 py-4 text-sm text-green-800 leading-relaxed"><strong>Why sex matters for body fat calculation:</strong> The US Navy formula uses different logarithmic equations for males and females because body fat distribution patterns differ significantly between sexes. Women naturally carry more essential fat (approximately 10–13% vs 2–5% for men) concentrated in the hip/glute region, which is why the female formula includes hip circumference. Using the wrong sex selection will produce significantly inaccurate results.</div>,
             },
             {
-              emoji: "🖼️",
-              title: "Artwork-matched UI themes",
-              desc: "Extract colours from an album cover, film still, or illustration to build a UI theme that feels designed alongside the creative work.",
+              n: 2,
+              title: "Take your measurements",
+              body: "Measure your height, weight, waist (at navel level), neck (just below the larynx), and hip if female (at the widest point). Use a flexible, non-stretching tape measure. Measure each circumference twice and use the average. Take measurements first thing in the morning before eating or drinking for the most consistent results. Keep the tape horizontal and snug — not so tight it compresses skin.",
+              enrich: (
+                <div className="overflow-x-auto rounded-xl border border-gray-100 text-sm">
+                  <table className="w-full text-left">
+                    <thead className="bg-gray-50"><tr><th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">Measurement</th><th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">Where to measure</th></tr></thead>
+                    <tbody className="divide-y divide-gray-50">
+                      {[
+                        ["Waist",  "At the level of the navel — not the narrowest point of the torso. Horizontal, end of normal exhale."],
+                        ["Neck",   "Just below the larynx (Adam's apple / lower throat). Perpendicular to the neck axis."],
+                        ["Hip ♀",  "At the widest point of the hips and buttocks. Horizontal, parallel to the floor."],
+                        ["Height", "Stand tall without shoes. Measure to the top of the head."],
+                        ["Weight", "First thing in the morning, after using the bathroom, without clothes or shoes."],
+                      ].map(([m, desc]) => (
+                        <tr key={m} className="hover:bg-green-50">
+                          <td className="px-4 py-2 font-bold text-green-700 text-xs whitespace-nowrap">{m}</td>
+                          <td className="px-4 py-2 text-xs text-gray-500">{desc}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ),
             },
             {
-              emoji: "🛍️",
-              title: "E-commerce product pages",
-              desc: "Pull the palette from a product photo to use as the page's background, border, and accent colours — creating a cohesive look that makes the product feel intentional.",
+              n: 3,
+              title: "Review your body fat percentage and category",
+              body: "Results update automatically as you enter your measurements. The result panel shows your estimated body fat %, your category (Essential Fat, Athletes, Fitness, Average, or Obese), lean body mass, and fat mass. The visual bar shows your body fat % on a 0–50% scale for a quick visual reference.",
+              enrich: (
+                <div className="overflow-x-auto rounded-xl border border-gray-100 text-sm">
+                  <table className="w-full text-left">
+                    <thead className="bg-gray-50"><tr><th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">Male range</th><th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">Female range</th><th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">Category</th></tr></thead>
+                    <tbody className="divide-y divide-gray-50">
+                      {MALE_CATEGORIES.map(([mRange, cat], i) => (
+                        <tr key={cat} className="hover:bg-green-50">
+                          <td className="px-4 py-2 font-bold text-green-700 text-xs">{mRange}</td>
+                          <td className="px-4 py-2 font-bold text-teal-700 text-xs">{FEMALE_CATEGORIES[i][0]}</td>
+                          <td className="px-4 py-2 font-semibold text-gray-900 text-xs">{cat}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ),
             },
             {
-              emoji: "📊",
-              title: "Data visualisation",
-              desc: "Generate a palette from a relevant image and use it as your chart colour set — more characterful than the defaults in Chart.js or D3.",
+              n: 4,
+              title: "Track progress over time",
+              body: "Use this calculator monthly at the same time of day (ideally the same morning conditions) to track body composition change over time. Changes in body fat percentage are typically slow — a 1–2% change per month is a realistic expectation with consistent training and nutrition. Track both body fat % and lean mass — these tell a more complete story than body weight alone. Weight can remain the same while body fat decreases and lean mass increases, which is a positive body composition change even though the scale doesn't move.",
+              enrich: <div className="bg-teal-50 rounded-xl px-5 py-4 text-sm text-teal-800 leading-relaxed"><strong>Measurement consistency:</strong> Always measure under the same conditions — same time of day, same hydration status, using the same tape measure. Even slight variations in waist measurement placement can shift results by 1–2%. The most reliable way to use this tool is to track the trend over months rather than focusing on any single measurement result.</div>,
             },
-            {
-              emoji: "📱",
-              title: "App UI design",
-              desc: "Start from a hero photograph and use the extracted palette as the foundation for button, card, and background colours — grounding the UI in the visual content.",
-            },
-            {
-              emoji: "🎭",
-              title: "Mood board building",
-              desc: "Pull palettes from several reference images and compare the colour strips to find the common emotional thread running through your inspiration.",
-            },
-          ].map(({ emoji, title, desc }) => (
-            <div
-              key={title}
-              className='bg-white rounded-2xl border border-gray-100 shadow-sm p-5'
-            >
-              <div className='text-2xl mb-3'>{emoji}</div>
-              <p className='font-bold text-gray-900 text-sm mb-2'>{title}</p>
-              <p className='text-xs text-gray-500 leading-relaxed'>{desc}</p>
+          ].map(({ n, title, body, enrich }) => (
+            <div key={n} className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-green-600 text-white font-black text-lg flex items-center justify-center">{n}</div>
+              <div><h3 className="text-lg font-bold text-gray-900 mb-2">{title}</h3><p className="text-gray-600 leading-relaxed mb-3">{body}</p>{enrich}</div>
             </div>
           ))}
         </div>
 
-        {/* ── Privacy note ── */}
-        <div className='bg-gradient-to-br from-pink-600 to-purple-700 rounded-2xl p-8 text-white text-center mb-14'>
-          <div className='text-3xl mb-3'>🔒</div>
-          <h3 className='text-xl font-bold mb-3'>
-            Your images never leave your device
-          </h3>
-          <p className='text-pink-100 leading-relaxed max-w-xl mx-auto text-sm'>
-            All processing happens on the HTML5 Canvas API in your browser. No
-            image is uploaded, transmitted, or stored anywhere. Safe to use with
-            private, confidential, or commercially sensitive visuals.
-          </p>
+        <FAQSection />
+
+        <h3 className="text-2xl font-bold text-gray-900 mb-6">Common use cases</h3>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
+          {[
+            { emoji: "🏋️", title: "Fitness tracking", desc: "Track body composition changes over a training programme — monitor whether you're building muscle and losing fat as intended." },
+            { emoji: "🎯", title: "Setting body composition goals", desc: "Use category benchmarks to set a realistic target body fat percentage and track progress toward it monthly." },
+            { emoji: "🥗", title: "Nutrition planning", desc: "Calculate lean mass to determine protein targets and calorie adjustments for a body recomposition or cutting phase." },
+            { emoji: "👩‍⚕️", title: "Health monitoring", desc: "Track body fat as a health metric over time — a more meaningful indicator of metabolic health than body weight alone." },
+            { emoji: "🏃", title: "Athletes and performance", desc: "Monitor body fat percentage to ensure you're in the optimal range for your sport without compromising performance." },
+            { emoji: "📊", title: "Progress without the scale", desc: "Use when the scale isn't moving — body fat % and lean mass changes reveal progress that bodyweight doesn't show." },
+          ].map(({ emoji, title, desc }) => (
+            <div key={title} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:border-green-200 hover:-translate-y-1 transition-all duration-200">
+              <div className="text-2xl mb-3">{emoji}</div>
+              <p className="font-bold text-gray-900 text-sm mb-2">{title}</p>
+              <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
+            </div>
+          ))}
         </div>
 
-        {/* ── Related tools ── */}
+        <div className="bg-gradient-to-br from-green-600 to-teal-700 rounded-2xl p-8 text-white text-center mb-14">
+          <p className="text-xs font-semibold text-green-200 uppercase tracking-widest mb-4">Health disclaimer</p>
+          <h3 className="text-xl font-bold mb-3">This tool provides an estimate for informational purposes — consult a healthcare professional for medical advice</h3>
+          <p className="text-green-100 leading-relaxed max-w-xl mx-auto text-sm">The US Navy body fat formula is a validated estimation method with typical accuracy margins of ±3–4 percentage points. It is appropriate for general fitness tracking and progress monitoring. It is not a substitute for professional body composition assessment (such as DEXA scanning), and results should not be used to make medical decisions. If you have concerns about your body composition, metabolic health, or weight management, consult a registered dietitian, doctor, or qualified fitness professional. Body fat percentage is one of several metrics that contribute to overall health — it should be considered alongside nutrition, activity levels, sleep, stress, and other health markers.</p>
+        </div>
+
         <div>
-          <h3 className='text-lg font-bold text-gray-900 mb-4'>
-            Related Free Design Tools
-          </h3>
-          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+          <h3 className="text-lg font-bold text-gray-900 mb-4">Related Free Health Tools</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              {
-                href: "/tools/image-compressor",
-                label: "Image Compressor",
-                desc: "Reduce image file size without visible quality loss — JPG, PNG, and WebP.",
-              },
-              {
-                href: "/tools/background-remover",
-                label: "Background Remover",
-                desc: "Remove image backgrounds instantly and export as a transparent PNG.",
-              },
-              {
-                href: "/tools/aspect-ratio-calculator",
-                label: "Aspect Ratio Calculator",
-                desc: "Calculate and convert image dimensions while maintaining the correct aspect ratio.",
-              },
-            ].map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className='block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-pink-200 hover:-translate-y-1 transition-all duration-200 p-5'
-                aria-label={`${link.label} — ${link.desc}`}
-              >
-                <div className='font-bold text-gray-900 text-sm mb-1'>
-                  {link.label}
-                </div>
-                <div className='text-xs text-gray-500'>{link.desc}</div>
+              { href: "/tools/ideal-weight-calculator", label: "Ideal Weight Calculator", desc: "Calculate your ideal weight range using multiple formulas — Devine, Robinson, Miller, and Hamwi." },
+              { href: "/tools/macro-calculator", label: "Macro Calculator", desc: "Calculate your daily protein, carbohydrate, and fat targets based on your goals and activity level." },
+              { href: "/tools/calorie-calculator", label: "Calorie Calculator", desc: "Calculate your daily calorie needs using the Mifflin-St Jeor equation and your activity level." },
+            ].map(({ href, label, desc }) => (
+              <a key={href} href={href} className="block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-green-200 hover:-translate-y-1 transition-all duration-200 p-5">
+                <div className="font-bold text-gray-900 text-sm mb-1">{label}</div>
+                <div className="text-xs text-gray-500">{desc}</div>
               </a>
             ))}
           </div>

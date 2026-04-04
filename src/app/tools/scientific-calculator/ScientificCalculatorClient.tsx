@@ -123,7 +123,7 @@ export default function ScientificCalculatorClient() {
   };
 
   const btnColor: Record<string, string> = {
-    number: "bg-white hover:bg-gray-50 text-gray-800 border border-gray-200",
+    number: "bg-white hover:bg-gray-50 text-gray-900 border border-gray-200",
     op: "bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 font-bold",
     fn: "bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 text-sm",
     special:
@@ -137,13 +137,13 @@ export default function ScientificCalculatorClient() {
       <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <Calculator className='w-8 h-8 text-indigo-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-slate-700 to-indigo-800 rounded-2xl mb-4 shadow-lg'>
+              <Calculator className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Scientific Calculator
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Full-featured scientific calculator with trigonometry and
               logarithm functions
             </p>
@@ -217,7 +217,7 @@ export default function ScientificCalculatorClient() {
             {/* History */}
             {history.length > 0 && (
               <div>
-                <h3 className='text-lg font-semibold text-gray-800 mb-3'>
+                <h3 className='text-lg font-semibold text-gray-900 mb-3'>
                   History
                 </h3>
                 <div className='bg-white border border-gray-200 rounded-lg overflow-hidden'>

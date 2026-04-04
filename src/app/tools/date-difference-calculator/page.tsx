@@ -1,168 +1,47 @@
-// src/app/tools/color-palette-generator/page.tsx
+// src/app/tools/date-difference-calculator/page.tsx
 import type { Metadata } from "next";
-import ColorPaletteGeneratorClient from "./DateDifferenceCalculatorClient";
-import AdSlot from "@/components/AdSlot";
+import DateDifferenceCalculatorClient from "./DateDifferenceCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
 
-// ─── Slot IDs from env ────────────────────────────────────────────────────────
-const SLOT_BELOW_TOOL =
-  process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
-const SLOT_LEADERBOARD =
-  process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
-
 export const metadata: Metadata = {
-  title: "Color Palette Generator — Free Online Color Palette Generator",
-  description:
-    "Generate harmonious color palettes for your design projects. Free, instant, no signup required.",
-  keywords:
-    "color palette generator, free color palette generator, online color palette generator, color palette generator free, color palette generator online, image tool, free online color palette generator, best color palette generator",
-  authors: [{ name: SITE_NAME, url: SITE_URL }],
-  creator: SITE_NAME,
-  publisher: SITE_NAME,
-  alternates: { canonical: `${SITE_URL}/tools/color-palette-generator` },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  openGraph: {
-    type: "website",
-    url: `${SITE_URL}/tools/color-palette-generator`,
-    siteName: SITE_NAME,
-    locale: "en_US",
-    title: "Color Palette Generator — Free Online Color Palette Generator",
-    description:
-      "Generate harmonious color palettes for your design projects. Free, instant, no signup.",
-    images: [
-      {
-        url: `${SITE_URL}/opengraph-image`,
-        width: 1200,
-        height: 630,
-        alt: "Free Online Color Palette Generator",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
-    title: "Color Palette Generator — Free Online Color Palette Generator",
-    description: "Generate harmonious color palettes for your design projects.",
-  },
+  title: "Date Difference Calculator — Calculate Days Between Two Dates Free Online",
+  description: "Calculate the exact number of days, weeks, months, years, hours, minutes, workdays, and weekend days between any two dates. Quick presets for common ranges. Free, no signup.",
+  keywords: "date difference calculator, days between dates, how many days between, date calculator, workdays calculator, days weeks months calculator, date span calculator",
+  authors: [{ name: SITE_NAME, url: SITE_URL }], creator: SITE_NAME, publisher: SITE_NAME,
+  alternates: { canonical: `${SITE_URL}/tools/date-difference-calculator` },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
+  openGraph: { type: "website", url: `${SITE_URL}/tools/date-difference-calculator`, siteName: SITE_NAME, locale: "en_US", title: "Date Difference Calculator — Calculate Days Between Two Dates Free Online", description: "Calculate days, weeks, months, years, hours, workdays, and weekend days between two dates. Quick presets included. Free, no signup.", images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630, alt: "Free Date Difference Calculator" }] },
+  twitter: { card: "summary_large_image", site: "@onlinetoolbase", creator: "@onlinetoolbase", title: "Date Difference Calculator — Calculate Days Between Two Dates Free Online", description: "Calculate days, weeks, months, workdays between two dates. Free." },
 };
 
-const toolJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "Color Palette Generator",
-  description: "Generate harmonious color palettes for your design projects.",
-  url: `${SITE_URL}/tools/color-palette-generator`,
-  applicationCategory: "WebApplication",
-  operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript. Works in all modern browsers.",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-    availability: "https://schema.org/InStock",
-  },
-  provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
-};
+const toolJsonLd = { "@context": "https://schema.org", "@type": "SoftwareApplication", name: "Date Difference Calculator", description: "Calculates the difference between two dates in multiple units: days, weeks, approximate months, approximate years, hours, minutes, workdays (Mon–Fri), and weekend days (Sat–Sun). Handles reversed date order (showing absolute difference). Includes quick preset buttons for last 30 days, last 90 days, last 365 days, and next 30 days. Runs in the browser.", url: `${SITE_URL}/tools/date-difference-calculator`, applicationCategory: "WebApplication", operatingSystem: "Any", offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" }, provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL } };
+const breadcrumbJsonLd = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: SITE_URL }, { "@type": "ListItem", position: 2, name: "Calculator Tools", item: `${SITE_URL}/tools/category/calculator` }, { "@type": "ListItem", position: 3, name: "Date Difference Calculator", item: `${SITE_URL}/tools/date-difference-calculator` }] };
 
-const breadcrumbJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Image Tools",
-      item: `${SITE_URL}/tools/category/image`,
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Color Palette Generator",
-      item: `${SITE_URL}/tools/color-palette-generator`,
-    },
-  ],
-};
-
-export default function ColorPaletteGeneratorPage() {
+export default function DateDifferenceCalculatorPage() {
   return (
     <>
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
-      />
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-
-      {/* Breadcrumb */}
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
-          <li>
-            <a href='/' className='hover:text-indigo-600 transition-colors'>
-              Home
-            </a>
-          </li>
-          <li aria-hidden='true' className='text-gray-300'>
-            /
-          </li>
-          <li>
-            <a
-              href='/tools/category/image'
-              className='hover:text-indigo-600 transition-colors'
-            >
-              Image Tools
-            </a>
-          </li>
-          <li aria-hidden='true' className='text-gray-300'>
-            /
-          </li>
-          <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
-              Color Palette Generator
-            </span>
-          </li>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <li><a href="/" className="hover:text-blue-600 transition-colors">Home</a></li>
+          <li aria-hidden="true" className="text-gray-300">/</li>
+          <li><a href="/tools/category/calculator" className="hover:text-blue-600 transition-colors">Calculator Tools</a></li>
+          <li aria-hidden="true" className="text-gray-300">/</li>
+          <li><span aria-current="page" className="text-gray-900 font-medium">Date Difference Calculator</span></li>
         </ol>
       </nav>
-
-      {/* Category badge + SR H1 */}
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1'>
-          Free Image Tool · No Signup · Works Instantly
-        </p>
-        <h1 className='sr-only'>
-          Color Palette Generator — Free Online Color Palette Generator
-        </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
-          Generate harmonious color palettes for your design projects. Free,
-          instant, no account needed.
-        </p>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-1">Free Calculator Tool · No Signup · Works Instantly</p>
+        <h1 className="sr-only">Date Difference Calculator — Calculate Days Between Two Dates Free Online</h1>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">Calculate the exact days, weeks, months, hours, workdays, and weekend days between any two dates — with quick presets for common ranges.</p>
       </header>
-
-      {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
       <SidebarAdLayout>
-        {/* ── Tool component (main interactive area) ──────────────────── */}
-        <main id='main-content' aria-label='Color Palette Generator tool'>
-          <ColorPaletteGeneratorClient />
-        </main>
-
-        {/* ── Zone G: below tool result — highest value placement ──────── */}
-        {/* Sits immediately after the tool, before any editorial content   */}
-
+        <main id="main-content" aria-label="Date Difference Calculator tool"><DateDifferenceCalculatorClient /></main>
         <PageEditorial />
       </SidebarAdLayout>
     </>

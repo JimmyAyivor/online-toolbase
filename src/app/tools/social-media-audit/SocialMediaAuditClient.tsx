@@ -207,13 +207,13 @@ export default function SocialMediaAuditClient() {
       <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <ClipboardCheck className='w-8 h-8 text-indigo-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-violet-600 to-indigo-600 rounded-2xl mb-4 shadow-lg'>
+              <ClipboardCheck className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Social Media Audit Tool
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Work through the checklist and get an instant score for your
               social media presence
             </p>
@@ -223,7 +223,7 @@ export default function SocialMediaAuditClient() {
             {/* Score */}
             <div className='bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200'>
               <div className='flex items-center justify-between mb-4'>
-                <h3 className='text-xl font-bold text-gray-800'>Your Score</h3>
+                <h3 className='text-xl font-bold text-gray-900'>Your Score</h3>
                 <button
                   onClick={reset}
                   className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2'
@@ -269,7 +269,7 @@ export default function SocialMediaAuditClient() {
               return (
                 <div key={category}>
                   <div className='flex items-center justify-between mb-3'>
-                    <h3 className='text-lg font-semibold text-gray-800'>
+                    <h3 className='text-lg font-semibold text-gray-900'>
                       {category}
                     </h3>
                     <span className='text-sm text-gray-500'>
@@ -294,7 +294,7 @@ export default function SocialMediaAuditClient() {
                               className={`text-sm font-medium ${
                                 checked.has(item.id)
                                   ? "text-gray-400 line-through"
-                                  : "text-gray-800"
+                                  : "text-gray-900"
                               }`}
                             >
                               {item.label}

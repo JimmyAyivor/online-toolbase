@@ -3,7 +3,10 @@ import type { Metadata } from "next";
 import AcronymGeneratorClient from "./AcronymGeneratorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolReviews from "@/components/ToolReviews";
+import { tools } from "@/lib/tools";
 
+const tool = tools.find((t) => t.slug === "acronym-generator");
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
 
@@ -148,9 +151,10 @@ export default function AcronymGeneratorPage() {
         </p>
       </header>
 
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         <main id='main-content' aria-label='Acronym Generator tool'>
           <AcronymGeneratorClient />
+          <ToolReviews toolSlug='acronym-generator' />
         </main>
         <PageEditorial />
       </SidebarAdLayout>

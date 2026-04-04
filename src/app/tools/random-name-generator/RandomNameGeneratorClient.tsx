@@ -491,7 +491,7 @@ export default function RandomNameGeneratorClient() {
           <h2 className='text-4xl font-bold text-gray-900 mb-2'>
             Random Name Generator
           </h2>
-          <p className='text-gray-600'>Generate random names for any purpose</p>
+          <p className='text-gray-500'>Generate random names for any purpose</p>
         </div>
 
         <div className='grid lg:grid-cols-3 gap-6'>

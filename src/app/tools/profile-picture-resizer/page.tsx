@@ -1,168 +1,47 @@
-// src/app/tools/color-palette-generator/page.tsx
+// src/app/tools/profile-picture-resizer/page.tsx
 import type { Metadata } from "next";
-import ColorPaletteGeneratorClient from "./ProfilePictureResizerClient";
-import AdSlot from "@/components/AdSlot";
+import ProfilePictureResizerClient from "./ProfilePictureResizerClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
 
-// ─── Slot IDs from env ────────────────────────────────────────────────────────
-const SLOT_BELOW_TOOL =
-  process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
-const SLOT_LEADERBOARD =
-  process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
-
 export const metadata: Metadata = {
-  title: "Color Palette Generator — Free Online Color Palette Generator",
-  description:
-    "Generate harmonious color palettes for your design projects. Free, instant, no signup required.",
-  keywords:
-    "color palette generator, free color palette generator, online color palette generator, color palette generator free, color palette generator online, image tool, free online color palette generator, best color palette generator",
-  authors: [{ name: SITE_NAME, url: SITE_URL }],
-  creator: SITE_NAME,
-  publisher: SITE_NAME,
-  alternates: { canonical: `${SITE_URL}/tools/color-palette-generator` },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  openGraph: {
-    type: "website",
-    url: `${SITE_URL}/tools/color-palette-generator`,
-    siteName: SITE_NAME,
-    locale: "en_US",
-    title: "Color Palette Generator — Free Online Color Palette Generator",
-    description:
-      "Generate harmonious color palettes for your design projects. Free, instant, no signup.",
-    images: [
-      {
-        url: `${SITE_URL}/opengraph-image`,
-        width: 1200,
-        height: 630,
-        alt: "Free Online Color Palette Generator",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
-    title: "Color Palette Generator — Free Online Color Palette Generator",
-    description: "Generate harmonious color palettes for your design projects.",
-  },
+  title: "Profile Picture Resizer — Resize Profile Photos for Every Social Platform Free",
+  description: "Resize and centre-crop profile pictures for Instagram, Facebook, Twitter/X, LinkedIn, YouTube, TikTok, Discord, WhatsApp, Slack, and GitHub. Download as PNG. Runs in your browser — nothing uploaded. Free, no signup.",
+  keywords: "profile picture resizer, profile photo resize, instagram profile picture size, linkedin photo size, twitter profile picture, facebook profile photo, resize profile image, square crop, social media photo tool",
+  authors: [{ name: SITE_NAME, url: SITE_URL }], creator: SITE_NAME, publisher: SITE_NAME,
+  alternates: { canonical: `${SITE_URL}/tools/profile-picture-resizer` },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
+  openGraph: { type: "website", url: `${SITE_URL}/tools/profile-picture-resizer`, siteName: SITE_NAME, locale: "en_US", title: "Profile Picture Resizer — Resize Profile Photos for Every Social Platform Free", description: "Resize profile pictures for Instagram, LinkedIn, Twitter/X, YouTube, TikTok, Discord, and more. Auto-crops to square. Download as PNG. Free, no signup.", images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630, alt: "Free Profile Picture Resizer" }] },
+  twitter: { card: "summary_large_image", site: "@onlinetoolbase", creator: "@onlinetoolbase", title: "Profile Picture Resizer — Resize Profile Photos for Every Social Platform Free", description: "Resize profile photos for 10 platforms. Auto-crops to square. Download PNG. Free." },
 };
 
-const toolJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "Color Palette Generator",
-  description: "Generate harmonious color palettes for your design projects.",
-  url: `${SITE_URL}/tools/color-palette-generator`,
-  applicationCategory: "WebApplication",
-  operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript. Works in all modern browsers.",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-    availability: "https://schema.org/InStock",
-  },
-  provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
-};
+const toolJsonLd = { "@context": "https://schema.org", "@type": "SoftwareApplication", name: "Profile Picture Resizer", description: "Resizes and centre-crops uploaded images to the correct square pixel dimensions for 10 social media platforms: Instagram (110px), Facebook (170px), Twitter/X (400px), LinkedIn (400px), YouTube (800px), TikTok (200px), Discord (128px), WhatsApp (192px), Slack (512px), and GitHub (460px). Processing uses the Canvas API in the browser — no upload occurs. Output is downloadable as a PNG.", url: `${SITE_URL}/tools/profile-picture-resizer`, applicationCategory: "WebApplication", operatingSystem: "Any", offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" }, provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL } };
+const breadcrumbJsonLd = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: SITE_URL }, { "@type": "ListItem", position: 2, name: "Image Tools", item: `${SITE_URL}/tools/category/image` }, { "@type": "ListItem", position: 3, name: "Profile Picture Resizer", item: `${SITE_URL}/tools/profile-picture-resizer` }] };
 
-const breadcrumbJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Image Tools",
-      item: `${SITE_URL}/tools/category/image`,
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Color Palette Generator",
-      item: `${SITE_URL}/tools/color-palette-generator`,
-    },
-  ],
-};
-
-export default function ColorPaletteGeneratorPage() {
+export default function ProfilePictureResizerPage() {
   return (
     <>
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
-      />
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-
-      {/* Breadcrumb */}
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
-          <li>
-            <a href='/' className='hover:text-indigo-600 transition-colors'>
-              Home
-            </a>
-          </li>
-          <li aria-hidden='true' className='text-gray-300'>
-            /
-          </li>
-          <li>
-            <a
-              href='/tools/category/image'
-              className='hover:text-indigo-600 transition-colors'
-            >
-              Image Tools
-            </a>
-          </li>
-          <li aria-hidden='true' className='text-gray-300'>
-            /
-          </li>
-          <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
-              Color Palette Generator
-            </span>
-          </li>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <li><a href="/" className="hover:text-pink-600 transition-colors">Home</a></li>
+          <li aria-hidden="true" className="text-gray-300">/</li>
+          <li><a href="/tools/category/image" className="hover:text-pink-600 transition-colors">Image Tools</a></li>
+          <li aria-hidden="true" className="text-gray-300">/</li>
+          <li><span aria-current="page" className="text-gray-900 font-medium">Profile Picture Resizer</span></li>
         </ol>
       </nav>
-
-      {/* Category badge + SR H1 */}
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1'>
-          Free Image Tool · No Signup · Works Instantly
-        </p>
-        <h1 className='sr-only'>
-          Color Palette Generator — Free Online Color Palette Generator
-        </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
-          Generate harmonious color palettes for your design projects. Free,
-          instant, no account needed.
-        </p>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-pink-600 uppercase tracking-widest mb-1">Free Image Tool · No Signup · Works Instantly</p>
+        <h1 className="sr-only">Profile Picture Resizer — Resize Profile Photos for Every Social Platform Free</h1>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">Resize and centre-crop profile photos for Instagram, LinkedIn, Twitter/X, YouTube, TikTok, Discord, and more — all in your browser.</p>
       </header>
-
-      {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
       <SidebarAdLayout>
-        {/* ── Tool component (main interactive area) ──────────────────── */}
-        <main id='main-content' aria-label='Color Palette Generator tool'>
-          <ColorPaletteGeneratorClient />
-        </main>
-
-        {/* ── Zone G: below tool result — highest value placement ──────── */}
-        {/* Sits immediately after the tool, before any editorial content   */}
-
+        <main id="main-content" aria-label="Profile Picture Resizer tool"><ProfilePictureResizerClient /></main>
         <PageEditorial />
       </SidebarAdLayout>
     </>

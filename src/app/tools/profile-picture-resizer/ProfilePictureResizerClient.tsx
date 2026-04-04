@@ -99,13 +99,13 @@ export default function ProfilePictureResizerClient() {
       <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <ImageIcon className='w-8 h-8 text-indigo-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl mb-4 shadow-lg'>
+              <ImageIcon className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Profile Picture Resizer
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Resize and crop profile pictures for every social platform —
               processed entirely in your browser
             </p>
@@ -199,7 +199,7 @@ export default function ProfilePictureResizerClient() {
             {/* Result */}
             {preview && (
               <div className='bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200'>
-                <h3 className='text-xl font-bold text-gray-800 mb-4'>
+                <h3 className='text-xl font-bold text-gray-900 mb-4'>
                   Result — {selected.name} ({selected.size}×{selected.size}px)
                 </h3>
                 <div className='grid md:grid-cols-2 gap-6 items-start'>
@@ -218,7 +218,7 @@ export default function ProfilePictureResizerClient() {
                       ].map(({ label, value }) => (
                         <div key={label} className='bg-white rounded-lg p-3'>
                           <div className='text-xs text-gray-500'>{label}</div>
-                          <div className='font-semibold text-gray-800 text-sm'>
+                          <div className='font-semibold text-gray-900 text-sm'>
                             {value}
                           </div>
                         </div>
@@ -238,7 +238,7 @@ export default function ProfilePictureResizerClient() {
 
             {/* Platform reference */}
             <div>
-              <h3 className='text-lg font-semibold text-gray-800 mb-3'>
+              <h3 className='text-lg font-semibold text-gray-900 mb-3'>
                 Platform Size Reference
               </h3>
               <div className='bg-white border border-gray-200 rounded-lg overflow-hidden'>
@@ -267,7 +267,7 @@ export default function ProfilePictureResizerClient() {
                           setPreview(null);
                         }}
                       >
-                        <td className='px-4 py-3 text-sm font-medium text-gray-800'>
+                        <td className='px-4 py-3 text-sm font-medium text-gray-900'>
                           {p.name}
                         </td>
                         <td className='px-4 py-3 text-sm text-gray-600'>
