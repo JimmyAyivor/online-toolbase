@@ -10,7 +10,7 @@ export const toolClientComponents: Record<string, ComponentType<any>> = {
     import("@/app/tools/age-calculator/AgeCalculatorClient"),
   ),
   "aspect-ratio-calculator": dynamic(() =>
-    import("@/app/tools/aspect-ratio-calculator/ColorPaletteGeneratorClient"),
+    import("@/app/tools/aspect-ratio-calculator/AspectRatioCalculatorClient"),
   ),
   "base64-encoder-decoder": dynamic(() =>
     import("@/app/tools/base64-encoder-decoder/Base64EncoderDecoderClient"),
@@ -128,7 +128,7 @@ export const toolClientComponents: Record<string, ComponentType<any>> = {
     import("@/app/tools/meta-tag-generator/MetaTagGeneratorClient"),
   ),
   "mortgage-calculator": dynamic(() =>
-    import("@/app/tools/mortgage-calculator/ColorPaletteGeneratorClient"),
+    import("@/app/tools/mortgage-calculator/MortgageCalculatorClient"),
   ),
   "paraphrasing-tool": dynamic(() =>
     import("@/app/tools/paraphrasing-tool/ParaphrasingToolClient"),

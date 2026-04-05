@@ -121,13 +121,13 @@ export default function ContentCalendarPlannerClient() {
       <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <Calendar className='w-8 h-8 text-indigo-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-600 to-blue-600 rounded-2xl mb-4 shadow-lg'>
+              <Calendar className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Content Calendar Planner
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Plan and organise your social media content — export to CSV when
               ready
             </p>
@@ -258,7 +258,7 @@ export default function ContentCalendarPlannerClient() {
             {entries.length > 0 && (
               <div className='bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200'>
                 <div className='flex items-center justify-between mb-4'>
-                  <h3 className='text-xl font-bold text-gray-800'>
+                  <h3 className='text-xl font-bold text-gray-900'>
                     Weekly Summary
                   </h3>
                   <button
@@ -299,7 +299,7 @@ export default function ContentCalendarPlannerClient() {
             {/* Calendar grid */}
             {entries.length > 0 && (
               <div>
-                <h3 className='text-lg font-semibold text-gray-800 mb-3'>
+                <h3 className='text-lg font-semibold text-gray-900 mb-3'>
                   Weekly Calendar
                 </h3>
                 <div className='grid md:grid-cols-7 gap-3'>
@@ -341,7 +341,7 @@ export default function ContentCalendarPlannerClient() {
             {/* Entry list */}
             {entries.length > 0 && (
               <div>
-                <h3 className='text-lg font-semibold text-gray-800 mb-3'>
+                <h3 className='text-lg font-semibold text-gray-900 mb-3'>
                   All Entries
                 </h3>
                 <div className='bg-white border border-gray-200 rounded-lg overflow-hidden'>
@@ -369,16 +369,16 @@ export default function ContentCalendarPlannerClient() {
                       <tbody className='divide-y divide-gray-200'>
                         {entries.map((entry) => (
                           <tr key={entry.id} className='hover:bg-gray-50'>
-                            <td className='px-4 py-3 text-sm text-gray-800'>
+                            <td className='px-4 py-3 text-sm text-gray-900'>
                               {entry.day}
                             </td>
-                            <td className='px-4 py-3 text-sm text-gray-800'>
+                            <td className='px-4 py-3 text-sm text-gray-900'>
                               {entry.platform}
                             </td>
                             <td className='px-4 py-3 text-sm text-gray-600'>
                               {entry.type}
                             </td>
-                            <td className='px-4 py-3 text-sm font-medium text-gray-800'>
+                            <td className='px-4 py-3 text-sm font-medium text-gray-900'>
                               {entry.topic}
                             </td>
                             <td className='px-4 py-3 text-sm text-gray-500'>

@@ -1,168 +1,47 @@
-// src/app/tools/color-palette-generator/page.tsx
+// src/app/tools/aspect-ratio-calculator/page.tsx
 import type { Metadata } from "next";
-import ColorPaletteGeneratorClient from "./ColorPaletteGeneratorClient";
-import AdSlot from "@/components/AdSlot";
+import AspectRatioCalculatorClient from "./AspectRatioCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
 
-// ─── Slot IDs from env ────────────────────────────────────────────────────────
-const SLOT_BELOW_TOOL =
-  process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
-const SLOT_LEADERBOARD =
-  process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
-
 export const metadata: Metadata = {
-  title: "Color Palette Generator — Free Online Color Palette Generator",
-  description:
-    "Generate harmonious color palettes for your design projects. Free, instant, no signup required.",
-  keywords:
-    "color palette generator, free color palette generator, online color palette generator, color palette generator free, color palette generator online, image tool, free online color palette generator, best color palette generator",
-  authors: [{ name: SITE_NAME, url: SITE_URL }],
-  creator: SITE_NAME,
-  publisher: SITE_NAME,
-  alternates: { canonical: `${SITE_URL}/tools/color-palette-generator` },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  openGraph: {
-    type: "website",
-    url: `${SITE_URL}/tools/color-palette-generator`,
-    siteName: SITE_NAME,
-    locale: "en_US",
-    title: "Color Palette Generator — Free Online Color Palette Generator",
-    description:
-      "Generate harmonious color palettes for your design projects. Free, instant, no signup.",
-    images: [
-      {
-        url: `${SITE_URL}/opengraph-image`,
-        width: 1200,
-        height: 630,
-        alt: "Free Online Color Palette Generator",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
-    title: "Color Palette Generator — Free Online Color Palette Generator",
-    description: "Generate harmonious color palettes for your design projects.",
-  },
+  title: "Aspect Ratio Calculator — Free Online Aspect Ratio & Dimension Calculator",
+  description: "Calculate aspect ratios from dimensions, find missing width or height from a ratio, and scale images proportionally. Includes 8 common ratio presets and a resolution reference table. Free, no signup.",
+  keywords: "aspect ratio calculator, image aspect ratio, video aspect ratio, 16:9 calculator, 4:3 ratio, dimension calculator, scale image proportionally, resolution calculator, widescreen ratio",
+  authors: [{ name: SITE_NAME, url: SITE_URL }], creator: SITE_NAME, publisher: SITE_NAME,
+  alternates: { canonical: `${SITE_URL}/tools/aspect-ratio-calculator` },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
+  openGraph: { type: "website", url: `${SITE_URL}/tools/aspect-ratio-calculator`, siteName: SITE_NAME, locale: "en_US", title: "Aspect Ratio Calculator — Free Online Aspect Ratio & Dimension Calculator", description: "Find ratio from dimensions, calculate missing width/height, and scale proportionally. Common ratio presets and resolution reference. Free, no signup.", images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630, alt: "Free Aspect Ratio Calculator" }] },
+  twitter: { card: "summary_large_image", site: "@onlinetoolbase", creator: "@onlinetoolbase", title: "Aspect Ratio Calculator — Free Online Dimension Calculator", description: "Find ratio, missing dimensions, and scale images. Common ratio presets. Free." },
 };
 
-const toolJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "Color Palette Generator",
-  description: "Generate harmonious color palettes for your design projects.",
-  url: `${SITE_URL}/tools/color-palette-generator`,
-  applicationCategory: "WebApplication",
-  operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript. Works in all modern browsers.",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-    availability: "https://schema.org/InStock",
-  },
-  provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
-};
+const toolJsonLd = { "@context": "https://schema.org", "@type": "SoftwareApplication", name: "Aspect Ratio Calculator", description: "Four-mode aspect ratio calculator: Find Ratio (calculates simplified ratio and decimal from width and height), Find Height (calculates height from width and ratio), Find Width (calculates width from height and ratio), and Scale (scales dimensions by percentage). Includes 8 common ratio presets (16:9, 4:3, 1:1, 9:16, 21:9, 3:2, 5:4, 16:10), visual dimension preview, megapixel calculation, and a 9-entry resolution reference table. Runs in the browser.", url: `${SITE_URL}/tools/aspect-ratio-calculator`, applicationCategory: "WebApplication", operatingSystem: "Any", offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" }, provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL } };
+const breadcrumbJsonLd = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: SITE_URL }, { "@type": "ListItem", position: 2, name: "Calculator Tools", item: `${SITE_URL}/tools/category/calculator` }, { "@type": "ListItem", position: 3, name: "Aspect Ratio Calculator", item: `${SITE_URL}/tools/aspect-ratio-calculator` }] };
 
-const breadcrumbJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Image Tools",
-      item: `${SITE_URL}/tools/category/image`,
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Color Palette Generator",
-      item: `${SITE_URL}/tools/color-palette-generator`,
-    },
-  ],
-};
-
-export default function ColorPaletteGeneratorPage() {
+export default function AspectRatioCalculatorPage() {
   return (
     <>
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
-      />
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-
-      {/* Breadcrumb */}
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
-          <li>
-            <a href='/' className='hover:text-indigo-600 transition-colors'>
-              Home
-            </a>
-          </li>
-          <li aria-hidden='true' className='text-gray-300'>
-            /
-          </li>
-          <li>
-            <a
-              href='/tools/category/image'
-              className='hover:text-indigo-600 transition-colors'
-            >
-              Image Tools
-            </a>
-          </li>
-          <li aria-hidden='true' className='text-gray-300'>
-            /
-          </li>
-          <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
-              Color Palette Generator
-            </span>
-          </li>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <li><a href="/" className="hover:text-blue-600 transition-colors">Home</a></li>
+          <li aria-hidden="true" className="text-gray-300">/</li>
+          <li><a href="/tools/category/calculator" className="hover:text-blue-600 transition-colors">Calculator Tools</a></li>
+          <li aria-hidden="true" className="text-gray-300">/</li>
+          <li><span aria-current="page" className="text-gray-900 font-medium">Aspect Ratio Calculator</span></li>
         </ol>
       </nav>
-
-      {/* Category badge + SR H1 */}
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1'>
-          Free Image Tool · No Signup · Works Instantly
-        </p>
-        <h1 className='sr-only'>
-          Color Palette Generator — Free Online Color Palette Generator
-        </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
-          Generate harmonious color palettes for your design projects. Free,
-          instant, no account needed.
-        </p>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-1">Free Calculator Tool · No Signup · Works Instantly</p>
+        <h1 className="sr-only">Aspect Ratio Calculator — Free Online Aspect Ratio &amp; Dimension Calculator</h1>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">Find the aspect ratio from any dimensions, calculate a missing width or height, or scale images proportionally — with common ratio presets and a resolution reference.</p>
       </header>
-
-      {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
       <SidebarAdLayout>
-        {/* ── Tool component (main interactive area) ──────────────────── */}
-        <main id='main-content' aria-label='Color Palette Generator tool'>
-          <ColorPaletteGeneratorClient />
-        </main>
-
-        {/* ── Zone G: below tool result — highest value placement ──────── */}
-        {/* Sits immediately after the tool, before any editorial content   */}
-
+        <main id="main-content" aria-label="Aspect Ratio Calculator tool"><AspectRatioCalculatorClient /></main>
         <PageEditorial />
       </SidebarAdLayout>
     </>

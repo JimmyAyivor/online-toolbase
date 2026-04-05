@@ -307,6 +307,12 @@ export type Tool = {
       category: "Calculator",
     },
     {
+      slug: "mortgage-calculator",
+      name: "Mortgage Calculator",
+      description: "Calculate monthly payments, total interest, and full amortisation schedule.",
+      category: "Calculator",
+    },
+    {
       slug: "roi-calculator",
       name: "ROI Calculator",
       description: "Calculate return on investment for any project or campaign.",

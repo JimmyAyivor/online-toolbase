@@ -149,16 +149,16 @@ export default function ImageFormatConverterClient() {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4'>
-      <div className='max-w-5xl mx-auto'>
+      <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4'>
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl mb-4 shadow-lg'>
               <ImageIcon className='w-8 h-8 text-blue-600' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Image Format Converter
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Convert between JPG, PNG, and WebP formats
             </p>
           </div>
@@ -192,7 +192,7 @@ export default function ImageFormatConverterClient() {
               <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
                 <div className='flex items-center justify-between mb-4'>
                   <div>
-                    <div className='font-semibold text-gray-800'>
+                    <div className='font-semibold text-gray-900'>
                       {imageName}
                     </div>
                     <div className='text-sm text-gray-600'>
@@ -236,7 +236,7 @@ export default function ImageFormatConverterClient() {
                             className='mt-1'
                           />
                           <div className='flex-1'>
-                            <div className='font-semibold text-gray-800'>
+                            <div className='font-semibold text-gray-900'>
                               {fmt.label}
                             </div>
                             <div className='text-xs text-gray-600'>
@@ -272,19 +272,19 @@ export default function ImageFormatConverterClient() {
                     />
 
                     <div className='bg-white rounded-lg p-4 border border-gray-200'>
-                      <h4 className='font-semibold text-gray-800 mb-2 text-sm'>
+                      <h4 className='font-semibold text-gray-900 mb-2 text-sm'>
                         Conversion Info
                       </h4>
                       <div className='space-y-2 text-sm'>
                         <div className='flex justify-between'>
                           <span className='text-gray-600'>Original Size:</span>
-                          <span className='font-semibold text-gray-800'>
+                          <span className='font-semibold text-gray-900'>
                             {formatBytes(originalSize)}
                           </span>
                         </div>
                         <div className='flex justify-between'>
                           <span className='text-gray-600'>New Size:</span>
-                          <span className='font-semibold text-gray-800'>
+                          <span className='font-semibold text-gray-900'>
                             {formatBytes(convertedSize)}
                           </span>
                         </div>
@@ -308,7 +308,7 @@ export default function ImageFormatConverterClient() {
               {/* Preview */}
               <div className='grid md:grid-cols-2 gap-6'>
                 <div>
-                  <h3 className='font-semibold text-gray-800 mb-3'>
+                  <h3 className='font-semibold text-gray-900 mb-3'>
                     Original Image
                   </h3>
                   <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
@@ -324,7 +324,7 @@ export default function ImageFormatConverterClient() {
                 </div>
 
                 <div>
-                  <h3 className='font-semibold text-gray-800 mb-3'>
+                  <h3 className='font-semibold text-gray-900 mb-3'>
                     Converted Image
                   </h3>
                   <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>

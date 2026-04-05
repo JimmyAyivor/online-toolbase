@@ -146,13 +146,13 @@ export default function DiceRollerClient() {
       <div className='max-w-6xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-xl p-8'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4'>
-              <Dices className='w-8 h-8 text-purple-600' />
+            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl mb-4 shadow-lg'>
+              <Dices className='w-8 h-8 text-white' />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
               Dice Roller
             </h2>
-            <p className='text-gray-600'>
+            <p className='text-gray-500'>
               Roll virtual dice for games and decisions
             </p>
           </div>
@@ -162,7 +162,7 @@ export default function DiceRollerClient() {
             <div className='md:col-span-2 space-y-6'>
               {/* Select dice */}
               <div>
-                <h3 className='font-semibold text-gray-800 mb-3'>
+                <h3 className='font-semibold text-gray-900 mb-3'>
                   Select Dice
                 </h3>
                 <div className='grid grid-cols-4 gap-2'>
@@ -173,7 +173,7 @@ export default function DiceRollerClient() {
                       className='p-4 bg-purple-100 hover:bg-purple-200 border-2 border-purple-300 rounded-lg transition-colors text-center'
                     >
                       <div className='text-3xl mb-1'>{getDiceIcon(sides)}</div>
-                      <div className='text-sm font-semibold text-gray-800'>
+                      <div className='text-sm font-semibold text-gray-900'>
                         d{sides}
                       </div>
                     </button>
@@ -184,7 +184,7 @@ export default function DiceRollerClient() {
               {/* Your dice */}
               <div>
                 <div className='flex items-center justify-between mb-3'>
-                  <h3 className='font-semibold text-gray-800'>Your Dice</h3>
+                  <h3 className='font-semibold text-gray-900'>Your Dice</h3>
                   <button
                     onClick={clearAll}
                     className='text-sm text-red-600 hover:text-red-700 flex items-center gap-1'
@@ -207,7 +207,7 @@ export default function DiceRollerClient() {
                       >
                         <div className='text-2xl'>{getDiceIcon(die.sides)}</div>
                         <div className='flex-1'>
-                          <div className='font-semibold text-gray-800'>
+                          <div className='font-semibold text-gray-900'>
                             d{die.sides}
                           </div>
                           <div className='text-xs text-gray-500'>
@@ -306,7 +306,7 @@ export default function DiceRollerClient() {
               {/* Results */}
               {results && (
                 <div className='bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl p-6 border border-purple-200'>
-                  <h3 className='font-bold text-gray-800 mb-4 text-lg'>
+                  <h3 className='font-bold text-gray-900 mb-4 text-lg'>
                     Results
                   </h3>
 
@@ -318,7 +318,7 @@ export default function DiceRollerClient() {
                             <span className='text-2xl'>
                               {getDiceIcon(result.sides)}
                             </span>
-                            <span className='font-semibold text-gray-800'>
+                            <span className='font-semibold text-gray-900'>
                               {result.count}d{result.sides}
                             </span>
                           </div>
@@ -350,13 +350,13 @@ export default function DiceRollerClient() {
                     <div className='bg-white rounded-lg p-4 mb-4'>
                       <div className='flex justify-between items-center'>
                         <span className='text-gray-600'>Dice Total:</span>
-                        <span className='text-xl font-bold text-gray-800'>
+                        <span className='text-xl font-bold text-gray-900'>
                           {results.subtotal}
                         </span>
                       </div>
                       <div className='flex justify-between items-center'>
                         <span className='text-gray-600'>Modifier:</span>
-                        <span className='text-xl font-bold text-gray-800'>
+                        <span className='text-xl font-bold text-gray-900'>
                           {modifier > 0 ? "+" : ""}
                           {modifier}
                         </span>
@@ -381,7 +381,7 @@ export default function DiceRollerClient() {
 
             {/* ── History column ── */}
             <div>
-              <h3 className='font-semibold text-gray-800 mb-3'>Roll History</h3>
+              <h3 className='font-semibold text-gray-900 mb-3'>Roll History</h3>
               <div className='space-y-2'>
                 {history.length === 0 ? (
                   <div className='text-center py-8 text-gray-400 text-sm'>
