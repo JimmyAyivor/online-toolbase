@@ -4,7 +4,6 @@ import type { ReactNode } from "react";
 import Script from "next/script";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-
 import "./globals.css";
 
 const SITE_URL =

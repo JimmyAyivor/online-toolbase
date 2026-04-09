@@ -18,7 +18,7 @@
 //   If the env var is not set the form will show a "not configured" message in
 //   development so you can build the UI before wiring up the backend.
 
-import { useState, useRef, type FormEvent } from "react";
+import { useState, useRef, type FormEventHandler } from "react";
 
 const ENDPOINT = process.env.NEXT_PUBLIC_SUBSCRIBE_ENDPOINT ?? "";
 
@@ -41,7 +41,7 @@ export default function SubscribeForm({
   const [errorMsg, setErrorMsg] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     if (!email.trim()) return;
 
@@ -58,7 +58,9 @@ export default function SubscribeForm({
     setErrorMsg("");
 
     try {
-      const body = new URLSearchParams({ email: email.trim() });
+      const body = new URLSearchParams({
+        EMAIL: email.trim(),
+      });
       const res = await fetch(ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -75,7 +77,7 @@ export default function SubscribeForm({
       setStatus("error");
       setErrorMsg("Something went wrong. Please try again.");
     }
-  }
+  };
 
   // ─── Inline variant ────────────────────────────────────────────────────────
   if (variant === "inline") {

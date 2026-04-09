@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { tools } from "@/lib/tools";
-
+import SubscribeForm from "./SubscribeForm";
 const FEATURED_SLUGS = [
   "bmi-calculator",
   "password-generator",
@@ -113,6 +113,7 @@ export default function SiteFooter() {
             </ul>
           </nav>
         </div>
+        <SubscribeForm />
 
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
           <p>

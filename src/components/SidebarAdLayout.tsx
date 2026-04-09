@@ -2,7 +2,7 @@
 import AdSlot from "./AdSlot";
 import AffiliateSection from "./AffiliateSection";
 import SidebarRecentPosts from "./SidebarRecentPosts";
-
+import SubscribeForm from "./SubscribeForm";
 const SIDEBAR_SLOT_ID = process.env.NEXT_PUBLIC_AD_SLOT_SIDEBAR ?? "0000000000";
 
 interface SidebarAdLayoutProps {
@@ -47,6 +47,7 @@ export default function SidebarAdLayout({
           <div className="sticky top-20 space-y-4">
             <AdSlot variant="halfpage" slotId={SIDEBAR_SLOT_ID} />
             <SidebarRecentPosts />
+            <SubscribeForm variant="inline" />
           </div>
         </aside>
       </div>
