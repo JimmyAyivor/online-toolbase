@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import MarkdownToHtmlConverterClient from "./MarkdownToHtmlConverterClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -149,6 +150,7 @@ export default function MarkdownToHtmlConverterPage() {
           <MarkdownToHtmlConverterClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="markdown-to-html-converter" toolName="Markdown to HTML Converter" />
       </SidebarAdLayout>
     </>
   );

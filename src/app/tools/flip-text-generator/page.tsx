@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import FlipTextGeneratorClient from "./FlipTextGeneratorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -143,6 +144,7 @@ export default function FlipTextGeneratorPage() {
           <FlipTextGeneratorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="flip-text-generator" toolName="Flip Text Generator" />
       </SidebarAdLayout>
     </>
   );

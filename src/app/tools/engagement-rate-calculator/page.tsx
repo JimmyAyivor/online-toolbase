@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import EngagementRateCalculatorClient from "./EngagementRateCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -152,6 +153,7 @@ export default function EngagementRateCalculatorPage() {
           <EngagementRateCalculatorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="engagement-rate-calculator" toolName="Engagement Rate Calculator" />
       </SidebarAdLayout>
     </>
   );

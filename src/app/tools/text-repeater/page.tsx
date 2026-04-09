@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import TextRepeaterClient from "./TextRepeaterClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -149,6 +150,7 @@ export default function TextRepeaterPage() {
           <TextRepeaterClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="text-repeater" toolName="Text Repeater" />
       </SidebarAdLayout>
     </>
   );

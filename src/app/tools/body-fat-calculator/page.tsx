@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import BodyFatCalculatorClient from "./BodyFatCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -43,6 +44,7 @@ export default function BodyFatCalculatorPage() {
       <SidebarAdLayout>
         <main id="main-content" aria-label="Body Fat Calculator tool"><BodyFatCalculatorClient /></main>
         <PageEditorial />
+              <ToolEngagement toolSlug="body-fat-calculator" toolName="Body Fat Calculator" />
       </SidebarAdLayout>
     </>
   );

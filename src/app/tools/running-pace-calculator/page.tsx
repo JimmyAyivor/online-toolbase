@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import RunningPaceCalculatorClient from "./RunningPaceCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -147,6 +148,7 @@ export default function RunningPaceCalculatorPage() {
           <RunningPaceCalculatorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="running-pace-calculator" toolName="Running Pace Calculator" />
       </SidebarAdLayout>
     </>
   );

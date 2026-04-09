@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import NetWorthCalculatorClient from "./NetWorthCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -143,6 +144,7 @@ export default function NetWorthCalculatorPage() {
           <NetWorthCalculatorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="net-worth-calculator" toolName="Net Worth Calculator" />
       </SidebarAdLayout>
     </>
   );

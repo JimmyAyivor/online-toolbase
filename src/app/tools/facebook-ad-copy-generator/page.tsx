@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import FacebookAdCopyGeneratorClient from "./FacebookAdCopyGeneratorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -152,6 +153,7 @@ export default function FacebookAdCopyGeneratorPage() {
           <FacebookAdCopyGeneratorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="facebook-ad-copy-generator" toolName="Facebook Ad Copy Generator" />
       </SidebarAdLayout>
     </>
   );

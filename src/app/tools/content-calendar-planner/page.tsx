@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import ContentCalendarPlannerClient from "./ContentCalendarPlannerClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -43,6 +44,7 @@ export default function ContentCalendarPlannerPage() {
       <SidebarAdLayout>
         <main id="main-content" aria-label="Content Calendar Planner tool"><ContentCalendarPlannerClient /></main>
         <PageEditorial />
+              <ToolEngagement toolSlug="content-calendar-planner" toolName="Content Calendar Planner" />
       </SidebarAdLayout>
     </>
   );

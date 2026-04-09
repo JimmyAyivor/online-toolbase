@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import YouTubeTitleDescriptionGeneratorClient from "./YouTubeTitleDescriptionGeneratorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -43,6 +44,7 @@ export default function YouTubeTitleDescriptionGeneratorPage() {
       <SidebarAdLayout>
         <main id="main-content" aria-label="YouTube Title and Description Generator tool"><YouTubeTitleDescriptionGeneratorClient /></main>
         <PageEditorial />
+              <ToolEngagement toolSlug="youtube-title-description-generator" toolName="YouTube Title & Description Generator" />
       </SidebarAdLayout>
     </>
   );

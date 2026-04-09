@@ -4,6 +4,7 @@ import CompoundInterestCalculatorClient from "./CompoundInterestCalculatorClient
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -171,6 +172,7 @@ export default function CompoundInterestCalculatorPage() {
         {/* Sits immediately after the tool, before any editorial content   */}
 
         <PageEditorial />
+              <ToolEngagement toolSlug="compound-interest-calculator" toolName="Compound Interest Calculator" />
       </SidebarAdLayout>
     </>
   );

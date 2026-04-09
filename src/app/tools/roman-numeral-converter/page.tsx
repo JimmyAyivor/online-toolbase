@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import RomanNumeralConverterClient from "./RomanNumeralConverterClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -143,6 +144,7 @@ export default function RomanNumeralConverterPage() {
           <RomanNumeralConverterClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="roman-numeral-converter" toolName="Roman Numeral Converter" />
       </SidebarAdLayout>
     </>
   );

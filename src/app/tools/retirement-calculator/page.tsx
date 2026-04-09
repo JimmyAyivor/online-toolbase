@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import RetirementCalculatorClient from "./RetirementCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -143,6 +144,7 @@ export default function RetirementCalculatorPage() {
           <RetirementCalculatorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="retirement-calculator" toolName="Retirement Calculator" />
       </SidebarAdLayout>
     </>
   );

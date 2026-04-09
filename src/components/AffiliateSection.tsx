@@ -6,13 +6,7 @@ export default function AffiliateSection({ tool }: { tool: Tool }) {
 
   return (
     <div className='mt-12'>
-      <h2 className='text-xl font-bold mb-4'>
-        🚀 Recommended Tools to Go Further
-        <p className='text-sm text-gray-600 mb-4'>
-          People using this tool often pair it with these to save time and
-          improve results:
-        </p>
-      </h2>
+     
 
       <div className='grid md:grid-cols-3 gap-4'>
         {offers.map((offer) => (

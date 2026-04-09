@@ -4,6 +4,7 @@ import ColorPaletteGeneratorClient from "./ColorPaletteGeneratorClient";
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
 
@@ -164,6 +165,7 @@ export default function ColorPaletteGeneratorPage() {
         {/* Sits immediately after the tool, before any editorial content   */}
 
         <PageEditorial />
+              <ToolEngagement toolSlug="color-palette-generator" toolName="Color Palette Generator" />
       </SidebarAdLayout>
     </>
   );

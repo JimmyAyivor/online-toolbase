@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import WaterIntakeCalculatorClient from "./WaterIntakeCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -149,6 +150,7 @@ export default function WaterIntakeCalculatorPage() {
           <WaterIntakeCalculatorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="water-intake-calculator" toolName="Water Intake Calculator" />
       </SidebarAdLayout>
     </>
   );

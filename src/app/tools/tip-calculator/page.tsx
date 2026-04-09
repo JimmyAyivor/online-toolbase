@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import TipCalculatorClient from "./TipCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -150,6 +151,7 @@ export default function TipCalculatorPage() {
           <TipCalculatorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="tip-calculator" toolName="Tip Calculator" />
       </SidebarAdLayout>
     </>
   );

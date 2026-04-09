@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import SavingsGoalCalculatorClient from "./SavingsGoalCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -143,6 +144,7 @@ export default function SavingsGoalCalculatorPage() {
           <SavingsGoalCalculatorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="savings-goal-calculator" toolName="Savings Goal Calculator" />
       </SidebarAdLayout>
     </>
   );

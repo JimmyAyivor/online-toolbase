@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import BackgroundRemoverClient from "./BackgroundRemoverClient";
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -544,6 +545,7 @@ export default function BackgroundRemoverPage() {
             </p>
           </div>
         </section>
+              <ToolEngagement toolSlug="background-remover" toolName="Background Remover" />
       </SidebarAdLayout>
     </>
   );

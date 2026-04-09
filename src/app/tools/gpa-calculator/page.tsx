@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import GpaCalculatorClient from "./GpaCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -43,6 +44,7 @@ export default function GpaCalculatorPage() {
       <SidebarAdLayout>
         <main id="main-content" aria-label="GPA Calculator tool"><GpaCalculatorClient /></main>
         <PageEditorial />
+              <ToolEngagement toolSlug="gpa-calculator" toolName="GPA Calculator" />
       </SidebarAdLayout>
     </>
   );

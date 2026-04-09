@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import HtmlEntityEncoderClient from "./HtmlEntityEncoderClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -147,6 +148,7 @@ export default function HtmlEntityEncoderPage() {
           <HtmlEntityEncoderClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="html-entity-encoder" toolName="HTML Entity Encoder" />
       </SidebarAdLayout>
     </>
   );

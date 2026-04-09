@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import ReadabilityScoreCalculatorClient from "./ReadabilityScoreCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -156,6 +157,7 @@ export default function ReadabilityScoreCalculatorPage() {
           <ReadabilityScoreCalculatorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="readability-score-calculator" toolName="Readability Score Calculator" />
       </SidebarAdLayout>
     </>
   );

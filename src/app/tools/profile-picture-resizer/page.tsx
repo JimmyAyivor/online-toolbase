@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import ProfilePictureResizerClient from "./ProfilePictureResizerClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -43,6 +44,7 @@ export default function ProfilePictureResizerPage() {
       <SidebarAdLayout>
         <main id="main-content" aria-label="Profile Picture Resizer tool"><ProfilePictureResizerClient /></main>
         <PageEditorial />
+              <ToolEngagement toolSlug="profile-picture-resizer" toolName="Profile Picture Resizer" />
       </SidebarAdLayout>
     </>
   );

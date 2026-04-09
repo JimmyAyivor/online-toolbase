@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import IpAddressLookupClient from "./IpAddressLookupClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -151,6 +152,7 @@ export default function IpAddressLookupPage() {
           <IpAddressLookupClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="ip-address-lookup" toolName="IP Address Lookup" />
       </SidebarAdLayout>
     </>
   );

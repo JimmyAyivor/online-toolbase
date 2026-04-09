@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import ProteinIntakeCalculatorClient from "./ProteinIntakeCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -151,6 +152,7 @@ export default function ProteinIntakeCalculatorPage() {
           <ProteinIntakeCalculatorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="protein-intake-calculator" toolName="Protein Intake Calculator" />
       </SidebarAdLayout>
     </>
   );

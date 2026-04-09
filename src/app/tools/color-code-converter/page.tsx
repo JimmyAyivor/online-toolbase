@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import ColorCodeConverterClient from "./ColorCodeConverterClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -148,6 +149,7 @@ export default function ColorCodeConverterPage() {
           <ColorCodeConverterClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="color-code-converter" toolName="Color Code Converter" />
       </SidebarAdLayout>
     </>
   );

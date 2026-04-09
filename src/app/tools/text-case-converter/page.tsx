@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import TextCaseConverterClient from "./TextCaseConverterClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./Pageeditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -147,6 +148,7 @@ export default function TextCaseConverterPage() {
           <TextCaseConverterClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="text-case-converter" toolName="Text Case Converter" />
       </SidebarAdLayout>
     </>
   );

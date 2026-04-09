@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import OvulationCalculatorClient from "./OvulationCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -143,6 +144,7 @@ export default function OvulationCalculatorPage() {
           <OvulationCalculatorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="ovulation-calculator" toolName="Ovulation Calculator" />
       </SidebarAdLayout>
     </>
   );

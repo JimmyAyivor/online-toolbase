@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import VatCalculatorClient from "./VatCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -43,6 +44,7 @@ export default function VatCalculatorPage() {
       <SidebarAdLayout>
         <main id="main-content" aria-label="VAT Calculator tool"><VatCalculatorClient /></main>
         <PageEditorial />
+              <ToolEngagement toolSlug="vat-calculator" toolName="VAT Calculator" />
       </SidebarAdLayout>
     </>
   );

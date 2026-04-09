@@ -3,9 +3,12 @@ import type { Metadata } from "next";
 import SalesTaxCalculatorClient from "./SalesTaxCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
-
+import ToolEngagement from "@/components/ToolEngagement";
+import { tools } from "@/lib/tools";
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
+
+const tool = tools.find((t) => t.slug === "sales-tax-calculator");
 
 export const metadata: Metadata = {
   title:
@@ -146,11 +149,12 @@ export default function SalesTaxCalculatorPage() {
           single item or multi-item cart with full itemised breakdown.
         </p>
       </header>
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         <main id='main-content' aria-label='Sales Tax Calculator tool'>
           <SalesTaxCalculatorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="sales-tax-calculator" toolName="Sales Tax Calculator" />
       </SidebarAdLayout>
     </>
   );

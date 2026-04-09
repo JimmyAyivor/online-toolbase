@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import RandomNumberGeneratorClient from "./RandomNumberGeneratorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -43,6 +44,7 @@ export default function RandomNumberGeneratorPage() {
       <SidebarAdLayout>
         <main id="main-content" aria-label="Random Number Generator tool"><RandomNumberGeneratorClient /></main>
         <PageEditorial />
+              <ToolEngagement toolSlug="random-number-generator" toolName="Random Number Generator" />
       </SidebarAdLayout>
     </>
   );

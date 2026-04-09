@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import LoanMortgageCalculatorClient from "./LoanMortgageCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -152,6 +153,7 @@ export default function LoanMortgageCalculatorPage() {
           <LoanMortgageCalculatorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="loan-mortgage-calculator" toolName="Loan & Mortgage Calculator" />
       </SidebarAdLayout>
     </>
   );

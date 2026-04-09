@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import ViralHookGeneratorClient from "./ViralHookGeneratorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -43,6 +44,7 @@ export default function ViralHookGeneratorPage() {
       <SidebarAdLayout>
         <main id="main-content" aria-label="Viral Hook Generator tool"><ViralHookGeneratorClient /></main>
         <PageEditorial />
+              <ToolEngagement toolSlug="viral-hook-generator" toolName="Viral Hook Generator" />
       </SidebarAdLayout>
     </>
   );

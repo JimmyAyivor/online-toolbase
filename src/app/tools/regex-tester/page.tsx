@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import RegexTesterClient from "./RegexTesterClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -151,6 +152,7 @@ export default function RegexTesterPage() {
           <RegexTesterClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="regex-tester" toolName="Regex Tester" />
       </SidebarAdLayout>
     </>
   );

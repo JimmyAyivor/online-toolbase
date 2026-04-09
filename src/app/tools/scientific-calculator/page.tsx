@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import ScientificCalculatorClient from "./ScientificCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -43,6 +44,7 @@ export default function ScientificCalculatorPage() {
       <SidebarAdLayout>
         <main id="main-content" aria-label="Scientific Calculator tool"><ScientificCalculatorClient /></main>
         <PageEditorial />
+              <ToolEngagement toolSlug="scientific-calculator" toolName="Scientific Calculator" />
       </SidebarAdLayout>
     </>
   );

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import TextSummarizerClient from "./TextSummarizerClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -147,6 +148,7 @@ export default function TextSummarizerPage() {
           <TextSummarizerClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="text-summarizer" toolName="Text Summarizer" />
       </SidebarAdLayout>
     </>
   );

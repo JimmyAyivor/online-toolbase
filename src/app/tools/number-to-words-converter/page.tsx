@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import NumberToWordsConverterClient from "./NumberToWordsConverterClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -152,6 +153,7 @@ export default function NumberToWordsConverterPage() {
           <NumberToWordsConverterClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="number-to-words-converter" toolName="Number to Words Converter" />
       </SidebarAdLayout>
     </>
   );

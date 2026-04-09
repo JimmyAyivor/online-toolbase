@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import QrCodeGeneratorClient from "./QrCodeGeneratorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -151,6 +152,7 @@ export default function QrCodeGeneratorPage() {
           <QrCodeGeneratorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="qr-code-generator" toolName="QR Code Generator" />
       </SidebarAdLayout>
     </>
   );

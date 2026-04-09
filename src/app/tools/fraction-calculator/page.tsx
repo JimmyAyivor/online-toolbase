@@ -4,6 +4,7 @@ import FractionCalculatorClient from "./FractionCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import { Link } from "lucide-react";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -153,6 +154,7 @@ export default function FractionCalculatorPage() {
           <FractionCalculatorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="fraction-calculator" toolName="Fraction Calculator" />
       </SidebarAdLayout>
     </>
   );

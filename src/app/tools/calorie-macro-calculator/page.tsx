@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import CalorieMacroCalculatorClient from "./CalorieMacroCalculatorClient";
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -661,6 +662,7 @@ export default function CalorieMacroCalculatorPage() {
             </div>
           </div>
         </section>
+              <ToolEngagement toolSlug="calorie-macro-calculator" toolName="Calorie & Macro Calculator" />
       </SidebarAdLayout>
     </>
   );

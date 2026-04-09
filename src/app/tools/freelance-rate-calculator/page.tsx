@@ -4,6 +4,7 @@ import FreelanceRateCalculatorClient from "./FreelanceRateCalculatorClient";
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -153,6 +154,7 @@ export default function FreelanceRateCalculatorPage() {
           <FreelanceRateCalculatorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="freelance-rate-calculator" toolName="Freelance Rate Calculator" />
       </SidebarAdLayout>
     </>
   );

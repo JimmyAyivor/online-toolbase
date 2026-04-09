@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import BmiCalculatorClient from "./BmiCalculatorClient";
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -615,6 +616,7 @@ export default function BmiCalculatorPage() {
             </div>
           </div>
         </section>
+              <ToolEngagement toolSlug="bmi-calculator" toolName="BMI Calculator" />
       </SidebarAdLayout>
     </>
   );

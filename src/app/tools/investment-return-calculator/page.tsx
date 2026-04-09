@@ -4,6 +4,7 @@ import InvestmentReturnCalculatorClient from "./InvestmentReturnCalculatorClient
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -157,6 +158,7 @@ export default function InvestmentReturnCalculatorPage() {
           <InvestmentReturnCalculatorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="investment-return-calculator" toolName="Investment Return Calculator" />
       </SidebarAdLayout>
     </>
   );

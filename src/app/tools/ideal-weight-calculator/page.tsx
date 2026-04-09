@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import IdealWeightCalculatorClient from "./IdealWeightCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -143,6 +144,7 @@ export default function IdealWeightCalculatorPage() {
           <IdealWeightCalculatorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="ideal-weight-calculator" toolName="Ideal Weight Calculator" />
       </SidebarAdLayout>
     </>
   );

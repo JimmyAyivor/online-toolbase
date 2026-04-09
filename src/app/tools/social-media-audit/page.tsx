@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import SocialMediaAuditClient from "./SocialMediaAuditClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -43,6 +44,7 @@ export default function SocialMediaAuditPage() {
       <SidebarAdLayout>
         <main id="main-content" aria-label="Social Media Audit tool"><SocialMediaAuditClient /></main>
         <PageEditorial />
+              <ToolEngagement toolSlug="social-media-audit" toolName="social-media Audit Tool" />
       </SidebarAdLayout>
     </>
   );

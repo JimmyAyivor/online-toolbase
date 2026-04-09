@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import AgeCalculatorClient from "./AgeCalculatorClient";
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -580,6 +581,7 @@ export default function AgeCalculatorPage() {
             </p>
           </div>
         </section>
+              <ToolEngagement toolSlug="age-calculator" toolName="Age Calculator" />
       </SidebarAdLayout>
     </>
   );

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Base64EncoderDecoderClient from "./Base64EncoderDecoderClient";
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -653,6 +654,7 @@ export default function Base64EncoderDecoderPage() {
             </p>
           </div>
         </section>
+              <ToolEngagement toolSlug="base64-encoder-decoder" toolName="Base64 Encoder / Decoder" />
       </SidebarAdLayout>
     </>
   );

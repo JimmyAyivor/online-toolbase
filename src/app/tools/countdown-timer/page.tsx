@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import CountdownTimerClient from "./CountdownTimerClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
 export const metadata: Metadata = {
@@ -134,6 +135,7 @@ export default function CountdownTimerPage() {
           <CountdownTimerClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="countdown-timer" toolName="Countdown Timer" />
       </SidebarAdLayout>
     </>
   );

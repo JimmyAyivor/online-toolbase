@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 //import Link from "next/link";
 import { tools } from "@/lib/tools";
 import HomeClient from "./HomeClient";
-
+import RecentBlogPosts from "@/components/RecentBlogPosts";
 /* ─── Config ─────────────────────────────────────────────────────────────── */
 
 const SITE_URL =
@@ -234,7 +234,7 @@ export default function HomePage() {
 
         {/* ── Client shell: category filter + tools grid ───────────────── */}
         <HomeClient />
-
+        <RecentBlogPosts /> 
         {/* ── Why Us ───────────────────────────────────────────────────── */}
         <section
           className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16'

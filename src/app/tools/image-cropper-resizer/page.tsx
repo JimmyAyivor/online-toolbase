@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import ImageCropperResizerClient from "./ImageCropperResizerClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -152,6 +153,7 @@ export default function ImageCropperResizerPage() {
           <ImageCropperResizerClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="image-cropper-resizer" toolName="Image Cropper & Resizer" />
       </SidebarAdLayout>
     </>
   );

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import KeywordDensityCheckerClient from "./KeywordDensityCheckerClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -145,6 +146,7 @@ export default function KeywordDensityCheckerPage() {
           <KeywordDensityCheckerClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="keyword-density-checker" toolName="Keyword Density Checker" />
       </SidebarAdLayout>
     </>
   );

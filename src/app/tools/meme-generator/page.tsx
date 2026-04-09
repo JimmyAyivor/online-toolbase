@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import MemeGeneratorClient from "./MemeGeneratorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -148,6 +149,7 @@ export default function MemeGeneratorPage() {
           <MemeGeneratorClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="meme-generator" toolName="Meme Generator" />
       </SidebarAdLayout>
     </>
   );

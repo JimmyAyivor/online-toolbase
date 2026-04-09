@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import RhymeFinderClient from "./RhymeFinderClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -150,6 +151,7 @@ export default function RhymeFinderPage() {
           <RhymeFinderClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="rhyme-finder" toolName="Rhyme Finder" />
       </SidebarAdLayout>
     </>
   );

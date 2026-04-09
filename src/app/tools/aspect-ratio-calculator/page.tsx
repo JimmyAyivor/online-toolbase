@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import AspectRatioCalculatorClient from "./AspectRatioCalculatorClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -43,6 +44,7 @@ export default function AspectRatioCalculatorPage() {
       <SidebarAdLayout>
         <main id="main-content" aria-label="Aspect Ratio Calculator tool"><AspectRatioCalculatorClient /></main>
         <PageEditorial />
+              <ToolEngagement toolSlug="aspect-ratio-calculator" toolName="Aspect Ratio Calculator" />
       </SidebarAdLayout>
     </>
   );

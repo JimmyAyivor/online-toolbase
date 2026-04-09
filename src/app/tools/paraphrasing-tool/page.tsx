@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import ParaphrasingToolClient from "./ParaphrasingToolClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -148,6 +149,7 @@ export default function ParaphrasingToolPage() {
           <ParaphrasingToolClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="paraphrasing-tool" toolName="Paraphrasing Tool" />
       </SidebarAdLayout>
     </>
   );

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import SocialMediaCharacterCounterClient from "./SocialMediaCharacterCounterClient";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
+import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
 const SITE_NAME = "Free Online Tools";
@@ -155,6 +156,7 @@ export default function SocialMediaCharacterCounterPage() {
           <SocialMediaCharacterCounterClient />
         </main>
         <PageEditorial />
+              <ToolEngagement toolSlug="social-media-character-counter" toolName="social-media Character Counter" />
       </SidebarAdLayout>
     </>
   );
