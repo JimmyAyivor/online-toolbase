@@ -89,7 +89,7 @@ jobs:
             HTTP=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.SITE_URL }}")
 
             if [ "$HTTP" = "200" ]; then
-              echo "✅ App is healthy"
+              echo "✅ This App is healthy"
 
               curl -X POST "${{ secrets.SITE_URL }}/api/indexnow" \
                 -H "Content-Type: application/json" \
