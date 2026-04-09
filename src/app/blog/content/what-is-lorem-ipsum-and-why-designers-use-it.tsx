@@ -44,7 +44,7 @@ export default function Post() {
         keeps the two processes appropriately separate.
       </p>
       <p>
-        Our <a href='/tools/lorem-ipsum-generator'>Lorem Ipsum Generator</a>{" "}
+        Our <a href="/tools/lorem-ipsum-generator">Lorem Ipsum Generator</a>{" "}
         lets you generate any amount of placeholder text paragraphs, sentences,
         or words to fill whatever space you need in a design or template.
       </p>
@@ -135,7 +135,7 @@ export default function Post() {
 
       <h3>Can I generate Lorem Ipsum in different paragraph lengths?</h3>
       <p>
-        Yes our <a href='/tools/lorem-ipsum-generator'>Lorem Ipsum Generator</a>{" "}
+        Yes our <a href="/tools/lorem-ipsum-generator">Lorem Ipsum Generator</a>{" "}
         lets you specify how many paragraphs, sentences, or words you need.
         Match the amount to the actual space you're filling.
       </p>
@@ -154,7 +154,7 @@ export default function Post() {
         separating layout evaluation from content evaluation. Use it freely for
         mockups, templates, and design specimens. Replace it before anything
         goes live. Generate the exact amount you need with our{" "}
-        <a href='/tools/lorem-ipsum-generator'>Lorem Ipsum Generator</a>{" "}
+        <a href="/tools/lorem-ipsum-generator">Lorem Ipsum Generator</a>{" "}
         paragraphs, sentences, or just a few words for a button label.
       </p>
     </>

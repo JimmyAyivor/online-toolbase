@@ -25,7 +25,7 @@ export default function Post() {
       </ul>
       <p>
         Use our{" "}
-        <a href='/tools/content-calendar-planner'>Content Calendar Planner</a>{" "}
+        <a href="/tools/content-calendar-planner">Content Calendar Planner</a>{" "}
         to organise your posting schedule, assign content pillars to dates, and
         plan across multiple platforms.
       </p>
@@ -104,7 +104,7 @@ export default function Post() {
         A content calendar is the infrastructure that makes consistent posting
         sustainable. Plan at the right level for each time horizon, batch
         creation, and leave flex slots for reactive content. Use the{" "}
-        <a href='/tools/content-calendar-planner'>Content Calendar Planner</a>{" "}
+        <a href="/tools/content-calendar-planner">Content Calendar Planner</a>{" "}
         to structure your schedule and maintain visibility across all platforms
         and content types.
       </p>

@@ -23,23 +23,23 @@ const POSTS_TO_SHOW = 4;
 // ─── Category pill colours ────────────────────────────────────────────────────
 
 const CATEGORY_PILL: Record<string, string> = {
-  Security:           "bg-red-100 text-red-700",
-  Developer:          "bg-indigo-100 text-indigo-700",
-  Writing:            "bg-purple-100 text-purple-700",
-  "Social Media":     "bg-pink-100 text-pink-700",
-  Finance:            "bg-emerald-100 text-emerald-700",
-  "Web Performance":  "bg-blue-100 text-blue-700",
-  Health:             "bg-teal-100 text-teal-700",
-  Business:           "bg-orange-100 text-orange-700",
-  Productivity:       "bg-yellow-100 text-yellow-800",
+  Security: "bg-red-100 text-red-700",
+  Developer: "bg-indigo-100 text-indigo-700",
+  Writing: "bg-purple-100 text-purple-700",
+  "Social Media": "bg-pink-100 text-pink-700",
+  Finance: "bg-emerald-100 text-emerald-700",
+  "Web Performance": "bg-blue-100 text-blue-700",
+  Health: "bg-teal-100 text-teal-700",
+  Business: "bg-orange-100 text-orange-700",
+  Productivity: "bg-yellow-100 text-yellow-800",
   "Content Creation": "bg-fuchsia-100 text-fuchsia-700",
-  Everyday:           "bg-gray-100 text-gray-700",
-  Marketing:          "bg-rose-100 text-rose-700",
-  Design:             "bg-violet-100 text-violet-700",
-  Image:              "bg-sky-100 text-sky-700",
-  Education:          "bg-lime-100 text-lime-700",
-  Analytics:          "bg-cyan-100 text-cyan-700",
-  Fun:                "bg-amber-100 text-amber-800",
+  Everyday: "bg-gray-100 text-gray-700",
+  Marketing: "bg-rose-100 text-rose-700",
+  Design: "bg-violet-100 text-violet-700",
+  Image: "bg-sky-100 text-sky-700",
+  Education: "bg-lime-100 text-lime-700",
+  Analytics: "bg-cyan-100 text-cyan-700",
+  Fun: "bg-amber-100 text-amber-800",
 };
 
 function pillClass(category: string) {
@@ -125,7 +125,9 @@ export default function SidebarRecentPosts() {
                   >
                     {formatDate(post.publishedAt)}
                   </time>
-                  <span className="text-slate-200" aria-hidden="true">·</span>
+                  <span className="text-slate-200" aria-hidden="true">
+                    ·
+                  </span>
                   <span className="text-[11px] text-slate-400">
                     {post.readingTime}
                   </span>

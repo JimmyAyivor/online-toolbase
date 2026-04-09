@@ -25,7 +25,7 @@ export default function Post() {
         results are often wrong, ugly, or missing entirely.
       </p>
       <p>
-        Use our <a href='/tools/open-graph-preview'>Open Graph Preview</a> tool
+        Use our <a href="/tools/open-graph-preview">Open Graph Preview</a> tool
         to see exactly how your page will appear on major platforms before
         publishing.
       </p>
@@ -146,9 +146,9 @@ export default function Post() {
       <p>
         Likely a cache issue. Use the{" "}
         <a
-          href='https://developers.facebook.com/tools/debug/'
-          target='_blank'
-          rel='noopener noreferrer'
+          href="https://developers.facebook.com/tools/debug/"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Facebook Sharing Debugger
         </a>{" "}
@@ -162,7 +162,7 @@ export default function Post() {
         disproportionate impact on how your content appears when shared. Set the
         essential four tags on every page, use article-specific images rather
         than a generic site logo, and verify with the{" "}
-        <a href='/tools/open-graph-preview'>Open Graph Preview</a> tool before
+        <a href="/tools/open-graph-preview">Open Graph Preview</a> tool before
         publishing. Your shared links will consistently look professional across
         every platform that renders them.
       </p>

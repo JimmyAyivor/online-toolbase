@@ -38,7 +38,7 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        Use our <a href='/tools/password-generator'>Password Generator</a> to
+        Use our <a href="/tools/password-generator">Password Generator</a> to
         create cryptographically random passwords that resist all automated
         attack methods.
       </p>
@@ -129,11 +129,11 @@ export default function Post() {
       <h2>Conclusion</h2>
       <p>
         Strong password security requires: long, random passwords (use the{" "}
-        <a href='/tools/password-generator'>Password Generator</a>), a password
+        <a href="/tools/password-generator">Password Generator</a>), a password
         manager so you only need to remember one strong master password, and MFA
         on all sensitive accounts. Check the strength of any existing password
         with the{" "}
-        <a href='/tools/password-strength-checker'>Password Strength Checker</a>
+        <a href="/tools/password-strength-checker">Password Strength Checker</a>
         .
       </p>
     </>

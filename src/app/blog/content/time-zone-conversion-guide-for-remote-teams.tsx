@@ -26,7 +26,7 @@ export default function Post() {
         "4pm GMT," these are equivalent for practical purposes.
       </p>
       <p>
-        Our <a href='/tools/time-zone-converter'>Time Zone Converter</a>{" "}
+        Our <a href="/tools/time-zone-converter">Time Zone Converter</a>{" "}
         converts any time between any two time zones instantly.
       </p>
 
@@ -110,7 +110,7 @@ export default function Post() {
       <h3>How do I schedule a meeting across many time zones at once?</h3>
       <p>
         Tools like World Time Buddy (web) or the{" "}
-        <a href='/tools/time-zone-converter'>Time Zone Converter</a> let you
+        <a href="/tools/time-zone-converter">Time Zone Converter</a> let you
         compare multiple time zones side by side to find the overlap window. For
         very wide distributions (US West Coast + Europe + Asia), you'll need to
         accept that someone always gets a suboptimal slot.
@@ -121,7 +121,7 @@ export default function Post() {
         Timezone errors are preventable with a consistent system: always specify
         the timezone when sharing times, use UTC as a reference for cross-team
         communication, and account for DST changes at the transition points. Use
-        the <a href='/tools/time-zone-converter'>Time Zone Converter</a> to
+        the <a href="/tools/time-zone-converter">Time Zone Converter</a> to
         verify exact current offsets and plan meetings across any combination of
         locations.
       </p>

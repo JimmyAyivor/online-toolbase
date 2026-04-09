@@ -46,7 +46,7 @@ export default function Post() {
       </ul>
       <p>
         Our{" "}
-        <a href='/tools/protein-intake-calculator'>Protein Intake Calculator</a>{" "}
+        <a href="/tools/protein-intake-calculator">Protein Intake Calculator</a>{" "}
         recommends daily protein based on your weight, activity level, and goal.
       </p>
 
@@ -122,9 +122,9 @@ export default function Post() {
         For muscle building and body composition, target 1.6–2.2g of protein per
         kg of bodyweight, spread across 3–5 meals with 25–40g per sitting. For
         fat loss, stay at the higher end to preserve muscle. Use the{" "}
-        <a href='/tools/protein-intake-calculator'>Protein Intake Calculator</a>{" "}
+        <a href="/tools/protein-intake-calculator">Protein Intake Calculator</a>{" "}
         to get your specific daily target, and the{" "}
-        <a href='/tools/calorie-macro-calculator'>Calorie & Macro Calculator</a>{" "}
+        <a href="/tools/calorie-macro-calculator">Calorie & Macro Calculator</a>{" "}
         to plan your complete nutritional framework.
       </p>
     </>

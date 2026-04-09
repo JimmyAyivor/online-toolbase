@@ -201,60 +201,60 @@ export default function HashGeneratorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-violet-50 to-purple-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-full mb-4 shadow-lg'>
-              <Shield className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-violet-50 to-purple-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-full mb-4 shadow-lg">
+              <Shield className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Hash Generator
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Generate MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes
             </p>
           </div>
 
           {/* Controls */}
-          <div className='mb-6 flex flex-wrap gap-3 items-center justify-between'>
-            <div className='flex gap-2'>
+          <div className="mb-6 flex flex-wrap gap-3 items-center justify-between">
+            <div className="flex gap-2">
               <button
                 onClick={loadExample}
-                className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors'
+                className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors"
               >
                 Load Example
               </button>
               <button
                 onClick={clearAll}
-                className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors'
+                className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors"
               >
                 Clear
               </button>
             </div>
 
-            <label className='px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white rounded-lg font-medium transition-colors cursor-pointer flex items-center gap-2'>
-              <Upload className='w-4 h-4' />
+            <label className="px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white rounded-lg font-medium transition-colors cursor-pointer flex items-center gap-2">
+              <Upload className="w-4 h-4" />
               Upload File
               <input
-                type='file'
+                type="file"
                 onChange={handleFileUpload}
-                className='hidden'
-                accept='.txt,.json,.xml,.csv'
+                className="hidden"
+                accept=".txt,.json,.xml,.csv"
               />
             </label>
           </div>
 
           {/* File info */}
           {fileInfo && (
-            <div className='mb-6 bg-blue-50 border border-blue-200 rounded-lg p-4'>
-              <div className='flex items-center gap-3'>
-                <FileText className='w-5 h-5 text-blue-600 flex-shrink-0' />
-                <div className='flex-1'>
-                  <div className='font-semibold text-gray-900'>
+            <div className="mb-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="flex items-center gap-3">
+                <FileText className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                <div className="flex-1">
+                  <div className="font-semibold text-gray-900">
                     {fileInfo.name}
                   </div>
-                  <div className='text-sm text-gray-600'>
+                  <div className="text-sm text-gray-600">
                     {fileInfo.size} · {fileInfo.type}
                   </div>
                 </div>
@@ -263,8 +263,8 @@ export default function HashGeneratorClient() {
           )}
 
           {/* Input */}
-          <div className='mb-6'>
-            <label className='block text-sm font-medium text-gray-700 mb-2'>
+          <div className="mb-6">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Input Text or Data
             </label>
             <textarea
@@ -272,18 +272,18 @@ export default function HashGeneratorClient() {
               onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
                 setInput(e.target.value)
               }
-              placeholder='Enter text to generate hashes...'
-              className='w-full h-48 p-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-transparent resize-none font-mono text-sm'
+              placeholder="Enter text to generate hashes..."
+              className="w-full h-48 p-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-transparent resize-none font-mono text-sm"
             />
-            <div className='mt-2 text-sm text-gray-500'>
+            <div className="mt-2 text-sm text-gray-500">
               {input.length} characters
             </div>
           </div>
 
           {/* Hash results */}
           {hashEntries.length > 0 && (
-            <div className='space-y-4'>
-              <h3 className='text-lg font-semibold text-gray-900'>
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-gray-900">
                 Generated Hashes
               </h3>
 
@@ -295,11 +295,11 @@ export default function HashGeneratorClient() {
                 return (
                   <div
                     key={algorithm}
-                    className='bg-gray-50 rounded-lg border border-gray-200 overflow-hidden'
+                    className="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden"
                   >
-                    <div className='bg-gray-100 px-4 py-3 flex items-center justify-between'>
-                      <div className='flex items-center gap-3'>
-                        <span className='font-bold text-gray-900'>
+                    <div className="bg-gray-100 px-4 py-3 flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <span className="font-bold text-gray-900">
                           {algorithm}
                         </span>
                         <span
@@ -312,23 +312,23 @@ export default function HashGeneratorClient() {
                       {!isMd5 && (
                         <button
                           onClick={() => copyHash(algorithm, hash)}
-                          className='px-3 py-1 bg-violet-600 hover:bg-violet-700 text-white text-xs rounded font-medium transition-colors flex items-center gap-1'
+                          className="px-3 py-1 bg-violet-600 hover:bg-violet-700 text-white text-xs rounded font-medium transition-colors flex items-center gap-1"
                           aria-label={`Copy ${algorithm} hash`}
                         >
                           {isCopied ? (
                             <>
-                              <CheckCircle className='w-3 h-3' /> Copied
+                              <CheckCircle className="w-3 h-3" /> Copied
                             </>
                           ) : (
                             <>
-                              <Copy className='w-3 h-3' /> Copy
+                              <Copy className="w-3 h-3" /> Copy
                             </>
                           )}
                         </button>
                       )}
                     </div>
 
-                    <div className='p-4'>
+                    <div className="p-4">
                       <div
                         className={`font-mono text-sm break-all ${
                           isMd5 ? "text-red-600 italic" : "text-gray-900"
@@ -336,8 +336,8 @@ export default function HashGeneratorClient() {
                       >
                         {hash}
                       </div>
-                      <div className='mt-3 pt-3 border-t border-gray-200 text-xs text-gray-600'>
-                        <div className='mb-1'>
+                      <div className="mt-3 pt-3 border-t border-gray-200 text-xs text-gray-600">
+                        <div className="mb-1">
                           <strong>Length:</strong> {info.length}
                         </div>
                         <div>{info.description}</div>
@@ -350,19 +350,19 @@ export default function HashGeneratorClient() {
           )}
 
           {/* Comparison table */}
-          <div className='mt-8 bg-gradient-to-r from-violet-50 to-purple-50 rounded-xl p-6 border border-violet-200'>
-            <h3 className='font-semibold text-gray-900 mb-3'>
+          <div className="mt-8 bg-gradient-to-r from-violet-50 to-purple-50 rounded-xl p-6 border border-violet-200">
+            <h3 className="font-semibold text-gray-900 mb-3">
               Hash Function Comparison
             </h3>
-            <div className='overflow-x-auto'>
-              <table className='w-full text-sm'>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
                 <thead>
-                  <tr className='border-b border-violet-200'>
+                  <tr className="border-b border-violet-200">
                     {["Algorithm", "Output Size", "Security", "Use Case"].map(
                       (h) => (
                         <th
                           key={h}
-                          className='text-left py-2 px-3 font-semibold text-gray-700'
+                          className="text-left py-2 px-3 font-semibold text-gray-700"
                         >
                           {h}
                         </th>
@@ -370,16 +370,16 @@ export default function HashGeneratorClient() {
                     )}
                   </tr>
                 </thead>
-                <tbody className='divide-y divide-violet-100'>
+                <tbody className="divide-y divide-violet-100">
                   {COMPARISON_ROWS.map(
                     ({ algo, bits, security, securityColor, useCase }) => (
                       <tr key={algo}>
-                        <td className='py-2 px-3 font-mono'>{algo}</td>
-                        <td className='py-2 px-3'>{bits}</td>
+                        <td className="py-2 px-3 font-mono">{algo}</td>
+                        <td className="py-2 px-3">{bits}</td>
                         <td className={`py-2 px-3 ${securityColor}`}>
                           {security}
                         </td>
-                        <td className='py-2 px-3'>{useCase}</td>
+                        <td className="py-2 px-3">{useCase}</td>
                       </tr>
                     ),
                   )}
@@ -388,9 +388,9 @@ export default function HashGeneratorClient() {
             </div>
           </div>
 
-          <div className='mt-6 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>⚡ Common Uses:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-6 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">⚡ Common Uses:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 <strong>Data Integrity:</strong> Verify files haven&apos;t been
                 tampered with

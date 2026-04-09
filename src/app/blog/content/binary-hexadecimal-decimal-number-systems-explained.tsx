@@ -25,7 +25,7 @@ export default function Post() {
         mainly in Unix file permissions.
       </p>
       <p>
-        Our <a href='/tools/binary-hex-converter'>Binary & Hex Converter</a>{" "}
+        Our <a href="/tools/binary-hex-converter">Binary & Hex Converter</a>{" "}
         converts between all four systems instantly.
       </p>
 
@@ -110,7 +110,7 @@ export default function Post() {
       </p>
       <p>
         For anything beyond quick mental conversions, the{" "}
-        <a href='/tools/binary-hex-converter'>Binary & Hex Converter</a> handles
+        <a href="/tools/binary-hex-converter">Binary & Hex Converter</a> handles
         all four systems with no arithmetic required.
       </p>
 
@@ -146,7 +146,7 @@ export default function Post() {
         for different purposes. Hex for hardware proximity and compact binary
         representation; decimal for human interfaces; binary for understanding
         bitwise logic; octal for Unix permissions. Use the{" "}
-        <a href='/tools/binary-hex-converter'>Binary & Hex Converter</a> for all
+        <a href="/tools/binary-hex-converter">Binary & Hex Converter</a> for all
         your number system conversions.
       </p>
     </>

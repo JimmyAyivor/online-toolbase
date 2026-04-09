@@ -86,42 +86,42 @@ export default function ProteinIntakeCalculatorClient() {
       : null;
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full mb-4 shadow-lg'>
-              <Dumbbell className='w-8 h-8 text-white' />
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full mb-4 shadow-lg">
+              <Dumbbell className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Protein Intake Calculator
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Your daily protein target based on weight, activity, and goal
             </p>
           </div>
 
-          <div className='grid md:grid-cols-2 gap-8'>
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Inputs */}
-            <div className='space-y-6'>
+            <div className="space-y-6">
               {/* Weight */}
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Body weight
                 </label>
-                <div className='flex gap-2'>
+                <div className="flex gap-2">
                   <input
-                    type='number'
-                    min='0'
+                    type="number"
+                    min="0"
                     value={weight}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setWeight(e.target.value)
                     }
                     placeholder={unit === "lbs" ? "e.g. 165" : "e.g. 75"}
-                    className='flex-1 border-2 border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-emerald-500 focus:border-transparent'
+                    className="flex-1 border-2 border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                   />
-                  <div className='flex border-2 border-gray-300 rounded-lg overflow-hidden'>
+                  <div className="flex border-2 border-gray-300 rounded-lg overflow-hidden">
                     {(["lbs", "kg"] as const).map((u) => (
                       <button
                         key={u}
@@ -137,10 +137,10 @@ export default function ProteinIntakeCalculatorClient() {
 
               {/* Goal */}
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Fitness goal
                 </label>
-                <div className='space-y-2'>
+                <div className="space-y-2">
                   {(
                     Object.entries(GOALS) as [Goal, (typeof GOALS)[Goal]][]
                   ).map(([k, v]) => (
@@ -153,9 +153,9 @@ export default function ProteinIntakeCalculatorClient() {
                           : `bg-white text-gray-700 ${v.color}`
                       }`}
                     >
-                      <div className='flex items-center justify-between'>
+                      <div className="flex items-center justify-between">
                         <div>
-                          <span className='font-semibold text-sm'>
+                          <span className="font-semibold text-sm">
                             {v.label}
                           </span>
                           <span
@@ -177,25 +177,25 @@ export default function ProteinIntakeCalculatorClient() {
             </div>
 
             {/* Results */}
-            <div className='space-y-4'>
+            <div className="space-y-4">
               {result ? (
                 <>
                   {/* Main result */}
-                  <div className='bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-6 text-white text-center shadow-lg'>
-                    <p className='text-emerald-100 text-sm mb-1'>
+                  <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-6 text-white text-center shadow-lg">
+                    <p className="text-emerald-100 text-sm mb-1">
                       Daily protein target
                     </p>
-                    <p className='text-6xl font-black mb-1'>
+                    <p className="text-6xl font-black mb-1">
                       {result.mid}
-                      <span className='text-2xl font-bold'>g</span>
+                      <span className="text-2xl font-bold">g</span>
                     </p>
-                    <p className='text-emerald-200 text-sm'>
+                    <p className="text-emerald-200 text-sm">
                       Range: {result.low}–{result.high}g/day
                     </p>
                   </div>
 
                   {/* Breakdown */}
-                  <div className='grid grid-cols-2 gap-3'>
+                  <div className="grid grid-cols-2 gap-3">
                     {[
                       {
                         label: "3 meals/day",
@@ -227,35 +227,35 @@ export default function ProteinIntakeCalculatorClient() {
                         className={`${color} border rounded-xl p-3 text-center`}
                       >
                         <p className={`text-xl font-black ${text}`}>{value}</p>
-                        <p className='text-xs text-gray-500 mt-0.5'>{label}</p>
+                        <p className="text-xs text-gray-500 mt-0.5">{label}</p>
                       </div>
                     ))}
                   </div>
 
                   {/* g/kg display */}
-                  <div className='bg-gray-50 rounded-xl px-4 py-3 flex justify-between items-center border border-gray-100'>
-                    <span className='text-sm text-gray-600'>
+                  <div className="bg-gray-50 rounded-xl px-4 py-3 flex justify-between items-center border border-gray-100">
+                    <span className="text-sm text-gray-600">
                       Per kg bodyweight
                     </span>
-                    <span className='font-bold text-gray-900'>
+                    <span className="font-bold text-gray-900">
                       {(result.mid / kg).toFixed(1)}g/kg
                     </span>
                   </div>
 
                   {/* Food reference */}
-                  <div className='bg-amber-50 border border-amber-100 rounded-xl p-4'>
-                    <p className='text-xs font-bold text-amber-800 uppercase tracking-widest mb-3'>
+                  <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
+                    <p className="text-xs font-bold text-amber-800 uppercase tracking-widest mb-3">
                       Protein per 100g of food
                     </p>
-                    <div className='grid grid-cols-2 gap-2'>
+                    <div className="grid grid-cols-2 gap-2">
                       {FOODS.map(({ name, per100, emoji }) => (
-                        <div key={name} className='flex items-center gap-2'>
-                          <span className='text-base'>{emoji}</span>
+                        <div key={name} className="flex items-center gap-2">
+                          <span className="text-base">{emoji}</span>
                           <div>
-                            <p className='text-xs font-semibold text-gray-800'>
+                            <p className="text-xs font-semibold text-gray-800">
                               {per100}
                             </p>
-                            <p className='text-xs text-gray-500'>{name}</p>
+                            <p className="text-xs text-gray-500">{name}</p>
                           </div>
                         </div>
                       ))}
@@ -263,10 +263,10 @@ export default function ProteinIntakeCalculatorClient() {
                   </div>
                 </>
               ) : (
-                <div className='flex items-center justify-center h-64 bg-emerald-50 rounded-2xl border-2 border-dashed border-emerald-200'>
-                  <div className='text-center text-emerald-400'>
-                    <Dumbbell className='w-12 h-12 mx-auto mb-3 opacity-40' />
-                    <p className='text-sm font-medium'>
+                <div className="flex items-center justify-center h-64 bg-emerald-50 rounded-2xl border-2 border-dashed border-emerald-200">
+                  <div className="text-center text-emerald-400">
+                    <Dumbbell className="w-12 h-12 mx-auto mb-3 opacity-40" />
+                    <p className="text-sm font-medium">
                       Enter your weight to see your protein target
                     </p>
                   </div>
@@ -281,16 +281,16 @@ export default function ProteinIntakeCalculatorClient() {
               setWeight("");
               setGoal("muscle");
             }}
-            className='flex items-center gap-2 text-sm text-gray-500 hover:text-emerald-600 transition-colors mt-6 mb-4'
+            className="flex items-center gap-2 text-sm text-gray-500 hover:text-emerald-600 transition-colors mt-6 mb-4"
           >
-            <RotateCcw className='w-4 h-4' />
+            <RotateCcw className="w-4 h-4" />
             Reset
           </button>
 
           {/* Tips */}
-          <div className='p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>💡 Protein tips:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">💡 Protein tips:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 The RDA of 0.8g/kg is the minimum to prevent deficiency — not
                 optimal for active people

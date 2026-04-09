@@ -28,7 +28,7 @@ export default function Post() {
       </p>
       <p>
         Our{" "}
-        <a href='/tools/speed-distance-time-calculator'>
+        <a href="/tools/speed-distance-time-calculator">
           Speed Distance Time Calculator
         </a>{" "}
         handles all three calculations and unit conversions in one place.
@@ -127,12 +127,12 @@ export default function Post() {
         Speed, distance, and time calculations are among the most practical in
         everyday life from training targets to journey planning to physics
         problems. Use the{" "}
-        <a href='/tools/speed-distance-time-calculator'>
+        <a href="/tools/speed-distance-time-calculator">
           Speed Distance Time Calculator
         </a>{" "}
         for any of the three calculations with automatic unit handling, and
         combine it with the{" "}
-        <a href='/tools/running-pace-calculator'>Running Pace Calculator</a> for
+        <a href="/tools/running-pace-calculator">Running Pace Calculator</a> for
         race-specific pace and finish time planning.
       </p>
     </>

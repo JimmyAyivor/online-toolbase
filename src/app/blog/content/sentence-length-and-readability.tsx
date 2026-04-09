@@ -71,7 +71,7 @@ export default function Post() {
 
       <h2>How to analyse your own writing</h2>
       <p>
-        Our <a href='/tools/sentence-counter'>Sentence Counter</a> counts
+        Our <a href="/tools/sentence-counter">Sentence Counter</a> counts
         sentences, paragraphs, and calculates your average sentence length along
         with a reading level estimate. Paste in your draft and look at two
         things: the average and the variance.
@@ -83,7 +83,7 @@ export default function Post() {
         length whatever that length is add intentional variation.
       </p>
       <p>
-        A <a href='/tools/readability-score-calculator'>readability score</a>{" "}
+        A <a href="/tools/readability-score-calculator">readability score</a>{" "}
         gives you this in more formal terms Flesch-Kincaid, Gunning Fog, and
         other formulae that quantify reading difficulty based on sentence length
         and word complexity.
@@ -144,8 +144,8 @@ export default function Post() {
         Sentence length and structure are tools, not rules. The goal is writing
         that flows naturally, varies in rhythm, and matches the cognitive demand
         appropriate for your audience. Use the{" "}
-        <a href='/tools/sentence-counter'>Sentence Counter</a> and{" "}
-        <a href='/tools/readability-score-calculator'>Readability Calculator</a>{" "}
+        <a href="/tools/sentence-counter">Sentence Counter</a> and{" "}
+        <a href="/tools/readability-score-calculator">Readability Calculator</a>{" "}
         together to get an objective read on your structure, then revise with
         intention rather than guesswork.
       </p>

@@ -49,7 +49,7 @@ export default function Post() {
       </p>
 
       <p>
-        Our <a href='/tools/hashtag-generator'>Hashtag Generator</a> produces
+        Our <a href="/tools/hashtag-generator">Hashtag Generator</a> produces
         relevant, tiered hashtags for any topic across platforms.
       </p>
 
@@ -111,7 +111,7 @@ export default function Post() {
       <p>
         Search for your primary hashtag on the platform and look at related tags
         suggested. Look at what successful accounts in your niche use. Use the{" "}
-        <a href='/tools/hashtag-generator'>Hashtag Generator</a> to generate a
+        <a href="/tools/hashtag-generator">Hashtag Generator</a> to generate a
         starting set, then refine based on what you find when you check them
         on-platform.
       </p>
@@ -121,7 +121,7 @@ export default function Post() {
         Use fewer, more targeted hashtags than you might expect quality over
         quantity. Match the platform's norms (3–5 for Instagram, 1–2 for
         Twitter, 3–5 for LinkedIn, varied for TikTok). Use the{" "}
-        <a href='/tools/hashtag-generator'>Hashtag Generator</a> to build a
+        <a href="/tools/hashtag-generator">Hashtag Generator</a> to build a
         tiered hashtag set for any topic, then refine based on your specific
         audience and niche.
       </p>

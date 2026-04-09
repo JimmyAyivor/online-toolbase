@@ -74,7 +74,7 @@ export default function Post() {
 
       <h2>Converting prose to bullets: the right approach</h2>
       <p>
-        Our <a href='/tools/text-to-bullet-points'>Text to Bullet Points</a>{" "}
+        Our <a href="/tools/text-to-bullet-points">Text to Bullet Points</a>{" "}
         converter transforms paragraphs into clean bulleted lists automatically.
         This is useful for:
       </p>
@@ -160,7 +160,7 @@ export default function Post() {
         Bullet points are a formatting tool, not a default. Use them when the
         content is genuinely list-shaped; use prose when ideas connect, build,
         or flow. Convert paragraphs to bullets with the{" "}
-        <a href='/tools/text-to-bullet-points'>Text to Bullet Points</a> tool
+        <a href="/tools/text-to-bullet-points">Text to Bullet Points</a> tool
         when the format genuinely serves your readers and when it doesn't, keep
         writing.
       </p>

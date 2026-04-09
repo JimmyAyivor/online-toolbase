@@ -128,24 +128,24 @@ export default function UrlEncoderDecoderClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-sky-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-sky-500 to-blue-600 rounded-full mb-4 shadow-lg'>
-              <Link className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-sky-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-sky-500 to-blue-600 rounded-full mb-4 shadow-lg">
+              <Link className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               URL Encoder/Decoder
             </h2>
-            <p className='text-gray-600'>
+            <p className="text-gray-600">
               Encode and decode URL strings safely
             </p>
           </div>
 
           {/* Mode + actions */}
-          <div className='mb-6 flex flex-wrap gap-3 items-center justify-between'>
-            <div className='flex gap-2'>
+          <div className="mb-6 flex flex-wrap gap-3 items-center justify-between">
+            <div className="flex gap-2">
               {(["encode", "decode"] as Mode[]).map((m) => (
                 <button
                   key={m}
@@ -162,7 +162,7 @@ export default function UrlEncoderDecoderClient() {
             </div>
             <button
               onClick={loadExample}
-              className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors'
+              className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors"
             >
               Load Example
             </button>
@@ -170,11 +170,11 @@ export default function UrlEncoderDecoderClient() {
 
           {/* Encode type selector */}
           {mode === "encode" && (
-            <div className='mb-6 bg-gray-50 rounded-lg p-4 border border-gray-200'>
-              <h3 className='font-semibold text-gray-700 mb-3'>
+            <div className="mb-6 bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <h3 className="font-semibold text-gray-700 mb-3">
                 Encoding Type
               </h3>
-              <div className='flex gap-4'>
+              <div className="flex gap-4">
                 {(
                   [
                     {
@@ -191,19 +191,19 @@ export default function UrlEncoderDecoderClient() {
                 ).map(({ value, label, desc }) => (
                   <label
                     key={value}
-                    className='flex items-center gap-2 cursor-pointer'
+                    className="flex items-center gap-2 cursor-pointer"
                   >
                     <input
-                      type='radio'
-                      name='encodeType'
+                      type="radio"
+                      name="encodeType"
                       value={value}
                       checked={encodeType === value}
                       onChange={() => setEncodeType(value)}
-                      className='w-4 h-4 text-sky-600'
+                      className="w-4 h-4 text-sky-600"
                     />
                     <div>
-                      <div className='font-medium text-gray-900'>{label}</div>
-                      <div className='text-sm text-gray-600'>{desc}</div>
+                      <div className="font-medium text-gray-900">{label}</div>
+                      <div className="text-sm text-gray-600">{desc}</div>
                     </div>
                   </label>
                 ))}
@@ -212,9 +212,9 @@ export default function UrlEncoderDecoderClient() {
           )}
 
           {/* I/O textareas */}
-          <div className='grid md:grid-cols-2 gap-6 mb-6'>
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className='block text-sm font-medium text-gray-700 mb-2'>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Input ({mode === "encode" ? "Plain URL" : "Encoded URL"})
               </label>
               <textarea
@@ -227,30 +227,30 @@ export default function UrlEncoderDecoderClient() {
                     ? "Enter URL or text to encode..."
                     : "Enter encoded URL to decode..."
                 }
-                className='w-full h-48 p-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent resize-none font-mono text-sm'
+                className="w-full h-48 p-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent resize-none font-mono text-sm"
               />
-              <div className='mt-2 text-sm text-gray-500'>
+              <div className="mt-2 text-sm text-gray-500">
                 {input.length} characters
               </div>
             </div>
 
             <div>
-              <div className='flex items-center justify-between mb-2'>
-                <label className='block text-sm font-medium text-gray-700'>
+              <div className="flex items-center justify-between mb-2">
+                <label className="block text-sm font-medium text-gray-700">
                   Output ({mode === "encode" ? "Encoded URL" : "Plain URL"})
                 </label>
                 <button
                   onClick={copyToClipboard}
                   disabled={!output}
-                  className='px-3 py-1 bg-green-600 hover:bg-green-700 disabled:bg-gray-300 disabled:text-gray-500 text-white text-xs rounded font-medium transition-colors flex items-center gap-1'
+                  className="px-3 py-1 bg-green-600 hover:bg-green-700 disabled:bg-gray-300 disabled:text-gray-500 text-white text-xs rounded font-medium transition-colors flex items-center gap-1"
                 >
                   {copied ? (
                     <>
-                      <CheckCircle className='w-3 h-3' /> Copied
+                      <CheckCircle className="w-3 h-3" /> Copied
                     </>
                   ) : (
                     <>
-                      <Copy className='w-3 h-3' /> Copy
+                      <Copy className="w-3 h-3" /> Copy
                     </>
                   )}
                 </button>
@@ -258,32 +258,32 @@ export default function UrlEncoderDecoderClient() {
               <textarea
                 value={output}
                 readOnly
-                placeholder='Output will appear here...'
-                className='w-full h-48 p-4 border-2 border-gray-300 rounded-lg bg-gray-50 resize-none font-mono text-sm'
+                placeholder="Output will appear here..."
+                className="w-full h-48 p-4 border-2 border-gray-300 rounded-lg bg-gray-50 resize-none font-mono text-sm"
               />
-              <div className='mt-2 text-sm text-gray-500'>
+              <div className="mt-2 text-sm text-gray-500">
                 {output.length} characters
               </div>
             </div>
           </div>
 
           {/* Swap */}
-          <div className='flex justify-center mb-6'>
+          <div className="flex justify-center mb-6">
             <button
               onClick={swap}
               disabled={!output}
-              className='px-6 py-3 bg-sky-600 hover:bg-sky-700 disabled:bg-gray-300 disabled:text-gray-500 text-white rounded-lg font-semibold transition-colors flex items-center gap-2'
+              className="px-6 py-3 bg-sky-600 hover:bg-sky-700 disabled:bg-gray-300 disabled:text-gray-500 text-white rounded-lg font-semibold transition-colors flex items-center gap-2"
             >
-              <ArrowLeftRight className='w-5 h-5' />
+              <ArrowLeftRight className="w-5 h-5" />
               Swap &amp; {mode === "encode" ? "Decode" : "Encode"}
             </button>
           </div>
 
           {/* URL parser */}
           {parsedUrl && (
-            <div className='mb-6 bg-gradient-to-r from-sky-50 to-blue-50 rounded-xl p-6 border border-sky-200'>
-              <h3 className='font-semibold text-gray-900 mb-4'>URL Parser</h3>
-              <div className='space-y-3'>
+            <div className="mb-6 bg-gradient-to-r from-sky-50 to-blue-50 rounded-xl p-6 border border-sky-200">
+              <h3 className="font-semibold text-gray-900 mb-4">URL Parser</h3>
+              <div className="space-y-3">
                 {[
                   { label: "Protocol", value: parsedUrl.protocol, show: true },
                   {
@@ -309,27 +309,27 @@ export default function UrlEncoderDecoderClient() {
                 ]
                   .filter(({ show }) => show)
                   .map(({ label, value }) => (
-                    <div key={label} className='bg-white rounded-lg p-3'>
-                      <div className='text-sm text-gray-500 mb-1'>{label}</div>
-                      <div className='font-mono text-gray-900'>{value}</div>
+                    <div key={label} className="bg-white rounded-lg p-3">
+                      <div className="text-sm text-gray-500 mb-1">{label}</div>
+                      <div className="font-mono text-gray-900">{value}</div>
                     </div>
                   ))}
 
                 {Object.keys(parsedUrl.params).length > 0 && (
-                  <div className='bg-white rounded-lg p-3'>
-                    <div className='text-sm text-gray-500 mb-2'>
+                  <div className="bg-white rounded-lg p-3">
+                    <div className="text-sm text-gray-500 mb-2">
                       Query Parameters
                     </div>
-                    <div className='space-y-2'>
+                    <div className="space-y-2">
                       {Object.entries(parsedUrl.params).map(([key, value]) => (
                         <div
                           key={key}
-                          className='flex items-start gap-2 text-sm'
+                          className="flex items-start gap-2 text-sm"
                         >
-                          <span className='font-semibold text-sky-700'>
+                          <span className="font-semibold text-sky-700">
                             {key}:
                           </span>
-                          <span className='font-mono text-gray-900'>
+                          <span className="font-mono text-gray-900">
                             {value}
                           </span>
                         </div>
@@ -342,34 +342,34 @@ export default function UrlEncoderDecoderClient() {
           )}
 
           {/* Reference table */}
-          <div className='mb-6'>
-            <h3 className='font-semibold text-gray-900 mb-3'>
+          <div className="mb-6">
+            <h3 className="font-semibold text-gray-900 mb-3">
               Common URL Encodings
             </h3>
-            <div className='bg-white border border-gray-200 rounded-lg overflow-hidden'>
-              <table className='w-full'>
-                <thead className='bg-gray-100'>
+            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+              <table className="w-full">
+                <thead className="bg-gray-100">
                   <tr>
                     {["Character", "Original", "Encoded"].map((h) => (
                       <th
                         key={h}
-                        className='px-4 py-3 text-left text-sm font-semibold text-gray-700'
+                        className="px-4 py-3 text-left text-sm font-semibold text-gray-700"
                       >
                         {h}
                       </th>
                     ))}
                   </tr>
                 </thead>
-                <tbody className='divide-y divide-gray-200'>
+                <tbody className="divide-y divide-gray-200">
                   {COMMON_EXAMPLES.map(({ name, original, encoded }) => (
-                    <tr key={name} className='hover:bg-gray-50'>
-                      <td className='px-4 py-3 text-sm text-gray-900'>
+                    <tr key={name} className="hover:bg-gray-50">
+                      <td className="px-4 py-3 text-sm text-gray-900">
                         {name}
                       </td>
-                      <td className='px-4 py-3 text-sm font-mono text-gray-900'>
+                      <td className="px-4 py-3 text-sm font-mono text-gray-900">
                         {original}
                       </td>
-                      <td className='px-4 py-3 text-sm font-mono text-sky-600'>
+                      <td className="px-4 py-3 text-sm font-mono text-sky-600">
                         {encoded}
                       </td>
                     </tr>
@@ -379,9 +379,9 @@ export default function UrlEncoderDecoderClient() {
             </div>
           </div>
 
-          <div className='p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>About URL Encoding:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2">About URL Encoding:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 <strong>Component Encoding (encodeURIComponent):</strong>{" "}
                 Encodes all special characters including ?, &amp;, =, etc. Use

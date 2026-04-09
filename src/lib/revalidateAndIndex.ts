@@ -15,7 +15,7 @@
 //   await revalidateAndIndex(["/tools/bmi-calculator", "/tools/password-generator"]);
 
 import { revalidatePath } from "next/cache";
-import { submitUrls }     from "@/lib/indexnow";
+import { submitUrls } from "@/lib/indexnow";
 
 /**
  * Revalidate one or more paths AND submit them to IndexNow in one call.
@@ -23,7 +23,7 @@ import { submitUrls }     from "@/lib/indexnow";
  */
 export async function revalidateAndIndex(
   paths: string | string[],
-  type: "page" | "layout" = "page"
+  type: "page" | "layout" = "page",
 ): Promise<void> {
   const pathList = Array.isArray(paths) ? paths : [paths];
 

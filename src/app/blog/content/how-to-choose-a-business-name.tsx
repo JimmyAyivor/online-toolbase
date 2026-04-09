@@ -44,7 +44,7 @@ export default function Post() {
       </ul>
       <p>
         Use our{" "}
-        <a href='/tools/business-name-generator'>Business Name Generator</a> to
+        <a href="/tools/business-name-generator">Business Name Generator</a> to
         explore name ideas across different styles descriptive, abstract,
         compound, and personality-driven.
       </p>
@@ -134,7 +134,7 @@ export default function Post() {
         A business name needs to be available, distinctive, and easy to
         communicate the style (descriptive, suggestive, fanciful) matters less
         than the availability and usability. Use the{" "}
-        <a href='/tools/business-name-generator'>Business Name Generator</a> to
+        <a href="/tools/business-name-generator">Business Name Generator</a> to
         explore options across different naming styles, check domain and handle
         availability for any name you're considering, and run a trademark search
         before committing.

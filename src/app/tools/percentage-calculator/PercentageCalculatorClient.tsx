@@ -117,11 +117,11 @@ interface NumInputProps {
 function NumInput({ label, value, placeholder, onChange }: NumInputProps) {
   return (
     <div>
-      <label className='block text-sm font-medium text-gray-700 mb-2'>
+      <label className="block text-sm font-medium text-gray-700 mb-2">
         {label}
       </label>
       <input
-        type='number'
+        type="number"
         value={value}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           onChange(e.target.value)
@@ -142,7 +142,7 @@ interface ResultBoxProps {
 function ResultBox({ bg, border, children }: ResultBoxProps) {
   return (
     <div className={`${bg} ${border} border rounded-lg p-4 mt-4`}>
-      <div className='space-y-3'>{children}</div>
+      <div className="space-y-3">{children}</div>
     </div>
   );
 }
@@ -178,24 +178,24 @@ export default function PercentageCalculatorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-yellow-50 to-orange-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full mb-4 shadow-lg'>
-              <Percent className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-orange-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full mb-4 shadow-lg">
+              <Percent className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Percentage Calculator
             </h2>
-            <p className='text-gray-600'>
+            <p className="text-gray-600">
               Calculate percentages, increases, decreases, and more
             </p>
           </div>
 
           {/* Mode selector */}
-          <div className='mb-6'>
-            <div className='grid grid-cols-5 gap-2'>
+          <div className="mb-6">
+            <div className="grid grid-cols-5 gap-2">
               {MODES.map(({ id, name, icon: Icon }) => (
                 <button
                   key={id}
@@ -206,41 +206,41 @@ export default function PercentageCalculatorClient() {
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   }`}
                 >
-                  <Icon className='w-5 h-5' />
-                  <span className='text-xs'>{name}</span>
+                  <Icon className="w-5 h-5" />
+                  <span className="text-xs">{name}</span>
                 </button>
               ))}
             </div>
           </div>
 
-          <div className='bg-gray-50 rounded-xl p-6 border border-gray-200'>
+          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
             {/* ── Basic ── */}
             {mode === "basic" && (
-              <div className='space-y-4'>
-                <h3 className='font-bold text-gray-900 mb-4'>
+              <div className="space-y-4">
+                <h3 className="font-bold text-gray-900 mb-4">
                   What is X% of Y?
                 </h3>
-                <div className='grid md:grid-cols-2 gap-4'>
+                <div className="grid md:grid-cols-2 gap-4">
                   <NumInput
-                    label='Percentage (%)'
+                    label="Percentage (%)"
                     value={percent}
-                    placeholder='e.g., 25'
+                    placeholder="e.g., 25"
                     onChange={setPercent}
                   />
                   <NumInput
-                    label='Value'
+                    label="Value"
                     value={value}
-                    placeholder='e.g., 200'
+                    placeholder="e.g., 200"
                     onChange={setValue}
                   />
                 </div>
                 {basicResult && (
-                  <div className='bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-4'>
-                    <div className='text-sm text-gray-600 mb-1'>Result</div>
-                    <div className='text-3xl font-bold text-yellow-600 mb-2'>
+                  <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-4">
+                    <div className="text-sm text-gray-600 mb-1">Result</div>
+                    <div className="text-3xl font-bold text-yellow-600 mb-2">
                       {basicResult.result.toFixed(2)}
                     </div>
-                    <div className='text-sm text-gray-500 font-mono'>
+                    <div className="text-sm text-gray-500 font-mono">
                       {basicResult.formula}
                     </div>
                   </div>
@@ -250,41 +250,41 @@ export default function PercentageCalculatorClient() {
 
             {/* ── Increase ── */}
             {mode === "increase" && (
-              <div className='space-y-4'>
-                <h3 className='font-bold text-gray-900 mb-4'>Increase by X%</h3>
-                <div className='grid md:grid-cols-2 gap-4'>
+              <div className="space-y-4">
+                <h3 className="font-bold text-gray-900 mb-4">Increase by X%</h3>
+                <div className="grid md:grid-cols-2 gap-4">
                   <NumInput
-                    label='Original Value'
+                    label="Original Value"
                     value={originalValue}
-                    placeholder='e.g., 100'
+                    placeholder="e.g., 100"
                     onChange={setOriginalValue}
                   />
                   <NumInput
-                    label='Increase (%)'
+                    label="Increase (%)"
                     value={changePercent}
-                    placeholder='e.g., 15'
+                    placeholder="e.g., 15"
                     onChange={setChangePercent}
                   />
                 </div>
                 {increaseRes && (
-                  <ResultBox bg='bg-green-50' border='border-green-200'>
+                  <ResultBox bg="bg-green-50" border="border-green-200">
                     <div>
-                      <div className='text-sm text-gray-600 mb-1'>
+                      <div className="text-sm text-gray-600 mb-1">
                         Increase Amount
                       </div>
-                      <div className='text-2xl font-bold text-green-600'>
+                      <div className="text-2xl font-bold text-green-600">
                         +{increaseRes.change.toFixed(2)}
                       </div>
                     </div>
                     <div>
-                      <div className='text-sm text-gray-600 mb-1'>
+                      <div className="text-sm text-gray-600 mb-1">
                         Final Value
                       </div>
-                      <div className='text-3xl font-bold text-gray-900'>
+                      <div className="text-3xl font-bold text-gray-900">
                         {increaseRes.final.toFixed(2)}
                       </div>
                     </div>
-                    <div className='text-sm text-gray-500 font-mono'>
+                    <div className="text-sm text-gray-500 font-mono">
                       {increaseRes.formula}
                     </div>
                   </ResultBox>
@@ -294,41 +294,41 @@ export default function PercentageCalculatorClient() {
 
             {/* ── Decrease ── */}
             {mode === "decrease" && (
-              <div className='space-y-4'>
-                <h3 className='font-bold text-gray-900 mb-4'>Decrease by X%</h3>
-                <div className='grid md:grid-cols-2 gap-4'>
+              <div className="space-y-4">
+                <h3 className="font-bold text-gray-900 mb-4">Decrease by X%</h3>
+                <div className="grid md:grid-cols-2 gap-4">
                   <NumInput
-                    label='Original Value'
+                    label="Original Value"
                     value={originalValue}
-                    placeholder='e.g., 100'
+                    placeholder="e.g., 100"
                     onChange={setOriginalValue}
                   />
                   <NumInput
-                    label='Decrease (%)'
+                    label="Decrease (%)"
                     value={changePercent}
-                    placeholder='e.g., 20'
+                    placeholder="e.g., 20"
                     onChange={setChangePercent}
                   />
                 </div>
                 {decreaseRes && (
-                  <ResultBox bg='bg-red-50' border='border-red-200'>
+                  <ResultBox bg="bg-red-50" border="border-red-200">
                     <div>
-                      <div className='text-sm text-gray-600 mb-1'>
+                      <div className="text-sm text-gray-600 mb-1">
                         Decrease Amount
                       </div>
-                      <div className='text-2xl font-bold text-red-600'>
+                      <div className="text-2xl font-bold text-red-600">
                         -{decreaseRes.change.toFixed(2)}
                       </div>
                     </div>
                     <div>
-                      <div className='text-sm text-gray-600 mb-1'>
+                      <div className="text-sm text-gray-600 mb-1">
                         Final Value
                       </div>
-                      <div className='text-3xl font-bold text-gray-900'>
+                      <div className="text-3xl font-bold text-gray-900">
                         {decreaseRes.final.toFixed(2)}
                       </div>
                     </div>
-                    <div className='text-sm text-gray-500 font-mono'>
+                    <div className="text-sm text-gray-500 font-mono">
                       {decreaseRes.formula}
                     </div>
                   </ResultBox>
@@ -338,21 +338,21 @@ export default function PercentageCalculatorClient() {
 
             {/* ── Difference ── */}
             {mode === "difference" && (
-              <div className='space-y-4'>
-                <h3 className='font-bold text-gray-900 mb-4'>
+              <div className="space-y-4">
+                <h3 className="font-bold text-gray-900 mb-4">
                   Percentage Difference
                 </h3>
-                <div className='grid md:grid-cols-2 gap-4'>
+                <div className="grid md:grid-cols-2 gap-4">
                   <NumInput
-                    label='Starting Value'
+                    label="Starting Value"
                     value={value1}
-                    placeholder='e.g., 50'
+                    placeholder="e.g., 50"
                     onChange={setValue1}
                   />
                   <NumInput
-                    label='Ending Value'
+                    label="Ending Value"
                     value={value2}
-                    placeholder='e.g., 75'
+                    placeholder="e.g., 75"
                     onChange={setValue2}
                   />
                 </div>
@@ -366,7 +366,7 @@ export default function PercentageCalculatorClient() {
                     }
                   >
                     <div>
-                      <div className='text-sm text-gray-600 mb-1'>
+                      <div className="text-sm text-gray-600 mb-1">
                         {diffResult.isIncrease ? "Increase" : "Decrease"}
                       </div>
                       <div
@@ -377,14 +377,14 @@ export default function PercentageCalculatorClient() {
                       </div>
                     </div>
                     <div>
-                      <div className='text-sm text-gray-600 mb-1'>
+                      <div className="text-sm text-gray-600 mb-1">
                         Percentage Change
                       </div>
-                      <div className='text-3xl font-bold text-gray-900'>
+                      <div className="text-3xl font-bold text-gray-900">
                         {diffResult.percent.toFixed(2)}%
                       </div>
                     </div>
-                    <div className='text-sm text-gray-500 font-mono'>
+                    <div className="text-sm text-gray-500 font-mono">
                       {diffResult.formula}
                     </div>
                   </ResultBox>
@@ -394,31 +394,31 @@ export default function PercentageCalculatorClient() {
 
             {/* ── What % ── */}
             {mode === "of" && (
-              <div className='space-y-4'>
-                <h3 className='font-bold text-gray-900 mb-4'>
+              <div className="space-y-4">
+                <h3 className="font-bold text-gray-900 mb-4">
                   X is what % of Y?
                 </h3>
-                <div className='grid md:grid-cols-2 gap-4'>
+                <div className="grid md:grid-cols-2 gap-4">
                   <NumInput
-                    label='Part (X)'
+                    label="Part (X)"
                     value={partValue}
-                    placeholder='e.g., 30'
+                    placeholder="e.g., 30"
                     onChange={setPartValue}
                   />
                   <NumInput
-                    label='Whole (Y)'
+                    label="Whole (Y)"
                     value={wholeValue}
-                    placeholder='e.g., 150'
+                    placeholder="e.g., 150"
                     onChange={setWholeValue}
                   />
                 </div>
                 {ofResult && (
-                  <div className='bg-blue-50 border border-blue-200 rounded-xl p-4 mt-4'>
-                    <div className='text-sm text-gray-600 mb-1'>Result</div>
-                    <div className='text-3xl font-bold text-blue-600 mb-2'>
+                  <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mt-4">
+                    <div className="text-sm text-gray-600 mb-1">Result</div>
+                    <div className="text-3xl font-bold text-blue-600 mb-2">
                       {ofResult.percent.toFixed(2)}%
                     </div>
-                    <div className='text-sm text-gray-500 font-mono'>
+                    <div className="text-sm text-gray-500 font-mono">
                       {ofResult.formula}
                     </div>
                   </div>
@@ -427,9 +427,9 @@ export default function PercentageCalculatorClient() {
             )}
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Common Uses:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2">Common Uses:</p>
+            <ul className="list-disc list-inside space-y-1">
               {COMMON_USES.map(({ label, desc }) => (
                 <li key={label}>
                   <strong>{label}:</strong> {desc}

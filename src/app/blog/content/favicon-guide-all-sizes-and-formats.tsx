@@ -25,7 +25,7 @@ export default function Post() {
         <li>Open Graph and Twitter Card thumbnails (1200×630)</li>
       </ul>
       <p>
-        Our <a href='/tools/favicon-generator'>Favicon Generator</a> creates all
+        Our <a href="/tools/favicon-generator">Favicon Generator</a> creates all
         the necessary sizes from a single source image and generates the HTML to
         include them correctly.
       </p>
@@ -125,7 +125,7 @@ export default function Post() {
       <p>
         A properly set up favicon requires more than a single .ico file but
         isn't complicated once you know the requirements. Use the{" "}
-        <a href='/tools/favicon-generator'>Favicon Generator</a> to create all
+        <a href="/tools/favicon-generator">Favicon Generator</a> to create all
         necessary sizes from a single source image, copy the generated HTML into
         your page head, and your site's icon will display correctly across all
         devices and contexts.

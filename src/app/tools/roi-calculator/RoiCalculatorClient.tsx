@@ -43,80 +43,80 @@ export default function RoiCalculatorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl mb-4 shadow-lg'>
-              <TrendingUp className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl mb-4 shadow-lg">
+              <TrendingUp className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               ROI Calculator
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Calculate return on investment for any project or campaign
             </p>
           </div>
 
-          <div className='space-y-6'>
+          <div className="space-y-6">
             {/* Inputs */}
-            <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
-              <div className='grid md:grid-cols-2 gap-4'>
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className='block text-sm font-medium text-gray-700 mb-2'>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Initial Investment ($)
                   </label>
                   <input
-                    type='number'
+                    type="number"
                     value={investment}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setInvestment(e.target.value)
                     }
-                    placeholder='e.g. 10000'
+                    placeholder="e.g. 10000"
                     min={0}
-                    className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   />
                 </div>
 
                 <div>
-                  <label className='block text-sm font-medium text-gray-700 mb-2'>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Final Value / Total Return ($)
                   </label>
                   <input
-                    type='number'
+                    type="number"
                     value={returns}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setReturns(e.target.value)
                     }
-                    placeholder='e.g. 15000'
+                    placeholder="e.g. 15000"
                     min={0}
-                    className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   />
                 </div>
 
                 <div>
-                  <label className='block text-sm font-medium text-gray-700 mb-2'>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Time Period (years)
                   </label>
                   <input
-                    type='number'
+                    type="number"
                     value={period}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setPeriod(e.target.value)
                     }
-                    placeholder='e.g. 2'
+                    placeholder="e.g. 2"
                     min={0.1}
                     step={0.5}
-                    className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   />
                 </div>
 
-                <div className='flex items-end'>
+                <div className="flex items-end">
                   <button
                     onClick={reset}
-                    className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2'
+                    className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2"
                   >
-                    <RotateCcw className='w-4 h-4' />
+                    <RotateCcw className="w-4 h-4" />
                     Reset All
                   </button>
                 </div>
@@ -125,12 +125,12 @@ export default function RoiCalculatorClient() {
 
             {/* Results */}
             {results && (
-              <div className='space-y-4'>
-                <div className='bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200'>
-                  <h3 className='text-xl font-bold text-gray-900 mb-4'>
+              <div className="space-y-4">
+                <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
                     Results
                   </h3>
-                  <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {[
                       {
                         label: "ROI",
@@ -153,7 +153,7 @@ export default function RoiCalculatorClient() {
                         highlight: true,
                       },
                     ].map(({ label, value }) => (
-                      <div key={label} className='bg-white rounded-lg p-4'>
+                      <div key={label} className="bg-white rounded-lg p-4">
                         <div
                           className={`text-2xl font-bold ${
                             results.profit >= 0
@@ -163,28 +163,28 @@ export default function RoiCalculatorClient() {
                         >
                           {value}
                         </div>
-                        <div className='text-sm text-gray-600'>{label}</div>
+                        <div className="text-sm text-gray-600">{label}</div>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Breakdown */}
-                <div className='bg-white border border-gray-200 rounded-lg overflow-hidden'>
-                  <table className='w-full'>
-                    <thead className='bg-gray-100 sticky top-0'>
+                <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+                  <table className="w-full">
+                    <thead className="bg-gray-100 sticky top-0">
                       <tr>
                         {["Metric", "Value"].map((h) => (
                           <th
                             key={h}
-                            className='px-4 py-3 text-left text-sm font-semibold text-gray-700'
+                            className="px-4 py-3 text-left text-sm font-semibold text-gray-700"
                           >
                             {h}
                           </th>
                         ))}
                       </tr>
                     </thead>
-                    <tbody className='divide-y divide-gray-200'>
+                    <tbody className="divide-y divide-gray-200">
                       {[
                         {
                           label: "Initial Investment",
@@ -209,11 +209,11 @@ export default function RoiCalculatorClient() {
                           value: `${period} year${Number(period) !== 1 ? "s" : ""}`,
                         },
                       ].map(({ label, value }) => (
-                        <tr key={label} className='hover:bg-gray-50'>
-                          <td className='px-4 py-3 text-sm font-medium text-gray-700'>
+                        <tr key={label} className="hover:bg-gray-50">
+                          <td className="px-4 py-3 text-sm font-medium text-gray-700">
                             {label}
                           </td>
-                          <td className='px-4 py-3 text-sm text-gray-900'>
+                          <td className="px-4 py-3 text-sm text-gray-900">
                             {value}
                           </td>
                         </tr>
@@ -225,9 +225,9 @@ export default function RoiCalculatorClient() {
             )}
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Tips:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600">
+            <p className="font-semibold mb-2">Tips:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 ROI = (Net Profit ÷ Investment) × 100 — a positive ROI means you
                 made money

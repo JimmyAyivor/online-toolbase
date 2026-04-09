@@ -38,7 +38,7 @@ export default function Post() {
       </p>
       <p>
         Our{" "}
-        <a href='/tools/youtube-title-description-generator'>
+        <a href="/tools/youtube-title-description-generator">
           YouTube Title & Description Generator
         </a>{" "}
         produces optimised title and description variations for any topic.
@@ -131,7 +131,7 @@ export default function Post() {
         title and description are the primary levers for both. Lead with
         keywords, write for humans, keep titles under 60 characters, and
         front-load your description with the most important information. Use the{" "}
-        <a href='/tools/youtube-title-description-generator'>
+        <a href="/tools/youtube-title-description-generator">
           YouTube Title & Description Generator
         </a>{" "}
         to produce optimised variations quickly.

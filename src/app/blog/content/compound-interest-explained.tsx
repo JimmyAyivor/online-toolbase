@@ -58,7 +58,7 @@ export default function Post() {
       </ul>
       <p>
         In practice, you don't need to work this out by hand. Our{" "}
-        <a href='/tools/compound-interest-calculator'>
+        <a href="/tools/compound-interest-calculator">
           Compound Interest Calculator
         </a>{" "}
         takes all these inputs and shows you the full growth breakdown including
@@ -174,7 +174,7 @@ export default function Post() {
       </ul>
       <p>
         Model your own scenarios with our free{" "}
-        <a href='/tools/compound-interest-calculator'>
+        <a href="/tools/compound-interest-calculator">
           Compound Interest Calculator
         </a>{" "}
         plug in your real numbers and see the difference that different rates,

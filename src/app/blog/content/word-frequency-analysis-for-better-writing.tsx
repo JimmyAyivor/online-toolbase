@@ -24,7 +24,7 @@ export default function Post() {
         becomes useful when you know what to look for.
       </p>
       <p>
-        Our <a href='/tools/word-frequency-counter'>Word Frequency Counter</a>{" "}
+        Our <a href="/tools/word-frequency-counter">Word Frequency Counter</a>{" "}
         processes any text instantly and returns a ranked breakdown you can scan
         for patterns.
       </p>
@@ -59,7 +59,7 @@ export default function Post() {
         present and distributed throughout the text.
       </p>
       <p>
-        A <a href='/tools/keyword-density-checker'>keyword density checker</a>{" "}
+        A <a href="/tools/keyword-density-checker">keyword density checker</a>{" "}
         gives you a more targeted view of specific keyword frequency if you're
         optimising for particular terms.
       </p>
@@ -118,7 +118,7 @@ export default function Post() {
         Both matter. A piece can have clean word distribution but still be hard
         to read because the sentences are too long and the vocabulary is too
         technical. A{" "}
-        <a href='/tools/readability-score-calculator'>
+        <a href="/tools/readability-score-calculator">
           readability score calculator
         </a>{" "}
         gives you the complementary view use both for a complete picture of your
@@ -155,10 +155,10 @@ export default function Post() {
       <p>
         Word frequency analysis is a fast, objective lens on writing patterns
         you can't easily spot through reading alone. Use the{" "}
-        <a href='/tools/word-frequency-counter'>Word Frequency Counter</a> as
+        <a href="/tools/word-frequency-counter">Word Frequency Counter</a> as
         part of your editing process after drafting, before publishing and
         combine it with a{" "}
-        <a href='/tools/readability-score-calculator'>readability check</a> for
+        <a href="/tools/readability-score-calculator">readability check</a> for
         a more complete assessment. The goal is writing that reads naturally and
         efficiently, and frequency data helps you get there faster than
         intuition alone.

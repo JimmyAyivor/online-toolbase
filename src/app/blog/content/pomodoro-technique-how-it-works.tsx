@@ -27,7 +27,7 @@ export default function Post() {
         not acted on until the pomodoro ends.
       </p>
       <p>
-        Use our <a href='/tools/pomodoro-timer'>Pomodoro Timer</a> to run timed
+        Use our <a href="/tools/pomodoro-timer">Pomodoro Timer</a> to run timed
         sessions with automatic short and long break tracking.
       </p>
 
@@ -121,7 +121,7 @@ export default function Post() {
         The Pomodoro Technique is effective precisely because it's simple it
         removes the decision-making overhead around when to start, when to stop,
         and when to take breaks. Use the{" "}
-        <a href='/tools/pomodoro-timer'>Pomodoro Timer</a> to run sessions with
+        <a href="/tools/pomodoro-timer">Pomodoro Timer</a> to run sessions with
         automatic break tracking, and commit to the single-task focus that makes
         each 25-minute block genuinely productive.
       </p>

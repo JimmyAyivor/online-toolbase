@@ -23,7 +23,7 @@ export default function Post() {
         £12,000 in 24 months requires approximately £465/month rather than £500.
       </p>
       <p>
-        Our <a href='/tools/savings-goal-calculator'>Savings Goal Calculator</a>{" "}
+        Our <a href="/tools/savings-goal-calculator">Savings Goal Calculator</a>{" "}
         handles both cases with and without interest and shows how long it takes
         at different monthly contribution levels.
       </p>
@@ -125,7 +125,7 @@ export default function Post() {
       <p>
         A savings goal becomes achievable when it has a specific amount, a
         timeline, and a monthly contribution that makes the maths work. Use the{" "}
-        <a href='/tools/savings-goal-calculator'>Savings Goal Calculator</a> to
+        <a href="/tools/savings-goal-calculator">Savings Goal Calculator</a> to
         find the right monthly contribution for your goal and timeline, then
         automate the transfer so the plan runs without relying on monthly
         decisions.

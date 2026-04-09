@@ -120,7 +120,7 @@ export default function Post() {
       <p>
         The best hashtags for your content are specific to your niche, mid-tier
         in size, and used by the audience you want to reach. Our{" "}
-        <a href='/tools/hashtag-generator'>Hashtag Generator</a> analyses your
+        <a href="/tools/hashtag-generator">Hashtag Generator</a> analyses your
         topic and suggests relevant hashtags across platforms, mixing different
         size tiers for optimal range. It saves the research time of manually
         exploring hashtag sizes in the app.

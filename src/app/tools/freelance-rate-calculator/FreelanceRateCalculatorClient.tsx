@@ -35,23 +35,23 @@ export default function FreelanceRateCalculatorClient() {
   })();
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <Briefcase className='w-8 h-8 text-indigo-600' />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4">
+              <Briefcase className="w-8 h-8 text-indigo-600" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Freelance Rate Calculator
             </h2>
-            <p className='text-gray-600'>
+            <p className="text-gray-600">
               Find the hourly rate you need to charge to hit your income goal
             </p>
           </div>
 
-          <div className='grid md:grid-cols-2 gap-8'>
-            <div className='space-y-4'>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-4">
               {[
                 {
                   label: "Desired annual take-home income ($)",
@@ -69,20 +69,20 @@ export default function FreelanceRateCalculatorClient() {
                 },
               ].map(({ label, val, set, placeholder, hint }) => (
                 <div key={label}>
-                  <label className='block text-sm font-medium text-gray-700 mb-1'>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
                     {label}
                   </label>
                   <input
-                    type='number'
-                    min='0'
+                    type="number"
+                    min="0"
                     value={val}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       set(e.target.value)
                     }
                     placeholder={placeholder}
-                    className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
+                    className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   />
-                  <p className='text-xs text-gray-400 mt-1'>{hint}</p>
+                  <p className="text-xs text-gray-400 mt-1">{hint}</p>
                 </div>
               ))}
               {[
@@ -112,33 +112,33 @@ export default function FreelanceRateCalculatorClient() {
                 },
               ].map(({ label, val, set, placeholder }) => (
                 <div key={label}>
-                  <label className='block text-sm font-medium text-gray-700 mb-1'>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
                     {label}
                   </label>
                   <input
-                    type='number'
-                    min='0'
+                    type="number"
+                    min="0"
                     value={val}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       set(e.target.value)
                     }
                     placeholder={placeholder}
-                    className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
+                    className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   />
                 </div>
               ))}
             </div>
 
             {result && (
-              <div className='space-y-3'>
-                <div className='bg-indigo-50 border-2 border-indigo-100 rounded-xl p-5 text-center'>
-                  <p className='text-xs text-gray-500 mb-1'>
+              <div className="space-y-3">
+                <div className="bg-indigo-50 border-2 border-indigo-100 rounded-xl p-5 text-center">
+                  <p className="text-xs text-gray-500 mb-1">
                     Minimum hourly rate
                   </p>
-                  <p className='text-5xl font-black text-indigo-700'>
+                  <p className="text-5xl font-black text-indigo-700">
                     ${fmt(result.hourlyRate)}
                   </p>
-                  <p className='text-sm text-gray-500 mt-1'>
+                  <p className="text-sm text-gray-500 mt-1">
                     per billable hour
                   </p>
                 </div>
@@ -156,13 +156,13 @@ export default function FreelanceRateCalculatorClient() {
                 ].map(({ label, value }) => (
                   <div
                     key={label}
-                    className='flex justify-between items-center bg-gray-50 rounded-xl px-4 py-3'
+                    className="flex justify-between items-center bg-gray-50 rounded-xl px-4 py-3"
                   >
-                    <span className='text-sm text-gray-600'>{label}</span>
-                    <span className='font-bold text-gray-900'>{value}</span>
+                    <span className="text-sm text-gray-600">{label}</span>
+                    <span className="font-bold text-gray-900">{value}</span>
                   </div>
                 ))}
-                <div className='bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 text-xs text-amber-800'>
+                <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 text-xs text-amber-800">
                   <strong>Note:</strong> This is your minimum viable rate. Add a
                   20–30% buffer for slow periods, scope creep, and
                   under-estimation.
@@ -180,14 +180,14 @@ export default function FreelanceRateCalculatorClient() {
               setWeeksPerYear("48");
               setBillablePct("75");
             }}
-            className='flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-600 transition-colors mt-6 mb-8'
+            className="flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-600 transition-colors mt-6 mb-8"
           >
-            <RotateCcw className='w-4 h-4' />
+            <RotateCcw className="w-4 h-4" />
             Reset
           </button>
-          <div className='p-4 bg-gray-50 rounded-lg border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Freelance rate fundamentals:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="p-4 bg-gray-50 rounded-lg border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2">Freelance rate fundamentals:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Billable hours are typically 60–75% of total working hours after
                 admin, marketing, and downtime

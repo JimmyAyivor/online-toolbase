@@ -36,7 +36,7 @@ export default function Post() {
       <p>
         Each 25-minute block is one "Pomodoro." You track them a simple tick
         mark is enough. Our free{" "}
-        <a href='/tools/pomodoro-timer'>Pomodoro Timer</a> handles the timing
+        <a href="/tools/pomodoro-timer">Pomodoro Timer</a> handles the timing
         and session counting automatically.
       </p>
 
@@ -151,7 +151,7 @@ export default function Post() {
         day is. This makes planning and project estimation much more accurate.
       </p>
       <p>
-        Start with our free <a href='/tools/pomodoro-timer'>Pomodoro Timer</a>{" "}
+        Start with our free <a href="/tools/pomodoro-timer">Pomodoro Timer</a>{" "}
         just hit start and it handles the rest.
       </p>
     </>

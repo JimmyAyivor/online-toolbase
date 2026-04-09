@@ -94,59 +94,62 @@ export default function KeywordDensityCheckerPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-teal-600 transition-colors'>
+            <a href="/" className="hover:text-teal-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/seo'
-              className='hover:text-teal-600 transition-colors'
+              href="/tools/category/seo"
+              className="hover:text-teal-600 transition-colors"
             >
               SEO Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Keyword Density Checker
             </span>
           </li>
         </ol>
       </nav>
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-teal-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-teal-600 uppercase tracking-widest mb-1">
           Free SEO Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Keyword Density Checker — Analyse Keyword Frequency in Any Text
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Paste any text to see keyword frequency, density percentages, and word
           count — instantly identify keyword stuffing or missed opportunities.
         </p>
       </header>
       <SidebarAdLayout>
-        <main id='main-content' aria-label='Keyword Density Checker tool'>
+        <main id="main-content" aria-label="Keyword Density Checker tool">
           <KeywordDensityCheckerClient />
         </main>
         <PageEditorial />
-              <ToolEngagement toolSlug="keyword-density-checker" toolName="Keyword Density Checker" />
+        <ToolEngagement
+          toolSlug="keyword-density-checker"
+          toolName="Keyword Density Checker"
+        />
       </SidebarAdLayout>
     </>
   );

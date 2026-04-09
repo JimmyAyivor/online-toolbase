@@ -6,226 +6,279 @@ import dynamic from "next/dynamic";
 import type { ComponentType } from "react";
 
 export const toolClientComponents: Record<string, ComponentType<any>> = {
-  "age-calculator": dynamic(() =>
-    import("@/app/tools/age-calculator/AgeCalculatorClient"),
+  "age-calculator": dynamic(
+    () => import("@/app/tools/age-calculator/AgeCalculatorClient"),
   ),
-  "aspect-ratio-calculator": dynamic(() =>
-    import("@/app/tools/aspect-ratio-calculator/AspectRatioCalculatorClient"),
+  "aspect-ratio-calculator": dynamic(
+    () =>
+      import("@/app/tools/aspect-ratio-calculator/AspectRatioCalculatorClient"),
   ),
-  "base64-encoder-decoder": dynamic(() =>
-    import("@/app/tools/base64-encoder-decoder/Base64EncoderDecoderClient"),
+  "base64-encoder-decoder": dynamic(
+    () =>
+      import("@/app/tools/base64-encoder-decoder/Base64EncoderDecoderClient"),
   ),
-  "bmi-calculator": dynamic(() =>
-    import("@/app/tools/bmi-calculator/BmiCalculatorClient"),
+  "bmi-calculator": dynamic(
+    () => import("@/app/tools/bmi-calculator/BmiCalculatorClient"),
   ),
-  "body-fat-calculator": dynamic(() =>
-    import("@/app/tools/body-fat-calculator/BodyFatCalculatorClient"),
+  "body-fat-calculator": dynamic(
+    () => import("@/app/tools/body-fat-calculator/BodyFatCalculatorClient"),
   ),
-  "background-remover": dynamic(() =>
-    import("@/app/tools/background-remover/BackgroundRemoverClient"),
+  "background-remover": dynamic(
+    () => import("@/app/tools/background-remover/BackgroundRemoverClient"),
   ),
-  "binary-hex-converter": dynamic(() =>
-    import("@/app/tools/binary-hex-converter/BinaryHexConverterClient"),
+  "binary-hex-converter": dynamic(
+    () => import("@/app/tools/binary-hex-converter/BinaryHexConverterClient"),
   ),
-  "calorie-macro-calculator": dynamic(() =>
-    import("@/app/tools/calorie-macro-calculator/CalorieMacroCalculatorClient"),
+  "calorie-macro-calculator": dynamic(
+    () =>
+      import("@/app/tools/calorie-macro-calculator/CalorieMacroCalculatorClient"),
   ),
-  "caption-generator": dynamic(() =>
-    import("@/app/tools/caption-generator/CaptionGeneratorClient"),
+  "caption-generator": dynamic(
+    () => import("@/app/tools/caption-generator/CaptionGeneratorClient"),
   ),
-  "color-palette-generator": dynamic(() =>
-    import("@/app/tools/color-palette-generator/ColorPaletteGeneratorClient"),
+  "color-palette-generator": dynamic(
+    () =>
+      import("@/app/tools/color-palette-generator/ColorPaletteGeneratorClient"),
   ),
-  "compound-interest-calculator": dynamic(() =>
-    import(
-      "@/app/tools/compound-interest-calculator/CompoundInterestCalculatorClient"
-    ),
+  "compound-interest-calculator": dynamic(
+    () =>
+      import("@/app/tools/compound-interest-calculator/CompoundInterestCalculatorClient"),
   ),
-  "content-calendar-planner": dynamic(() =>
-    import("@/app/tools/content-calendar-planner/ContentCalendarPlannerClient"),
+  "content-calendar-planner": dynamic(
+    () =>
+      import("@/app/tools/content-calendar-planner/ContentCalendarPlannerClient"),
   ),
-  "cron-expression-builder": dynamic(() =>
-    import("@/app/tools/cron-expression-builder/CronExpressionBuilderClient"),
+  "cron-expression-builder": dynamic(
+    () =>
+      import("@/app/tools/cron-expression-builder/CronExpressionBuilderClient"),
   ),
-  "currency-converter": dynamic(() =>
-    import("@/app/tools/currency-converter/CurrencyConverterClient"),
+  "currency-converter": dynamic(
+    () => import("@/app/tools/currency-converter/CurrencyConverterClient"),
   ),
-  "date-difference-calculator": dynamic(() =>
-    import("@/app/tools/date-difference-calculator/DateDifferenceCalculatorClient"),
+  "date-difference-calculator": dynamic(
+    () =>
+      import("@/app/tools/date-difference-calculator/DateDifferenceCalculatorClient"),
   ),
-  "dice-roller": dynamic(() => import("@/app/tools/dice-roller/DiceRollerClient")),
-  "discount-calculator": dynamic(() =>
-    import("@/app/tools/discount-calculator/DiscountCalculatorClient"),
+  "dice-roller": dynamic(
+    () => import("@/app/tools/dice-roller/DiceRollerClient"),
   ),
-  "email-validator": dynamic(() =>
-    import("@/app/tools/email-validator/EmailValidatorClient"),
+  "discount-calculator": dynamic(
+    () => import("@/app/tools/discount-calculator/DiscountCalculatorClient"),
   ),
-  "engagement-rate-calculator": dynamic(() =>
-    import("@/app/tools/engagement-rate-calculator/EngagementRateCalculatorClient"),
+  "email-validator": dynamic(
+    () => import("@/app/tools/email-validator/EmailValidatorClient"),
   ),
-  "essay-title-generator": dynamic(() =>
-    import("@/app/tools/essay-title-generator/EssayTitleGeneratorClient"),
+  "engagement-rate-calculator": dynamic(
+    () =>
+      import("@/app/tools/engagement-rate-calculator/EngagementRateCalculatorClient"),
   ),
-  "facebook-ad-copy-generator": dynamic(() =>
-    import("@/app/tools/facebook-ad-copy-generator/FacebookAdCopyGeneratorClient"),
+  "essay-title-generator": dynamic(
+    () => import("@/app/tools/essay-title-generator/EssayTitleGeneratorClient"),
   ),
-  "favicon-generator": dynamic(() =>
-    import("@/app/tools/favicon-generator/FaviconGeneratorClient"),
+  "facebook-ad-copy-generator": dynamic(
+    () =>
+      import("@/app/tools/facebook-ad-copy-generator/FacebookAdCopyGeneratorClient"),
   ),
-  "fraction-calculator": dynamic(() =>
-    import("@/app/tools/fraction-calculator/FractionCalculatorClient"),
+  "favicon-generator": dynamic(
+    () => import("@/app/tools/favicon-generator/FaviconGeneratorClient"),
   ),
-  "grammar-spell-checker": dynamic(() =>
-    import("@/app/tools/grammar-spell-checker/GrammarSpellCheckerClient"),
+  "fraction-calculator": dynamic(
+    () => import("@/app/tools/fraction-calculator/FractionCalculatorClient"),
   ),
-  "gpa-calculator": dynamic(() => import("@/app/tools/gpa-calculator/GpaCalculatorClient")),
-  "hash-generator": dynamic(() => import("@/app/tools/hash-generator/HashGeneratorClient")),
-  "hashtag-generator": dynamic(() =>
-    import("@/app/tools/hashtag-generator/HashtagGeneratorClient"),
+  "grammar-spell-checker": dynamic(
+    () => import("@/app/tools/grammar-spell-checker/GrammarSpellCheckerClient"),
   ),
-  "hex-color-code-generator": dynamic(() =>
-    import("@/app/tools/hex-color-code-generator/HexColorCodeGeneratorClient"),
+  "gpa-calculator": dynamic(
+    () => import("@/app/tools/gpa-calculator/GpaCalculatorClient"),
   ),
-  "html-entity-encoder": dynamic(() =>
-    import("@/app/tools/html-entity-encoder/HtmlEntityEncoderClient"),
+  "hash-generator": dynamic(
+    () => import("@/app/tools/hash-generator/HashGeneratorClient"),
   ),
-  "image-compressor": dynamic(() =>
-    import("@/app/tools/image-compressor/ImageCompressorClient"),
+  "hashtag-generator": dynamic(
+    () => import("@/app/tools/hashtag-generator/HashtagGeneratorClient"),
   ),
-  "image-cropper-resizer": dynamic(() =>
-    import("@/app/tools/image-cropper-resizer/ImageCropperResizerClient"),
+  "hex-color-code-generator": dynamic(
+    () =>
+      import("@/app/tools/hex-color-code-generator/HexColorCodeGeneratorClient"),
   ),
-  "image-format-converter": dynamic(() =>
-    import("@/app/tools/image-format-converter/ImageFormatConverterClient"),
+  "html-entity-encoder": dynamic(
+    () => import("@/app/tools/html-entity-encoder/HtmlEntityEncoderClient"),
   ),
-  "instagram-post-planner": dynamic(() =>
-    import("@/app/tools/instagram-post-planner/InstagramPostPlannerClient"),
+  "image-compressor": dynamic(
+    () => import("@/app/tools/image-compressor/ImageCompressorClient"),
   ),
-  "invoice-generator": dynamic(() =>
-    import("@/app/tools/invoice-generator/InvoiceGeneratorClient"),
+  "image-cropper-resizer": dynamic(
+    () => import("@/app/tools/image-cropper-resizer/ImageCropperResizerClient"),
   ),
-  "ip-address-lookup": dynamic(() =>
-    import("@/app/tools/ip-address-lookup/IpAddressLookupClient"),
+  "image-format-converter": dynamic(
+    () =>
+      import("@/app/tools/image-format-converter/ImageFormatConverterClient"),
   ),
-  "json-formatter-validator": dynamic(() =>
-    import("@/app/tools/json-formatter-validator/JsonFormatterValidatorClient"),
+  "instagram-post-planner": dynamic(
+    () =>
+      import("@/app/tools/instagram-post-planner/InstagramPostPlannerClient"),
   ),
-  "jwt-decoder": dynamic(() => import("@/app/tools/jwt-decoder/JwtDecoderClient")),
-  "linkedin-post-formatter": dynamic(() =>
-    import("@/app/tools/linkedin-post-formatter/LinkedInPostFormatterClient"),
+  "invoice-generator": dynamic(
+    () => import("@/app/tools/invoice-generator/InvoiceGeneratorClient"),
   ),
-  "loan-mortgage-calculator": dynamic(() =>
-    import("@/app/tools/loan-mortgage-calculator/LoanMortgageCalculatorClient"),
+  "ip-address-lookup": dynamic(
+    () => import("@/app/tools/ip-address-lookup/IpAddressLookupClient"),
   ),
-  "lorem-ipsum-generator": dynamic(() =>
-    import("@/app/tools/lorem-ipsum-generator/LoremIpsumGeneratorClient"),
+  "json-formatter-validator": dynamic(
+    () =>
+      import("@/app/tools/json-formatter-validator/JsonFormatterValidatorClient"),
   ),
-  "markdown-to-html-converter": dynamic(() =>
-    import("@/app/tools/markdown-to-html-converter/MarkdownToHtmlConverterClient"),
+  "jwt-decoder": dynamic(
+    () => import("@/app/tools/jwt-decoder/JwtDecoderClient"),
   ),
-  "meme-generator": dynamic(() => import("@/app/tools/meme-generator/MemeGeneratorClient")),
-  "meta-tag-generator": dynamic(() =>
-    import("@/app/tools/meta-tag-generator/MetaTagGeneratorClient"),
+  "linkedin-post-formatter": dynamic(
+    () =>
+      import("@/app/tools/linkedin-post-formatter/LinkedInPostFormatterClient"),
   ),
-  "mortgage-calculator": dynamic(() =>
-    import("@/app/tools/mortgage-calculator/MortgageCalculatorClient"),
+  "loan-mortgage-calculator": dynamic(
+    () =>
+      import("@/app/tools/loan-mortgage-calculator/LoanMortgageCalculatorClient"),
   ),
-  "paraphrasing-tool": dynamic(() =>
-    import("@/app/tools/paraphrasing-tool/ParaphrasingToolClient"),
+  "lorem-ipsum-generator": dynamic(
+    () => import("@/app/tools/lorem-ipsum-generator/LoremIpsumGeneratorClient"),
   ),
-  "password-generator": dynamic(() =>
-    import("@/app/tools/password-generator/PasswordGeneratorClient"),
+  "markdown-to-html-converter": dynamic(
+    () =>
+      import("@/app/tools/markdown-to-html-converter/MarkdownToHtmlConverterClient"),
   ),
-  "percentage-calculator": dynamic(() =>
-    import("@/app/tools/percentage-calculator/PercentageCalculatorClient"),
+  "meme-generator": dynamic(
+    () => import("@/app/tools/meme-generator/MemeGeneratorClient"),
   ),
-  "pdf-merger-splitter": dynamic(() =>
-    import("@/app/tools/pdf-merger-splitter/PdfMergerSplitterClient"),
+  "meta-tag-generator": dynamic(
+    () => import("@/app/tools/meta-tag-generator/MetaTagGeneratorClient"),
   ),
-  "plagiarism-checker": dynamic(() =>
-    import("@/app/tools/plagiarism-checker/PlagiarismCheckerClient"),
+  "mortgage-calculator": dynamic(
+    () => import("@/app/tools/mortgage-calculator/MortgageCalculatorClient"),
   ),
-  "pomodoro-timer": dynamic(() => import("@/app/tools/pomodoro-timer/PomodoroTimerClient")),
-  "profile-picture-resizer": dynamic(() =>
-    import("@/app/tools/profile-picture-resizer/ProfilePictureResizerClient"),
+  "paraphrasing-tool": dynamic(
+    () => import("@/app/tools/paraphrasing-tool/ParaphrasingToolClient"),
   ),
-  "qr-code-generator": dynamic(() =>
-    import("@/app/tools/qr-code-generator/QrCodeGeneratorClient"),
+  "password-generator": dynamic(
+    () => import("@/app/tools/password-generator/PasswordGeneratorClient"),
   ),
-  "random-name-generator": dynamic(() =>
-    import("@/app/tools/random-name-generator/RandomNameGeneratorClient"),
+  "percentage-calculator": dynamic(
+    () =>
+      import("@/app/tools/percentage-calculator/PercentageCalculatorClient"),
   ),
-  "random-number-generator": dynamic(() =>
-    import("@/app/tools/random-number-generator/RandomNumberGeneratorClient"),
+  "pdf-merger-splitter": dynamic(
+    () => import("@/app/tools/pdf-merger-splitter/PdfMergerSplitterClient"),
   ),
-  "reading-time-estimator": dynamic(() =>
-    import("@/app/tools/reading-time-estimator/ReadingTimeEstimatorClient"),
+  "plagiarism-checker": dynamic(
+    () => import("@/app/tools/plagiarism-checker/PlagiarismCheckerClient"),
   ),
-  "regex-tester": dynamic(() => import("@/app/tools/regex-tester/RegexTesterClient")),
-  "resume-builder": dynamic(() => import("@/app/tools/resume-builder/ResumeBuilderClient")),
-  "rhyme-finder": dynamic(() => import("@/app/tools/rhyme-finder/RhymeFinderClient")),
-  "roi-calculator": dynamic(() => import("@/app/tools/roi-calculator/RoiCalculatorClient")),
-  "sales-tax-calculator": dynamic(() =>
-    import("@/app/tools/sales-tax-calculator/SalesTaxCalculatorClient"),
+  "pomodoro-timer": dynamic(
+    () => import("@/app/tools/pomodoro-timer/PomodoroTimerClient"),
   ),
-  "scientific-calculator": dynamic(() =>
-    import("@/app/tools/scientific-calculator/ScientificCalculatorClient"),
+  "profile-picture-resizer": dynamic(
+    () =>
+      import("@/app/tools/profile-picture-resizer/ProfilePictureResizerClient"),
   ),
-  "sentence-counter": dynamic(() =>
-    import("@/app/tools/sentence-counter/SentenceCounterClient"),
+  "qr-code-generator": dynamic(
+    () => import("@/app/tools/qr-code-generator/QrCodeGeneratorClient"),
   ),
-  "signature-generator": dynamic(() =>
-    import("@/app/tools/signature-generator/SignatureGeneratorClient"),
+  "random-name-generator": dynamic(
+    () => import("@/app/tools/random-name-generator/RandomNameGeneratorClient"),
   ),
-  "social-media-audit": dynamic(() =>
-    import("@/app/tools/social-media-audit/SocialMediaAuditClient"),
+  "random-number-generator": dynamic(
+    () =>
+      import("@/app/tools/random-number-generator/RandomNumberGeneratorClient"),
   ),
-  "social-media-bio-generator": dynamic(() =>
-    import("@/app/tools/social-media-bio-generator/SocialMediaBioGeneratorClient"),
+  "reading-time-estimator": dynamic(
+    () =>
+      import("@/app/tools/reading-time-estimator/ReadingTimeEstimatorClient"),
   ),
-  "social-media-character-counter": dynamic(() =>
-    import("@/app/tools/social-media-character-counter/SocialMediaCharacterCounterClient"),
+  "regex-tester": dynamic(
+    () => import("@/app/tools/regex-tester/RegexTesterClient"),
   ),
-  "text-case-converter": dynamic(() =>
-    import("@/app/tools/text-case-converter/TextCaseConverterClient"),
+  "resume-builder": dynamic(
+    () => import("@/app/tools/resume-builder/ResumeBuilderClient"),
   ),
-  "text-difference-checker": dynamic(() =>
-    import("@/app/tools/text-difference-checker/TextDifferenceCheckerClient"),
+  "rhyme-finder": dynamic(
+    () => import("@/app/tools/rhyme-finder/RhymeFinderClient"),
   ),
-  "text-summarizer": dynamic(() =>
-    import("@/app/tools/text-summarizer/TextSummarizerClient"),
+  "roi-calculator": dynamic(
+    () => import("@/app/tools/roi-calculator/RoiCalculatorClient"),
   ),
-  "text-to-bullet-points": dynamic(() =>
-    import("@/app/tools/text-to-bullet-points/TextToBulletPointsClient"),
+  "sales-tax-calculator": dynamic(
+    () => import("@/app/tools/sales-tax-calculator/SalesTaxCalculatorClient"),
   ),
-  "tiktok-hook-generator": dynamic(() =>
-    import("@/app/tools/tiktok-hook-generator/TikTokHookGeneratorClient"),
+  "scientific-calculator": dynamic(
+    () =>
+      import("@/app/tools/scientific-calculator/ScientificCalculatorClient"),
   ),
-  "time-zone-converter": dynamic(() =>
-    import("@/app/tools/time-zone-converter/TimeZoneConverterClient"),
+  "sentence-counter": dynamic(
+    () => import("@/app/tools/sentence-counter/SentenceCounterClient"),
   ),
-  "tip-calculator": dynamic(() => import("@/app/tools/tip-calculator/TipCalculatorClient")),
-  "unit-converter": dynamic(() => import("@/app/tools/unit-converter/UnitConverterClient")),
-  "url-encoder-decoder": dynamic(() =>
-    import("@/app/tools/url-encoder-decoder/UrlEncoderDecoderClient"),
+  "signature-generator": dynamic(
+    () => import("@/app/tools/signature-generator/SignatureGeneratorClient"),
   ),
-  "uuid-guid-generator": dynamic(() =>
-    import("@/app/tools/uuid-guid-generator/UuidGuidGeneratorClient"),
+  "social-media-audit": dynamic(
+    () => import("@/app/tools/social-media-audit/SocialMediaAuditClient"),
   ),
-  "vat-calculator": dynamic(() => import("@/app/tools/vat-calculator/VatCalculatorClient")),
-  "viral-hook-generator": dynamic(() =>
-    import("@/app/tools/viral-hook-generator/ViralHookGeneratorClient"),
+  "social-media-bio-generator": dynamic(
+    () =>
+      import("@/app/tools/social-media-bio-generator/SocialMediaBioGeneratorClient"),
   ),
-  "word-character-counter": dynamic(() =>
-    import("@/app/tools/word-character-counter/WordCharacterCounterClient"),
+  "social-media-character-counter": dynamic(
+    () =>
+      import("@/app/tools/social-media-character-counter/SocialMediaCharacterCounterClient"),
   ),
-  "word-frequency-counter": dynamic(() =>
-    import("@/app/tools/word-frequency-counter/WordFrequencyCounterClient"),
+  "text-case-converter": dynamic(
+    () => import("@/app/tools/text-case-converter/TextCaseConverterClient"),
   ),
-  "writing-prompt-generator": dynamic(() =>
-    import("@/app/tools/writing-prompt-generator/WritingPromptGeneratorClient"),
+  "text-difference-checker": dynamic(
+    () =>
+      import("@/app/tools/text-difference-checker/TextDifferenceCheckerClient"),
   ),
-  "youtube-title-description-generator": dynamic(() =>
-    import("@/app/tools/youtube-title-description-generator/YouTubeTitleDescriptionGeneratorClient"),
+  "text-summarizer": dynamic(
+    () => import("@/app/tools/text-summarizer/TextSummarizerClient"),
+  ),
+  "text-to-bullet-points": dynamic(
+    () => import("@/app/tools/text-to-bullet-points/TextToBulletPointsClient"),
+  ),
+  "tiktok-hook-generator": dynamic(
+    () => import("@/app/tools/tiktok-hook-generator/TikTokHookGeneratorClient"),
+  ),
+  "time-zone-converter": dynamic(
+    () => import("@/app/tools/time-zone-converter/TimeZoneConverterClient"),
+  ),
+  "tip-calculator": dynamic(
+    () => import("@/app/tools/tip-calculator/TipCalculatorClient"),
+  ),
+  "unit-converter": dynamic(
+    () => import("@/app/tools/unit-converter/UnitConverterClient"),
+  ),
+  "url-encoder-decoder": dynamic(
+    () => import("@/app/tools/url-encoder-decoder/UrlEncoderDecoderClient"),
+  ),
+  "uuid-guid-generator": dynamic(
+    () => import("@/app/tools/uuid-guid-generator/UuidGuidGeneratorClient"),
+  ),
+  "vat-calculator": dynamic(
+    () => import("@/app/tools/vat-calculator/VatCalculatorClient"),
+  ),
+  "viral-hook-generator": dynamic(
+    () => import("@/app/tools/viral-hook-generator/ViralHookGeneratorClient"),
+  ),
+  "word-character-counter": dynamic(
+    () =>
+      import("@/app/tools/word-character-counter/WordCharacterCounterClient"),
+  ),
+  "word-frequency-counter": dynamic(
+    () =>
+      import("@/app/tools/word-frequency-counter/WordFrequencyCounterClient"),
+  ),
+  "writing-prompt-generator": dynamic(
+    () =>
+      import("@/app/tools/writing-prompt-generator/WritingPromptGeneratorClient"),
+  ),
+  "youtube-title-description-generator": dynamic(
+    () =>
+      import("@/app/tools/youtube-title-description-generator/YouTubeTitleDescriptionGeneratorClient"),
   ),
 };

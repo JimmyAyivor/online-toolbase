@@ -41,7 +41,7 @@ export default function Post() {
       </ul>
       <p>
         Our{" "}
-        <a href='/tools/freelance-rate-calculator'>Freelance Rate Calculator</a>{" "}
+        <a href="/tools/freelance-rate-calculator">Freelance Rate Calculator</a>{" "}
         works through all of these inputs to produce a minimum hourly and daily
         rate.
       </p>
@@ -133,7 +133,7 @@ export default function Post() {
       <p>
         Build your rate from your actual income requirements upward, then check
         it against market rates. The{" "}
-        <a href='/tools/freelance-rate-calculator'>Freelance Rate Calculator</a>{" "}
+        <a href="/tools/freelance-rate-calculator">Freelance Rate Calculator</a>{" "}
         structures all the inputs target income, tax, expenses, non-billable
         time, and paid leave into a minimum viable rate. Use that as your floor,
         and price your value above it.

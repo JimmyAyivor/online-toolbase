@@ -16,7 +16,7 @@ export default function Post() {
         A text repeater takes any string of text a word, a phrase, a sentence, a
         paragraph and outputs it repeated a specified number of times, with an
         optional separator between each repetition. Our{" "}
-        <a href='/tools/text-repeater'>Text Repeater</a> lets you set the text,
+        <a href="/tools/text-repeater">Text Repeater</a> lets you set the text,
         the number of repetitions, and the separator (newline, comma, space, or
         custom) in any combination.
       </p>
@@ -39,7 +39,7 @@ export default function Post() {
         you want to test how a specific word or phrase looks repeated in a
         design context repeated navigation labels, repeated tags, repeated list
         items a text repeater gives you exactly the volume you need. Related:
-        our <a href='/tools/lorem-ipsum-generator'>Lorem Ipsum Generator</a>{" "}
+        our <a href="/tools/lorem-ipsum-generator">Lorem Ipsum Generator</a>{" "}
         handles general placeholder text; the text repeater is better when you
         need a specific piece of text reproduced.
       </p>
@@ -126,7 +126,7 @@ export default function Post() {
       <p>
         Text repetition is a small task that comes up more often than expected
         in design, development, and content work. The{" "}
-        <a href='/tools/text-repeater'>Text Repeater</a> handles it instantly
+        <a href="/tools/text-repeater">Text Repeater</a> handles it instantly
         with flexible separator options eliminating the tedium of manual
         repetition for test data, UI testing, formatting, and creative
         applications alike.

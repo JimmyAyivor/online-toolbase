@@ -51,7 +51,7 @@ export default function Post() {
       </ul>
       <p>
         Our{" "}
-        <a href='/tools/email-subject-line-generator'>
+        <a href="/tools/email-subject-line-generator">
           Email Subject Line Generator
         </a>{" "}
         produces high-converting subject line variations for any campaign type
@@ -118,7 +118,7 @@ export default function Post() {
       <p>
         A subject line that gets opened is specific, relevant, concise, and
         either promises value or creates curiosity. Use the{" "}
-        <a href='/tools/email-subject-line-generator'>
+        <a href="/tools/email-subject-line-generator">
           Email Subject Line Generator
         </a>{" "}
         for variations, A/B test regularly, and always pair subject lines with

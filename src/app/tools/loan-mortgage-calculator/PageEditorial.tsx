@@ -28,26 +28,26 @@ function QRModal({ onClose }: { onClose: () => void }) {
   }, []);
   return (
     <div
-      className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm'
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <div className='relative bg-white rounded-3xl shadow-2xl p-8 mx-4 max-w-xs w-full text-center'>
+      <div className="relative bg-white rounded-3xl shadow-2xl p-8 mx-4 max-w-xs w-full text-center">
         <button
           onClick={onClose}
-          className='absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500'
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500"
         >
           ✕
         </button>
-        <h3 className='text-lg font-black text-gray-900 mb-1'>
+        <h3 className="text-lg font-black text-gray-900 mb-1">
           Take it with you
         </h3>
-        <p className='text-sm text-gray-400 mb-5'>
+        <p className="text-sm text-gray-400 mb-5">
           Scan to open the {TOOL_NAME} on mobile
         </p>
-        <div className='inline-block rounded-2xl overflow-hidden border-4 border-emerald-100 shadow-inner mb-5'>
+        <div className="inline-block rounded-2xl overflow-hidden border-4 border-emerald-100 shadow-inner mb-5">
           <canvas ref={canvasRef} />
         </div>
-        <p className='text-xs text-gray-300 font-mono break-all'>{TOOL_URL}</p>
+        <p className="text-xs text-gray-300 font-mono break-all">{TOOL_URL}</p>
       </div>
     </div>
   );
@@ -90,23 +90,23 @@ function ShareBar() {
   return (
     <>
       {qrOpen && <QRModal onClose={() => setQrOpen(false)} />}
-      <div className='bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-5 mb-6'>
-        <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4'>
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-5 mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <p className='text-sm font-bold text-gray-900 mb-0.5'>
+            <p className="text-sm font-bold text-gray-900 mb-0.5">
               Found this useful?
             </p>
-            <p className='text-xs text-gray-400'>
+            <p className="text-xs text-gray-400">
               Share the tool or scan to open on your phone
             </p>
           </div>
-          <div className='flex flex-wrap items-center gap-2'>
+          <div className="flex flex-wrap items-center gap-2">
             {SHARES.map(({ label, href, bg }) => (
               <a
                 key={label}
                 href={href}
-                target='_blank'
-                rel='noopener noreferrer'
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`inline-flex items-center px-3 py-2 rounded-xl text-white text-xs font-semibold transition-all shadow-sm hover:-translate-y-0.5 ${bg}`}
               >
                 {label}
@@ -114,17 +114,17 @@ function ShareBar() {
             ))}
             <button
               onClick={copyLink}
-              className='px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold'
+              className="px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold"
             >
               {copied ? (
-                <span className='text-emerald-600'>✓ Copied!</span>
+                <span className="text-emerald-600">✓ Copied!</span>
               ) : (
                 "Copy link"
               )}
             </button>
             <button
               onClick={() => setQrOpen(true)}
-              className='hidden sm:block px-3 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xs font-semibold hover:-translate-y-0.5 transition-all'
+              className="hidden sm:block px-3 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xs font-semibold hover:-translate-y-0.5 transition-all"
             >
               Scan QR
             </button>
@@ -174,27 +174,27 @@ const FAQS = [
 function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
   return (
-    <div className='bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10'>
-      <h2 className='text-2xl font-bold text-gray-900 mb-6'>
+    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10">
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">
         Frequently Asked Questions
       </h2>
-      <div className='space-y-3'>
+      <div className="space-y-3">
         {FAQS.map((f, i) => (
           <div
             key={i}
-            className='border border-gray-100 rounded-xl overflow-hidden'
+            className="border border-gray-100 rounded-xl overflow-hidden"
           >
             <button
-              className='w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors'
+              className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
               onClick={() => setOpen(open === i ? null : i)}
             >
-              <span className='font-semibold text-gray-900 text-sm'>{f.q}</span>
-              <span className='text-emerald-600 text-lg shrink-0'>
+              <span className="font-semibold text-gray-900 text-sm">{f.q}</span>
+              <span className="text-emerald-600 text-lg shrink-0">
                 {open === i ? "−" : "+"}
               </span>
             </button>
             {open === i && (
-              <div className='px-5 pb-5 text-sm text-gray-600 leading-relaxed'>
+              <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed">
                 {f.a}
               </div>
             )}
@@ -208,91 +208,91 @@ function FAQSection() {
 export default function PageEditorial() {
   return (
     <>
-      <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
-        <div className='hidden sm:block'>
-          <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
+      <div className="max-w-6xl mx-auto px-4 mt-6 flex justify-center">
+        <div className="hidden sm:block">
+          <AdSlot variant="rectangle" slotId={SLOT_BELOW_TOOL} />
         </div>
-        <div className='block sm:hidden'>
-          <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
+        <div className="block sm:hidden">
+          <AdSlot variant="mediumrectangle" slotId={SLOT_BELOW_TOOL} />
         </div>
       </div>
-      <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
+      <div className="max-w-6xl mx-auto px-4 mt-4 flex justify-center">
         <AdSlot
-          variant='leaderboard'
+          variant="leaderboard"
           slotId={SLOT_LEADERBOARD}
-          className='hidden sm:flex'
+          className="hidden sm:flex"
         />
         <AdSlot
-          variant='mediumrectangle'
+          variant="mediumrectangle"
           slotId={SLOT_LEADERBOARD}
-          className='flex sm:hidden'
+          className="flex sm:hidden"
         />
       </div>
-      <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10'>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
         <ShareBar />
       </div>
 
       <section
-        id='how-to-use'
-        className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10'
+        id="how-to-use"
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10"
       >
-        <h2 className='text-4xl font-bold text-gray-900 mb-4 text-center'>
+        <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">
           How to Use the Loan & Mortgage Calculator
         </h2>
-        <p className='text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed'>
+        <p className="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed">
           Select the loan type, adjust the sliders for amount, down payment,
           rate, and term — the monthly payment, total cost, and first-year
           amortisation update instantly.
         </p>
 
-        <div className='space-y-6 mb-14'>
+        <div className="space-y-6 mb-14">
           {[
             {
               n: 1,
               title: "Select the loan type",
               body: "Click one of the three loan type buttons at the top: Home Mortgage, Auto Loan, or Personal Loan. The selected type is highlighted in emerald. The loan type is informational — it does not change the underlying calculation (which is the standard amortisation formula), but it helps you frame the inputs appropriately. Home mortgages typically have longer terms (15–30 years) and lower rates; auto loans are typically 3–7 years; personal loans are typically 1–7 years at higher rates.",
               enrich: (
-                <div className='overflow-x-auto rounded-xl border border-gray-100 text-sm'>
-                  <table className='w-full text-left'>
-                    <thead className='bg-gray-50'>
+                <div className="overflow-x-auto rounded-xl border border-gray-100 text-sm">
+                  <table className="w-full text-left">
+                    <thead className="bg-gray-50">
                       <tr>
-                        <th className='px-4 py-2 text-xs font-bold text-gray-500 uppercase'>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
                           Loan
                         </th>
-                        <th className='px-4 py-2 text-xs font-bold text-gray-500 uppercase'>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
                           Rate
                         </th>
-                        <th className='px-4 py-2 text-xs font-bold text-gray-500 uppercase'>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
                           Term
                         </th>
-                        <th className='px-4 py-2 text-xs font-bold text-gray-500 uppercase'>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
                           Monthly*
                         </th>
-                        <th className='px-4 py-2 text-xs font-bold text-gray-500 uppercase'>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
                           Total interest*
                         </th>
                       </tr>
                     </thead>
-                    <tbody className='divide-y divide-gray-50'>
+                    <tbody className="divide-y divide-gray-50">
                       {RATE_TABLE.map(
                         ([amount, rate, term, monthly, interest]) => (
                           <tr
                             key={`loan-${amount}-${rate}-${term}`}
-                            className='hover:bg-emerald-50'
+                            className="hover:bg-emerald-50"
                           >
-                            <td className='px-4 py-2 text-xs font-medium text-gray-900'>
+                            <td className="px-4 py-2 text-xs font-medium text-gray-900">
                               {amount}
                             </td>
-                            <td className='px-4 py-2 text-xs font-bold text-emerald-700'>
+                            <td className="px-4 py-2 text-xs font-bold text-emerald-700">
                               {rate}
                             </td>
-                            <td className='px-4 py-2 text-xs text-gray-600'>
+                            <td className="px-4 py-2 text-xs text-gray-600">
                               {term}yr
                             </td>
-                            <td className='px-4 py-2 text-xs font-mono text-gray-900'>
+                            <td className="px-4 py-2 text-xs font-mono text-gray-900">
                               {monthly}
                             </td>
-                            <td className='px-4 py-2 text-xs font-mono text-orange-700'>
+                            <td className="px-4 py-2 text-xs font-mono text-orange-700">
                               {interest}
                             </td>
                           </tr>
@@ -300,7 +300,7 @@ export default function PageEditorial() {
                       )}
                     </tbody>
                   </table>
-                  <p className='px-4 py-2 text-xs text-gray-400 italic'>
+                  <p className="px-4 py-2 text-xs text-gray-400 italic">
                     *Principal & interest only — excludes tax, insurance, and
                     PMI.
                   </p>
@@ -312,7 +312,7 @@ export default function PageEditorial() {
               title: "Set the loan amount and down payment",
               body: "Drag the Loan Amount slider between $10,000 and $1,000,000, or type a specific value. Then set the Down Payment — the slider maximum adjusts automatically to match the loan amount. The principal used in the calculation is the loan amount minus the down payment, shown in the Payment Breakdown as the principal portion. A down payment of at least 20% of the home purchase price typically eliminates the need for Private Mortgage Insurance (PMI), which this calculator does not include.",
               enrich: (
-                <div className='bg-emerald-50 rounded-xl px-5 py-4 text-sm text-emerald-800 leading-relaxed'>
+                <div className="bg-emerald-50 rounded-xl px-5 py-4 text-sm text-emerald-800 leading-relaxed">
                   <strong>Down payment impact:</strong> On a $400,000 home at
                   6.5% for 30 years: a 10% down payment ($40,000) means a
                   $360,000 principal with a $2,275/month payment and $459,000 in
@@ -328,7 +328,7 @@ export default function PageEditorial() {
               title: "Adjust interest rate and loan term",
               body: "Set the Interest Rate slider from 0.1% to 20% in 0.1% increments — the current rate is shown in the label. Set the Loan Term from 1 to 30 years. Both updates recalculate all results instantly. The interest rate has a large effect on both monthly payment and total cost: a 1 percentage point increase in rate on a $300,000 30-year mortgage raises the monthly payment by about $190 and adds approximately $68,000 to the total interest paid. The loan term affects the monthly payment significantly but total interest even more — a 30-year term has a lower monthly payment but far more total interest than a 15-year term.",
               enrich: (
-                <div className='bg-teal-50 rounded-xl px-5 py-4 text-sm text-teal-800 leading-relaxed'>
+                <div className="bg-teal-50 rounded-xl px-5 py-4 text-sm text-teal-800 leading-relaxed">
                   <strong>Rate vs term trade-off on $300k mortgage:</strong>{" "}
                   6.5% / 30yr → $1,896/mo, $382k total interest. 6.5% / 15yr →
                   $2,614/mo, $170k total interest — $718 more per month but
@@ -343,7 +343,7 @@ export default function PageEditorial() {
               title: "Read the results and amortisation schedule",
               body: "The Monthly Payment is shown prominently in the emerald panel. Below it, the Total Payment includes the down payment plus all monthly payments, and the Total Interest shows how much of that total is interest. The Payment Breakdown bar chart shows the principal vs interest split as percentages. If inputs are valid, the Amortisation Schedule (First Year) table shows the month-by-month breakdown of each payment — how much goes to interest, how much to principal, and the remaining balance after each payment.",
               enrich: (
-                <div className='bg-emerald-50 rounded-xl px-5 py-4 text-sm text-emerald-800 leading-relaxed'>
+                <div className="bg-emerald-50 rounded-xl px-5 py-4 text-sm text-emerald-800 leading-relaxed">
                   <strong>Reading the amortisation table:</strong> In the early
                   months, interest dominates — on a $250,000 loan at 6.5%, month
                   1 directs ~$1,354 to interest and only ~$226 to principal. By
@@ -357,16 +357,16 @@ export default function PageEditorial() {
           ].map(({ n, title, body, enrich }) => (
             <div
               key={n}
-              className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'
+              className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5"
             >
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-emerald-600 text-white font-black text-lg flex items-center justify-center'>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-600 text-white font-black text-lg flex items-center justify-center">
                 {n}
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {title}
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-3'>{body}</p>
+                <p className="text-gray-600 leading-relaxed mb-3">{body}</p>
                 {enrich}
               </div>
             </div>
@@ -375,10 +375,10 @@ export default function PageEditorial() {
 
         <FAQSection />
 
-        <h3 className='text-2xl font-bold text-gray-900 mb-6'>
+        <h3 className="text-2xl font-bold text-gray-900 mb-6">
           Common use cases
         </h3>
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14'>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
           {[
             {
               emoji: "🏠",
@@ -413,22 +413,22 @@ export default function PageEditorial() {
           ].map(({ emoji, title, desc }) => (
             <div
               key={title}
-              className='bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:border-emerald-200 hover:-translate-y-1 transition-all duration-200'
+              className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:border-emerald-200 hover:-translate-y-1 transition-all duration-200"
             >
-              <div className='text-2xl mb-3'>{emoji}</div>
-              <p className='font-bold text-gray-900 text-sm mb-2'>{title}</p>
-              <p className='text-xs text-gray-500 leading-relaxed'>{desc}</p>
+              <div className="text-2xl mb-3">{emoji}</div>
+              <p className="font-bold text-gray-900 text-sm mb-2">{title}</p>
+              <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
 
-        <div className='bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-8 text-white text-center mb-14'>
-          <div className='text-3xl mb-3'>⚠️</div>
-          <h3 className='text-xl font-bold mb-3'>
+        <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-8 text-white text-center mb-14">
+          <div className="text-3xl mb-3">⚠️</div>
+          <h3 className="text-xl font-bold mb-3">
             This calculator shows principal and interest only — your true
             monthly cost includes tax, insurance, and possibly PMI
           </h3>
-          <p className='text-emerald-100 leading-relaxed max-w-xl mx-auto text-sm'>
+          <p className="text-emerald-100 leading-relaxed max-w-xl mx-auto text-sm">
             A real mortgage payment typically includes four components known as
             PITI: Principal, Interest, property Taxes, and homeowner's
             Insurance. Lenders usually collect tax and insurance monthly and
@@ -443,10 +443,10 @@ export default function PageEditorial() {
         </div>
 
         <div>
-          <h3 className='text-lg font-bold text-gray-900 mb-4'>
+          <h3 className="text-lg font-bold text-gray-900 mb-4">
             Related Free Finance Tools
           </h3>
-          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
                 href: "/tools/compound-interest-calculator",
@@ -467,12 +467,12 @@ export default function PageEditorial() {
               <a
                 key={href}
                 href={href}
-                className='block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-emerald-200 hover:-translate-y-1 transition-all duration-200 p-5'
+                className="block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-emerald-200 hover:-translate-y-1 transition-all duration-200 p-5"
               >
-                <div className='font-bold text-gray-900 text-sm mb-1'>
+                <div className="font-bold text-gray-900 text-sm mb-1">
                   {label}
                 </div>
-                <div className='text-xs text-gray-500'>{desc}</div>
+                <div className="text-xs text-gray-500">{desc}</div>
               </a>
             ))}
           </div>

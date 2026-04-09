@@ -99,60 +99,60 @@ export default function UnitConverterPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-indigo-600 transition-colors'>
+            <a href="/" className="hover:text-indigo-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/calculator'
-              className='hover:text-indigo-600 transition-colors'
+              href="/tools/category/calculator"
+              className="hover:text-indigo-600 transition-colors"
             >
               Calculator Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Unit Converter
             </span>
           </li>
         </ol>
       </nav>
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Calculator Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Unit Converter — Length, Weight, Temperature, Volume, Speed &amp;
           Time, Free Online
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Convert between 40+ units across 6 categories — length, weight,
           temperature, volume, speed, and time. Instant results.
         </p>
       </header>
       <SidebarAdLayout>
-        <main id='main-content' aria-label='Unit Converter tool'>
+        <main id="main-content" aria-label="Unit Converter tool">
           <UnitConverterClient />
         </main>
         <PageEditorial />
-              <ToolEngagement toolSlug="unit-converter" toolName="Unit Converter" />
+        <ToolEngagement toolSlug="unit-converter" toolName="Unit Converter" />
       </SidebarAdLayout>
     </>
   );

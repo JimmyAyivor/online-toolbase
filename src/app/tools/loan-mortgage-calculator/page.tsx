@@ -99,61 +99,64 @@ export default function LoanMortgageCalculatorPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-emerald-600 transition-colors'>
+            <a href="/" className="hover:text-emerald-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/calculator'
-              className='hover:text-emerald-600 transition-colors'
+              href="/tools/category/calculator"
+              className="hover:text-emerald-600 transition-colors"
             >
               Calculator Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Loan &amp; Mortgage Calculator
             </span>
           </li>
         </ol>
       </nav>
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-emerald-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-emerald-600 uppercase tracking-widest mb-1">
           Free Calculator Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Loan &amp; Mortgage Calculator — Monthly Payment, Total Interest &amp;
           Amortisation, Free Online
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Calculate monthly payments, total interest, and a first-year
           amortisation schedule for any home mortgage, auto loan, or personal
           loan.
         </p>
       </header>
       <SidebarAdLayout>
-        <main id='main-content' aria-label='Loan and Mortgage Calculator tool'>
+        <main id="main-content" aria-label="Loan and Mortgage Calculator tool">
           <LoanMortgageCalculatorClient />
         </main>
         <PageEditorial />
-              <ToolEngagement toolSlug="loan-mortgage-calculator" toolName="Loan & Mortgage Calculator" />
+        <ToolEngagement
+          toolSlug="loan-mortgage-calculator"
+          toolName="Loan & Mortgage Calculator"
+        />
       </SidebarAdLayout>
     </>
   );

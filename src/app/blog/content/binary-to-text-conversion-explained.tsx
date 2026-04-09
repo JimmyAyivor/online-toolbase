@@ -29,7 +29,7 @@ export default function Post() {
       </p>
       <p>
         Our{" "}
-        <a href='/tools/binary-to-text-converter'>Binary to Text Converter</a>{" "}
+        <a href="/tools/binary-to-text-converter">Binary to Text Converter</a>{" "}
         handles both directions paste binary and get text, or paste text and get
         its binary representation.
       </p>
@@ -111,7 +111,7 @@ export default function Post() {
         bits in sets of four and convert each group to a hex digit.{" "}
         <code>01001000</code> → <code>0100</code>=4, <code>1000</code>=8 →{" "}
         <code>0x48</code>. Use the{" "}
-        <a href='/tools/binary-hex-converter'>Binary & Hex Converter</a> to move
+        <a href="/tools/binary-hex-converter">Binary & Hex Converter</a> to move
         between these representations.
       </p>
 
@@ -150,9 +150,9 @@ export default function Post() {
         and the characters humans read. The conversion is deterministic given an
         encoding standard (ASCII, UTF-8), the same binary always produces the
         same text and vice versa. Use the{" "}
-        <a href='/tools/binary-to-text-converter'>Binary to Text Converter</a>{" "}
+        <a href="/tools/binary-to-text-converter">Binary to Text Converter</a>{" "}
         to convert in either direction, and the{" "}
-        <a href='/tools/binary-hex-converter'>Binary & Hex Converter</a> for
+        <a href="/tools/binary-hex-converter">Binary & Hex Converter</a> for
         byte-level work where hex is more practical than binary.
       </p>
     </>

@@ -2,8 +2,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { query } from "@/lib/db";
 import {
-  getIp, isRateLimited, isDuplicateContent,
-  looksLikeSpam, honeypotTripped, tooManyRequests, forbidden,
+  getIp,
+  isRateLimited,
+  isDuplicateContent,
+  looksLikeSpam,
+  honeypotTripped,
+  tooManyRequests,
+  forbidden,
 } from "@/lib/abuse";
 
 const PAGE_SIZE = 5;
@@ -17,11 +22,17 @@ export async function GET(req: NextRequest) {
   const slug = searchParams.get("slug");
   const page = Math.max(0, parseInt(searchParams.get("page") ?? "0", 10));
 
-  if (!slug) return NextResponse.json({ error: "slug is required" }, { status: 400 });
+  if (!slug)
+    return NextResponse.json({ error: "slug is required" }, { status: 400 });
 
   const offset = page * PAGE_SIZE;
 
-  const comments = await query<{ id: string; name: string; body: string; created_at: string }>(
+  const comments = await query<{
+    id: string;
+    name: string;
+    body: string;
+    created_at: string;
+  }>(
     `select id, name, body, created_at
      from tool_comments
      where tool_slug = $1
@@ -41,22 +52,34 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   const ip = getIp(req);
   const body = await req.json().catch(() => null);
-  if (!body) return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+  if (!body)
+    return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
 
   const { slug, name, commentBody, _hp } = body as {
-    slug?: string; name?: string; commentBody?: string; _hp?: string;
+    slug?: string;
+    name?: string;
+    commentBody?: string;
+    _hp?: string;
   };
 
   // Honeypot — silently succeed to fool bots
-  if (honeypotTripped(_hp)) return NextResponse.json({ ok: true }, { status: 201 });
+  if (honeypotTripped(_hp))
+    return NextResponse.json({ ok: true }, { status: 201 });
 
   // Input validation
   if (!slug || typeof slug !== "string")
     return NextResponse.json({ error: "slug is required" }, { status: 400 });
   if (!name || typeof name !== "string" || !name.trim())
     return NextResponse.json({ error: "name is required" }, { status: 400 });
-  if (!commentBody || typeof commentBody !== "string" || commentBody.trim().length < 3)
-    return NextResponse.json({ error: "Comment is too short." }, { status: 422 });
+  if (
+    !commentBody ||
+    typeof commentBody !== "string" ||
+    commentBody.trim().length < 3
+  )
+    return NextResponse.json(
+      { error: "Comment is too short." },
+      { status: 422 },
+    );
 
   const cleanBody = commentBody.trim().slice(0, MAX_BODY);
 

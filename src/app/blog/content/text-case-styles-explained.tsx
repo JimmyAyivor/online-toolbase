@@ -91,7 +91,7 @@ export default function Post() {
         If you're converting variable names from a Python backend (snake_case)
         to a JavaScript frontend (camelCase), or preparing content headings that
         need to match a style guide, doing it manually is slow and error-prone.
-        Our <a href='/tools/text-case-converter'>Text Case Converter</a>{" "}
+        Our <a href="/tools/text-case-converter">Text Case Converter</a>{" "}
         converts between all major case styles instantly paste your text, pick
         the output format, done.
       </p>
@@ -133,7 +133,7 @@ export default function Post() {
         Text case isn't trivial. Using the right convention in the right context
         prevents bugs, avoids duplicate content issues in URLs, and keeps your
         work consistent with the style standards your audience expects. Use the{" "}
-        <a href='/tools/text-case-converter'>Text Case Converter</a> to
+        <a href="/tools/text-case-converter">Text Case Converter</a> to
         eliminate the manual work of reformatting between styles.
       </p>
     </>

@@ -28,7 +28,7 @@ export default function Post() {
         broader emotional resonance that extends beyond the product category.
       </p>
       <p>
-        Use our <a href='/tools/slogan-generator'>Slogan Generator</a> to
+        Use our <a href="/tools/slogan-generator">Slogan Generator</a> to
         generate slogan options for any brand, product, or campaign.
       </p>
 
@@ -128,7 +128,7 @@ export default function Post() {
       <p>
         A great slogan is short, active, emotionally resonant, and works across
         all your brand contexts. Use the{" "}
-        <a href='/tools/slogan-generator'>Slogan Generator</a> to produce
+        <a href="/tools/slogan-generator">Slogan Generator</a> to produce
         multiple candidates, apply the memorability tests above, and choose the
         one that sounds most like the brand you want to be not just the one that
         describes what you currently do.

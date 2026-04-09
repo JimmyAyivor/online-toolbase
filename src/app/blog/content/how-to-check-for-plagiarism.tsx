@@ -64,7 +64,7 @@ export default function Post() {
         each page could accumulate.
       </p>
       <p>
-        Running a <a href='/tools/plagiarism-checker'>plagiarism check</a>{" "}
+        Running a <a href="/tools/plagiarism-checker">plagiarism check</a>{" "}
         before publishing isn't just about ethics it's a practical step to
         protect your content's search visibility.
       </p>
@@ -152,10 +152,10 @@ export default function Post() {
       <h2>Tools that help with related problems</h2>
       <p>
         After fixing plagiarism issues, it's worth running the text through a{" "}
-        <a href='/tools/grammar-spell-checker'>grammar and spell checker</a>{" "}
+        <a href="/tools/grammar-spell-checker">grammar and spell checker</a>{" "}
         rewrites sometimes introduce new errors. If you've changed enough that
         the piece needs restructuring, a{" "}
-        <a href='/tools/text-summarizer'>text summarizer</a> can help you
+        <a href="/tools/text-summarizer">text summarizer</a> can help you
         identify whether the key points are still coming through clearly.
       </p>
 
@@ -199,7 +199,7 @@ export default function Post() {
         formality. For anyone publishing content online, it catches attribution
         oversights, protects against duplicate content penalties, and keeps your
         credibility intact. Use the{" "}
-        <a href='/tools/plagiarism-checker'>Plagiarism Checker</a> before
+        <a href="/tools/plagiarism-checker">Plagiarism Checker</a> before
         publishing, pay attention to what the matches actually are, and treat
         the results as a prompt to review rather than a verdict. Most issues are
         fixable with a careful rewrite.

@@ -162,111 +162,111 @@ export default function JsonFormatterValidatorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-cyan-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full mb-4 shadow-lg'>
-              <CheckCircle className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full mb-4 shadow-lg">
+              <CheckCircle className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               JSON Formatter &amp; Validator
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Format, validate, and minify JSON data
             </p>
           </div>
 
           {/* Toolbar */}
-          <div className='mb-6 flex flex-wrap gap-3 items-center justify-between'>
-            <div className='flex flex-wrap gap-2'>
+          <div className="mb-6 flex flex-wrap gap-3 items-center justify-between">
+            <div className="flex flex-wrap gap-2">
               <button
                 onClick={loadSample}
-                className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors text-sm'
+                className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors text-sm"
               >
                 Load Sample
               </button>
               <button
                 onClick={minify}
                 disabled={!isValid}
-                className='px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-300 disabled:text-gray-500 text-white rounded-lg font-medium transition-colors text-sm flex items-center gap-2'
+                className="px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-300 disabled:text-gray-500 text-white rounded-lg font-medium transition-colors text-sm flex items-center gap-2"
               >
-                <Minimize2 className='w-4 h-4' /> Minify
+                <Minimize2 className="w-4 h-4" /> Minify
               </button>
               <button
                 onClick={beautify}
                 disabled={!isValid}
-                className='px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:text-gray-500 text-white rounded-lg font-medium transition-colors text-sm flex items-center gap-2'
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:text-gray-500 text-white rounded-lg font-medium transition-colors text-sm flex items-center gap-2"
               >
-                <Maximize2 className='w-4 h-4' /> Beautify
+                <Maximize2 className="w-4 h-4" /> Beautify
               </button>
             </div>
 
-            <div className='flex gap-2'>
+            <div className="flex gap-2">
               <button
                 onClick={copyToClipboard}
                 disabled={!isValid}
-                className='px-4 py-2 bg-green-600 hover:bg-green-700 disabled:bg-gray-300 disabled:text-gray-500 text-white rounded-lg font-medium transition-colors text-sm flex items-center gap-2'
+                className="px-4 py-2 bg-green-600 hover:bg-green-700 disabled:bg-gray-300 disabled:text-gray-500 text-white rounded-lg font-medium transition-colors text-sm flex items-center gap-2"
               >
                 {copied ? (
                   <>
-                    <CheckCircle className='w-4 h-4' /> Copied!
+                    <CheckCircle className="w-4 h-4" /> Copied!
                   </>
                 ) : (
                   <>
-                    <Copy className='w-4 h-4' /> Copy
+                    <Copy className="w-4 h-4" /> Copy
                   </>
                 )}
               </button>
               <button
                 onClick={downloadJson}
                 disabled={!isValid}
-                className='px-4 py-2 bg-cyan-600 hover:bg-cyan-700 disabled:bg-gray-300 disabled:text-gray-500 text-white rounded-lg font-medium transition-colors text-sm flex items-center gap-2'
+                className="px-4 py-2 bg-cyan-600 hover:bg-cyan-700 disabled:bg-gray-300 disabled:text-gray-500 text-white rounded-lg font-medium transition-colors text-sm flex items-center gap-2"
               >
-                <Download className='w-4 h-4' /> Download
+                <Download className="w-4 h-4" /> Download
               </button>
             </div>
           </div>
 
           {/* Formatting options */}
-          <div className='bg-gray-50 rounded-xl p-4 border border-gray-200 mb-6'>
-            <h3 className='font-semibold text-gray-700 mb-3'>
+          <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 mb-6">
+            <h3 className="font-semibold text-gray-700 mb-3">
               Formatting Options
             </h3>
-            <div className='grid md:grid-cols-2 gap-4'>
+            <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className='block text-sm font-medium text-gray-700 mb-2'>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Indentation: {indentSize} spaces
                 </label>
                 <input
-                  type='range'
-                  min='2'
-                  max='8'
-                  step='2'
+                  type="range"
+                  min="2"
+                  max="8"
+                  step="2"
                   value={indentSize}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setIndentSize(Number(e.target.value))
                   }
-                  className='w-full'
-                  aria-label='Indentation size'
+                  className="w-full"
+                  aria-label="Indentation size"
                 />
-                <div className='flex justify-between text-xs text-gray-500 mt-1'>
+                <div className="flex justify-between text-xs text-gray-500 mt-1">
                   {[2, 4, 6, 8].map((n) => (
                     <span key={n}>{n}</span>
                   ))}
                 </div>
               </div>
-              <div className='flex items-center gap-2'>
+              <div className="flex items-center gap-2">
                 <input
-                  type='checkbox'
-                  id='sortKeys'
+                  type="checkbox"
+                  id="sortKeys"
                   checked={sortKeys}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setSortKeys(e.target.checked)
                   }
-                  className='w-4 h-4 text-cyan-600 rounded focus:ring-2 focus:ring-cyan-500'
+                  className="w-4 h-4 text-cyan-600 rounded focus:ring-2 focus:ring-cyan-500"
                 />
-                <label htmlFor='sortKeys' className='text-sm text-gray-700'>
+                <label htmlFor="sortKeys" className="text-sm text-gray-700">
                   Sort keys alphabetically
                 </label>
               </div>
@@ -275,27 +275,27 @@ export default function JsonFormatterValidatorClient() {
 
           {/* Error */}
           {error && (
-            <div className='mb-6 flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-lg'>
-              <AlertCircle className='w-5 h-5 text-red-600 flex-shrink-0 mt-0.5' />
+            <div className="mb-6 flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-lg">
+              <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
               <div>
-                <div className='font-semibold text-red-800'>Invalid JSON</div>
-                <div className='text-sm text-red-700'>{error}</div>
+                <div className="font-semibold text-red-800">Invalid JSON</div>
+                <div className="text-sm text-red-700">{error}</div>
               </div>
             </div>
           )}
 
           {/* Stats */}
           {isValid && stats && (
-            <div className='mb-6 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl p-6 border border-cyan-200'>
-              <div className='flex items-center gap-2 mb-3'>
-                <CheckCircle className='w-5 h-5 text-green-600' />
-                <h3 className='font-semibold text-gray-900'>Valid JSON</h3>
+            <div className="mb-6 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl p-6 border border-cyan-200">
+              <div className="flex items-center gap-2 mb-3">
+                <CheckCircle className="w-5 h-5 text-green-600" />
+                <h3 className="font-semibold text-gray-900">Valid JSON</h3>
               </div>
-              <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {STAT_CARDS.map(({ label, value }) => (
-                  <div key={label} className='bg-white rounded-lg p-3'>
-                    <div className='text-sm text-gray-600'>{label}</div>
-                    <div className='text-lg font-bold text-gray-900'>
+                  <div key={label} className="bg-white rounded-lg p-3">
+                    <div className="text-sm text-gray-600">{label}</div>
+                    <div className="text-lg font-bold text-gray-900">
                       {value}
                     </div>
                   </div>
@@ -305,9 +305,9 @@ export default function JsonFormatterValidatorClient() {
           )}
 
           {/* Editor panes */}
-          <div className='grid md:grid-cols-2 gap-6'>
+          <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <label className='block text-sm font-medium text-gray-700 mb-2'>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Input JSON
               </label>
               <textarea
@@ -316,32 +316,32 @@ export default function JsonFormatterValidatorClient() {
                   setInput(e.target.value)
                 }
                 placeholder='{"key": "value"}'
-                className='w-full h-96 p-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent resize-none font-mono text-sm'
+                className="w-full h-96 p-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent resize-none font-mono text-sm"
               />
             </div>
             <div>
-              <label className='block text-sm font-medium text-gray-700 mb-2'>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Formatted Output
               </label>
-              <div className='relative'>
+              <div className="relative">
                 <textarea
                   value={output}
                   readOnly
-                  placeholder='Formatted JSON will appear here...'
-                  className='w-full h-96 p-4 border-2 border-gray-300 rounded-lg bg-gray-50 resize-none font-mono text-sm'
+                  placeholder="Formatted JSON will appear here..."
+                  className="w-full h-96 p-4 border-2 border-gray-300 rounded-lg bg-gray-50 resize-none font-mono text-sm"
                 />
                 {isValid && (
-                  <div className='absolute top-2 right-2'>
-                    <CheckCircle className='w-5 h-5 text-green-600' />
+                  <div className="absolute top-2 right-2">
+                    <CheckCircle className="w-5 h-5 text-green-600" />
                   </div>
                 )}
               </div>
             </div>
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>⚡ Features:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">⚡ Features:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>Real-time JSON validation with detailed error messages</li>
               <li>Automatic formatting with customizable indentation</li>
               <li>Minify to remove whitespace and reduce size</li>

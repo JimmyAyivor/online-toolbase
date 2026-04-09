@@ -34,7 +34,7 @@ export default function Post() {
       </p>
       <p>
         Our{" "}
-        <a href='/tools/writing-prompt-generator'>Writing Prompt Generator</a>{" "}
+        <a href="/tools/writing-prompt-generator">Writing Prompt Generator</a>{" "}
         produces prompts across genres fiction, non-fiction, personal essay,
         experimental to kickstart writing in any direction you need.
       </p>
@@ -112,7 +112,7 @@ export default function Post() {
       </p>
       <p>
         If the latter, try a different tool: a{" "}
-        <a href='/tools/text-summarizer'>summarizer</a> on your notes to find
+        <a href="/tools/text-summarizer">summarizer</a> on your notes to find
         the throughline, an outline before drafting, or simply more reading
         before more writing.
       </p>
@@ -129,7 +129,7 @@ export default function Post() {
       <h3>What if I hate every prompt I get?</h3>
       <p>
         Generate more. Our{" "}
-        <a href='/tools/writing-prompt-generator'>Writing Prompt Generator</a>{" "}
+        <a href="/tools/writing-prompt-generator">Writing Prompt Generator</a>{" "}
         produces unlimited variations. If a category of prompt consistently
         doesn't work for you say, fantasy scenarios when you're a non-fiction
         writer filter for the styles that match your work.
@@ -148,7 +148,7 @@ export default function Post() {
         Writer's block is a starting problem more often than anything else.
         Writing prompts remove the "what should I write" variable and let you
         focus on the actual act of writing. Use the{" "}
-        <a href='/tools/writing-prompt-generator'>Writing Prompt Generator</a>{" "}
+        <a href="/tools/writing-prompt-generator">Writing Prompt Generator</a>{" "}
         for daily warmups, for breaking through project blocks, and for
         developing range across genres and forms. The goal is writing the prompt
         is just permission to start.

@@ -99,61 +99,64 @@ export default function EngagementRateCalculatorPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-emerald-600 transition-colors'>
+            <a href="/" className="hover:text-emerald-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/social-media'
-              className='hover:text-emerald-600 transition-colors'
+              href="/tools/category/social-media"
+              className="hover:text-emerald-600 transition-colors"
             >
               Social Media Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Engagement Rate Calculator
             </span>
           </li>
         </ol>
       </nav>
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-emerald-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-emerald-600 uppercase tracking-widest mb-1">
           Free Social Media Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Engagement Rate Calculator — Calculate Social Media Engagement Rate
           Free
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Calculate engagement rate by followers, reach, or impressions for any
           platform — enter your metrics and get your ER% with a benchmark
           rating.
         </p>
       </header>
       <SidebarAdLayout>
-        <main id='main-content' aria-label='Engagement Rate Calculator tool'>
+        <main id="main-content" aria-label="Engagement Rate Calculator tool">
           <EngagementRateCalculatorClient />
         </main>
         <PageEditorial />
-              <ToolEngagement toolSlug="engagement-rate-calculator" toolName="Engagement Rate Calculator" />
+        <ToolEngagement
+          toolSlug="engagement-rate-calculator"
+          toolName="Engagement Rate Calculator"
+        />
       </SidebarAdLayout>
     </>
   );

@@ -91,48 +91,48 @@ export default function BlogPostClient({ postUrl, postTitle }: Props) {
   if (toc.length === 0) return null;
 
   return (
-    <div className='bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden'>
+    <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
       {/* Header */}
-      <div className='px-5 py-4 border-b border-slate-100 flex items-center justify-between'>
-        <p className='text-[11px] font-black text-slate-400 uppercase tracking-widest'>
+      <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between">
+        <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest">
           In This Article
         </p>
         {/* Copy link */}
         <button
           onClick={copyLink}
-          className='flex items-center gap-1.5 text-xs text-slate-400 hover:text-indigo-600 transition-colors'
-          title='Copy link'
+          className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-indigo-600 transition-colors"
+          title="Copy link"
         >
           {copied ? (
             <>
               <svg
-                className='w-3.5 h-3.5 text-green-500'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
+                className="w-3.5 h-3.5 text-green-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
                 <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   strokeWidth={2.5}
-                  d='M5 13l4 4L19 7'
+                  d="M5 13l4 4L19 7"
                 />
               </svg>
-              <span className='text-green-600 font-medium'>Copied!</span>
+              <span className="text-green-600 font-medium">Copied!</span>
             </>
           ) : (
             <>
               <svg
-                className='w-3.5 h-3.5'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
+                className="w-3.5 h-3.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
                 <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   strokeWidth={1.5}
-                  d='M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1'
+                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
                 />
               </svg>
               Copy link
@@ -143,10 +143,10 @@ export default function BlogPostClient({ postUrl, postTitle }: Props) {
 
       {/* TOC items */}
       <nav
-        aria-label='Table of contents'
-        className='px-4 py-4 max-h-[420px] overflow-y-auto'
+        aria-label="Table of contents"
+        className="px-4 py-4 max-h-[420px] overflow-y-auto"
       >
-        <ol className='space-y-0.5'>
+        <ol className="space-y-0.5">
           {toc.map((item) => {
             const isActive = activeId === item.id;
             return (

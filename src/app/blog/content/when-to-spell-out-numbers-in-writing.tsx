@@ -99,7 +99,7 @@ export default function Post() {
         For legal documents, financial certificates, and formal written
         agreements, it's standard practice to write amounts in both numerals and
         words: "The sum of $5,000 (five thousand dollars)." Our{" "}
-        <a href='/tools/number-to-words-converter'>Number to Words Converter</a>{" "}
+        <a href="/tools/number-to-words-converter">Number to Words Converter</a>{" "}
         handles this conversion instantly for any number useful when drafting
         invoices, contracts, or cheques.
       </p>
@@ -135,7 +135,7 @@ export default function Post() {
         (one through nine in words, 10+ in numerals) is the practical default.
         For legal and financial documents where numbers need to be written out
         in full, use the{" "}
-        <a href='/tools/number-to-words-converter'>Number to Words Converter</a>{" "}
+        <a href="/tools/number-to-words-converter">Number to Words Converter</a>{" "}
         to avoid manual errors.
       </p>
     </>

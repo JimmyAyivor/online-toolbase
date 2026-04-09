@@ -63,7 +63,7 @@ export default function Post() {
       <p>
         Show the subtotal before tax, then tax separately (VAT, GST, sales tax
         whatever applies in your jurisdiction), then the total amount due. Our{" "}
-        <a href='/tools/vat-calculator'>VAT Calculator</a> can help you work out
+        <a href="/tools/vat-calculator">VAT Calculator</a> can help you work out
         the correct VAT amount if you're VAT registered.
       </p>
 
@@ -145,7 +145,7 @@ export default function Post() {
         gives the client regular touch points with your work.
       </p>
       <p>
-        Our free <a href='/tools/invoice-generator'>Invoice Generator</a>{" "}
+        Our free <a href="/tools/invoice-generator">Invoice Generator</a>{" "}
         creates professional invoices with all required fields add your logo,
         enter line items, and download as a PDF. No subscription, no signup.
       </p>

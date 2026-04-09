@@ -41,7 +41,10 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🛠️",
     tags: ["developer tools", "productivity", "web development", "free tools"],
     relatedTools: [
-      { label: "JSON Formatter & Validator", href: "/tools/json-formatter-validator" },
+      {
+        label: "JSON Formatter & Validator",
+        href: "/tools/json-formatter-validator",
+      },
       { label: "Regex Tester", href: "/tools/regex-tester" },
       { label: "JWT Decoder", href: "/tools/jwt-decoder" },
     ],
@@ -59,21 +62,35 @@ export const blogPosts: BlogPost[] = [
     relatedTools: [
       { label: "Plagiarism Checker", href: "/tools/plagiarism-checker" },
       { label: "Paraphrasing Tool", href: "/tools/paraphrasing-tool" },
-      { label: "Grammar & Spell Checker", href: "/tools/grammar-spell-checker" },
+      {
+        label: "Grammar & Spell Checker",
+        href: "/tools/grammar-spell-checker",
+      },
     ],
   },
   {
     slug: "social-media-engagement-rate-2025",
-    title: "Social Media Engagement Rates in 2025: Platform-by-Platform Benchmarks",
+    title:
+      "Social Media Engagement Rates in 2025: Platform-by-Platform Benchmarks",
     description:
       "Engagement benchmarks have shifted significantly this year. TikTok is declining, LinkedIn is outperforming expectations, and Instagram static posts are beating Reels. Here's the full data breakdown.",
     category: "Social Media",
     readingTime: "9 min read",
     publishedAt: "2025-01-18",
     coverEmoji: "📊",
-    tags: ["engagement rate", "social media", "instagram", "tiktok", "linkedin", "benchmarks"],
+    tags: [
+      "engagement rate",
+      "social media",
+      "instagram",
+      "tiktok",
+      "linkedin",
+      "benchmarks",
+    ],
     relatedTools: [
-      { label: "Engagement Rate Calculator", href: "/tools/engagement-rate-calculator" },
+      {
+        label: "Engagement Rate Calculator",
+        href: "/tools/engagement-rate-calculator",
+      },
       { label: "Hashtag Generator", href: "/tools/hashtag-generator" },
     ],
   },
@@ -88,23 +105,40 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "💰",
     tags: ["compound interest", "personal finance", "savings", "investing"],
     relatedTools: [
-      { label: "Compound Interest Calculator", href: "/tools/compound-interest-calculator" },
-      { label: "Loan & Mortgage Calculator", href: "/tools/loan-mortgage-calculator" },
+      {
+        label: "Compound Interest Calculator",
+        href: "/tools/compound-interest-calculator",
+      },
+      {
+        label: "Loan & Mortgage Calculator",
+        href: "/tools/loan-mortgage-calculator",
+      },
     ],
   },
   {
     slug: "image-formats-webp-avif-jpeg",
-    title: "AVIF vs WebP vs JPEG in 2025: Which Format Should You Actually Use?",
+    title:
+      "AVIF vs WebP vs JPEG in 2025: Which Format Should You Actually Use?",
     description:
       "AVIF has become the web performance winner — up to 50% smaller than JPEG at the same quality. But switching isn't always straightforward. Here's the practical guide with real numbers.",
     category: "Web Performance",
     readingTime: "8 min read",
     publishedAt: "2025-01-26",
     coverEmoji: "🖼️",
-    tags: ["image compression", "webp", "avif", "core web vitals", "website speed", "SEO"],
+    tags: [
+      "image compression",
+      "webp",
+      "avif",
+      "core web vitals",
+      "website speed",
+      "SEO",
+    ],
     relatedTools: [
       { label: "Image Compressor", href: "/tools/image-compressor" },
-      { label: "Image Format Converter", href: "/tools/image-format-converter" },
+      {
+        label: "Image Format Converter",
+        href: "/tools/image-format-converter",
+      },
     ],
   },
   {
@@ -124,7 +158,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "qr-codes-small-business-uses",
-    title: "10 Practical QR Code Uses for Small Businesses (With Setup Instructions)",
+    title:
+      "10 Practical QR Code Uses for Small Businesses (With Setup Instructions)",
     description:
       "QR codes came back during the pandemic and never left — because they actually solve real problems. Here are 10 applications that work for small businesses, from review funnels to contactless menus.",
     category: "Business",
@@ -139,7 +174,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "pomodoro-technique-guide",
-    title: "The Pomodoro Technique: The Science Behind It and How to Adapt It to Real Work",
+    title:
+      "The Pomodoro Technique: The Science Behind It and How to Adapt It to Real Work",
     description:
       "A kitchen timer and 25 minutes changed how millions of people work. Here's the cognitive science behind why it works, common mistakes that kill its effectiveness, and how to adjust it to your workflow.",
     category: "Productivity",
@@ -147,20 +183,25 @@ export const blogPosts: BlogPost[] = [
     publishedAt: "2025-02-07",
     coverEmoji: "🍅",
     tags: ["pomodoro", "productivity", "time management", "focus", "deep work"],
-    relatedTools: [
-      { label: "Pomodoro Timer", href: "/tools/pomodoro-timer" },
-    ],
+    relatedTools: [{ label: "Pomodoro Timer", href: "/tools/pomodoro-timer" }],
   },
   {
     slug: "content-creator-free-tools",
-    title: "The Content Creator's Free Toolkit: What's Actually Worth Using in 2025",
+    title:
+      "The Content Creator's Free Toolkit: What's Actually Worth Using in 2025",
     description:
       "You don't need $200/month in subscriptions to produce professional content. Here are the genuinely useful free tools for writing, design, social media, and planning — and why each one earns its bookmark.",
     category: "Content Creation",
     readingTime: "10 min read",
     publishedAt: "2025-02-11",
     coverEmoji: "✨",
-    tags: ["content creation", "free tools", "social media", "writing tools", "creators"],
+    tags: [
+      "content creation",
+      "free tools",
+      "social media",
+      "writing tools",
+      "creators",
+    ],
     relatedTools: [
       { label: "Caption Generator", href: "/tools/caption-generator" },
       { label: "Hashtag Generator", href: "/tools/hashtag-generator" },
@@ -178,13 +219,20 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "{ }",
     tags: ["JSON", "API", "web development", "data formats", "developer tools"],
     relatedTools: [
-      { label: "JSON Formatter & Validator", href: "/tools/json-formatter-validator" },
-      { label: "Base64 Encoder/Decoder", href: "/tools/base64-encoder-decoder" },
+      {
+        label: "JSON Formatter & Validator",
+        href: "/tools/json-formatter-validator",
+      },
+      {
+        label: "Base64 Encoder/Decoder",
+        href: "/tools/base64-encoder-decoder",
+      },
     ],
   },
   {
     slug: "freelancer-invoicing-guide",
-    title: "How to Invoice Clients as a Freelancer: What to Include and What to Avoid",
+    title:
+      "How to Invoice Clients as a Freelancer: What to Include and What to Avoid",
     description:
       "A professional invoice protects you legally, speeds up payment, and signals you're serious about your work. Here's exactly what every freelance invoice needs — and the common mistakes that delay payment.",
     category: "Business",
@@ -206,10 +254,19 @@ export const blogPosts: BlogPost[] = [
     readingTime: "8 min read",
     publishedAt: "2025-02-23",
     coverEmoji: "#️⃣",
-    tags: ["hashtags", "social media algorithm", "instagram", "tiktok", "reach"],
+    tags: [
+      "hashtags",
+      "social media algorithm",
+      "instagram",
+      "tiktok",
+      "reach",
+    ],
     relatedTools: [
       { label: "Hashtag Generator", href: "/tools/hashtag-generator" },
-      { label: "Social Media Character Counter", href: "/tools/social-media-character-counter" },
+      {
+        label: "Social Media Character Counter",
+        href: "/tools/social-media-character-counter",
+      },
     ],
   },
   {
@@ -221,10 +278,18 @@ export const blogPosts: BlogPost[] = [
     readingTime: "9 min read",
     publishedAt: "2025-02-27",
     coverEmoji: "🔍",
-    tags: ["regex", "regular expressions", "web development", "developer tools"],
+    tags: [
+      "regex",
+      "regular expressions",
+      "web development",
+      "developer tools",
+    ],
     relatedTools: [
       { label: "Regex Tester", href: "/tools/regex-tester" },
-      { label: "JSON Formatter & Validator", href: "/tools/json-formatter-validator" },
+      {
+        label: "JSON Formatter & Validator",
+        href: "/tools/json-formatter-validator",
+      },
     ],
   },
   {
@@ -238,13 +303,17 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🥗",
     tags: ["calories", "macros", "nutrition", "fitness", "weight loss"],
     relatedTools: [
-      { label: "Calorie & Macro Calculator", href: "/tools/calorie-macro-calculator" },
+      {
+        label: "Calorie & Macro Calculator",
+        href: "/tools/calorie-macro-calculator",
+      },
       { label: "BMI Calculator", href: "/tools/bmi-calculator" },
     ],
   },
   {
     slug: "mortgage-calculator-complete-guide",
-    title: "Using a Mortgage Calculator: What the Numbers Mean and What They Don't Show You",
+    title:
+      "Using a Mortgage Calculator: What the Numbers Mean and What They Don't Show You",
     description:
       "Mortgage calculators are useful — if you know what to put in and what the output actually means. This guide explains every field, what moves your monthly payment, and the costs calculators typically hide.",
     category: "Finance",
@@ -253,13 +322,20 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🏠",
     tags: ["mortgage", "home buying", "personal finance", "loan"],
     relatedTools: [
-      { label: "Loan & Mortgage Calculator", href: "/tools/loan-mortgage-calculator" },
-      { label: "Compound Interest Calculator", href: "/tools/compound-interest-calculator" },
+      {
+        label: "Loan & Mortgage Calculator",
+        href: "/tools/loan-mortgage-calculator",
+      },
+      {
+        label: "Compound Interest Calculator",
+        href: "/tools/compound-interest-calculator",
+      },
     ],
   },
   {
     slug: "linkedin-posts-that-get-engagement",
-    title: "Why Your LinkedIn Posts Get No Engagement — And What to Do About It",
+    title:
+      "Why Your LinkedIn Posts Get No Engagement — And What to Do About It",
     description:
       "Most LinkedIn posts fail in the first two lines. The algorithm, audience, and content format are all different from every other platform. Here's what actually drives organic reach on LinkedIn right now.",
     category: "Social Media",
@@ -268,8 +344,14 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "💼",
     tags: ["linkedin", "social media", "content strategy", "B2B marketing"],
     relatedTools: [
-      { label: "LinkedIn Post Formatter", href: "/tools/linkedin-post-formatter" },
-      { label: "Social Media Character Counter", href: "/tools/social-media-character-counter" },
+      {
+        label: "LinkedIn Post Formatter",
+        href: "/tools/linkedin-post-formatter",
+      },
+      {
+        label: "Social Media Character Counter",
+        href: "/tools/social-media-character-counter",
+      },
     ],
   },
   {
@@ -283,13 +365,17 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🔡",
     tags: ["base64", "encoding", "API", "developer tools", "web development"],
     relatedTools: [
-      { label: "Base64 Encoder/Decoder", href: "/tools/base64-encoder-decoder" },
+      {
+        label: "Base64 Encoder/Decoder",
+        href: "/tools/base64-encoder-decoder",
+      },
       { label: "JWT Decoder", href: "/tools/jwt-decoder" },
     ],
   },
   {
     slug: "unit-conversions-people-always-google",
-    title: "The Unit Conversions People Search for Most — Memorised in 10 Minutes",
+    title:
+      "The Unit Conversions People Search for Most — Memorised in 10 Minutes",
     description:
       "Km to miles, kg to lbs, Celsius to Fahrenheit — some conversions come up constantly and nobody seems to remember the factors. Here are the most-searched conversions with simple mental shortcuts that actually stick.",
     category: "Everyday",
@@ -330,13 +416,20 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "📐",
     tags: ["aspect ratio", "video", "design", "social media", "image sizing"],
     relatedTools: [
-      { label: "Aspect Ratio Calculator", href: "/tools/aspect-ratio-calculator" },
-      { label: "Image Cropper & Resizer", href: "/tools/image-cropper-resizer" },
+      {
+        label: "Aspect Ratio Calculator",
+        href: "/tools/aspect-ratio-calculator",
+      },
+      {
+        label: "Image Cropper & Resizer",
+        href: "/tools/image-cropper-resizer",
+      },
     ],
   },
   {
     slug: "binary-hexadecimal-decimal-number-systems-explained",
-    title: "Binary, Hex, and Decimal: Number Systems Every Developer Should Know",
+    title:
+      "Binary, Hex, and Decimal: Number Systems Every Developer Should Know",
     description:
       "Binary, hexadecimal, decimal, octal — four ways of writing the same numbers, each used in different computing contexts. Understanding them makes CSS colours, file permissions, and memory addresses instantly readable.",
     category: "Developer",
@@ -346,7 +439,10 @@ export const blogPosts: BlogPost[] = [
     tags: ["binary", "hexadecimal", "number systems", "developer fundamentals"],
     relatedTools: [
       { label: "Binary & Hex Converter", href: "/tools/binary-hex-converter" },
-      { label: "Binary to Text Converter", href: "/tools/binary-to-text-converter" },
+      {
+        label: "Binary to Text Converter",
+        href: "/tools/binary-to-text-converter",
+      },
     ],
   },
   {
@@ -358,15 +454,25 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min read",
     publishedAt: "2025-03-31",
     coverEmoji: "💻",
-    tags: ["binary", "ASCII", "UTF-8", "character encoding", "developer fundamentals"],
+    tags: [
+      "binary",
+      "ASCII",
+      "UTF-8",
+      "character encoding",
+      "developer fundamentals",
+    ],
     relatedTools: [
-      { label: "Binary to Text Converter", href: "/tools/binary-to-text-converter" },
+      {
+        label: "Binary to Text Converter",
+        href: "/tools/binary-to-text-converter",
+      },
       { label: "Binary & Hex Converter", href: "/tools/binary-hex-converter" },
     ],
   },
   {
     slug: "calorie-deficit-how-to-create-one-safely",
-    title: "How to Create a Calorie Deficit That Actually Works (Without Losing Muscle)",
+    title:
+      "How to Create a Calorie Deficit That Actually Works (Without Losing Muscle)",
     description:
       "A calorie deficit is the mechanism behind every approach that produces fat loss. Here's how to set the right size deficit, protect muscle mass with adequate protein, and avoid the common mistakes that derail progress.",
     category: "Health",
@@ -375,8 +481,14 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "⚖️",
     tags: ["calorie deficit", "fat loss", "nutrition", "weight loss", "TDEE"],
     relatedTools: [
-      { label: "Calorie Deficit Calculator", href: "/tools/calorie-deficit-calculator" },
-      { label: "Protein Intake Calculator", href: "/tools/protein-intake-calculator" },
+      {
+        label: "Calorie Deficit Calculator",
+        href: "/tools/calorie-deficit-calculator",
+      },
+      {
+        label: "Protein Intake Calculator",
+        href: "/tools/protein-intake-calculator",
+      },
     ],
   },
   {
@@ -390,13 +502,17 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "♿",
     tags: ["accessibility", "WCAG", "colour contrast", "web design", "UX"],
     relatedTools: [
-      { label: "Color Contrast Checker", href: "/tools/color-contrast-checker" },
+      {
+        label: "Color Contrast Checker",
+        href: "/tools/color-contrast-checker",
+      },
       { label: "Color Code Converter", href: "/tools/color-code-converter" },
     ],
   },
   {
     slug: "color-palette-theory-for-non-designers",
-    title: "Colour Palette Theory for Non-Designers: Combinations That Actually Work",
+    title:
+      "Colour Palette Theory for Non-Designers: Combinations That Actually Work",
     description:
       "Choosing colours that work together isn't guesswork — it follows rules from colour theory that produce predictable results. Here's a practical guide to harmonious palettes, the 60/30/10 rule, and building brand colour systems.",
     category: "Design",
@@ -405,7 +521,10 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🎨",
     tags: ["colour theory", "design", "branding", "colour palette"],
     relatedTools: [
-      { label: "Color Palette Generator", href: "/tools/color-palette-generator" },
+      {
+        label: "Color Palette Generator",
+        href: "/tools/color-palette-generator",
+      },
       { label: "Color Code Converter", href: "/tools/color-code-converter" },
     ],
   },
@@ -426,17 +545,29 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "credit-card-debt-payoff-strategies",
-    title: "Credit Card Debt: The Avalanche vs Snowball Method (And the Real Cost of Minimum Payments)",
+    title:
+      "Credit Card Debt: The Avalanche vs Snowball Method (And the Real Cost of Minimum Payments)",
     description:
       "Minimum payments are designed to maximise interest paid over time. A £3,000 balance at 24% APR on minimum payments takes 25+ years to clear. Here's how to actually pay it off — with the two proven methods compared.",
     category: "Finance",
     readingTime: "7 min read",
     publishedAt: "2025-04-15",
     coverEmoji: "💳",
-    tags: ["credit card debt", "personal finance", "debt payoff", "interest rates"],
+    tags: [
+      "credit card debt",
+      "personal finance",
+      "debt payoff",
+      "interest rates",
+    ],
     relatedTools: [
-      { label: "Credit Card Payoff Calculator", href: "/tools/credit-card-payoff-calculator" },
-      { label: "Compound Interest Calculator", href: "/tools/compound-interest-calculator" },
+      {
+        label: "Credit Card Payoff Calculator",
+        href: "/tools/credit-card-payoff-calculator",
+      },
+      {
+        label: "Compound Interest Calculator",
+        href: "/tools/compound-interest-calculator",
+      },
     ],
   },
   {
@@ -450,13 +581,17 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "⏰",
     tags: ["cron", "linux", "automation", "scheduling", "DevOps"],
     relatedTools: [
-      { label: "Cron Expression Builder", href: "/tools/cron-expression-builder" },
+      {
+        label: "Cron Expression Builder",
+        href: "/tools/cron-expression-builder",
+      },
       { label: "Timestamp Converter", href: "/tools/timestamp-converter" },
     ],
   },
   {
     slug: "css-gradients-complete-guide",
-    title: "CSS Gradients: Linear, Radial, and Conic — A Complete Practical Guide",
+    title:
+      "CSS Gradients: Linear, Radial, and Conic — A Complete Practical Guide",
     description:
       "CSS gradients range from simple two-colour fades to complex multi-stop effects. Here's a complete reference covering syntax, the muddy-middle problem, gradient text, and how to build gradients that look intentional rather than amateur.",
     category: "Developer",
@@ -481,7 +616,10 @@ export const blogPosts: BlogPost[] = [
     tags: ["dice", "tabletop RPG", "probability", "D&D", "board games"],
     relatedTools: [
       { label: "Dice Roller", href: "/tools/dice-roller" },
-      { label: "Random Number Generator", href: "/tools/random-number-generator" },
+      {
+        label: "Random Number Generator",
+        href: "/tools/random-number-generator",
+      },
     ],
   },
   {
@@ -496,12 +634,16 @@ export const blogPosts: BlogPost[] = [
     tags: ["email", "professional communication", "branding", "productivity"],
     relatedTools: [
       { label: "Signature Generator", href: "/tools/signature-generator" },
-      { label: "Email Subject Line Generator", href: "/tools/email-subject-line-generator" },
+      {
+        label: "Email Subject Line Generator",
+        href: "/tools/email-subject-line-generator",
+      },
     ],
   },
   {
     slug: "email-subject-lines-that-get-opened",
-    title: "Email Subject Lines That Get Opened: Formulas, Psychology, and Testing",
+    title:
+      "Email Subject Lines That Get Opened: Formulas, Psychology, and Testing",
     description:
       "Your subject line determines whether your email gets read or deleted. Here's the psychology behind what makes people open emails, the formulas that consistently outperform, and how to test what works for your audience.",
     category: "Marketing",
@@ -510,13 +652,20 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "📧",
     tags: ["email marketing", "subject lines", "open rates", "copywriting"],
     relatedTools: [
-      { label: "Email Subject Line Generator", href: "/tools/email-subject-line-generator" },
-      { label: "Word & Character Counter", href: "/tools/word-character-counter" },
+      {
+        label: "Email Subject Line Generator",
+        href: "/tools/email-subject-line-generator",
+      },
+      {
+        label: "Word & Character Counter",
+        href: "/tools/word-character-counter",
+      },
     ],
   },
   {
     slug: "email-validation-how-it-works-and-why-it-fails",
-    title: "Email Validation: The Three Levels and Why Format Checks Aren't Enough",
+    title:
+      "Email Validation: The Three Levels and Why Format Checks Aren't Enough",
     description:
       "Email validation has three distinct levels: syntax, DNS, and deliverability — each catching different problems. Here's how each works, common validation mistakes that reject valid addresses, and what's appropriate for different use cases.",
     category: "Developer",
@@ -531,22 +680,36 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "facebook-ad-copy-that-converts",
-    title: "Facebook Ad Copy That Converts: Structure, Psychology, and What to Test First",
+    title:
+      "Facebook Ad Copy That Converts: Structure, Psychology, and What to Test First",
     description:
       "Facebook and Instagram ads have seconds to interrupt, identify, and compel action. Here's the AIDA framework applied to paid social, the mistakes that kill conversion, and which element to test first.",
     category: "Marketing",
     readingTime: "7 min read",
     publishedAt: "2025-05-06",
     coverEmoji: "📣",
-    tags: ["Facebook ads", "ad copy", "paid social", "conversion", "copywriting"],
+    tags: [
+      "Facebook ads",
+      "ad copy",
+      "paid social",
+      "conversion",
+      "copywriting",
+    ],
     relatedTools: [
-      { label: "Facebook Ad Copy Generator", href: "/tools/facebook-ad-copy-generator" },
-      { label: "Word & Character Counter", href: "/tools/word-character-counter" },
+      {
+        label: "Facebook Ad Copy Generator",
+        href: "/tools/facebook-ad-copy-generator",
+      },
+      {
+        label: "Word & Character Counter",
+        href: "/tools/word-character-counter",
+      },
     ],
   },
   {
     slug: "favicon-guide-all-sizes-and-formats",
-    title: "Favicons in 2025: All the Sizes, Formats, and HTML You Actually Need",
+    title:
+      "Favicons in 2025: All the Sizes, Formats, and HTML You Actually Need",
     description:
       "A favicon is more complex than a single .ico file now — it needs to work on browser tabs, iOS home screens, Android, and macOS pinned tabs. Here's the minimal setup that covers every context correctly.",
     category: "Developer",
@@ -556,27 +719,40 @@ export const blogPosts: BlogPost[] = [
     tags: ["favicon", "web development", "HTML", "branding"],
     relatedTools: [
       { label: "Favicon Generator", href: "/tools/favicon-generator" },
-      { label: "Image Format Converter", href: "/tools/image-format-converter" },
+      {
+        label: "Image Format Converter",
+        href: "/tools/image-format-converter",
+      },
     ],
   },
   {
     slug: "flesch-kincaid-and-readability-scores-explained",
-    title: "Flesch-Kincaid and Readability Scores: What They Mean and How to Use Them",
+    title:
+      "Flesch-Kincaid and Readability Scores: What They Mean and How to Use Them",
     description:
       "Readability scores measure linguistic complexity — not writing quality. Here's what Flesch-Kincaid, Gunning Fog, and SMOG actually calculate, what grade level to target for different audiences, and how to use them without over-optimising.",
     category: "Writing",
     readingTime: "6 min read",
     publishedAt: "2025-05-12",
     coverEmoji: "📖",
-    tags: ["readability", "Flesch-Kincaid", "writing quality", "content strategy"],
+    tags: [
+      "readability",
+      "Flesch-Kincaid",
+      "writing quality",
+      "content strategy",
+    ],
     relatedTools: [
-      { label: "Readability Score Calculator", href: "/tools/readability-score-calculator" },
+      {
+        label: "Readability Score Calculator",
+        href: "/tools/readability-score-calculator",
+      },
       { label: "Sentence Counter", href: "/tools/sentence-counter" },
     ],
   },
   {
     slug: "flip-text-and-unicode-tricks-for-social-media",
-    title: "Flip Text and Unicode Tricks for Distinctive Social Media Formatting",
+    title:
+      "Flip Text and Unicode Tricks for Distinctive Social Media Formatting",
     description:
       "Upside-down and mirrored text isn't magic — it's Unicode characters that look like rotated Latin letters. Here's how it works, what creative uses it actually serves, and what to know before using it in your profiles.",
     category: "Fun",
@@ -591,7 +767,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "fractions-how-to-add-subtract-multiply-divide",
-    title: "Fractions: How to Add, Subtract, Multiply, and Divide (With the Logic Explained)",
+    title:
+      "Fractions: How to Add, Subtract, Multiply, and Divide (With the Logic Explained)",
     description:
       "Fractions are taught as disconnected procedures — which is why they're confusing. Once you understand why each rule works, the operations become straightforward and the common mistakes disappear.",
     category: "Education",
@@ -606,17 +783,29 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "grammar-mistakes-that-make-you-look-unprofessional",
-    title: "Grammar Mistakes That Make You Look Unprofessional (And How to Fix Them)",
+    title:
+      "Grammar Mistakes That Make You Look Unprofessional (And How to Fix Them)",
     description:
       "Grammar errors in professional writing reduce perceived credibility — sometimes significantly. Here are the most common mistakes that careful readers notice, why each one happens, and the quick fixes that eliminate them.",
     category: "Writing",
     readingTime: "7 min read",
     publishedAt: "2025-05-21",
     coverEmoji: "✏️",
-    tags: ["grammar", "professional writing", "proofreading", "business communication"],
+    tags: [
+      "grammar",
+      "professional writing",
+      "proofreading",
+      "business communication",
+    ],
     relatedTools: [
-      { label: "Grammar & Spell Checker", href: "/tools/grammar-spell-checker" },
-      { label: "Readability Score Calculator", href: "/tools/readability-score-calculator" },
+      {
+        label: "Grammar & Spell Checker",
+        href: "/tools/grammar-spell-checker",
+      },
+      {
+        label: "Readability Score Calculator",
+        href: "/tools/readability-score-calculator",
+      },
     ],
   },
   {
@@ -631,7 +820,10 @@ export const blogPosts: BlogPost[] = [
     tags: ["hashtags", "reach", "Instagram", "TikTok", "social media strategy"],
     relatedTools: [
       { label: "Hashtag Generator", href: "/tools/hashtag-generator" },
-      { label: "Social Media Character Counter", href: "/tools/social-media-character-counter" },
+      {
+        label: "Social Media Character Counter",
+        href: "/tools/social-media-character-counter",
+      },
     ],
   },
   {
@@ -646,34 +838,57 @@ export const blogPosts: BlogPost[] = [
     tags: ["CSS", "colour", "HEX", "HSL", "web design"],
     relatedTools: [
       { label: "Color Code Converter", href: "/tools/color-code-converter" },
-      { label: "Color Contrast Checker", href: "/tools/color-contrast-checker" },
+      {
+        label: "Color Contrast Checker",
+        href: "/tools/color-contrast-checker",
+      },
     ],
   },
   {
     slug: "hourly-to-salary-conversion-guide",
-    title: "Hourly Rate to Annual Salary: The Conversion Guide With Hidden Caveats",
+    title:
+      "Hourly Rate to Annual Salary: The Conversion Guide With Hidden Caveats",
     description:
       "Multiplying by 2,080 is the start, not the end. Benefits, paid leave, and employment overhead mean a freelance hourly rate and a salaried position at the same nominal rate are very different financially.",
     category: "Finance",
     readingTime: "6 min read",
     publishedAt: "2025-05-30",
     coverEmoji: "💵",
-    tags: ["salary", "hourly rate", "freelancing", "personal finance", "employment"],
+    tags: [
+      "salary",
+      "hourly rate",
+      "freelancing",
+      "personal finance",
+      "employment",
+    ],
     relatedTools: [
-      { label: "Hourly to Salary Calculator", href: "/tools/hourly-to-salary-calculator" },
-      { label: "Freelance Rate Calculator", href: "/tools/freelance-rate-calculator" },
+      {
+        label: "Hourly to Salary Calculator",
+        href: "/tools/hourly-to-salary-calculator",
+      },
+      {
+        label: "Freelance Rate Calculator",
+        href: "/tools/freelance-rate-calculator",
+      },
     ],
   },
   {
     slug: "how-currency-exchange-rates-work",
-    title: "How Currency Exchange Rates Work — And Why You Never Get the Rate You See Online",
+    title:
+      "How Currency Exchange Rates Work — And Why You Never Get the Rate You See Online",
     description:
       "The mid-market rate is what you see on Google. What you actually get is the mid-market rate minus a spread. Here's how exchange rates are set, what moves them, and how to minimise what you lose on conversions.",
     category: "Finance",
     readingTime: "7 min read",
     publishedAt: "2025-06-02",
     coverEmoji: "💱",
-    tags: ["currency", "exchange rates", "personal finance", "travel money", "forex"],
+    tags: [
+      "currency",
+      "exchange rates",
+      "personal finance",
+      "travel money",
+      "forex",
+    ],
     relatedTools: [
       { label: "Currency Converter", href: "/tools/currency-converter" },
       { label: "VAT Calculator", href: "/tools/vat-calculator" },
@@ -696,7 +911,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-long-should-a-blog-post-be",
-    title: "How Long Should a Blog Post Be? Reading Time, SEO, and What the Data Says",
+    title:
+      "How Long Should a Blog Post Be? Reading Time, SEO, and What the Data Says",
     description:
       "Word count targets are backwards. The right question is: what reading time fits your audience's behaviour for this type of content? Here's the research on length, engagement, and how to use a reading time estimator effectively.",
     category: "Writing",
@@ -705,13 +921,17 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "📄",
     tags: ["blog writing", "content strategy", "SEO", "long-form content"],
     relatedTools: [
-      { label: "Reading Time Estimator", href: "/tools/reading-time-estimator" },
+      {
+        label: "Reading Time Estimator",
+        href: "/tools/reading-time-estimator",
+      },
       { label: "Word Counter", href: "/tools/word-counter-live" },
     ],
   },
   {
     slug: "how-meetings-are-draining-your-budget",
-    title: "The Real Cost of Meetings: How to Calculate It and What to Do About It",
+    title:
+      "The Real Cost of Meetings: How to Calculate It and What to Do About It",
     description:
       "A one-hour meeting with 8 people doesn't cost one hour — it costs eight hours of collective labour plus context-switching overhead. Here's how to calculate the true cost and make better decisions about which meetings to hold.",
     category: "Productivity",
@@ -720,13 +940,17 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "💸",
     tags: ["meetings", "productivity", "business costs", "time management"],
     relatedTools: [
-      { label: "Meeting Cost Calculator", href: "/tools/meeting-cost-calculator" },
+      {
+        label: "Meeting Cost Calculator",
+        href: "/tools/meeting-cost-calculator",
+      },
       { label: "Pomodoro Timer", href: "/tools/pomodoro-timer" },
     ],
   },
   {
     slug: "how-mortgage-payments-are-calculated",
-    title: "How Mortgage Payments Are Calculated — Including Why Early Payments Are Mostly Interest",
+    title:
+      "How Mortgage Payments Are Calculated — Including Why Early Payments Are Mostly Interest",
     description:
       "The reason your first mortgage payment is almost entirely interest isn't a bank conspiracy — it's amortisation maths. Here's how the formula works, what term length really costs, and why overpayments are so powerful.",
     category: "Finance",
@@ -735,28 +959,47 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🏡",
     tags: ["mortgage", "amortisation", "personal finance", "home buying"],
     relatedTools: [
-      { label: "Loan & Mortgage Calculator", href: "/tools/loan-mortgage-calculator" },
-      { label: "Mortgage Affordability Calculator", href: "/tools/mortgage-affordability-calculator" },
+      {
+        label: "Loan & Mortgage Calculator",
+        href: "/tools/loan-mortgage-calculator",
+      },
+      {
+        label: "Mortgage Affordability Calculator",
+        href: "/tools/mortgage-affordability-calculator",
+      },
     ],
   },
   {
     slug: "how-much-mortgage-can-i-afford",
-    title: "How Much Mortgage Can You Actually Afford? (Not Just What a Lender Will Offer)",
+    title:
+      "How Much Mortgage Can You Actually Afford? (Not Just What a Lender Will Offer)",
     description:
       "Lenders tell you the maximum they'll lend. That's a ceiling, not a target. Here's how to calculate the monthly payment that genuinely fits your budget — including the costs most first-time buyers forget.",
     category: "Finance",
     readingTime: "7 min read",
     publishedAt: "2025-06-17",
     coverEmoji: "🏠",
-    tags: ["mortgage affordability", "home buying", "budgeting", "personal finance"],
+    tags: [
+      "mortgage affordability",
+      "home buying",
+      "budgeting",
+      "personal finance",
+    ],
     relatedTools: [
-      { label: "Mortgage Affordability Calculator", href: "/tools/mortgage-affordability-calculator" },
-      { label: "Loan & Mortgage Calculator", href: "/tools/loan-mortgage-calculator" },
+      {
+        label: "Mortgage Affordability Calculator",
+        href: "/tools/mortgage-affordability-calculator",
+      },
+      {
+        label: "Loan & Mortgage Calculator",
+        href: "/tools/loan-mortgage-calculator",
+      },
     ],
   },
   {
     slug: "how-much-protein-do-you-actually-need",
-    title: "How Much Protein Do You Actually Need? The Evidence-Based Answer by Goal",
+    title:
+      "How Much Protein Do You Actually Need? The Evidence-Based Answer by Goal",
     description:
       "The RDA of 0.8g/kg was designed to prevent deficiency, not to optimise muscle or body composition. Here's what the research actually shows for different goals — and why distribution across meals matters as much as total intake.",
     category: "Health",
@@ -765,7 +1008,10 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🥩",
     tags: ["protein", "nutrition", "muscle building", "fat loss", "fitness"],
     relatedTools: [
-      { label: "Protein Intake Calculator", href: "/tools/protein-intake-calculator" },
+      {
+        label: "Protein Intake Calculator",
+        href: "/tools/protein-intake-calculator",
+      },
       { label: "Macro Calculator", href: "/tools/macro-calculator" },
     ],
   },
@@ -780,13 +1026,17 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🏘️",
     tags: ["rent", "budgeting", "housing costs", "personal finance"],
     relatedTools: [
-      { label: "Rent Affordability Calculator", href: "/tools/rent-affordability-calculator" },
+      {
+        label: "Rent Affordability Calculator",
+        href: "/tools/rent-affordability-calculator",
+      },
       { label: "Budget Planner", href: "/tools/budget-planner" },
     ],
   },
   {
     slug: "how-much-water-should-you-drink-per-day",
-    title: "How Much Water Should You Actually Drink? (The 8 Glasses Rule Is Wrong)",
+    title:
+      "How Much Water Should You Actually Drink? (The 8 Glasses Rule Is Wrong)",
     description:
       "The 8-glasses-a-day figure has no scientific basis — it came from a 1945 guideline about total water from all food sources. Here's the evidence-based approach to daily hydration, adjusted for your weight and activity level.",
     category: "Health",
@@ -795,13 +1045,17 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "💧",
     tags: ["hydration", "water intake", "health", "nutrition"],
     relatedTools: [
-      { label: "Water Intake Calculator", href: "/tools/water-intake-calculator" },
+      {
+        label: "Water Intake Calculator",
+        href: "/tools/water-intake-calculator",
+      },
       { label: "Calorie Calculator", href: "/tools/calorie-calculator" },
     ],
   },
   {
     slug: "how-qr-codes-work-and-best-practices",
-    title: "How QR Codes Work — And the Mistakes That Make Them Fail in the Real World",
+    title:
+      "How QR Codes Work — And the Mistakes That Make Them Fail in the Real World",
     description:
       "QR codes have become genuinely ubiquitous, but most deployments have at least one avoidable problem. Here's how they work technically, the size and contrast rules for reliable scanning, and what static vs dynamic codes mean for your use case.",
     category: "Developer",
@@ -826,21 +1080,33 @@ export const blogPosts: BlogPost[] = [
     tags: ["rhyme", "poetry", "songwriting", "creative writing"],
     relatedTools: [
       { label: "Rhyme Finder", href: "/tools/rhyme-finder" },
-      { label: "Writing Prompt Generator", href: "/tools/writing-prompt-generator" },
+      {
+        label: "Writing Prompt Generator",
+        href: "/tools/writing-prompt-generator",
+      },
     ],
   },
   {
     slug: "how-to-beat-writers-block-with-prompts-and-practice",
-    title: "How to Beat Writer's Block: Prompts, Practice, and the Real Cause of the Problem",
+    title:
+      "How to Beat Writer's Block: Prompts, Practice, and the Real Cause of the Problem",
     description:
       "Writer's block is almost always a starting problem, not an ideas problem. Here's why prompts work, how to use them for different types of writing, and why timed writing sessions are the most reliable way to break through.",
     category: "Writing",
     readingTime: "6 min read",
     publishedAt: "2025-07-05",
     coverEmoji: "🖊️",
-    tags: ["writer's block", "creative writing", "writing prompts", "productivity"],
+    tags: [
+      "writer's block",
+      "creative writing",
+      "writing prompts",
+      "productivity",
+    ],
     relatedTools: [
-      { label: "Writing Prompt Generator", href: "/tools/writing-prompt-generator" },
+      {
+        label: "Writing Prompt Generator",
+        href: "/tools/writing-prompt-generator",
+      },
       { label: "Word Counter", href: "/tools/word-counter-live" },
     ],
   },
@@ -853,10 +1119,21 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min read",
     publishedAt: "2025-07-08",
     coverEmoji: "📅",
-    tags: ["content calendar", "social media strategy", "content planning", "productivity"],
+    tags: [
+      "content calendar",
+      "social media strategy",
+      "content planning",
+      "productivity",
+    ],
     relatedTools: [
-      { label: "Content Calendar Planner", href: "/tools/content-calendar-planner" },
-      { label: "Instagram Post Planner", href: "/tools/instagram-post-planner" },
+      {
+        label: "Content Calendar Planner",
+        href: "/tools/content-calendar-planner",
+      },
+      {
+        label: "Instagram Post Planner",
+        href: "/tools/instagram-post-planner",
+      },
     ],
   },
   {
@@ -871,12 +1148,16 @@ export const blogPosts: BlogPost[] = [
     tags: ["budgeting", "personal finance", "money management", "savings"],
     relatedTools: [
       { label: "Budget Planner", href: "/tools/budget-planner" },
-      { label: "Savings Goal Calculator", href: "/tools/savings-goal-calculator" },
+      {
+        label: "Savings Goal Calculator",
+        href: "/tools/savings-goal-calculator",
+      },
     ],
   },
   {
     slug: "how-to-calculate-a-tip-the-right-way",
-    title: "How to Calculate a Tip: Mental Maths, Splitting, and Tipping Norms by Country",
+    title:
+      "How to Calculate a Tip: Mental Maths, Splitting, and Tipping Norms by Country",
     description:
       "There's a simple mental maths method that covers the standard tipping percentages in seconds. Here's the technique, how to split a bill fairly in a group, and what tipping norms actually look like around the world.",
     category: "Everyday",
@@ -891,7 +1172,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-to-calculate-crypto-profit-and-loss",
-    title: "How to Calculate Crypto Profit and Loss (Including Fees and Cost Basis)",
+    title:
+      "How to Calculate Crypto Profit and Loss (Including Fees and Cost Basis)",
     description:
       "Crypto P&L sounds simple until you account for fees, multiple purchase prices, and the tax implications of different cost basis methods. Here's the complete calculation — and what HMRC and the IRS actually require.",
     category: "Finance",
@@ -900,22 +1182,37 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "₿",
     tags: ["cryptocurrency", "crypto tax", "profit and loss", "investing"],
     relatedTools: [
-      { label: "Crypto Profit Calculator", href: "/tools/crypto-profit-calculator" },
-      { label: "Investment Return Calculator", href: "/tools/investment-return-calculator" },
+      {
+        label: "Crypto Profit Calculator",
+        href: "/tools/crypto-profit-calculator",
+      },
+      {
+        label: "Investment Return Calculator",
+        href: "/tools/investment-return-calculator",
+      },
     ],
   },
   {
     slug: "how-to-calculate-days-between-dates",
-    title: "How to Calculate Days Between Dates (And Why It's Trickier Than It Looks)",
+    title:
+      "How to Calculate Days Between Dates (And Why It's Trickier Than It Looks)",
     description:
       "Month lengths, leap years, and inclusive vs exclusive counting make date difference calculations surprisingly error-prone. Here's how to get the right answer for contracts, deadlines, interest calculations, and project timelines.",
     category: "Everyday",
     readingTime: "5 min read",
     publishedAt: "2025-07-20",
     coverEmoji: "📆",
-    tags: ["dates", "date calculation", "project management", "legal deadlines"],
+    tags: [
+      "dates",
+      "date calculation",
+      "project management",
+      "legal deadlines",
+    ],
     relatedTools: [
-      { label: "Date Difference Calculator", href: "/tools/date-difference-calculator" },
+      {
+        label: "Date Difference Calculator",
+        href: "/tools/date-difference-calculator",
+      },
       { label: "Age Calculator", href: "/tools/age-calculator" },
     ],
   },
@@ -946,12 +1243,16 @@ export const blogPosts: BlogPost[] = [
     tags: ["age calculation", "dates", "legal age", "Excel"],
     relatedTools: [
       { label: "Age Calculator", href: "/tools/age-calculator" },
-      { label: "Date Difference Calculator", href: "/tools/date-difference-calculator" },
+      {
+        label: "Date Difference Calculator",
+        href: "/tools/date-difference-calculator",
+      },
     ],
   },
   {
     slug: "how-to-calculate-investment-returns",
-    title: "How to Calculate Investment Returns: Total Return, CAGR, and Real Return",
+    title:
+      "How to Calculate Investment Returns: Total Return, CAGR, and Real Return",
     description:
       "A 40% total return and a 40% annual return are completely different things. Here's how to calculate total return, annualised CAGR, and inflation-adjusted real return — and why each metric tells a different story.",
     category: "Finance",
@@ -960,13 +1261,20 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "📈",
     tags: ["investing", "returns", "CAGR", "personal finance"],
     relatedTools: [
-      { label: "Investment Return Calculator", href: "/tools/investment-return-calculator" },
-      { label: "Compound Interest Calculator", href: "/tools/compound-interest-calculator" },
+      {
+        label: "Investment Return Calculator",
+        href: "/tools/investment-return-calculator",
+      },
+      {
+        label: "Compound Interest Calculator",
+        href: "/tools/compound-interest-calculator",
+      },
     ],
   },
   {
     slug: "how-to-calculate-roi",
-    title: "ROI Explained: The Formula, What to Include, and Why the Number Lies",
+    title:
+      "ROI Explained: The Formula, What to Include, and Why the Number Lies",
     description:
       "The ROI formula is simple. What counts as 'return' and what counts as 'cost' is where most calculations go wrong. Here's how to calculate it accurately for marketing, business investment, and real estate — and what it can't tell you.",
     category: "Business",
@@ -981,7 +1289,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-to-calculate-your-daily-calorie-needs",
-    title: "How to Calculate Your Daily Calorie Needs (BMR, TDEE, and Activity Multipliers)",
+    title:
+      "How to Calculate Your Daily Calorie Needs (BMR, TDEE, and Activity Multipliers)",
     description:
       "Your calorie needs aren't a fixed number — they depend on body size, age, activity level, and goal. Here's the Mifflin-St Jeor equation, the activity multipliers, and how to use TDEE as your actual starting point.",
     category: "Health",
@@ -991,12 +1300,16 @@ export const blogPosts: BlogPost[] = [
     tags: ["calories", "TDEE", "BMR", "nutrition", "weight management"],
     relatedTools: [
       { label: "Calorie Calculator", href: "/tools/calorie-calculator" },
-      { label: "Calorie & Macro Calculator", href: "/tools/calorie-macro-calculator" },
+      {
+        label: "Calorie & Macro Calculator",
+        href: "/tools/calorie-macro-calculator",
+      },
     ],
   },
   {
     slug: "how-to-calculate-your-freelance-rate",
-    title: "How to Calculate Your Freelance Rate (So You Can Actually Afford to Work)",
+    title:
+      "How to Calculate Your Freelance Rate (So You Can Actually Afford to Work)",
     description:
       "Most freelancers price by feel or by copying competitors. Here's a needs-based calculation that starts from your required income and accounts for tax, expenses, non-billable time, and the paid leave you're giving up.",
     category: "Business",
@@ -1005,7 +1318,10 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "💼",
     tags: ["freelancing", "pricing", "self-employment", "business finance"],
     relatedTools: [
-      { label: "Freelance Rate Calculator", href: "/tools/freelance-rate-calculator" },
+      {
+        label: "Freelance Rate Calculator",
+        href: "/tools/freelance-rate-calculator",
+      },
       { label: "Invoice Generator", href: "/tools/invoice-generator" },
     ],
   },
@@ -1018,7 +1334,12 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min read",
     publishedAt: "2025-08-10",
     coverEmoji: "💎",
-    tags: ["net worth", "personal finance", "wealth building", "financial planning"],
+    tags: [
+      "net worth",
+      "personal finance",
+      "wealth building",
+      "financial planning",
+    ],
     relatedTools: [
       { label: "Net Worth Calculator", href: "/tools/net-worth-calculator" },
       { label: "Budget Planner", href: "/tools/budget-planner" },
@@ -1026,7 +1347,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-to-check-for-plagiarism",
-    title: "How to Check Your Writing for Plagiarism: What the Checker Actually Finds",
+    title:
+      "How to Check Your Writing for Plagiarism: What the Checker Actually Finds",
     description:
       "Plagiarism isn't just copy-pasting — close paraphrasing, self-plagiarism, and improper citation all count. Here's how plagiarism checkers work, what the similarity score means, and how to fix what they flag.",
     category: "Writing",
@@ -1041,7 +1363,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-to-choose-a-business-name",
-    title: "How to Choose a Business Name: Availability, Memorability, and What to Avoid",
+    title:
+      "How to Choose a Business Name: Availability, Memorability, and What to Avoid",
     description:
       "Choosing a business name feels permanent — and it mostly is. Here's a practical process for generating options, checking domain and trademark availability, and evaluating names before committing.",
     category: "Business",
@@ -1050,7 +1373,10 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🏢",
     tags: ["business name", "branding", "entrepreneurship", "startup"],
     relatedTools: [
-      { label: "Business Name Generator", href: "/tools/business-name-generator" },
+      {
+        label: "Business Name Generator",
+        href: "/tools/business-name-generator",
+      },
       { label: "Slogan Generator", href: "/tools/slogan-generator" },
     ],
   },
@@ -1065,7 +1391,10 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🔀",
     tags: ["document comparison", "editing", "contracts", "version control"],
     relatedTools: [
-      { label: "Text Difference Checker", href: "/tools/text-difference-checker" },
+      {
+        label: "Text Difference Checker",
+        href: "/tools/text-difference-checker",
+      },
       { label: "Plagiarism Checker", href: "/tools/plagiarism-checker" },
     ],
   },
@@ -1081,7 +1410,10 @@ export const blogPosts: BlogPost[] = [
     tags: ["acronyms", "naming", "branding", "communication"],
     relatedTools: [
       { label: "Acronym Generator", href: "/tools/acronym-generator" },
-      { label: "Business Name Generator", href: "/tools/business-name-generator" },
+      {
+        label: "Business Name Generator",
+        href: "/tools/business-name-generator",
+      },
     ],
   },
   {
@@ -1101,7 +1433,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-to-create-strong-passwords",
-    title: "How to Create Strong Passwords: Length, Randomness, and Why Patterns Don't Work",
+    title:
+      "How to Create Strong Passwords: Length, Randomness, and Why Patterns Don't Work",
     description:
       "Password strength comes down to two things: length and randomness. Here's why 'P@ssw0rd' is weak despite looking complex, how credential attacks actually work, and the password manager workflow that solves the whole problem.",
     category: "Security",
@@ -1111,12 +1444,16 @@ export const blogPosts: BlogPost[] = [
     tags: ["passwords", "cybersecurity", "online safety", "account security"],
     relatedTools: [
       { label: "Password Generator", href: "/tools/password-generator" },
-      { label: "Password Strength Checker", href: "/tools/password-strength-checker" },
+      {
+        label: "Password Strength Checker",
+        href: "/tools/password-strength-checker",
+      },
     ],
   },
   {
     slug: "how-to-evaluate-a-pay-raise",
-    title: "How to Evaluate a Pay Raise: Real Increase, Inflation, and Market Rate",
+    title:
+      "How to Evaluate a Pay Raise: Real Increase, Inflation, and Market Rate",
     description:
       "A 3% raise in a 4% inflation year is a real pay cut. Here's how to calculate the actual monetary difference, adjust for inflation, and benchmark against market rate — plus how to negotiate if the offer falls short.",
     category: "Finance",
@@ -1126,7 +1463,10 @@ export const blogPosts: BlogPost[] = [
     tags: ["salary", "pay raise", "negotiation", "personal finance"],
     relatedTools: [
       { label: "Pay Raise Calculator", href: "/tools/pay-raise-calculator" },
-      { label: "Hourly to Salary Calculator", href: "/tools/hourly-to-salary-calculator" },
+      {
+        label: "Hourly to Salary Calculator",
+        href: "/tools/hourly-to-salary-calculator",
+      },
     ],
   },
   {
@@ -1140,7 +1480,10 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "{ }",
     tags: ["JSON", "web development", "debugging", "API", "developer tools"],
     relatedTools: [
-      { label: "JSON Formatter & Validator", href: "/tools/json-formatter-validator" },
+      {
+        label: "JSON Formatter & Validator",
+        href: "/tools/json-formatter-validator",
+      },
       { label: "JSON to CSV Converter", href: "/tools/json-to-csv-converter" },
     ],
   },
@@ -1190,7 +1533,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-to-paraphrase-without-plagiarising",
-    title: "How to Paraphrase Without Plagiarising: The Close-the-Source Method",
+    title:
+      "How to Paraphrase Without Plagiarising: The Close-the-Source Method",
     description:
       "Swapping synonyms while keeping the sentence structure is plagiarism. Real paraphrasing is transformation, not modification. Here's the three-step method that produces genuinely original text — and when to use a paraphrasing tool.",
     category: "Writing",
@@ -1205,7 +1549,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-to-pick-hex-colors-for-your-brand",
-    title: "How to Pick Hex Colours for Your Brand (That Actually Work in Context)",
+    title:
+      "How to Pick Hex Colours for Your Brand (That Actually Work in Context)",
     description:
       "A hex code is a starting point, not a colour system. Before committing to brand colours, check contrast, tint/shade range, and how they perform on white, dark, and coloured backgrounds. Here's the full evaluation process.",
     category: "Design",
@@ -1214,13 +1559,20 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🎨",
     tags: ["brand colours", "hex codes", "design", "branding", "colour system"],
     relatedTools: [
-      { label: "Hex Color Code Generator", href: "/tools/hex-color-code-generator" },
-      { label: "Color Contrast Checker", href: "/tools/color-contrast-checker" },
+      {
+        label: "Hex Color Code Generator",
+        href: "/tools/hex-color-code-generator",
+      },
+      {
+        label: "Color Contrast Checker",
+        href: "/tools/color-contrast-checker",
+      },
     ],
   },
   {
     slug: "how-to-reach-a-savings-goal-faster",
-    title: "How to Reach a Savings Goal Faster: Calculation, Psychology, and the Automation Rule",
+    title:
+      "How to Reach a Savings Goal Faster: Calculation, Psychology, and the Automation Rule",
     description:
       "A savings goal works when it has a specific target, a timeline, and a monthly contribution that makes the maths work. Here's the calculation, the interest rate impact, and why automating the transfer is non-negotiable.",
     category: "Finance",
@@ -1229,8 +1581,14 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🎯",
     tags: ["savings", "financial goals", "personal finance", "budgeting"],
     relatedTools: [
-      { label: "Savings Goal Calculator", href: "/tools/savings-goal-calculator" },
-      { label: "Compound Interest Calculator", href: "/tools/compound-interest-calculator" },
+      {
+        label: "Savings Goal Calculator",
+        href: "/tools/savings-goal-calculator",
+      },
+      {
+        label: "Compound Interest Calculator",
+        href: "/tools/compound-interest-calculator",
+      },
     ],
   },
   {
@@ -1242,15 +1600,24 @@ export const blogPosts: BlogPost[] = [
     readingTime: "5 min read",
     publishedAt: "2025-09-24",
     coverEmoji: "✂️",
-    tags: ["image editing", "background removal", "e-commerce", "product photography"],
+    tags: [
+      "image editing",
+      "background removal",
+      "e-commerce",
+      "product photography",
+    ],
     relatedTools: [
       { label: "Background Remover", href: "/tools/background-remover" },
-      { label: "Image Format Converter", href: "/tools/image-format-converter" },
+      {
+        label: "Image Format Converter",
+        href: "/tools/image-format-converter",
+      },
     ],
   },
   {
     slug: "how-to-summarise-long-content-effectively",
-    title: "How to Summarise Long Content Effectively (Without Missing What Matters)",
+    title:
+      "How to Summarise Long Content Effectively (Without Missing What Matters)",
     description:
       "A good summary is accurate, complete, and substantially shorter than the original. Here's the reverse-outline method, when automated text summarisers work and when they don't, and target lengths by content type.",
     category: "Writing",
@@ -1265,7 +1632,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-to-use-a-stopwatch-for-productivity-and-sport",
-    title: "How to Use a Stopwatch for Sport Timing, Time Logging, and Focus Sessions",
+    title:
+      "How to Use a Stopwatch for Sport Timing, Time Logging, and Focus Sessions",
     description:
       "A stopwatch measures elapsed time and records laps — simpler than a timer but more useful than people give it credit for. Here's how athletes, freelancers, and knowledge workers each use it to track what actually matters.",
     category: "Productivity",
@@ -1280,7 +1648,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-to-write-a-resume-that-gets-interviews",
-    title: "How to Write a Resume That Gets Interviews (ATS-Friendly and Human-Readable)",
+    title:
+      "How to Write a Resume That Gets Interviews (ATS-Friendly and Human-Readable)",
     description:
       "Most resumes fail before a human reads them — rejected by ATS for missing keywords or skimmed in six seconds. Here's what the algorithm and the recruiter are both looking for, with the achievement formula that makes bullets land.",
     category: "Business",
@@ -1295,7 +1664,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-to-write-a-slogan-that-sticks",
-    title: "How to Write a Slogan That Sticks: The Mechanics of Memorable Brand Lines",
+    title:
+      "How to Write a Slogan That Sticks: The Mechanics of Memorable Brand Lines",
     description:
       "Good slogans sell aspirations, not descriptions. Here's what separates 'Just Do It' from forgettable brand filler — the structural principles behind memorable taglines, with examples of each framework.",
     category: "Marketing",
@@ -1305,22 +1675,38 @@ export const blogPosts: BlogPost[] = [
     tags: ["slogan", "branding", "tagline", "copywriting", "marketing"],
     relatedTools: [
       { label: "Slogan Generator", href: "/tools/slogan-generator" },
-      { label: "Business Name Generator", href: "/tools/business-name-generator" },
+      {
+        label: "Business Name Generator",
+        href: "/tools/business-name-generator",
+      },
     ],
   },
   {
     slug: "how-to-write-a-social-media-bio-that-converts",
-    title: "How to Write a Social Media Bio That Converts Visitors to Followers",
+    title:
+      "How to Write a Social Media Bio That Converts Visitors to Followers",
     description:
       "Most bios are either blank, generic, or too focused on job titles. Here's the anatomy of a converting bio — who you serve, what you offer, proof, and CTA — with character limits for every major platform.",
     category: "Social Media",
     readingTime: "6 min read",
     publishedAt: "2025-10-09",
     coverEmoji: "👤",
-    tags: ["social media bio", "personal branding", "Instagram", "LinkedIn", "TikTok"],
+    tags: [
+      "social media bio",
+      "personal branding",
+      "Instagram",
+      "LinkedIn",
+      "TikTok",
+    ],
     relatedTools: [
-      { label: "Social Media Bio Generator", href: "/tools/social-media-bio-generator" },
-      { label: "Social Media Character Counter", href: "/tools/social-media-character-counter" },
+      {
+        label: "Social Media Bio Generator",
+        href: "/tools/social-media-bio-generator",
+      },
+      {
+        label: "Social Media Character Counter",
+        href: "/tools/social-media-character-counter",
+      },
     ],
   },
   {
@@ -1335,7 +1721,10 @@ export const blogPosts: BlogPost[] = [
     tags: ["headlines", "blog titles", "SEO", "CTR", "content writing"],
     relatedTools: [
       { label: "Essay Title Generator", href: "/tools/essay-title-generator" },
-      { label: "Word & Character Counter", href: "/tools/word-character-counter" },
+      {
+        label: "Word & Character Counter",
+        href: "/tools/word-character-counter",
+      },
     ],
   },
   {
@@ -1347,10 +1736,22 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min read",
     publishedAt: "2025-10-15",
     coverEmoji: "🧵",
-    tags: ["Twitter", "X", "threads", "social media writing", "content strategy"],
+    tags: [
+      "Twitter",
+      "X",
+      "threads",
+      "social media writing",
+      "content strategy",
+    ],
     relatedTools: [
-      { label: "Twitter Thread Builder", href: "/tools/twitter-thread-builder" },
-      { label: "Social Media Character Counter", href: "/tools/social-media-character-counter" },
+      {
+        label: "Twitter Thread Builder",
+        href: "/tools/twitter-thread-builder",
+      },
+      {
+        label: "Social Media Character Counter",
+        href: "/tools/social-media-character-counter",
+      },
     ],
   },
   {
@@ -1370,7 +1771,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "ideal-weight-formulas-what-they-mean",
-    title: "Ideal Weight Formulas: What They Calculate and Why They're Not Personal Targets",
+    title:
+      "Ideal Weight Formulas: What They Calculate and Why They're Not Personal Targets",
     description:
       "Devine, Robinson, Miller, Hamwi — four ideal weight formulas that give four different answers. Here's what each was designed for, why they're clinical tools rather than personal goals, and what healthy weight range actually means.",
     category: "Health",
@@ -1379,7 +1781,10 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "⚖️",
     tags: ["ideal weight", "health", "body weight", "BMI"],
     relatedTools: [
-      { label: "Ideal Weight Calculator", href: "/tools/ideal-weight-calculator" },
+      {
+        label: "Ideal Weight Calculator",
+        href: "/tools/ideal-weight-calculator",
+      },
       { label: "BMI Calculator", href: "/tools/bmi-calculator" },
     ],
   },
@@ -1392,45 +1797,75 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min read",
     publishedAt: "2025-10-24",
     coverEmoji: "🖼️",
-    tags: ["image optimisation", "web performance", "Core Web Vitals", "page speed"],
+    tags: [
+      "image optimisation",
+      "web performance",
+      "Core Web Vitals",
+      "page speed",
+    ],
     relatedTools: [
       { label: "Image Compressor", href: "/tools/image-compressor" },
-      { label: "Image Format Converter", href: "/tools/image-format-converter" },
+      {
+        label: "Image Format Converter",
+        href: "/tools/image-format-converter",
+      },
     ],
   },
   {
     slug: "image-resizing-guide-for-web-and-social",
-    title: "Image Resizing for Web and Social Media: The Complete Dimensions Reference",
+    title:
+      "Image Resizing for Web and Social Media: The Complete Dimensions Reference",
     description:
       "Uploading a 4MB hero image that displays at 800px is wasting every visitor's bandwidth. Here's the correct dimensions for every major context — websites, social platforms, email — and why cropping beats resizing alone.",
     category: "Image",
     readingTime: "6 min read",
     publishedAt: "2025-10-27",
     coverEmoji: "📐",
-    tags: ["image resizing", "social media images", "web optimisation", "dimensions"],
+    tags: [
+      "image resizing",
+      "social media images",
+      "web optimisation",
+      "dimensions",
+    ],
     relatedTools: [
-      { label: "Image Cropper & Resizer", href: "/tools/image-cropper-resizer" },
-      { label: "Profile Picture Resizer", href: "/tools/profile-picture-resizer" },
+      {
+        label: "Image Cropper & Resizer",
+        href: "/tools/image-cropper-resizer",
+      },
+      {
+        label: "Profile Picture Resizer",
+        href: "/tools/profile-picture-resizer",
+      },
     ],
   },
   {
     slug: "instagram-post-planning-guide",
-    title: "Instagram Post Planning: Content Pillars, Caption Structure, and Posting Cadence",
+    title:
+      "Instagram Post Planning: Content Pillars, Caption Structure, and Posting Cadence",
     description:
       "Posting without a plan produces inconsistent content and inconsistent results. Here's the content pillar framework, caption anatomy that drives saves and comments, and the batching workflow that makes consistency sustainable.",
     category: "Social Media",
     readingTime: "7 min read",
     publishedAt: "2025-10-30",
     coverEmoji: "📸",
-    tags: ["Instagram", "content strategy", "social media planning", "engagement"],
+    tags: [
+      "Instagram",
+      "content strategy",
+      "social media planning",
+      "engagement",
+    ],
     relatedTools: [
-      { label: "Instagram Post Planner", href: "/tools/instagram-post-planner" },
+      {
+        label: "Instagram Post Planner",
+        href: "/tools/instagram-post-planner",
+      },
       { label: "Hashtag Generator", href: "/tools/hashtag-generator" },
     ],
   },
   {
     slug: "json-to-csv-when-and-how-to-convert",
-    title: "JSON to CSV: When to Convert, What Gets Lost, and How to Do It Cleanly",
+    title:
+      "JSON to CSV: When to Convert, What Gets Lost, and How to Do It Cleanly",
     description:
       "JSON and CSV serve different purposes — and converting between them requires understanding what each format can and can't represent. Here's when each format wins, how to handle nested objects, and the delimiter decisions that matter.",
     category: "Developer",
@@ -1440,12 +1875,16 @@ export const blogPosts: BlogPost[] = [
     tags: ["JSON", "CSV", "data formats", "developer tools", "data analysis"],
     relatedTools: [
       { label: "JSON to CSV Converter", href: "/tools/json-to-csv-converter" },
-      { label: "JSON Formatter & Validator", href: "/tools/json-formatter-validator" },
+      {
+        label: "JSON Formatter & Validator",
+        href: "/tools/json-formatter-validator",
+      },
     ],
   },
   {
     slug: "jwt-tokens-explained",
-    title: "JWT Tokens Explained: Structure, Security Model, and What to Store Where",
+    title:
+      "JWT Tokens Explained: Structure, Security Model, and What to Store Where",
     description:
       "JWTs look like random gibberish but are actually readable JSON — which is both their feature and their most misunderstood aspect. Here's the three-section structure, why the payload isn't encrypted, and where to store tokens securely.",
     category: "Developer",
@@ -1455,7 +1894,10 @@ export const blogPosts: BlogPost[] = [
     tags: ["JWT", "authentication", "security", "API", "web development"],
     relatedTools: [
       { label: "JWT Decoder", href: "/tools/jwt-decoder" },
-      { label: "Base64 Encoder/Decoder", href: "/tools/base64-encoder-decoder" },
+      {
+        label: "Base64 Encoder/Decoder",
+        href: "/tools/base64-encoder-decoder",
+      },
     ],
   },
   {
@@ -1469,8 +1911,14 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🔍",
     tags: ["keyword density", "SEO", "content strategy", "on-page SEO"],
     relatedTools: [
-      { label: "Keyword Density Checker", href: "/tools/keyword-density-checker" },
-      { label: "Word Frequency Counter", href: "/tools/word-frequency-counter" },
+      {
+        label: "Keyword Density Checker",
+        href: "/tools/keyword-density-checker",
+      },
+      {
+        label: "Word Frequency Counter",
+        href: "/tools/word-frequency-counter",
+      },
     ],
   },
   {
@@ -1484,13 +1932,20 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "💼",
     tags: ["LinkedIn", "social media", "content formatting", "organic reach"],
     relatedTools: [
-      { label: "LinkedIn Post Formatter", href: "/tools/linkedin-post-formatter" },
-      { label: "Social Media Character Counter", href: "/tools/social-media-character-counter" },
+      {
+        label: "LinkedIn Post Formatter",
+        href: "/tools/linkedin-post-formatter",
+      },
+      {
+        label: "Social Media Character Counter",
+        href: "/tools/social-media-character-counter",
+      },
     ],
   },
   {
     slug: "macro-calculator-how-to-set-your-targets",
-    title: "Macro Targets: How to Set Protein, Carbs, and Fat for Your Specific Goal",
+    title:
+      "Macro Targets: How to Set Protein, Carbs, and Fat for Your Specific Goal",
     description:
       "Percentage-based macro splits are less useful than gram-based targets built from bodyweight and goal. Here's the evidence-based ranges for fat loss, muscle gain, and performance — and why setting protein first is the right order.",
     category: "Health",
@@ -1500,7 +1955,10 @@ export const blogPosts: BlogPost[] = [
     tags: ["macros", "nutrition", "protein", "muscle building", "fat loss"],
     relatedTools: [
       { label: "Macro Calculator", href: "/tools/macro-calculator" },
-      { label: "Protein Intake Calculator", href: "/tools/protein-intake-calculator" },
+      {
+        label: "Protein Intake Calculator",
+        href: "/tools/protein-intake-calculator",
+      },
     ],
   },
   {
@@ -1514,13 +1972,17 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "📝",
     tags: ["Markdown", "documentation", "writing", "developer tools"],
     relatedTools: [
-      { label: "Markdown to HTML Converter", href: "/tools/markdown-to-html-converter" },
+      {
+        label: "Markdown to HTML Converter",
+        href: "/tools/markdown-to-html-converter",
+      },
       { label: "Word Counter", href: "/tools/word-counter-live" },
     ],
   },
   {
     slug: "md5-sha1-sha256-which-hash-to-use",
-    title: "MD5, SHA-1, SHA-256: Which Hash Function to Use (And When Not to Use MD5)",
+    title:
+      "MD5, SHA-1, SHA-256: Which Hash Function to Use (And When Not to Use MD5)",
     description:
       "MD5 and SHA-1 are cryptographically broken. SHA-256 is the current standard. Here's why the distinction matters, where each algorithm is still acceptable, and why password hashing requires something completely different.",
     category: "Developer",
@@ -1535,14 +1997,21 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "meta-tags-complete-guide-for-seo",
-    title: "Meta Tags: The Complete Guide to Title, Description, and Open Graph",
+    title:
+      "Meta Tags: The Complete Guide to Title, Description, and Open Graph",
     description:
       "Meta tags determine your search result appearance and social share preview. Here's every tag that actually matters — title, description, Open Graph, Twitter Card, robots — with the character limits and best practices for each.",
     category: "Developer",
     readingTime: "7 min read",
     publishedAt: "2025-11-23",
     coverEmoji: "🔖",
-    tags: ["meta tags", "SEO", "Open Graph", "social sharing", "web development"],
+    tags: [
+      "meta tags",
+      "SEO",
+      "Open Graph",
+      "social sharing",
+      "web development",
+    ],
     relatedTools: [
       { label: "Meta Tag Generator", href: "/tools/meta-tag-generator" },
       { label: "Open Graph Preview", href: "/tools/open-graph-preview" },
@@ -1550,7 +2019,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "metric-vs-imperial-unit-conversion-guide",
-    title: "Metric vs Imperial: The Conversion Guide With Mental Shortcuts That Stick",
+    title:
+      "Metric vs Imperial: The Conversion Guide With Mental Shortcuts That Stick",
     description:
       "Km to miles, kg to lbs, Celsius to Fahrenheit — these conversions come up constantly and most people can't reliably do them mentally. Here are the key factors with simple approximations that are accurate enough for practical use.",
     category: "Everyday",
@@ -1560,12 +2030,16 @@ export const blogPosts: BlogPost[] = [
     tags: ["unit conversion", "metric", "imperial", "measurement"],
     relatedTools: [
       { label: "Unit Converter", href: "/tools/unit-converter" },
-      { label: "Speed Distance Time Calculator", href: "/tools/speed-distance-time-calculator" },
+      {
+        label: "Speed Distance Time Calculator",
+        href: "/tools/speed-distance-time-calculator",
+      },
     ],
   },
   {
     slug: "morse-code-history-and-how-it-works",
-    title: "Morse Code: How It Works, Why It's Still Used, and What SOS Actually Means",
+    title:
+      "Morse Code: How It Works, Why It's Still Used, and What SOS Actually Means",
     description:
       "Morse code is 180 years old and still in active use in amateur radio, aviation, and accessibility tools. Here's the encoding logic (why E gets one dot and Z gets four dashes), timing rules, and its modern applications.",
     category: "Fun",
@@ -1575,19 +2049,29 @@ export const blogPosts: BlogPost[] = [
     tags: ["Morse code", "radio", "history", "encoding"],
     relatedTools: [
       { label: "Morse Code Translator", href: "/tools/morse-code-translator" },
-      { label: "Binary to Text Converter", href: "/tools/binary-to-text-converter" },
+      {
+        label: "Binary to Text Converter",
+        href: "/tools/binary-to-text-converter",
+      },
     ],
   },
   {
     slug: "open-graph-images-social-sharing-guide",
-    title: "Open Graph Images: How to Control What Your Pages Look Like When Shared",
+    title:
+      "Open Graph Images: How to Control What Your Pages Look Like When Shared",
     description:
       "Without Open Graph tags, social platforms guess — usually badly. Here's the complete guide to OG tags, the image dimensions that work across every platform, and the common mistakes that cause blank or broken share previews.",
     category: "Developer",
     readingTime: "6 min read",
     publishedAt: "2025-12-02",
     coverEmoji: "🔗",
-    tags: ["Open Graph", "social sharing", "meta tags", "web development", "SEO"],
+    tags: [
+      "Open Graph",
+      "social sharing",
+      "meta tags",
+      "web development",
+      "SEO",
+    ],
     relatedTools: [
       { label: "Open Graph Preview", href: "/tools/open-graph-preview" },
       { label: "Meta Tag Generator", href: "/tools/meta-tag-generator" },
@@ -1595,7 +2079,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "ovulation-and-fertile-window-explained",
-    title: "Ovulation and the Fertile Window: What the Calculator Is Actually Estimating",
+    title:
+      "Ovulation and the Fertile Window: What the Calculator Is Actually Estimating",
     description:
       "The fertile window spans five days before ovulation plus ovulation day itself — not just the single ovulation date. Here's how cycle tracking works, what signs confirm ovulation, and when calendar-based calculations become unreliable.",
     category: "Health",
@@ -1605,12 +2090,16 @@ export const blogPosts: BlogPost[] = [
     tags: ["ovulation", "fertility", "menstrual cycle", "women's health"],
     relatedTools: [
       { label: "Ovulation Calculator", href: "/tools/ovulation-calculator" },
-      { label: "Pregnancy Due Date Calculator", href: "/tools/pregnancy-due-date-calculator" },
+      {
+        label: "Pregnancy Due Date Calculator",
+        href: "/tools/pregnancy-due-date-calculator",
+      },
     ],
   },
   {
     slug: "percentage-calculations-explained",
-    title: "Percentage Calculations: The Three Types and the Mistake Everyone Makes With VAT",
+    title:
+      "Percentage Calculations: The Three Types and the Mistake Everyone Makes With VAT",
     description:
       "There are three fundamentally different percentage questions — and most people only know how to do one. Here's the full guide including percentage change, working backwards from a discounted price, and why 20% of £120 isn't the VAT content.",
     category: "Everyday",
@@ -1634,7 +2123,10 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🖼️",
     tags: ["image formats", "WebP", "PNG", "JPG", "web performance"],
     relatedTools: [
-      { label: "Image Format Converter", href: "/tools/image-format-converter" },
+      {
+        label: "Image Format Converter",
+        href: "/tools/image-format-converter",
+      },
       { label: "Image Compressor", href: "/tools/image-compressor" },
     ],
   },
@@ -1664,7 +2156,10 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🤰",
     tags: ["pregnancy", "due date", "women's health", "prenatal"],
     relatedTools: [
-      { label: "Pregnancy Due Date Calculator", href: "/tools/pregnancy-due-date-calculator" },
+      {
+        label: "Pregnancy Due Date Calculator",
+        href: "/tools/pregnancy-due-date-calculator",
+      },
       { label: "Age Calculator", href: "/tools/age-calculator" },
     ],
   },
@@ -1679,50 +2174,82 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🖼️",
     tags: ["profile picture", "social media", "image sizing", "branding"],
     relatedTools: [
-      { label: "Profile Picture Resizer", href: "/tools/profile-picture-resizer" },
-      { label: "Image Cropper & Resizer", href: "/tools/image-cropper-resizer" },
+      {
+        label: "Profile Picture Resizer",
+        href: "/tools/profile-picture-resizer",
+      },
+      {
+        label: "Image Cropper & Resizer",
+        href: "/tools/image-cropper-resizer",
+      },
     ],
   },
   {
     slug: "random-name-generator-uses",
-    title: "Random Name Generator: Uses for Writers, Developers, and Game Designers",
+    title:
+      "Random Name Generator: Uses for Writers, Developers, and Game Designers",
     description:
       "Naming fictional characters, seeding test databases, and populating game worlds all benefit from a reliable name generator. Here's how to use one effectively — and what makes generated names feel real rather than randomly assembled.",
     category: "Fun",
     readingTime: "5 min read",
     publishedAt: "2025-12-23",
     coverEmoji: "🎲",
-    tags: ["random names", "fiction writing", "game design", "software testing"],
+    tags: [
+      "random names",
+      "fiction writing",
+      "game design",
+      "software testing",
+    ],
     relatedTools: [
       { label: "Random Name Generator", href: "/tools/random-name-generator" },
-      { label: "Writing Prompt Generator", href: "/tools/writing-prompt-generator" },
+      {
+        label: "Writing Prompt Generator",
+        href: "/tools/writing-prompt-generator",
+      },
     ],
   },
   {
     slug: "random-number-generation-explained",
-    title: "Random Number Generation: True Random vs Pseudorandom vs Cryptographically Secure",
+    title:
+      "Random Number Generation: True Random vs Pseudorandom vs Cryptographically Secure",
     description:
       "Not all random numbers are created equal. Here's the difference between pseudorandom, cryptographically secure, and truly random generation — which to use for games, statistics, and security applications.",
     category: "Developer",
     readingTime: "6 min read",
     publishedAt: "2025-12-26",
     coverEmoji: "🎰",
-    tags: ["random numbers", "cryptography", "security", "statistics", "developer fundamentals"],
+    tags: [
+      "random numbers",
+      "cryptography",
+      "security",
+      "statistics",
+      "developer fundamentals",
+    ],
     relatedTools: [
-      { label: "Random Number Generator", href: "/tools/random-number-generator" },
+      {
+        label: "Random Number Generator",
+        href: "/tools/random-number-generator",
+      },
       { label: "UUID/GUID Generator", href: "/tools/uuid-guid-generator" },
     ],
   },
   {
     slug: "regular-expressions-practical-guide",
-    title: "Regular Expressions: A Practical Guide to the Patterns That Cover 90% of Use Cases",
+    title:
+      "Regular Expressions: A Practical Guide to the Patterns That Cover 90% of Use Cases",
     description:
       "Regex looks impenetrable until you understand the building blocks. Here's a working guide to character classes, quantifiers, groups, and anchors — with the actual patterns you'll use for validation, parsing, and text transformation.",
     category: "Developer",
     readingTime: "8 min read",
     publishedAt: "2025-12-29",
     coverEmoji: "🔣",
-    tags: ["regex", "regular expressions", "programming", "text processing", "validation"],
+    tags: [
+      "regex",
+      "regular expressions",
+      "programming",
+      "text processing",
+      "validation",
+    ],
     relatedTools: [
       { label: "Regex Tester", href: "/tools/regex-tester" },
       { label: "Email Validator", href: "/tools/email-validator" },
@@ -1730,22 +2257,33 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "retirement-planning-how-much-do-you-need",
-    title: "Retirement Planning: How Much You Actually Need and Whether You're on Track",
+    title:
+      "Retirement Planning: How Much You Actually Need and Whether You're on Track",
     description:
       "The 4% rule gives you a target from your desired income. The State Pension reduces how much you need to save privately. Here's the full calculation — portfolio target, contribution required, and what to do if you're behind.",
     category: "Finance",
     readingTime: "8 min read",
     publishedAt: "2026-01-01",
     coverEmoji: "🏖️",
-    tags: ["retirement", "pension", "personal finance", "investing", "financial planning"],
+    tags: [
+      "retirement",
+      "pension",
+      "personal finance",
+      "investing",
+      "financial planning",
+    ],
     relatedTools: [
       { label: "Retirement Calculator", href: "/tools/retirement-calculator" },
-      { label: "Compound Interest Calculator", href: "/tools/compound-interest-calculator" },
+      {
+        label: "Compound Interest Calculator",
+        href: "/tools/compound-interest-calculator",
+      },
     ],
   },
   {
     slug: "robots-txt-complete-guide",
-    title: "Robots.txt: The Complete Guide to Crawler Control and Common Mistakes",
+    title:
+      "Robots.txt: The Complete Guide to Crawler Control and Common Mistakes",
     description:
       "Robots.txt tells search engines which pages to crawl — get it wrong and you can accidentally block important content from Google. Here's the syntax, what to block and what not to, and why robots.txt isn't a security measure.",
     category: "Developer",
@@ -1769,13 +2307,20 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🏛️",
     tags: ["Roman numerals", "maths", "history", "number systems"],
     relatedTools: [
-      { label: "Roman Numeral Converter", href: "/tools/roman-numeral-converter" },
-      { label: "Number to Words Converter", href: "/tools/number-to-words-converter" },
+      {
+        label: "Roman Numeral Converter",
+        href: "/tools/roman-numeral-converter",
+      },
+      {
+        label: "Number to Words Converter",
+        href: "/tools/number-to-words-converter",
+      },
     ],
   },
   {
     slug: "running-pace-guide-for-every-race-distance",
-    title: "Running Pace: Required Speeds for Every Race Distance and How to Train for Them",
+    title:
+      "Running Pace: Required Speeds for Every Race Distance and How to Train for Them",
     description:
       "Knowing your required pace before race day prevents the most common mistake — going out too fast. Here's the pace maths for 5K through marathon, the training zones that build toward race pace, and why negative splits work.",
     category: "Health",
@@ -1784,20 +2329,33 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🏃",
     tags: ["running", "pace", "race training", "marathon", "5K"],
     relatedTools: [
-      { label: "Running Pace Calculator", href: "/tools/running-pace-calculator" },
-      { label: "Speed Distance Time Calculator", href: "/tools/speed-distance-time-calculator" },
+      {
+        label: "Running Pace Calculator",
+        href: "/tools/running-pace-calculator",
+      },
+      {
+        label: "Speed Distance Time Calculator",
+        href: "/tools/speed-distance-time-calculator",
+      },
     ],
   },
   {
     slug: "scientific-calculator-functions-explained",
-    title: "Scientific Calculator Functions Explained: When and Why to Use Each One",
+    title:
+      "Scientific Calculator Functions Explained: When and Why to Use Each One",
     description:
       "Logarithms, trig functions, factorials, and exponents all appear in real contexts — not just maths class. Here's a practical reference for when each function is relevant, with the degree/radian confusion that causes wrong answers.",
     category: "Education",
     readingTime: "7 min read",
     publishedAt: "2026-01-13",
     coverEmoji: "🔢",
-    tags: ["scientific calculator", "maths", "logarithms", "trigonometry", "STEM"],
+    tags: [
+      "scientific calculator",
+      "maths",
+      "logarithms",
+      "trigonometry",
+      "STEM",
+    ],
     relatedTools: [
       { label: "Scientific Calculator", href: "/tools/scientific-calculator" },
       { label: "Fraction Calculator", href: "/tools/fraction-calculator" },
@@ -1805,7 +2363,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "sentence-length-and-readability",
-    title: "Sentence Length and Readability: Why Variation Beats Any Single Target",
+    title:
+      "Sentence Length and Readability: Why Variation Beats Any Single Target",
     description:
       "Short sentences create impact. Long sentences develop complex ideas. But uniform length in either direction makes writing harder to read. Here's what the research says about sentence length, readability, and SEO engagement signals.",
     category: "Writing",
@@ -1815,12 +2374,16 @@ export const blogPosts: BlogPost[] = [
     tags: ["readability", "writing style", "sentence structure", "SEO content"],
     relatedTools: [
       { label: "Sentence Counter", href: "/tools/sentence-counter" },
-      { label: "Readability Score Calculator", href: "/tools/readability-score-calculator" },
+      {
+        label: "Readability Score Calculator",
+        href: "/tools/readability-score-calculator",
+      },
     ],
   },
   {
     slug: "sleep-cycles-how-to-wake-up-feeling-rested",
-    title: "Sleep Cycles: Why You Wake Up Groggy and How to Time Your Alarm Better",
+    title:
+      "Sleep Cycles: Why You Wake Up Groggy and How to Time Your Alarm Better",
     description:
       "Sleep happens in 90-minute cycles. Waking mid-cycle — especially during deep sleep — causes the heavy, disoriented feeling called sleep inertia. Here's how to time your bedtime or alarm to cycle endings instead.",
     category: "Health",
@@ -1842,45 +2405,77 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min read",
     publishedAt: "2026-01-22",
     coverEmoji: "🔍",
-    tags: ["social media audit", "social media strategy", "branding", "content analysis"],
+    tags: [
+      "social media audit",
+      "social media strategy",
+      "branding",
+      "content analysis",
+    ],
     relatedTools: [
       { label: "Social Media Audit Tool", href: "/tools/social-media-audit" },
-      { label: "Engagement Rate Calculator", href: "/tools/engagement-rate-calculator" },
+      {
+        label: "Engagement Rate Calculator",
+        href: "/tools/engagement-rate-calculator",
+      },
     ],
   },
   {
     slug: "social-media-character-limits-by-platform",
-    title: "Social Media Character Limits: The Complete 2025 Reference by Platform",
+    title:
+      "Social Media Character Limits: The Complete 2025 Reference by Platform",
     description:
       "Twitter cuts you off at 280. LinkedIn shows 210 characters before 'see more'. Instagram captions go to 2,200 but the hook must land in 125. Here are the exact limits for every platform, field, and format.",
     category: "Social Media",
     readingTime: "6 min read",
     publishedAt: "2026-01-25",
     coverEmoji: "💬",
-    tags: ["social media", "character limits", "Twitter", "Instagram", "LinkedIn", "TikTok"],
+    tags: [
+      "social media",
+      "character limits",
+      "Twitter",
+      "Instagram",
+      "LinkedIn",
+      "TikTok",
+    ],
     relatedTools: [
-      { label: "Social Media Character Counter", href: "/tools/social-media-character-counter" },
-      { label: "Word & Character Counter", href: "/tools/word-character-counter" },
+      {
+        label: "Social Media Character Counter",
+        href: "/tools/social-media-character-counter",
+      },
+      {
+        label: "Word & Character Counter",
+        href: "/tools/word-character-counter",
+      },
     ],
   },
   {
     slug: "social-media-engagement-rate-explained",
-    title: "Social Media Engagement Rate: What It Measures, How to Calculate It, and Good Benchmarks",
+    title:
+      "Social Media Engagement Rate: What It Measures, How to Calculate It, and Good Benchmarks",
     description:
       "Follower count is vanity; engagement rate is signal. Here's the formula, the difference between follower-based and reach-based calculations, and what benchmarks actually look like by platform and audience size.",
     category: "Analytics",
     readingTime: "6 min read",
     publishedAt: "2026-01-28",
     coverEmoji: "📊",
-    tags: ["engagement rate", "social media analytics", "benchmarks", "metrics"],
+    tags: [
+      "engagement rate",
+      "social media analytics",
+      "benchmarks",
+      "metrics",
+    ],
     relatedTools: [
-      { label: "Engagement Rate Calculator", href: "/tools/engagement-rate-calculator" },
+      {
+        label: "Engagement Rate Calculator",
+        href: "/tools/engagement-rate-calculator",
+      },
       { label: "Hashtag Generator", href: "/tools/hashtag-generator" },
     ],
   },
   {
     slug: "speed-distance-time-calculations",
-    title: "Speed, Distance, and Time: The Formula and Practical Uses for Runners, Drivers, and Cyclists",
+    title:
+      "Speed, Distance, and Time: The Formula and Practical Uses for Runners, Drivers, and Cyclists",
     description:
       "Know any two of speed, distance, and time and you can find the third. Here's the formula applied to running pace, driving journey estimates, and cycling route planning — with the unit conversions that trip people up.",
     category: "Everyday",
@@ -1889,23 +2484,39 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "🏎️",
     tags: ["speed", "distance", "time", "running", "travel planning"],
     relatedTools: [
-      { label: "Speed Distance Time Calculator", href: "/tools/speed-distance-time-calculator" },
-      { label: "Running Pace Calculator", href: "/tools/running-pace-calculator" },
+      {
+        label: "Speed Distance Time Calculator",
+        href: "/tools/speed-distance-time-calculator",
+      },
+      {
+        label: "Running Pace Calculator",
+        href: "/tools/running-pace-calculator",
+      },
     ],
   },
   {
     slug: "text-case-styles-explained",
-    title: "camelCase, snake_case, PascalCase: Text Case Styles and Where Each Belongs",
+    title:
+      "camelCase, snake_case, PascalCase: Text Case Styles and Where Each Belongs",
     description:
       "Using the wrong case convention in code isn't just a style issue — it can break imports, API calls, and URL routing. Here's a definitive guide to which case style is expected in which context, with a converter for bulk transformation.",
     category: "Developer",
     readingTime: "6 min read",
     publishedAt: "2026-02-03",
     coverEmoji: "🔡",
-    tags: ["text case", "camelCase", "snake_case", "coding conventions", "developer tools"],
+    tags: [
+      "text case",
+      "camelCase",
+      "snake_case",
+      "coding conventions",
+      "developer tools",
+    ],
     relatedTools: [
       { label: "Text Case Converter", href: "/tools/text-case-converter" },
-      { label: "Word & Character Counter", href: "/tools/word-character-counter" },
+      {
+        label: "Word & Character Counter",
+        href: "/tools/word-character-counter",
+      },
     ],
   },
   {
@@ -1932,7 +2543,13 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min read",
     publishedAt: "2026-02-09",
     coverEmoji: "🎬",
-    tags: ["TikTok", "hooks", "short-form video", "content strategy", "viral content"],
+    tags: [
+      "TikTok",
+      "hooks",
+      "short-form video",
+      "content strategy",
+      "viral content",
+    ],
     relatedTools: [
       { label: "TikTok Hook Generator", href: "/tools/tiktok-hook-generator" },
       { label: "Viral Hook Generator", href: "/tools/viral-hook-generator" },
@@ -1940,7 +2557,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "time-zone-conversion-guide-for-remote-teams",
-    title: "Time Zone Conversion for Remote Teams: How to Stop Scheduling Mistakes",
+    title:
+      "Time Zone Conversion for Remote Teams: How to Stop Scheduling Mistakes",
     description:
       "DST changes on different dates in the US and Europe. Some countries don't observe it at all. Here's a practical system for time zone management in distributed teams — including why UTC-first scheduling prevents most problems.",
     category: "Productivity",
@@ -1955,17 +2573,27 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "unix-timestamps-explained",
-    title: "Unix Timestamps Explained: What They Are, Why They're Used, and How to Convert Them",
+    title:
+      "Unix Timestamps Explained: What They Are, Why They're Used, and How to Convert Them",
     description:
       "A Unix timestamp is the number of seconds since 1 January 1970 UTC. Here's why this unambiguous format is used everywhere in software, the seconds vs milliseconds trap that causes widespread bugs, and the Year 2038 problem.",
     category: "Developer",
     readingTime: "6 min read",
     publishedAt: "2026-02-15",
     coverEmoji: "⌚",
-    tags: ["timestamps", "Unix", "time handling", "developer fundamentals", "API"],
+    tags: [
+      "timestamps",
+      "Unix",
+      "time handling",
+      "developer fundamentals",
+      "API",
+    ],
     relatedTools: [
       { label: "Timestamp Converter", href: "/tools/timestamp-converter" },
-      { label: "Date Difference Calculator", href: "/tools/date-difference-calculator" },
+      {
+        label: "Date Difference Calculator",
+        href: "/tools/date-difference-calculator",
+      },
     ],
   },
   {
@@ -1980,7 +2608,10 @@ export const blogPosts: BlogPost[] = [
     tags: ["URL encoding", "web development", "HTTP", "developer tools"],
     relatedTools: [
       { label: "URL Encoder/Decoder", href: "/tools/url-encoder-decoder" },
-      { label: "Base64 Encoder/Decoder", href: "/tools/base64-encoder-decoder" },
+      {
+        label: "Base64 Encoder/Decoder",
+        href: "/tools/base64-encoder-decoder",
+      },
     ],
   },
   {
@@ -2000,7 +2631,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "vat-explained-how-to-add-and-remove-it",
-    title: "VAT Explained: How to Add It, Remove It, and Not Make the Classic Mistake",
+    title:
+      "VAT Explained: How to Add It, Remove It, and Not Make the Classic Mistake",
     description:
       "Removing VAT from a gross price isn't dividing by 20 — it's dividing by 1.20. Here's how VAT works across the UK and EU, the reverse VAT calculation that trips people up, and what zero-rated vs exempt actually means.",
     category: "Finance",
@@ -2015,14 +2647,21 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "viral-hooks-for-social-media",
-    title: "Viral Hooks: The Psychology Behind Content That Makes People Stop and Watch",
+    title:
+      "Viral Hooks: The Psychology Behind Content That Makes People Stop and Watch",
     description:
       "Every piece of content that spreads has a hook that worked. Here's the psychological mechanisms — curiosity gaps, stakes, contradiction, pattern interruption — and the specific hook formulas that work across platforms and content types.",
     category: "Social Media",
     readingTime: "6 min read",
     publishedAt: "2026-02-27",
     coverEmoji: "🎣",
-    tags: ["viral content", "hooks", "content strategy", "social media", "copywriting"],
+    tags: [
+      "viral content",
+      "hooks",
+      "content strategy",
+      "social media",
+      "copywriting",
+    ],
     relatedTools: [
       { label: "Viral Hook Generator", href: "/tools/viral-hook-generator" },
       { label: "TikTok Hook Generator", href: "/tools/tiktok-hook-generator" },
@@ -2037,7 +2676,13 @@ export const blogPosts: BlogPost[] = [
     readingTime: "7 min read",
     publishedAt: "2026-03-02",
     coverEmoji: "🆔",
-    tags: ["UUID", "GUID", "database", "distributed systems", "developer tools"],
+    tags: [
+      "UUID",
+      "GUID",
+      "database",
+      "distributed systems",
+      "developer tools",
+    ],
     relatedTools: [
       { label: "UUID/GUID Generator", href: "/tools/uuid-guid-generator" },
       { label: "Hash Generator", href: "/tools/hash-generator" },
@@ -2060,7 +2705,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "what-your-ip-address-reveals-about-you",
-    title: "What Your IP Address Actually Reveals About You (Less Than You Think)",
+    title:
+      "What Your IP Address Actually Reveals About You (Less Than You Think)",
     description:
       "Your IP address can reveal your approximate city and internet provider — not your home address or identity. Here's what IP geolocation can and can't determine, how accurate it actually is, and what changes when you use a VPN.",
     category: "Developer",
@@ -2075,17 +2721,30 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "when-to-spell-out-numbers-in-writing",
-    title: "When to Spell Out Numbers in Writing: Style Guide Rules That Actually Matter",
+    title:
+      "When to Spell Out Numbers in Writing: Style Guide Rules That Actually Matter",
     description:
       "AP Style, Chicago, and APA all have different rules for when to write 'seven' vs '7'. Here's the practical guide to the conventions that professional writers actually follow — including the universal rules all three agree on.",
     category: "Writing",
     readingTime: "6 min read",
     publishedAt: "2026-03-11",
     coverEmoji: "🔢",
-    tags: ["writing style", "numbers", "style guide", "AP Style", "Chicago style"],
+    tags: [
+      "writing style",
+      "numbers",
+      "style guide",
+      "AP Style",
+      "Chicago style",
+    ],
     relatedTools: [
-      { label: "Number to Words Converter", href: "/tools/number-to-words-converter" },
-      { label: "Grammar & Spell Checker", href: "/tools/grammar-spell-checker" },
+      {
+        label: "Number to Words Converter",
+        href: "/tools/number-to-words-converter",
+      },
+      {
+        label: "Grammar & Spell Checker",
+        href: "/tools/grammar-spell-checker",
+      },
     ],
   },
   {
@@ -2097,7 +2756,13 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min read",
     publishedAt: "2026-03-14",
     coverEmoji: "•",
-    tags: ["writing", "formatting", "bullet points", "business writing", "clarity"],
+    tags: [
+      "writing",
+      "formatting",
+      "bullet points",
+      "business writing",
+      "clarity",
+    ],
     relatedTools: [
       { label: "Text to Bullet Points", href: "/tools/text-to-bullet-points" },
       { label: "Text Summarizer", href: "/tools/text-summarizer" },
@@ -2105,14 +2770,20 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "why-html-minification-matters-for-page-speed",
-    title: "Why HTML Minification Matters — And Where It Fits in Your Performance Stack",
+    title:
+      "Why HTML Minification Matters — And Where It Fits in Your Performance Stack",
     description:
       "HTML minification removes whitespace and comments to reduce file size. Here's how much reduction to expect, how it differs from compression, and where it belongs in the broader web performance optimisation priority order.",
     category: "Web Performance",
     readingTime: "5 min read",
     publishedAt: "2026-03-17",
     coverEmoji: "⚡",
-    tags: ["HTML minification", "web performance", "page speed", "Core Web Vitals"],
+    tags: [
+      "HTML minification",
+      "web performance",
+      "page speed",
+      "Core Web Vitals",
+    ],
     relatedTools: [
       { label: "HTML Minifier", href: "/tools/html-minifier" },
       { label: "Image Compressor", href: "/tools/image-compressor" },
@@ -2130,7 +2801,10 @@ export const blogPosts: BlogPost[] = [
     tags: ["word count", "writing productivity", "content writing", "drafting"],
     relatedTools: [
       { label: "Word Counter", href: "/tools/word-counter-live" },
-      { label: "Reading Time Estimator", href: "/tools/reading-time-estimator" },
+      {
+        label: "Reading Time Estimator",
+        href: "/tools/reading-time-estimator",
+      },
     ],
   },
   {
@@ -2142,15 +2816,28 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min read",
     publishedAt: "2026-03-23",
     coverEmoji: "📝",
-    tags: ["word count", "content writing", "social media", "SEO", "character limits"],
+    tags: [
+      "word count",
+      "content writing",
+      "social media",
+      "SEO",
+      "character limits",
+    ],
     relatedTools: [
-      { label: "Word & Character Counter", href: "/tools/word-character-counter" },
-      { label: "Social Media Character Counter", href: "/tools/social-media-character-counter" },
+      {
+        label: "Word & Character Counter",
+        href: "/tools/word-character-counter",
+      },
+      {
+        label: "Social Media Character Counter",
+        href: "/tools/social-media-character-counter",
+      },
     ],
   },
   {
     slug: "word-frequency-analysis-for-better-writing",
-    title: "Word Frequency Analysis: How to Use It to Improve Your Writing and SEO",
+    title:
+      "Word Frequency Analysis: How to Use It to Improve Your Writing and SEO",
     description:
       "Most writers have favourite words they use without realising it. A frequency analysis makes these patterns visible — and reveals SEO opportunities in competitor content. Here's how to actually use the data to improve.",
     category: "Writing",
@@ -2159,28 +2846,45 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "📊",
     tags: ["word frequency", "writing improvement", "SEO", "content analysis"],
     relatedTools: [
-      { label: "Word Frequency Counter", href: "/tools/word-frequency-counter" },
-      { label: "Keyword Density Checker", href: "/tools/keyword-density-checker" },
+      {
+        label: "Word Frequency Counter",
+        href: "/tools/word-frequency-counter",
+      },
+      {
+        label: "Keyword Density Checker",
+        href: "/tools/keyword-density-checker",
+      },
     ],
   },
   {
     slug: "writing-captions-for-social-media",
-    title: "Writing Captions for Social Media: Length, Hook, and What Drives Each Platform",
+    title:
+      "Writing Captions for Social Media: Length, Hook, and What Drives Each Platform",
     description:
       "A caption's job changes depending on the platform and your goal. Here's the structure that works — hook, body, CTA — the character counts that matter for each platform, and why not every post needs a call to action.",
     category: "Social Media",
     readingTime: "6 min read",
     publishedAt: "2026-03-29",
     coverEmoji: "✍️",
-    tags: ["captions", "social media writing", "Instagram", "LinkedIn", "engagement"],
+    tags: [
+      "captions",
+      "social media writing",
+      "Instagram",
+      "LinkedIn",
+      "engagement",
+    ],
     relatedTools: [
       { label: "Caption Generator", href: "/tools/caption-generator" },
-      { label: "Social Media Character Counter", href: "/tools/social-media-character-counter" },
+      {
+        label: "Social Media Character Counter",
+        href: "/tools/social-media-character-counter",
+      },
     ],
   },
   {
     slug: "youtube-titles-and-descriptions-seo-guide",
-    title: "YouTube Titles and Descriptions: How to Optimise for Search and Click-Through",
+    title:
+      "YouTube Titles and Descriptions: How to Optimise for Search and Click-Through",
     description:
       "YouTube is the world's second largest search engine — and most creators treat titles as an afterthought. Here's how the algorithm uses title keywords, the character truncation that kills CTR, and how to write descriptions that rank.",
     category: "Social Media",
@@ -2189,8 +2893,14 @@ export const blogPosts: BlogPost[] = [
     coverEmoji: "▶️",
     tags: ["YouTube", "SEO", "YouTube titles", "video marketing", "CTR"],
     relatedTools: [
-      { label: "YouTube Title & Description Generator", href: "/tools/youtube-title-description-generator" },
-      { label: "Keyword Density Checker", href: "/tools/keyword-density-checker" },
+      {
+        label: "YouTube Title & Description Generator",
+        href: "/tools/youtube-title-description-generator",
+      },
+      {
+        label: "Keyword Density Checker",
+        href: "/tools/keyword-density-checker",
+      },
     ],
   },
 ];
@@ -2201,6 +2911,6 @@ export function getBlogPost(slug: string): BlogPost | undefined {
 
 export function getBlogPostsByCategory(category: string): BlogPost[] {
   return blogPosts.filter(
-    (p) => p.category.toLowerCase() === category.toLowerCase()
+    (p) => p.category.toLowerCase() === category.toLowerCase(),
   );
 }

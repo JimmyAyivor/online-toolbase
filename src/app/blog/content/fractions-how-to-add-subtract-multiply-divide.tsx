@@ -17,7 +17,7 @@ export default function Post() {
         definition makes many fraction rules intuitive.
       </p>
       <p>
-        Our <a href='/tools/fraction-calculator'>Fraction Calculator</a> adds,
+        Our <a href="/tools/fraction-calculator">Fraction Calculator</a> adds,
         subtracts, multiplies, and divides any fractions and shows the working
         step by step.
       </p>
@@ -155,7 +155,7 @@ export default function Post() {
         Fraction arithmetic follows logical rules: common denominators for
         addition/subtraction, direct multiplication/division for products and
         quotients. Use the{" "}
-        <a href='/tools/fraction-calculator'>Fraction Calculator</a> to handle
+        <a href="/tools/fraction-calculator">Fraction Calculator</a> to handle
         any fraction operation with step-by-step working shown useful for
         checking your own calculations and for understanding where each step
         comes from.

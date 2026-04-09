@@ -206,74 +206,74 @@ export default function YouTubeTitleDescriptionGeneratorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-red-50 to-orange-50 p-4 md:p-8'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
+    <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-50 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-600 to-orange-600 rounded-2xl mb-4 shadow-lg'>
-              <Youtube className='w-8 h-8 text-white' />
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-600 to-orange-600 rounded-2xl mb-4 shadow-lg">
+              <Youtube className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               YouTube Title &amp; Description Generator
             </h2>
-            <p className='text-gray-600'>
+            <p className="text-gray-600">
               SEO-optimized titles and structured descriptions that get clicks
             </p>
           </div>
 
           {/* Inputs */}
-          <div className='grid md:grid-cols-3 gap-4 mb-6'>
+          <div className="grid md:grid-cols-3 gap-4 mb-6">
             <div>
-              <label className='block text-sm font-semibold text-gray-700 mb-1'>
+              <label className="block text-sm font-semibold text-gray-700 mb-1">
                 Video Topic
               </label>
               <input
-                type='text'
+                type="text"
                 value={topic}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setTopic(e.target.value)
                 }
-                placeholder='e.g. morning routines, React hooks…'
-                className='w-full px-3 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-400 text-sm'
+                placeholder="e.g. morning routines, React hooks…"
+                className="w-full px-3 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-400 text-sm"
               />
             </div>
             <div>
-              <label className='block text-sm font-semibold text-gray-700 mb-1'>
+              <label className="block text-sm font-semibold text-gray-700 mb-1">
                 Target Audience / Niche
               </label>
               <input
-                type='text'
+                type="text"
                 value={niche}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setNiche(e.target.value)
                 }
-                placeholder='e.g. beginners, entrepreneurs…'
-                className='w-full px-3 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-400 text-sm'
+                placeholder="e.g. beginners, entrepreneurs…"
+                className="w-full px-3 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-400 text-sm"
               />
             </div>
             <div>
-              <label className='block text-sm font-semibold text-gray-700 mb-1'>
+              <label className="block text-sm font-semibold text-gray-700 mb-1">
                 Main Keyword (SEO)
               </label>
               <input
-                type='text'
+                type="text"
                 value={keyword}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setKeyword(e.target.value)
                 }
-                placeholder='e.g. how to invest, best laptops…'
-                className='w-full px-3 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-400 text-sm'
+                placeholder="e.g. how to invest, best laptops…"
+                className="w-full px-3 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-400 text-sm"
               />
             </div>
           </div>
 
           {/* Category */}
-          <div className='mb-6'>
-            <label className='block text-sm font-semibold text-gray-700 mb-2'>
+          <div className="mb-6">
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
               Video Category
             </label>
-            <div className='flex flex-wrap gap-2'>
+            <div className="flex flex-wrap gap-2">
               {VIDEO_CATEGORIES.map(({ value, label, icon }) => (
                 <button
                   key={value}
@@ -290,38 +290,38 @@ export default function YouTubeTitleDescriptionGeneratorClient() {
             </div>
           </div>
 
-          <div className='grid md:grid-cols-2 gap-8'>
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Title generator */}
             <div>
-              <h3 className='font-bold text-gray-900 mb-3'>
+              <h3 className="font-bold text-gray-900 mb-3">
                 Title Suggestions
               </h3>
-              <div className='space-y-2 mb-4 max-h-80 overflow-y-auto pr-1'>
+              <div className="space-y-2 mb-4 max-h-80 overflow-y-auto pr-1">
                 {TITLE_TEMPLATES.map((tpl) => {
                   const generated = tpl.template(topic, niche, keyword);
                   return (
                     <div
                       key={`${tpl.style}-${tpl.label}`}
-                      className='bg-gray-50 border border-gray-200 rounded-xl p-3 hover:border-red-300 transition-all'
+                      className="bg-gray-50 border border-gray-200 rounded-xl p-3 hover:border-red-300 transition-all"
                     >
-                      <div className='flex items-center justify-between mb-1'>
-                        <div className='flex items-center gap-1.5'>
+                      <div className="flex items-center justify-between mb-1">
+                        <div className="flex items-center gap-1.5">
                           <span>{tpl.icon}</span>
-                          <span className='text-xs font-bold text-gray-700'>
+                          <span className="text-xs font-bold text-gray-700">
                             {tpl.label}
                           </span>
                         </div>
                         <button
                           onClick={() => setCustomTitle(generated)}
-                          className='text-xs px-2.5 py-1 bg-red-600 hover:bg-red-700 text-white rounded-full font-semibold transition-colors'
+                          className="text-xs px-2.5 py-1 bg-red-600 hover:bg-red-700 text-white rounded-full font-semibold transition-colors"
                         >
                           Use
                         </button>
                       </div>
-                      <p className='text-sm text-gray-900 font-medium leading-snug mb-1'>
+                      <p className="text-sm text-gray-900 font-medium leading-snug mb-1">
                         {generated}
                       </p>
-                      <p className='text-xs text-gray-400'>{tpl.why}</p>
+                      <p className="text-xs text-gray-400">{tpl.why}</p>
                     </div>
                   );
                 })}
@@ -329,8 +329,8 @@ export default function YouTubeTitleDescriptionGeneratorClient() {
 
               {/* Custom title editor */}
               <div>
-                <div className='flex items-center justify-between mb-1'>
-                  <label className='text-sm font-semibold text-gray-700'>
+                <div className="flex items-center justify-between mb-1">
+                  <label className="text-sm font-semibold text-gray-700">
                     Your Title
                   </label>
                   <span
@@ -339,14 +339,14 @@ export default function YouTubeTitleDescriptionGeneratorClient() {
                     {titleLen}/{TITLE_CHAR_LIMIT}
                   </span>
                 </div>
-                <div className='flex gap-2'>
+                <div className="flex gap-2">
                   <input
-                    type='text'
+                    type="text"
                     value={customTitle}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setCustomTitle(e.target.value)
                     }
-                    placeholder='Edit or write your title here…'
+                    placeholder="Edit or write your title here…"
                     className={`flex-1 px-3 py-2.5 border-2 rounded-xl focus:outline-none text-sm font-medium ${
                       titleOver
                         ? "border-red-400 bg-red-50 focus:border-red-500"
@@ -356,30 +356,30 @@ export default function YouTubeTitleDescriptionGeneratorClient() {
                   <button
                     onClick={copyTitle}
                     disabled={!customTitle}
-                    className='flex items-center gap-1.5 px-3 py-2 bg-red-600 hover:bg-red-700 disabled:bg-gray-200 disabled:text-gray-400 text-white rounded-xl text-sm font-semibold transition-colors'
+                    className="flex items-center gap-1.5 px-3 py-2 bg-red-600 hover:bg-red-700 disabled:bg-gray-200 disabled:text-gray-400 text-white rounded-xl text-sm font-semibold transition-colors"
                   >
                     {copiedTitle ? (
-                      <Check className='w-4 h-4' />
+                      <Check className="w-4 h-4" />
                     ) : (
-                      <Copy className='w-4 h-4' />
+                      <Copy className="w-4 h-4" />
                     )}
                   </button>
                 </div>
 
                 {/* Thumbnail text preview */}
                 {customTitle && (
-                  <div className='mt-3 bg-gray-900 rounded-xl overflow-hidden'>
-                    <div className='bg-gray-700 aspect-video flex items-end p-3'>
-                      <div className='bg-black/80 text-white text-sm font-bold px-2 py-1 rounded leading-tight max-w-full'>
+                  <div className="mt-3 bg-gray-900 rounded-xl overflow-hidden">
+                    <div className="bg-gray-700 aspect-video flex items-end p-3">
+                      <div className="bg-black/80 text-white text-sm font-bold px-2 py-1 rounded leading-tight max-w-full">
                         {customTitle.slice(0, 60)}
                         {customTitle.length > 60 ? "…" : ""}
                       </div>
                     </div>
-                    <div className='px-3 py-2'>
-                      <div className='text-white text-xs font-semibold leading-snug'>
+                    <div className="px-3 py-2">
+                      <div className="text-white text-xs font-semibold leading-snug">
                         {customTitle}
                       </div>
-                      <div className='text-gray-400 text-xs mt-0.5'>
+                      <div className="text-gray-400 text-xs mt-0.5">
                         Your Channel · 1.2K views · 2 hours ago
                       </div>
                     </div>
@@ -390,29 +390,29 @@ export default function YouTubeTitleDescriptionGeneratorClient() {
 
             {/* Description builder */}
             <div>
-              <div className='flex items-center justify-between mb-3'>
-                <h3 className='font-bold text-gray-900'>Description Builder</h3>
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="font-bold text-gray-900">Description Builder</h3>
                 <button
                   onClick={copyDesc}
                   disabled={!fullDescription}
-                  className='flex items-center gap-1.5 px-3 py-1.5 bg-red-600 hover:bg-red-700 disabled:bg-gray-200 disabled:text-gray-400 text-white rounded-lg text-sm font-semibold transition-colors'
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-red-600 hover:bg-red-700 disabled:bg-gray-200 disabled:text-gray-400 text-white rounded-lg text-sm font-semibold transition-colors"
                 >
                   {copiedDesc ? (
                     <>
-                      <Check className='w-3.5 h-3.5' /> Copied
+                      <Check className="w-3.5 h-3.5" /> Copied
                     </>
                   ) : (
                     <>
-                      <Copy className='w-3.5 h-3.5' /> Copy All
+                      <Copy className="w-3.5 h-3.5" /> Copy All
                     </>
                   )}
                 </button>
               </div>
 
-              <div className='space-y-3'>
+              <div className="space-y-3">
                 {DESC_SECTIONS.map((sec) => (
                   <div key={sec.label}>
-                    <label className='block text-xs font-bold text-gray-600 mb-1'>
+                    <label className="block text-xs font-bold text-gray-600 mb-1">
                       {sec.label}
                     </label>
                     <textarea
@@ -427,21 +427,21 @@ export default function YouTubeTitleDescriptionGeneratorClient() {
                           ? 4
                           : 2
                       }
-                      className='w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-400 text-xs resize-none font-mono placeholder-gray-300 leading-relaxed'
+                      className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-400 text-xs resize-none font-mono placeholder-gray-300 leading-relaxed"
                     />
                   </div>
                 ))}
               </div>
 
-              <div className='mt-3 text-xs text-gray-400'>
+              <div className="mt-3 text-xs text-gray-400">
                 Total: {fullDescription.length.toLocaleString()} / 5,000 chars
               </div>
             </div>
           </div>
 
-          <div className='mt-6 p-4 bg-red-50 border border-red-200 rounded-xl text-sm text-red-900'>
-            <p className='font-bold mb-2'>🎯 YouTube SEO Tips</p>
-            <ul className='space-y-1 list-disc list-inside text-xs'>
+          <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-xl text-sm text-red-900">
+            <p className="font-bold mb-2">🎯 YouTube SEO Tips</p>
+            <ul className="space-y-1 list-disc list-inside text-xs">
               <li>
                 Put your main keyword in the first 60 characters of the title
               </li>

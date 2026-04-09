@@ -85,7 +85,7 @@ export default function Post() {
         breaking a stylistic rut when rewriting the same material, finding
         alternative phrasing for overused sentences, or generating a quick rough
         rewrite to work from. Our{" "}
-        <a href='/tools/paraphrasing-tool'>Paraphrasing Tool</a> rewrites text
+        <a href="/tools/paraphrasing-tool">Paraphrasing Tool</a> rewrites text
         while preserving the core meaning.
       </p>
       <p>A few important caveats for using any paraphrasing tool:</p>
@@ -99,7 +99,7 @@ export default function Post() {
           subtly changes what was said. You're responsible for accuracy.
         </li>
         <li>
-          Run a <a href='/tools/plagiarism-checker'>plagiarism check</a> on the
+          Run a <a href="/tools/plagiarism-checker">plagiarism check</a> on the
           result. Good tools produce genuinely differentiated text, but verify.
         </li>
         <li>
@@ -154,10 +154,10 @@ export default function Post() {
         Strong paraphrasing is a writing skill, not a shortcut. The
         close-the-source method is the most reliable technique because it forces
         you to engage with what you've read rather than edit it. Use the{" "}
-        <a href='/tools/paraphrasing-tool'>Paraphrasing Tool</a> as a drafting
+        <a href="/tools/paraphrasing-tool">Paraphrasing Tool</a> as a drafting
         aid when you're stuck on phrasing, always verify the output for
         accuracy, and check with a{" "}
-        <a href='/tools/plagiarism-checker'>plagiarism checker</a> before
+        <a href="/tools/plagiarism-checker">plagiarism checker</a> before
         anything goes out.
       </p>
     </>

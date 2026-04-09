@@ -28,26 +28,26 @@ function QRModal({ onClose }: { onClose: () => void }) {
   }, []);
   return (
     <div
-      className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm'
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <div className='relative bg-white rounded-3xl shadow-2xl p-8 mx-4 max-w-xs w-full text-center'>
+      <div className="relative bg-white rounded-3xl shadow-2xl p-8 mx-4 max-w-xs w-full text-center">
         <button
           onClick={onClose}
-          className='absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500'
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500"
         >
           ✕
         </button>
-        <h3 className='text-lg font-black text-gray-900 mb-1'>
+        <h3 className="text-lg font-black text-gray-900 mb-1">
           Take it with you
         </h3>
-        <p className='text-sm text-gray-400 mb-5'>
+        <p className="text-sm text-gray-400 mb-5">
           Scan to open the {TOOL_NAME} on mobile
         </p>
-        <div className='inline-block rounded-2xl overflow-hidden border-4 border-teal-100 shadow-inner mb-5'>
+        <div className="inline-block rounded-2xl overflow-hidden border-4 border-teal-100 shadow-inner mb-5">
           <canvas ref={canvasRef} />
         </div>
-        <p className='text-xs text-gray-300 font-mono break-all'>{TOOL_URL}</p>
+        <p className="text-xs text-gray-300 font-mono break-all">{TOOL_URL}</p>
       </div>
     </div>
   );
@@ -90,23 +90,23 @@ function ShareBar() {
   return (
     <>
       {qrOpen && <QRModal onClose={() => setQrOpen(false)} />}
-      <div className='bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-5 mb-6'>
-        <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4'>
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-5 mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <p className='text-sm font-bold text-gray-900 mb-0.5'>
+            <p className="text-sm font-bold text-gray-900 mb-0.5">
               Found this useful?
             </p>
-            <p className='text-xs text-gray-400'>
+            <p className="text-xs text-gray-400">
               Share the tool or scan to open on your phone
             </p>
           </div>
-          <div className='flex flex-wrap items-center gap-2'>
+          <div className="flex flex-wrap items-center gap-2">
             {SHARES.map(({ label, href, bg }) => (
               <a
                 key={label}
                 href={href}
-                target='_blank'
-                rel='noopener noreferrer'
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`inline-flex items-center px-3 py-2 rounded-xl text-white text-xs font-semibold transition-all shadow-sm hover:-translate-y-0.5 ${bg}`}
               >
                 {label}
@@ -114,17 +114,17 @@ function ShareBar() {
             ))}
             <button
               onClick={copyLink}
-              className='px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold'
+              className="px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold"
             >
               {copied ? (
-                <span className='text-teal-600'>✓ Copied!</span>
+                <span className="text-teal-600">✓ Copied!</span>
               ) : (
                 "Copy link"
               )}
             </button>
             <button
               onClick={() => setQrOpen(true)}
-              className='hidden sm:block px-3 py-2 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 text-white text-xs font-semibold hover:-translate-y-0.5 transition-all'
+              className="hidden sm:block px-3 py-2 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 text-white text-xs font-semibold hover:-translate-y-0.5 transition-all"
             >
               Scan QR
             </button>
@@ -165,27 +165,27 @@ const FAQS = [
 function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
   return (
-    <div className='bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10'>
-      <h2 className='text-2xl font-bold text-gray-900 mb-6'>
+    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10">
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">
         Frequently Asked Questions
       </h2>
-      <div className='space-y-3'>
+      <div className="space-y-3">
         {FAQS.map((f, i) => (
           <div
             key={i}
-            className='border border-gray-100 rounded-xl overflow-hidden'
+            className="border border-gray-100 rounded-xl overflow-hidden"
           >
             <button
-              className='w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors'
+              className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
               onClick={() => setOpen(open === i ? null : i)}
             >
-              <span className='font-semibold text-gray-900 text-sm'>{f.q}</span>
-              <span className='text-teal-600 text-lg shrink-0'>
+              <span className="font-semibold text-gray-900 text-sm">{f.q}</span>
+              <span className="text-teal-600 text-lg shrink-0">
                 {open === i ? "−" : "+"}
               </span>
             </button>
             {open === i && (
-              <div className='px-5 pb-5 text-sm text-gray-600 leading-relaxed'>
+              <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed">
                 {f.a}
               </div>
             )}
@@ -199,65 +199,65 @@ function FAQSection() {
 export default function PageEditorial() {
   return (
     <>
-      <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
-        <div className='hidden sm:block'>
-          <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
+      <div className="max-w-6xl mx-auto px-4 mt-6 flex justify-center">
+        <div className="hidden sm:block">
+          <AdSlot variant="rectangle" slotId={SLOT_BELOW_TOOL} />
         </div>
-        <div className='block sm:hidden'>
-          <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
+        <div className="block sm:hidden">
+          <AdSlot variant="mediumrectangle" slotId={SLOT_BELOW_TOOL} />
         </div>
       </div>
-      <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
+      <div className="max-w-6xl mx-auto px-4 mt-4 flex justify-center">
         <AdSlot
-          variant='leaderboard'
+          variant="leaderboard"
           slotId={SLOT_LEADERBOARD}
-          className='hidden sm:flex'
+          className="hidden sm:flex"
         />
         <AdSlot
-          variant='mediumrectangle'
+          variant="mediumrectangle"
           slotId={SLOT_LEADERBOARD}
-          className='flex sm:hidden'
+          className="flex sm:hidden"
         />
       </div>
-      <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10'>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
         <ShareBar />
       </div>
 
       <section
-        id='how-to-use'
-        className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10'
+        id="how-to-use"
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10"
       >
-        <h2 className='text-4xl font-bold text-gray-900 mb-4 text-center'>
+        <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">
           How to Use the Meta Tag Generator
         </h2>
-        <p className='text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed'>
+        <p className="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed">
           Fill in your page details, select which tag groups to include, then
           copy the generated HTML into your page's &lt;head&gt; section.
         </p>
 
-        <div className='space-y-6 mb-14'>
+        <div className="space-y-6 mb-14">
           {[
             {
               n: 1,
               title: "Fill in your basic page information",
               body: "Start with the Basic SEO section: enter your page title (under 60 characters for search results), meta description (under 160 characters), and the canonical URL. The title appears in browser tabs and as the clickable headline in search results — include your primary keyword near the beginning. The description is the short summary below your title in search results and influences click-through rate even though it's not a direct ranking signal.",
               enrich: (
-                <div className='overflow-x-auto rounded-xl border border-gray-100 text-sm'>
-                  <table className='w-full text-left'>
-                    <thead className='bg-gray-50'>
+                <div className="overflow-x-auto rounded-xl border border-gray-100 text-sm">
+                  <table className="w-full text-left">
+                    <thead className="bg-gray-50">
                       <tr>
-                        <th className='px-4 py-2 text-xs font-bold text-gray-500 uppercase'>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
                           Tag
                         </th>
-                        <th className='px-4 py-2 text-xs font-bold text-gray-500 uppercase'>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
                           Recommended length
                         </th>
-                        <th className='px-4 py-2 text-xs font-bold text-gray-500 uppercase'>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
                           Purpose
                         </th>
                       </tr>
                     </thead>
-                    <tbody className='divide-y divide-gray-50'>
+                    <tbody className="divide-y divide-gray-50">
                       {[
                         [
                           "Title",
@@ -285,14 +285,14 @@ export default function PageEditorial() {
                           "Byline, used by some scrapers",
                         ],
                       ].map(([tag, len, p]) => (
-                        <tr key={tag} className='hover:bg-teal-50'>
-                          <td className='px-4 py-2 font-bold text-teal-700 text-xs'>
+                        <tr key={tag} className="hover:bg-teal-50">
+                          <td className="px-4 py-2 font-bold text-teal-700 text-xs">
                             {tag}
                           </td>
-                          <td className='px-4 py-2 text-gray-600 text-xs font-mono'>
+                          <td className="px-4 py-2 text-gray-600 text-xs font-mono">
                             {len}
                           </td>
-                          <td className='px-4 py-2 text-gray-500 text-xs'>
+                          <td className="px-4 py-2 text-gray-500 text-xs">
                             {p}
                           </td>
                         </tr>
@@ -307,7 +307,7 @@ export default function PageEditorial() {
               title: "Configure Open Graph and social sharing tags",
               body: "Open the Open Graph section to add social sharing metadata. These tags control how your page appears when shared on Facebook, LinkedIn, WhatsApp, Slack, and iMessage. Enter the OG title (can differ from the SEO title — social titles can be longer and more descriptive), OG description, and the full URL of your 1200 × 630 social sharing image. Include og:type (website for homepages, article for blog posts) and og:site_name for branded previews.",
               enrich: (
-                <div className='bg-teal-50 rounded-xl px-5 py-4 text-sm text-teal-800 leading-relaxed'>
+                <div className="bg-teal-50 rounded-xl px-5 py-4 text-sm text-teal-800 leading-relaxed">
                   <strong>Social image tip:</strong> Use a 1200 × 630px image
                   (1.91:1 ratio) with your page title overlaid as large,
                   readable text. Avoid placing important content in the outer 5%
@@ -315,10 +315,10 @@ export default function PageEditorial() {
                   high-contrast colour scheme so the preview thumbnail looks
                   good at small sizes. After deploying, use{" "}
                   <a
-                    href='https://developers.facebook.com/tools/debug/'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='underline'
+                    href="https://developers.facebook.com/tools/debug/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline"
                   >
                     Facebook's Sharing Debugger
                   </a>{" "}
@@ -331,7 +331,7 @@ export default function PageEditorial() {
               title: "Add Twitter Card tags",
               body: "Open the Twitter Cards section to configure how your page appears in tweets and on Twitter's link preview. Choose summary_large_image for pages with a strong hero image (shows a large banner preview below the tweet) or summary for text-focused pages (shows a small thumbnail). Enter your Twitter @handle in the site and creator fields — these enable Twitter Analytics attribution and appear in the card.",
               enrich: (
-                <div className='bg-cyan-50 rounded-xl px-5 py-4 text-sm text-cyan-800 leading-relaxed'>
+                <div className="bg-cyan-50 rounded-xl px-5 py-4 text-sm text-cyan-800 leading-relaxed">
                   <strong>Twitter card types:</strong>{" "}
                   <strong>summary_large_image</strong> — large banner image
                   below the tweet, best for articles and product pages with
@@ -349,34 +349,34 @@ export default function PageEditorial() {
               title: "Copy the generated HTML and add to your page",
               body: "Click the Copy HTML button in the Generated Code panel to copy the complete <head> meta tag block to your clipboard. Paste the tags inside the <head>...</head> section of your HTML — before the closing </head> tag. In Next.js, use the metadata export or Head component. In WordPress, use the Yoast SEO or Rank Math plugin, or a child theme functions.php file. In Webflow or Squarespace, use the Custom Code section in page settings.",
               enrich: (
-                <div className='bg-teal-50 rounded-xl px-5 py-4 text-sm text-teal-800 leading-relaxed'>
+                <div className="bg-teal-50 rounded-xl px-5 py-4 text-sm text-teal-800 leading-relaxed">
                   <strong>Framework placement guide:</strong> Next.js App
                   Router: export the{" "}
-                  <code className='bg-white px-1 rounded font-mono'>
+                  <code className="bg-white px-1 rounded font-mono">
                     metadata
                   </code>{" "}
                   object from your page.tsx. Next.js Pages: use{" "}
-                  <code className='bg-white px-1 rounded font-mono'>
+                  <code className="bg-white px-1 rounded font-mono">
                     next/head
                   </code>
                   . React (plain): use{" "}
-                  <code className='bg-white px-1 rounded font-mono'>
+                  <code className="bg-white px-1 rounded font-mono">
                     react-helmet
                   </code>{" "}
                   or{" "}
-                  <code className='bg-white px-1 rounded font-mono'>
+                  <code className="bg-white px-1 rounded font-mono">
                     react-helmet-async
                   </code>
                   . Vue/Nuxt: use{" "}
-                  <code className='bg-white px-1 rounded font-mono'>
+                  <code className="bg-white px-1 rounded font-mono">
                     useHead()
                   </code>
                   . Gatsby: use{" "}
-                  <code className='bg-white px-1 rounded font-mono'>
+                  <code className="bg-white px-1 rounded font-mono">
                     gatsby-plugin-react-helmet
                   </code>
                   . Static HTML: paste directly into{" "}
-                  <code className='bg-white px-1 rounded font-mono'>
+                  <code className="bg-white px-1 rounded font-mono">
                     &lt;head&gt;
                   </code>
                   .
@@ -388,40 +388,40 @@ export default function PageEditorial() {
               title: "Preview and validate your tags",
               body: "Use the Preview section in the tool to see how your page title and description will appear in Google search results, and how the Open Graph image and title will look in a social share card. After deploying your page with the new tags, validate the actual output using Google Search Console's URL Inspection tool (for SEO tags), Facebook's Sharing Debugger (for Open Graph), and Twitter's Card Validator. These tools show what the crawlers actually see and let you force a cache refresh so previews update immediately.",
               enrich: (
-                <div className='bg-teal-50 rounded-xl px-5 py-4 text-sm text-teal-800 leading-relaxed'>
+                <div className="bg-teal-50 rounded-xl px-5 py-4 text-sm text-teal-800 leading-relaxed">
                   <strong>Validation tools:</strong>{" "}
                   <a
-                    href='https://search.google.com/search-console/inspect'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='underline font-semibold'
+                    href="https://search.google.com/search-console/inspect"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline font-semibold"
                   >
                     Google Search Console
                   </a>{" "}
                   — URL inspection, index coverage, crawl errors.{" "}
                   <a
-                    href='https://developers.facebook.com/tools/debug/'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='underline font-semibold'
+                    href="https://developers.facebook.com/tools/debug/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline font-semibold"
                   >
                     Facebook Debugger
                   </a>{" "}
                   — Open Graph preview, cache scrape.{" "}
                   <a
-                    href='https://cards-dev.twitter.com/validator'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='underline font-semibold'
+                    href="https://cards-dev.twitter.com/validator"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline font-semibold"
                   >
                     Twitter Card Validator
                   </a>{" "}
                   — Twitter Card preview.{" "}
                   <a
-                    href='https://www.linkedin.com/post-inspector/'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='underline font-semibold'
+                    href="https://www.linkedin.com/post-inspector/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline font-semibold"
                   >
                     LinkedIn Post Inspector
                   </a>{" "}
@@ -432,16 +432,16 @@ export default function PageEditorial() {
           ].map(({ n, title, body, enrich }) => (
             <div
               key={n}
-              className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'
+              className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5"
             >
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-teal-600 text-white font-black text-lg flex items-center justify-center'>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-teal-600 text-white font-black text-lg flex items-center justify-center">
                 {n}
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {title}
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-3'>{body}</p>
+                <p className="text-gray-600 leading-relaxed mb-3">{body}</p>
                 {enrich}
               </div>
             </div>
@@ -450,10 +450,10 @@ export default function PageEditorial() {
 
         <FAQSection />
 
-        <h3 className='text-2xl font-bold text-gray-900 mb-6'>
+        <h3 className="text-2xl font-bold text-gray-900 mb-6">
           Common use cases
         </h3>
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14'>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
           {[
             {
               emoji: "🔍",
@@ -488,22 +488,22 @@ export default function PageEditorial() {
           ].map(({ emoji, title, desc }) => (
             <div
               key={title}
-              className='bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:border-teal-200 hover:-translate-y-1 transition-all duration-200'
+              className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:border-teal-200 hover:-translate-y-1 transition-all duration-200"
             >
-              <div className='text-2xl mb-3'>{emoji}</div>
-              <p className='font-bold text-gray-900 text-sm mb-2'>{title}</p>
-              <p className='text-xs text-gray-500 leading-relaxed'>{desc}</p>
+              <div className="text-2xl mb-3">{emoji}</div>
+              <p className="font-bold text-gray-900 text-sm mb-2">{title}</p>
+              <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
 
-        <div className='bg-gradient-to-br from-teal-600 to-cyan-700 rounded-2xl p-8 text-white text-center mb-14'>
-          <div className='text-3xl mb-3'>🏷️</div>
-          <h3 className='text-xl font-bold mb-3'>
+        <div className="bg-gradient-to-br from-teal-600 to-cyan-700 rounded-2xl p-8 text-white text-center mb-14">
+          <div className="text-3xl mb-3">🏷️</div>
+          <h3 className="text-xl font-bold mb-3">
             Well-written meta tags can improve CTR by 5–10% without any ranking
             change
           </h3>
-          <p className='text-teal-100 leading-relaxed max-w-xl mx-auto text-sm'>
+          <p className="text-teal-100 leading-relaxed max-w-xl mx-auto text-sm">
             Many pages that rank on the first page of Google still have generic
             or auto-generated title tags and meta descriptions. A clear,
             keyword-relevant title and a compelling description that directly
@@ -516,10 +516,10 @@ export default function PageEditorial() {
         </div>
 
         <div>
-          <h3 className='text-lg font-bold text-gray-900 mb-4'>
+          <h3 className="text-lg font-bold text-gray-900 mb-4">
             Related Free Developer Tools
           </h3>
-          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
                 href: "/tools/open-graph-preview",
@@ -540,12 +540,12 @@ export default function PageEditorial() {
               <a
                 key={href}
                 href={href}
-                className='block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-teal-200 hover:-translate-y-1 transition-all duration-200 p-5'
+                className="block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-teal-200 hover:-translate-y-1 transition-all duration-200 p-5"
               >
-                <div className='font-bold text-gray-900 text-sm mb-1'>
+                <div className="font-bold text-gray-900 text-sm mb-1">
                   {label}
                 </div>
-                <div className='text-xs text-gray-500'>{desc}</div>
+                <div className="text-xs text-gray-500">{desc}</div>
               </a>
             ))}
           </div>

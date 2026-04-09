@@ -61,22 +61,22 @@ export default function PrivacyPolicyPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
 
       <LegalLayout
-        title='Privacy Policy'
+        title="Privacy Policy"
         lastUpdated={LAST_UPDATED}
         description={`How ${SITE_NAME} collects, uses, and protects your information.`}
       >
         {/* 1 ── Introduction */}
-        <Section title='1. Introduction'>
-          <p className='text-gray-700 mb-4'>
+        <Section title="1. Introduction">
+          <p className="text-gray-700 mb-4">
             Welcome to {SITE_NAME} (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or
             &ldquo;us&rdquo;). We are committed to protecting your privacy and
             ensuring the security of your personal information. This Privacy
@@ -84,16 +84,16 @@ export default function PrivacyPolicyPage() {
             information when you visit our website and use our free online
             tools.
           </p>
-          <p className='text-gray-700'>
+          <p className="text-gray-700">
             By using our website, you agree to the collection and use of
             information in accordance with this policy.
           </p>
         </Section>
 
         {/* 2 ── Information We Collect */}
-        <Section title='2. Information We Collect'>
-          <SubSection title='2.1 Information You Provide'>
-            <p className='text-gray-700 mb-4'>
+        <Section title="2. Information We Collect">
+          <SubSection title="2.1 Information You Provide">
+            <p className="text-gray-700 mb-4">
               Our tools process data <strong>locally in your browser</strong>.
               We do not collect, store, or transmit the data you enter into our
               tools (such as text, numbers, images, or files). All processing
@@ -101,8 +101,8 @@ export default function PrivacyPolicyPage() {
             </p>
           </SubSection>
 
-          <SubSection title='2.2 Automatically Collected Information'>
-            <p className='text-gray-700 mb-3'>
+          <SubSection title="2.2 Automatically Collected Information">
+            <p className="text-gray-700 mb-3">
               When you visit our website, we may automatically collect:
             </p>
             <BulletList
@@ -125,8 +125,8 @@ export default function PrivacyPolicyPage() {
         </Section>
 
         {/* 3 ── How We Use Your Information */}
-        <Section title='3. How We Use Your Information'>
-          <p className='text-gray-700 mb-3'>
+        <Section title="3. How We Use Your Information">
+          <p className="text-gray-700 mb-3">
             We use automatically collected information to:
           </p>
           <BulletList
@@ -141,13 +141,13 @@ export default function PrivacyPolicyPage() {
         </Section>
 
         {/* 4 ── Cookies */}
-        <Section title='4. Cookies and Tracking Technologies'>
-          <p className='text-gray-700 mb-4'>
+        <Section title="4. Cookies and Tracking Technologies">
+          <p className="text-gray-700 mb-4">
             We use cookies and similar tracking technologies to track activity
             on our website. Cookies are files with a small amount of data that
             may include an anonymous unique identifier.
           </p>
-          <SubSection title='Types of Cookies We Use'>
+          <SubSection title="Types of Cookies We Use">
             <BulletList
               items={[
                 <>
@@ -165,7 +165,7 @@ export default function PrivacyPolicyPage() {
               ]}
             />
           </SubSection>
-          <p className='text-gray-700'>
+          <p className="text-gray-700">
             You can instruct your browser to refuse all cookies or to indicate
             when a cookie is being sent. However, some parts of our website may
             not function correctly without cookies.
@@ -173,17 +173,17 @@ export default function PrivacyPolicyPage() {
         </Section>
 
         {/* 5 ── Third-Party Services */}
-        <Section title='5. Third-Party Services'>
-          <SubSection title='Google AdSense'>
-            <p className='text-gray-700 mb-4'>
+        <Section title="5. Third-Party Services">
+          <SubSection title="Google AdSense">
+            <p className="text-gray-700 mb-4">
               We use Google AdSense to display advertisements. Google uses
               cookies to serve ads based on prior visits to our website or other
               websites. You may opt out of personalised advertising by visiting{" "}
               <a
-                href='https://www.google.com/settings/ads'
-                className='text-indigo-600 hover:underline'
-                target='_blank'
-                rel='noopener noreferrer'
+                href="https://www.google.com/settings/ads"
+                className="text-indigo-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Google Ads Settings
               </a>
@@ -191,8 +191,8 @@ export default function PrivacyPolicyPage() {
             </p>
           </SubSection>
 
-          <SubSection title='Google Analytics (or similar)'>
-            <p className='text-gray-700'>
+          <SubSection title="Google Analytics (or similar)">
+            <p className="text-gray-700">
               We may use third-party analytics services to monitor and analyse
               website traffic. These services may use cookies and similar
               technologies to collect information about your use of the website.
@@ -201,14 +201,14 @@ export default function PrivacyPolicyPage() {
         </Section>
 
         {/* 6 ── Data Security */}
-        <Section title='6. Data Security'>
-          <p className='text-gray-700 mb-4'>
+        <Section title="6. Data Security">
+          <p className="text-gray-700 mb-4">
             Since our tools process data locally in your browser, your input
             data never reaches our servers. We implement appropriate technical
             and organisational security measures to protect any information we
             do collect (usage analytics, cookies).
           </p>
-          <p className='text-gray-700'>
+          <p className="text-gray-700">
             However, no method of transmission over the Internet is 100% secure.
             While we strive to use commercially acceptable means to protect your
             information, we cannot guarantee its absolute security.
@@ -216,8 +216,8 @@ export default function PrivacyPolicyPage() {
         </Section>
 
         {/* 7 ── Privacy Rights */}
-        <Section title='7. Your Privacy Rights'>
-          <p className='text-gray-700 mb-3'>
+        <Section title="7. Your Privacy Rights">
+          <p className="text-gray-700 mb-3">
             Depending on your location, you may have the following rights:
           </p>
           <BulletList
@@ -248,11 +248,11 @@ export default function PrivacyPolicyPage() {
               </>,
             ]}
           />
-          <p className='text-gray-700'>
+          <p className="text-gray-700">
             To exercise any of these rights, please contact us at{" "}
             <a
-              href='mailto:privacy@onlinetoolbase.com'
-              className='text-indigo-600 hover:underline'
+              href="mailto:privacy@onlinetoolbase.com"
+              className="text-indigo-600 hover:underline"
             >
               privacy@onlinetoolbase.com
             </a>
@@ -261,9 +261,9 @@ export default function PrivacyPolicyPage() {
         </Section>
 
         {/* 8 ── GDPR / CCPA */}
-        <Section title='8. GDPR & CCPA Compliance'>
-          <SubSection title='European Users (GDPR)'>
-            <p className='text-gray-700 mb-3'>
+        <Section title="8. GDPR & CCPA Compliance">
+          <SubSection title="European Users (GDPR)">
+            <p className="text-gray-700 mb-3">
               If you are located in the European Economic Area (EEA), we process
               your data under the following legal bases:
             </p>
@@ -274,14 +274,14 @@ export default function PrivacyPolicyPage() {
                 "Legal obligation — where required by applicable law",
               ]}
             />
-            <p className='text-gray-700'>
+            <p className="text-gray-700">
               You have the right to lodge a complaint with your local data
               protection authority.
             </p>
           </SubSection>
 
-          <SubSection title='California Residents (CCPA)'>
-            <p className='text-gray-700 mb-3'>
+          <SubSection title="California Residents (CCPA)">
+            <p className="text-gray-700 mb-3">
               California residents have the right to:
             </p>
             <BulletList
@@ -293,12 +293,12 @@ export default function PrivacyPolicyPage() {
                 "Equal service and price even if they exercise their privacy rights",
               ]}
             />
-            <p className='text-gray-700'>
+            <p className="text-gray-700">
               We do not sell personal information. To submit a CCPA request,
               email{" "}
               <a
-                href='mailto:privacy@onlinetoolbase.com'
-                className='text-indigo-600 hover:underline'
+                href="mailto:privacy@onlinetoolbase.com"
+                className="text-indigo-600 hover:underline"
               >
                 privacy@onlinetoolbase.com
               </a>
@@ -309,7 +309,7 @@ export default function PrivacyPolicyPage() {
 
         {/* 9 ── Children */}
         <Section title="9. Children's Privacy">
-          <p className='text-gray-700'>
+          <p className="text-gray-700">
             Our website is not intended for children under 13 years of age. We
             do not knowingly collect personal information from children under
             13. If you are a parent or guardian and believe your child has
@@ -319,8 +319,8 @@ export default function PrivacyPolicyPage() {
         </Section>
 
         {/* 10 ── International */}
-        <Section title='10. International Data Transfers'>
-          <p className='text-gray-700'>
+        <Section title="10. International Data Transfers">
+          <p className="text-gray-700">
             Your information may be transferred to and maintained on computers
             located outside your state, province, country, or other governmental
             jurisdiction where data protection laws may differ from those in
@@ -330,8 +330,8 @@ export default function PrivacyPolicyPage() {
         </Section>
 
         {/* 11 ── Changes */}
-        <Section title='11. Changes to This Privacy Policy'>
-          <p className='text-gray-700'>
+        <Section title="11. Changes to This Privacy Policy">
+          <p className="text-gray-700">
             We may update our Privacy Policy from time to time. We will notify
             you of any material changes by posting the new Privacy Policy on
             this page and updating the &ldquo;Last Updated&rdquo; date at the
@@ -340,24 +340,24 @@ export default function PrivacyPolicyPage() {
         </Section>
 
         {/* 12 ── Contact */}
-        <Section title='12. Contact Us'>
-          <p className='text-gray-700 mb-4'>
+        <Section title="12. Contact Us">
+          <p className="text-gray-700 mb-4">
             If you have any questions about this Privacy Policy, please contact
             us:
           </p>
-          <div className='bg-gray-50 rounded-xl p-6 border-2 border-gray-200 space-y-2'>
-            <p className='text-gray-700'>
+          <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 space-y-2">
+            <p className="text-gray-700">
               <strong>Privacy enquiries:</strong>{" "}
               <a
-                href='mailto:privacy@onlinetoolbase.com'
-                className='text-indigo-600 hover:underline'
+                href="mailto:privacy@onlinetoolbase.com"
+                className="text-indigo-600 hover:underline"
               >
                 privacy@onlinetoolbase.com
               </a>
             </p>
-            <p className='text-gray-700'>
+            <p className="text-gray-700">
               <strong>Website:</strong>{" "}
-              <Link href='/' className='text-indigo-600 hover:underline'>
+              <Link href="/" className="text-indigo-600 hover:underline">
                 {SITE_NAME}
               </Link>
             </p>
@@ -365,7 +365,7 @@ export default function PrivacyPolicyPage() {
         </Section>
 
         {/* Key takeaway */}
-        <InfoBox variant='blue' title='Key Takeaway'>
+        <InfoBox variant="blue" title="Key Takeaway">
           <p>
             <strong>Your data stays private.</strong> All our tools process data
             locally in your browser. We never collect, store, or transmit the

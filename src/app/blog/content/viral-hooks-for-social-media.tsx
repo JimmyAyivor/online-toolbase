@@ -42,7 +42,7 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        Our <a href='/tools/viral-hook-generator'>Viral Hook Generator</a>{" "}
+        Our <a href="/tools/viral-hook-generator">Viral Hook Generator</a>{" "}
         produces hooks for any topic using these frameworks across multiple
         formats.
       </p>
@@ -118,7 +118,7 @@ export default function Post() {
       <p>
         A compelling hook is the prerequisite for all other content quality to
         matter. Use the{" "}
-        <a href='/tools/viral-hook-generator'>Viral Hook Generator</a> to
+        <a href="/tools/viral-hook-generator">Viral Hook Generator</a> to
         produce multiple hook variations for any piece of content, test
         different approaches with your audience, and build an intuition for what
         lands based on your analytics.

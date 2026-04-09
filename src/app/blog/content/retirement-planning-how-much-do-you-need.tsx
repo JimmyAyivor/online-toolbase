@@ -30,7 +30,7 @@ export default function Post() {
         retirements or lower-risk portfolios.
       </p>
       <p>
-        Our <a href='/tools/retirement-calculator'>Retirement Calculator</a>{" "}
+        Our <a href="/tools/retirement-calculator">Retirement Calculator</a>{" "}
         projects your portfolio growth based on current savings, monthly
         contributions, expected return, and years to retirement.
       </p>
@@ -123,7 +123,7 @@ export default function Post() {
       <h2>Conclusion</h2>
       <p>
         You don't need a perfect retirement plan to start. You need a direction.
-        Use the <a href='/tools/retirement-calculator'>Retirement Calculator</a>{" "}
+        Use the <a href="/tools/retirement-calculator">Retirement Calculator</a>{" "}
         to project where your current trajectory leads, identify the gap, and
         test different contribution levels to find one you can actually commit
         to. Then automate it and revisit annually.

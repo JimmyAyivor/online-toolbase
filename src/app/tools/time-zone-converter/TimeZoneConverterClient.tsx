@@ -204,32 +204,32 @@ export default function TimeZoneConverterClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-50 p-4 md:p-8'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='text-center mb-8'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-sky-600 to-blue-600 rounded-2xl mb-4 shadow-lg'>
-            <Globe className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-50 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-sky-600 to-blue-600 rounded-2xl mb-4 shadow-lg">
+            <Globe className="w-8 h-8 text-white" />
           </div>
-          <h2 className='text-4xl font-bold text-gray-900 mb-2'>
+          <h2 className="text-4xl font-bold text-gray-900 mb-2">
             Time Zone Converter
           </h2>
-          <p className='text-gray-500'>
+          <p className="text-gray-500">
             Convert time across different time zones instantly
           </p>
         </div>
 
-        <div className='grid lg:grid-cols-3 gap-6 mb-6'>
+        <div className="grid lg:grid-cols-3 gap-6 mb-6">
           {/* ── Main ── */}
-          <div className='lg:col-span-2 space-y-6'>
+          <div className="lg:col-span-2 space-y-6">
             {/* Source card */}
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
-              <h3 className='font-bold text-gray-900 mb-6 flex items-center gap-2 text-xl'>
-                <Clock className='w-6 h-6 text-sky-600' />
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+              <h3 className="font-bold text-gray-900 mb-6 flex items-center gap-2 text-xl">
+                <Clock className="w-6 h-6 text-sky-600" />
                 Source Time
               </h3>
 
-              <div className='mb-6'>
-                <label className='block text-sm font-bold text-gray-700 mb-3'>
+              <div className="mb-6">
+                <label className="block text-sm font-bold text-gray-700 mb-3">
                   Select Time Zone
                 </label>
                 <select
@@ -237,7 +237,7 @@ export default function TimeZoneConverterClient() {
                   onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                     setSourceTimezone(e.target.value)
                   }
-                  className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-sky-500 transition-colors'
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-sky-500 transition-colors"
                 >
                   {POPULAR_TIMEZONES.map((tz) => (
                     <option key={tz.zone} value={tz.zone}>
@@ -247,85 +247,85 @@ export default function TimeZoneConverterClient() {
                 </select>
               </div>
 
-              <div className='grid md:grid-cols-2 gap-4 mb-6'>
+              <div className="grid md:grid-cols-2 gap-4 mb-6">
                 <div>
-                  <label className='block text-sm font-bold text-gray-700 mb-3'>
+                  <label className="block text-sm font-bold text-gray-700 mb-3">
                     Date
                   </label>
                   <input
-                    type='date'
+                    type="date"
                     value={selectedDate}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setSelectedDate(e.target.value)
                     }
-                    className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-sky-500 transition-colors'
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-sky-500 transition-colors"
                   />
                 </div>
                 <div>
-                  <label className='block text-sm font-bold text-gray-700 mb-3'>
+                  <label className="block text-sm font-bold text-gray-700 mb-3">
                     Time
                   </label>
                   <input
-                    type='time'
+                    type="time"
                     value={selectedTime}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setSelectedTime(e.target.value)
                     }
-                    className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-sky-500 transition-colors'
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-sky-500 transition-colors"
                   />
                 </div>
               </div>
 
               <button
                 onClick={resetToNow}
-                className='w-full flex items-center justify-center gap-2 px-6 py-3 bg-sky-600 hover:bg-sky-700 text-white rounded-xl font-semibold transition-colors'
+                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-sky-600 hover:bg-sky-700 text-white rounded-xl font-semibold transition-colors"
               >
-                <RefreshCw className='w-5 h-5' />
+                <RefreshCw className="w-5 h-5" />
                 Use Current Time
               </button>
 
-              <div className='mt-6 p-6 bg-gradient-to-br from-sky-50 to-blue-50 rounded-xl border-2 border-sky-200'>
-                <div className='flex items-center justify-between mb-3'>
-                  <div className='flex items-center gap-2'>
+              <div className="mt-6 p-6 bg-gradient-to-br from-sky-50 to-blue-50 rounded-xl border-2 border-sky-200">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2">
                     <SourceIcon
                       className={`w-6 h-6 text-${sourceOfDay.color}-600`}
                     />
-                    <span className='text-sm font-semibold text-gray-600'>
+                    <span className="text-sm font-semibold text-gray-600">
                       {sourceOfDay.label}
                     </span>
                   </div>
-                  <div className='flex items-center gap-2 text-sm text-gray-600'>
-                    <MapPin className='w-4 h-4' />
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <MapPin className="w-4 h-4" />
                     {sourceCityName}
                   </div>
                 </div>
-                <div className='text-4xl font-bold text-gray-900 mb-2'>
+                <div className="text-4xl font-bold text-gray-900 mb-2">
                   {sourceTime.time}
                 </div>
-                <div className='text-sm text-gray-600 flex items-center gap-2'>
-                  <Calendar className='w-4 h-4' />
+                <div className="text-sm text-gray-600 flex items-center gap-2">
+                  <Calendar className="w-4 h-4" />
                   {sourceTime.date}
                 </div>
               </div>
             </div>
 
             {/* Target zones */}
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
-              <div className='flex justify-between items-center mb-6'>
-                <h3 className='font-bold text-gray-900 flex items-center gap-2 text-xl'>
-                  <Globe className='w-6 h-6 text-sky-600' />
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="font-bold text-gray-900 flex items-center gap-2 text-xl">
+                  <Globe className="w-6 h-6 text-sky-600" />
                   Convert To
                 </h3>
                 <button
                   onClick={addTimezone}
-                  className='flex items-center gap-2 px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-lg font-medium transition-colors'
+                  className="flex items-center gap-2 px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-lg font-medium transition-colors"
                 >
-                  <Plus className='w-4 h-4' />
+                  <Plus className="w-4 h-4" />
                   Add Zone
                 </button>
               </div>
 
-              <div className='space-y-4'>
+              <div className="space-y-4">
                 {timezones.map((tz) => {
                   const converted = getConvertedTime(baseDate, tz.zone);
                   const tod = getTimeOfDay(converted.time);
@@ -334,15 +334,15 @@ export default function TimeZoneConverterClient() {
                   return (
                     <div
                       key={tz.id}
-                      className='p-5 bg-gray-50 rounded-xl hover:shadow-md transition-shadow'
+                      className="p-5 bg-gray-50 rounded-xl hover:shadow-md transition-shadow"
                     >
-                      <div className='flex justify-between items-start mb-4'>
+                      <div className="flex justify-between items-start mb-4">
                         <select
                           value={tz.zone}
                           onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                             updateTimezone(tz.id, e.target.value)
                           }
-                          className='flex-1 px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-sky-500 transition-colors mr-3'
+                          className="flex-1 px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-sky-500 transition-colors mr-3"
                         >
                           {POPULAR_TIMEZONES.map((ptz) => (
                             <option key={ptz.zone} value={ptz.zone}>
@@ -353,25 +353,25 @@ export default function TimeZoneConverterClient() {
                         {timezones.length > 1 && (
                           <button
                             onClick={() => removeTimezone(tz.id)}
-                            aria-label='Remove timezone'
-                            className='p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors'
+                            aria-label="Remove timezone"
+                            className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                           >
-                            <Trash2 className='w-5 h-5' />
+                            <Trash2 className="w-5 h-5" />
                           </button>
                         )}
                       </div>
 
-                      <div className='flex items-center justify-between'>
-                        <div className='flex-1'>
-                          <div className='flex items-center gap-2 mb-2'>
+                      <div className="flex items-center justify-between">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-2">
                             <TodIcon
                               className={`w-5 h-5 text-${tod.color}-600`}
                             />
-                            <span className='text-3xl font-bold text-gray-900'>
+                            <span className="text-3xl font-bold text-gray-900">
                               {converted.time}
                             </span>
                           </div>
-                          <div className='text-sm text-gray-600'>
+                          <div className="text-sm text-gray-600">
                             {converted.date}
                           </div>
                         </div>
@@ -389,25 +389,25 @@ export default function TimeZoneConverterClient() {
           </div>
 
           {/* ── Sidebar ── */}
-          <div className='space-y-6'>
-            <div className='bg-gradient-to-br from-sky-600 to-blue-600 rounded-2xl shadow-xl p-6 md:p-8 text-white sticky top-8'>
-              <h3 className='font-bold mb-6 flex items-center gap-2 text-xl'>
-                <Clock className='w-6 h-6' />
+          <div className="space-y-6">
+            <div className="bg-gradient-to-br from-sky-600 to-blue-600 rounded-2xl shadow-xl p-6 md:p-8 text-white sticky top-8">
+              <h3 className="font-bold mb-6 flex items-center gap-2 text-xl">
+                <Clock className="w-6 h-6" />
                 Current Times
               </h3>
-              <div className='space-y-4'>
+              <div className="space-y-4">
                 {POPULAR_TIMEZONES.slice(0, 6).map((tz) => {
                   const t = getConvertedTime(currentTime, tz.zone);
                   return (
                     <div
                       key={tz.zone}
-                      className='bg-white/10 backdrop-blur rounded-xl p-4'
+                      className="bg-white/10 backdrop-blur rounded-xl p-4"
                     >
-                      <div className='text-sm text-sky-100 mb-1'>
+                      <div className="text-sm text-sky-100 mb-1">
                         {tz.name.split(" ")[0]}
                       </div>
-                      <div className='text-2xl font-bold'>{t.time}</div>
-                      <div className='text-xs text-sky-100 mt-1'>
+                      <div className="text-2xl font-bold">{t.time}</div>
+                      <div className="text-xs text-sky-100 mt-1">
                         {tz.offset}
                       </div>
                     </div>
@@ -416,11 +416,11 @@ export default function TimeZoneConverterClient() {
               </div>
             </div>
 
-            <div className='bg-white rounded-xl shadow-md p-6'>
-              <h4 className='font-bold text-gray-900 mb-4'>💡 Quick Tips</h4>
-              <div className='space-y-3 text-sm text-gray-700'>
+            <div className="bg-white rounded-xl shadow-md p-6">
+              <h4 className="font-bold text-gray-900 mb-4">💡 Quick Tips</h4>
+              <div className="space-y-3 text-sm text-gray-700">
                 {TIPS.map(({ color, label, desc }) => (
-                  <div key={label} className='flex items-start gap-2'>
+                  <div key={label} className="flex items-start gap-2">
                     <div
                       className={`w-2 h-2 ${color} rounded-full mt-2 flex-shrink-0`}
                     />
@@ -432,9 +432,9 @@ export default function TimeZoneConverterClient() {
               </div>
             </div>
 
-            <div className='bg-gradient-to-br from-sky-50 to-blue-50 rounded-xl shadow-md p-6 border-2 border-sky-200'>
-              <h4 className='font-bold text-gray-900 mb-3'>🌍 Popular Uses</h4>
-              <div className='space-y-2 text-sm text-gray-700'>
+            <div className="bg-gradient-to-br from-sky-50 to-blue-50 rounded-xl shadow-md p-6 border-2 border-sky-200">
+              <h4 className="font-bold text-gray-900 mb-3">🌍 Popular Uses</h4>
+              <div className="space-y-2 text-sm text-gray-700">
                 {POPULAR_USES.map((item) => (
                   <p key={item}>• {item}</p>
                 ))}

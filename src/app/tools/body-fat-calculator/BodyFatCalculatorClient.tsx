@@ -126,31 +126,31 @@ export default function BodyFatCalculatorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl mb-4 shadow-lg'>
-              <Activity className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl mb-4 shadow-lg">
+              <Activity className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Body Fat Calculator
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Estimate body fat percentage using the US Navy circumference
               method
             </p>
           </div>
 
-          <div className='space-y-6'>
+          <div className="space-y-6">
             {/* Options */}
-            <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
-              <div className='grid md:grid-cols-2 gap-4'>
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className='block text-sm font-medium text-gray-700 mb-2'>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Sex
                   </label>
-                  <div className='grid grid-cols-2 gap-2'>
+                  <div className="grid grid-cols-2 gap-2">
                     {(["male", "female"] as Sex[]).map((s) => (
                       <button
                         key={s}
@@ -167,10 +167,10 @@ export default function BodyFatCalculatorClient() {
                   </div>
                 </div>
                 <div>
-                  <label className='block text-sm font-medium text-gray-700 mb-2'>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Units
                   </label>
-                  <div className='grid grid-cols-2 gap-2'>
+                  <div className="grid grid-cols-2 gap-2">
                     {(
                       [
                         { key: "metric", label: "Metric (cm / kg)" },
@@ -195,7 +195,7 @@ export default function BodyFatCalculatorClient() {
             </div>
 
             {/* Measurements */}
-            <div className='grid md:grid-cols-2 gap-4'>
+            <div className="grid md:grid-cols-2 gap-4">
               {[
                 { label: `Height (${u})`, value: height, set: setHeight },
                 { label: `Weight (${wu})`, value: weight, set: setWeight },
@@ -220,19 +220,19 @@ export default function BodyFatCalculatorClient() {
                   : []),
               ].map(({ label, value, set }) => (
                 <div key={label}>
-                  <label className='block text-sm font-medium text-gray-700 mb-2'>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     {label}
                   </label>
                   <input
-                    type='number'
+                    type="number"
                     value={value}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       set(e.target.value)
                     }
-                    placeholder='0'
-                    min='0'
-                    step='0.1'
-                    className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
+                    placeholder="0"
+                    min="0"
+                    step="0.1"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   />
                 </div>
               ))}
@@ -240,43 +240,43 @@ export default function BodyFatCalculatorClient() {
 
             <button
               onClick={reset}
-              className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2'
+              className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2"
             >
-              <RotateCcw className='w-4 h-4' />
+              <RotateCcw className="w-4 h-4" />
               Reset All
             </button>
 
             {/* Results */}
             {result && (
-              <div className='bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200'>
-                <h3 className='text-xl font-bold text-gray-900 mb-4'>
+              <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Results
                 </h3>
-                <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-4'>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
                   {[
                     { label: "Body Fat %", value: `${result.bodyFat}%` },
                     { label: "Category", value: result.category },
                     { label: `Lean Mass (${wu})`, value: String(result.lean) },
                     { label: `Fat Mass (${wu})`, value: String(result.fat) },
                   ].map(({ label, value }) => (
-                    <div key={label} className='bg-white rounded-lg p-4'>
-                      <div className='text-2xl font-bold text-indigo-600'>
+                    <div key={label} className="bg-white rounded-lg p-4">
+                      <div className="text-2xl font-bold text-indigo-600">
                         {value}
                       </div>
-                      <div className='text-sm text-gray-600'>{label}</div>
+                      <div className="text-sm text-gray-600">{label}</div>
                     </div>
                   ))}
                 </div>
                 {/* Body fat bar */}
                 <div>
-                  <div className='flex justify-between text-xs text-gray-500 mb-1'>
+                  <div className="flex justify-between text-xs text-gray-500 mb-1">
                     <span>0%</span>
                     <span>Body Fat: {result.bodyFat}%</span>
                     <span>50%</span>
                   </div>
-                  <div className='w-full bg-gray-200 rounded-full h-3'>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
                     <div
-                      className='bg-indigo-600 h-3 rounded-full transition-all'
+                      className="bg-indigo-600 h-3 rounded-full transition-all"
                       style={{
                         width: `${Math.min(100, (result.bodyFat / 50) * 100)}%`,
                       }}
@@ -287,9 +287,9 @@ export default function BodyFatCalculatorClient() {
             )}
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Tips:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600">
+            <p className="font-semibold mb-2">Tips:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Measure your waist at the navel level and your neck just below
                 the larynx (Adam&apos;s apple)

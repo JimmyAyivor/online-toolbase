@@ -27,7 +27,7 @@ export default function Post() {
         <strong>Payload</strong>, and <strong>Signature</strong>.
       </p>
       <p>
-        Our <a href='/tools/jwt-decoder'>JWT Decoder</a> decodes all three
+        Our <a href="/tools/jwt-decoder">JWT Decoder</a> decodes all three
         sections instantly paste any JWT and see the full contents in readable
         JSON.
       </p>
@@ -210,7 +210,7 @@ export default function Post() {
       <p>
         JWTs are self-contained tokens whose security depends entirely on
         signature verification, not on the encoding of the payload. Use the{" "}
-        <a href='/tools/jwt-decoder'>JWT Decoder</a> to inspect any token's
+        <a href="/tools/jwt-decoder">JWT Decoder</a> to inspect any token's
         claims, verify expiration, and debug authentication issues and remember
         that decoding a JWT requires no secret, because the payload is not
         encrypted.

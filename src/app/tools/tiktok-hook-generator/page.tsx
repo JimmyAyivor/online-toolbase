@@ -99,60 +99,63 @@ export default function TiktokHookGeneratorPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-rose-600 transition-colors'>
+            <a href="/" className="hover:text-rose-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/social-media'
-              className='hover:text-rose-600 transition-colors'
+              href="/tools/category/social-media"
+              className="hover:text-rose-600 transition-colors"
             >
               Social Media Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               TikTok Hook Generator
             </span>
           </li>
         </ol>
       </nav>
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-rose-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-rose-600 uppercase tracking-widest mb-1">
           Free Social Media Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           TikTok Hook Generator — Generate Scroll-Stopping Opening Lines Free
           Online
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Generate scroll-stopping TikTok hook opening lines across curiosity,
           controversy, challenge, story, and how-to formats for any topic.
         </p>
       </header>
       <SidebarAdLayout>
-        <main id='main-content' aria-label='TikTok Hook Generator tool'>
+        <main id="main-content" aria-label="TikTok Hook Generator tool">
           <TiktokHookGeneratorClient />
         </main>
         <PageEditorial />
-              <ToolEngagement toolSlug="tiktok-hook-generator" toolName="TikTok Hook Generator" />
+        <ToolEngagement
+          toolSlug="tiktok-hook-generator"
+          toolName="TikTok Hook Generator"
+        />
       </SidebarAdLayout>
     </>
   );

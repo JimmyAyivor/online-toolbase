@@ -13,7 +13,7 @@ export default function Post() {
 
       <h2>What a live word counter shows you</h2>
       <p>
-        Our <a href='/tools/word-counter-live'>Word Counter</a> updates in real
+        Our <a href="/tools/word-counter-live">Word Counter</a> updates in real
         time as you type, showing word count, character count (with and without
         spaces), sentence count, and paragraph count simultaneously. No
         copy-pasting into a separate tool, no interrupting your writing flow to
@@ -96,7 +96,7 @@ export default function Post() {
       <p>
         When writing meta descriptions, Twitter posts, or email subject lines,
         character count is the operative constraint. Our{" "}
-        <a href='/tools/word-character-counter'>Word & Character Counter</a>{" "}
+        <a href="/tools/word-character-counter">Word & Character Counter</a>{" "}
         tracks both simultaneously if you need the full picture. The live Word
         Counter is optimised for longer-form writing where word count is the
         primary metric.
@@ -145,10 +145,10 @@ export default function Post() {
         effect on writing output. It keeps you on target, helps you catch
         structural imbalances early, and removes the end-of-draft surprise of
         being significantly off your goal. Use the{" "}
-        <a href='/tools/word-counter-live'>Word Counter</a> as your default
+        <a href="/tools/word-counter-live">Word Counter</a> as your default
         writing environment for any content that has a target length, and
         combine it with a{" "}
-        <a href='/tools/readability-score-calculator'>readability check</a> once
+        <a href="/tools/readability-score-calculator">readability check</a> once
         your draft is complete.
       </p>
     </>

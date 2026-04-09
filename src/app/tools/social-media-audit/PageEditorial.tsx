@@ -3,8 +3,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import AdSlot from "@/components/AdSlot";
 
-const SLOT_BELOW_TOOL = process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
-const SLOT_LEADERBOARD = process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
+const SLOT_BELOW_TOOL =
+  process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
+const SLOT_LEADERBOARD =
+  process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 const TOOL_URL = "https://onlinetoolbase.com/tools/social-media-audit";
 const TOOL_NAME = "Social Media Audit Tool";
 
@@ -14,17 +16,37 @@ function QRModal({ onClose }: { onClose: () => void }) {
     let cancelled = false;
     import("qrcode").then((QRCode) => {
       if (cancelled || !canvasRef.current) return;
-      QRCode.toCanvas(canvasRef.current, TOOL_URL, { width: 220, margin: 2, color: { dark: "#3b0764", light: "#faf5ff" } });
+      QRCode.toCanvas(canvasRef.current, TOOL_URL, {
+        width: 220,
+        margin: 2,
+        color: { dark: "#3b0764", light: "#faf5ff" },
+      });
     });
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, []);
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm" onClick={(e) => e.target === e.currentTarget && onClose()}>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
       <div className="relative bg-white rounded-3xl shadow-2xl p-8 mx-4 max-w-xs w-full text-center">
-        <button onClick={onClose} className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500">✕</button>
-        <h3 className="text-lg font-black text-gray-900 mb-1">Take it with you</h3>
-        <p className="text-sm text-gray-400 mb-5">Scan to open the {TOOL_NAME} on mobile</p>
-        <div className="inline-block rounded-2xl overflow-hidden border-4 border-violet-100 shadow-inner mb-5"><canvas ref={canvasRef} /></div>
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500"
+        >
+          ✕
+        </button>
+        <h3 className="text-lg font-black text-gray-900 mb-1">
+          Take it with you
+        </h3>
+        <p className="text-sm text-gray-400 mb-5">
+          Scan to open the {TOOL_NAME} on mobile
+        </p>
+        <div className="inline-block rounded-2xl overflow-hidden border-4 border-violet-100 shadow-inner mb-5">
+          <canvas ref={canvasRef} />
+        </div>
         <p className="text-xs text-gray-300 font-mono break-all">{TOOL_URL}</p>
       </div>
     </div>
@@ -34,25 +56,78 @@ function QRModal({ onClose }: { onClose: () => void }) {
 function ShareBar() {
   const [qrOpen, setQrOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-  const shareText = encodeURIComponent("Free social media audit tool — 22-point checklist across profile, content, engagement, and strategy. Get an instant score. No signup.");
+  const shareText = encodeURIComponent(
+    "Free social media audit tool — 22-point checklist across profile, content, engagement, and strategy. Get an instant score. No signup.",
+  );
   const shareUrl = encodeURIComponent(TOOL_URL);
-  const copyLink = () => { navigator.clipboard.writeText(TOOL_URL); setCopied(true); setTimeout(() => setCopied(false), 2000); };
+  const copyLink = () => {
+    navigator.clipboard.writeText(TOOL_URL);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
   const SHARES = [
-    { label: "X / Twitter", href: `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`, bg: "bg-black hover:bg-gray-800" },
-    { label: "LinkedIn",    href: `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`,     bg: "bg-[#0A66C2] hover:bg-[#004182]" },
-    { label: "Facebook",    href: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`,             bg: "bg-[#1877F2] hover:bg-[#0c5ab9]" },
-    { label: "WhatsApp",    href: `https://wa.me/?text=${shareText}%20${shareUrl}`,                       bg: "bg-[#25D366] hover:bg-[#1da851]" },
+    {
+      label: "X / Twitter",
+      href: `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`,
+      bg: "bg-black hover:bg-gray-800",
+    },
+    {
+      label: "LinkedIn",
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`,
+      bg: "bg-[#0A66C2] hover:bg-[#004182]",
+    },
+    {
+      label: "Facebook",
+      href: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`,
+      bg: "bg-[#1877F2] hover:bg-[#0c5ab9]",
+    },
+    {
+      label: "WhatsApp",
+      href: `https://wa.me/?text=${shareText}%20${shareUrl}`,
+      bg: "bg-[#25D366] hover:bg-[#1da851]",
+    },
   ];
   return (
     <>
       {qrOpen && <QRModal onClose={() => setQrOpen(false)} />}
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-5 mb-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div><p className="text-sm font-bold text-gray-900 mb-0.5">Found this useful?</p><p className="text-xs text-gray-400">Share the tool or scan to open on your phone</p></div>
+          <div>
+            <p className="text-sm font-bold text-gray-900 mb-0.5">
+              Found this useful?
+            </p>
+            <p className="text-xs text-gray-400">
+              Share the tool or scan to open on your phone
+            </p>
+          </div>
           <div className="flex flex-wrap items-center gap-2">
-            {SHARES.map(({ label, href, bg }) => (<a key={label} href={href} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center px-3 py-2 rounded-xl text-white text-xs font-semibold transition-all shadow-sm hover:-translate-y-0.5 ${bg}`}>{label}</a>))}
-            <button onClick={copyLink} className="px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold">{copied ? <span className="text-violet-600">✓ Copied!</span> : "Copy link"}</button>
-            <button onClick={() => setQrOpen(true)} className="hidden sm:block px-3 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-xs font-semibold hover:-translate-y-0.5 transition-all">Scan QR</button>
+            {SHARES.map(({ label, href, bg }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center px-3 py-2 rounded-xl text-white text-xs font-semibold transition-all shadow-sm hover:-translate-y-0.5 ${bg}`}
+              >
+                {label}
+              </a>
+            ))}
+            <button
+              onClick={copyLink}
+              className="px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold"
+            >
+              {copied ? (
+                <span className="text-violet-600">✓ Copied!</span>
+              ) : (
+                "Copy link"
+              )}
+            </button>
+            <button
+              onClick={() => setQrOpen(true)}
+              className="hidden sm:block px-3 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-xs font-semibold hover:-translate-y-0.5 transition-all"
+            >
+              Scan QR
+            </button>
           </div>
         </div>
       </div>
@@ -61,11 +136,31 @@ function ShareBar() {
 }
 
 const SCORE_TABLE = [
-  ["0–39%",   "Getting Started",      "Most fundamentals are not yet in place. Start with Profile Basics and complete every item before moving to Content."],
-  ["40–59%",  "Needs Work",           "The foundations are partially set but significant gaps remain. Focus on unchecked Profile Basics and Content Quality items first."],
-  ["60–79%",  "On the Right Track",   "Core elements are in place. Now focus on Engagement and Strategy items to accelerate growth."],
-  ["80–94%",  "Looking Good",         "Strong overall presence. Fine-tune remaining items and maintain consistency — growth should be consistent at this level."],
-  ["95–100%", "Social Media Pro",     "All major best practices are implemented. Focus on testing, iteration, and refining what's working."],
+  [
+    "0–39%",
+    "Getting Started",
+    "Most fundamentals are not yet in place. Start with Profile Basics and complete every item before moving to Content.",
+  ],
+  [
+    "40–59%",
+    "Needs Work",
+    "The foundations are partially set but significant gaps remain. Focus on unchecked Profile Basics and Content Quality items first.",
+  ],
+  [
+    "60–79%",
+    "On the Right Track",
+    "Core elements are in place. Now focus on Engagement and Strategy items to accelerate growth.",
+  ],
+  [
+    "80–94%",
+    "Looking Good",
+    "Strong overall presence. Fine-tune remaining items and maintain consistency — growth should be consistent at this level.",
+  ],
+  [
+    "95–100%",
+    "Social Media Pro",
+    "All major best practices are implemented. Focus on testing, iteration, and refining what's working.",
+  ],
 ];
 
 const FAQS = [
@@ -99,15 +194,29 @@ function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
   return (
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">
+        Frequently Asked Questions
+      </h2>
       <div className="space-y-3">
         {FAQS.map((f, i) => (
-          <div key={i} className="border border-gray-100 rounded-xl overflow-hidden">
-            <button className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors" onClick={() => setOpen(open === i ? null : i)}>
+          <div
+            key={i}
+            className="border border-gray-100 rounded-xl overflow-hidden"
+          >
+            <button
+              className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
+              onClick={() => setOpen(open === i ? null : i)}
+            >
               <span className="font-semibold text-gray-900 text-sm">{f.q}</span>
-              <span className="text-violet-600 text-lg shrink-0">{open === i ? "−" : "+"}</span>
+              <span className="text-violet-600 text-lg shrink-0">
+                {open === i ? "−" : "+"}
+              </span>
             </button>
-            {open === i && <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed">{f.a}</div>}
+            {open === i && (
+              <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed">
+                {f.a}
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -119,18 +228,41 @@ export default function PageEditorial() {
   return (
     <>
       <div className="max-w-6xl mx-auto px-4 mt-6 flex justify-center">
-        <div className="hidden sm:block"><AdSlot variant="rectangle" slotId={SLOT_BELOW_TOOL} /></div>
-        <div className="block sm:hidden"><AdSlot variant="mediumrectangle" slotId={SLOT_BELOW_TOOL} /></div>
+        <div className="hidden sm:block">
+          <AdSlot variant="rectangle" slotId={SLOT_BELOW_TOOL} />
+        </div>
+        <div className="block sm:hidden">
+          <AdSlot variant="mediumrectangle" slotId={SLOT_BELOW_TOOL} />
+        </div>
       </div>
       <div className="max-w-6xl mx-auto px-4 mt-4 flex justify-center">
-        <AdSlot variant="leaderboard" slotId={SLOT_LEADERBOARD} className="hidden sm:flex" />
-        <AdSlot variant="mediumrectangle" slotId={SLOT_LEADERBOARD} className="flex sm:hidden" />
+        <AdSlot
+          variant="leaderboard"
+          slotId={SLOT_LEADERBOARD}
+          className="hidden sm:flex"
+        />
+        <AdSlot
+          variant="mediumrectangle"
+          slotId={SLOT_LEADERBOARD}
+          className="flex sm:hidden"
+        />
       </div>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10"><ShareBar /></div>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+        <ShareBar />
+      </div>
 
-      <section id="how-to-use" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">How to Use the Social Media Audit Tool</h2>
-        <p className="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed">Work through all 22 checklist items honestly — the items you leave unchecked become your prioritised action list for improving your social media presence.</p>
+      <section
+        id="how-to-use"
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10"
+      >
+        <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">
+          How to Use the Social Media Audit Tool
+        </h2>
+        <p className="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed">
+          Work through all 22 checklist items honestly — the items you leave
+          unchecked become your prioritised action list for improving your
+          social media presence.
+        </p>
 
         <div className="space-y-6 mb-14">
           {[
@@ -138,19 +270,49 @@ export default function PageEditorial() {
               n: 1,
               title: "Start with Profile Basics",
               body: "The Profile Basics category covers the six elements every profile visitor sees first — your photo, username, bio, call to action, link in bio, and contact information. These have the highest leverage on first impressions: a new visitor to your profile makes a 'follow or don't follow' decision within seconds based primarily on these elements. Complete all six Profile Basics items before moving to other categories — a weak profile foundation limits the effectiveness of even excellent content.",
-              enrich: <div className="bg-violet-50 rounded-xl px-5 py-4 text-sm text-violet-800 leading-relaxed"><strong>Quick profile wins:</strong> The two highest-impact profile fixes for most accounts are (1) ensuring the bio's first two lines clearly state what you do and who it's for — without requiring the 'more' expansion click — and (2) verifying the link in bio is working and leads somewhere useful. Both take minutes to fix and immediately improve conversion from profile visitor to follower.</div>,
+              enrich: (
+                <div className="bg-violet-50 rounded-xl px-5 py-4 text-sm text-violet-800 leading-relaxed">
+                  <strong>Quick profile wins:</strong> The two highest-impact
+                  profile fixes for most accounts are (1) ensuring the bio's
+                  first two lines clearly state what you do and who it's for —
+                  without requiring the 'more' expansion click — and (2)
+                  verifying the link in bio is working and leads somewhere
+                  useful. Both take minutes to fix and immediately improve
+                  conversion from profile visitor to follower.
+                </div>
+              ),
             },
             {
               n: 2,
               title: "Assess your Content Quality",
               body: "The Content Quality section evaluates six aspects of your actual posts: visual consistency, caption quality, value delivery, posting frequency, video accessibility, and image originality. Be honest — view your last 9 or 12 posts as a grid and ask whether they look cohesive, whether a stranger scrolling past would stop, and whether each post delivers genuine value to your target audience. Check each item only if it's consistently true, not if you've done it once.",
-              enrich: <div className="bg-indigo-50 rounded-xl px-5 py-4 text-sm text-indigo-800 leading-relaxed"><strong>The 80/20 of content quality:</strong> Two content items consistently matter most for growth: posting frequency (3+ times per week is the minimum for consistent algorithmic favour) and value delivery (content that educates, entertains, or inspires rather than just promoting). If you can only focus on two things in the Content Quality section, prioritise these.</div>,
+              enrich: (
+                <div className="bg-indigo-50 rounded-xl px-5 py-4 text-sm text-indigo-800 leading-relaxed">
+                  <strong>The 80/20 of content quality:</strong> Two content
+                  items consistently matter most for growth: posting frequency
+                  (3+ times per week is the minimum for consistent algorithmic
+                  favour) and value delivery (content that educates, entertains,
+                  or inspires rather than just promoting). If you can only focus
+                  on two things in the Content Quality section, prioritise
+                  these.
+                </div>
+              ),
             },
             {
               n: 3,
               title: "Review your Engagement habits",
               body: "Engagement is the most underrated category — most creators focus on creating content but neglect the daily practice of engaging with their audience and community. Check each item only if you're doing it consistently, not occasionally. Replying to comments within 24 hours, engaging with others in your niche, posting regular Stories, and using interactive features are all algorithmic signals that tell platforms your account generates genuine community activity.",
-              enrich: <div className="bg-purple-50 rounded-xl px-5 py-4 text-sm text-purple-800 leading-relaxed"><strong>The engagement compounding effect:</strong> Accounts that reply to every comment consistently see higher reach on future posts because the algorithm registers their content as generating conversations. The 15–30 minutes spent replying to comments the day after posting is often more valuable for algorithmic reach than spending the same time creating an additional post.</div>,
+              enrich: (
+                <div className="bg-purple-50 rounded-xl px-5 py-4 text-sm text-purple-800 leading-relaxed">
+                  <strong>The engagement compounding effect:</strong> Accounts
+                  that reply to every comment consistently see higher reach on
+                  future posts because the algorithm registers their content as
+                  generating conversations. The 15–30 minutes spent replying to
+                  comments the day after posting is often more valuable for
+                  algorithmic reach than spending the same time creating an
+                  additional post.
+                </div>
+              ),
             },
             {
               n: 4,
@@ -159,13 +321,31 @@ export default function PageEditorial() {
               enrich: (
                 <div className="overflow-x-auto rounded-xl border border-gray-100 text-sm">
                   <table className="w-full text-left">
-                    <thead className="bg-gray-50"><tr><th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">Score</th><th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">Status</th><th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">Priority action</th></tr></thead>
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
+                          Score
+                        </th>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
+                          Status
+                        </th>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
+                          Priority action
+                        </th>
+                      </tr>
+                    </thead>
                     <tbody className="divide-y divide-gray-50">
                       {SCORE_TABLE.map(([score, status, action]) => (
                         <tr key={score} className="hover:bg-violet-50">
-                          <td className="px-4 py-2 font-bold text-violet-700 text-xs whitespace-nowrap">{score}</td>
-                          <td className="px-4 py-2 font-semibold text-gray-900 text-xs">{status}</td>
-                          <td className="px-4 py-2 text-xs text-gray-500">{action}</td>
+                          <td className="px-4 py-2 font-bold text-violet-700 text-xs whitespace-nowrap">
+                            {score}
+                          </td>
+                          <td className="px-4 py-2 font-semibold text-gray-900 text-xs">
+                            {status}
+                          </td>
+                          <td className="px-4 py-2 text-xs text-gray-500">
+                            {action}
+                          </td>
                         </tr>
                       ))}
                     </tbody>
@@ -174,26 +354,66 @@ export default function PageEditorial() {
               ),
             },
           ].map(({ n, title, body, enrich }) => (
-            <div key={n} className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-violet-600 text-white font-black text-lg flex items-center justify-center">{n}</div>
-              <div><h3 className="text-lg font-bold text-gray-900 mb-2">{title}</h3><p className="text-gray-600 leading-relaxed mb-3">{body}</p>{enrich}</div>
+            <div
+              key={n}
+              className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5"
+            >
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-violet-600 text-white font-black text-lg flex items-center justify-center">
+                {n}
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  {title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-3">{body}</p>
+                {enrich}
+              </div>
             </div>
           ))}
         </div>
 
         <FAQSection />
 
-        <h3 className="text-2xl font-bold text-gray-900 mb-6">Common use cases</h3>
+        <h3 className="text-2xl font-bold text-gray-900 mb-6">
+          Common use cases
+        </h3>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
           {[
-            { emoji: "📸", title: "Instagram creators", desc: "Audit your Instagram profile and content strategy — identify which of the 22 points you're missing and create an improvement plan." },
-            { emoji: "💼", title: "LinkedIn professionals", desc: "Review your LinkedIn presence against best practices — profile completeness, content consistency, and engagement habits." },
-            { emoji: "🏢", title: "Small business owners", desc: "Assess your brand's social media foundation — ensure your profile basics are strong before investing more time in content creation." },
-            { emoji: "📣", title: "Social media managers", desc: "Use as a structured client account review — systematically evaluate a client's current presence and produce an action report." },
-            { emoji: "🎓", title: "New content creators", desc: "Use this as a launch checklist — ensure all 22 fundamentals are in place before investing heavily in growing your following." },
-            { emoji: "🔄", title: "Quarterly reviews", desc: "Re-run monthly to track improvement — compare your score over time and celebrate progress as new items get checked off." },
+            {
+              emoji: "📸",
+              title: "Instagram creators",
+              desc: "Audit your Instagram profile and content strategy — identify which of the 22 points you're missing and create an improvement plan.",
+            },
+            {
+              emoji: "💼",
+              title: "LinkedIn professionals",
+              desc: "Review your LinkedIn presence against best practices — profile completeness, content consistency, and engagement habits.",
+            },
+            {
+              emoji: "🏢",
+              title: "Small business owners",
+              desc: "Assess your brand's social media foundation — ensure your profile basics are strong before investing more time in content creation.",
+            },
+            {
+              emoji: "📣",
+              title: "Social media managers",
+              desc: "Use as a structured client account review — systematically evaluate a client's current presence and produce an action report.",
+            },
+            {
+              emoji: "🎓",
+              title: "New content creators",
+              desc: "Use this as a launch checklist — ensure all 22 fundamentals are in place before investing heavily in growing your following.",
+            },
+            {
+              emoji: "🔄",
+              title: "Quarterly reviews",
+              desc: "Re-run monthly to track improvement — compare your score over time and celebrate progress as new items get checked off.",
+            },
           ].map(({ emoji, title, desc }) => (
-            <div key={title} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:border-violet-200 hover:-translate-y-1 transition-all duration-200">
+            <div
+              key={title}
+              className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:border-violet-200 hover:-translate-y-1 transition-all duration-200"
+            >
               <div className="text-2xl mb-3">{emoji}</div>
               <p className="font-bold text-gray-900 text-sm mb-2">{title}</p>
               <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
@@ -203,20 +423,56 @@ export default function PageEditorial() {
 
         <div className="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl p-8 text-white text-center mb-14">
           <div className="text-3xl mb-3">📋</div>
-          <h3 className="text-xl font-bold mb-3">Most creators focus only on content — but profile fundamentals and engagement habits determine whether that content ever gets seen</h3>
-          <p className="text-violet-100 leading-relaxed max-w-xl mx-auto text-sm">Creating content without a strong profile foundation is like running ads for a broken landing page — the effort is wasted because the destination doesn't convert. Similarly, posting consistently without engaging with comments or your community signals to the algorithm that your content doesn't generate conversation, which suppresses future distribution. The accounts that grow consistently aren't necessarily the ones with the best content — they're the ones that have all three elements working together: a compelling profile that converts visitors to followers, consistent content that delivers value, and daily engagement habits that signal to the algorithm that their account is active and their content generates community activity.</p>
+          <h3 className="text-xl font-bold mb-3">
+            Most creators focus only on content — but profile fundamentals and
+            engagement habits determine whether that content ever gets seen
+          </h3>
+          <p className="text-violet-100 leading-relaxed max-w-xl mx-auto text-sm">
+            Creating content without a strong profile foundation is like running
+            ads for a broken landing page — the effort is wasted because the
+            destination doesn't convert. Similarly, posting consistently without
+            engaging with comments or your community signals to the algorithm
+            that your content doesn't generate conversation, which suppresses
+            future distribution. The accounts that grow consistently aren't
+            necessarily the ones with the best content — they're the ones that
+            have all three elements working together: a compelling profile that
+            converts visitors to followers, consistent content that delivers
+            value, and daily engagement habits that signal to the algorithm that
+            their account is active and their content generates community
+            activity.
+          </p>
         </div>
 
         <div>
-          <h3 className="text-lg font-bold text-gray-900 mb-4">Related Free Social Media Tools</h3>
+          <h3 className="text-lg font-bold text-gray-900 mb-4">
+            Related Free Social Media Tools
+          </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { href: "/tools/engagement-rate-calculator", label: "Engagement Rate Calculator", desc: "Calculate your engagement rate by followers, reach, or impressions — with benchmark ratings per platform." },
-              { href: "/tools/hashtag-generator", label: "Hashtag Generator", desc: "Generate relevant hashtags for Instagram, TikTok, and LinkedIn — mixed by popularity tier." },
-              { href: "/tools/social-media-bio-generator", label: "Social Media Bio Generator", desc: "Generate ready-to-use bios for Instagram, LinkedIn, Twitter/X, TikTok, and YouTube." },
+              {
+                href: "/tools/engagement-rate-calculator",
+                label: "Engagement Rate Calculator",
+                desc: "Calculate your engagement rate by followers, reach, or impressions — with benchmark ratings per platform.",
+              },
+              {
+                href: "/tools/hashtag-generator",
+                label: "Hashtag Generator",
+                desc: "Generate relevant hashtags for Instagram, TikTok, and LinkedIn — mixed by popularity tier.",
+              },
+              {
+                href: "/tools/social-media-bio-generator",
+                label: "Social Media Bio Generator",
+                desc: "Generate ready-to-use bios for Instagram, LinkedIn, Twitter/X, TikTok, and YouTube.",
+              },
             ].map(({ href, label, desc }) => (
-              <a key={href} href={href} className="block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-violet-200 hover:-translate-y-1 transition-all duration-200 p-5">
-                <div className="font-bold text-gray-900 text-sm mb-1">{label}</div>
+              <a
+                key={href}
+                href={href}
+                className="block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-violet-200 hover:-translate-y-1 transition-all duration-200 p-5"
+              >
+                <div className="font-bold text-gray-900 text-sm mb-1">
+                  {label}
+                </div>
                 <div className="text-xs text-gray-500">{desc}</div>
               </a>
             ))}

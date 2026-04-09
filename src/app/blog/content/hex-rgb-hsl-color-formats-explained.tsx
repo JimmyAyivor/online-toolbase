@@ -34,7 +34,7 @@ export default function Post() {
         mentally.
       </p>
       <p>
-        Our <a href='/tools/color-code-converter'>Color Code Converter</a>{" "}
+        Our <a href="/tools/color-code-converter">Color Code Converter</a>{" "}
         converts between all formats instantly.
       </p>
 
@@ -118,7 +118,7 @@ export default function Post() {
 
       <h3>How do I convert between formats quickly?</h3>
       <p>
-        Use the <a href='/tools/color-code-converter'>Color Code Converter</a>{" "}
+        Use the <a href="/tools/color-code-converter">Color Code Converter</a>{" "}
         to convert any colour between HEX, RGB, HSL, HSV, and CMYK instantly.
       </p>
 
@@ -126,9 +126,9 @@ export default function Post() {
       <p>
         Hex for sharing and pasting; HSL for building colour systems and making
         adjustments; RGB when opacity is needed. Use the{" "}
-        <a href='/tools/color-code-converter'>Color Code Converter</a> to move
+        <a href="/tools/color-code-converter">Color Code Converter</a> to move
         between formats, and combine with the{" "}
-        <a href='/tools/color-contrast-checker'>Color Contrast Checker</a> to
+        <a href="/tools/color-contrast-checker">Color Contrast Checker</a> to
         verify your colour combinations meet accessibility standards.
       </p>
     </>

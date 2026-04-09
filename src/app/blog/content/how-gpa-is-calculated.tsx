@@ -24,7 +24,7 @@ export default function Post() {
         scale. Always use your institution's specific conversion scale.
       </p>
       <p>
-        Our <a href='/tools/gpa-calculator'>GPA Calculator</a> computes both
+        Our <a href="/tools/gpa-calculator">GPA Calculator</a> computes both
         semester GPA and cumulative GPA from any combination of grades and
         credit hours.
       </p>
@@ -113,7 +113,7 @@ export default function Post() {
         Understanding GPA as a weighted average not a simple average changes how
         you think about course selection and grade recovery. Higher-credit
         courses are higher stakes. Use the{" "}
-        <a href='/tools/gpa-calculator'>GPA Calculator</a> to compute your
+        <a href="/tools/gpa-calculator">GPA Calculator</a> to compute your
         current GPA, model the impact of upcoming grades, and calculate what you
         need in remaining courses to hit a target.
       </p>

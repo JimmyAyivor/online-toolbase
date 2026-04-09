@@ -36,7 +36,7 @@ export default function Post() {
       </ul>
       <p>
         Our{" "}
-        <a href='/tools/rent-affordability-calculator'>
+        <a href="/tools/rent-affordability-calculator">
           Rent Affordability Calculator
         </a>{" "}
         uses your net income and total expenses to calculate a more personalised
@@ -137,7 +137,7 @@ export default function Post() {
         your housing budget from your actual financial situation income, debts,
         savings targets, and other expenses and make location and housing
         choices that fit within it. Use the{" "}
-        <a href='/tools/rent-affordability-calculator'>
+        <a href="/tools/rent-affordability-calculator">
           Rent Affordability Calculator
         </a>{" "}
         to find a realistic personalised range.

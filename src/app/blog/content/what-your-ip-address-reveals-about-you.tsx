@@ -24,7 +24,7 @@ export default function Post() {
         the internet works; there's no way to communicate without it.
       </p>
       <p>
-        Use our <a href='/tools/ip-address-lookup'>IP Address Lookup</a> to see
+        Use our <a href="/tools/ip-address-lookup">IP Address Lookup</a> to see
         your current IP address and the information associated with it.
       </p>
 
@@ -151,7 +151,7 @@ export default function Post() {
         Your IP address reveals your approximate location and internet provider
         not your identity or precise address. For developers and network
         administrators, IP lookups are a routine diagnostic tool. Use the{" "}
-        <a href='/tools/ip-address-lookup'>IP Address Lookup</a> to check your
+        <a href="/tools/ip-address-lookup">IP Address Lookup</a> to check your
         own IP details and understand what information it publicly exposes.
       </p>
     </>

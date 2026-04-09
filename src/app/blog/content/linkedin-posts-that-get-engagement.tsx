@@ -32,7 +32,7 @@ export default function Post() {
       </p>
       <p>
         Use the{" "}
-        <a href='/tools/linkedin-post-formatter'>LinkedIn Post Formatter</a> to
+        <a href="/tools/linkedin-post-formatter">LinkedIn Post Formatter</a> to
         preview exactly where your "see more" cutoff falls before you post.
       </p>
 
@@ -128,7 +128,7 @@ export default function Post() {
       </ul>
       <p>
         Check your post formatting and character counts with the{" "}
-        <a href='/tools/social-media-character-counter'>
+        <a href="/tools/social-media-character-counter">
           Social Media Character Counter
         </a>{" "}
         before publishing.

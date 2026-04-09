@@ -96,55 +96,58 @@ export default function OvulationCalculatorPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-pink-600 transition-colors'>
+            <a href="/" className="hover:text-pink-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/health'
-              className='hover:text-pink-600 transition-colors'
+              href="/tools/category/health"
+              className="hover:text-pink-600 transition-colors"
             >
               Health Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Ovulation Calculator
             </span>
           </li>
         </ol>
       </nav>
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-pink-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-pink-600 uppercase tracking-widest mb-1">
           Free Health Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Ovulation Calculator — Predict Your Fertile Days
         </h1>
       </header>
       <SidebarAdLayout>
-        <main id='main-content' aria-label='Ovulation Calculator tool'>
+        <main id="main-content" aria-label="Ovulation Calculator tool">
           <OvulationCalculatorClient />
         </main>
         <PageEditorial />
-              <ToolEngagement toolSlug="ovulation-calculator" toolName="Ovulation Calculator" />
+        <ToolEngagement
+          toolSlug="ovulation-calculator"
+          toolName="Ovulation Calculator"
+        />
       </SidebarAdLayout>
     </>
   );

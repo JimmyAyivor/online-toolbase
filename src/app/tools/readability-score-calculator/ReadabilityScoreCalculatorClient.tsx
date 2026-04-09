@@ -141,24 +141,24 @@ export default function ReadabilityScoreCalculatorClient() {
     : { label: "", color: "", bg: "" };
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-500 to-amber-600 rounded-full mb-4 shadow-lg'>
-              <BookOpen className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-500 to-amber-600 rounded-full mb-4 shadow-lg">
+              <BookOpen className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Readability Score Calculator
             </h2>
-            <p className='text-gray-600'>
+            <p className="text-gray-600">
               Paste your text to get Flesch, Kincaid, Gunning Fog, and ARI
               scores instantly
             </p>
           </div>
 
-          <div className='mb-3'>
-            <label className='block text-sm font-medium text-gray-700 mb-2'>
+          <div className="mb-3">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Your text
             </label>
             <textarea
@@ -166,23 +166,23 @@ export default function ReadabilityScoreCalculatorClient() {
               onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
                 setText(e.target.value)
               }
-              placeholder='Paste or type your text here…'
+              placeholder="Paste or type your text here…"
               rows={7}
-              className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none'
+              className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none"
             />
           </div>
-          <div className='flex items-center gap-4 mb-6'>
+          <div className="flex items-center gap-4 mb-6">
             <button
               onClick={() => setText(SAMPLE)}
-              className='text-sm text-orange-600 hover:underline'
+              className="text-sm text-orange-600 hover:underline"
             >
               Load sample text
             </button>
             <button
               onClick={handleReset}
-              className='flex items-center gap-1.5 text-sm text-gray-500 hover:text-orange-600 transition-colors'
+              className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-orange-600 transition-colors"
             >
-              <RotateCcw className='w-4 h-4' />
+              <RotateCcw className="w-4 h-4" />
               Reset
             </button>
           </div>
@@ -193,7 +193,7 @@ export default function ReadabilityScoreCalculatorClient() {
                 className={`${bg} border-2 rounded-xl p-6 mb-6 flex items-center justify-between`}
               >
                 <div>
-                  <div className='text-sm text-gray-500 mb-0.5'>
+                  <div className="text-sm text-gray-500 mb-0.5">
                     Flesch Reading Ease
                   </div>
                   <div className={`text-4xl font-extrabold ${color}`}>
@@ -203,20 +203,20 @@ export default function ReadabilityScoreCalculatorClient() {
                     {label}
                   </div>
                 </div>
-                <div className='w-36'>
-                  <div className='text-xs text-gray-400 mb-1 text-right'>
+                <div className="w-36">
+                  <div className="text-xs text-gray-400 mb-1 text-right">
                     0 → 100
                   </div>
-                  <div className='h-3 bg-gray-200 rounded-full overflow-hidden'>
+                  <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
                     <div
-                      className='h-full bg-orange-500 rounded-full transition-all'
+                      className="h-full bg-orange-500 rounded-full transition-all"
                       style={{ width: `${stats.fleschReadingEase}%` }}
                     />
                   </div>
                 </div>
               </div>
 
-              <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-6'>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                 {[
                   {
                     label: "Flesch-Kincaid Grade",
@@ -241,18 +241,18 @@ export default function ReadabilityScoreCalculatorClient() {
                 ].map(({ label: metricLabel, value, desc }) => (
                   <div
                     key={metricLabel}
-                    className='bg-gray-50 rounded-xl p-4 border border-gray-200'
+                    className="bg-gray-50 rounded-xl p-4 border border-gray-200"
                   >
-                    <div className='text-xs text-gray-500'>{metricLabel}</div>
-                    <div className='text-xl font-bold text-orange-700 mt-1'>
+                    <div className="text-xs text-gray-500">{metricLabel}</div>
+                    <div className="text-xl font-bold text-orange-700 mt-1">
                       {value}
                     </div>
-                    <div className='text-xs text-gray-400 mt-0.5'>{desc}</div>
+                    <div className="text-xs text-gray-400 mt-0.5">{desc}</div>
                   </div>
                 ))}
               </div>
 
-              <div className='grid grid-cols-2 md:grid-cols-4 gap-3 mb-6'>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
                 {[
                   { label: "Words", value: stats.wordCount },
                   { label: "Sentences", value: stats.sentenceCount },
@@ -261,23 +261,23 @@ export default function ReadabilityScoreCalculatorClient() {
                 ].map(({ label: metricLabel, value }) => (
                   <div
                     key={metricLabel}
-                    className='text-center bg-white border border-gray-200 rounded-xl p-3'
+                    className="text-center bg-white border border-gray-200 rounded-xl p-3"
                   >
-                    <div className='text-lg font-bold text-gray-800'>
+                    <div className="text-lg font-bold text-gray-800">
                       {value.toLocaleString()}
                     </div>
-                    <div className='text-xs text-gray-400'>{metricLabel}</div>
+                    <div className="text-xs text-gray-400">{metricLabel}</div>
                   </div>
                 ))}
               </div>
             </>
           )}
 
-          <div className='mt-4 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>
+          <div className="mt-4 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">
               💡 Improving your readability score:
             </p>
-            <ul className='list-disc list-inside space-y-1'>
+            <ul className="list-disc list-inside space-y-1">
               <li>A Flesch score of 60–70 is ideal for general audiences</li>
               <li>
                 Keep sentences under 20 words to improve readability scores

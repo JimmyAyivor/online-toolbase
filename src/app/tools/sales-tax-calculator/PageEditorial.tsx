@@ -28,26 +28,26 @@ function QRModal({ onClose }: { onClose: () => void }) {
   }, []);
   return (
     <div
-      className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm'
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <div className='relative bg-white rounded-3xl shadow-2xl p-8 mx-4 max-w-xs w-full text-center'>
+      <div className="relative bg-white rounded-3xl shadow-2xl p-8 mx-4 max-w-xs w-full text-center">
         <button
           onClick={onClose}
-          className='absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500'
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500"
         >
           ✕
         </button>
-        <h3 className='text-lg font-black text-gray-900 mb-1'>
+        <h3 className="text-lg font-black text-gray-900 mb-1">
           Take it with you
         </h3>
-        <p className='text-sm text-gray-400 mb-5'>
+        <p className="text-sm text-gray-400 mb-5">
           Scan to open the {TOOL_NAME} on mobile
         </p>
-        <div className='inline-block rounded-2xl overflow-hidden border-4 border-purple-100 shadow-inner mb-5'>
+        <div className="inline-block rounded-2xl overflow-hidden border-4 border-purple-100 shadow-inner mb-5">
           <canvas ref={canvasRef} />
         </div>
-        <p className='text-xs text-gray-300 font-mono break-all'>{TOOL_URL}</p>
+        <p className="text-xs text-gray-300 font-mono break-all">{TOOL_URL}</p>
       </div>
     </div>
   );
@@ -90,23 +90,23 @@ function ShareBar() {
   return (
     <>
       {qrOpen && <QRModal onClose={() => setQrOpen(false)} />}
-      <div className='bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-5 mb-6'>
-        <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4'>
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-5 mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <p className='text-sm font-bold text-gray-900 mb-0.5'>
+            <p className="text-sm font-bold text-gray-900 mb-0.5">
               Found this useful?
             </p>
-            <p className='text-xs text-gray-400'>
+            <p className="text-xs text-gray-400">
               Share the tool or scan to open on your phone
             </p>
           </div>
-          <div className='flex flex-wrap items-center gap-2'>
+          <div className="flex flex-wrap items-center gap-2">
             {SHARES.map(({ label, href, bg }) => (
               <a
                 key={label}
                 href={href}
-                target='_blank'
-                rel='noopener noreferrer'
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`inline-flex items-center px-3 py-2 rounded-xl text-white text-xs font-semibold transition-all shadow-sm hover:-translate-y-0.5 ${bg}`}
               >
                 {label}
@@ -114,17 +114,17 @@ function ShareBar() {
             ))}
             <button
               onClick={copyLink}
-              className='px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold'
+              className="px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold"
             >
               {copied ? (
-                <span className='text-purple-600'>✓ Copied!</span>
+                <span className="text-purple-600">✓ Copied!</span>
               ) : (
                 "Copy link"
               )}
             </button>
             <button
               onClick={() => setQrOpen(true)}
-              className='hidden sm:block px-3 py-2 rounded-xl bg-gradient-to-r from-purple-500 to-pink-600 text-white text-xs font-semibold hover:-translate-y-0.5 transition-all'
+              className="hidden sm:block px-3 py-2 rounded-xl bg-gradient-to-r from-purple-500 to-pink-600 text-white text-xs font-semibold hover:-translate-y-0.5 transition-all"
             >
               Scan QR
             </button>
@@ -186,27 +186,27 @@ const FAQS = [
 function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
   return (
-    <div className='bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10'>
-      <h2 className='text-2xl font-bold text-gray-900 mb-6'>
+    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10">
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">
         Frequently Asked Questions
       </h2>
-      <div className='space-y-3'>
+      <div className="space-y-3">
         {FAQS.map((f, i) => (
           <div
             key={i}
-            className='border border-gray-100 rounded-xl overflow-hidden'
+            className="border border-gray-100 rounded-xl overflow-hidden"
           >
             <button
-              className='w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors'
+              className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
               onClick={() => setOpen(open === i ? null : i)}
             >
-              <span className='font-semibold text-gray-900 text-sm'>{f.q}</span>
-              <span className='text-purple-600 text-lg shrink-0'>
+              <span className="font-semibold text-gray-900 text-sm">{f.q}</span>
+              <span className="text-purple-600 text-lg shrink-0">
                 {open === i ? "−" : "+"}
               </span>
             </button>
             {open === i && (
-              <div className='px-5 pb-5 text-sm text-gray-600 leading-relaxed'>
+              <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed">
                 {f.a}
               </div>
             )}
@@ -220,82 +220,82 @@ function FAQSection() {
 export default function PageEditorial() {
   return (
     <>
-      <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
-        <div className='hidden sm:block'>
-          <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
+      <div className="max-w-6xl mx-auto px-4 mt-6 flex justify-center">
+        <div className="hidden sm:block">
+          <AdSlot variant="rectangle" slotId={SLOT_BELOW_TOOL} />
         </div>
-        <div className='block sm:hidden'>
-          <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
+        <div className="block sm:hidden">
+          <AdSlot variant="mediumrectangle" slotId={SLOT_BELOW_TOOL} />
         </div>
       </div>
-      <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
+      <div className="max-w-6xl mx-auto px-4 mt-4 flex justify-center">
         <AdSlot
-          variant='leaderboard'
+          variant="leaderboard"
           slotId={SLOT_LEADERBOARD}
-          className='hidden sm:flex'
+          className="hidden sm:flex"
         />
         <AdSlot
-          variant='mediumrectangle'
+          variant="mediumrectangle"
           slotId={SLOT_LEADERBOARD}
-          className='flex sm:hidden'
+          className="flex sm:hidden"
         />
       </div>
-      <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10'>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
         <ShareBar />
       </div>
 
       <section
-        id='how-to-use'
-        className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10'
+        id="how-to-use"
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10"
       >
-        <h2 className='text-4xl font-bold text-gray-900 mb-4 text-center'>
+        <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">
           How to Use the Sales Tax Calculator
         </h2>
-        <p className='text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed'>
+        <p className="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed">
           Enter a price, pick your US state or type a custom rate, and instantly
           see the tax amount and total — switch to cart mode to add multiple
           items.
         </p>
 
-        <div className='space-y-6 mb-14'>
+        <div className="space-y-6 mb-14">
           {[
             {
               n: 1,
               title: "Choose single item or cart mode",
               body: "The calculator has two modes selectable at the top. Single Item mode calculates tax on one purchase — enter the price and tax rate to see the tax amount and total instantly. Cart mode lets you build a list of items with individual names and prices, then calculates the tax on the combined subtotal. Cart mode is useful for budgeting a shopping trip or verifying a receipt with multiple line items.",
               enrich: (
-                <div className='overflow-x-auto rounded-xl border border-gray-100 text-sm'>
-                  <table className='w-full text-left'>
-                    <thead className='bg-gray-50'>
+                <div className="overflow-x-auto rounded-xl border border-gray-100 text-sm">
+                  <table className="w-full text-left">
+                    <thead className="bg-gray-50">
                       <tr>
-                        <th className='px-4 py-2 text-xs font-bold text-gray-500 uppercase'>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
                           State
                         </th>
-                        <th className='px-4 py-2 text-xs font-bold text-gray-500 uppercase'>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
                           Rate
                         </th>
-                        <th className='px-4 py-2 text-xs font-bold text-gray-500 uppercase'>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
                           Notes
                         </th>
                       </tr>
                     </thead>
-                    <tbody className='divide-y divide-gray-50'>
+                    <tbody className="divide-y divide-gray-50">
                       {STATE_RATES.map(([state, rate, note]) => (
-                        <tr key={state} className='hover:bg-purple-50'>
-                          <td className='px-4 py-2 text-xs font-medium text-gray-900'>
+                        <tr key={state} className="hover:bg-purple-50">
+                          <td className="px-4 py-2 text-xs font-medium text-gray-900">
                             {state}
                           </td>
-                          <td className='px-4 py-2 text-xs font-bold text-purple-700'>
+                          <td className="px-4 py-2 text-xs font-bold text-purple-700">
                             {rate}
                           </td>
-                          <td className='px-4 py-2 text-xs text-gray-500'>
+                          <td className="px-4 py-2 text-xs text-gray-500">
                             {note}
                           </td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
-                  <p className='px-4 py-2 text-xs text-gray-400 italic'>
+                  <p className="px-4 py-2 text-xs text-gray-400 italic">
                     State base rates only — combined rate including local taxes
                     may be higher. Rates change; verify with your state revenue
                     authority.
@@ -308,7 +308,7 @@ export default function PageEditorial() {
               title: "Enter the price and select a tax rate",
               body: "In Single Item mode, type the price before tax into the price field. Then either click your US state from the state picker to auto-fill the state's base tax rate, or type a custom percentage into the Tax Rate field. The state picker shows the two-letter abbreviation and rate for all 50 states — click any state to apply that rate. You can override a state rate by typing a different value into the tax rate field at any time.",
               enrich: (
-                <div className='bg-purple-50 rounded-xl px-5 py-4 text-sm text-purple-800 leading-relaxed'>
+                <div className="bg-purple-50 rounded-xl px-5 py-4 text-sm text-purple-800 leading-relaxed">
                   <strong>Important:</strong> The state rates shown are the
                   statewide base rates. Your actual combined rate — including
                   county and city taxes — may be higher. For example,
@@ -325,7 +325,7 @@ export default function PageEditorial() {
               title: "Read the tax amount and total price",
               body: "The result panel shows three values: Before Tax (the price you entered), Tax Amount (the calculated sales tax), and Total Price (the amount you'd actually pay). In Cart mode, the result shows the cart subtotal, tax on the full subtotal, and grand total, with a breakdown listing each item and its individual tax contribution. All results update instantly as you change the price or rate.",
               enrich: (
-                <div className='bg-pink-50 rounded-xl px-5 py-4 text-sm text-pink-800 leading-relaxed'>
+                <div className="bg-pink-50 rounded-xl px-5 py-4 text-sm text-pink-800 leading-relaxed">
                   <strong>Back-calculating the pre-tax price:</strong> If you
                   know the total price and the tax rate but want the pre-tax
                   amount (useful when a price tag shows the tax-inclusive
@@ -341,7 +341,7 @@ export default function PageEditorial() {
               title: "Use cart mode for shopping trips",
               body: "Switch to Cart mode using the mode selector at the top. Enter an item name and price, then click the plus (+) button or press Enter to add it to the cart. Items appear in the list below with their individual tax amounts. Add as many items as needed — the running subtotal, tax, and total update with each addition. Remove individual items with the trash icon. This mode is particularly useful for budgeting a grocery run, comparing prices across multiple purchases, or checking a receipt.",
               enrich: (
-                <div className='bg-purple-50 rounded-xl px-5 py-4 text-sm text-purple-800 leading-relaxed'>
+                <div className="bg-purple-50 rounded-xl px-5 py-4 text-sm text-purple-800 leading-relaxed">
                   <strong>Cart mode tip:</strong> The tax rate set at the top
                   applies to all items in the cart equally. If some items in
                   your cart have different tax rates (for example, groceries are
@@ -355,16 +355,16 @@ export default function PageEditorial() {
           ].map(({ n, title, body, enrich }) => (
             <div
               key={n}
-              className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'
+              className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5"
             >
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-purple-600 text-white font-black text-lg flex items-center justify-center'>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-purple-600 text-white font-black text-lg flex items-center justify-center">
                 {n}
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {title}
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-3'>{body}</p>
+                <p className="text-gray-600 leading-relaxed mb-3">{body}</p>
                 {enrich}
               </div>
             </div>
@@ -373,10 +373,10 @@ export default function PageEditorial() {
 
         <FAQSection />
 
-        <h3 className='text-2xl font-bold text-gray-900 mb-6'>
+        <h3 className="text-2xl font-bold text-gray-900 mb-6">
           Common use cases
         </h3>
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14'>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
           {[
             {
               emoji: "🛒",
@@ -411,22 +411,22 @@ export default function PageEditorial() {
           ].map(({ emoji, title, desc }) => (
             <div
               key={title}
-              className='bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:border-purple-200 hover:-translate-y-1 transition-all duration-200'
+              className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:border-purple-200 hover:-translate-y-1 transition-all duration-200"
             >
-              <div className='text-2xl mb-3'>{emoji}</div>
-              <p className='font-bold text-gray-900 text-sm mb-2'>{title}</p>
-              <p className='text-xs text-gray-500 leading-relaxed'>{desc}</p>
+              <div className="text-2xl mb-3">{emoji}</div>
+              <p className="font-bold text-gray-900 text-sm mb-2">{title}</p>
+              <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
 
-        <div className='bg-gradient-to-br from-purple-600 to-pink-700 rounded-2xl p-8 text-white text-center mb-14'>
-          <div className='text-3xl mb-3'>⚖️</div>
-          <h3 className='text-xl font-bold mb-3'>
+        <div className="bg-gradient-to-br from-purple-600 to-pink-700 rounded-2xl p-8 text-white text-center mb-14">
+          <div className="text-3xl mb-3">⚖️</div>
+          <h3 className="text-xl font-bold mb-3">
             State base rates are just the starting point — your combined rate
             including local taxes may be significantly higher
           </h3>
-          <p className='text-purple-100 leading-relaxed max-w-xl mx-auto text-sm'>
+          <p className="text-purple-100 leading-relaxed max-w-xl mx-auto text-sm">
             The United States has thousands of distinct sales tax jurisdictions
             — states, counties, cities, and special districts can all layer
             their own rates on top of each other. The combined state-plus-local
@@ -440,10 +440,10 @@ export default function PageEditorial() {
         </div>
 
         <div>
-          <h3 className='text-lg font-bold text-gray-900 mb-4'>
+          <h3 className="text-lg font-bold text-gray-900 mb-4">
             Related Free Calculator Tools
           </h3>
-          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
                 href: "/tools/tip-calculator",
@@ -464,12 +464,12 @@ export default function PageEditorial() {
               <a
                 key={href}
                 href={href}
-                className='block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-purple-200 hover:-translate-y-1 transition-all duration-200 p-5'
+                className="block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-purple-200 hover:-translate-y-1 transition-all duration-200 p-5"
               >
-                <div className='font-bold text-gray-900 text-sm mb-1'>
+                <div className="font-bold text-gray-900 text-sm mb-1">
                   {label}
                 </div>
-                <div className='text-xs text-gray-500'>{desc}</div>
+                <div className="text-xs text-gray-500">{desc}</div>
               </a>
             ))}
           </div>

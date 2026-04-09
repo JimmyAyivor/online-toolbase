@@ -69,7 +69,7 @@ export default function Post() {
       </ul>
 
       <p>
-        Our <a href='/tools/profile-picture-resizer'>Profile Picture Resizer</a>{" "}
+        Our <a href="/tools/profile-picture-resizer">Profile Picture Resizer</a>{" "}
         crops and resizes any photo to the correct dimensions for any platform,
         with options for circular cropping preview.
       </p>
@@ -149,7 +149,7 @@ export default function Post() {
       <p>
         Upload the right dimensions and centre the subject clearly within the
         frame those two steps fix most profile picture problems. Use the{" "}
-        <a href='/tools/profile-picture-resizer'>Profile Picture Resizer</a> to
+        <a href="/tools/profile-picture-resizer">Profile Picture Resizer</a> to
         export correctly sized versions for any platform, and check your result
         at the actual display size before uploading.
       </p>

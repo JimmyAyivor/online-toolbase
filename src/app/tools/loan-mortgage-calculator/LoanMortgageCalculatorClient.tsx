@@ -140,22 +140,22 @@ export default function LoanMortgageCalculatorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50 p-4 md:p-8'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='text-center mb-8'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-600 to-teal-600 rounded-2xl mb-4 shadow-lg'>
-            <Calculator className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-600 to-teal-600 rounded-2xl mb-4 shadow-lg">
+            <Calculator className="w-8 h-8 text-white" />
           </div>
-          <h2 className='text-4xl font-bold text-gray-900 mb-2'>
+          <h2 className="text-4xl font-bold text-gray-900 mb-2">
             Loan &amp; Mortgage Calculator
           </h2>
-          <p className='text-gray-500'>
+          <p className="text-gray-500">
             Calculate monthly payments and total costs
           </p>
         </div>
 
         {/* Loan type selector */}
-        <div className='grid md:grid-cols-3 gap-4 mb-6'>
+        <div className="grid md:grid-cols-3 gap-4 mb-6">
           {LOAN_TYPES.map(({ id, name, icon: Icon }) => (
             <button
               key={id}
@@ -166,21 +166,21 @@ export default function LoanMortgageCalculatorClient() {
                   : "bg-white text-gray-700 hover:bg-gray-50 shadow-md"
               }`}
             >
-              <Icon className='w-6 h-6' />
-              <span className='font-semibold'>{name}</span>
+              <Icon className="w-6 h-6" />
+              <span className="font-semibold">{name}</span>
             </button>
           ))}
         </div>
 
-        <div className='grid lg:grid-cols-2 gap-6 mb-6'>
+        <div className="grid lg:grid-cols-2 gap-6 mb-6">
           {/* Input sliders */}
-          <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
-            <h3 className='font-bold text-gray-900 mb-6 flex items-center gap-2'>
-              <DollarSign className='w-5 h-5 text-emerald-600' />
+          <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+            <h3 className="font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <DollarSign className="w-5 h-5 text-emerald-600" />
               Loan Details
             </h3>
 
-            <div className='space-y-6'>
+            <div className="space-y-6">
               {/* Loan amount */}
               <SliderField
                 label={`Loan Amount: ${formatCurrency(loanAmount)}`}
@@ -189,9 +189,9 @@ export default function LoanMortgageCalculatorClient() {
                 step={5000}
                 value={loanAmount}
                 onChange={(v) => setLoanAmount(v)}
-                tickMin='$10k'
-                tickMax='$1M'
-                trackColor='from-emerald-200 to-teal-300'
+                tickMin="$10k"
+                tickMax="$1M"
+                trackColor="from-emerald-200 to-teal-300"
               />
               {/* Down payment */}
               <SliderField
@@ -201,9 +201,9 @@ export default function LoanMortgageCalculatorClient() {
                 step={1000}
                 value={downPayment}
                 onChange={(v) => setDownPayment(v)}
-                tickMin='$0'
+                tickMin="$0"
                 tickMax={formatCurrency(loanAmount)}
-                trackColor='from-blue-200 to-cyan-300'
+                trackColor="from-blue-200 to-cyan-300"
               />
               {/* Interest rate */}
               <SliderField
@@ -213,9 +213,9 @@ export default function LoanMortgageCalculatorClient() {
                 step={0.1}
                 value={interestRate}
                 onChange={(v) => setInterestRate(v)}
-                tickMin='0.1%'
-                tickMax='20%'
-                trackColor='from-orange-200 to-amber-300'
+                tickMin="0.1%"
+                tickMax="20%"
+                trackColor="from-orange-200 to-amber-300"
                 float
               />
               {/* Loan term */}
@@ -226,47 +226,47 @@ export default function LoanMortgageCalculatorClient() {
                 step={1}
                 value={loanTerm}
                 onChange={(v) => setLoanTerm(v)}
-                tickMin='1 year'
-                tickMax='30 years'
-                trackColor='from-purple-200 to-pink-300'
+                tickMin="1 year"
+                tickMax="30 years"
+                trackColor="from-purple-200 to-pink-300"
               />
             </div>
           </div>
 
           {/* Results */}
-          <div className='space-y-6'>
-            <div className='bg-gradient-to-br from-emerald-600 to-teal-600 rounded-2xl shadow-xl p-6 md:p-8 text-white'>
-              <h3 className='font-bold mb-6 flex items-center gap-2 text-xl'>
-                <TrendingUp className='w-6 h-6' />
+          <div className="space-y-6">
+            <div className="bg-gradient-to-br from-emerald-600 to-teal-600 rounded-2xl shadow-xl p-6 md:p-8 text-white">
+              <h3 className="font-bold mb-6 flex items-center gap-2 text-xl">
+                <TrendingUp className="w-6 h-6" />
                 Monthly Payment
               </h3>
-              <div className='text-5xl font-bold mb-2'>
+              <div className="text-5xl font-bold mb-2">
                 {formatCurrency(monthlyPayment)}
               </div>
-              <p className='text-emerald-100'>per month for {loanTerm} years</p>
+              <p className="text-emerald-100">per month for {loanTerm} years</p>
             </div>
 
-            <div className='grid grid-cols-2 gap-4'>
+            <div className="grid grid-cols-2 gap-4">
               {[
                 {
-                  icon: <DollarSign className='w-5 h-5 text-blue-600' />,
+                  icon: <DollarSign className="w-5 h-5 text-blue-600" />,
                   label: "Total Payment",
                   value: totalPayment,
                 },
                 {
-                  icon: <Percent className='w-5 h-5 text-orange-600' />,
+                  icon: <Percent className="w-5 h-5 text-orange-600" />,
                   label: "Total Interest",
                   value: totalInterest,
                 },
               ].map(({ icon, label, value }) => (
-                <div key={label} className='bg-white rounded-xl shadow-md p-6'>
-                  <div className='flex items-center gap-2 mb-2'>
+                <div key={label} className="bg-white rounded-xl shadow-md p-6">
+                  <div className="flex items-center gap-2 mb-2">
                     {icon}
-                    <span className='text-sm font-semibold text-gray-600'>
+                    <span className="text-sm font-semibold text-gray-600">
                       {label}
                     </span>
                   </div>
-                  <p className='text-2xl font-bold text-gray-900'>
+                  <p className="text-2xl font-bold text-gray-900">
                     {formatCurrency(value)}
                   </p>
                 </div>
@@ -274,25 +274,25 @@ export default function LoanMortgageCalculatorClient() {
             </div>
 
             {/* Payment breakdown */}
-            <div className='bg-white rounded-xl shadow-md p-6'>
-              <h4 className='font-bold text-gray-900 mb-4 flex items-center gap-2'>
-                <PieChart className='w-5 h-5 text-emerald-600' />
+            <div className="bg-white rounded-xl shadow-md p-6">
+              <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <PieChart className="w-5 h-5 text-emerald-600" />
                 Payment Breakdown
               </h4>
-              <div className='space-y-3'>
+              <div className="space-y-3">
                 <BreakdownBar
-                  label='Principal'
+                  label="Principal"
                   value={formatCurrency(principalPaid)}
                   pct={principalPercentage}
-                  textColor='text-emerald-600'
-                  barColor='from-emerald-500 to-teal-500'
+                  textColor="text-emerald-600"
+                  barColor="from-emerald-500 to-teal-500"
                 />
                 <BreakdownBar
-                  label='Interest'
+                  label="Interest"
                   value={formatCurrency(totalInterest)}
                   pct={interestPercentage}
-                  textColor='text-orange-600'
-                  barColor='from-orange-500 to-amber-500'
+                  textColor="text-orange-600"
+                  barColor="from-orange-500 to-amber-500"
                 />
               </div>
             </div>
@@ -301,15 +301,15 @@ export default function LoanMortgageCalculatorClient() {
 
         {/* Amortization table */}
         {schedule.length > 0 && (
-          <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
-            <h3 className='font-bold text-gray-900 mb-4 flex items-center gap-2'>
-              <Calendar className='w-5 h-5 text-emerald-600' />
+          <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+            <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <Calendar className="w-5 h-5 text-emerald-600" />
               Amortization Schedule (First Year)
             </h3>
-            <div className='overflow-x-auto'>
-              <table className='w-full text-sm'>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
                 <thead>
-                  <tr className='border-b-2 border-gray-200'>
+                  <tr className="border-b-2 border-gray-200">
                     {[
                       "Month",
                       "Payment",
@@ -330,21 +330,21 @@ export default function LoanMortgageCalculatorClient() {
                   {schedule.map((row) => (
                     <tr
                       key={row.month}
-                      className='border-b border-gray-100 hover:bg-gray-50'
+                      className="border-b border-gray-100 hover:bg-gray-50"
                     >
-                      <td className='py-3 px-4 font-medium text-gray-900'>
+                      <td className="py-3 px-4 font-medium text-gray-900">
                         {row.month}
                       </td>
-                      <td className='text-right py-3 px-4 text-gray-700'>
+                      <td className="text-right py-3 px-4 text-gray-700">
                         {formatCurrencyDetailed(row.payment)}
                       </td>
-                      <td className='text-right py-3 px-4 text-emerald-600 font-medium'>
+                      <td className="text-right py-3 px-4 text-emerald-600 font-medium">
                         {formatCurrencyDetailed(row.principal)}
                       </td>
-                      <td className='text-right py-3 px-4 text-orange-600 font-medium'>
+                      <td className="text-right py-3 px-4 text-orange-600 font-medium">
                         {formatCurrencyDetailed(row.interest)}
                       </td>
-                      <td className='text-right py-3 px-4 text-gray-900 font-bold'>
+                      <td className="text-right py-3 px-4 text-gray-900 font-bold">
                         {formatCurrencyDetailed(row.balance)}
                       </td>
                     </tr>
@@ -388,11 +388,11 @@ function SliderField({
 }: SliderFieldProps) {
   return (
     <div>
-      <label className='block text-sm font-bold text-gray-700 mb-3'>
+      <label className="block text-sm font-bold text-gray-700 mb-3">
         {label}
       </label>
       <input
-        type='range'
+        type="range"
         min={min}
         max={max}
         step={step}
@@ -405,7 +405,7 @@ function SliderField({
         className={`w-full h-3 bg-gradient-to-r ${trackColor} rounded-lg appearance-none cursor-pointer`}
         aria-label={label}
       />
-      <div className='flex justify-between text-xs text-gray-500 mt-2'>
+      <div className="flex justify-between text-xs text-gray-500 mt-2">
         <span>{tickMin}</span>
         <span>{tickMax}</span>
       </div>
@@ -430,13 +430,13 @@ function BreakdownBar({
 }: BreakdownBarProps) {
   return (
     <div>
-      <div className='flex justify-between text-sm mb-2'>
-        <span className='text-gray-600'>{label}</span>
+      <div className="flex justify-between text-sm mb-2">
+        <span className="text-gray-600">{label}</span>
         <span className={`font-bold ${textColor}`}>
           {value} ({pct.toFixed(1)}%)
         </span>
       </div>
-      <div className='h-3 bg-gray-200 rounded-full overflow-hidden'>
+      <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
         <div
           className={`h-full bg-gradient-to-r ${barColor}`}
           style={{ width: `${pct}%` }}

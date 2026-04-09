@@ -26,7 +26,7 @@ export default function Post() {
       </p>
       <p>
         A proper{" "}
-        <a href='/tools/grammar-spell-checker'>grammar and spell checker</a>{" "}
+        <a href="/tools/grammar-spell-checker">grammar and spell checker</a>{" "}
         analyses sentence structure, not just individual words. It catches the
         errors that basic spell check misses and those are usually the ones that
         matter most to readers.
@@ -145,9 +145,9 @@ export default function Post() {
       </p>
       <p>
         The most effective workflow: write first without interruption, then run
-        a <a href='/tools/grammar-spell-checker'>grammar check</a> as a separate
+        a <a href="/tools/grammar-spell-checker">grammar check</a> as a separate
         pass. Trying to edit while writing slows down both processes. A{" "}
-        <a href='/tools/readability-score-calculator'>readability score</a>{" "}
+        <a href="/tools/readability-score-calculator">readability score</a>{" "}
         check at the same stage helps identify sentences that are grammatically
         correct but unnecessarily difficult to parse.
       </p>
@@ -188,7 +188,7 @@ export default function Post() {
       <p>
         You don't need to memorise every grammar rule you need to catch the
         errors that readers actually notice. Run a{" "}
-        <a href='/tools/grammar-spell-checker'>Grammar & Spell Checker</a> on
+        <a href="/tools/grammar-spell-checker">Grammar & Spell Checker</a> on
         anything important before it goes out, understand what the flags mean,
         and apply your own judgement. A clean draft signals care and
         professionalism in a way that's hard to fake by other means.

@@ -34,7 +34,7 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        Our <a href='/tools/dice-roller'>Dice Roller</a> simulates any dice
+        Our <a href="/tools/dice-roller">Dice Roller</a> simulates any dice
         combination standard RPG dice, custom sides, multiple dice, and
         modifiers.
       </p>
@@ -122,7 +122,7 @@ export default function Post() {
       <p>
         Dice probability follows predictable mathematical rules that help you
         understand risk in tabletop gaming and make better tactical decisions.
-        Use the <a href='/tools/dice-roller'>Dice Roller</a> to simulate any
+        Use the <a href="/tools/dice-roller">Dice Roller</a> to simulate any
         combination of dice for any game system, with automatic sum, individual
         results, and modifier support.
       </p>

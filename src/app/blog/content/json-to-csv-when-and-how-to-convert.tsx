@@ -36,7 +36,7 @@ export default function Post() {
 
       <h2>Converting JSON to CSV: what works and what doesn't</h2>
       <p>
-        Our <a href='/tools/json-to-csv-converter'>JSON to CSV Converter</a>{" "}
+        Our <a href="/tools/json-to-csv-converter">JSON to CSV Converter</a>{" "}
         handles conversion for JSON arrays of objects the most common API
         response format.
       </p>
@@ -144,7 +144,7 @@ Bob,25,Manchester`}</code>
       <h2>Conclusion</h2>
       <p>
         JSON to CSV conversion is a daily task in data-heavy workflows. Use the{" "}
-        <a href='/tools/json-to-csv-converter'>JSON to CSV Converter</a> for
+        <a href="/tools/json-to-csv-converter">JSON to CSV Converter</a> for
         clean, correctly quoted output without manual formatting. Understand the
         flattening decisions required for nested JSON and the type conversion
         implications before exporting data for analysis or spreadsheet use.

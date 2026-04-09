@@ -35,7 +35,7 @@ export default function Post() {
       </p>
       <p>
         "Total interactions" varies by platform more on that below. Use our free{" "}
-        <a href='/tools/engagement-rate-calculator'>
+        <a href="/tools/engagement-rate-calculator">
           Engagement Rate Calculator
         </a>{" "}
         to run the numbers without manually doing the maths.
@@ -185,11 +185,11 @@ export default function Post() {
       </ul>
       <p>
         Track your engagement rate per post consistently using our{" "}
-        <a href='/tools/engagement-rate-calculator'>
+        <a href="/tools/engagement-rate-calculator">
           Engagement Rate Calculator
         </a>
         , and pair it with the{" "}
-        <a href='/tools/hashtag-generator'>Hashtag Generator</a> to identify
+        <a href="/tools/hashtag-generator">Hashtag Generator</a> to identify
         which tags are actually reaching your niche.
       </p>
     </>

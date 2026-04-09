@@ -99,60 +99,63 @@ export default function TwitterThreadBuilderPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-sky-600 transition-colors'>
+            <a href="/" className="hover:text-sky-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/social-media'
-              className='hover:text-sky-600 transition-colors'
+              href="/tools/category/social-media"
+              className="hover:text-sky-600 transition-colors"
             >
               Social Media Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Twitter Thread Builder
             </span>
           </li>
         </ol>
       </nav>
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-sky-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-sky-600 uppercase tracking-widest mb-1">
           Free Social Media Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Twitter Thread Builder — Write, Reorder &amp; Export X/Twitter Threads
           Free Online
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Write Twitter / X threads with live character counts, numbered tweets,
           reordering, and one-click export — start from a template or blank.
         </p>
       </header>
       <SidebarAdLayout>
-        <main id='main-content' aria-label='Twitter Thread Builder tool'>
+        <main id="main-content" aria-label="Twitter Thread Builder tool">
           <TwitterThreadBuilderClient />
         </main>
         <PageEditorial />
-              <ToolEngagement toolSlug="twitter-thread-builder" toolName="Twitter Thread Builder" />
+        <ToolEngagement
+          toolSlug="twitter-thread-builder"
+          toolName="Twitter Thread Builder"
+        />
       </SidebarAdLayout>
     </>
   );

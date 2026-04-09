@@ -72,7 +72,7 @@ export default function Post() {
 
       <h2>When to use an automated text summarizer</h2>
       <p>
-        Our <a href='/tools/text-summarizer'>Text Summarizer</a> extracts and
+        Our <a href="/tools/text-summarizer">Text Summarizer</a> extracts and
         distils key points from long content automatically. It's most useful
         for:
       </p>
@@ -141,7 +141,7 @@ export default function Post() {
         Summarising long blog posts into social media posts, newsletters, or
         video scripts requires adapting for the new format, not just cutting
         length. A{" "}
-        <a href='/tools/text-to-bullet-points'>Text to Bullet Points</a>{" "}
+        <a href="/tools/text-to-bullet-points">Text to Bullet Points</a>{" "}
         converter can help structure key takeaways for social or email use.
       </p>
 
@@ -178,7 +178,7 @@ export default function Post() {
       <p>
         Good summarising is as much about knowing what to leave out as what to
         keep. Use the reverse-outline method for careful manual summaries. Use
-        the <a href='/tools/text-summarizer'>Text Summarizer</a> for efficient
+        the <a href="/tools/text-summarizer">Text Summarizer</a> for efficient
         first passes on large volumes of content. Always verify accuracy before
         relying on any summary automated or otherwise for important decisions.
       </p>

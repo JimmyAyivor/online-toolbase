@@ -23,7 +23,7 @@ export default function Post() {
       <p>Example: LMP started 15 January 2025 → Due date = 22 October 2025.</p>
       <p>
         Our{" "}
-        <a href='/tools/pregnancy-due-date-calculator'>
+        <a href="/tools/pregnancy-due-date-calculator">
           Pregnancy Due Date Calculator
         </a>{" "}
         computes this automatically from your LMP date and shows your
@@ -111,7 +111,7 @@ export default function Post() {
       <h3>Can I calculate due date from conception date?</h3>
       <p>
         Yes add 266 days (38 weeks) to the date of conception. The{" "}
-        <a href='/tools/pregnancy-due-date-calculator'>Due Date Calculator</a>{" "}
+        <a href="/tools/pregnancy-due-date-calculator">Due Date Calculator</a>{" "}
         supports both LMP-based and conception date calculation.
       </p>
 
@@ -126,7 +126,7 @@ export default function Post() {
       <p>
         Your due date is an estimate derived from a standard 40-week
         calculation. Most births occur within 2 weeks of this estimate. Use the{" "}
-        <a href='/tools/pregnancy-due-date-calculator'>
+        <a href="/tools/pregnancy-due-date-calculator">
           Pregnancy Due Date Calculator
         </a>{" "}
         to find your EDD and follow your week-by-week pregnancy timeline, with

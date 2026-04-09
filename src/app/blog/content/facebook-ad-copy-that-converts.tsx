@@ -40,7 +40,7 @@ export default function Post() {
       </ul>
       <p>
         Our{" "}
-        <a href='/tools/facebook-ad-copy-generator'>
+        <a href="/tools/facebook-ad-copy-generator">
           Facebook Ad Copy Generator
         </a>{" "}
         produces AIDA-structured copy variations for any product, audience, and
@@ -131,7 +131,7 @@ export default function Post() {
       <p>
         Facebook ad copy works through clear structure, benefit-led messaging,
         specifics over generalities, and a direct CTA. Use the{" "}
-        <a href='/tools/facebook-ad-copy-generator'>
+        <a href="/tools/facebook-ad-copy-generator">
           Facebook Ad Copy Generator
         </a>{" "}
         to produce structured variations quickly, test your hooks first, and

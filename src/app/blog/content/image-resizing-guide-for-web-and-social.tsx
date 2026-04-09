@@ -34,7 +34,7 @@ export default function Post() {
         choose the appropriate format and compression level.
       </p>
       <p>
-        Our <a href='/tools/image-cropper-resizer'>Image Cropper & Resizer</a>{" "}
+        Our <a href="/tools/image-cropper-resizer">Image Cropper & Resizer</a>{" "}
         handles both operations crop to the right aspect ratio and resize to the
         target dimensions in one step.
       </p>
@@ -140,10 +140,10 @@ export default function Post() {
       <p>
         Getting image dimensions right before upload is one of the fastest wins
         in web performance. Use the{" "}
-        <a href='/tools/image-cropper-resizer'>Image Cropper & Resizer</a> to
+        <a href="/tools/image-cropper-resizer">Image Cropper & Resizer</a> to
         crop to the correct aspect ratio and resize to platform-specific
         dimensions, then follow with the{" "}
-        <a href='/tools/image-compressor'>Image Compressor</a> to reduce file
+        <a href="/tools/image-compressor">Image Compressor</a> to reduce file
         size before publishing.
       </p>
     </>

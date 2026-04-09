@@ -76,37 +76,37 @@ export default function ColorContrastCheckerClient() {
           : "Fail";
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-violet-50 via-indigo-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-violet-500 to-indigo-600 rounded-full mb-4 shadow-lg'>
+    <div className="min-h-screen bg-gradient-to-br from-violet-50 via-indigo-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-violet-500 to-indigo-600 rounded-full mb-4 shadow-lg">
               <svg
-                className='w-8 h-8 text-white'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
+                className="w-8 h-8 text-white"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
                 strokeWidth={2}
               >
-                <circle cx='12' cy='12' r='10' />
+                <circle cx="12" cy="12" r="10" />
                 <path
-                  d='M12 2a10 10 0 0 1 0 20'
-                  fill='currentColor'
+                  d="M12 2a10 10 0 0 1 0 20"
+                  fill="currentColor"
                   fillOpacity={0.3}
                 />
               </svg>
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Color Contrast Checker
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Test WCAG AA and AAA accessibility compliance for any color pair
             </p>
           </div>
 
-          <div className='grid md:grid-cols-2 gap-8'>
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Inputs */}
-            <div className='space-y-6'>
+            <div className="space-y-6">
               {/* Color inputs */}
               {[
                 {
@@ -123,18 +123,18 @@ export default function ColorContrastCheckerClient() {
                 },
               ].map(({ label, value, setter, accent }) => (
                 <div key={label}>
-                  <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
                     {label}
                   </label>
-                  <div className='flex gap-2 items-center'>
-                    <div className='w-12 h-12 rounded-xl border-2 border-gray-200 overflow-hidden shadow-sm'>
+                  <div className="flex gap-2 items-center">
+                    <div className="w-12 h-12 rounded-xl border-2 border-gray-200 overflow-hidden shadow-sm">
                       <input
-                        type='color'
+                        type="color"
                         value={value}
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                           setter(e.target.value.toUpperCase())
                         }
-                        className='w-full h-full cursor-pointer scale-125'
+                        className="w-full h-full cursor-pointer scale-125"
                       />
                     </div>
                     <input
@@ -144,7 +144,7 @@ export default function ColorContrastCheckerClient() {
                         if (/^#[0-9A-F]{0,6}$/.test(v)) setter(v);
                       }}
                       maxLength={7}
-                      placeholder='#000000'
+                      placeholder="#000000"
                       className={`flex-1 border-2 border-gray-300 rounded-lg px-4 py-3 font-mono focus:ring-2 focus:ring-${accent}-400 focus:border-transparent uppercase`}
                     />
                   </div>
@@ -158,17 +158,17 @@ export default function ColorContrastCheckerClient() {
                   setTextColor(bgColor);
                   setBgColor(t);
                 }}
-                className='w-full py-3 border-2 border-dashed border-gray-200 rounded-xl text-sm text-gray-500 hover:border-violet-300 hover:text-violet-600 transition-colors font-medium'
+                className="w-full py-3 border-2 border-dashed border-gray-200 rounded-xl text-sm text-gray-500 hover:border-violet-300 hover:text-violet-600 transition-colors font-medium"
               >
                 ⇅ Swap text and background colors
               </button>
 
               {/* Presets */}
               <div>
-                <p className='text-sm font-semibold text-gray-700 mb-2'>
+                <p className="text-sm font-semibold text-gray-700 mb-2">
                   Try a preset
                 </p>
-                <div className='grid grid-cols-2 gap-2'>
+                <div className="grid grid-cols-2 gap-2">
                   {SAMPLE_PAIRS.map(({ label, text, bg }) => (
                     <button
                       key={label}
@@ -176,10 +176,10 @@ export default function ColorContrastCheckerClient() {
                         setTextColor(text);
                         setBgColor(bg);
                       }}
-                      className='flex items-center gap-2 px-3 py-2 rounded-xl border border-gray-200 hover:border-violet-300 text-xs font-semibold text-gray-700 transition-all hover:shadow-sm'
+                      className="flex items-center gap-2 px-3 py-2 rounded-xl border border-gray-200 hover:border-violet-300 text-xs font-semibold text-gray-700 transition-all hover:shadow-sm"
                     >
                       <span
-                        className='w-5 h-5 rounded-full border border-gray-200 inline-block'
+                        className="w-5 h-5 rounded-full border border-gray-200 inline-block"
                         style={{ backgroundColor: bg }}
                       />
                       <span
@@ -200,24 +200,24 @@ export default function ColorContrastCheckerClient() {
             </div>
 
             {/* Results */}
-            <div className='space-y-4'>
+            <div className="space-y-4">
               {/* Live preview */}
-              <div className='rounded-2xl overflow-hidden shadow-md border border-gray-100'>
-                <div className='p-6' style={{ backgroundColor: bgColor }}>
+              <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100">
+                <div className="p-6" style={{ backgroundColor: bgColor }}>
                   <p
-                    className='text-2xl font-black mb-1'
+                    className="text-2xl font-black mb-1"
                     style={{ color: textColor }}
                   >
                     Large text preview
                   </p>
-                  <p className='text-sm' style={{ color: textColor }}>
+                  <p className="text-sm" style={{ color: textColor }}>
                     Normal text — this is how your color pair looks in practice.
                     The contrast ratio determines how readable this text is for
                     users with visual impairments.
                   </p>
                 </div>
-                <div className='bg-gray-50 px-4 py-2 flex items-center justify-between'>
-                  <span className='text-xs text-gray-400 font-mono'>
+                <div className="bg-gray-50 px-4 py-2 flex items-center justify-between">
+                  <span className="text-xs text-gray-400 font-mono">
                     {textColor} on {bgColor}
                   </span>
                   <span className={`text-sm font-black ${ratingColor}`}>
@@ -231,19 +231,19 @@ export default function ColorContrastCheckerClient() {
                 <div
                   className={`rounded-2xl p-5 text-center ${r >= 7 ? "bg-emerald-50 border border-emerald-100" : r >= 4.5 ? "bg-blue-50 border border-blue-100" : r >= 3 ? "bg-amber-50 border border-amber-100" : "bg-red-50 border border-red-100"}`}
                 >
-                  <p className='text-xs font-bold uppercase tracking-widest text-gray-400 mb-1'>
+                  <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">
                     Contrast ratio
                   </p>
                   <p className={`text-5xl font-black ${ratingColor}`}>
                     {r.toFixed(2)}
-                    <span className='text-xl'>:1</span>
+                    <span className="text-xl">:1</span>
                   </p>
                 </div>
               )}
 
               {/* WCAG grid */}
               {passes && (
-                <div className='grid grid-cols-1 gap-2'>
+                <div className="grid grid-cols-1 gap-2">
                   {[
                     {
                       label: "AA — Normal text (≥4.5:1)",
@@ -266,7 +266,7 @@ export default function ColorContrastCheckerClient() {
                       key={label}
                       className={`flex items-center justify-between px-4 py-3 rounded-xl border ${pass ? "bg-emerald-50 border-emerald-100" : "bg-red-50 border-red-100"}`}
                     >
-                      <span className='text-sm text-gray-700'>{label}</span>
+                      <span className="text-sm text-gray-700">{label}</span>
                       <span
                         className={`text-sm font-black ${pass ? "text-emerald-600" : "text-red-500"}`}
                       >
@@ -284,17 +284,17 @@ export default function ColorContrastCheckerClient() {
               setTextColor("#1F2937");
               setBgColor("#FFFFFF");
             }}
-            className='flex items-center gap-2 text-sm text-gray-500 hover:text-violet-600 transition-colors mt-6 mb-4'
+            className="flex items-center gap-2 text-sm text-gray-500 hover:text-violet-600 transition-colors mt-6 mb-4"
           >
-            <RotateCcw className='w-4 h-4' />
+            <RotateCcw className="w-4 h-4" />
             Reset
           </button>
 
-          <div className='p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>
+          <div className="p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">
               💡 WCAG contrast tips:
             </p>
-            <ul className='list-disc list-inside space-y-1'>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 WCAG AA (4.5:1) is the minimum required for most legal
                 accessibility compliance

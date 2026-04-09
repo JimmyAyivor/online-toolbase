@@ -47,7 +47,7 @@ export default function Post() {
 
       <h2>Step 2: Paste your text into the plagiarism checker</h2>
       <p>
-        Our free <a href='/tools/plagiarism-checker'>Plagiarism Checker</a>{" "}
+        Our free <a href="/tools/plagiarism-checker">Plagiarism Checker</a>{" "}
         compares your content against publicly indexed web content and
         highlights any sections that match known sources. Paste your full text,
         run the check, and look at the similarity report.
@@ -96,7 +96,7 @@ export default function Post() {
       <p>
         A genuine paraphrase means understanding the idea and expressing it
         entirely in your own voice. The{" "}
-        <a href='/tools/paraphrasing-tool'>Paraphrasing Tool</a> can help you
+        <a href="/tools/paraphrasing-tool">Paraphrasing Tool</a> can help you
         rework passages while preserving meaning use it as a starting point,
         then read the output critically and edit it to match your voice. After
         rewriting, run that section through the checker again to confirm it's
@@ -106,7 +106,7 @@ export default function Post() {
       <h2>Step 5: Grammar check your final draft</h2>
       <p>
         Once the similarity check is clean, run the full text through a{" "}
-        <a href='/tools/grammar-spell-checker'>Grammar & Spell Checker</a>.
+        <a href="/tools/grammar-spell-checker">Grammar & Spell Checker</a>.
         Rewrites often introduce typos and awkward constructions. A final
         grammar pass before publishing catches these and makes the piece
         tighter.
@@ -157,7 +157,7 @@ export default function Post() {
       </p>
       <p>
         Ready to check your latest piece? Use our free{" "}
-        <a href='/tools/plagiarism-checker'>Plagiarism Checker</a> no word
+        <a href="/tools/plagiarism-checker">Plagiarism Checker</a> no word
         limits, no signup.
       </p>
     </>

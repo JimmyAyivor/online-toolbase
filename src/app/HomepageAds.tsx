@@ -20,8 +20,16 @@ const SLOT_E = process.env.NEXT_PUBLIC_AD_SLOT_HOMEPAGE_E ?? "0000000000";
 export function HomepageAdA() {
   return (
     <div className="flex justify-center px-4 py-4">
-      <AdSlot variant="leaderboard"    slotId={SLOT_A} className="hidden sm:flex" />
-      <AdSlot variant="mediumrectangle" slotId={SLOT_A} className="flex sm:hidden" />
+      <AdSlot
+        variant="leaderboard"
+        slotId={SLOT_A}
+        className="hidden sm:flex"
+      />
+      <AdSlot
+        variant="mediumrectangle"
+        slotId={SLOT_A}
+        className="flex sm:hidden"
+      />
     </div>
   );
 }
@@ -30,8 +38,12 @@ export function HomepageAdA() {
 export function HomepageAdB() {
   return (
     <div className="flex justify-center px-4 py-6">
-      <AdSlot variant="rectangle"       slotId={SLOT_B} className="hidden sm:flex" />
-      <AdSlot variant="mediumrectangle" slotId={SLOT_B} className="flex sm:hidden" />
+      <AdSlot variant="rectangle" slotId={SLOT_B} className="hidden sm:flex" />
+      <AdSlot
+        variant="mediumrectangle"
+        slotId={SLOT_B}
+        className="flex sm:hidden"
+      />
     </div>
   );
 }
@@ -40,8 +52,16 @@ export function HomepageAdB() {
 export function HomepageAdD() {
   return (
     <div className="flex justify-center px-4 py-4">
-      <AdSlot variant="leaderboard"     slotId={SLOT_D} className="hidden sm:flex" />
-      <AdSlot variant="mediumrectangle" slotId={SLOT_D} className="flex sm:hidden" />
+      <AdSlot
+        variant="leaderboard"
+        slotId={SLOT_D}
+        className="hidden sm:flex"
+      />
+      <AdSlot
+        variant="mediumrectangle"
+        slotId={SLOT_D}
+        className="flex sm:hidden"
+      />
     </div>
   );
 }
@@ -50,7 +70,11 @@ export function HomepageAdD() {
 export function HomepageAdE() {
   return (
     <div className="flex justify-center px-4 py-4 bg-gray-900">
-      <AdSlot variant="leaderboard" slotId={SLOT_E} className="hidden sm:flex" />
+      <AdSlot
+        variant="leaderboard"
+        slotId={SLOT_E}
+        className="hidden sm:flex"
+      />
       {/* No mobile variant here — mobile already has Zone J sticky footer */}
     </div>
   );

@@ -102,38 +102,38 @@ export default function Base64EncoderDecoderPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* Breadcrumb */}
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-indigo-600 transition-colors'>
+            <a href="/" className="hover:text-indigo-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/developer'
-              className='hover:text-indigo-600 transition-colors'
+              href="/tools/category/developer"
+              className="hover:text-indigo-600 transition-colors"
             >
               Developer Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Base64 Encoder/Decoder
             </span>
           </li>
@@ -141,14 +141,14 @@ export default function Base64EncoderDecoderPage() {
       </nav>
 
       {/* Category badge + SR H1 */}
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Developer Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Base64 Encoder/Decoder — Free Online Base64 Encoder/Decoder
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Encode or decode Base64 strings instantly in your browser. Free,
           instant, no account needed.
         </p>
@@ -157,74 +157,74 @@ export default function Base64EncoderDecoderPage() {
       {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
       <SidebarAdLayout>
         {/* ── Tool component (main interactive area) ──────────────────── */}
-        <main id='main-content' aria-label='Base64 Encoder/Decoder tool'>
+        <main id="main-content" aria-label="Base64 Encoder/Decoder tool">
           <Base64EncoderDecoderClient />
         </main>
 
         {/* ── Zone G: below tool result — highest value placement ──────── */}
         {/* Sits immediately after the tool, before any editorial content   */}
-        <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
+        <div className="max-w-6xl mx-auto px-4 mt-6 flex justify-center">
           {/* desktop: rectangle 336×280; mobile: medium rectangle 300×250 */}
-          <div className='hidden sm:block'>
-            <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
+          <div className="hidden sm:block">
+            <AdSlot variant="rectangle" slotId={SLOT_BELOW_TOOL} />
           </div>
-          <div className='block sm:hidden'>
-            <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
+          <div className="block sm:hidden">
+            <AdSlot variant="mediumrectangle" slotId={SLOT_BELOW_TOOL} />
           </div>
         </div>
 
         {/* ── Zone H: between tool + How To editorial ──────────────────── */}
-        <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
+        <div className="max-w-6xl mx-auto px-4 mt-4 flex justify-center">
           <AdSlot
-            variant='leaderboard'
+            variant="leaderboard"
             slotId={SLOT_LEADERBOARD}
-            className='hidden sm:flex'
+            className="hidden sm:flex"
           />
           <AdSlot
-            variant='mediumrectangle'
+            variant="mediumrectangle"
             slotId={SLOT_LEADERBOARD}
-            className='flex sm:hidden'
+            className="flex sm:hidden"
           />
         </div>
 
         {/* ── Editorial: How To + Related Tools ────────────────────────── */}
         {/* ── HOW TO USE ─────────────────────────────────────────────────────────── */}
         <section
-          id='how-to-use'
-          className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16'
-          aria-labelledby='how-to-use-heading'
+          id="how-to-use"
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
+          aria-labelledby="how-to-use-heading"
         >
           <h2
-            id='how-to-use-heading'
-            className='text-4xl font-bold text-gray-900 mb-4 text-center'
+            id="how-to-use-heading"
+            className="text-4xl font-bold text-gray-900 mb-4 text-center"
           >
             How to Use the Base64 Encoder / Decoder
           </h2>
-          <p className='text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed'>
+          <p className="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed">
             Encode plain text or images to Base64, decode Base64 strings back to
             readable text or viewable images, and swap between modes instantly —
             all in your browser with no upload limit.
           </p>
 
           {/* ── Steps ── */}
-          <div className='space-y-6 mb-14'>
+          <div className="space-y-6 mb-14">
             {/* Step 1 */}
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-emerald-600 text-white font-black text-lg flex items-center justify-center'>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-600 text-white font-black text-lg flex items-center justify-center">
                 1
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Choose Encode or Decode mode
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-4'>
+                <p className="text-gray-600 leading-relaxed mb-4">
                   The two buttons at the top left — <strong>Encode</strong> and{" "}
                   <strong>Decode</strong> — switch the direction of the
                   conversion. The active mode is highlighted in green. Switching
                   modes clears the output but keeps the input text so you can
                   re-run in the other direction without retyping.
                 </p>
-                <div className='grid sm:grid-cols-2 gap-3'>
+                <div className="grid sm:grid-cols-2 gap-3">
                   {[
                     {
                       icon: "🔒",
@@ -243,13 +243,13 @@ export default function Base64EncoderDecoderPage() {
                       key={label}
                       className={`rounded-xl border px-5 py-4 ${bg}`}
                     >
-                      <div className='flex items-center gap-2 mb-2'>
-                        <span className='text-base'>{icon}</span>
-                        <p className='text-sm font-bold text-gray-900'>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-base">{icon}</span>
+                        <p className="text-sm font-bold text-gray-900">
                           {label}
                         </p>
                       </div>
-                      <p className='text-sm text-gray-600 leading-relaxed'>
+                      <p className="text-sm text-gray-600 leading-relaxed">
                         {desc}
                       </p>
                     </div>
@@ -259,18 +259,18 @@ export default function Base64EncoderDecoderPage() {
             </div>
 
             {/* Step 2 */}
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-emerald-600 text-white font-black text-lg flex items-center justify-center'>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-600 text-white font-black text-lg flex items-center justify-center">
                 2
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Enter text directly or upload a file
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-4'>
+                <p className="text-gray-600 leading-relaxed mb-4">
                   You can get data into the tool in three ways:
                 </p>
-                <div className='space-y-3 mb-4'>
+                <div className="space-y-3 mb-4">
                   {[
                     {
                       label: "Type or paste",
@@ -290,18 +290,18 @@ export default function Base64EncoderDecoderPage() {
                   ].map(({ label, badge, desc }) => (
                     <div
                       key={label}
-                      className='flex items-start gap-3 text-sm bg-gray-50 rounded-xl px-4 py-3'
+                      className="flex items-start gap-3 text-sm bg-gray-50 rounded-xl px-4 py-3"
                     >
                       <span
                         className={`text-xs font-bold px-2.5 py-1.5 rounded-full flex-shrink-0 whitespace-nowrap ${badge}`}
                       >
                         {label}
                       </span>
-                      <p className='text-gray-600 leading-relaxed'>{desc}</p>
+                      <p className="text-gray-600 leading-relaxed">{desc}</p>
                     </div>
                   ))}
                 </div>
-                <p className='text-sm text-gray-500'>
+                <p className="text-sm text-gray-500">
                   After uploading a file, the filename, size, and MIME type
                   appear in the blue info bar above the input so you can confirm
                   the right file was loaded.
@@ -310,19 +310,19 @@ export default function Base64EncoderDecoderPage() {
             </div>
 
             {/* Step 3 */}
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-emerald-600 text-white font-black text-lg flex items-center justify-center'>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-600 text-white font-black text-lg flex items-center justify-center">
                 3
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Copy or download the output
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-4'>
+                <p className="text-gray-600 leading-relaxed mb-4">
                   The right panel shows the result as you type. Two buttons
                   appear above the output field once a result is ready:
                 </p>
-                <div className='grid sm:grid-cols-2 gap-3 mb-4'>
+                <div className="grid sm:grid-cols-2 gap-3 mb-4">
                   {[
                     {
                       icon: "⧉",
@@ -339,9 +339,9 @@ export default function Base64EncoderDecoderPage() {
                   ].map(({ icon, iconBg, label, desc }) => (
                     <div
                       key={label}
-                      className='bg-gray-50 rounded-xl border border-gray-100 px-4 py-4'
+                      className="bg-gray-50 rounded-xl border border-gray-100 px-4 py-4"
                     >
-                      <p className='text-sm font-bold text-gray-900 mb-1.5 flex items-center gap-2'>
+                      <p className="text-sm font-bold text-gray-900 mb-1.5 flex items-center gap-2">
                         <span
                           className={`w-5 h-5 ${iconBg} text-white rounded text-xs flex items-center justify-center`}
                         >
@@ -349,13 +349,13 @@ export default function Base64EncoderDecoderPage() {
                         </span>
                         {label}
                       </p>
-                      <p className='text-sm text-gray-600 leading-relaxed'>
+                      <p className="text-sm text-gray-600 leading-relaxed">
                         {desc}
                       </p>
                     </div>
                   ))}
                 </div>
-                <p className='text-sm text-gray-500'>
+                <p className="text-sm text-gray-500">
                   The character count below each text area updates live. In
                   Encode mode, expect the output to be roughly 33% longer than
                   the input — that's normal and expected for Base64.
@@ -364,20 +364,20 @@ export default function Base64EncoderDecoderPage() {
             </div>
 
             {/* Step 4 */}
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-emerald-600 text-white font-black text-lg flex items-center justify-center'>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-600 text-white font-black text-lg flex items-center justify-center">
                 4
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Decode an image and preview it
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-4'>
+                <p className="text-gray-600 leading-relaxed mb-4">
                   When the input contains Base64-encoded image data, the tool
                   automatically detects it and renders a preview below the
                   output area. This works two ways:
                 </p>
-                <div className='space-y-3 mb-4'>
+                <div className="space-y-3 mb-4">
                   {[
                     {
                       label: "Full data URI",
@@ -390,21 +390,21 @@ export default function Base64EncoderDecoderPage() {
                   ].map(({ label, desc }) => (
                     <div
                       key={label}
-                      className='flex items-start gap-3 text-sm bg-gray-50 rounded-xl px-4 py-3'
+                      className="flex items-start gap-3 text-sm bg-gray-50 rounded-xl px-4 py-3"
                     >
-                      <span className='text-emerald-600 font-bold flex-shrink-0 mt-0.5'>
+                      <span className="text-emerald-600 font-bold flex-shrink-0 mt-0.5">
                         →
                       </span>
                       <div>
-                        <p className='font-semibold text-gray-900 mb-0.5'>
+                        <p className="font-semibold text-gray-900 mb-0.5">
                           {label}
                         </p>
-                        <p className='text-gray-600 leading-relaxed'>{desc}</p>
+                        <p className="text-gray-600 leading-relaxed">{desc}</p>
                       </div>
                     </div>
                   ))}
                 </div>
-                <p className='text-sm text-gray-500'>
+                <p className="text-sm text-gray-500">
                   Use the <strong>Download Image</strong> button in the preview
                   panel to save the decoded image as a PNG — no need to copy the
                   data URI and paste it elsewhere.
@@ -413,22 +413,22 @@ export default function Base64EncoderDecoderPage() {
             </div>
 
             {/* Step 5 */}
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-emerald-600 text-white font-black text-lg flex items-center justify-center'>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-600 text-white font-black text-lg flex items-center justify-center">
                 5
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Use Swap to chain encode → decode in one click
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-3'>
+                <p className="text-gray-600 leading-relaxed mb-3">
                   The teal{" "}
                   <strong>Swap &amp; Decode / Swap &amp; Encode</strong> button
                   at the bottom copies the current output into the input field
                   and flips the mode — so you can immediately reverse what you
                   just did without any manual copy-pasting.
                 </p>
-                <div className='bg-teal-50 rounded-xl px-5 py-4 text-sm text-teal-800 leading-relaxed'>
+                <div className="bg-teal-50 rounded-xl px-5 py-4 text-sm text-teal-800 leading-relaxed">
                   <strong>Practical example:</strong> You encode a JSON string
                   to verify it's valid Base64. Click Swap — the encoded output
                   becomes the new input, mode switches to Decode, and you
@@ -440,10 +440,10 @@ export default function Base64EncoderDecoderPage() {
           </div>
 
           {/* ── Real-world use cases ── */}
-          <h3 className='text-2xl font-bold text-gray-900 mb-6'>
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">
             Where you'll actually use this
           </h3>
-          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14'>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
             {[
               {
                 emoji: "🔑",
@@ -478,25 +478,25 @@ export default function Base64EncoderDecoderPage() {
             ].map(({ emoji, title, desc }) => (
               <div
                 key={title}
-                className='bg-white rounded-2xl border border-gray-100 shadow-sm p-5'
+                className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5"
               >
-                <div className='text-2xl mb-3'>{emoji}</div>
-                <p className='font-bold text-gray-900 text-sm mb-2'>{title}</p>
-                <p className='text-xs text-gray-500 leading-relaxed'>{desc}</p>
+                <div className="text-2xl mb-3">{emoji}</div>
+                <p className="font-bold text-gray-900 text-sm mb-2">{title}</p>
+                <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
 
           {/* ── Encoding vs encryption ── */}
-          <div className='bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6'>
-            <h3 className='text-xl font-bold text-gray-900 mb-3'>
+          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6">
+            <h3 className="text-xl font-bold text-gray-900 mb-3">
               Base64 is encoding — not encryption
             </h3>
-            <p className='text-gray-600 leading-relaxed mb-5'>
+            <p className="text-gray-600 leading-relaxed mb-5">
               This is the most important thing to understand before using Base64
               in any system:
             </p>
-            <div className='grid sm:grid-cols-2 gap-4 mb-5'>
+            <div className="grid sm:grid-cols-2 gap-4 mb-5">
               {[
                 {
                   heading: "❌ What Base64 is NOT",
@@ -532,9 +532,9 @@ export default function Base64EncoderDecoderPage() {
                   <p className={`text-sm font-bold mb-3 ${headingColor}`}>
                     {heading}
                   </p>
-                  <ul className='text-sm text-gray-600 space-y-1.5'>
+                  <ul className="text-sm text-gray-600 space-y-1.5">
                     {items.map((item) => (
-                      <li key={item} className='flex items-start gap-2'>
+                      <li key={item} className="flex items-start gap-2">
                         <span
                           className={`flex-shrink-0 font-bold ${iconColor}`}
                         >
@@ -547,7 +547,7 @@ export default function Base64EncoderDecoderPage() {
                 </div>
               ))}
             </div>
-            <div className='bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 text-sm text-amber-800 leading-relaxed'>
+            <div className="bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 text-sm text-amber-800 leading-relaxed">
               <strong>Why does Base64 exist?</strong> Early text-based protocols
               like SMTP and HTTP were designed for 7-bit ASCII only. Binary data
               would get corrupted in transit because systems stripped bytes
@@ -558,73 +558,73 @@ export default function Base64EncoderDecoderPage() {
           </div>
 
           {/* ── Standard vs Base64URL ── */}
-          <div className='bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6'>
-            <h3 className='text-xl font-bold text-gray-900 mb-3'>
+          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6">
+            <h3 className="text-xl font-bold text-gray-900 mb-3">
               Standard Base64 vs Base64URL
             </h3>
-            <p className='text-gray-600 leading-relaxed mb-4'>
+            <p className="text-gray-600 leading-relaxed mb-4">
               This tool uses <strong>standard Base64</strong>, which uses the
               characters A–Z, a–z, 0–9,{" "}
-              <code className='bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm'>
+              <code className="bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm">
                 +
               </code>
               ,{" "}
-              <code className='bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm'>
+              <code className="bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm">
                 /
               </code>
               , and{" "}
-              <code className='bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm'>
+              <code className="bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm">
                 =
               </code>{" "}
               for padding. This is the format used in email, data URIs, and most
               file encoding.
             </p>
-            <p className='text-gray-600 leading-relaxed mb-4'>
+            <p className="text-gray-600 leading-relaxed mb-4">
               <strong>Base64URL</strong> — used in URLs and JWT tokens —
               replaces{" "}
-              <code className='bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm'>
+              <code className="bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm">
                 +
               </code>{" "}
               with{" "}
-              <code className='bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm'>
+              <code className="bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm">
                 -
               </code>{" "}
               and{" "}
-              <code className='bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm'>
+              <code className="bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm">
                 /
               </code>{" "}
               with{" "}
-              <code className='bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm'>
+              <code className="bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm">
                 _
               </code>
               , and drops the{" "}
-              <code className='bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm'>
+              <code className="bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm">
                 =
               </code>{" "}
               padding — avoiding characters that have special meaning in URLs.
             </p>
-            <div className='bg-gray-50 rounded-xl px-5 py-4 text-sm text-gray-700'>
+            <div className="bg-gray-50 rounded-xl px-5 py-4 text-sm text-gray-700">
               <strong>Decoding a JWT section and getting an error?</strong>{" "}
               Replace any{" "}
-              <code className='bg-white border border-gray-200 px-1 rounded font-mono'>
+              <code className="bg-white border border-gray-200 px-1 rounded font-mono">
                 -
               </code>{" "}
               with{" "}
-              <code className='bg-white border border-gray-200 px-1 rounded font-mono'>
+              <code className="bg-white border border-gray-200 px-1 rounded font-mono">
                 +
               </code>{" "}
               and{" "}
-              <code className='bg-white border border-gray-200 px-1 rounded font-mono'>
+              <code className="bg-white border border-gray-200 px-1 rounded font-mono">
                 _
               </code>{" "}
               with{" "}
-              <code className='bg-white border border-gray-200 px-1 rounded font-mono'>
+              <code className="bg-white border border-gray-200 px-1 rounded font-mono">
                 /
               </code>{" "}
               first, or use our dedicated{" "}
               <a
-                href='/tools/jwt-decoder'
-                className='text-emerald-600 font-medium hover:underline'
+                href="/tools/jwt-decoder"
+                className="text-emerald-600 font-medium hover:underline"
               >
                 JWT Decoder
               </a>{" "}
@@ -633,19 +633,19 @@ export default function Base64EncoderDecoderPage() {
           </div>
 
           {/* ── Privacy note ── */}
-          <div className='bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-8 text-white text-center'>
-            <div className='text-3xl mb-3'>🔒</div>
-            <h3 className='text-xl font-bold mb-3'>
+          <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-8 text-white text-center">
+            <div className="text-3xl mb-3">🔒</div>
+            <h3 className="text-xl font-bold mb-3">
               All processing happens in your browser
             </h3>
-            <p className='text-emerald-100 leading-relaxed max-w-xl mx-auto text-sm'>
+            <p className="text-emerald-100 leading-relaxed max-w-xl mx-auto text-sm">
               Encoding and decoding runs entirely in JavaScript using the
               browser's built-in{" "}
-              <code className='bg-white/20 px-1.5 py-0.5 rounded font-mono text-white text-xs'>
+              <code className="bg-white/20 px-1.5 py-0.5 rounded font-mono text-white text-xs">
                 btoa()
               </code>{" "}
               and{" "}
-              <code className='bg-white/20 px-1.5 py-0.5 rounded font-mono text-white text-xs'>
+              <code className="bg-white/20 px-1.5 py-0.5 rounded font-mono text-white text-xs">
                 atob()
               </code>{" "}
               functions. No text, file, or image is ever sent to a server. Safe
@@ -654,7 +654,10 @@ export default function Base64EncoderDecoderPage() {
             </p>
           </div>
         </section>
-              <ToolEngagement toolSlug="base64-encoder-decoder" toolName="Base64 Encoder / Decoder" />
+        <ToolEngagement
+          toolSlug="base64-encoder-decoder"
+          toolName="Base64 Encoder / Decoder"
+        />
       </SidebarAdLayout>
     </>
   );

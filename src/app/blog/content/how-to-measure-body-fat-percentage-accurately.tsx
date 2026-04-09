@@ -88,14 +88,14 @@ export default function Post() {
         estimate body fat. The US Navy method is the most well-known. These are
         estimates with limitations around body shape variation, but they're
         accessible and require only a tape measure. Our{" "}
-        <a href='/tools/body-fat-calculator'>Body Fat Calculator</a> uses these
+        <a href="/tools/body-fat-calculator">Body Fat Calculator</a> uses these
         standard circumference formulas.
       </p>
 
       <h2>What to do with your body fat percentage</h2>
       <p>
         Use it alongside other metrics BMI from our{" "}
-        <a href='/tools/bmi-calculator'>BMI Calculator</a>, waist circumference,
+        <a href="/tools/bmi-calculator">BMI Calculator</a>, waist circumference,
         and direct fitness measures rather than in isolation. Track trends over
         time rather than absolute values. The measurement method introduces
         error; the trend is more reliable than any single reading.
@@ -133,7 +133,7 @@ export default function Post() {
         Body fat percentage gives you a more complete picture of body
         composition than weight or BMI alone. Get an accurate baseline from a
         DEXA scan if possible, track changes using a consistent method, and use
-        the <a href='/tools/body-fat-calculator'>Body Fat Calculator</a> for
+        the <a href="/tools/body-fat-calculator">Body Fat Calculator</a> for
         accessible estimates from body measurements. Context age, sex, fitness
         level, and overall health markers always matters more than hitting a
         specific number.

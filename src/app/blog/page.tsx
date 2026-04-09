@@ -46,36 +46,36 @@ export default function BlogIndexPage() {
   const rest = [...blogPosts].reverse().slice(1);
 
   return (
-    <div className='min-h-screen bg-gray-50'>
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className='bg-white border-b border-gray-200'>
-        <div className='max-w-6xl mx-auto px-4 py-12'>
-          <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-2'>
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-6xl mx-auto px-4 py-12">
+          <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-2">
             The Online Tool Base Blog
           </p>
-          <h1 className='text-4xl font-bold text-gray-900 mb-3'>
+          <h1 className="text-4xl font-bold text-gray-900 mb-3">
             Tips, Guides & How-Tos
           </h1>
-          <p className='text-gray-500 max-w-xl'>
+          <p className="text-gray-500 max-w-xl">
             Practical articles on productivity, writing, security, social media,
             and more — written to help you work smarter with free online tools.
           </p>
         </div>
       </div>
 
-      <div className='max-w-6xl mx-auto px-4 py-12'>
+      <div className="max-w-6xl mx-auto px-4 py-12">
         {/* Featured post */}
         <a
           href={`/blog/${featured.slug}`}
-          className='block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200 mb-12'
+          className="block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200 mb-12"
         >
-          <div className='md:flex'>
-            <div className='md:w-2/5 bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center p-16'>
-              <span className='text-8xl'>{featured.coverEmoji}</span>
+          <div className="md:flex">
+            <div className="md:w-2/5 bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center p-16">
+              <span className="text-8xl">{featured.coverEmoji}</span>
             </div>
-            <div className='md:w-3/5 p-8 md:p-10 flex flex-col justify-center'>
-              <div className='flex items-center gap-3 mb-4'>
-                <span className='text-xs font-bold bg-indigo-600 text-white px-3 py-1 rounded-full uppercase tracking-wide'>
+            <div className="md:w-3/5 p-8 md:p-10 flex flex-col justify-center">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-xs font-bold bg-indigo-600 text-white px-3 py-1 rounded-full uppercase tracking-wide">
                   Latest
                 </span>
                 <span
@@ -87,13 +87,13 @@ export default function BlogIndexPage() {
                   {featured.category}
                 </span>
               </div>
-              <h2 className='text-2xl font-bold text-gray-900 mb-3 leading-snug'>
+              <h2 className="text-2xl font-bold text-gray-900 mb-3 leading-snug">
                 {featured.title}
               </h2>
-              <p className='text-gray-500 leading-relaxed mb-6'>
+              <p className="text-gray-500 leading-relaxed mb-6">
                 {featured.description}
               </p>
-              <div className='flex items-center gap-4 text-sm text-gray-400'>
+              <div className="flex items-center gap-4 text-sm text-gray-400">
                 <span>{formatDate(featured.publishedAt)}</span>
                 <span>·</span>
                 <span>{featured.readingTime}</span>
@@ -103,18 +103,18 @@ export default function BlogIndexPage() {
         </a>
 
         {/* Post grid */}
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {rest.map((post) => (
             <a
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className='block bg-white rounded-2xl shadow hover:shadow-lg hover:-translate-y-1 transition-all duration-200 overflow-hidden'
+              className="block bg-white rounded-2xl shadow hover:shadow-lg hover:-translate-y-1 transition-all duration-200 overflow-hidden"
             >
-              <div className='bg-linear-to-br from-gray-50 to-gray-100 flex items-center justify-center h-36'>
-                <span className='text-5xl'>{post.coverEmoji}</span>
+              <div className="bg-linear-to-br from-gray-50 to-gray-100 flex items-center justify-center h-36">
+                <span className="text-5xl">{post.coverEmoji}</span>
               </div>
-              <div className='p-6'>
-                <div className='flex items-center gap-2 mb-3'>
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-3">
                   <span
                     className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
                       CATEGORY_COLORS[post.category] ??
@@ -123,17 +123,17 @@ export default function BlogIndexPage() {
                   >
                     {post.category}
                   </span>
-                  <span className='text-xs text-gray-400'>
+                  <span className="text-xs text-gray-400">
                     {post.readingTime}
                   </span>
                 </div>
-                <h2 className='font-bold text-gray-900 leading-snug mb-2 line-clamp-2'>
+                <h2 className="font-bold text-gray-900 leading-snug mb-2 line-clamp-2">
                   {post.title}
                 </h2>
-                <p className='text-sm text-gray-500 leading-relaxed line-clamp-3'>
+                <p className="text-sm text-gray-500 leading-relaxed line-clamp-3">
                   {post.description}
                 </p>
-                <p className='text-xs text-gray-400 mt-4'>
+                <p className="text-xs text-gray-400 mt-4">
                   {formatDate(post.publishedAt)}
                 </p>
               </div>

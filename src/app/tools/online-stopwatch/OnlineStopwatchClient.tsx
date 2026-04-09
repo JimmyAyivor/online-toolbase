@@ -70,35 +70,35 @@ export default function OnlineStopwatchClient() {
   );
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-cyan-50 via-sky-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full mb-4 shadow-lg'>
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-sky-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full mb-4 shadow-lg">
               <svg
-                className='w-8 h-8 text-white'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
+                className="w-8 h-8 text-white"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
                 strokeWidth={2}
               >
-                <circle cx='12' cy='13' r='8' />
-                <path d='M12 9v4l2 2M10 2h4M12 2v2' />
+                <circle cx="12" cy="13" r="8" />
+                <path d="M12 9v4l2 2M10 2h4M12 2v2" />
               </svg>
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Online Stopwatch
             </h2>
-            <p className='text-gray-500'>Precision timing with lap recording</p>
+            <p className="text-gray-500">Precision timing with lap recording</p>
           </div>
 
           {/* Display */}
-          <div className='bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl py-12 px-8 text-center mb-8 shadow-2xl mx-auto max-w-md'>
-            <p className='text-6xl font-black text-white tabular-nums tracking-tight font-mono'>
+          <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl py-12 px-8 text-center mb-8 shadow-2xl mx-auto max-w-md">
+            <p className="text-6xl font-black text-white tabular-nums tracking-tight font-mono">
               {fmt(elapsed)}
             </p>
             {laps.length > 0 && (
-              <p className='text-cyan-400 text-sm mt-2 tabular-nums'>
+              <p className="text-cyan-400 text-sm mt-2 tabular-nums">
                 Lap {laps.length + 1}:{" "}
                 {fmt(elapsed - (laps[laps.length - 1]?.time ?? 0))}
               </p>
@@ -106,55 +106,55 @@ export default function OnlineStopwatchClient() {
           </div>
 
           {/* Controls */}
-          <div className='flex justify-center gap-3 mb-8'>
+          <div className="flex justify-center gap-3 mb-8">
             {!running ? (
               <button
                 onClick={start}
-                className='flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-2xl font-bold shadow-lg hover:-translate-y-0.5 transition-all'
+                className="flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-2xl font-bold shadow-lg hover:-translate-y-0.5 transition-all"
               >
-                <Play className='w-5 h-5' />
+                <Play className="w-5 h-5" />
                 {elapsed > 0 ? "Resume" : "Start"}
               </button>
             ) : (
               <button
                 onClick={pause}
-                className='flex items-center gap-2 px-8 py-3.5 bg-amber-500 text-white rounded-2xl font-bold shadow-lg hover:-translate-y-0.5 transition-all'
+                className="flex items-center gap-2 px-8 py-3.5 bg-amber-500 text-white rounded-2xl font-bold shadow-lg hover:-translate-y-0.5 transition-all"
               >
-                <Pause className='w-5 h-5' />
+                <Pause className="w-5 h-5" />
                 Pause
               </button>
             )}
             <button
               onClick={lap}
               disabled={!running}
-              className='flex items-center gap-2 px-6 py-3.5 bg-cyan-100 text-cyan-700 rounded-2xl font-bold hover:bg-cyan-200 disabled:opacity-40 disabled:cursor-not-allowed transition-all'
+              className="flex items-center gap-2 px-6 py-3.5 bg-cyan-100 text-cyan-700 rounded-2xl font-bold hover:bg-cyan-200 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
             >
-              <Flag className='w-5 h-5' />
+              <Flag className="w-5 h-5" />
               Lap
             </button>
             <button
               onClick={reset}
               disabled={elapsed === 0}
-              className='flex items-center gap-2 px-6 py-3.5 bg-gray-100 text-gray-600 rounded-2xl font-bold hover:bg-gray-200 disabled:opacity-40 transition-all'
+              className="flex items-center gap-2 px-6 py-3.5 bg-gray-100 text-gray-600 rounded-2xl font-bold hover:bg-gray-200 disabled:opacity-40 transition-all"
             >
-              <RotateCcw className='w-5 h-5' />
+              <RotateCcw className="w-5 h-5" />
               Reset
             </button>
           </div>
 
           {/* Lap table */}
           {laps.length > 0 && (
-            <div className='max-h-64 overflow-y-auto rounded-2xl border border-gray-100'>
-              <table className='w-full text-sm'>
-                <thead className='bg-gray-50 sticky top-0'>
+            <div className="max-h-64 overflow-y-auto rounded-2xl border border-gray-100">
+              <table className="w-full text-sm">
+                <thead className="bg-gray-50 sticky top-0">
                   <tr>
-                    <th className='px-4 py-2 text-left text-xs font-bold text-gray-500 uppercase'>
+                    <th className="px-4 py-2 text-left text-xs font-bold text-gray-500 uppercase">
                       Lap
                     </th>
-                    <th className='px-4 py-2 text-right text-xs font-bold text-gray-500 uppercase'>
+                    <th className="px-4 py-2 text-right text-xs font-bold text-gray-500 uppercase">
                       Split
                     </th>
-                    <th className='px-4 py-2 text-right text-xs font-bold text-gray-500 uppercase'>
+                    <th className="px-4 py-2 text-right text-xs font-bold text-gray-500 uppercase">
                       Total
                     </th>
                   </tr>
@@ -163,9 +163,9 @@ export default function OnlineStopwatchClient() {
                   {[...laps].reverse().map((l) => (
                     <tr
                       key={l.n}
-                      className='border-t border-gray-50 hover:bg-gray-50'
+                      className="border-t border-gray-50 hover:bg-gray-50"
                     >
-                      <td className='px-4 py-2.5 font-bold text-gray-700'>
+                      <td className="px-4 py-2.5 font-bold text-gray-700">
                         Lap {l.n}
                       </td>
                       <td
@@ -173,7 +173,7 @@ export default function OnlineStopwatchClient() {
                       >
                         {fmt(l.split)}
                       </td>
-                      <td className='px-4 py-2.5 font-mono text-right text-gray-500'>
+                      <td className="px-4 py-2.5 font-mono text-right text-gray-500">
                         {fmt(l.time)}
                       </td>
                     </tr>
@@ -183,11 +183,11 @@ export default function OnlineStopwatchClient() {
             </div>
           )}
 
-          <div className='mt-6 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>
+          <div className="mt-6 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">
               💡 Stopwatch tips:
             </p>
-            <ul className='list-disc list-inside space-y-1'>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Fastest lap shown in green, slowest in red when 2+ laps are
                 recorded

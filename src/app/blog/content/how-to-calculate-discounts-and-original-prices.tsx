@@ -39,7 +39,7 @@ export default function Post() {
         price adds a smaller absolute amount.
       </p>
       <p>
-        Our <a href='/tools/discount-calculator'>Discount Calculator</a> handles
+        Our <a href="/tools/discount-calculator">Discount Calculator</a> handles
         all three calculations sale price, discount amount, and original price
         instantly.
       </p>
@@ -106,7 +106,7 @@ export default function Post() {
       <p>
         Multiply the retained factors. A 20%-off sale with a 15% coupon: you pay
         0.80 × 0.85 = 68% of original, effectively a 32% total discount. Use the{" "}
-        <a href='/tools/discount-calculator'>Discount Calculator</a> to chain
+        <a href="/tools/discount-calculator">Discount Calculator</a> to chain
         multiple discounts.
       </p>
 
@@ -115,7 +115,7 @@ export default function Post() {
         The most useful skill in discount calculations is working backwards from
         a sale price and knowing that you can't simply add the percentage back
         to recover the original. Use the{" "}
-        <a href='/tools/discount-calculator'>Discount Calculator</a> for quick
+        <a href="/tools/discount-calculator">Discount Calculator</a> for quick
         verification and calculation, and apply the stacking formula whenever
         multiple discounts are involved.
       </p>

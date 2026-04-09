@@ -64,37 +64,37 @@ function CategoryCard({
 
   return (
     <div
-      className='category-block'
+      className="category-block"
       style={{ borderTop: `3px solid ${cat.color}` }}
     >
       {/* Header */}
-      <div className='cat-header'>
+      <div className="cat-header">
         <div
-          className='cat-icon'
+          className="cat-icon"
           style={{ background: hexToRgba(cat.color, 0.15) }}
         >
           {cat.icon}
         </div>
-        <div className='cat-title' style={{ color: cat.color }}>
+        <div className="cat-title" style={{ color: cat.color }}>
           {cat.label}
         </div>
-        <div className='cat-count'>{visibleTools.length}</div>
+        <div className="cat-count">{visibleTools.length}</div>
       </div>
 
       {/* Tool list */}
-      <div className='tool-list'>
+      <div className="tool-list">
         {visibleTools.map((tool) => (
           <a
             key={tool.slug}
-            className='tool-node'
+            className="tool-node"
             href={`${siteUrl}/tools/${tool.slug}`}
-            target='_blank'
-            rel='noopener noreferrer'
+            target="_blank"
+            rel="noopener noreferrer"
             title={tool.description}
           >
-            <span className='dot' style={{ background: cat.color }} />
+            <span className="dot" style={{ background: cat.color }} />
             <span>{tool.name}</span>
-            <span className='slug'>/{tool.slug}</span>
+            <span className="slug">/{tool.slug}</span>
           </a>
         ))}
       </div>
@@ -122,10 +122,10 @@ function TreeCategory({
   if (query && visibleTools.length === 0) return null;
 
   return (
-    <div className='tree-category'>
-      <div className='tree-vert' style={{ background: cat.color }} />
+    <div className="tree-category">
+      <div className="tree-vert" style={{ background: cat.color }} />
       <div
-        className='tree-cat-node'
+        className="tree-cat-node"
         style={{
           background: hexToRgba(cat.color, 0.15),
           borderColor: hexToRgba(cat.color, 0.4),
@@ -134,18 +134,18 @@ function TreeCategory({
       >
         {cat.icon} {cat.label}
       </div>
-      <div className='tree-tools-col'>
+      <div className="tree-tools-col">
         {visibleTools.map((tool) => (
-          <div key={tool.slug} className='tree-tool-wrap'>
+          <div key={tool.slug} className="tree-tool-wrap">
             <div
-              className='tree-vert'
+              className="tree-vert"
               style={{ background: cat.color, opacity: 0.3 }}
             />
             <a
-              className='tree-tool'
+              className="tree-tool"
               href={`${siteUrl}/tools/${tool.slug}`}
-              target='_blank'
-              rel='noopener noreferrer'
+              target="_blank"
+              rel="noopener noreferrer"
               title={tool.description}
               style={{ ["--cat-color" as string]: cat.color }}
             >
@@ -424,29 +424,29 @@ export default function SitemapClient({
         }
       `}</style>
 
-      <div className='sm-wrap'>
+      <div className="sm-wrap">
         {/* ── Toolbar ──────────────────────────────────────────────────────── */}
-        <div className='sm-bar'>
-          <div className='sm-stats'>
-            <div className='sm-pill'>
-              <span className='dot' />
+        <div className="sm-bar">
+          <div className="sm-stats">
+            <div className="sm-pill">
+              <span className="dot" />
               {totalTools} tools
             </div>
-            <div className='sm-pill'>{totalCategories} categories</div>
+            <div className="sm-pill">{totalCategories} categories</div>
           </div>
 
           <input
-            className='sm-search'
-            type='text'
+            className="sm-search"
+            type="text"
             placeholder={`Search ${totalTools} tools…`}
             value={query}
             onChange={handleSearch}
             onKeyDown={(e) => e.key === "Escape" && setQuery("")}
-            autoComplete='off'
+            autoComplete="off"
             spellCheck={false}
           />
 
-          <div className='view-toggle'>
+          <div className="view-toggle">
             <button
               className={`vbtn${view === "grid" ? " active" : ""}`}
               onClick={() => setView("grid")}
@@ -463,7 +463,7 @@ export default function SitemapClient({
         </div>
 
         {/* ── Hero ─────────────────────────────────────────────────────────── */}
-        <div className='sm-hero'>
+        <div className="sm-hero">
           <h1>Visual Sitemap</h1>
           <p>
             onlinetoolbase.com — {totalTools} tools across {totalCategories}{" "}
@@ -473,7 +473,7 @@ export default function SitemapClient({
 
         {/* ── Category filter ───────────────────────────────────────────────── */}
         {!query && (
-          <div className='filter-bar'>
+          <div className="filter-bar">
             <button
               className={`fpill${activeFilter === "all" ? " active" : ""}`}
               onClick={() => handleFilterClick("all")}
@@ -501,12 +501,12 @@ export default function SitemapClient({
           </div>
         )}
 
-        <div className='sm-main'>
+        <div className="sm-main">
           {/* ── Static pages (only show when not searching / not filtering) ── */}
           {!query && activeFilter === "all" && (
             <>
-              <div className='static-label'>// core pages</div>
-              <div className='static-grid'>
+              <div className="static-label">// core pages</div>
+              <div className="static-grid">
                 {STATIC_PAGES.map((p) => (
                   <Link
                     key={p.href}
@@ -518,7 +518,7 @@ export default function SitemapClient({
                   </Link>
                 ))}
               </div>
-              <div className='tools-section-label'>
+              <div className="tools-section-label">
                 // tool pages — {totalTools} routes under /tools/
               </div>
             </>
@@ -526,7 +526,7 @@ export default function SitemapClient({
 
           {/* ══ GRID VIEW ══════════════════════════════════════════════════ */}
           {view === "grid" && (
-            <div className='site-grid'>
+            <div className="site-grid">
               {displayedCategories.map((cat) => (
                 <CategoryCard
                   key={cat.id}
@@ -536,8 +536,8 @@ export default function SitemapClient({
                 />
               ))}
               {!hasResults && (
-                <div className='no-results'>
-                  <div className='no-results-icon'>⌕</div>
+                <div className="no-results">
+                  <div className="no-results-icon">⌕</div>
                   <p>No tools match &ldquo;{query}&rdquo;</p>
                 </div>
               )}
@@ -546,10 +546,10 @@ export default function SitemapClient({
 
           {/* ══ TREE VIEW ══════════════════════════════════════════════════ */}
           {view === "tree" && (
-            <div className='tree-wrap'>
-              <div className='tree-root'>⚡ onlinetoolbase.com</div>
-              <div className='tree-vline' />
-              <div className='tree-branch-row'>
+            <div className="tree-wrap">
+              <div className="tree-root">⚡ onlinetoolbase.com</div>
+              <div className="tree-vline" />
+              <div className="tree-branch-row">
                 {displayedCategories.map((cat) => (
                   <TreeCategory
                     key={cat.id}
@@ -559,8 +559,8 @@ export default function SitemapClient({
                   />
                 ))}
                 {!hasResults && (
-                  <div className='no-results'>
-                    <div className='no-results-icon'>⌕</div>
+                  <div className="no-results">
+                    <div className="no-results-icon">⌕</div>
                     <p>No tools match &ldquo;{query}&rdquo;</p>
                   </div>
                 )}

@@ -159,47 +159,47 @@ export default function MarkdownToHtmlConverterClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='text-center mb-8'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full mb-4 shadow-lg'>
-            <FileCode className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full mb-4 shadow-lg">
+            <FileCode className="w-8 h-8 text-white" />
           </div>
-          <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">
             Markdown to HTML Converter
           </h2>
-          <p className='text-gray-500'>
+          <p className="text-gray-500">
             Convert Markdown to HTML with live preview
           </p>
         </div>
 
-        <div className='grid lg:grid-cols-2 gap-6'>
+        <div className="grid lg:grid-cols-2 gap-6">
           {/* ── Input column ── */}
-          <div className='space-y-6'>
-            <div className='bg-white rounded-2xl shadow-xl p-6'>
-              <div className='flex justify-between items-center mb-4'>
-                <h3 className='font-bold text-gray-900 flex items-center gap-2 text-xl'>
-                  <Code className='w-6 h-6 text-blue-600' />
+          <div className="space-y-6">
+            <div className="bg-white rounded-2xl shadow-xl p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="font-bold text-gray-900 flex items-center gap-2 text-xl">
+                  <Code className="w-6 h-6 text-blue-600" />
                   Markdown Input
                 </h3>
-                <div className='flex gap-2'>
+                <div className="flex gap-2">
                   <button
                     onClick={() => setMarkdown(EXAMPLE_MARKDOWN)}
-                    className='px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors'
+                    className="px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors"
                   >
                     Load Example
                   </button>
                   <button
                     onClick={handleClear}
                     disabled={!markdown}
-                    aria-label='Clear input'
+                    aria-label="Clear input"
                     className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
                       markdown
                         ? "bg-red-600 hover:bg-red-700 text-white"
                         : "bg-gray-200 text-gray-400 cursor-not-allowed"
                     }`}
                   >
-                    <Trash2 className='w-4 h-4' />
+                    <Trash2 className="w-4 h-4" />
                   </button>
                 </div>
               </div>
@@ -212,14 +212,14 @@ export default function MarkdownToHtmlConverterClient() {
                 placeholder={
                   "Enter your Markdown here...\n\n# Example Heading\nThis is **bold** and this is *italic*"
                 }
-                className='w-full h-[500px] px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 resize-none transition-colors font-mono text-sm leading-relaxed'
+                className="w-full h-[500px] px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 resize-none transition-colors font-mono text-sm leading-relaxed"
               />
 
-              <div className='mt-4 p-4 bg-blue-50 rounded-xl border border-blue-200'>
-                <h4 className='font-bold text-blue-900 mb-2 text-sm'>
+              <div className="mt-4 p-4 bg-blue-50 rounded-xl border border-blue-200">
+                <h4 className="font-bold text-blue-900 mb-2 text-sm">
                   📝 Markdown Cheatsheet
                 </h4>
-                <div className='grid grid-cols-2 gap-2 text-xs text-gray-700'>
+                <div className="grid grid-cols-2 gap-2 text-xs text-gray-700">
                   {[
                     ["# H1", "Heading 1"],
                     ["## H2", "Heading 2"],
@@ -229,7 +229,7 @@ export default function MarkdownToHtmlConverterClient() {
                     ["- item", "List"],
                   ].map(([code, desc]) => (
                     <div key={code}>
-                      <code className='bg-white px-1 rounded'>{code}</code>{" "}
+                      <code className="bg-white px-1 rounded">{code}</code>{" "}
                       {desc}
                     </div>
                   ))}
@@ -239,11 +239,11 @@ export default function MarkdownToHtmlConverterClient() {
           </div>
 
           {/* ── Output column ── */}
-          <div className='space-y-6'>
-            <div className='bg-white rounded-2xl shadow-xl p-6'>
-              <div className='flex justify-between items-center mb-4'>
+          <div className="space-y-6">
+            <div className="bg-white rounded-2xl shadow-xl p-6">
+              <div className="flex justify-between items-center mb-4">
                 {/* Preview/HTML toggle */}
-                <div className='flex gap-2'>
+                <div className="flex gap-2">
                   {(["preview", "html"] as PreviewMode[]).map((mode) => (
                     <button
                       key={mode}
@@ -255,9 +255,9 @@ export default function MarkdownToHtmlConverterClient() {
                       }`}
                     >
                       {mode === "preview" ? (
-                        <Eye className='w-4 h-4' />
+                        <Eye className="w-4 h-4" />
                       ) : (
-                        <Code className='w-4 h-4' />
+                        <Code className="w-4 h-4" />
                       )}
                       {mode === "preview" ? "Preview" : "HTML"}
                     </button>
@@ -265,7 +265,7 @@ export default function MarkdownToHtmlConverterClient() {
                 </div>
 
                 {/* Copy / Download */}
-                <div className='flex gap-2'>
+                <div className="flex gap-2">
                   <button
                     onClick={() => handleCopy(html, "html")}
                     disabled={!html}
@@ -276,30 +276,30 @@ export default function MarkdownToHtmlConverterClient() {
                     }`}
                   >
                     {copied === "html" ? (
-                      <Check className='w-4 h-4' />
+                      <Check className="w-4 h-4" />
                     ) : (
-                      <Copy className='w-4 h-4' />
+                      <Copy className="w-4 h-4" />
                     )}
                     Copy
                   </button>
                   <button
                     onClick={handleDownloadHtml}
                     disabled={!html}
-                    aria-label='Download HTML'
+                    aria-label="Download HTML"
                     className={`flex items-center gap-2 px-3 py-2 rounded-lg font-medium transition-colors ${
                       html
                         ? "bg-blue-600 hover:bg-blue-700 text-white"
                         : "bg-gray-200 text-gray-400 cursor-not-allowed"
                     }`}
                   >
-                    <Download className='w-4 h-4' />
+                    <Download className="w-4 h-4" />
                   </button>
                 </div>
               </div>
 
               {previewMode === "preview" ? (
                 <div
-                  className='min-h-[500px] p-6 bg-gray-50 rounded-xl border-2 border-gray-200 prose prose-blue max-w-none overflow-auto'
+                  className="min-h-[500px] p-6 bg-gray-50 rounded-xl border-2 border-gray-200 prose prose-blue max-w-none overflow-auto"
                   dangerouslySetInnerHTML={{
                     __html:
                       html ||
@@ -308,8 +308,8 @@ export default function MarkdownToHtmlConverterClient() {
                   style={{ fontSize: "14px", lineHeight: "1.6" }}
                 />
               ) : (
-                <div className='min-h-[500px] p-6 bg-gray-900 rounded-xl overflow-auto'>
-                  <pre className='text-sm text-green-400 font-mono leading-relaxed whitespace-pre-wrap break-words'>
+                <div className="min-h-[500px] p-6 bg-gray-900 rounded-xl overflow-auto">
+                  <pre className="text-sm text-green-400 font-mono leading-relaxed whitespace-pre-wrap break-words">
                     <code>
                       {html || "<!-- HTML output will appear here -->"}
                     </code>
@@ -318,9 +318,9 @@ export default function MarkdownToHtmlConverterClient() {
               )}
             </div>
 
-            <div className='bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-200 shadow-sm p-6'>
-              <h4 className='font-bold text-gray-900 mb-4'>✨ Features</h4>
-              <div className='space-y-3 text-sm text-gray-700'>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-200 shadow-sm p-6">
+              <h4 className="font-bold text-gray-900 mb-4">✨ Features</h4>
+              <div className="space-y-3 text-sm text-gray-700">
                 {[
                   {
                     color: "bg-blue-600",
@@ -343,7 +343,7 @@ export default function MarkdownToHtmlConverterClient() {
                     desc: "Load sample Markdown to start",
                   },
                 ].map(({ color, title, desc }) => (
-                  <div key={title} className='flex items-start gap-2'>
+                  <div key={title} className="flex items-start gap-2">
                     <div
                       className={`w-2 h-2 ${color} rounded-full mt-2 flex-shrink-0`}
                     />
@@ -355,11 +355,11 @@ export default function MarkdownToHtmlConverterClient() {
               </div>
             </div>
 
-            <div className='bg-white rounded-xl shadow-md p-6'>
-              <h4 className='font-bold text-gray-900 mb-3'>
+            <div className="bg-white rounded-xl shadow-md p-6">
+              <h4 className="font-bold text-gray-900 mb-3">
                 🎯 Supported Syntax
               </h4>
-              <div className='space-y-2 text-sm text-gray-700'>
+              <div className="space-y-2 text-sm text-gray-700">
                 {[
                   "Headers (H1–H3)",
                   "Bold & Italic text",

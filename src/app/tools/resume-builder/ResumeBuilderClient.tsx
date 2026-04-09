@@ -79,16 +79,16 @@ function SectionHeader({
   addLabel = "Add",
 }: SectionHeaderProps) {
   return (
-    <div className='flex justify-between items-center mb-6'>
-      <h3 className='font-bold text-gray-900 flex items-center gap-2 text-xl'>
+    <div className="flex justify-between items-center mb-6">
+      <h3 className="font-bold text-gray-900 flex items-center gap-2 text-xl">
         {icon}
         {title}
       </h3>
       <button
         onClick={onAdd}
-        className='flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors'
+        className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
       >
-        <Plus className='w-4 h-4' />
+        <Plus className="w-4 h-4" />
         {addLabel}
       </button>
     </div>
@@ -103,7 +103,7 @@ interface ContactItemProps {
 function ContactItem({ icon, value }: ContactItemProps) {
   if (!value) return null;
   return (
-    <div className='flex items-center gap-1'>
+    <div className="flex items-center gap-1">
       {icon}
       {value}
     </div>
@@ -218,51 +218,51 @@ export default function ResumeBuilderClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 p-4 md:p-8'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='text-center mb-8 print:hidden'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl mb-4 shadow-lg'>
-            <FileText className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8 print:hidden">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl mb-4 shadow-lg">
+            <FileText className="w-8 h-8 text-white" />
           </div>
-          <h2 className='text-4xl font-bold text-gray-900 mb-2'>
+          <h2 className="text-4xl font-bold text-gray-900 mb-2">
             Resume Builder
           </h2>
-          <p className='text-gray-600'>
+          <p className="text-gray-600">
             Create a professional resume in minutes
           </p>
         </div>
 
-        <div className='flex justify-end gap-4 mb-6 print:hidden'>
+        <div className="flex justify-end gap-4 mb-6 print:hidden">
           <button
             onClick={() => setShowPreview((v) => !v)}
-            className='flex items-center gap-2 px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-xl font-semibold transition-colors shadow-lg'
+            className="flex items-center gap-2 px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-xl font-semibold transition-colors shadow-lg"
           >
             {showPreview ? (
-              <EyeOff className='w-5 h-5' />
+              <EyeOff className="w-5 h-5" />
             ) : (
-              <Eye className='w-5 h-5' />
+              <Eye className="w-5 h-5" />
             )}
             {showPreview ? "Hide" : "Show"} Preview
           </button>
           <button
             onClick={() => window.print()}
-            className='flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl font-semibold transition-all shadow-lg'
+            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl font-semibold transition-all shadow-lg"
           >
-            <Download className='w-5 h-5' />
+            <Download className="w-5 h-5" />
             Download PDF
           </button>
         </div>
 
-        <div className='grid lg:grid-cols-2 gap-6'>
+        <div className="grid lg:grid-cols-2 gap-6">
           {/* ── Editor ── */}
-          <div className='space-y-6 print:hidden'>
+          <div className="space-y-6 print:hidden">
             {/* Personal Information */}
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
-              <h3 className='font-bold text-gray-900 mb-6 flex items-center gap-2 text-xl'>
-                <User className='w-6 h-6 text-blue-600' />
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+              <h3 className="font-bold text-gray-900 mb-6 flex items-center gap-2 text-xl">
+                <User className="w-6 h-6 text-blue-600" />
                 Personal Information
               </h3>
-              <div className='space-y-4'>
+              <div className="space-y-4">
                 {[
                   {
                     label: "Full Name",
@@ -280,7 +280,7 @@ export default function ResumeBuilderClient() {
                   },
                 ].map(({ label, value, set, type, placeholder }) => (
                   <div key={label}>
-                    <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
                       {label}
                     </label>
                     <input
@@ -295,7 +295,7 @@ export default function ResumeBuilderClient() {
                   </div>
                 ))}
 
-                <div className='grid md:grid-cols-2 gap-4'>
+                <div className="grid md:grid-cols-2 gap-4">
                   {[
                     {
                       label: "Email",
@@ -327,7 +327,7 @@ export default function ResumeBuilderClient() {
                     },
                   ].map(({ label, value, set, type, placeholder }) => (
                     <div key={label}>
-                      <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
                         {label}
                       </label>
                       <input
@@ -344,7 +344,7 @@ export default function ResumeBuilderClient() {
                 </div>
 
                 <div>
-                  <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Professional Summary
                   </label>
                   <textarea
@@ -352,7 +352,7 @@ export default function ResumeBuilderClient() {
                     onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
                       setSummary(e.target.value)
                     }
-                    placeholder='Brief summary of your professional background and key achievements...'
+                    placeholder="Brief summary of your professional background and key achievements..."
                     className={`${INPUT_LG} resize-none`}
                     rows={4}
                   />
@@ -361,43 +361,43 @@ export default function ResumeBuilderClient() {
             </div>
 
             {/* Work Experience */}
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
               <SectionHeader
-                icon={<Briefcase className='w-6 h-6 text-blue-600' />}
-                title='Work Experience'
+                icon={<Briefcase className="w-6 h-6 text-blue-600" />}
+                title="Work Experience"
                 onAdd={addExperience}
               />
-              <div className='space-y-6'>
+              <div className="space-y-6">
                 {experiences.map((exp, index) => (
-                  <div key={exp.id} className='p-4 bg-gray-50 rounded-xl'>
-                    <div className='flex justify-between items-start mb-4'>
-                      <span className='font-semibold text-gray-700'>
+                  <div key={exp.id} className="p-4 bg-gray-50 rounded-xl">
+                    <div className="flex justify-between items-start mb-4">
+                      <span className="font-semibold text-gray-700">
                         Experience {index + 1}
                       </span>
                       {experiences.length > 1 && (
                         <button
                           onClick={() => removeExperience(exp.id)}
-                          aria-label='Remove experience'
-                          className='p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors'
+                          aria-label="Remove experience"
+                          className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                         >
-                          <Trash2 className='w-4 h-4' />
+                          <Trash2 className="w-4 h-4" />
                         </button>
                       )}
                     </div>
-                    <div className='space-y-3'>
+                    <div className="space-y-3">
                       <input
-                        type='text'
-                        placeholder='Position Title'
+                        type="text"
+                        placeholder="Position Title"
                         value={exp.position}
                         onChange={(e) =>
                           updateExperience(exp.id, "position", e.target.value)
                         }
                         className={INPUT_SM}
                       />
-                      <div className='grid md:grid-cols-2 gap-3'>
+                      <div className="grid md:grid-cols-2 gap-3">
                         <input
-                          type='text'
-                          placeholder='Company'
+                          type="text"
+                          placeholder="Company"
                           value={exp.company}
                           onChange={(e) =>
                             updateExperience(exp.id, "company", e.target.value)
@@ -405,8 +405,8 @@ export default function ResumeBuilderClient() {
                           className={INPUT_SM}
                         />
                         <input
-                          type='text'
-                          placeholder='Location'
+                          type="text"
+                          placeholder="Location"
                           value={exp.location}
                           onChange={(e) =>
                             updateExperience(exp.id, "location", e.target.value)
@@ -414,9 +414,9 @@ export default function ResumeBuilderClient() {
                           className={INPUT_SM}
                         />
                       </div>
-                      <div className='grid md:grid-cols-2 gap-3'>
+                      <div className="grid md:grid-cols-2 gap-3">
                         <input
-                          type='month'
+                          type="month"
                           value={exp.startDate}
                           onChange={(e) =>
                             updateExperience(
@@ -428,7 +428,7 @@ export default function ResumeBuilderClient() {
                           className={INPUT_SM}
                         />
                         <input
-                          type='month'
+                          type="month"
                           value={exp.endDate}
                           onChange={(e) =>
                             updateExperience(exp.id, "endDate", e.target.value)
@@ -437,9 +437,9 @@ export default function ResumeBuilderClient() {
                           className={`${INPUT_SM} disabled:bg-gray-100`}
                         />
                       </div>
-                      <label className='flex items-center gap-2'>
+                      <label className="flex items-center gap-2">
                         <input
-                          type='checkbox'
+                          type="checkbox"
                           checked={exp.current}
                           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                             updateExperience(
@@ -448,14 +448,14 @@ export default function ResumeBuilderClient() {
                               e.target.checked,
                             )
                           }
-                          className='w-4 h-4 text-blue-600'
+                          className="w-4 h-4 text-blue-600"
                         />
-                        <span className='text-sm text-gray-700'>
+                        <span className="text-sm text-gray-700">
                           Currently working here
                         </span>
                       </label>
                       <textarea
-                        placeholder='Describe your responsibilities and achievements...'
+                        placeholder="Describe your responsibilities and achievements..."
                         value={exp.description}
                         onChange={(e) =>
                           updateExperience(
@@ -474,43 +474,43 @@ export default function ResumeBuilderClient() {
             </div>
 
             {/* Education */}
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
               <SectionHeader
-                icon={<GraduationCap className='w-6 h-6 text-blue-600' />}
-                title='Education'
+                icon={<GraduationCap className="w-6 h-6 text-blue-600" />}
+                title="Education"
                 onAdd={addEducation}
               />
-              <div className='space-y-6'>
+              <div className="space-y-6">
                 {education.map((edu, index) => (
-                  <div key={edu.id} className='p-4 bg-gray-50 rounded-xl'>
-                    <div className='flex justify-between items-start mb-4'>
-                      <span className='font-semibold text-gray-700'>
+                  <div key={edu.id} className="p-4 bg-gray-50 rounded-xl">
+                    <div className="flex justify-between items-start mb-4">
+                      <span className="font-semibold text-gray-700">
                         Education {index + 1}
                       </span>
                       {education.length > 1 && (
                         <button
                           onClick={() => removeEducation(edu.id)}
-                          aria-label='Remove education'
-                          className='p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors'
+                          aria-label="Remove education"
+                          className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                         >
-                          <Trash2 className='w-4 h-4' />
+                          <Trash2 className="w-4 h-4" />
                         </button>
                       )}
                     </div>
-                    <div className='space-y-3'>
+                    <div className="space-y-3">
                       <input
-                        type='text'
-                        placeholder='Degree / Certificate'
+                        type="text"
+                        placeholder="Degree / Certificate"
                         value={edu.degree}
                         onChange={(e) =>
                           updateEducation(edu.id, "degree", e.target.value)
                         }
                         className={INPUT_SM}
                       />
-                      <div className='grid md:grid-cols-2 gap-3'>
+                      <div className="grid md:grid-cols-2 gap-3">
                         <input
-                          type='text'
-                          placeholder='School / University'
+                          type="text"
+                          placeholder="School / University"
                           value={edu.school}
                           onChange={(e) =>
                             updateEducation(edu.id, "school", e.target.value)
@@ -518,8 +518,8 @@ export default function ResumeBuilderClient() {
                           className={INPUT_SM}
                         />
                         <input
-                          type='text'
-                          placeholder='Location'
+                          type="text"
+                          placeholder="Location"
                           value={edu.location}
                           onChange={(e) =>
                             updateEducation(edu.id, "location", e.target.value)
@@ -527,9 +527,9 @@ export default function ResumeBuilderClient() {
                           className={INPUT_SM}
                         />
                       </div>
-                      <div className='grid md:grid-cols-2 gap-3'>
+                      <div className="grid md:grid-cols-2 gap-3">
                         <input
-                          type='month'
+                          type="month"
                           value={edu.startDate}
                           onChange={(e) =>
                             updateEducation(edu.id, "startDate", e.target.value)
@@ -537,7 +537,7 @@ export default function ResumeBuilderClient() {
                           className={INPUT_SM}
                         />
                         <input
-                          type='month'
+                          type="month"
                           value={edu.endDate}
                           onChange={(e) =>
                             updateEducation(edu.id, "endDate", e.target.value)
@@ -546,7 +546,7 @@ export default function ResumeBuilderClient() {
                         />
                       </div>
                       <textarea
-                        placeholder='Additional details (GPA, honors, relevant coursework...)'
+                        placeholder="Additional details (GPA, honors, relevant coursework...)"
                         value={edu.description}
                         onChange={(e) =>
                           updateEducation(edu.id, "description", e.target.value)
@@ -561,18 +561,18 @@ export default function ResumeBuilderClient() {
             </div>
 
             {/* Skills */}
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
               <SectionHeader
-                icon={<Award className='w-6 h-6 text-blue-600' />}
-                title='Skills'
+                icon={<Award className="w-6 h-6 text-blue-600" />}
+                title="Skills"
                 onAdd={addSkill}
               />
-              <div className='grid md:grid-cols-2 gap-3'>
+              <div className="grid md:grid-cols-2 gap-3">
                 {skills.map((s) => (
-                  <div key={s.id} className='flex gap-2'>
+                  <div key={s.id} className="flex gap-2">
                     <input
-                      type='text'
-                      placeholder='Enter a skill'
+                      type="text"
+                      placeholder="Enter a skill"
                       value={s.skill}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         updateSkill(s.id, e.target.value)
@@ -582,10 +582,10 @@ export default function ResumeBuilderClient() {
                     {skills.length > 1 && (
                       <button
                         onClick={() => removeSkill(s.id)}
-                        aria-label='Remove skill'
-                        className='p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors'
+                        aria-label="Remove skill"
+                        className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                       >
-                        <Trash2 className='w-4 h-4' />
+                        <Trash2 className="w-4 h-4" />
                       </button>
                     )}
                   </div>
@@ -596,36 +596,36 @@ export default function ResumeBuilderClient() {
 
           {/* ── Preview ── */}
           {showPreview && (
-            <div className='lg:sticky lg:top-8 h-fit'>
+            <div className="lg:sticky lg:top-8 h-fit">
               <div
-                className='bg-white rounded-2xl shadow-2xl p-8 md:p-12'
-                id='resume-preview'
+                className="bg-white rounded-2xl shadow-2xl p-8 md:p-12"
+                id="resume-preview"
               >
                 {/* Header */}
-                <div className='text-center mb-8 border-b-4 border-blue-600 pb-6'>
-                  <h1 className='text-4xl font-bold text-gray-900 mb-2'>
+                <div className="text-center mb-8 border-b-4 border-blue-600 pb-6">
+                  <h1 className="text-4xl font-bold text-gray-900 mb-2">
                     {fullName || "Your Name"}
                   </h1>
                   {title && (
-                    <p className='text-xl text-blue-600 font-semibold mb-4'>
+                    <p className="text-xl text-blue-600 font-semibold mb-4">
                       {title}
                     </p>
                   )}
-                  <div className='flex flex-wrap justify-center gap-4 text-sm text-gray-600'>
+                  <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
                     <ContactItem
-                      icon={<Mail className='w-4 h-4' />}
+                      icon={<Mail className="w-4 h-4" />}
                       value={email}
                     />
                     <ContactItem
-                      icon={<Phone className='w-4 h-4' />}
+                      icon={<Phone className="w-4 h-4" />}
                       value={phone}
                     />
                     <ContactItem
-                      icon={<MapPin className='w-4 h-4' />}
+                      icon={<MapPin className="w-4 h-4" />}
                       value={location}
                     />
                     <ContactItem
-                      icon={<Globe className='w-4 h-4' />}
+                      icon={<Globe className="w-4 h-4" />}
                       value={website}
                     />
                   </div>
@@ -633,43 +633,43 @@ export default function ResumeBuilderClient() {
 
                 {/* Summary */}
                 {summary && (
-                  <div className='mb-8'>
-                    <h2 className='text-xl font-bold text-gray-900 mb-3 uppercase tracking-wide'>
+                  <div className="mb-8">
+                    <h2 className="text-xl font-bold text-gray-900 mb-3 uppercase tracking-wide">
                       Professional Summary
                     </h2>
-                    <p className='text-gray-700 leading-relaxed'>{summary}</p>
+                    <p className="text-gray-700 leading-relaxed">{summary}</p>
                   </div>
                 )}
 
                 {/* Experience */}
                 {experiences.some((e) => e.position) && (
-                  <div className='mb-8'>
-                    <h2 className='text-xl font-bold text-gray-900 mb-4 uppercase tracking-wide'>
+                  <div className="mb-8">
+                    <h2 className="text-xl font-bold text-gray-900 mb-4 uppercase tracking-wide">
                       Work Experience
                     </h2>
-                    <div className='space-y-4'>
+                    <div className="space-y-4">
                       {experiences
                         .filter((e) => e.position)
                         .map((exp) => (
                           <div key={exp.id}>
-                            <div className='flex justify-between items-start mb-1'>
+                            <div className="flex justify-between items-start mb-1">
                               <div>
-                                <h3 className='text-lg font-bold text-gray-900'>
+                                <h3 className="text-lg font-bold text-gray-900">
                                   {exp.position}
                                 </h3>
-                                <p className='text-blue-600 font-semibold'>
+                                <p className="text-blue-600 font-semibold">
                                   {exp.company}
                                   {exp.location && `, ${exp.location}`}
                                 </p>
                               </div>
-                              <p className='text-sm text-gray-600'>
+                              <p className="text-sm text-gray-600">
                                 {fmtDate(exp.startDate)}
                                 {" – "}
                                 {exp.current ? "Present" : fmtDate(exp.endDate)}
                               </p>
                             </div>
                             {exp.description && (
-                              <p className='text-gray-700 text-sm mt-2 whitespace-pre-line'>
+                              <p className="text-gray-700 text-sm mt-2 whitespace-pre-line">
                                 {exp.description}
                               </p>
                             )}
@@ -681,32 +681,32 @@ export default function ResumeBuilderClient() {
 
                 {/* Education */}
                 {education.some((e) => e.degree) && (
-                  <div className='mb-8'>
-                    <h2 className='text-xl font-bold text-gray-900 mb-4 uppercase tracking-wide'>
+                  <div className="mb-8">
+                    <h2 className="text-xl font-bold text-gray-900 mb-4 uppercase tracking-wide">
                       Education
                     </h2>
-                    <div className='space-y-4'>
+                    <div className="space-y-4">
                       {education
                         .filter((e) => e.degree)
                         .map((edu) => (
                           <div key={edu.id}>
-                            <div className='flex justify-between items-start mb-1'>
+                            <div className="flex justify-between items-start mb-1">
                               <div>
-                                <h3 className='text-lg font-bold text-gray-900'>
+                                <h3 className="text-lg font-bold text-gray-900">
                                   {edu.degree}
                                 </h3>
-                                <p className='text-blue-600 font-semibold'>
+                                <p className="text-blue-600 font-semibold">
                                   {edu.school}
                                   {edu.location && `, ${edu.location}`}
                                 </p>
                               </div>
-                              <p className='text-sm text-gray-600'>
+                              <p className="text-sm text-gray-600">
                                 {fmtDate(edu.startDate)}
                                 {edu.endDate && ` – ${fmtDate(edu.endDate)}`}
                               </p>
                             </div>
                             {edu.description && (
-                              <p className='text-gray-700 text-sm mt-2'>
+                              <p className="text-gray-700 text-sm mt-2">
                                 {edu.description}
                               </p>
                             )}
@@ -719,16 +719,16 @@ export default function ResumeBuilderClient() {
                 {/* Skills */}
                 {skills.some((s) => s.skill) && (
                   <div>
-                    <h2 className='text-xl font-bold text-gray-900 mb-4 uppercase tracking-wide'>
+                    <h2 className="text-xl font-bold text-gray-900 mb-4 uppercase tracking-wide">
                       Skills
                     </h2>
-                    <div className='flex flex-wrap gap-2'>
+                    <div className="flex flex-wrap gap-2">
                       {skills
                         .filter((s) => s.skill)
                         .map((s) => (
                           <span
                             key={s.id}
-                            className='px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium'
+                            className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
                           >
                             {s.skill}
                           </span>

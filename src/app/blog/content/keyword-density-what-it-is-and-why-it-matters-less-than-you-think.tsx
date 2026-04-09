@@ -22,7 +22,7 @@ export default function Post() {
         density of 2%.
       </p>
       <p>
-        Our <a href='/tools/keyword-density-checker'>Keyword Density Checker</a>{" "}
+        Our <a href="/tools/keyword-density-checker">Keyword Density Checker</a>{" "}
         analyses any text and shows you the frequency and density of every term
         including single words, two-word phrases, and three-word phrases.
       </p>
@@ -145,7 +145,7 @@ export default function Post() {
       <h2>Conclusion</h2>
       <p>
         Keyword density is a diagnostic tool, not an optimisation target. Use
-        the <a href='/tools/keyword-density-checker'>Keyword Density Checker</a>{" "}
+        the <a href="/tools/keyword-density-checker">Keyword Density Checker</a>{" "}
         to identify stuffing or gaps in your content, not to hit a percentage.
         Write for coverage and quality first, then check density to find obvious
         problems.

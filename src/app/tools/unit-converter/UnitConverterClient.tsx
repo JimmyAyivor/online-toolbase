@@ -185,23 +185,23 @@ export default function UnitConverterClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-4 md:p-8'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='text-center mb-8'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-600 rounded-2xl mb-4 shadow-lg'>
-            <Zap className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-600 rounded-2xl mb-4 shadow-lg">
+            <Zap className="w-8 h-8 text-white" />
           </div>
-          <h2 className='text-4xl font-bold text-gray-900 mb-2'>
+          <h2 className="text-4xl font-bold text-gray-900 mb-2">
             Unit Converter
           </h2>
-          <p className='text-gray-500'>
+          <p className="text-gray-500">
             Fast, accurate, and easy to use conversion tool
           </p>
         </div>
 
-        <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-6'>
+        <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-6">
           {/* Category tabs */}
-          <div className='grid grid-cols-3 md:grid-cols-6 gap-3 mb-8'>
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-3 mb-8">
             {CATEGORY_KEYS.map((key) => {
               const { icon: Icon, name } = CATEGORIES[key];
               const isActive = activeCategory === key;
@@ -215,18 +215,18 @@ export default function UnitConverterClient() {
                       : "bg-gray-50 text-gray-700 hover:bg-gray-100"
                   }`}
                 >
-                  <Icon className='w-6 h-6 mb-2' />
-                  <span className='text-xs font-medium'>{name}</span>
+                  <Icon className="w-6 h-6 mb-2" />
+                  <span className="text-xs font-medium">{name}</span>
                 </button>
               );
             })}
           </div>
 
           {/* Converter */}
-          <div className='space-y-4'>
+          <div className="space-y-4">
             {/* From */}
-            <div className='bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6'>
-              <label className='block text-sm font-semibold text-gray-700 mb-3'>
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6">
+              <label className="block text-sm font-semibold text-gray-700 mb-3">
                 From
               </label>
               <select
@@ -234,7 +234,7 @@ export default function UnitConverterClient() {
                 onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                   setFromUnit(e.target.value)
                 }
-                className='w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-lg mb-4 focus:outline-none focus:border-indigo-500 transition-colors'
+                className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-lg mb-4 focus:outline-none focus:border-indigo-500 transition-colors"
               >
                 {unitEntries.map(([key, unit]) => (
                   <option key={key} value={key}>
@@ -243,30 +243,30 @@ export default function UnitConverterClient() {
                 ))}
               </select>
               <input
-                type='number'
+                type="number"
                 value={fromValue}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setFromValue(e.target.value)
                 }
-                placeholder='Enter value'
-                className='w-full px-4 py-4 bg-white border-2 border-gray-200 rounded-lg text-lg focus:outline-none focus:border-indigo-500 transition-colors'
+                placeholder="Enter value"
+                className="w-full px-4 py-4 bg-white border-2 border-gray-200 rounded-lg text-lg focus:outline-none focus:border-indigo-500 transition-colors"
               />
             </div>
 
             {/* Swap */}
-            <div className='flex justify-center'>
+            <div className="flex justify-center">
               <button
                 onClick={handleSwap}
-                aria-label='Swap units'
-                className='p-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110'
+                aria-label="Swap units"
+                className="p-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110"
               >
-                <ArrowLeftRight className='w-6 h-6' />
+                <ArrowLeftRight className="w-6 h-6" />
               </button>
             </div>
 
             {/* To */}
-            <div className='bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6'>
-              <label className='block text-sm font-semibold text-gray-700 mb-3'>
+            <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6">
+              <label className="block text-sm font-semibold text-gray-700 mb-3">
                 To
               </label>
               <select
@@ -274,7 +274,7 @@ export default function UnitConverterClient() {
                 onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                   setToUnit(e.target.value)
                 }
-                className='w-full px-4 py-3 bg-white border-2 border-indigo-200 rounded-lg mb-4 focus:outline-none focus:border-indigo-500 transition-colors'
+                className="w-full px-4 py-3 bg-white border-2 border-indigo-200 rounded-lg mb-4 focus:outline-none focus:border-indigo-500 transition-colors"
               >
                 {unitEntries.map(([key, unit]) => (
                   <option key={key} value={key}>
@@ -282,14 +282,14 @@ export default function UnitConverterClient() {
                   </option>
                 ))}
               </select>
-              <div className='w-full px-4 py-4 bg-white border-2 border-indigo-200 rounded-lg text-lg font-semibold text-indigo-600'>
+              <div className="w-full px-4 py-4 bg-white border-2 border-indigo-200 rounded-lg text-lg font-semibold text-indigo-600">
                 {toValue || "0"}
               </div>
             </div>
           </div>
         </div>
 
-        <div className='bg-white rounded-xl shadow-md p-6 text-sm text-gray-600'>
+        <div className="bg-white rounded-xl shadow-md p-6 text-sm text-gray-600">
           <p>
             💡 <strong>Tip:</strong> Switch between different unit categories
             using the buttons above

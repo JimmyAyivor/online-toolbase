@@ -42,7 +42,7 @@ export default function Post() {
         <li>A short, relevant CTA ("Currently accepting projects for Q3 →")</li>
       </ul>
       <p>
-        Use our <a href='/tools/signature-generator'>Signature Generator</a> to
+        Use our <a href="/tools/signature-generator">Signature Generator</a> to
         create a clean, formatted email signature you can copy directly into
         your email client settings.
       </p>
@@ -112,7 +112,7 @@ export default function Post() {
         Gmail: Settings → See all settings → General → Signature. Paste HTML or
         use the visual editor. Outlook: File → Options → Mail → Signatures.
         Create a new signature with the formatted content from the{" "}
-        <a href='/tools/signature-generator'>Signature Generator</a>.
+        <a href="/tools/signature-generator">Signature Generator</a>.
       </p>
 
       <h3>Is it unprofessional to have no email signature?</h3>
@@ -128,7 +128,7 @@ export default function Post() {
         A good email signature is short, informative, and consistent. Include
         your name, title, company, phone, and one or two key links. Leave out
         quotes, excessive icons, and large images. Use the{" "}
-        <a href='/tools/signature-generator'>Signature Generator</a> to create a
+        <a href="/tools/signature-generator">Signature Generator</a> to create a
         clean formatted signature in seconds and update it any time your details
         change.
       </p>

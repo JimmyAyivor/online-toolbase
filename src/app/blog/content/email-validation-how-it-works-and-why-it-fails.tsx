@@ -15,7 +15,7 @@ export default function Post() {
 
       <h2>What email validation actually checks</h2>
       <p>
-        Our <a href='/tools/email-validator'>Email Validator</a> checks whether
+        Our <a href="/tools/email-validator">Email Validator</a> checks whether
         an email address is syntactically valid that it conforms to the correct
         format. This catches the most common input errors: missing @ signs,
         double dots, invalid characters, missing domains, and malformed
@@ -127,7 +127,7 @@ export default function Post() {
       <h2>Conclusion</h2>
       <p>
         For quick format checking, use the{" "}
-        <a href='/tools/email-validator'>Email Validator</a> to verify an
+        <a href="/tools/email-validator">Email Validator</a> to verify an
         address before use. For applications, implement format validation on the
         client and DNS/MX checks on the server. For high-stakes deliverability
         (email marketing, transactional email), add an email verification step

@@ -44,7 +44,7 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        Our <a href='/tools/tiktok-hook-generator'>TikTok Hook Generator</a>{" "}
+        Our <a href="/tools/tiktok-hook-generator">TikTok Hook Generator</a>{" "}
         produces hook variations for any topic and niche to give you options to
         test.
       </p>
@@ -130,7 +130,7 @@ export default function Post() {
       <p>
         Your hook is your most important investment in any TikTok video more
         than production quality, more than the information you're delivering.
-        Use the <a href='/tools/tiktok-hook-generator'>TikTok Hook Generator</a>{" "}
+        Use the <a href="/tools/tiktok-hook-generator">TikTok Hook Generator</a>{" "}
         to develop multiple hook options for each video, test variations, and
         identify which approaches resonate with your specific audience.
       </p>

@@ -167,9 +167,9 @@ function getStatusColor(pct: number): string {
 }
 
 function getStatusIcon(pct: number) {
-  if (pct >= 100) return <AlertCircle className='w-4 h-4 text-red-500' />;
-  if (pct >= 85) return <AlertCircle className='w-4 h-4 text-orange-400' />;
-  return <CheckCircle className='w-4 h-4 text-green-500' />;
+  if (pct >= 100) return <AlertCircle className="w-4 h-4 text-red-500" />;
+  if (pct >= 85) return <AlertCircle className="w-4 h-4 text-orange-400" />;
+  return <CheckCircle className="w-4 h-4 text-green-500" />;
 }
 
 // ─── Component ───────────────────────────────────────────────────────────────
@@ -206,24 +206,24 @@ export default function SocialMediaCharacterCounterClient() {
   // ─── Render ────────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-slate-50 to-sky-50 p-4 md:p-8'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-sky-50 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-sky-500 to-indigo-600 rounded-2xl mb-4 shadow-lg'>
-              <span className='text-2xl'>📊</span>
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-sky-500 to-indigo-600 rounded-2xl mb-4 shadow-lg">
+              <span className="text-2xl">📊</span>
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Social Media Character Counter
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Write and check character limits for every major platform
             </p>
           </div>
 
           {/* Platform selector */}
-          <div className='grid grid-cols-4 md:grid-cols-8 gap-2 mb-6'>
+          <div className="grid grid-cols-4 md:grid-cols-8 gap-2 mb-6">
             {PLATFORMS.map((p) => (
               <button
                 key={p.key}
@@ -236,8 +236,8 @@ export default function SocialMediaCharacterCounterClient() {
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                 }`}
               >
-                <span className='text-xl'>{p.icon}</span>
-                <span className='leading-tight text-center hidden md:block'>
+                <span className="text-xl">{p.icon}</span>
+                <span className="leading-tight text-center hidden md:block">
                   {p.name.split(" ")[0]}
                 </span>
               </button>
@@ -248,70 +248,70 @@ export default function SocialMediaCharacterCounterClient() {
           <div
             className={`${platform.bgColor} text-white rounded-xl p-4 mb-6 flex items-center justify-between`}
           >
-            <div className='flex items-center gap-3'>
-              <span className='text-3xl'>{platform.icon}</span>
+            <div className="flex items-center gap-3">
+              <span className="text-3xl">{platform.icon}</span>
               <div>
-                <div className='font-bold text-lg'>{platform.name}</div>
-                <div className='text-sm opacity-80'>
+                <div className="font-bold text-lg">{platform.name}</div>
+                <div className="text-sm opacity-80">
                   {platform.limit.toLocaleString()} character limit
                 </div>
               </div>
             </div>
-            <div className='text-right'>
+            <div className="text-right">
               <div
                 className={`text-4xl font-bold ${remaining < 0 ? "text-red-300" : "text-white"}`}
               >
                 {remaining < 0 ? remaining : remaining}
               </div>
-              <div className='text-sm opacity-80'>remaining</div>
+              <div className="text-sm opacity-80">remaining</div>
             </div>
           </div>
 
           {/* Main layout */}
-          <div className='grid md:grid-cols-3 gap-6'>
+          <div className="grid md:grid-cols-3 gap-6">
             {/* Textarea */}
-            <div className='md:col-span-2 space-y-3'>
-              <div className='relative'>
+            <div className="md:col-span-2 space-y-3">
+              <div className="relative">
                 <textarea
                   value={text}
                   onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
                     setText(e.target.value)
                   }
                   placeholder={`Write your ${platform.name} post here…`}
-                  className='w-full h-56 p-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-sky-400 resize-none text-gray-900 leading-relaxed text-sm font-medium'
+                  className="w-full h-56 p-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-sky-400 resize-none text-gray-900 leading-relaxed text-sm font-medium"
                 />
-                <div className='absolute bottom-3 right-3 flex gap-2'>
+                <div className="absolute bottom-3 right-3 flex gap-2">
                   <button
                     onClick={handleCopy}
                     disabled={!text}
-                    aria-label='Copy text'
-                    className='p-2 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 disabled:opacity-40 transition-colors'
+                    aria-label="Copy text"
+                    className="p-2 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 disabled:opacity-40 transition-colors"
                   >
                     {copied ? (
-                      <Check className='w-4 h-4 text-green-600' />
+                      <Check className="w-4 h-4 text-green-600" />
                     ) : (
-                      <Copy className='w-4 h-4 text-gray-600' />
+                      <Copy className="w-4 h-4 text-gray-600" />
                     )}
                   </button>
                   <button
                     onClick={() => setText("")}
                     disabled={!text}
-                    aria-label='Clear text'
-                    className='p-2 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-red-50 disabled:opacity-40 transition-colors'
+                    aria-label="Clear text"
+                    className="p-2 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-red-50 disabled:opacity-40 transition-colors"
                   >
-                    <Trash2 className='w-4 h-4 text-gray-600' />
+                    <Trash2 className="w-4 h-4 text-gray-600" />
                   </button>
                 </div>
               </div>
 
               {/* Progress bar */}
               <div>
-                <div className='flex justify-between text-sm mb-1'>
+                <div className="flex justify-between text-sm mb-1">
                   <span className={`font-semibold ${getStatusColor(pct)}`}>
                     {used.toLocaleString()} / {platform.limit.toLocaleString()}{" "}
                     characters
                   </span>
-                  <div className='flex items-center gap-1'>
+                  <div className="flex items-center gap-1">
                     {getStatusIcon(pct)}
                     <span className={`font-medium ${getStatusColor(pct)}`}>
                       {pct >= 100
@@ -320,7 +320,7 @@ export default function SocialMediaCharacterCounterClient() {
                     </span>
                   </div>
                 </div>
-                <div className='w-full bg-gray-100 rounded-full h-3 overflow-hidden'>
+                <div className="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
                   <div
                     className={`h-3 rounded-full transition-all duration-300 ${
                       pct >= 100
@@ -335,16 +335,16 @@ export default function SocialMediaCharacterCounterClient() {
               </div>
 
               {/* Platform notes */}
-              <div className='bg-sky-50 border border-sky-200 rounded-lg p-3'>
-                <div className='text-xs font-semibold text-sky-700 mb-1'>
+              <div className="bg-sky-50 border border-sky-200 rounded-lg p-3">
+                <div className="text-xs font-semibold text-sky-700 mb-1">
                   💡 {platform.name} Tips
                 </div>
                 {platform.notes.map((note) => (
                   <div
                     key={note}
-                    className='text-xs text-sky-800 flex items-start gap-1 mt-1'
+                    className="text-xs text-sky-800 flex items-start gap-1 mt-1"
                   >
-                    <span className='text-sky-400 mt-0.5'>•</span>
+                    <span className="text-sky-400 mt-0.5">•</span>
                     {note}
                   </div>
                 ))}
@@ -352,26 +352,26 @@ export default function SocialMediaCharacterCounterClient() {
             </div>
 
             {/* Stats panel */}
-            <div className='space-y-3'>
-              <h3 className='font-bold text-gray-700 text-sm uppercase tracking-wide'>
+            <div className="space-y-3">
+              <h3 className="font-bold text-gray-700 text-sm uppercase tracking-wide">
                 Text Analysis
               </h3>
               {stats.map(({ label, value }) => (
                 <div
                   key={label}
-                  className='flex justify-between items-center bg-gray-50 rounded-lg px-4 py-3 border border-gray-100'
+                  className="flex justify-between items-center bg-gray-50 rounded-lg px-4 py-3 border border-gray-100"
                 >
-                  <span className='text-sm text-gray-600'>{label}</span>
-                  <span className='font-bold text-gray-900'>{value}</span>
+                  <span className="text-sm text-gray-600">{label}</span>
+                  <span className="font-bold text-gray-900">{value}</span>
                 </div>
               ))}
 
               {/* All-platform overview */}
-              <div className='mt-4'>
-                <h3 className='font-bold text-gray-700 text-sm uppercase tracking-wide mb-3'>
+              <div className="mt-4">
+                <h3 className="font-bold text-gray-700 text-sm uppercase tracking-wide mb-3">
                   All Platforms
                 </h3>
-                <div className='space-y-2'>
+                <div className="space-y-2">
                   {PLATFORMS.map((p) => {
                     const pUsed = text.length;
                     const pPct = getBarPct(pUsed, p.limit);
@@ -386,8 +386,8 @@ export default function SocialMediaCharacterCounterClient() {
                             : "border-gray-100 bg-gray-50 hover:bg-gray-100"
                         }`}
                       >
-                        <div className='flex justify-between items-center text-xs mb-1'>
-                          <span className='font-medium text-gray-700'>
+                        <div className="flex justify-between items-center text-xs mb-1">
+                          <span className="font-medium text-gray-700">
                             {p.icon} {p.name}
                           </span>
                           <span
@@ -400,7 +400,7 @@ export default function SocialMediaCharacterCounterClient() {
                               : `${p.limit - pUsed} left`}
                           </span>
                         </div>
-                        <div className='w-full bg-gray-200 rounded-full h-1.5'>
+                        <div className="w-full bg-gray-200 rounded-full h-1.5">
                           <div
                             className={`h-1.5 rounded-full transition-all ${over ? "bg-red-500" : p.barColor}`}
                             style={{ width: `${pPct}%` }}

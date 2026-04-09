@@ -59,7 +59,7 @@ export default function Post() {
       <h2>How to use readability scores properly</h2>
       <p>
         Our{" "}
-        <a href='/tools/readability-score-calculator'>
+        <a href="/tools/readability-score-calculator">
           Readability Score Calculator
         </a>{" "}
         calculates all major formulas and gives you an aggregate view of your
@@ -114,7 +114,7 @@ export default function Post() {
       <p>
         Most readability formulas are heavily influenced by average sentence
         length. This is why using the{" "}
-        <a href='/tools/sentence-counter'>Sentence Counter</a> alongside a
+        <a href="/tools/sentence-counter">Sentence Counter</a> alongside a
         readability score gives you a clearer picture you can see both the grade
         level and the average sentence length that's driving it, and target your
         edits more precisely.
@@ -153,7 +153,7 @@ export default function Post() {
         complex your writing is. They're useful for checking that you're writing
         at an appropriate level for your audience and for identifying overly
         complex sentences or vocabulary. Use the{" "}
-        <a href='/tools/readability-score-calculator'>
+        <a href="/tools/readability-score-calculator">
           Readability Score Calculator
         </a>{" "}
         as part of your editing process after drafting, as one check among

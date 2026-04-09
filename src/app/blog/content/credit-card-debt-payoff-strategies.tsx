@@ -23,7 +23,7 @@ export default function Post() {
       </p>
       <p>
         Our{" "}
-        <a href='/tools/credit-card-payoff-calculator'>
+        <a href="/tools/credit-card-payoff-calculator">
           Credit Card Payoff Calculator
         </a>{" "}
         shows you exactly how long it takes to clear any balance at any payment
@@ -92,7 +92,7 @@ export default function Post() {
       <h3>How much extra should I pay each month to clear the debt quickly?</h3>
       <p>
         Use the{" "}
-        <a href='/tools/credit-card-payoff-calculator'>
+        <a href="/tools/credit-card-payoff-calculator">
           Credit Card Payoff Calculator
         </a>{" "}
         to find the monthly payment needed to clear your balance in a target
@@ -122,7 +122,7 @@ export default function Post() {
         The most powerful step in credit card debt repayment is understanding
         the full timeline and total interest cost of your current approach the
         numbers are often startling. Use the{" "}
-        <a href='/tools/credit-card-payoff-calculator'>
+        <a href="/tools/credit-card-payoff-calculator">
           Credit Card Payoff Calculator
         </a>{" "}
         to model your situation, then apply either avalanche or snowball

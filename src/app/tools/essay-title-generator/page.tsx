@@ -98,60 +98,63 @@ export default function EssayTitleGeneratorPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-violet-600 transition-colors'>
+            <a href="/" className="hover:text-violet-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/writing'
-              className='hover:text-violet-600 transition-colors'
+              href="/tools/category/writing"
+              className="hover:text-violet-600 transition-colors"
             >
               Writing Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Essay Title Generator
             </span>
           </li>
         </ol>
       </nav>
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-violet-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-violet-600 uppercase tracking-widest mb-1">
           Free Writing Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Essay Title Generator — Generate 10 Compelling Titles Instantly Free
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Enter a topic and generate 10 compelling title ideas for essays,
           research papers, blog posts, or reports — with one-click copy and
           regenerate for variety.
         </p>
       </header>
       <SidebarAdLayout>
-        <main id='main-content' aria-label='Essay Title Generator tool'>
+        <main id="main-content" aria-label="Essay Title Generator tool">
           <EssayTitleGeneratorClient />
         </main>
         <PageEditorial />
-              <ToolEngagement toolSlug="essay-title-generator" toolName="Essay Title Generator" />
+        <ToolEngagement
+          toolSlug="essay-title-generator"
+          toolName="Essay Title Generator"
+        />
       </SidebarAdLayout>
     </>
   );

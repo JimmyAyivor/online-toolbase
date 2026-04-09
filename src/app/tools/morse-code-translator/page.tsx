@@ -96,55 +96,58 @@ export default function MorseCodeTranslatorPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-yellow-600 transition-colors'>
+            <a href="/" className="hover:text-yellow-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/text'
-              className='hover:text-yellow-600 transition-colors'
+              href="/tools/category/text"
+              className="hover:text-yellow-600 transition-colors"
             >
               Text Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Morse Code Translator
             </span>
           </li>
         </ol>
       </nav>
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-yellow-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-yellow-600 uppercase tracking-widest mb-1">
           Free Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Morse Code Translator — Text to Morse Code & Back
         </h1>
       </header>
       <SidebarAdLayout>
-        <main id='main-content' aria-label='Morse Code Translator tool'>
+        <main id="main-content" aria-label="Morse Code Translator tool">
           <MorseCodeTranslatorClient />
         </main>
         <PageEditorial />
-              <ToolEngagement toolSlug="morse-code-translator" toolName="Morse Code Translator" />
+        <ToolEngagement
+          toolSlug="morse-code-translator"
+          toolName="Morse Code Translator"
+        />
       </SidebarAdLayout>
     </>
   );

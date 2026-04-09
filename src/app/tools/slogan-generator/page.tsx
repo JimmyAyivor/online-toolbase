@@ -95,59 +95,62 @@ export default function SloganGeneratorPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-rose-600 transition-colors'>
+            <a href="/" className="hover:text-rose-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/business'
-              className='hover:text-rose-600 transition-colors'
+              href="/tools/category/business"
+              className="hover:text-rose-600 transition-colors"
             >
               Business Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Slogan Generator
             </span>
           </li>
         </ol>
       </nav>
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-rose-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-rose-600 uppercase tracking-widest mb-1">
           Free Business Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Slogan Generator — Brand Taglines & Catchphrases
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Generate memorable brand slogans and taglines across fun,
           professional, bold, and inspirational styles — instantly.
         </p>
       </header>
       <SidebarAdLayout>
-        <main id='main-content' aria-label='Slogan Generator tool'>
+        <main id="main-content" aria-label="Slogan Generator tool">
           <SloganGeneratorClient />
         </main>
         <PageEditorial />
-              <ToolEngagement toolSlug="slogan-generator" toolName="Slogan Generator" />
+        <ToolEngagement
+          toolSlug="slogan-generator"
+          toolName="Slogan Generator"
+        />
       </SidebarAdLayout>
     </>
   );

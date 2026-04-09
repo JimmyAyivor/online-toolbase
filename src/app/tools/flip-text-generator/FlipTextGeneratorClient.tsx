@@ -117,23 +117,23 @@ export default function FlipTextGeneratorClient() {
   };
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-purple-50 via-violet-50 to-indigo-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full mb-4 shadow-lg'>
-              <span className='text-2xl rotate-180 inline-block'>A</span>
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-violet-50 to-indigo-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full mb-4 shadow-lg">
+              <span className="text-2xl rotate-180 inline-block">A</span>
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Flip Text Generator
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Flip, reverse, mirror, and stylise any text instantly
             </p>
           </div>
 
-          <div className='mb-6'>
-            <label className='block text-sm font-semibold text-gray-700 mb-2'>
+          <div className="mb-6">
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
               Enter your text
             </label>
             <textarea
@@ -141,37 +141,37 @@ export default function FlipTextGeneratorClient() {
               onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
                 setInput(e.target.value)
               }
-              placeholder='Type or paste text here…'
+              placeholder="Type or paste text here…"
               rows={4}
-              className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none'
+              className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
             />
           </div>
 
           {input ? (
-            <div className='space-y-3'>
+            <div className="space-y-3">
               {TRANSFORMS.map(({ id, label, fn }) => {
                 const result = fn(input);
                 return (
                   <div
                     key={id}
-                    className='bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 flex items-start justify-between gap-4'
+                    className="bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 flex items-start justify-between gap-4"
                   >
                     <div>
-                      <p className='text-xs font-bold text-gray-400 uppercase tracking-widest mb-1'>
+                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">
                         {label}
                       </p>
-                      <p className='text-gray-800 font-medium text-base leading-relaxed break-all'>
+                      <p className="text-gray-800 font-medium text-base leading-relaxed break-all">
                         {result}
                       </p>
                     </div>
                     <button
                       onClick={() => copy(result, id)}
-                      className='shrink-0 text-gray-300 hover:text-purple-600 transition-colors mt-1'
+                      className="shrink-0 text-gray-300 hover:text-purple-600 transition-colors mt-1"
                     >
                       {copied === id ? (
-                        <Check className='w-5 h-5 text-green-500' />
+                        <Check className="w-5 h-5 text-green-500" />
                       ) : (
-                        <Copy className='w-5 h-5' />
+                        <Copy className="w-5 h-5" />
                       )}
                     </button>
                   </div>
@@ -179,8 +179,8 @@ export default function FlipTextGeneratorClient() {
               })}
             </div>
           ) : (
-            <div className='flex items-center justify-center h-40 bg-purple-50 rounded-2xl border-2 border-dashed border-purple-200'>
-              <p className='text-purple-400 text-sm font-medium'>
+            <div className="flex items-center justify-center h-40 bg-purple-50 rounded-2xl border-2 border-dashed border-purple-200">
+              <p className="text-purple-400 text-sm font-medium">
                 ¡Type something to see it flipped!
               </p>
             </div>
@@ -188,16 +188,16 @@ export default function FlipTextGeneratorClient() {
 
           <button
             onClick={() => setInput("")}
-            className='flex items-center gap-2 text-sm text-gray-500 hover:text-purple-600 transition-colors mt-6 mb-4'
+            className="flex items-center gap-2 text-sm text-gray-500 hover:text-purple-600 transition-colors mt-6 mb-4"
           >
-            <RotateCcw className='w-4 h-4' />
+            <RotateCcw className="w-4 h-4" />
             Clear
           </button>
-          <div className='p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>
+          <div className="p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">
               💡 Uses for flipped text:
             </p>
-            <ul className='list-disc list-inside space-y-1'>
+            <ul className="list-disc list-inside space-y-1">
               <li>Social media bios and posts for a unique visual style</li>
               <li>
                 Creative messages, puzzles, and Easter eggs in digital content

@@ -18,7 +18,7 @@ export default function Post() {
         that reference point in this case, 20 March 2026 at 00:00:00 UTC.
       </p>
       <p>
-        Use our <a href='/tools/timestamp-converter'>Timestamp Converter</a> to
+        Use our <a href="/tools/timestamp-converter">Timestamp Converter</a> to
         convert Unix timestamps to human-readable dates and vice versa
         instantly.
       </p>
@@ -121,7 +121,7 @@ export default function Post() {
       </p>
       <p>
         For quick conversions during development or debugging, the{" "}
-        <a href='/tools/timestamp-converter'>Timestamp Converter</a> converts
+        <a href="/tools/timestamp-converter">Timestamp Converter</a> converts
         any Unix timestamp to a human-readable date in UTC and shows the
         conversion both ways.
       </p>
@@ -155,7 +155,7 @@ export default function Post() {
         Unix timestamps are the clearest, most portable way to represent a
         specific moment in time in software. Use them for storage and
         computation; convert to formatted dates for display. Use the{" "}
-        <a href='/tools/timestamp-converter'>Timestamp Converter</a> to quickly
+        <a href="/tools/timestamp-converter">Timestamp Converter</a> to quickly
         convert between timestamps and human-readable dates when debugging or
         working with API data.
       </p>

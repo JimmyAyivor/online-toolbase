@@ -41,7 +41,7 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        Our <a href='/tools/text-difference-checker'>Text Difference Checker</a>{" "}
+        Our <a href="/tools/text-difference-checker">Text Difference Checker</a>{" "}
         shows you these changes inline so you can scan through them quickly
         without losing context.
       </p>
@@ -79,7 +79,7 @@ export default function Post() {
       <h3>Checking AI-generated rewrites</h3>
       <p>
         If you've used a{" "}
-        <a href='/tools/paraphrasing-tool'>paraphrasing tool</a> or AI to
+        <a href="/tools/paraphrasing-tool">paraphrasing tool</a> or AI to
         rewrite content, a diff comparison against the original shows you
         exactly how much changed useful both for checking that the meaning was
         preserved and for verifying that the rewrite is substantively different
@@ -171,9 +171,9 @@ export default function Post() {
         surprisingly error-prone when done manually. A diff tool makes it fast,
         accurate, and complete. Whether you're reviewing contract changes,
         tracking content edits, or verifying a rewrite, use the{" "}
-        <a href='/tools/text-difference-checker'>Text Difference Checker</a> to
+        <a href="/tools/text-difference-checker">Text Difference Checker</a> to
         get a clear, unambiguous view of what changed and use a{" "}
-        <a href='/tools/word-character-counter'>word counter</a> alongside it if
+        <a href="/tools/word-character-counter">word counter</a> alongside it if
         you need to track length changes across versions.
       </p>
     </>

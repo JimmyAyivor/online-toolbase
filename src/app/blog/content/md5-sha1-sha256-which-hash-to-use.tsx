@@ -36,7 +36,7 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        Our <a href='/tools/hash-generator'>Hash Generator</a> computes MD5,
+        Our <a href="/tools/hash-generator">Hash Generator</a> computes MD5,
         SHA-1, SHA-256, and SHA-512 hashes for any input text instantly in your
         browser.
       </p>
@@ -167,7 +167,7 @@ export default function Post() {
         bcrypt, not a raw hash function. MD5 and SHA-1 are legacy still useful
         for non-security checksum applications, but should not be used for
         anything where cryptographic integrity matters. Use the{" "}
-        <a href='/tools/hash-generator'>Hash Generator</a> to quickly compute
+        <a href="/tools/hash-generator">Hash Generator</a> to quickly compute
         and compare hashes for any of these algorithms.
       </p>
     </>

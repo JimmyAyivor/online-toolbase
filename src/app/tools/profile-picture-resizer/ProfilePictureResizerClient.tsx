@@ -95,62 +95,62 @@ export default function ProfilePictureResizerClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl mb-4 shadow-lg'>
-              <ImageIcon className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl mb-4 shadow-lg">
+              <ImageIcon className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Profile Picture Resizer
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Resize and crop profile pictures for every social platform —
               processed entirely in your browser
             </p>
           </div>
 
-          <div className='space-y-6'>
+          <div className="space-y-6">
             {/* Upload */}
             <div>
-              <label className='block text-sm font-medium text-gray-700 mb-2'>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Upload Your Image
               </label>
               <div
-                className='border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-indigo-400 transition-colors'
+                className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-indigo-400 transition-colors"
                 onClick={() => fileRef.current?.click()}
               >
                 {original ? (
                   <img
                     src={original}
-                    alt='Original'
-                    className='max-h-48 mx-auto rounded-lg object-contain'
+                    alt="Original"
+                    className="max-h-48 mx-auto rounded-lg object-contain"
                   />
                 ) : (
-                  <div className='text-gray-500'>
-                    <ImageIcon className='w-12 h-12 mx-auto mb-3 text-gray-300' />
-                    <p className='font-medium'>Click to upload an image</p>
-                    <p className='text-sm mt-1'>PNG, JPG, WEBP up to 10 MB</p>
+                  <div className="text-gray-500">
+                    <ImageIcon className="w-12 h-12 mx-auto mb-3 text-gray-300" />
+                    <p className="font-medium">Click to upload an image</p>
+                    <p className="text-sm mt-1">PNG, JPG, WEBP up to 10 MB</p>
                   </div>
                 )}
               </div>
               <input
                 ref={fileRef}
-                type='file'
-                accept='image/*'
+                type="file"
+                accept="image/*"
                 onChange={handleFile}
-                className='hidden'
+                className="hidden"
               />
             </div>
 
             {/* Platform selector */}
-            <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
-              <div className='flex items-center gap-2 mb-3'>
-                <ImageIcon className='w-5 h-5 text-gray-600' />
-                <h3 className='font-semibold text-gray-700'>Select Platform</h3>
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ImageIcon className="w-5 h-5 text-gray-600" />
+                <h3 className="font-semibold text-gray-700">Select Platform</h3>
               </div>
-              <div className='grid grid-cols-2 md:grid-cols-5 gap-2'>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
                 {PLATFORMS.map((p) => (
                   <button
                     key={p.name}
@@ -179,46 +179,46 @@ export default function ProfilePictureResizerClient() {
               </div>
             </div>
 
-            <div className='flex gap-3'>
+            <div className="flex gap-3">
               <button
                 onClick={process}
                 disabled={!original || loading}
-                className='flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 text-white font-semibold rounded-lg transition-colors'
+                className="flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 text-white font-semibold rounded-lg transition-colors"
               >
                 {loading ? "Processing…" : `Resize for ${selected.name}`}
               </button>
               <button
                 onClick={reset}
-                className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2'
+                className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2"
               >
-                <RotateCcw className='w-4 h-4' />
+                <RotateCcw className="w-4 h-4" />
                 Reset
               </button>
             </div>
 
             {/* Result */}
             {preview && (
-              <div className='bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200'>
-                <h3 className='text-xl font-bold text-gray-900 mb-4'>
+              <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Result — {selected.name} ({selected.size}×{selected.size}px)
                 </h3>
-                <div className='grid md:grid-cols-2 gap-6 items-start'>
+                <div className="grid md:grid-cols-2 gap-6 items-start">
                   <img
                     src={preview}
-                    alt='Resized preview'
-                    className='rounded-full w-48 h-48 mx-auto object-cover border-4 border-white shadow-lg'
+                    alt="Resized preview"
+                    className="rounded-full w-48 h-48 mx-auto object-cover border-4 border-white shadow-lg"
                   />
-                  <div className='space-y-3'>
-                    <div className='grid grid-cols-2 gap-3'>
+                  <div className="space-y-3">
+                    <div className="grid grid-cols-2 gap-3">
                       {[
                         { label: "Width", value: `${selected.size}px` },
                         { label: "Height", value: `${selected.size}px` },
                         { label: "Ratio", value: selected.ratio },
                         { label: "Platform", value: selected.name },
                       ].map(({ label, value }) => (
-                        <div key={label} className='bg-white rounded-lg p-3'>
-                          <div className='text-xs text-gray-500'>{label}</div>
-                          <div className='font-semibold text-gray-900 text-sm'>
+                        <div key={label} className="bg-white rounded-lg p-3">
+                          <div className="text-xs text-gray-500">{label}</div>
+                          <div className="font-semibold text-gray-900 text-sm">
                             {value}
                           </div>
                         </div>
@@ -226,9 +226,9 @@ export default function ProfilePictureResizerClient() {
                     </div>
                     <button
                       onClick={download}
-                      className='w-full flex items-center justify-center gap-2 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors'
+                      className="w-full flex items-center justify-center gap-2 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors"
                     >
-                      <Download className='w-4 h-4' />
+                      <Download className="w-4 h-4" />
                       Download PNG
                     </button>
                   </div>
@@ -238,18 +238,18 @@ export default function ProfilePictureResizerClient() {
 
             {/* Platform reference */}
             <div>
-              <h3 className='text-lg font-semibold text-gray-900 mb-3'>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
                 Platform Size Reference
               </h3>
-              <div className='bg-white border border-gray-200 rounded-lg overflow-hidden'>
-                <table className='w-full'>
-                  <thead className='bg-gray-100 sticky top-0'>
+              <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+                <table className="w-full">
+                  <thead className="bg-gray-100 sticky top-0">
                     <tr>
                       {["Platform", "Recommended Size", "Aspect Ratio"].map(
                         (h) => (
                           <th
                             key={h}
-                            className='px-4 py-3 text-left text-sm font-semibold text-gray-700'
+                            className="px-4 py-3 text-left text-sm font-semibold text-gray-700"
                           >
                             {h}
                           </th>
@@ -257,23 +257,23 @@ export default function ProfilePictureResizerClient() {
                       )}
                     </tr>
                   </thead>
-                  <tbody className='divide-y divide-gray-200'>
+                  <tbody className="divide-y divide-gray-200">
                     {PLATFORMS.map((p) => (
                       <tr
                         key={p.name}
-                        className='hover:bg-gray-50 cursor-pointer'
+                        className="hover:bg-gray-50 cursor-pointer"
                         onClick={() => {
                           setSelected(p);
                           setPreview(null);
                         }}
                       >
-                        <td className='px-4 py-3 text-sm font-medium text-gray-900'>
+                        <td className="px-4 py-3 text-sm font-medium text-gray-900">
                           {p.name}
                         </td>
-                        <td className='px-4 py-3 text-sm text-gray-600'>
+                        <td className="px-4 py-3 text-sm text-gray-600">
                           {p.size}×{p.size}px
                         </td>
-                        <td className='px-4 py-3 text-sm text-gray-600'>
+                        <td className="px-4 py-3 text-sm text-gray-600">
                           {p.ratio}
                         </td>
                       </tr>
@@ -284,9 +284,9 @@ export default function ProfilePictureResizerClient() {
             </div>
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Tips:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600">
+            <p className="font-semibold mb-2">Tips:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Your image is processed entirely in the browser — nothing is
                 uploaded to any server

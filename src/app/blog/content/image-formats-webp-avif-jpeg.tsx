@@ -172,9 +172,9 @@ export default function Post() {
         dimensions before converting.
       </p>
       <p>
-        Our <a href='/tools/image-compressor'>Image Compressor</a> reduces file
+        Our <a href="/tools/image-compressor">Image Compressor</a> reduces file
         sizes directly in your browser, and the{" "}
-        <a href='/tools/image-format-converter'>Image Format Converter</a>{" "}
+        <a href="/tools/image-format-converter">Image Format Converter</a>{" "}
         handles JPEG, PNG, and WebP conversion no uploads to a server,
         everything processed locally.
       </p>

@@ -100,26 +100,26 @@ export default function TextDifferenceCheckerClient() {
   };
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-teal-50 via-cyan-50 to-sky-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
+    <div className="min-h-screen bg-gradient-to-br from-teal-50 via-cyan-50 to-sky-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-400 to-cyan-600 rounded-full mb-4 shadow-lg'>
-              <FileText className='w-8 h-8 text-white' />
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-400 to-cyan-600 rounded-full mb-4 shadow-lg">
+              <FileText className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Text Difference Checker
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Paste two text blocks to highlight every addition, removal, and
               modification
             </p>
           </div>
 
           {/* View mode + action controls */}
-          <div className='flex flex-wrap items-center justify-between gap-3 mb-6'>
-            <div className='flex gap-2 bg-gray-100 rounded-xl p-1'>
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+            <div className="flex gap-2 bg-gray-100 rounded-xl p-1">
               {(["sideBySide", "unified"] as ViewMode[]).map((m) => (
                 <button
                   key={m}
@@ -130,19 +130,19 @@ export default function TextDifferenceCheckerClient() {
                 </button>
               ))}
             </div>
-            <div className='flex gap-2'>
+            <div className="flex gap-2">
               <button
                 onClick={swap}
-                className='flex items-center gap-1.5 px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-xl text-sm font-bold transition-all'
+                className="flex items-center gap-1.5 px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-xl text-sm font-bold transition-all"
               >
-                <ArrowLeftRight className='w-4 h-4' />
+                <ArrowLeftRight className="w-4 h-4" />
                 Swap
               </button>
               <button
                 onClick={reset}
-                className='flex items-center gap-1.5 text-sm text-gray-500 hover:text-teal-600 transition-colors px-2'
+                className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-teal-600 transition-colors px-2"
               >
-                <RotateCcw className='w-4 h-4' />
+                <RotateCcw className="w-4 h-4" />
                 Reset
               </button>
             </div>
@@ -169,7 +169,7 @@ export default function TextDifferenceCheckerClient() {
               ] as const
             ).map(({ label, value, set, placeholder }) => (
               <div key={label}>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   {label}
                 </label>
                 <textarea
@@ -179,9 +179,9 @@ export default function TextDifferenceCheckerClient() {
                   }
                   placeholder={placeholder}
                   rows={10}
-                  className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none font-mono text-sm'
+                  className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none font-mono text-sm"
                 />
-                <p className='mt-1.5 text-xs text-gray-400'>
+                <p className="mt-1.5 text-xs text-gray-400">
                   {value.split("\n").length} lines · {value.length} characters
                 </p>
               </div>
@@ -190,13 +190,13 @@ export default function TextDifferenceCheckerClient() {
 
           {/* Results */}
           {result && (
-            <div className='space-y-6'>
+            <div className="space-y-6">
               {/* Stats */}
-              <div className='bg-gradient-to-r from-teal-50 to-cyan-50 border-2 border-teal-100 rounded-2xl p-6'>
-                <p className='text-xs font-bold uppercase tracking-widest text-gray-400 mb-4'>
+              <div className="bg-gradient-to-r from-teal-50 to-cyan-50 border-2 border-teal-100 rounded-2xl p-6">
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">
                   Comparison Summary
                 </p>
-                <div className='grid grid-cols-2 sm:grid-cols-5 gap-3'>
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
                   {[
                     {
                       label: "Similarity",
@@ -234,7 +234,7 @@ export default function TextDifferenceCheckerClient() {
                       className={`rounded-xl border p-3 text-center ${bg}`}
                     >
                       <p className={`text-2xl font-black ${color}`}>{value}</p>
-                      <p className='text-xs text-gray-500 mt-0.5'>{label}</p>
+                      <p className="text-xs text-gray-500 mt-0.5">{label}</p>
                     </div>
                   ))}
                 </div>
@@ -242,27 +242,27 @@ export default function TextDifferenceCheckerClient() {
 
               {/* Diff view */}
               <div>
-                <p className='text-sm font-bold text-gray-500 uppercase tracking-widest mb-3'>
+                <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-3">
                   Line-by-line comparison
                 </p>
 
                 {viewMode === "sideBySide" ? (
-                  <div className='grid md:grid-cols-2 gap-4'>
+                  <div className="grid md:grid-cols-2 gap-4">
                     {(["original", "modified"] as const).map((side) => (
                       <div
                         key={side}
-                        className='rounded-2xl border border-gray-200 overflow-hidden'
+                        className="rounded-2xl border border-gray-200 overflow-hidden"
                       >
-                        <div className='bg-gray-100 px-4 py-2.5 font-bold text-gray-700 text-sm capitalize'>
+                        <div className="bg-gray-100 px-4 py-2.5 font-bold text-gray-700 text-sm capitalize">
                           {side}
                         </div>
-                        <div className='max-h-96 overflow-y-auto divide-y divide-gray-50'>
+                        <div className="max-h-96 overflow-y-auto divide-y divide-gray-50">
                           {result.diff.map((item, idx) => (
                             <div
                               key={idx}
                               className={`flex gap-3 px-4 py-1.5 font-mono text-sm ${lineRowClass(item.type, side)}`}
                             >
-                              <span className='text-gray-300 w-7 shrink-0 text-right select-none'>
+                              <span className="text-gray-300 w-7 shrink-0 text-right select-none">
                                 {item.lineNum}
                               </span>
                               <span className={lineTextClass(item.type, side)}>
@@ -277,38 +277,38 @@ export default function TextDifferenceCheckerClient() {
                     ))}
                   </div>
                 ) : (
-                  <div className='rounded-2xl border border-gray-200 overflow-hidden'>
-                    <div className='max-h-[32rem] overflow-y-auto divide-y divide-gray-50'>
+                  <div className="rounded-2xl border border-gray-200 overflow-hidden">
+                    <div className="max-h-[32rem] overflow-y-auto divide-y divide-gray-50">
                       {result.diff.map((item, idx) => (
                         <div key={idx}>
                           {item.type === "unchanged" && (
-                            <div className='flex gap-3 px-4 py-1.5 font-mono text-sm bg-white'>
-                              <span className='text-gray-300 w-7 shrink-0 text-right select-none'>
+                            <div className="flex gap-3 px-4 py-1.5 font-mono text-sm bg-white">
+                              <span className="text-gray-300 w-7 shrink-0 text-right select-none">
                                 {item.lineNum}
                               </span>
-                              <span className='text-gray-700'>
+                              <span className="text-gray-700">
                                 {item.line1 || "\u00a0"}
                               </span>
                             </div>
                           )}
                           {(item.type === "removed" ||
                             item.type === "modified") && (
-                            <div className='flex gap-3 px-4 py-1.5 font-mono text-sm bg-red-50'>
-                              <span className='text-red-300 w-7 shrink-0 text-right select-none font-bold'>
+                            <div className="flex gap-3 px-4 py-1.5 font-mono text-sm bg-red-50">
+                              <span className="text-red-300 w-7 shrink-0 text-right select-none font-bold">
                                 −
                               </span>
-                              <span className='text-red-700'>
+                              <span className="text-red-700">
                                 {item.line1 || "\u00a0"}
                               </span>
                             </div>
                           )}
                           {(item.type === "added" ||
                             item.type === "modified") && (
-                            <div className='flex gap-3 px-4 py-1.5 font-mono text-sm bg-emerald-50'>
-                              <span className='text-emerald-400 w-7 shrink-0 text-right select-none font-bold'>
+                            <div className="flex gap-3 px-4 py-1.5 font-mono text-sm bg-emerald-50">
+                              <span className="text-emerald-400 w-7 shrink-0 text-right select-none font-bold">
                                 +
                               </span>
-                              <span className='text-emerald-700'>
+                              <span className="text-emerald-700">
                                 {item.line2 || "\u00a0"}
                               </span>
                             </div>
@@ -321,7 +321,7 @@ export default function TextDifferenceCheckerClient() {
               </div>
 
               {/* Legend */}
-              <div className='flex flex-wrap gap-4 px-1'>
+              <div className="flex flex-wrap gap-4 px-1">
                 {[
                   { bg: "bg-white border border-gray-200", label: "Unchanged" },
                   {
@@ -336,7 +336,7 @@ export default function TextDifferenceCheckerClient() {
                 ].map(({ bg, label }) => (
                   <div
                     key={label}
-                    className='flex items-center gap-2 text-xs text-gray-500'
+                    className="flex items-center gap-2 text-xs text-gray-500"
                   >
                     <div className={`w-4 h-4 rounded ${bg}`} />
                     {label}
@@ -347,9 +347,9 @@ export default function TextDifferenceCheckerClient() {
           )}
 
           {/* Tips */}
-          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>💡 How to use:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">💡 How to use:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Paste the original version in the left box and the revised
                 version in the right

@@ -106,38 +106,38 @@ export default function CalorieMacroCalculatorPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* Breadcrumb */}
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-indigo-600 transition-colors'>
+            <a href="/" className="hover:text-indigo-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/health'
-              className='hover:text-indigo-600 transition-colors'
+              href="/tools/category/health"
+              className="hover:text-indigo-600 transition-colors"
             >
               Health Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Calorie & Macro Calculator
             </span>
           </li>
@@ -145,14 +145,14 @@ export default function CalorieMacroCalculatorPage() {
       </nav>
 
       {/* Category badge + SR H1 */}
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Health Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Calorie & Macro Calculator — Free Online Calorie & Macro Calculator
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Calculate your daily calorie needs and macronutrient targets for any
           goal. Free, instant, no account needed.
         </p>
@@ -161,72 +161,72 @@ export default function CalorieMacroCalculatorPage() {
       {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
       <SidebarAdLayout>
         {/* ── Tool component (main interactive area) ──────────────────── */}
-        <main id='main-content' aria-label='Calorie & Macro Calculator tool'>
+        <main id="main-content" aria-label="Calorie & Macro Calculator tool">
           <CalorieMacroCalculatorClient />
         </main>
 
         {/* ── Zone G: below tool result — highest value placement ──────── */}
         {/* Sits immediately after the tool, before any editorial content   */}
-        <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
+        <div className="max-w-6xl mx-auto px-4 mt-6 flex justify-center">
           {/* desktop: rectangle 336×280; mobile: medium rectangle 300×250 */}
-          <div className='hidden sm:block'>
-            <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
+          <div className="hidden sm:block">
+            <AdSlot variant="rectangle" slotId={SLOT_BELOW_TOOL} />
           </div>
-          <div className='block sm:hidden'>
-            <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
+          <div className="block sm:hidden">
+            <AdSlot variant="mediumrectangle" slotId={SLOT_BELOW_TOOL} />
           </div>
         </div>
 
         {/* ── Zone H: between tool + How To editorial ──────────────────── */}
-        <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
+        <div className="max-w-6xl mx-auto px-4 mt-4 flex justify-center">
           <AdSlot
-            variant='leaderboard'
+            variant="leaderboard"
             slotId={SLOT_LEADERBOARD}
-            className='hidden sm:flex'
+            className="hidden sm:flex"
           />
           <AdSlot
-            variant='mediumrectangle'
+            variant="mediumrectangle"
             slotId={SLOT_LEADERBOARD}
-            className='flex sm:hidden'
+            className="flex sm:hidden"
           />
         </div>
 
         {/* ── Editorial: How To + Related Tools ────────────────────────── */}
         <section
-          aria-labelledby='how-to-use-calorie-macro'
-          className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16'
+          aria-labelledby="how-to-use-calorie-macro"
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
         >
           <h2
-            id='how-to-use-calorie-macro'
-            className='text-4xl font-bold text-gray-900 mb-4 text-center'
+            id="how-to-use-calorie-macro"
+            className="text-4xl font-bold text-gray-900 mb-4 text-center"
           >
             How to Use the Calorie &amp; Macro Calculator
           </h2>
-          <p className='text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed'>
+          <p className="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed">
             Enter your stats and goal, and get a personalised daily calorie
             target plus protein, carb, and fat targets — all calculated from
             your actual body data, not a generic table.
           </p>
 
           {/* ── Steps ── */}
-          <div className='space-y-6 mb-14'>
+          <div className="space-y-6 mb-14">
             {/* Step 1 */}
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 text-white font-black text-lg flex items-center justify-center'>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 text-white font-black text-lg flex items-center justify-center">
                 1
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Enter your personal details
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-4'>
+                <p className="text-gray-600 leading-relaxed mb-4">
                   Fill in your <strong>age</strong>, <strong>gender</strong>,{" "}
                   <strong>height</strong>, and <strong>weight</strong>. These
                   four inputs feed the Mifflin–St Jeor equation — the most
                   widely validated formula for estimating Basal Metabolic Rate
                   (BMR), used by dietitians and researchers.
                 </p>
-                <div className='grid sm:grid-cols-2 gap-3'>
+                <div className="grid sm:grid-cols-2 gap-3">
                   {[
                     {
                       label: "Age",
@@ -247,12 +247,12 @@ export default function CalorieMacroCalculatorPage() {
                   ].map(({ label, note }) => (
                     <div
                       key={label}
-                      className='bg-gray-50 rounded-xl border border-gray-100 px-4 py-3'
+                      className="bg-gray-50 rounded-xl border border-gray-100 px-4 py-3"
                     >
-                      <p className='text-sm font-bold text-gray-900 mb-1'>
+                      <p className="text-sm font-bold text-gray-900 mb-1">
                         {label}
                       </p>
-                      <p className='text-sm text-gray-500 leading-relaxed'>
+                      <p className="text-sm text-gray-500 leading-relaxed">
                         {note}
                       </p>
                     </div>
@@ -262,15 +262,15 @@ export default function CalorieMacroCalculatorPage() {
             </div>
 
             {/* Step 2 */}
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 text-white font-black text-lg flex items-center justify-center'>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 text-white font-black text-lg flex items-center justify-center">
                 2
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Set your activity level
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-4'>
+                <p className="text-gray-600 leading-relaxed mb-4">
                   Your BMR is multiplied by an{" "}
                   <strong>Activity Multiplier</strong> (also called a PAL —
                   Physical Activity Level) to get your Total Daily Energy
@@ -278,7 +278,7 @@ export default function CalorieMacroCalculatorPage() {
                   reflects your typical week — not your best week or your ideal
                   week.
                 </p>
-                <div className='space-y-2'>
+                <div className="space-y-2">
                   {[
                     {
                       level: "Sedentary",
@@ -308,21 +308,21 @@ export default function CalorieMacroCalculatorPage() {
                   ].map(({ level, multiplier, desc }) => (
                     <div
                       key={level}
-                      className='flex items-start gap-3 text-sm bg-gray-50 rounded-xl px-4 py-3'
+                      className="flex items-start gap-3 text-sm bg-gray-50 rounded-xl px-4 py-3"
                     >
-                      <code className='text-xs font-bold bg-orange-100 text-orange-700 px-2 py-1 rounded flex-shrink-0 mt-0.5'>
+                      <code className="text-xs font-bold bg-orange-100 text-orange-700 px-2 py-1 rounded flex-shrink-0 mt-0.5">
                         {multiplier}
                       </code>
                       <div>
-                        <p className='font-semibold text-gray-900 mb-0.5'>
+                        <p className="font-semibold text-gray-900 mb-0.5">
                           {level}
                         </p>
-                        <p className='text-gray-500 leading-relaxed'>{desc}</p>
+                        <p className="text-gray-500 leading-relaxed">{desc}</p>
                       </div>
                     </div>
                   ))}
                 </div>
-                <div className='mt-4 bg-orange-50 rounded-xl px-5 py-4 text-sm text-orange-800 leading-relaxed'>
+                <div className="mt-4 bg-orange-50 rounded-xl px-5 py-4 text-sm text-orange-800 leading-relaxed">
                   <strong>
                     Most people underestimate their activity level
                   </strong>{" "}
@@ -336,20 +336,20 @@ export default function CalorieMacroCalculatorPage() {
             </div>
 
             {/* Step 3 */}
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 text-white font-black text-lg flex items-center justify-center'>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 text-white font-black text-lg flex items-center justify-center">
                 3
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Choose your goal
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-4'>
+                <p className="text-gray-600 leading-relaxed mb-4">
                   Select what you're trying to achieve. The calculator applies a
                   calorie adjustment to your TDEE and shifts the macro ratios to
                   suit each goal:
                 </p>
-                <div className='space-y-3'>
+                <div className="space-y-3">
                   {[
                     {
                       goal: "Lose weight",
@@ -375,19 +375,19 @@ export default function CalorieMacroCalculatorPage() {
                   ].map(({ goal, adjustment, badge, detail }) => (
                     <div
                       key={goal}
-                      className='flex items-start gap-3 text-sm bg-gray-50 rounded-xl px-4 py-4'
+                      className="flex items-start gap-3 text-sm bg-gray-50 rounded-xl px-4 py-4"
                     >
-                      <div className='flex-shrink-0 pt-0.5'>
+                      <div className="flex-shrink-0 pt-0.5">
                         <span
                           className={`text-xs font-bold px-2.5 py-1 rounded-full ${badge}`}
                         >
                           {goal}
                         </span>
-                        <p className='text-xs text-gray-400 mt-1.5 pl-0.5'>
+                        <p className="text-xs text-gray-400 mt-1.5 pl-0.5">
                           {adjustment}
                         </p>
                       </div>
-                      <p className='text-gray-600 leading-relaxed'>{detail}</p>
+                      <p className="text-gray-600 leading-relaxed">{detail}</p>
                     </div>
                   ))}
                 </div>
@@ -395,20 +395,20 @@ export default function CalorieMacroCalculatorPage() {
             </div>
 
             {/* Step 4 */}
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 text-white font-black text-lg flex items-center justify-center'>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 text-white font-black text-lg flex items-center justify-center">
                 4
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Read your calorie and macro targets
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-4'>
+                <p className="text-gray-600 leading-relaxed mb-4">
                   The results show your daily calorie target plus individual
                   gram targets for all three macronutrients. Here's what each
                   number means and why it's set where it is:
                 </p>
-                <div className='space-y-3'>
+                <div className="space-y-3">
                   {[
                     {
                       macro: "Protein",
@@ -428,18 +428,18 @@ export default function CalorieMacroCalculatorPage() {
                   ].map(({ macro, color, why }) => (
                     <div
                       key={macro}
-                      className='flex items-start gap-3 text-sm bg-gray-50 rounded-xl px-4 py-3'
+                      className="flex items-start gap-3 text-sm bg-gray-50 rounded-xl px-4 py-3"
                     >
                       <span
                         className={`text-xs font-bold px-2.5 py-1.5 rounded-full flex-shrink-0 ${color}`}
                       >
                         {macro}
                       </span>
-                      <p className='text-gray-600 leading-relaxed'>{why}</p>
+                      <p className="text-gray-600 leading-relaxed">{why}</p>
                     </div>
                   ))}
                 </div>
-                <p className='mt-4 text-sm text-gray-500 leading-relaxed'>
+                <p className="mt-4 text-sm text-gray-500 leading-relaxed">
                   The calorie totals are presented as a daily figure. To get a
                   weekly picture — useful for flexible dieting — multiply by 7.
                   What matters for body composition is the weekly average, not
@@ -450,13 +450,13 @@ export default function CalorieMacroCalculatorPage() {
           </div>
 
           {/* ── Understanding the output ── */}
-          <div className='bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6'>
-            <h3 className='text-xl font-bold text-gray-900 mb-4'>
+          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">
               Understanding your results
             </h3>
 
-            <h4 className='font-bold text-gray-800 mb-2'>BMR vs TDEE</h4>
-            <p className='text-gray-600 leading-relaxed mb-5 text-sm'>
+            <h4 className="font-bold text-gray-800 mb-2">BMR vs TDEE</h4>
+            <p className="text-gray-600 leading-relaxed mb-5 text-sm">
               Your <strong>Basal Metabolic Rate (BMR)</strong> is the number of
               calories your body burns at complete rest — to keep your organs
               running, maintain body temperature, and sustain basic function.
@@ -467,10 +467,10 @@ export default function CalorieMacroCalculatorPage() {
               TDEE, not BMR.
             </p>
 
-            <h4 className='font-bold text-gray-800 mb-2'>
+            <h4 className="font-bold text-gray-800 mb-2">
               Why macros matter beyond calories
             </h4>
-            <p className='text-gray-600 leading-relaxed mb-5 text-sm'>
+            <p className="text-gray-600 leading-relaxed mb-5 text-sm">
               Two people eating the same number of calories can have very
               different body composition outcomes depending on their macro
               split. A 2,000 kcal diet of 200 g protein, 180 g carbs, 55 g fat
@@ -481,10 +481,10 @@ export default function CalorieMacroCalculatorPage() {
               macro targets, not just a calorie number.
             </p>
 
-            <h4 className='font-bold text-gray-800 mb-3'>
+            <h4 className="font-bold text-gray-800 mb-3">
               Calorie content of each macro
             </h4>
-            <div className='grid grid-cols-3 gap-3 mb-5'>
+            <div className="grid grid-cols-3 gap-3 mb-5">
               {[
                 {
                   macro: "Protein",
@@ -506,12 +506,12 @@ export default function CalorieMacroCalculatorPage() {
                   key={macro}
                   className={`rounded-xl border px-4 py-3 text-center ${color}`}
                 >
-                  <p className='text-xs font-bold mb-1'>{macro}</p>
-                  <p className='text-lg font-black'>{kcal}</p>
+                  <p className="text-xs font-bold mb-1">{macro}</p>
+                  <p className="text-lg font-black">{kcal}</p>
                 </div>
               ))}
             </div>
-            <p className='text-sm text-gray-500 leading-relaxed'>
+            <p className="text-sm text-gray-500 leading-relaxed">
               Fat contains more than twice the calories per gram of protein or
               carbohydrate. This is why high-fat foods are calorie-dense — not
               because fat is inherently bad, but because the maths stack up
@@ -522,11 +522,11 @@ export default function CalorieMacroCalculatorPage() {
           </div>
 
           {/* ── Limitations ── */}
-          <div className='bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6'>
-            <h3 className='text-xl font-bold text-gray-900 mb-3'>
+          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6">
+            <h3 className="text-xl font-bold text-gray-900 mb-3">
               Limitations to be aware of
             </h3>
-            <div className='space-y-3 text-sm'>
+            <div className="space-y-3 text-sm">
               {[
                 {
                   title: "TDEE calculators give estimates, not measurements",
@@ -547,16 +547,16 @@ export default function CalorieMacroCalculatorPage() {
               ].map(({ title, body }) => (
                 <div
                   key={title}
-                  className='flex items-start gap-3 bg-gray-50 rounded-xl px-4 py-4'
+                  className="flex items-start gap-3 bg-gray-50 rounded-xl px-4 py-4"
                 >
-                  <span className='text-amber-500 flex-shrink-0 mt-0.5 font-bold'>
+                  <span className="text-amber-500 flex-shrink-0 mt-0.5 font-bold">
                     ⚠
                   </span>
                   <div>
-                    <p className='font-semibold text-gray-900 mb-0.5'>
+                    <p className="font-semibold text-gray-900 mb-0.5">
                       {title}
                     </p>
-                    <p className='text-gray-500 leading-relaxed'>{body}</p>
+                    <p className="text-gray-500 leading-relaxed">{body}</p>
                   </div>
                 </div>
               ))}
@@ -564,11 +564,11 @@ export default function CalorieMacroCalculatorPage() {
           </div>
 
           {/* ── Practical starting points ── */}
-          <div className='bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6'>
-            <h3 className='text-xl font-bold text-gray-900 mb-4'>
+          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">
               How to actually use your numbers day-to-day
             </h3>
-            <div className='space-y-4 text-sm'>
+            <div className="space-y-4 text-sm">
               {[
                 {
                   n: "1",
@@ -591,15 +591,15 @@ export default function CalorieMacroCalculatorPage() {
                   body: "A 'cup' of oats or a 'tablespoon' of peanut butter can vary by 50–100% in calorie content depending on how packed or heaped the measure is. Weighing food on a kitchen scale is the only way to get accurate numbers if precise tracking matters for your goal.",
                 },
               ].map(({ n, title, body }) => (
-                <div key={n} className='flex items-start gap-4'>
-                  <span className='w-7 h-7 rounded-full bg-orange-100 text-orange-700 text-xs font-black flex items-center justify-center flex-shrink-0 mt-0.5'>
+                <div key={n} className="flex items-start gap-4">
+                  <span className="w-7 h-7 rounded-full bg-orange-100 text-orange-700 text-xs font-black flex items-center justify-center flex-shrink-0 mt-0.5">
                     {n}
                   </span>
                   <div>
-                    <p className='font-semibold text-gray-900 mb-0.5'>
+                    <p className="font-semibold text-gray-900 mb-0.5">
                       {title}
                     </p>
-                    <p className='text-gray-500 leading-relaxed'>{body}</p>
+                    <p className="text-gray-500 leading-relaxed">{body}</p>
                   </div>
                 </div>
               ))}
@@ -607,16 +607,16 @@ export default function CalorieMacroCalculatorPage() {
           </div>
 
           {/* ── Privacy note ── */}
-          <div className='bg-gradient-to-br from-orange-500 to-amber-600 rounded-2xl p-8 text-white text-center mb-14'>
-            <div className='text-3xl mb-3'>🔒</div>
-            <h3 className='text-xl font-bold mb-3'>
+          <div className="bg-gradient-to-br from-orange-500 to-amber-600 rounded-2xl p-8 text-white text-center mb-14">
+            <div className="text-3xl mb-3">🔒</div>
+            <h3 className="text-xl font-bold mb-3">
               Your data never leaves your device
             </h3>
-            <p className='text-orange-100 leading-relaxed max-w-xl mx-auto text-sm'>
+            <p className="text-orange-100 leading-relaxed max-w-xl mx-auto text-sm">
               All calculations run entirely in your browser. Your age, weight,
               height, and goal are never sent to a server or stored anywhere.
               This tool is part of our{" "}
-              <a href='/' className='underline text-white font-medium'>
+              <a href="/" className="underline text-white font-medium">
                 free online tools directory
               </a>{" "}
               — 80+ tools covering calculators, converters, generators, and
@@ -626,10 +626,10 @@ export default function CalorieMacroCalculatorPage() {
 
           {/* ── Related tools ── */}
           <div>
-            <h3 className='text-lg font-bold text-gray-900 mb-4'>
+            <h3 className="text-lg font-bold text-gray-900 mb-4">
               Related Free Health Tools
             </h3>
-            <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
                 {
                   href: "/tools/bmi-calculator",
@@ -650,19 +650,22 @@ export default function CalorieMacroCalculatorPage() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className='block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-indigo-200 hover:-translate-y-1 transition-all duration-200 p-5'
+                  className="block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-indigo-200 hover:-translate-y-1 transition-all duration-200 p-5"
                   aria-label={`${link.label} — ${link.desc}`}
                 >
-                  <div className='font-bold text-gray-900 text-sm mb-1'>
+                  <div className="font-bold text-gray-900 text-sm mb-1">
                     {link.label}
                   </div>
-                  <div className='text-xs text-gray-500'>{link.desc}</div>
+                  <div className="text-xs text-gray-500">{link.desc}</div>
                 </a>
               ))}
             </div>
           </div>
         </section>
-              <ToolEngagement toolSlug="calorie-macro-calculator" toolName="Calorie & Macro Calculator" />
+        <ToolEngagement
+          toolSlug="calorie-macro-calculator"
+          toolName="Calorie & Macro Calculator"
+        />
       </SidebarAdLayout>
     </>
   );

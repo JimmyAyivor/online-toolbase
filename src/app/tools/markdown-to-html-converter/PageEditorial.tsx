@@ -28,26 +28,26 @@ function QRModal({ onClose }: { onClose: () => void }) {
   }, []);
   return (
     <div
-      className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm'
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <div className='relative bg-white rounded-3xl shadow-2xl p-8 mx-4 max-w-xs w-full text-center'>
+      <div className="relative bg-white rounded-3xl shadow-2xl p-8 mx-4 max-w-xs w-full text-center">
         <button
           onClick={onClose}
-          className='absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500'
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500"
         >
           ✕
         </button>
-        <h3 className='text-lg font-black text-gray-900 mb-1'>
+        <h3 className="text-lg font-black text-gray-900 mb-1">
           Take it with you
         </h3>
-        <p className='text-sm text-gray-400 mb-5'>
+        <p className="text-sm text-gray-400 mb-5">
           Scan to open the {TOOL_NAME} on mobile
         </p>
-        <div className='inline-block rounded-2xl overflow-hidden border-4 border-blue-100 shadow-inner mb-5'>
+        <div className="inline-block rounded-2xl overflow-hidden border-4 border-blue-100 shadow-inner mb-5">
           <canvas ref={canvasRef} />
         </div>
-        <p className='text-xs text-gray-300 font-mono break-all'>{TOOL_URL}</p>
+        <p className="text-xs text-gray-300 font-mono break-all">{TOOL_URL}</p>
       </div>
     </div>
   );
@@ -90,23 +90,23 @@ function ShareBar() {
   return (
     <>
       {qrOpen && <QRModal onClose={() => setQrOpen(false)} />}
-      <div className='bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-5 mb-6'>
-        <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4'>
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-5 mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <p className='text-sm font-bold text-gray-900 mb-0.5'>
+            <p className="text-sm font-bold text-gray-900 mb-0.5">
               Found this useful?
             </p>
-            <p className='text-xs text-gray-400'>
+            <p className="text-xs text-gray-400">
               Share the tool or scan to open on your phone
             </p>
           </div>
-          <div className='flex flex-wrap items-center gap-2'>
+          <div className="flex flex-wrap items-center gap-2">
             {SHARES.map(({ label, href, bg }) => (
               <a
                 key={label}
                 href={href}
-                target='_blank'
-                rel='noopener noreferrer'
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`inline-flex items-center px-3 py-2 rounded-xl text-white text-xs font-semibold transition-all shadow-sm hover:-translate-y-0.5 ${bg}`}
               >
                 {label}
@@ -114,17 +114,17 @@ function ShareBar() {
             ))}
             <button
               onClick={copyLink}
-              className='px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold'
+              className="px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold"
             >
               {copied ? (
-                <span className='text-blue-600'>✓ Copied!</span>
+                <span className="text-blue-600">✓ Copied!</span>
               ) : (
                 "Copy link"
               )}
             </button>
             <button
               onClick={() => setQrOpen(true)}
-              className='hidden sm:block px-3 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-semibold hover:-translate-y-0.5 transition-all'
+              className="hidden sm:block px-3 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-semibold hover:-translate-y-0.5 transition-all"
             >
               Scan QR
             </button>
@@ -165,27 +165,27 @@ const FAQS = [
 function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
   return (
-    <div className='bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10'>
-      <h2 className='text-2xl font-bold text-gray-900 mb-6'>
+    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10">
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">
         Frequently Asked Questions
       </h2>
-      <div className='space-y-3'>
+      <div className="space-y-3">
         {FAQS.map((f, i) => (
           <div
             key={i}
-            className='border border-gray-100 rounded-xl overflow-hidden'
+            className="border border-gray-100 rounded-xl overflow-hidden"
           >
             <button
-              className='w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors'
+              className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
               onClick={() => setOpen(open === i ? null : i)}
             >
-              <span className='font-semibold text-gray-900 text-sm'>{f.q}</span>
-              <span className='text-blue-600 text-lg shrink-0'>
+              <span className="font-semibold text-gray-900 text-sm">{f.q}</span>
+              <span className="text-blue-600 text-lg shrink-0">
                 {open === i ? "−" : "+"}
               </span>
             </button>
             {open === i && (
-              <div className='px-5 pb-5 text-sm text-gray-600 leading-relaxed'>
+              <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed">
                 {f.a}
               </div>
             )}
@@ -199,65 +199,65 @@ function FAQSection() {
 export default function PageEditorial() {
   return (
     <>
-      <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
-        <div className='hidden sm:block'>
-          <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
+      <div className="max-w-6xl mx-auto px-4 mt-6 flex justify-center">
+        <div className="hidden sm:block">
+          <AdSlot variant="rectangle" slotId={SLOT_BELOW_TOOL} />
         </div>
-        <div className='block sm:hidden'>
-          <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
+        <div className="block sm:hidden">
+          <AdSlot variant="mediumrectangle" slotId={SLOT_BELOW_TOOL} />
         </div>
       </div>
-      <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
+      <div className="max-w-6xl mx-auto px-4 mt-4 flex justify-center">
         <AdSlot
-          variant='leaderboard'
+          variant="leaderboard"
           slotId={SLOT_LEADERBOARD}
-          className='hidden sm:flex'
+          className="hidden sm:flex"
         />
         <AdSlot
-          variant='mediumrectangle'
+          variant="mediumrectangle"
           slotId={SLOT_LEADERBOARD}
-          className='flex sm:hidden'
+          className="flex sm:hidden"
         />
       </div>
-      <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10'>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
         <ShareBar />
       </div>
 
       <section
-        id='how-to-use'
-        className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10'
+        id="how-to-use"
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10"
       >
-        <h2 className='text-4xl font-bold text-gray-900 mb-4 text-center'>
+        <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">
           How to Use the Markdown to HTML Converter
         </h2>
-        <p className='text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed'>
+        <p className="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed">
           Paste or type Markdown in the editor — the HTML output and live
           rendered preview update in real time as you type.
         </p>
 
-        <div className='space-y-6 mb-14'>
+        <div className="space-y-6 mb-14">
           {[
             {
               n: 1,
               title: "Type or paste your Markdown",
               body: "Enter Markdown text in the left editor panel. A sample document loads automatically when the tool opens — use it as a syntax reference or clear it to start fresh. The editor accepts all standard CommonMark Markdown syntax: headings, bold, italic, links, images, lists, blockquotes, tables, and fenced code blocks. Paste content from any source — GitHub READMEs, documentation files, blog post drafts, or notes from apps like Obsidian, Notion, or Typora.",
               enrich: (
-                <div className='overflow-x-auto rounded-xl border border-gray-100 text-sm'>
-                  <table className='w-full text-left'>
-                    <thead className='bg-gray-50'>
+                <div className="overflow-x-auto rounded-xl border border-gray-100 text-sm">
+                  <table className="w-full text-left">
+                    <thead className="bg-gray-50">
                       <tr>
-                        <th className='px-4 py-2 text-xs font-bold text-gray-500 uppercase'>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
                           Markdown syntax
                         </th>
-                        <th className='px-4 py-2 text-xs font-bold text-gray-500 uppercase'>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
                           HTML output
                         </th>
-                        <th className='px-4 py-2 text-xs font-bold text-gray-500 uppercase'>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
                           Result
                         </th>
                       </tr>
                     </thead>
-                    <tbody className='divide-y divide-gray-50'>
+                    <tbody className="divide-y divide-gray-50">
                       {[
                         [
                           "# Heading 1",
@@ -282,14 +282,14 @@ export default function PageEditorial() {
                           "Bullet list",
                         ],
                       ].map(([md, html, r]) => (
-                        <tr key={md} className='hover:bg-blue-50'>
-                          <td className='px-4 py-2 font-mono text-xs text-blue-700'>
+                        <tr key={md} className="hover:bg-blue-50">
+                          <td className="px-4 py-2 font-mono text-xs text-blue-700">
                             {md}
                           </td>
-                          <td className='px-4 py-2 font-mono text-xs text-gray-500'>
+                          <td className="px-4 py-2 font-mono text-xs text-gray-500">
                             {html}
                           </td>
-                          <td className='px-4 py-2 text-xs text-gray-600'>
+                          <td className="px-4 py-2 text-xs text-gray-600">
                             {r}
                           </td>
                         </tr>
@@ -304,22 +304,22 @@ export default function PageEditorial() {
               title: "View the live rendered preview",
               body: "The Preview tab in the output panel shows your Markdown rendered as formatted HTML in real time — exactly as it would appear in a browser. Use this to verify heading hierarchy, check that tables display correctly, and confirm that links and images are formatted as expected before copying the HTML. Toggle between the Preview and HTML tabs to compare the rendered output with the raw HTML code.",
               enrich: (
-                <div className='bg-blue-50 rounded-xl px-5 py-4 text-sm text-blue-800 leading-relaxed'>
+                <div className="bg-blue-50 rounded-xl px-5 py-4 text-sm text-blue-800 leading-relaxed">
                   <strong>Table rendering tip:</strong> Markdown tables require
                   a header separator row (| --- | --- |) to render correctly. If
                   your table isn't rendering, check that the separator row is
                   present, that you have the same number of columns in every
                   row, and that there are blank lines before and after the table
                   block. Column alignment is controlled by colons:{" "}
-                  <code className='bg-white px-1 rounded font-mono'>
+                  <code className="bg-white px-1 rounded font-mono">
                     | :--- |
                   </code>{" "}
                   left,{" "}
-                  <code className='bg-white px-1 rounded font-mono'>
+                  <code className="bg-white px-1 rounded font-mono">
                     | ---: |
                   </code>{" "}
                   right,{" "}
-                  <code className='bg-white px-1 rounded font-mono'>
+                  <code className="bg-white px-1 rounded font-mono">
                     | :---: |
                   </code>{" "}
                   centre.
@@ -331,7 +331,7 @@ export default function PageEditorial() {
               title: "Copy the generated HTML",
               body: "Switch to the HTML tab to see the raw HTML output, then click the Copy HTML button to copy the complete HTML to your clipboard. The output is clean, semantic HTML — heading tags (h1–h6), paragraph tags, strong and em for emphasis, ul/ol/li for lists, blockquote, pre and code for code blocks, and table elements with thead and tbody. Paste the HTML directly into a CMS rich text editor, a static HTML file, or any system that accepts HTML input.",
               enrich: (
-                <div className='bg-indigo-50 rounded-xl px-5 py-4 text-sm text-indigo-800 leading-relaxed'>
+                <div className="bg-indigo-50 rounded-xl px-5 py-4 text-sm text-indigo-800 leading-relaxed">
                   <strong>CMS integration:</strong> Most modern CMS platforms
                   (WordPress, Ghost, Contentful, Sanity) have a Markdown field
                   or plugin that handles conversion automatically — paste
@@ -347,28 +347,28 @@ export default function PageEditorial() {
               title: "Use the Markdown cheat sheet",
               body: "The Quick Reference panel below the editor lists common Markdown syntax elements as a handy reminder while you write. For a complete syntax reference including edge cases and less common elements (definition lists, footnotes, task lists), refer to the CommonMark specification at spec.commonmark.org or the GitHub Flavored Markdown spec for GFM extensions.",
               enrich: (
-                <div className='bg-blue-50 rounded-xl px-5 py-4 text-sm text-blue-800 leading-relaxed'>
+                <div className="bg-blue-50 rounded-xl px-5 py-4 text-sm text-blue-800 leading-relaxed">
                   <strong>Code block tip:</strong> Start a fenced code block
                   with three backticks and a language name for syntax
                   highlighting in platforms that support it:{" "}
-                  <code className='bg-white px-1 rounded font-mono'>
+                  <code className="bg-white px-1 rounded font-mono">
                     ```javascript
                   </code>
                   ,{" "}
-                  <code className='bg-white px-1 rounded font-mono'>
+                  <code className="bg-white px-1 rounded font-mono">
                     ```python
                   </code>
                   ,{" "}
-                  <code className='bg-white px-1 rounded font-mono'>
+                  <code className="bg-white px-1 rounded font-mono">
                     ```bash
                   </code>
                   ,{" "}
-                  <code className='bg-white px-1 rounded font-mono'>
+                  <code className="bg-white px-1 rounded font-mono">
                     ```sql
                   </code>
                   . The language identifier is passed through as a class name in
                   the HTML output (
-                  <code className='bg-white px-1 rounded font-mono'>
+                  <code className="bg-white px-1 rounded font-mono">
                     class="language-python"
                   </code>
                   ) — compatible with Prism.js, highlight.js, and most syntax
@@ -379,16 +379,16 @@ export default function PageEditorial() {
           ].map(({ n, title, body, enrich }) => (
             <div
               key={n}
-              className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'
+              className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5"
             >
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 text-white font-black text-lg flex items-center justify-center'>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 text-white font-black text-lg flex items-center justify-center">
                 {n}
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {title}
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-3'>{body}</p>
+                <p className="text-gray-600 leading-relaxed mb-3">{body}</p>
                 {enrich}
               </div>
             </div>
@@ -397,10 +397,10 @@ export default function PageEditorial() {
 
         <FAQSection />
 
-        <h3 className='text-2xl font-bold text-gray-900 mb-6'>
+        <h3 className="text-2xl font-bold text-gray-900 mb-6">
           Common use cases
         </h3>
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14'>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
           {[
             {
               emoji: "📝",
@@ -435,21 +435,21 @@ export default function PageEditorial() {
           ].map(({ emoji, title, desc }) => (
             <div
               key={title}
-              className='bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:border-blue-200 hover:-translate-y-1 transition-all duration-200'
+              className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:border-blue-200 hover:-translate-y-1 transition-all duration-200"
             >
-              <div className='text-2xl mb-3'>{emoji}</div>
-              <p className='font-bold text-gray-900 text-sm mb-2'>{title}</p>
-              <p className='text-xs text-gray-500 leading-relaxed'>{desc}</p>
+              <div className="text-2xl mb-3">{emoji}</div>
+              <p className="font-bold text-gray-900 text-sm mb-2">{title}</p>
+              <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
 
-        <div className='bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-8 text-white text-center mb-14'>
-          <div className='text-3xl mb-3'>⌨️</div>
-          <h3 className='text-xl font-bold mb-3'>
+        <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-8 text-white text-center mb-14">
+          <div className="text-3xl mb-3">⌨️</div>
+          <h3 className="text-xl font-bold mb-3">
             Markdown: write once, publish anywhere
           </h3>
-          <p className='text-blue-100 leading-relaxed max-w-xl mx-auto text-sm'>
+          <p className="text-blue-100 leading-relaxed max-w-xl mx-auto text-sm">
             One of Markdown's greatest strengths is portability. A .md file
             written today can be rendered on GitHub, published as a blog post
             via Jekyll or Hugo, converted to a PDF via Pandoc, imported into
@@ -462,10 +462,10 @@ export default function PageEditorial() {
         </div>
 
         <div>
-          <h3 className='text-lg font-bold text-gray-900 mb-4'>
+          <h3 className="text-lg font-bold text-gray-900 mb-4">
             Related Free Developer Tools
           </h3>
-          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
                 href: "/tools/json-formatter-validator",
@@ -486,12 +486,12 @@ export default function PageEditorial() {
               <a
                 key={href}
                 href={href}
-                className='block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-blue-200 hover:-translate-y-1 transition-all duration-200 p-5'
+                className="block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-blue-200 hover:-translate-y-1 transition-all duration-200 p-5"
               >
-                <div className='font-bold text-gray-900 text-sm mb-1'>
+                <div className="font-bold text-gray-900 text-sm mb-1">
                   {label}
                 </div>
-                <div className='text-xs text-gray-500'>{desc}</div>
+                <div className="text-xs text-gray-500">{desc}</div>
               </a>
             ))}
           </div>

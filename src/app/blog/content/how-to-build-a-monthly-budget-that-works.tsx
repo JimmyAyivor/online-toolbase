@@ -31,7 +31,7 @@ export default function Post() {
         non-essential shopping. This is where the trade-offs live.
       </p>
       <p>
-        Our <a href='/tools/budget-planner'>Budget Planner</a> structures all of
+        Our <a href="/tools/budget-planner">Budget Planner</a> structures all of
         these categories with income and expense tracking to give you a clear
         monthly surplus or deficit.
       </p>
@@ -131,7 +131,7 @@ export default function Post() {
         actually earn. Start with real income, subtract real fixed costs,
         allocate what remains across needs and wants, and treat savings as a
         non-negotiable line item. Use the{" "}
-        <a href='/tools/budget-planner'>Budget Planner</a> to structure your
+        <a href="/tools/budget-planner">Budget Planner</a> to structure your
         monthly income and expenses and see your surplus or deficit clearly.
       </p>
     </>

@@ -314,31 +314,31 @@ export default function FacebookAdCopyGeneratorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 p-4 md:p-8'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl mb-4 shadow-lg'>
-              <span className='text-2xl'>📘</span>
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl mb-4 shadow-lg">
+              <span className="text-2xl">📘</span>
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Facebook Ad Copy Generator
             </h2>
-            <p className='text-gray-600'>
+            <p className="text-gray-600">
               Create converting ad copy for every stage of the funnel
             </p>
           </div>
 
-          <div className='grid md:grid-cols-2 gap-8'>
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Left: Config */}
-            <div className='space-y-5'>
+            <div className="space-y-5">
               {/* Funnel stage */}
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Funnel Stage
                 </label>
-                <div className='grid grid-cols-2 gap-2'>
+                <div className="grid grid-cols-2 gap-2">
                   {(Object.keys(STAGES) as FunnelStage[]).map((s) => (
                     <button
                       key={s}
@@ -352,10 +352,10 @@ export default function FacebookAdCopyGeneratorClient() {
                           : "border-gray-100 bg-gray-50 hover:border-blue-200"
                       }`}
                     >
-                      <div className='text-sm font-bold text-gray-900'>
+                      <div className="text-sm font-bold text-gray-900">
                         {STAGES[s].icon} {STAGES[s].label}
                       </div>
-                      <div className='text-xs text-gray-500 leading-tight mt-0.5'>
+                      <div className="text-xs text-gray-500 leading-tight mt-0.5">
                         {STAGES[s].desc}
                       </div>
                     </button>
@@ -364,9 +364,9 @@ export default function FacebookAdCopyGeneratorClient() {
               </div>
 
               {/* Objective + Length */}
-              <div className='grid grid-cols-2 gap-4'>
+              <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Objective
                   </label>
                   <select
@@ -374,7 +374,7 @@ export default function FacebookAdCopyGeneratorClient() {
                     onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                       setObjective(e.target.value as AdObjective)
                     }
-                    className='w-full px-3 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 text-sm'
+                    className="w-full px-3 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 text-sm"
                   >
                     {OBJECTIVES.map(({ value, label }) => (
                       <option key={value} value={value}>
@@ -384,10 +384,10 @@ export default function FacebookAdCopyGeneratorClient() {
                   </select>
                 </div>
                 <div>
-                  <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Copy Length
                   </label>
-                  <div className='flex border-2 border-gray-200 rounded-xl overflow-hidden'>
+                  <div className="flex border-2 border-gray-200 rounded-xl overflow-hidden">
                     {(["short", "medium", "long"] as CopyLength[]).map((l) => (
                       <button
                         key={l}
@@ -407,24 +407,24 @@ export default function FacebookAdCopyGeneratorClient() {
 
               {/* Product info */}
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Product Details
                 </label>
-                <div className='space-y-2'>
+                <div className="space-y-2">
                   {FIELD_DEFS.map(({ key, label, placeholder, required }) => (
                     <div key={key}>
-                      <label className='block text-xs font-medium text-gray-600 mb-0.5'>
+                      <label className="block text-xs font-medium text-gray-600 mb-0.5">
                         {label}{" "}
-                        {required && <span className='text-red-400'>*</span>}
+                        {required && <span className="text-red-400">*</span>}
                       </label>
                       <input
-                        type='text'
+                        type="text"
                         value={info[key]}
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                           setField(key, e.target.value)
                         }
                         placeholder={placeholder}
-                        className='w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 text-sm'
+                        className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 text-sm"
                       />
                     </div>
                   ))}
@@ -433,9 +433,9 @@ export default function FacebookAdCopyGeneratorClient() {
 
               <button
                 onClick={generate}
-                className='w-full flex items-center justify-center gap-2 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-sm transition-all shadow-md hover:shadow-lg'
+                className="w-full flex items-center justify-center gap-2 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-sm transition-all shadow-md hover:shadow-lg"
               >
-                <Zap className='w-5 h-5' />
+                <Zap className="w-5 h-5" />
                 Generate Ad Copy Variants
               </button>
             </div>
@@ -443,12 +443,12 @@ export default function FacebookAdCopyGeneratorClient() {
             {/* Right: Variants */}
             <div>
               {variants.length > 0 ? (
-                <div className='space-y-4'>
-                  <div className='flex items-center gap-2 mb-2'>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2 mb-2">
                     <div
                       className={`w-2 h-2 rounded-full ${stageCfg.bgColor}`}
                     />
-                    <span className='text-sm font-bold text-gray-700'>
+                    <span className="text-sm font-bold text-gray-700">
                       {stageCfg.icon} {stageCfg.label} — {variants.length}{" "}
                       Variants
                     </span>
@@ -457,51 +457,51 @@ export default function FacebookAdCopyGeneratorClient() {
                   {variants.map((v, idx) => (
                     <div
                       key={v.label}
-                      className='bg-gray-50 border border-gray-200 rounded-xl p-4 hover:border-blue-200 transition-all'
+                      className="bg-gray-50 border border-gray-200 rounded-xl p-4 hover:border-blue-200 transition-all"
                     >
-                      <div className='flex items-center justify-between mb-2'>
-                        <span className='text-xs font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full'>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-xs font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full">
                           {v.label}
                         </span>
                         <button
                           onClick={() => copyVariant(v, idx)}
-                          aria-label='Copy ad copy'
-                          className='flex items-center gap-1.5 px-2.5 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-semibold transition-colors'
+                          aria-label="Copy ad copy"
+                          className="flex items-center gap-1.5 px-2.5 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-semibold transition-colors"
                         >
                           {copiedIdx === idx ? (
                             <>
-                              <Check className='w-3 h-3' /> Copied
+                              <Check className="w-3 h-3" /> Copied
                             </>
                           ) : (
                             <>
-                              <Copy className='w-3 h-3' /> Copy
+                              <Copy className="w-3 h-3" /> Copy
                             </>
                           )}
                         </button>
                       </div>
 
-                      <div className='space-y-2 text-sm'>
+                      <div className="space-y-2 text-sm">
                         <div>
-                          <div className='text-xs font-semibold text-gray-500 mb-0.5'>
+                          <div className="text-xs font-semibold text-gray-500 mb-0.5">
                             HEADLINE
                           </div>
-                          <div className='font-bold text-gray-900'>
+                          <div className="font-bold text-gray-900">
                             {v.headline}
                           </div>
                         </div>
                         <div>
-                          <div className='text-xs font-semibold text-gray-500 mb-0.5'>
+                          <div className="text-xs font-semibold text-gray-500 mb-0.5">
                             AD COPY
                           </div>
-                          <div className='text-gray-700 leading-relaxed whitespace-pre-wrap text-xs'>
+                          <div className="text-gray-700 leading-relaxed whitespace-pre-wrap text-xs">
                             {v.body}
                           </div>
                         </div>
-                        <div className='flex items-center gap-2 pt-1'>
-                          <div className='text-xs font-semibold text-gray-500'>
+                        <div className="flex items-center gap-2 pt-1">
+                          <div className="text-xs font-semibold text-gray-500">
                             CTA BUTTON:
                           </div>
-                          <span className='px-3 py-1 bg-blue-600 text-white rounded text-xs font-bold'>
+                          <span className="px-3 py-1 bg-blue-600 text-white rounded text-xs font-bold">
                             {v.cta}
                           </span>
                         </div>
@@ -509,7 +509,7 @@ export default function FacebookAdCopyGeneratorClient() {
                     </div>
                   ))}
 
-                  <div className='p-3 bg-blue-50 border border-blue-200 rounded-xl text-xs text-blue-800'>
+                  <div className="p-3 bg-blue-50 border border-blue-200 rounded-xl text-xs text-blue-800">
                     💡 <strong>A/B test tip:</strong> Run all 3 variants against
                     each other with identical audiences and budgets. Let them
                     run for at least 3–5 days before optimising. The winner
@@ -517,12 +517,12 @@ export default function FacebookAdCopyGeneratorClient() {
                   </div>
                 </div>
               ) : (
-                <div className='h-full flex flex-col items-center justify-center bg-gray-50 border-2 border-dashed border-gray-200 rounded-2xl p-12 text-center text-gray-400'>
-                  <span className='text-5xl mb-4'>📘</span>
-                  <p className='font-semibold text-gray-600'>
+                <div className="h-full flex flex-col items-center justify-center bg-gray-50 border-2 border-dashed border-gray-200 rounded-2xl p-12 text-center text-gray-400">
+                  <span className="text-5xl mb-4">📘</span>
+                  <p className="font-semibold text-gray-600">
                     Fill in your product details
                   </p>
-                  <p className='text-sm mt-1'>
+                  <p className="text-sm mt-1">
                     3 ad copy variants will appear here
                   </p>
                 </div>
@@ -530,11 +530,11 @@ export default function FacebookAdCopyGeneratorClient() {
             </div>
           </div>
 
-          <div className='mt-6 p-4 bg-gray-50 rounded-xl text-sm text-gray-600'>
-            <p className='font-bold text-gray-900 mb-2'>
+          <div className="mt-6 p-4 bg-gray-50 rounded-xl text-sm text-gray-600">
+            <p className="font-bold text-gray-900 mb-2">
               📐 Facebook Ad Copy Best Practices
             </p>
-            <div className='grid md:grid-cols-2 gap-x-6 gap-y-1 text-xs list-disc list-inside'>
+            <div className="grid md:grid-cols-2 gap-x-6 gap-y-1 text-xs list-disc list-inside">
               {[
                 "Lead with the pain or benefit — don't bury the lede",
                 "Use 'you' and 'your' — talk to one person, not many",
@@ -545,8 +545,8 @@ export default function FacebookAdCopyGeneratorClient() {
                 "Mobile-first: first line must hook without 'see more' click",
                 "Social proof near the CTA dramatically lifts conversions",
               ].map((tip) => (
-                <div key={tip} className='flex items-start gap-1.5'>
-                  <span className='text-gray-400 mt-0.5'>•</span> {tip}
+                <div key={tip} className="flex items-start gap-1.5">
+                  <span className="text-gray-400 mt-0.5">•</span> {tip}
                 </div>
               ))}
             </div>

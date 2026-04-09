@@ -99,61 +99,64 @@ export default function ImageCropperResizerPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-teal-600 transition-colors'>
+            <a href="/" className="hover:text-teal-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/image'
-              className='hover:text-teal-600 transition-colors'
+              href="/tools/category/image"
+              className="hover:text-teal-600 transition-colors"
             >
               Image Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Image Cropper &amp; Resizer
             </span>
           </li>
         </ol>
       </nav>
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-teal-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-teal-600 uppercase tracking-widest mb-1">
           Free Image Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Image Cropper &amp; Resizer — Crop, Resize, Rotate &amp; Flip Images
           Free Online
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Crop and resize images in your browser — exact pixel dimensions,
           aspect ratio lock, social media presets, rotate and flip. No upload
           required.
         </p>
       </header>
       <SidebarAdLayout>
-        <main id='main-content' aria-label='Image Cropper and Resizer tool'>
+        <main id="main-content" aria-label="Image Cropper and Resizer tool">
           <ImageCropperResizerClient />
         </main>
         <PageEditorial />
-              <ToolEngagement toolSlug="image-cropper-resizer" toolName="Image Cropper & Resizer" />
+        <ToolEngagement
+          toolSlug="image-cropper-resizer"
+          toolName="Image Cropper & Resizer"
+        />
       </SidebarAdLayout>
     </>
   );

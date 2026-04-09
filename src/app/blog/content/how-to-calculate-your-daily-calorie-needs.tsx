@@ -27,7 +27,7 @@ export default function Post() {
         growth.
       </p>
       <p>
-        Our <a href='/tools/calorie-calculator'>Calorie Calculator</a> estimates
+        Our <a href="/tools/calorie-calculator">Calorie Calculator</a> estimates
         both BMR and TDEE based on your height, weight, age, sex, and activity
         level.
       </p>
@@ -144,10 +144,10 @@ export default function Post() {
       <p>
         Your calorie target flows from TDEE, which flows from BMR and activity
         level. Use the{" "}
-        <a href='/tools/calorie-calculator'>Calorie Calculator</a> to get your
+        <a href="/tools/calorie-calculator">Calorie Calculator</a> to get your
         starting estimate, treat it as a working hypothesis, and adjust based on
         real-world results over 2–3 weeks. Combine with the{" "}
-        <a href='/tools/calorie-macro-calculator'>Calorie & Macro Calculator</a>{" "}
+        <a href="/tools/calorie-macro-calculator">Calorie & Macro Calculator</a>{" "}
         to set macro targets alongside your calorie goal.
       </p>
     </>

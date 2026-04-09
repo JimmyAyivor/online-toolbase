@@ -97,59 +97,62 @@ export default function GradientGeneratorPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-fuchsia-600 transition-colors'>
+            <a href="/" className="hover:text-fuchsia-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/design'
-              className='hover:text-fuchsia-600 transition-colors'
+              href="/tools/category/design"
+              className="hover:text-fuchsia-600 transition-colors"
             >
               Design Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Gradient Generator
             </span>
           </li>
         </ol>
       </nav>
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-fuchsia-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-fuchsia-600 uppercase tracking-widest mb-1">
           Free Design Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           CSS Gradient Generator — Linear, Radial & Conic Gradient Tool
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Create beautiful CSS gradients visually — pick colors, set direction,
           copy the CSS. Linear, radial, and conic supported.
         </p>
       </header>
       <SidebarAdLayout>
-        <main id='main-content' aria-label='CSS Gradient Generator tool'>
+        <main id="main-content" aria-label="CSS Gradient Generator tool">
           <GradientGeneratorClient />
         </main>
         <PageEditorial />
-              <ToolEngagement toolSlug="gradient-generator" toolName="CSS Gradient Generator" />
+        <ToolEngagement
+          toolSlug="gradient-generator"
+          toolName="CSS Gradient Generator"
+        />
       </SidebarAdLayout>
     </>
   );

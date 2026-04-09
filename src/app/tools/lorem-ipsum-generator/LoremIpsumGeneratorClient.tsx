@@ -266,21 +266,21 @@ export default function LoremIpsumGeneratorClient() {
 
   const STAT_CARDS: StatCard[] = [
     {
-      icon: <Hash className='w-5 h-5 text-amber-600' />,
+      icon: <Hash className="w-5 h-5 text-amber-600" />,
       value: wordCount,
       label: "Words",
       bgColor: "bg-amber-50",
       textColor: "text-amber-600",
     },
     {
-      icon: <FileText className='w-5 h-5 text-orange-600' />,
+      icon: <FileText className="w-5 h-5 text-orange-600" />,
       value: charCount,
       label: "Characters",
       bgColor: "bg-orange-50",
       textColor: "text-orange-600",
     },
     {
-      icon: <List className='w-5 h-5 text-yellow-600' />,
+      icon: <List className="w-5 h-5 text-yellow-600" />,
       value: sentenceCount,
       label: "Sentences",
       bgColor: "bg-yellow-50",
@@ -293,79 +293,79 @@ export default function LoremIpsumGeneratorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='text-center mb-8'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-600 to-orange-600 rounded-full mb-4 shadow-lg'>
-            <FileText className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-600 to-orange-600 rounded-full mb-4 shadow-lg">
+            <FileText className="w-8 h-8 text-white" />
           </div>
-          <h2 className='text-4xl font-bold text-gray-900 mb-2'>
+          <h2 className="text-4xl font-bold text-gray-900 mb-2">
             Lorem Ipsum Generator
           </h2>
-          <p className='text-gray-600'>
+          <p className="text-gray-600">
             Generate placeholder text for your designs and mockups
           </p>
         </div>
 
-        <div className='grid lg:grid-cols-3 gap-6'>
+        <div className="grid lg:grid-cols-3 gap-6">
           {/* ── Output column ── */}
-          <div className='lg:col-span-2'>
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-6'>
-              <div className='flex justify-between items-center mb-6'>
-                <h3 className='font-bold text-gray-900 flex items-center gap-2 text-xl'>
-                  <AlignLeft className='w-6 h-6 text-amber-600' />
+          <div className="lg:col-span-2">
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="font-bold text-gray-900 flex items-center gap-2 text-xl">
+                  <AlignLeft className="w-6 h-6 text-amber-600" />
                   Generated Text
                 </h3>
-                <div className='flex gap-2'>
+                <div className="flex gap-2">
                   <button
                     onClick={regenerate}
-                    className='flex items-center gap-2 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg font-medium transition-colors'
+                    className="flex items-center gap-2 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg font-medium transition-colors"
                   >
-                    <RefreshCw className='w-4 h-4' />
+                    <RefreshCw className="w-4 h-4" />
                     Regenerate
                   </button>
                   <button
                     onClick={handleCopy}
-                    className='flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors'
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
                   >
                     {copied ? (
-                      <Check className='w-4 h-4' />
+                      <Check className="w-4 h-4" />
                     ) : (
-                      <Copy className='w-4 h-4' />
+                      <Copy className="w-4 h-4" />
                     )}
                     {copied ? "Copied!" : "Copy"}
                   </button>
                   <button
                     onClick={handleDownload}
-                    aria-label='Download text'
-                    className='flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors'
+                    aria-label="Download text"
+                    className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors"
                   >
-                    <Download className='w-4 h-4' />
+                    <Download className="w-4 h-4" />
                   </button>
                 </div>
               </div>
 
-              <div className='bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 min-h-[400px] border-2 border-gray-200'>
-                <p className='text-gray-800 leading-relaxed whitespace-pre-wrap font-serif'>
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 min-h-[400px] border-2 border-gray-200">
+                <p className="text-gray-800 leading-relaxed whitespace-pre-wrap font-serif">
                   {outputText}
                 </p>
               </div>
 
               {/* Stats */}
-              <div className='grid grid-cols-3 gap-4 mt-6'>
+              <div className="grid grid-cols-3 gap-4 mt-6">
                 {STAT_CARDS.map(
                   ({ icon, value, label, bgColor, textColor }) => (
                     <div
                       key={label}
                       className={`${bgColor} rounded-xl p-4 text-center`}
                     >
-                      <div className='flex items-center justify-center gap-2 mb-2'>
+                      <div className="flex items-center justify-center gap-2 mb-2">
                         {icon}
                         <div className={`text-2xl font-bold ${textColor}`}>
                           {value}
                         </div>
                       </div>
-                      <div className='text-sm text-gray-600'>{label}</div>
+                      <div className="text-sm text-gray-600">{label}</div>
                     </div>
                   ),
                 )}
@@ -374,20 +374,20 @@ export default function LoremIpsumGeneratorClient() {
           </div>
 
           {/* ── Settings sidebar ── */}
-          <div className='space-y-6'>
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8 sticky top-8'>
-              <h3 className='font-bold text-gray-900 mb-6 flex items-center gap-2'>
-                <List className='w-5 h-5 text-amber-600' />
+          <div className="space-y-6">
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 sticky top-8">
+              <h3 className="font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <List className="w-5 h-5 text-amber-600" />
                 Settings
               </h3>
 
-              <div className='space-y-6'>
+              <div className="space-y-6">
                 {/* Type buttons */}
                 <div>
-                  <label className='block text-sm font-bold text-gray-700 mb-3'>
+                  <label className="block text-sm font-bold text-gray-700 mb-3">
                     Generate
                   </label>
-                  <div className='grid grid-cols-2 gap-3'>
+                  <div className="grid grid-cols-2 gap-3">
                     {TYPE_BUTTONS.map(({ id, label }) => (
                       <button
                         key={id}
@@ -409,21 +409,21 @@ export default function LoremIpsumGeneratorClient() {
 
                 {/* Count slider */}
                 <div>
-                  <label className='block text-sm font-bold text-gray-700 mb-3'>
+                  <label className="block text-sm font-bold text-gray-700 mb-3">
                     Count: {count}
                   </label>
                   <input
-                    type='range'
+                    type="range"
                     min={1}
                     max={rangeMax}
                     value={count}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setCount(parseInt(e.target.value))
                     }
-                    className='w-full h-3 bg-gradient-to-r from-amber-200 to-orange-300 rounded-lg appearance-none cursor-pointer'
-                    aria-label='Count'
+                    className="w-full h-3 bg-gradient-to-r from-amber-200 to-orange-300 rounded-lg appearance-none cursor-pointer"
+                    aria-label="Count"
                   />
-                  <div className='flex justify-between text-xs text-gray-500 mt-2'>
+                  <div className="flex justify-between text-xs text-gray-500 mt-2">
                     <span>1</span>
                     <span>{rangeMax}</span>
                   </div>
@@ -431,20 +431,20 @@ export default function LoremIpsumGeneratorClient() {
 
                 {/* Start with Lorem */}
                 <div>
-                  <label className='flex items-center gap-3 p-4 bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl cursor-pointer hover:shadow-md transition-all'>
+                  <label className="flex items-center gap-3 p-4 bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl cursor-pointer hover:shadow-md transition-all">
                     <input
-                      type='checkbox'
+                      type="checkbox"
                       checked={startWithLorem}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         setStartWithLorem(e.target.checked)
                       }
-                      className='w-5 h-5 text-amber-600 rounded'
+                      className="w-5 h-5 text-amber-600 rounded"
                     />
                     <div>
-                      <div className='font-semibold text-gray-900'>
+                      <div className="font-semibold text-gray-900">
                         Start with &ldquo;Lorem ipsum&rdquo;
                       </div>
-                      <div className='text-xs text-gray-600'>
+                      <div className="text-xs text-gray-600">
                         Classic placeholder text beginning
                       </div>
                     </div>
@@ -452,21 +452,21 @@ export default function LoremIpsumGeneratorClient() {
                 </div>
 
                 {/* Presets */}
-                <div className='pt-4 border-t-2 border-gray-200'>
-                  <h4 className='font-bold text-gray-900 mb-3 text-sm'>
+                <div className="pt-4 border-t-2 border-gray-200">
+                  <h4 className="font-bold text-gray-900 mb-3 text-sm">
                     Quick Presets
                   </h4>
-                  <div className='space-y-2'>
+                  <div className="space-y-2">
                     {PRESETS.map((preset) => (
                       <button
                         key={preset.label}
                         onClick={() => applyPreset(preset)}
-                        className='w-full text-left px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors'
+                        className="w-full text-left px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors"
                       >
-                        <div className='font-semibold text-gray-900 text-sm'>
+                        <div className="font-semibold text-gray-900 text-sm">
                           {preset.label}
                         </div>
-                        <div className='text-xs text-gray-600'>
+                        <div className="text-xs text-gray-600">
                           {preset.subtext}
                         </div>
                       </button>
@@ -476,9 +476,9 @@ export default function LoremIpsumGeneratorClient() {
               </div>
             </div>
 
-            <div className='p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-              <p className='font-semibold mb-2 text-gray-800'>💡 Tips:</p>
-              <ul className='list-disc list-inside space-y-1'>
+            <div className="p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+              <p className="font-semibold mb-2 text-gray-800">💡 Tips:</p>
+              <ul className="list-disc list-inside space-y-1">
                 <li>
                   Use Paragraphs mode for body text — each paragraph is 4–7
                   sentences

@@ -26,7 +26,7 @@ export default function Post() {
       </p>
       <p>
         Use our{" "}
-        <a href='/tools/running-pace-calculator'>Running Pace Calculator</a> to
+        <a href="/tools/running-pace-calculator">Running Pace Calculator</a> to
         find your required pace for any goal finish time, or calculate finishing
         time from pace and distance.
       </p>
@@ -130,7 +130,7 @@ export default function Post() {
       <p>
         Knowing your required pace before race day removes guesswork and
         prevents the most common mistake going out too fast. Use the{" "}
-        <a href='/tools/running-pace-calculator'>Running Pace Calculator</a> to
+        <a href="/tools/running-pace-calculator">Running Pace Calculator</a> to
         find your target pace for any race distance and goal time, and use
         training pace zones to structure workouts that build toward that target.
       </p>

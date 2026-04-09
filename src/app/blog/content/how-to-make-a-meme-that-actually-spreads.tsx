@@ -38,7 +38,7 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        Our <a href='/tools/meme-generator'>Meme Generator</a> lets you add text
+        Our <a href="/tools/meme-generator">Meme Generator</a> lets you add text
         to any image with standard meme formatting top and bottom captions,
         custom font size, and positioning.
       </p>
@@ -128,7 +128,7 @@ export default function Post() {
       <p>
         Standard meme images are typically 500–1000px square or landscape. For
         sharing on social media, the platform's recommended size applies (see:{" "}
-        <a href='/tools/image-cropper-resizer'>Image Cropper & Resizer</a>).
+        <a href="/tools/image-cropper-resizer">Image Cropper & Resizer</a>).
         Keep file size reasonable a meme is meant to load and share quickly.
       </p>
 
@@ -137,7 +137,7 @@ export default function Post() {
         A meme that works feels effortless and lands immediately which is the
         result of fitting your content precisely to an established format rather
         than forcing something new. Use the{" "}
-        <a href='/tools/meme-generator'>Meme Generator</a> to add text to images
+        <a href="/tools/meme-generator">Meme Generator</a> to add text to images
         in the standard format, use established templates that fit your message,
         and keep the text short and direct.
       </p>

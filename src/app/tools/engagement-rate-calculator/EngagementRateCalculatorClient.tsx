@@ -203,28 +203,28 @@ export default function EngagementRateCalculatorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-emerald-50 to-teal-50 p-4 md:p-8'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-50 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl mb-4 shadow-lg'>
-              <TrendingUp className='w-8 h-8 text-white' />
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl mb-4 shadow-lg">
+              <TrendingUp className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Engagement Rate Calculator
             </h2>
-            <p className='text-gray-600'>
+            <p className="text-gray-600">
               Measure and benchmark your social media performance
             </p>
           </div>
 
           {/* Platform */}
-          <div className='mb-6'>
-            <label className='block text-sm font-semibold text-gray-700 mb-2'>
+          <div className="mb-6">
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
               Platform
             </label>
-            <div className='grid grid-cols-3 md:grid-cols-6 gap-2'>
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
               {PLATFORM_KEYS.map((pk) => (
                 <button
                   key={pk}
@@ -235,7 +235,7 @@ export default function EngagementRateCalculatorClient() {
                       : "border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200"
                   }`}
                 >
-                  <span className='text-xl'>{PLATFORMS[pk].icon}</span>
+                  <span className="text-xl">{PLATFORMS[pk].icon}</span>
                   <span>{PLATFORMS[pk].label.split("/")[0]!.trim()}</span>
                 </button>
               ))}
@@ -243,12 +243,12 @@ export default function EngagementRateCalculatorClient() {
           </div>
 
           {/* Method + followers */}
-          <div className='grid md:grid-cols-2 gap-4 mb-6'>
+          <div className="grid md:grid-cols-2 gap-4 mb-6">
             <div>
-              <label className='block text-sm font-semibold text-gray-700 mb-2'>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Calculation Method
               </label>
-              <div className='space-y-2'>
+              <div className="space-y-2">
                 {(
                   [
                     {
@@ -270,20 +270,20 @@ export default function EngagementRateCalculatorClient() {
                 ).map(({ value, label, desc }) => (
                   <label
                     key={value}
-                    className='flex items-start gap-3 cursor-pointer p-3 rounded-lg border-2 border-gray-100 hover:border-emerald-200 transition-colors'
+                    className="flex items-start gap-3 cursor-pointer p-3 rounded-lg border-2 border-gray-100 hover:border-emerald-200 transition-colors"
                   >
                     <input
-                      type='radio'
-                      name='method'
+                      type="radio"
+                      name="method"
                       checked={method === value}
                       onChange={() => setMethod(value)}
-                      className='mt-0.5 text-emerald-600'
+                      className="mt-0.5 text-emerald-600"
                     />
                     <div>
-                      <div className='font-semibold text-sm text-gray-900'>
+                      <div className="font-semibold text-sm text-gray-900">
                         {label}
                       </div>
-                      <div className='text-xs text-gray-500'>{desc}</div>
+                      <div className="text-xs text-gray-500">{desc}</div>
                     </div>
                   </label>
                 ))}
@@ -292,32 +292,32 @@ export default function EngagementRateCalculatorClient() {
 
             <div>
               {method === "followers" && (
-                <div className='mb-4'>
-                  <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <div className="mb-4">
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Follower Count
                   </label>
                   <input
-                    type='number'
+                    type="number"
                     value={followers}
                     min={0}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setFollowers(e.target.value)
                     }
-                    placeholder='e.g. 10000'
-                    className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-emerald-400 text-lg font-semibold'
+                    placeholder="e.g. 10000"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-emerald-400 text-lg font-semibold"
                   />
                 </div>
               )}
 
               {/* Benchmarks */}
-              <div className='bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-4 border border-emerald-200'>
-                <div className='flex items-center gap-2 mb-3'>
-                  <Info className='w-4 h-4 text-emerald-600' />
-                  <span className='text-sm font-bold text-gray-700'>
+              <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-4 border border-emerald-200">
+                <div className="flex items-center gap-2 mb-3">
+                  <Info className="w-4 h-4 text-emerald-600" />
+                  <span className="text-sm font-bold text-gray-700">
                     {cfg.label} Benchmarks ({method})
                   </span>
                 </div>
-                <div className='space-y-2'>
+                <div className="space-y-2">
                   {[
                     {
                       label: "🔥 Excellent",
@@ -340,8 +340,8 @@ export default function EngagementRateCalculatorClient() {
                       color: "text-red-700",
                     },
                   ].map(({ label, value, color }) => (
-                    <div key={label} className='flex justify-between text-sm'>
-                      <span className='text-gray-600'>{label}</span>
+                    <div key={label} className="flex justify-between text-sm">
+                      <span className="text-gray-600">{label}</span>
                       <span className={`font-bold ${color}`}>{value}</span>
                     </div>
                   ))}
@@ -351,41 +351,41 @@ export default function EngagementRateCalculatorClient() {
           </div>
 
           {/* Posts */}
-          <div className='mb-6'>
-            <div className='flex items-center justify-between mb-3'>
-              <h3 className='font-bold text-gray-900'>Posts</h3>
+          <div className="mb-6">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="font-bold text-gray-900">Posts</h3>
               <button
                 onClick={addPost}
-                className='flex items-center gap-2 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-lg transition-colors'
+                className="flex items-center gap-2 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-lg transition-colors"
               >
-                <Plus className='w-4 h-4' /> Add Post
+                <Plus className="w-4 h-4" /> Add Post
               </button>
             </div>
 
-            <div className='space-y-4'>
+            <div className="space-y-4">
               {posts.map((post, idx) => {
                 const res = results[idx];
                 return (
                   <div
                     key={post.id}
-                    className='bg-gray-50 rounded-xl p-5 border border-gray-100'
+                    className="bg-gray-50 rounded-xl p-5 border border-gray-100"
                   >
-                    <div className='flex items-center justify-between mb-4'>
-                      <span className='font-semibold text-gray-700'>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-semibold text-gray-700">
                         Post {idx + 1}
                       </span>
                       {posts.length > 1 && (
                         <button
                           onClick={() => removePost(post.id)}
-                          aria-label='Remove post'
-                          className='p-1.5 text-red-500 hover:bg-red-50 rounded-lg transition-colors'
+                          aria-label="Remove post"
+                          className="p-1.5 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
                         >
-                          <Trash2 className='w-4 h-4' />
+                          <Trash2 className="w-4 h-4" />
                         </button>
                       )}
                     </div>
 
-                    <div className='grid grid-cols-2 md:grid-cols-3 gap-3 mb-4'>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-4">
                       {(
                         [
                           { field: "likes", label: "Likes / Reactions" },
@@ -401,18 +401,18 @@ export default function EngagementRateCalculatorClient() {
                         ] as { field: keyof Post; label: string }[]
                       ).map(({ field, label }) => (
                         <div key={field}>
-                          <label className='block text-xs font-medium text-gray-600 mb-1'>
+                          <label className="block text-xs font-medium text-gray-600 mb-1">
                             {label}
                           </label>
                           <input
-                            type='number'
+                            type="number"
                             min={0}
                             value={post[field]}
                             onChange={(
                               e: React.ChangeEvent<HTMLInputElement>,
                             ) => updatePost(post.id, field, e.target.value)}
-                            placeholder='0'
-                            className='w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-emerald-400 text-sm'
+                            placeholder="0"
+                            className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-emerald-400 text-sm"
                           />
                         </div>
                       ))}
@@ -420,9 +420,9 @@ export default function EngagementRateCalculatorClient() {
 
                     {/* Result */}
                     {res && res.er > 0 && (
-                      <div className='mt-2'>
-                        <div className='flex items-center justify-between mb-1'>
-                          <span className='text-sm font-semibold text-gray-700'>
+                      <div className="mt-2">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-sm font-semibold text-gray-700">
                             ER:{" "}
                             <span className={cfg.color}>
                               {res.er.toFixed(2)}%
@@ -434,7 +434,7 @@ export default function EngagementRateCalculatorClient() {
                             {res.rating.label}
                           </span>
                         </div>
-                        <div className='w-full bg-gray-200 rounded-full h-2'>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
                           <div
                             className={`h-2 rounded-full transition-all ${cfg.bar}`}
                             style={{ width: `${barWidth(res.er, bm)}%` }}
@@ -453,9 +453,9 @@ export default function EngagementRateCalculatorClient() {
             <div
               className={`rounded-2xl p-6 border-2 ${avgRating.bg} border-opacity-50 mb-6`}
             >
-              <div className='flex items-center justify-between'>
+              <div className="flex items-center justify-between">
                 <div>
-                  <div className='text-sm font-semibold text-gray-600 mb-1'>
+                  <div className="text-sm font-semibold text-gray-600 mb-1">
                     Average Engagement Rate across {posts.length} post
                     {posts.length !== 1 ? "s" : ""}
                   </div>
@@ -467,7 +467,7 @@ export default function EngagementRateCalculatorClient() {
                   <div className={`text-2xl font-bold ${avgRating.color}`}>
                     {avgRating.label}
                   </div>
-                  <div className='text-sm text-gray-500 mt-1'>
+                  <div className="text-sm text-gray-500 mt-1">
                     {cfg.label} benchmark
                   </div>
                 </div>
@@ -475,11 +475,11 @@ export default function EngagementRateCalculatorClient() {
             </div>
           )}
 
-          <div className='p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>
+          <div className="p-4 bg-gray-50 rounded-lg text-sm text-gray-600">
+            <p className="font-semibold mb-2">
               How Engagement Rate is Calculated:
             </p>
-            <ul className='list-disc list-inside space-y-1'>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 <strong>By Followers:</strong> (Likes + Comments + Shares +
                 Saves) ÷ Followers × 100

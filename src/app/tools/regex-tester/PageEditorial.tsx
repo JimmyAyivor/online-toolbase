@@ -28,26 +28,26 @@ function QRModal({ onClose }: { onClose: () => void }) {
   }, []);
   return (
     <div
-      className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm'
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <div className='relative bg-white rounded-3xl shadow-2xl p-8 mx-4 max-w-xs w-full text-center'>
+      <div className="relative bg-white rounded-3xl shadow-2xl p-8 mx-4 max-w-xs w-full text-center">
         <button
           onClick={onClose}
-          className='absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500'
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500"
         >
           ✕
         </button>
-        <h3 className='text-lg font-black text-gray-900 mb-1'>
+        <h3 className="text-lg font-black text-gray-900 mb-1">
           Take it with you
         </h3>
-        <p className='text-sm text-gray-400 mb-5'>
+        <p className="text-sm text-gray-400 mb-5">
           Scan to open the {TOOL_NAME} on mobile
         </p>
-        <div className='inline-block rounded-2xl overflow-hidden border-4 border-rose-100 shadow-inner mb-5'>
+        <div className="inline-block rounded-2xl overflow-hidden border-4 border-rose-100 shadow-inner mb-5">
           <canvas ref={canvasRef} />
         </div>
-        <p className='text-xs text-gray-300 font-mono break-all'>{TOOL_URL}</p>
+        <p className="text-xs text-gray-300 font-mono break-all">{TOOL_URL}</p>
       </div>
     </div>
   );
@@ -90,23 +90,23 @@ function ShareBar() {
   return (
     <>
       {qrOpen && <QRModal onClose={() => setQrOpen(false)} />}
-      <div className='bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-5 mb-6'>
-        <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4'>
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-5 mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <p className='text-sm font-bold text-gray-900 mb-0.5'>
+            <p className="text-sm font-bold text-gray-900 mb-0.5">
               Found this useful?
             </p>
-            <p className='text-xs text-gray-400'>
+            <p className="text-xs text-gray-400">
               Share the tool or scan to open on your phone
             </p>
           </div>
-          <div className='flex flex-wrap items-center gap-2'>
+          <div className="flex flex-wrap items-center gap-2">
             {SHARES.map(({ label, href, bg }) => (
               <a
                 key={label}
                 href={href}
-                target='_blank'
-                rel='noopener noreferrer'
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`inline-flex items-center px-3 py-2 rounded-xl text-white text-xs font-semibold transition-all shadow-sm hover:-translate-y-0.5 ${bg}`}
               >
                 {label}
@@ -114,17 +114,17 @@ function ShareBar() {
             ))}
             <button
               onClick={copyLink}
-              className='px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold'
+              className="px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold"
             >
               {copied ? (
-                <span className='text-rose-600'>✓ Copied!</span>
+                <span className="text-rose-600">✓ Copied!</span>
               ) : (
                 "Copy link"
               )}
             </button>
             <button
               onClick={() => setQrOpen(true)}
-              className='hidden sm:block px-3 py-2 rounded-xl bg-gradient-to-r from-rose-500 to-pink-600 text-white text-xs font-semibold hover:-translate-y-0.5 transition-all'
+              className="hidden sm:block px-3 py-2 rounded-xl bg-gradient-to-r from-rose-500 to-pink-600 text-white text-xs font-semibold hover:-translate-y-0.5 transition-all"
             >
               Scan QR
             </button>
@@ -165,27 +165,27 @@ const FAQS = [
 function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
   return (
-    <div className='bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10'>
-      <h2 className='text-2xl font-bold text-gray-900 mb-6'>
+    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10">
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">
         Frequently Asked Questions
       </h2>
-      <div className='space-y-3'>
+      <div className="space-y-3">
         {FAQS.map((f, i) => (
           <div
             key={i}
-            className='border border-gray-100 rounded-xl overflow-hidden'
+            className="border border-gray-100 rounded-xl overflow-hidden"
           >
             <button
-              className='w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors'
+              className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
               onClick={() => setOpen(open === i ? null : i)}
             >
-              <span className='font-semibold text-gray-900 text-sm'>{f.q}</span>
-              <span className='text-rose-600 text-lg shrink-0'>
+              <span className="font-semibold text-gray-900 text-sm">{f.q}</span>
+              <span className="text-rose-600 text-lg shrink-0">
                 {open === i ? "−" : "+"}
               </span>
             </button>
             {open === i && (
-              <div className='px-5 pb-5 text-sm text-gray-600 leading-relaxed'>
+              <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed">
                 {f.a}
               </div>
             )}
@@ -199,65 +199,65 @@ function FAQSection() {
 export default function PageEditorial() {
   return (
     <>
-      <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
-        <div className='hidden sm:block'>
-          <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
+      <div className="max-w-6xl mx-auto px-4 mt-6 flex justify-center">
+        <div className="hidden sm:block">
+          <AdSlot variant="rectangle" slotId={SLOT_BELOW_TOOL} />
         </div>
-        <div className='block sm:hidden'>
-          <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
+        <div className="block sm:hidden">
+          <AdSlot variant="mediumrectangle" slotId={SLOT_BELOW_TOOL} />
         </div>
       </div>
-      <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
+      <div className="max-w-6xl mx-auto px-4 mt-4 flex justify-center">
         <AdSlot
-          variant='leaderboard'
+          variant="leaderboard"
           slotId={SLOT_LEADERBOARD}
-          className='hidden sm:flex'
+          className="hidden sm:flex"
         />
         <AdSlot
-          variant='mediumrectangle'
+          variant="mediumrectangle"
           slotId={SLOT_LEADERBOARD}
-          className='flex sm:hidden'
+          className="flex sm:hidden"
         />
       </div>
-      <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10'>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
         <ShareBar />
       </div>
 
       <section
-        id='how-to-use'
-        className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10'
+        id="how-to-use"
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10"
       >
-        <h2 className='text-4xl font-bold text-gray-900 mb-4 text-center'>
+        <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">
           How to Use the Regex Tester
         </h2>
-        <p className='text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed'>
+        <p className="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed">
           Enter a pattern, choose your flags, and paste test text — matches
           highlight live with capture group details and match statistics.
         </p>
 
-        <div className='space-y-6 mb-14'>
+        <div className="space-y-6 mb-14">
           {[
             {
               n: 1,
               title: "Enter your regex pattern and choose flags",
               body: "Type your regular expression into the pattern input at the top. The pattern is tested live — results update as you type. Use the flag toggles (g, i, m, s) to modify matching behaviour: g finds all matches, i ignores case, m makes ^ and $ match line boundaries, and s makes . match newlines. The flag row shows which flags are active and updates the match results immediately when toggled.",
               enrich: (
-                <div className='overflow-x-auto rounded-xl border border-gray-100 text-sm'>
-                  <table className='w-full text-left'>
-                    <thead className='bg-gray-50'>
+                <div className="overflow-x-auto rounded-xl border border-gray-100 text-sm">
+                  <table className="w-full text-left">
+                    <thead className="bg-gray-50">
                       <tr>
-                        <th className='px-4 py-2 text-xs font-bold text-gray-500 uppercase'>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
                           Flag
                         </th>
-                        <th className='px-4 py-2 text-xs font-bold text-gray-500 uppercase'>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
                           Effect
                         </th>
-                        <th className='px-4 py-2 text-xs font-bold text-gray-500 uppercase'>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
                           Common use
                         </th>
                       </tr>
                     </thead>
-                    <tbody className='divide-y divide-gray-50'>
+                    <tbody className="divide-y divide-gray-50">
                       {[
                         [
                           "g",
@@ -280,14 +280,14 @@ export default function PageEditorial() {
                           "Matching across line breaks",
                         ],
                       ].map(([flag, effect, use]) => (
-                        <tr key={flag} className='hover:bg-rose-50'>
-                          <td className='px-4 py-2 font-bold text-rose-700 text-xs font-mono'>
+                        <tr key={flag} className="hover:bg-rose-50">
+                          <td className="px-4 py-2 font-bold text-rose-700 text-xs font-mono">
                             {flag}
                           </td>
-                          <td className='px-4 py-2 text-gray-600 text-xs'>
+                          <td className="px-4 py-2 text-gray-600 text-xs">
                             {effect}
                           </td>
-                          <td className='px-4 py-2 text-gray-500 text-xs'>
+                          <td className="px-4 py-2 text-gray-500 text-xs">
                             {use}
                           </td>
                         </tr>
@@ -302,13 +302,13 @@ export default function PageEditorial() {
               title: "Paste your test text",
               body: "Paste or type the text you want to test your pattern against into the test string textarea. Matches are highlighted directly in the results pane below. The results panel shows a match count, each match's full text and character position, and any capture groups with their matched values. If your pattern contains a syntax error, a red error banner explains the problem.",
               enrich: (
-                <div className='bg-rose-50 rounded-xl px-5 py-4 text-sm text-rose-800 leading-relaxed'>
+                <div className="bg-rose-50 rounded-xl px-5 py-4 text-sm text-rose-800 leading-relaxed">
                   <strong>Capture groups in results:</strong> If your pattern
                   contains parentheses, each match card shows a 'Capture Groups'
                   section with numbered groups and their matched values. Group 0
                   is always the full match. Group 1 is the first ( ), Group 2 is
                   the second, and so on. Named groups (using{" "}
-                  <code className='bg-white px-1 rounded font-mono'>
+                  <code className="bg-white px-1 rounded font-mono">
                     (?&lt;name&gt;pattern)
                   </code>{" "}
                   syntax) appear with their name instead of a number.
@@ -320,7 +320,7 @@ export default function PageEditorial() {
               title: "Use the Common Patterns library",
               body: "Click the 'Common Patterns' section below the results to see a library of pre-built regex patterns for common validation tasks: email addresses, URLs, phone numbers, IP addresses, dates, postal codes, hex colors, and more. Click any pattern to load it into the pattern input — then test it against your own text or modify it to suit your needs. This is useful both as a starting point and as a reference for correct regex syntax.",
               enrich: (
-                <div className='bg-pink-50 rounded-xl px-5 py-4 text-sm text-pink-800 leading-relaxed'>
+                <div className="bg-pink-50 rounded-xl px-5 py-4 text-sm text-pink-800 leading-relaxed">
                   <strong>Adapting common patterns:</strong> The built-in email
                   and URL patterns cover standard cases but may not match every
                   edge case in the relevant RFC specifications. For production
@@ -337,7 +337,7 @@ export default function PageEditorial() {
               title: "Iterate and refine your pattern",
               body: "Use the Quick Reference at the bottom of the tool to look up metacharacters, character classes, quantifiers, and anchors without leaving the page. Toggle flags on and off to see how they change the match results. Use the Swap button to exchange the pattern and test text if you want to use the current pattern as new test input. Refine your pattern until the highlighted matches exactly cover what you need.",
               enrich: (
-                <div className='bg-rose-50 rounded-xl px-5 py-4 text-sm text-rose-800 leading-relaxed'>
+                <div className="bg-rose-50 rounded-xl px-5 py-4 text-sm text-rose-800 leading-relaxed">
                   <strong>Debugging tip:</strong> If your pattern matches too
                   much, add more specific constraints — use character classes
                   instead of . where possible, and add anchors (^ and $) to
@@ -352,16 +352,16 @@ export default function PageEditorial() {
           ].map(({ n, title, body, enrich }) => (
             <div
               key={n}
-              className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'
+              className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5"
             >
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-rose-500 text-white font-black text-lg flex items-center justify-center'>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-rose-500 text-white font-black text-lg flex items-center justify-center">
                 {n}
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {title}
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-3'>{body}</p>
+                <p className="text-gray-600 leading-relaxed mb-3">{body}</p>
                 {enrich}
               </div>
             </div>
@@ -370,10 +370,10 @@ export default function PageEditorial() {
 
         <FAQSection />
 
-        <h3 className='text-2xl font-bold text-gray-900 mb-6'>
+        <h3 className="text-2xl font-bold text-gray-900 mb-6">
           Common use cases
         </h3>
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14'>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
           {[
             {
               emoji: "✉️",
@@ -408,21 +408,21 @@ export default function PageEditorial() {
           ].map(({ emoji, title, desc }) => (
             <div
               key={title}
-              className='bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:border-rose-200 hover:-translate-y-1 transition-all duration-200'
+              className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:border-rose-200 hover:-translate-y-1 transition-all duration-200"
             >
-              <div className='text-2xl mb-3'>{emoji}</div>
-              <p className='font-bold text-gray-900 text-sm mb-2'>{title}</p>
-              <p className='text-xs text-gray-500 leading-relaxed'>{desc}</p>
+              <div className="text-2xl mb-3">{emoji}</div>
+              <p className="font-bold text-gray-900 text-sm mb-2">{title}</p>
+              <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
 
-        <div className='bg-gradient-to-br from-rose-500 to-pink-600 rounded-2xl p-8 text-white text-center mb-14'>
-          <div className='text-3xl mb-3'>🔬</div>
-          <h3 className='text-xl font-bold mb-3'>
+        <div className="bg-gradient-to-br from-rose-500 to-pink-600 rounded-2xl p-8 text-white text-center mb-14">
+          <div className="text-3xl mb-3">🔬</div>
+          <h3 className="text-xl font-bold mb-3">
             This tool uses JavaScript's regex engine
           </h3>
-          <p className='text-rose-100 leading-relaxed max-w-xl mx-auto text-sm'>
+          <p className="text-rose-100 leading-relaxed max-w-xl mx-auto text-sm">
             Results match exactly what you'd get with JavaScript's RegExp object
             — perfect for frontend validation, Node.js scripts, and any
             JavaScript environment. If you're targeting Python, Java, or another
@@ -434,10 +434,10 @@ export default function PageEditorial() {
         </div>
 
         <div>
-          <h3 className='text-lg font-bold text-gray-900 mb-4'>
+          <h3 className="text-lg font-bold text-gray-900 mb-4">
             Related Free Developer Tools
           </h3>
-          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
                 href: "/tools/json-formatter-validator",
@@ -458,12 +458,12 @@ export default function PageEditorial() {
               <a
                 key={href}
                 href={href}
-                className='block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-rose-200 hover:-translate-y-1 transition-all duration-200 p-5'
+                className="block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-rose-200 hover:-translate-y-1 transition-all duration-200 p-5"
               >
-                <div className='font-bold text-gray-900 text-sm mb-1'>
+                <div className="font-bold text-gray-900 text-sm mb-1">
                   {label}
                 </div>
-                <div className='text-xs text-gray-500'>{desc}</div>
+                <div className="text-xs text-gray-500">{desc}</div>
               </a>
             ))}
           </div>

@@ -102,38 +102,38 @@ export default function BinaryHexConverterPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* Breadcrumb */}
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-indigo-600 transition-colors'>
+            <a href="/" className="hover:text-indigo-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/developer'
-              className='hover:text-indigo-600 transition-colors'
+              href="/tools/category/developer"
+              className="hover:text-indigo-600 transition-colors"
             >
               Developer Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Binary & Hex Converter
             </span>
           </li>
@@ -141,14 +141,14 @@ export default function BinaryHexConverterPage() {
       </nav>
 
       {/* Category badge + SR H1 */}
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Developer Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Binary & Hex Converter — Free Online Binary & Hex Converter
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Convert between binary, hexadecimal, decimal and octal.
         </p>
       </header>
@@ -156,72 +156,72 @@ export default function BinaryHexConverterPage() {
       {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
       <SidebarAdLayout>
         {/* ── Tool component (main interactive area) ──────────────────── */}
-        <main id='main-content' aria-label='Binary & Hex Converter tool'>
+        <main id="main-content" aria-label="Binary & Hex Converter tool">
           <BinaryHexConverterClient />
         </main>
 
         {/* ── Zone G: below tool result — highest value placement ──────── */}
         {/* Sits immediately after the tool, before any editorial content   */}
-        <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
+        <div className="max-w-6xl mx-auto px-4 mt-6 flex justify-center">
           {/* desktop: rectangle 336×280; mobile: medium rectangle 300×250 */}
-          <div className='hidden sm:block'>
-            <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
+          <div className="hidden sm:block">
+            <AdSlot variant="rectangle" slotId={SLOT_BELOW_TOOL} />
           </div>
-          <div className='block sm:hidden'>
-            <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
+          <div className="block sm:hidden">
+            <AdSlot variant="mediumrectangle" slotId={SLOT_BELOW_TOOL} />
           </div>
         </div>
 
         {/* ── Zone H: between tool + How To editorial ──────────────────── */}
-        <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
+        <div className="max-w-6xl mx-auto px-4 mt-4 flex justify-center">
           <AdSlot
-            variant='leaderboard'
+            variant="leaderboard"
             slotId={SLOT_LEADERBOARD}
-            className='hidden sm:flex'
+            className="hidden sm:flex"
           />
           <AdSlot
-            variant='mediumrectangle'
+            variant="mediumrectangle"
             slotId={SLOT_LEADERBOARD}
-            className='flex sm:hidden'
+            className="flex sm:hidden"
           />
         </div>
 
         {/* ── Editorial: How To + Related Tools ────────────────────────── */}
         {/* ── HOW TO USE ─────────────────────────────────────────────────────────── */}
         <section
-          id='how-to-use'
-          className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16'
-          aria-labelledby='how-to-use-heading'
+          id="how-to-use"
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
+          aria-labelledby="how-to-use-heading"
         >
           <h2
-            id='how-to-use-heading'
-            className='text-4xl font-bold text-gray-900 mb-4 text-center'
+            id="how-to-use-heading"
+            className="text-4xl font-bold text-gray-900 mb-4 text-center"
           >
             How to Use the Binary &amp; Hex Converter
           </h2>
-          <p className='text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed'>
+          <p className="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed">
             Type a number in any base and all four fields update instantly. No
             buttons, no submit — just live conversion between binary, octal,
             decimal, and hexadecimal.
           </p>
 
           {/* ── Steps ── */}
-          <div className='space-y-6 mb-14'>
+          <div className="space-y-6 mb-14">
             {/* Step 1 */}
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white font-black text-lg flex items-center justify-center'>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white font-black text-lg flex items-center justify-center">
                 1
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Type into any of the four fields
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-4'>
+                <p className="text-gray-600 leading-relaxed mb-4">
                   Each field accepts a number in its own base. Start typing and
                   all other fields update in real time — there's nothing to
                   submit.
                 </p>
-                <div className='grid sm:grid-cols-2 gap-3'>
+                <div className="grid sm:grid-cols-2 gap-3">
                   {[
                     {
                       label: "Binary",
@@ -261,22 +261,22 @@ export default function BinaryHexConverterPage() {
                       key={label}
                       className={`rounded-xl border px-4 py-3 ${color.split(" ").slice(1).join(" ")}`}
                     >
-                      <div className='flex items-center gap-2 mb-1.5'>
+                      <div className="flex items-center gap-2 mb-1.5">
                         <span
                           className={`text-xs font-bold px-2 py-0.5 rounded-full ${badge}`}
                         >
                           {label}
                         </span>
                         {prefix && (
-                          <code className='text-xs text-gray-400 font-mono'>
+                          <code className="text-xs text-gray-400 font-mono">
                             prefix: {prefix}
                           </code>
                         )}
                       </div>
-                      <p className='text-xs text-gray-600 mb-1'>
+                      <p className="text-xs text-gray-600 mb-1">
                         Valid characters: <strong>{chars}</strong>
                       </p>
-                      <p className='text-xs text-gray-400'>
+                      <p className="text-xs text-gray-400">
                         Example:{" "}
                         <code
                           className={`font-mono font-bold ${color.split(" ")[0]}`}
@@ -287,7 +287,7 @@ export default function BinaryHexConverterPage() {
                     </div>
                   ))}
                 </div>
-                <p className='mt-4 text-sm text-gray-500'>
+                <p className="mt-4 text-sm text-gray-500">
                   If you type an invalid character for the selected field — for
                   example a letter in the binary field — a red error message
                   appears below the inputs and the other fields clear until the
@@ -297,48 +297,48 @@ export default function BinaryHexConverterPage() {
             </div>
 
             {/* Step 2 */}
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white font-black text-lg flex items-center justify-center'>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white font-black text-lg flex items-center justify-center">
                 2
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Read all four conversions at once
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-4'>
+                <p className="text-gray-600 leading-relaxed mb-4">
                   Once you have a valid number in any field, the other three
                   fill in automatically. Each base has its own colour so you can
                   scan quickly: red for binary, amber for octal, green for
                   decimal, indigo for hex.
                 </p>
-                <p className='text-gray-600 leading-relaxed mb-4'>
+                <p className="text-gray-600 leading-relaxed mb-4">
                   Below the four input fields, a <strong>summary card</strong>{" "}
                   appears showing all four representations of the current value
                   together with their standard prefixes —{" "}
-                  <code className='bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm'>
+                  <code className="bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm">
                     0b
                   </code>{" "}
                   for binary,{" "}
-                  <code className='bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm'>
+                  <code className="bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm">
                     0o
                   </code>{" "}
                   for octal, and{" "}
-                  <code className='bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm'>
+                  <code className="bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm">
                     0x
                   </code>{" "}
                   for hex. These are the prefixes used in most programming
                   languages (Python, JavaScript, C, Rust) so you can paste them
                   straight into code.
                 </p>
-                <div className='bg-indigo-50 rounded-xl px-5 py-4 text-sm text-indigo-800 leading-relaxed'>
+                <div className="bg-indigo-50 rounded-xl px-5 py-4 text-sm text-indigo-800 leading-relaxed">
                   <strong>Binary input tip:</strong> Spaces in binary input are
                   ignored, so you can paste a value formatted as nibbles or
                   bytes — for example{" "}
-                  <code className='font-mono bg-white px-1 rounded'>
+                  <code className="font-mono bg-white px-1 rounded">
                     1010 1111
                   </code>{" "}
                   or{" "}
-                  <code className='font-mono bg-white px-1 rounded'>
+                  <code className="font-mono bg-white px-1 rounded">
                     1010&nbsp;1111
                   </code>{" "}
                   — and it will convert correctly. This is useful when reading
@@ -349,15 +349,15 @@ export default function BinaryHexConverterPage() {
             </div>
 
             {/* Step 3 */}
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white font-black text-lg flex items-center justify-center'>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white font-black text-lg flex items-center justify-center">
                 3
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Copy any result with one click
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-3'>
+                <p className="text-gray-600 leading-relaxed mb-3">
                   A small <strong>Copy</strong> link appears to the right of
                   each field label as soon as the field has a value. Clicking it
                   copies that field's value to your clipboard and briefly shows
@@ -366,7 +366,7 @@ export default function BinaryHexConverterPage() {
                   code, decimal for a spreadsheet — without selecting text
                   manually.
                 </p>
-                <p className='text-gray-600 leading-relaxed'>
+                <p className="text-gray-600 leading-relaxed">
                   Click <strong>Reset All</strong> to clear every field and
                   start fresh. This also clears any error messages.
                 </p>
@@ -374,43 +374,43 @@ export default function BinaryHexConverterPage() {
             </div>
 
             {/* Step 4 */}
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white font-black text-lg flex items-center justify-center'>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white font-black text-lg flex items-center justify-center">
                 4
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Click any row in the reference table to load it
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-4'>
+                <p className="text-gray-600 leading-relaxed mb-4">
                   Below the converter sits a{" "}
                   <strong>Common Values Reference</strong> table with 12
                   frequently used values shown across all four bases
                   simultaneously. Clicking any row instantly loads that value
                   into all four input fields — the same as typing it yourself.
                 </p>
-                <div className='overflow-x-auto rounded-xl border border-gray-100 mb-4'>
-                  <table className='w-full text-sm'>
-                    <thead className='bg-gray-50 border-b border-gray-100'>
+                <div className="overflow-x-auto rounded-xl border border-gray-100 mb-4">
+                  <table className="w-full text-sm">
+                    <thead className="bg-gray-50 border-b border-gray-100">
                       <tr>
-                        <th className='px-4 py-3 text-left font-semibold text-red-600'>
+                        <th className="px-4 py-3 text-left font-semibold text-red-600">
                           Binary
                         </th>
-                        <th className='px-4 py-3 text-left font-semibold text-amber-600'>
+                        <th className="px-4 py-3 text-left font-semibold text-amber-600">
                           Octal
                         </th>
-                        <th className='px-4 py-3 text-left font-semibold text-emerald-600'>
+                        <th className="px-4 py-3 text-left font-semibold text-emerald-600">
                           Decimal
                         </th>
-                        <th className='px-4 py-3 text-left font-semibold text-indigo-600'>
+                        <th className="px-4 py-3 text-left font-semibold text-indigo-600">
                           Hex
                         </th>
-                        <th className='px-4 py-3 text-left font-semibold text-gray-500 text-xs'>
+                        <th className="px-4 py-3 text-left font-semibold text-gray-500 text-xs">
                           Why it matters
                         </th>
                       </tr>
                     </thead>
-                    <tbody className='divide-y divide-gray-50'>
+                    <tbody className="divide-y divide-gray-50">
                       {[
                         ["0", "0", "0", "0", "Zero / null / off"],
                         [
@@ -438,21 +438,21 @@ export default function BinaryHexConverterPage() {
                       ].map(([bin, oct, dec, hex, note]) => (
                         <tr
                           key={dec}
-                          className='hover:bg-indigo-50 transition-colors'
+                          className="hover:bg-indigo-50 transition-colors"
                         >
-                          <td className='px-4 py-2.5 font-mono text-red-600 text-xs'>
+                          <td className="px-4 py-2.5 font-mono text-red-600 text-xs">
                             {bin}
                           </td>
-                          <td className='px-4 py-2.5 font-mono text-amber-600 text-xs'>
+                          <td className="px-4 py-2.5 font-mono text-amber-600 text-xs">
                             {oct}
                           </td>
-                          <td className='px-4 py-2.5 font-mono text-emerald-600 text-xs'>
+                          <td className="px-4 py-2.5 font-mono text-emerald-600 text-xs">
                             {dec}
                           </td>
-                          <td className='px-4 py-2.5 font-mono text-indigo-600 text-xs'>
+                          <td className="px-4 py-2.5 font-mono text-indigo-600 text-xs">
                             {hex}
                           </td>
-                          <td className='px-4 py-2.5 text-gray-400 text-xs'>
+                          <td className="px-4 py-2.5 text-gray-400 text-xs">
                             {note}
                           </td>
                         </tr>
@@ -460,7 +460,7 @@ export default function BinaryHexConverterPage() {
                     </tbody>
                   </table>
                 </div>
-                <p className='text-sm text-gray-500'>
+                <p className="text-sm text-gray-500">
                   The full table in the tool includes 12 values from 0 to 255.
                   All rows are clickable.
                 </p>
@@ -469,10 +469,10 @@ export default function BinaryHexConverterPage() {
           </div>
 
           {/* ── When you'll need this ── */}
-          <h3 className='text-2xl font-bold text-gray-900 mb-6'>
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">
             When you'll actually need this
           </h3>
-          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14'>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
             {[
               {
                 emoji: "🎨",
@@ -507,27 +507,27 @@ export default function BinaryHexConverterPage() {
             ].map(({ emoji, title, desc }) => (
               <div
                 key={title}
-                className='bg-white rounded-2xl border border-gray-100 shadow-sm p-5'
+                className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5"
               >
-                <div className='text-2xl mb-3'>{emoji}</div>
-                <p className='font-bold text-gray-900 text-sm mb-2'>{title}</p>
-                <p className='text-xs text-gray-500 leading-relaxed'>{desc}</p>
+                <div className="text-2xl mb-3">{emoji}</div>
+                <p className="font-bold text-gray-900 text-sm mb-2">{title}</p>
+                <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
 
           {/* ── How the bases work ── */}
-          <div className='bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6'>
-            <h3 className='text-xl font-bold text-gray-900 mb-4'>
+          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">
               How the four bases relate to each other
             </h3>
-            <p className='text-gray-600 leading-relaxed mb-6'>
+            <p className="text-gray-600 leading-relaxed mb-6">
               All four representations describe the same underlying integer —
               they're just different ways of writing it. The base determines how
               many unique digit symbols are used and therefore how many digits
               are needed to represent a given value.
             </p>
-            <div className='space-y-5'>
+            <div className="space-y-5">
               {[
                 {
                   base: "Binary (base 2)",
@@ -563,32 +563,32 @@ export default function BinaryHexConverterPage() {
                   >
                     {base}
                   </span>
-                  <p className='text-sm text-gray-700 leading-relaxed'>
+                  <p className="text-sm text-gray-700 leading-relaxed">
                     {body}
                   </p>
                 </div>
               ))}
             </div>
 
-            <div className='mt-6 bg-gray-50 rounded-xl px-5 py-4 text-sm text-gray-700'>
-              <p className='font-semibold text-gray-900 mb-2'>
+            <div className="mt-6 bg-gray-50 rounded-xl px-5 py-4 text-sm text-gray-700">
+              <p className="font-semibold text-gray-900 mb-2">
                 The key relationship to remember:
               </p>
-              <p className='leading-relaxed mb-2'>
+              <p className="leading-relaxed mb-2">
                 1 hex digit = 4 binary digits (bits) = 1 nibble
                 <br />2 hex digits = 8 binary digits (bits) = 1 byte
               </p>
-              <p className='leading-relaxed'>
+              <p className="leading-relaxed">
                 So{" "}
-                <code className='bg-white border border-gray-200 px-1.5 py-0.5 rounded font-mono text-indigo-700'>
+                <code className="bg-white border border-gray-200 px-1.5 py-0.5 rounded font-mono text-indigo-700">
                   0xFF
                 </code>{" "}
                 in hex is always{" "}
-                <code className='bg-white border border-gray-200 px-1.5 py-0.5 rounded font-mono text-red-600'>
+                <code className="bg-white border border-gray-200 px-1.5 py-0.5 rounded font-mono text-red-600">
                   11111111
                 </code>{" "}
                 in binary and{" "}
-                <code className='bg-white border border-gray-200 px-1.5 py-0.5 rounded font-mono text-emerald-600'>
+                <code className="bg-white border border-gray-200 px-1.5 py-0.5 rounded font-mono text-emerald-600">
                   255
                 </code>{" "}
                 in decimal — the maximum value of one unsigned byte.
@@ -597,19 +597,19 @@ export default function BinaryHexConverterPage() {
           </div>
 
           {/* ── Privacy note ── */}
-          <div className='bg-gradient-to-br from-indigo-600 to-blue-700 rounded-2xl p-8 text-white text-center'>
-            <div className='text-3xl mb-3'>⚡</div>
-            <h3 className='text-xl font-bold mb-3'>
+          <div className="bg-gradient-to-br from-indigo-600 to-blue-700 rounded-2xl p-8 text-white text-center">
+            <div className="text-3xl mb-3">⚡</div>
+            <h3 className="text-xl font-bold mb-3">
               Instant, offline, private
             </h3>
-            <p className='text-indigo-100 leading-relaxed max-w-xl mx-auto text-sm'>
+            <p className="text-indigo-100 leading-relaxed max-w-xl mx-auto text-sm">
               All conversions run entirely in JavaScript in your browser using
               JavaScript's native{" "}
-              <code className='bg-white/20 px-1.5 py-0.5 rounded font-mono text-white text-xs'>
+              <code className="bg-white/20 px-1.5 py-0.5 rounded font-mono text-white text-xs">
                 parseInt()
               </code>{" "}
               and{" "}
-              <code className='bg-white/20 px-1.5 py-0.5 rounded font-mono text-white text-xs'>
+              <code className="bg-white/20 px-1.5 py-0.5 rounded font-mono text-white text-xs">
                 .toString(radix)
               </code>{" "}
               functions. No data is sent to a server. The tool works with no
@@ -619,7 +619,10 @@ export default function BinaryHexConverterPage() {
             </p>
           </div>
         </section>
-              <ToolEngagement toolSlug="binary-hex-converter" toolName="Binary & Hex Converter" />
+        <ToolEngagement
+          toolSlug="binary-hex-converter"
+          toolName="Binary & Hex Converter"
+        />
       </SidebarAdLayout>
     </>
   );

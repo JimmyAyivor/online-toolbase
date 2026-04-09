@@ -27,7 +27,7 @@ export default function Post() {
       </p>
       <p>
         Our{" "}
-        <a href='/tools/mortgage-affordability-calculator'>
+        <a href="/tools/mortgage-affordability-calculator">
           Mortgage Affordability Calculator
         </a>{" "}
         estimates your borrowing range based on income, existing debts, and
@@ -58,7 +58,7 @@ export default function Post() {
       <p>
         Reverse-engineer the loan amount from that monthly payment using the
         mortgage payment formula or our{" "}
-        <a href='/tools/loan-mortgage-calculator'>Loan & Mortgage Calculator</a>
+        <a href="/tools/loan-mortgage-calculator">Loan & Mortgage Calculator</a>
         .
       </p>
 
@@ -144,12 +144,12 @@ export default function Post() {
         from your actual budget downward what monthly payment can you sustain
         without sacrificing savings, lifestyle, and financial resilience? Use
         the{" "}
-        <a href='/tools/mortgage-affordability-calculator'>
+        <a href="/tools/mortgage-affordability-calculator">
           Mortgage Affordability Calculator
         </a>{" "}
         as a starting estimate, then model the resulting monthly payment against
         your real budget with the{" "}
-        <a href='/tools/loan-mortgage-calculator'>Loan Calculator</a>.
+        <a href="/tools/loan-mortgage-calculator">Loan Calculator</a>.
       </p>
     </>
   );

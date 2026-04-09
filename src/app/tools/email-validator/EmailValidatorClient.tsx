@@ -160,21 +160,21 @@ export default function EmailValidatorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-cyan-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full mb-4 shadow-lg'>
-              <Mail className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full mb-4 shadow-lg">
+              <Mail className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Email Validator
             </h2>
-            <p className='text-gray-500'>Check if email addresses are valid</p>
+            <p className="text-gray-500">Check if email addresses are valid</p>
           </div>
 
           {/* Mode toggle */}
-          <div className='mb-6 flex gap-3'>
+          <div className="mb-6 flex gap-3">
             {(["single", "bulk"] as const).map((m) => (
               <button
                 key={m}
@@ -192,14 +192,14 @@ export default function EmailValidatorClient() {
 
           {/* ── Single mode ── */}
           {mode === "single" ? (
-            <div className='space-y-6'>
+            <div className="space-y-6">
               <div>
-                <label className='block text-sm font-medium text-gray-700 mb-2'>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Email Address
                 </label>
-                <div className='flex gap-3'>
+                <div className="flex gap-3">
                   <input
-                    type='email'
+                    type="email"
                     value={singleEmail}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setSingleEmail(e.target.value)
@@ -207,12 +207,12 @@ export default function EmailValidatorClient() {
                     onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
                       if (e.key === "Enter") handleSingleValidation();
                     }}
-                    placeholder='example@domain.com'
-                    className='flex-1 px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent'
+                    placeholder="example@domain.com"
+                    className="flex-1 px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
                   />
                   <button
                     onClick={handleSingleValidation}
-                    className='px-6 py-3 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg font-semibold transition-colors'
+                    className="px-6 py-3 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg font-semibold transition-colors"
                   >
                     Validate
                   </button>
@@ -227,37 +227,37 @@ export default function EmailValidatorClient() {
                       : "bg-red-50 border-red-200"
                   }`}
                 >
-                  <div className='flex items-center gap-3 mb-4'>
+                  <div className="flex items-center gap-3 mb-4">
                     {results.valid ? (
-                      <CheckCircle className='w-8 h-8 text-green-600' />
+                      <CheckCircle className="w-8 h-8 text-green-600" />
                     ) : (
-                      <XCircle className='w-8 h-8 text-red-600' />
+                      <XCircle className="w-8 h-8 text-red-600" />
                     )}
                     <div>
-                      <h3 className='font-bold text-lg text-gray-900'>
+                      <h3 className="font-bold text-lg text-gray-900">
                         {results.valid ? "Valid Email" : "Invalid Email"}
                       </h3>
-                      <p className='text-sm text-gray-600'>{results.email}</p>
+                      <p className="text-sm text-gray-600">{results.email}</p>
                     </div>
                   </div>
 
                   {results.valid && results.localPart && results.domain && (
-                    <div className='bg-white rounded-lg p-4 space-y-2'>
-                      <div className='flex justify-between text-sm'>
-                        <span className='text-gray-600'>Local Part:</span>
-                        <span className='font-mono text-gray-900'>
+                    <div className="bg-white rounded-lg p-4 space-y-2">
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-600">Local Part:</span>
+                        <span className="font-mono text-gray-900">
                           {results.localPart}
                         </span>
                       </div>
-                      <div className='flex justify-between text-sm'>
-                        <span className='text-gray-600'>Domain:</span>
-                        <span className='font-mono text-gray-900'>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-600">Domain:</span>
+                        <span className="font-mono text-gray-900">
                           {results.domain}
                         </span>
                       </div>
-                      <div className='flex justify-between text-sm'>
-                        <span className='text-gray-600'>TLD:</span>
-                        <span className='font-mono text-gray-900'>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-600">TLD:</span>
+                        <span className="font-mono text-gray-900">
                           {results.tld}
                         </span>
                       </div>
@@ -265,17 +265,17 @@ export default function EmailValidatorClient() {
                   )}
 
                   {results.errors.length > 0 && (
-                    <div className='mt-4'>
-                      <h4 className='font-semibold text-red-800 mb-2'>
+                    <div className="mt-4">
+                      <h4 className="font-semibold text-red-800 mb-2">
                         Errors:
                       </h4>
-                      <ul className='space-y-1'>
+                      <ul className="space-y-1">
                         {results.errors.map((error, idx) => (
                           <li
                             key={idx}
-                            className='text-sm text-red-700 flex items-start gap-2'
+                            className="text-sm text-red-700 flex items-start gap-2"
                           >
-                            <XCircle className='w-4 h-4 mt-0.5 flex-shrink-0' />
+                            <XCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />
                             {error}
                           </li>
                         ))}
@@ -284,17 +284,17 @@ export default function EmailValidatorClient() {
                   )}
 
                   {results.warnings.length > 0 && (
-                    <div className='mt-4'>
-                      <h4 className='font-semibold text-yellow-800 mb-2'>
+                    <div className="mt-4">
+                      <h4 className="font-semibold text-yellow-800 mb-2">
                         Warnings:
                       </h4>
-                      <ul className='space-y-1'>
+                      <ul className="space-y-1">
                         {results.warnings.map((warning, idx) => (
                           <li
                             key={idx}
-                            className='text-sm text-yellow-700 flex items-start gap-2'
+                            className="text-sm text-yellow-700 flex items-start gap-2"
                           >
-                            <AlertCircle className='w-4 h-4 mt-0.5 flex-shrink-0' />
+                            <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />
                             {warning}
                           </li>
                         ))}
@@ -306,9 +306,9 @@ export default function EmailValidatorClient() {
             </div>
           ) : (
             /* ── Bulk mode ── */
-            <div className='space-y-6'>
+            <div className="space-y-6">
               <div>
-                <label className='block text-sm font-medium text-gray-700 mb-2'>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Email Addresses (one per line)
                 </label>
                 <textarea
@@ -319,90 +319,90 @@ export default function EmailValidatorClient() {
                   placeholder={
                     "john@example.com\njane@domain.com\ninvalid@email"
                   }
-                  className='w-full h-48 px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent resize-none font-mono text-sm'
+                  className="w-full h-48 px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent resize-none font-mono text-sm"
                 />
-                <div className='mt-2 text-sm text-gray-500'>
+                <div className="mt-2 text-sm text-gray-500">
                   {bulkEmails.split("\n").filter((e) => e.trim()).length} emails
                   entered
                 </div>
               </div>
 
-              <div className='flex gap-3'>
+              <div className="flex gap-3">
                 <button
                   onClick={handleBulkValidation}
-                  className='flex-1 px-6 py-3 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg font-semibold transition-colors'
+                  className="flex-1 px-6 py-3 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg font-semibold transition-colors"
                 >
                   Validate All
                 </button>
                 {bulkResults.length > 0 && (
                   <button
                     onClick={downloadResults}
-                    className='px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-colors flex items-center gap-2'
+                    className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-colors flex items-center gap-2"
                   >
-                    <Download className='w-4 h-4' />
+                    <Download className="w-4 h-4" />
                     Export CSV
                   </button>
                 )}
               </div>
 
               {bulkResults.length > 0 && (
-                <div className='space-y-4'>
-                  <div className='bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl p-6 border border-cyan-200'>
-                    <h3 className='font-bold text-gray-900 mb-4'>
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl p-6 border border-cyan-200">
+                    <h3 className="font-bold text-gray-900 mb-4">
                       Validation Summary
                     </h3>
-                    <div className='grid md:grid-cols-3 gap-4'>
-                      <div className='bg-white rounded-lg p-4'>
-                        <div className='text-2xl font-bold text-gray-900'>
+                    <div className="grid md:grid-cols-3 gap-4">
+                      <div className="bg-white rounded-lg p-4">
+                        <div className="text-2xl font-bold text-gray-900">
                           {bulkResults.length}
                         </div>
-                        <div className='text-sm text-gray-600'>Total</div>
+                        <div className="text-sm text-gray-600">Total</div>
                       </div>
-                      <div className='bg-green-100 rounded-lg p-4'>
-                        <div className='text-2xl font-bold text-green-600'>
+                      <div className="bg-green-100 rounded-lg p-4">
+                        <div className="text-2xl font-bold text-green-600">
                           {validCount}
                         </div>
-                        <div className='text-sm text-gray-600'>Valid</div>
+                        <div className="text-sm text-gray-600">Valid</div>
                       </div>
-                      <div className='bg-red-100 rounded-lg p-4'>
-                        <div className='text-2xl font-bold text-red-600'>
+                      <div className="bg-red-100 rounded-lg p-4">
+                        <div className="text-2xl font-bold text-red-600">
                           {invalidCount}
                         </div>
-                        <div className='text-sm text-gray-600'>Invalid</div>
+                        <div className="text-sm text-gray-600">Invalid</div>
                       </div>
                     </div>
                   </div>
 
-                  <div className='bg-white border border-gray-200 rounded-lg overflow-hidden'>
-                    <div className='max-h-96 overflow-y-auto'>
-                      <table className='w-full'>
-                        <thead className='bg-gray-100 sticky top-0'>
+                  <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+                    <div className="max-h-96 overflow-y-auto">
+                      <table className="w-full">
+                        <thead className="bg-gray-100 sticky top-0">
                           <tr>
-                            <th className='px-4 py-3 text-left text-sm font-semibold text-gray-700'>
+                            <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
                               Status
                             </th>
-                            <th className='px-4 py-3 text-left text-sm font-semibold text-gray-700'>
+                            <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
                               Email
                             </th>
-                            <th className='px-4 py-3 text-left text-sm font-semibold text-gray-700'>
+                            <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
                               Issues
                             </th>
                           </tr>
                         </thead>
-                        <tbody className='divide-y divide-gray-200'>
+                        <tbody className="divide-y divide-gray-200">
                           {bulkResults.map((result, idx) => (
-                            <tr key={idx} className='hover:bg-gray-50'>
-                              <td className='px-4 py-3'>
+                            <tr key={idx} className="hover:bg-gray-50">
+                              <td className="px-4 py-3">
                                 {result.valid ? (
-                                  <CheckCircle className='w-5 h-5 text-green-600' />
+                                  <CheckCircle className="w-5 h-5 text-green-600" />
                                 ) : (
-                                  <XCircle className='w-5 h-5 text-red-600' />
+                                  <XCircle className="w-5 h-5 text-red-600" />
                                 )}
                               </td>
-                              <td className='px-4 py-3 font-mono text-sm text-gray-900'>
+                              <td className="px-4 py-3 font-mono text-sm text-gray-900">
                                 {result.email}
                               </td>
-                              <td className='px-4 py-3 text-sm text-gray-600'>
+                              <td className="px-4 py-3 text-sm text-gray-600">
                                 {result.errors.length > 0
                                   ? result.errors.join(", ")
                                   : result.warnings.length > 0
@@ -420,11 +420,11 @@ export default function EmailValidatorClient() {
             </div>
           )}
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">
               ✅ Validation Checks:
             </p>
-            <ul className='list-disc list-inside space-y-1'>
+            <ul className="list-disc list-inside space-y-1">
               <li>Basic email format (user@domain.com)</li>
               <li>Local part length and character validation</li>
               <li>Domain format and structure</li>

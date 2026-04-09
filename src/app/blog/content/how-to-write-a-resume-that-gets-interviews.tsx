@@ -21,7 +21,7 @@ export default function Post() {
       </p>
       <p>
         The implication: format for parsability first, visual appeal second. Use
-        our <a href='/tools/resume-builder'>Resume Builder</a> to create a
+        our <a href="/tools/resume-builder">Resume Builder</a> to create a
         clean, ATS-friendly resume with proper structure.
       </p>
 
@@ -124,7 +124,7 @@ export default function Post() {
       <p>
         A resume that gets interviews is targeted, achievement-oriented, and
         formatted for both ATS parsing and human scanning. Use the{" "}
-        <a href='/tools/resume-builder'>Resume Builder</a> to structure your
+        <a href="/tools/resume-builder">Resume Builder</a> to structure your
         experience correctly, write each bullet as an achievement rather than a
         responsibility, and tailor for each application you genuinely want.
       </p>

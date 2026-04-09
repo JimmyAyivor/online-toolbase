@@ -18,7 +18,7 @@ export default function Post() {
         After-tax monthly increase ≈ Monthly increase × (1 − marginal tax rate)
       </p>
       <p>
-        Our <a href='/tools/pay-raise-calculator'>Pay Raise Calculator</a>{" "}
+        Our <a href="/tools/pay-raise-calculator">Pay Raise Calculator</a>{" "}
         computes the annual and monthly difference in gross and approximate net
         pay for any raise percentage.
       </p>
@@ -129,7 +129,7 @@ export default function Post() {
         At a 20% marginal tax rate plus National Insurance (UK), a £1,000 gross
         increase yields roughly £680–700 net per year about £57–58 extra per
         month. Use the{" "}
-        <a href='/tools/pay-raise-calculator'>Pay Raise Calculator</a> for exact
+        <a href="/tools/pay-raise-calculator">Pay Raise Calculator</a> for exact
         figures based on your tax situation.
       </p>
 
@@ -137,7 +137,7 @@ export default function Post() {
       <p>
         Evaluate any raise against three benchmarks: real purchasing power after
         inflation, your market rate for the role, and your own performance. Use
-        the <a href='/tools/pay-raise-calculator'>Pay Raise Calculator</a> to
+        the <a href="/tools/pay-raise-calculator">Pay Raise Calculator</a> to
         quickly compute the dollar or pound difference, then apply the broader
         context to decide whether it's adequate.
       </p>

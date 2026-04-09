@@ -46,7 +46,7 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        Our <a href='/tools/color-palette-generator'>Color Palette Generator</a>{" "}
+        Our <a href="/tools/color-palette-generator">Color Palette Generator</a>{" "}
         generates harmonious palettes from any starting colour using these
         relationship types.
       </p>
@@ -128,7 +128,7 @@ export default function Post() {
         HTML/CSS. RGB (Red/Green/Blue) specifies colour as component intensities
         0–255. HSL (Hue/Saturation/Lightness) is more intuitive for designers
         because you can adjust lightness without changing hue. Use the{" "}
-        <a href='/tools/color-code-converter'>Color Code Converter</a> to
+        <a href="/tools/color-code-converter">Color Code Converter</a> to
         convert between formats.
       </p>
 
@@ -147,7 +147,7 @@ export default function Post() {
         results. Start with a colour wheel relationship type, adjust saturation
         and value for sophistication, and apply the 60/30/10 rule for balance.
         Use the{" "}
-        <a href='/tools/color-palette-generator'>Color Palette Generator</a> to
+        <a href="/tools/color-palette-generator">Color Palette Generator</a> to
         explore harmonious options from any starting colour.
       </p>
     </>

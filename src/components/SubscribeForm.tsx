@@ -89,8 +89,18 @@ export default function SubscribeForm({
         <div className="p-5">
           {status === "success" ? (
             <div className="flex items-center gap-2 text-emerald-600">
-              <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+              <svg
+                className="w-5 h-5 shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.5}
+                  d="M5 13l4 4L19 7"
+                />
               </svg>
               <p className="text-sm font-semibold">You&apos;re subscribed!</p>
             </div>
@@ -117,9 +127,24 @@ export default function SubscribeForm({
                 >
                   {status === "loading" ? (
                     <>
-                      <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                      <svg
+                        className="w-4 h-4 animate-spin"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8v8H4z"
+                        />
                       </svg>
                       Subscribing…
                     </>
@@ -142,14 +167,28 @@ export default function SubscribeForm({
   return (
     <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-700 p-8 shadow-xl">
       {/* Decorative background circles */}
-      <div className="pointer-events-none absolute -top-12 -right-12 w-48 h-48 rounded-full bg-white/5" aria-hidden />
-      <div className="pointer-events-none absolute -bottom-8 -left-8 w-36 h-36 rounded-full bg-white/5" aria-hidden />
+      <div
+        className="pointer-events-none absolute -top-12 -right-12 w-48 h-48 rounded-full bg-white/5"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -bottom-8 -left-8 w-36 h-36 rounded-full bg-white/5"
+        aria-hidden
+      />
 
       <div className="relative">
         {/* Icon */}
         <div className="w-11 h-11 bg-white/15 rounded-xl flex items-center justify-center mb-5">
-          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+          <svg
+            className="w-5 h-5 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
               d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
             />
           </svg>
@@ -167,12 +206,24 @@ export default function SubscribeForm({
         {status === "success" ? (
           <div className="flex items-center gap-3 bg-white/15 rounded-xl px-4 py-3.5">
             <div className="w-8 h-8 bg-emerald-400 rounded-full flex items-center justify-center shrink-0">
-              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+              <svg
+                className="w-4 h-4 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.5}
+                  d="M5 13l4 4L19 7"
+                />
               </svg>
             </div>
             <div>
-              <p className="text-white font-semibold text-sm">You&apos;re in!</p>
+              <p className="text-white font-semibold text-sm">
+                You&apos;re in!
+              </p>
               <p className="text-indigo-200 text-xs mt-0.5">
                 Check your inbox to confirm your subscription.
               </p>
@@ -198,9 +249,24 @@ export default function SubscribeForm({
               >
                 {status === "loading" ? (
                   <>
-                    <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                    <svg
+                      className="w-4 h-4 animate-spin"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v8H4z"
+                      />
                     </svg>
                     Subscribing…
                   </>

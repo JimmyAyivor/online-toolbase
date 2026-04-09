@@ -34,7 +34,7 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        Our <a href='/tools/random-name-generator'>Random Name Generator</a>{" "}
+        Our <a href="/tools/random-name-generator">Random Name Generator</a>{" "}
         produces culturally varied first and last name combinations across
         multiple naming traditions.
       </p>
@@ -91,7 +91,7 @@ export default function Post() {
         A random name generator removes the friction of naming whether you're a
         developer seeding test data, a writer naming a minor character, or a
         game master populating a world. Use the{" "}
-        <a href='/tools/random-name-generator'>Random Name Generator</a> for
+        <a href="/tools/random-name-generator">Random Name Generator</a> for
         instant, convincing name suggestions across cultural traditions and
         contexts.
       </p>

@@ -29,7 +29,7 @@ export default function Post() {
       </p>
       <p>
         Our{" "}
-        <a href='/tools/investment-return-calculator'>
+        <a href="/tools/investment-return-calculator">
           Investment Return Calculator
         </a>{" "}
         computes both total return and CAGR for any start value, end value, and
@@ -99,7 +99,7 @@ export default function Post() {
         CAGR is the most useful single metric for comparing investments over
         different time periods. Always compare it to inflation for real return,
         and to a relevant benchmark for relative performance. Use the{" "}
-        <a href='/tools/investment-return-calculator'>
+        <a href="/tools/investment-return-calculator">
           Investment Return Calculator
         </a>{" "}
         to compute CAGR and total return for any investment.

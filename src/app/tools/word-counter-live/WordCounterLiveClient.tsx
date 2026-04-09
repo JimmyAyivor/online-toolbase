@@ -150,35 +150,35 @@ export default function WordCounterLiveClient() {
   };
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <Type className='w-8 h-8 text-indigo-600' />
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4">
+              <Type className="w-8 h-8 text-indigo-600" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Word Counter Live
             </h2>
-            <p className='text-gray-600'>
+            <p className="text-gray-600">
               Real-time word count, reading time, and detailed text statistics
             </p>
           </div>
 
           {/* Target word count */}
-          <div className='flex items-center gap-3 mb-3'>
+          <div className="flex items-center gap-3 mb-3">
             <input
-              type='number'
+              type="number"
               value={target}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setTarget(e.target.value)
               }
-              placeholder='Set word target (optional)'
-              className='w-56 border-2 border-gray-300 rounded-lg px-4 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
+              placeholder="Set word target (optional)"
+              className="w-56 border-2 border-gray-300 rounded-lg px-4 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
             />
             {targetNum > 0 && (
-              <span className='text-sm text-gray-500'>
+              <span className="text-sm text-gray-500">
                 {stats.words}/{targetNum} ({progress.toFixed(0)}%)
               </span>
             )}
@@ -186,7 +186,7 @@ export default function WordCounterLiveClient() {
 
           {/* Progress bar */}
           {targetNum > 0 && (
-            <div className='h-2 bg-gray-100 rounded-full mb-4 overflow-hidden'>
+            <div className="h-2 bg-gray-100 rounded-full mb-4 overflow-hidden">
               <div
                 className={`h-full rounded-full transition-all ${
                   progress >= 100 ? "bg-green-500" : "bg-indigo-500"
@@ -202,13 +202,13 @@ export default function WordCounterLiveClient() {
             onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
               setText(e.target.value)
             }
-            placeholder='Start typing or paste your text here…'
+            placeholder="Start typing or paste your text here…"
             rows={9}
-            className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none mb-6'
+            className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none mb-6"
           />
 
           {/* Primary stats */}
-          <div className='grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4'>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
             {[
               { label: "Words", value: stats.words.toLocaleString() },
               { label: "Characters", value: stats.characters.toLocaleString() },
@@ -217,18 +217,18 @@ export default function WordCounterLiveClient() {
             ].map(({ label, value }) => (
               <div
                 key={label}
-                className='bg-indigo-50 border border-indigo-100 rounded-xl p-3 text-center'
+                className="bg-indigo-50 border border-indigo-100 rounded-xl p-3 text-center"
               >
-                <div className='text-2xl font-bold text-indigo-700'>
+                <div className="text-2xl font-bold text-indigo-700">
                   {value}
                 </div>
-                <div className='text-xs text-gray-500 mt-0.5'>{label}</div>
+                <div className="text-xs text-gray-500 mt-0.5">{label}</div>
               </div>
             ))}
           </div>
 
           {/* Secondary stats */}
-          <div className='grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6'>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
             {[
               {
                 label: "Chars (no spaces)",
@@ -243,28 +243,28 @@ export default function WordCounterLiveClient() {
             ].map(({ label, value }) => (
               <div
                 key={label}
-                className='bg-gray-50 border border-gray-200 rounded-xl p-3 text-center'
+                className="bg-gray-50 border border-gray-200 rounded-xl p-3 text-center"
               >
-                <div className='text-lg font-bold text-gray-700'>{value}</div>
-                <div className='text-xs text-gray-400 mt-0.5'>{label}</div>
+                <div className="text-lg font-bold text-gray-700">{value}</div>
+                <div className="text-xs text-gray-400 mt-0.5">{label}</div>
               </div>
             ))}
           </div>
 
           {/* Top words */}
           {top.length > 0 && (
-            <div className='mb-6'>
-              <h3 className='text-sm font-semibold text-gray-700 mb-2'>
+            <div className="mb-6">
+              <h3 className="text-sm font-semibold text-gray-700 mb-2">
                 Most frequent words
               </h3>
-              <div className='flex flex-wrap gap-2'>
+              <div className="flex flex-wrap gap-2">
                 {top.map(({ word, count }) => (
                   <span
                     key={word}
-                    className='inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-100 text-indigo-700 rounded-lg text-sm'
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-100 text-indigo-700 rounded-lg text-sm"
                   >
-                    <span className='font-medium'>{word}</span>
-                    <span className='text-indigo-400 text-xs'>×{count}</span>
+                    <span className="font-medium">{word}</span>
+                    <span className="text-indigo-400 text-xs">×{count}</span>
                   </span>
                 ))}
               </div>
@@ -274,18 +274,18 @@ export default function WordCounterLiveClient() {
           {/* Reset */}
           <button
             onClick={handleReset}
-            className='flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-600 transition-colors mb-8'
+            className="flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-600 transition-colors mb-8"
           >
-            <RotateCcw className='w-4 h-4' />
+            <RotateCcw className="w-4 h-4" />
             Reset
           </button>
 
           {/* Tips */}
-          <div className='mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>
+          <div className="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2">
               Understanding Word Counter Live:
             </p>
-            <ul className='list-disc list-inside space-y-1'>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Set a word target to track progress toward essays or articles
               </li>

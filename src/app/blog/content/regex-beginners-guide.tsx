@@ -187,7 +187,7 @@ export default function Post() {
       <h2>The fastest way to learn</h2>
       <p>
         Regex is one of those things you learn by doing rather than reading.
-        Open our <a href='/tools/regex-tester'>Regex Tester</a>, paste some text
+        Open our <a href="/tools/regex-tester">Regex Tester</a>, paste some text
         you want to match against, and start building a pattern. The live
         highlighting shows you exactly what each addition to the pattern
         changes. Twenty minutes of this is worth more than reading about regex

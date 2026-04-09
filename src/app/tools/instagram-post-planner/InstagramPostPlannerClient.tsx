@@ -231,45 +231,45 @@ export default function InstagramPostPlannerClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50 p-4 md:p-8'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-pink-500 via-purple-500 to-orange-400 rounded-2xl mb-4 shadow-lg'>
-              <span className='text-2xl'>📸</span>
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-pink-500 via-purple-500 to-orange-400 rounded-2xl mb-4 shadow-lg">
+              <span className="text-2xl">📸</span>
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Instagram Post Planner
             </h2>
-            <p className='text-gray-600'>
+            <p className="text-gray-600">
               Plan captions, hashtags, and your content grid
             </p>
           </div>
 
-          <div className='grid lg:grid-cols-3 gap-6'>
+          <div className="grid lg:grid-cols-3 gap-6">
             {/* ── Left: Grid / List view ── */}
             <div>
-              <div className='flex items-center justify-between mb-3'>
-                <h3 className='font-bold text-gray-900'>Content Grid</h3>
-                <div className='flex gap-1'>
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="font-bold text-gray-900">Content Grid</h3>
+                <div className="flex gap-1">
                   <button
                     onClick={() => setView("grid")}
                     className={`p-1.5 rounded ${view === "grid" ? "bg-pink-100 text-pink-600" : "text-gray-400 hover:text-gray-600"}`}
                   >
-                    <Grid className='w-4 h-4' />
+                    <Grid className="w-4 h-4" />
                   </button>
                   <button
                     onClick={() => setView("list")}
                     className={`p-1.5 rounded ${view === "list" ? "bg-pink-100 text-pink-600" : "text-gray-400 hover:text-gray-600"}`}
                   >
-                    <List className='w-4 h-4' />
+                    <List className="w-4 h-4" />
                   </button>
                 </div>
               </div>
 
               {view === "grid" ? (
-                <div className='grid grid-cols-3 gap-1.5 mb-3'>
+                <div className="grid grid-cols-3 gap-1.5 mb-3">
                   {posts.map((p, i) => (
                     <button
                       key={p.id}
@@ -280,10 +280,10 @@ export default function InstagramPostPlannerClient() {
                           : "border-transparent hover:scale-95"
                       }`}
                     >
-                      <span className='text-2xl'>
+                      <span className="text-2xl">
                         {CONTENT_TYPES[p.type].icon}
                       </span>
-                      <span className='text-xs font-semibold text-gray-700 mt-1 leading-tight truncate w-full text-center'>
+                      <span className="text-xs font-semibold text-gray-700 mt-1 leading-tight truncate w-full text-center">
                         {p.scheduled || `Post ${i + 1}`}
                       </span>
                     </button>
@@ -291,14 +291,14 @@ export default function InstagramPostPlannerClient() {
                   {posts.length < 9 && (
                     <button
                       onClick={addPost}
-                      className='aspect-square bg-gray-100 hover:bg-pink-50 border-2 border-dashed border-gray-300 hover:border-pink-300 rounded-xl flex items-center justify-center transition-all'
+                      className="aspect-square bg-gray-100 hover:bg-pink-50 border-2 border-dashed border-gray-300 hover:border-pink-300 rounded-xl flex items-center justify-center transition-all"
                     >
-                      <Plus className='w-6 h-6 text-gray-400' />
+                      <Plus className="w-6 h-6 text-gray-400" />
                     </button>
                   )}
                 </div>
               ) : (
-                <div className='space-y-2 mb-3'>
+                <div className="space-y-2 mb-3">
                   {posts.map((p, i) => (
                     <button
                       key={p.id}
@@ -314,11 +314,11 @@ export default function InstagramPostPlannerClient() {
                       >
                         {CONTENT_TYPES[p.type].icon}
                       </div>
-                      <div className='flex-1 min-w-0'>
-                        <div className='text-sm font-semibold text-gray-900 truncate'>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-sm font-semibold text-gray-900 truncate">
                           {p.caption || `Post ${i + 1}`}
                         </div>
-                        <div className='text-xs text-gray-500'>
+                        <div className="text-xs text-gray-500">
                           {CONTENT_TYPES[p.type].label} ·{" "}
                           {p.scheduled || "Unscheduled"}
                         </div>
@@ -327,20 +327,20 @@ export default function InstagramPostPlannerClient() {
                   ))}
                   <button
                     onClick={addPost}
-                    className='w-full flex items-center gap-3 p-3 rounded-xl border-2 border-dashed border-gray-200 hover:border-pink-300 hover:bg-pink-50 transition-all'
+                    className="w-full flex items-center gap-3 p-3 rounded-xl border-2 border-dashed border-gray-200 hover:border-pink-300 hover:bg-pink-50 transition-all"
                   >
-                    <Plus className='w-4 h-4 text-gray-400' />
-                    <span className='text-sm text-gray-500'>Add post</span>
+                    <Plus className="w-4 h-4 text-gray-400" />
+                    <span className="text-sm text-gray-500">Add post</span>
                   </button>
                 </div>
               )}
 
               {/* Instagram profile preview */}
-              <div className='bg-gray-50 rounded-xl p-4 border border-gray-100'>
-                <div className='text-xs font-bold text-gray-600 mb-2'>
+              <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                <div className="text-xs font-bold text-gray-600 mb-2">
                   Grid Preview
                 </div>
-                <div className='grid grid-cols-3 gap-0.5'>
+                <div className="grid grid-cols-3 gap-0.5">
                   {(
                     [
                       ...posts,
@@ -363,24 +363,24 @@ export default function InstagramPostPlannerClient() {
             </div>
 
             {/* ── Right: Post editor ── */}
-            <div className='lg:col-span-2 space-y-4'>
-              <div className='flex items-center justify-between'>
-                <h3 className='font-bold text-gray-900'>
+            <div className="lg:col-span-2 space-y-4">
+              <div className="flex items-center justify-between">
+                <h3 className="font-bold text-gray-900">
                   Editing Post {active + 1}
                 </h3>
                 {posts.length > 1 && (
                   <button
                     onClick={() => removePost(active)}
-                    className='p-1.5 text-red-400 hover:bg-red-50 rounded-lg'
-                    aria-label='Delete post'
+                    className="p-1.5 text-red-400 hover:bg-red-50 rounded-lg"
+                    aria-label="Delete post"
                   >
-                    <Trash2 className='w-4 h-4' />
+                    <Trash2 className="w-4 h-4" />
                   </button>
                 )}
               </div>
 
               {/* Content type */}
-              <div className='grid grid-cols-4 gap-2'>
+              <div className="grid grid-cols-4 gap-2">
                 {(Object.keys(CONTENT_TYPES) as ContentType[]).map((ct) => (
                   <button
                     key={ct}
@@ -391,35 +391,35 @@ export default function InstagramPostPlannerClient() {
                         : "border-gray-100 bg-gray-50 hover:bg-gray-100"
                     }`}
                   >
-                    <span className='text-xl'>{CONTENT_TYPES[ct].icon}</span>
+                    <span className="text-xl">{CONTENT_TYPES[ct].icon}</span>
                     <span>{CONTENT_TYPES[ct].label}</span>
                   </button>
                 ))}
               </div>
 
               {/* Type tip */}
-              <div className='text-xs text-pink-700 bg-pink-50 border border-pink-200 rounded-lg px-3 py-2'>
+              <div className="text-xs text-pink-700 bg-pink-50 border border-pink-200 rounded-lg px-3 py-2">
                 💡 {CONTENT_TYPES[post.type].tip}
               </div>
 
               {/* Caption structure picker */}
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-1'>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
                   Caption Structure
                 </label>
-                <div className='grid grid-cols-2 gap-2 mb-2'>
+                <div className="grid grid-cols-2 gap-2 mb-2">
                   {CAPTION_STRUCTURES.map((s) => (
                     <button
                       key={s.label}
                       onClick={() =>
                         updatePost(post.id, { caption: s.template(post.type) })
                       }
-                      className='text-left px-3 py-2 bg-gray-50 hover:bg-pink-50 border border-gray-200 hover:border-pink-300 rounded-lg transition-all'
+                      className="text-left px-3 py-2 bg-gray-50 hover:bg-pink-50 border border-gray-200 hover:border-pink-300 rounded-lg transition-all"
                     >
-                      <div className='text-xs font-bold text-gray-900'>
+                      <div className="text-xs font-bold text-gray-900">
                         {s.label}
                       </div>
-                      <div className='text-xs text-gray-500'>{s.desc}</div>
+                      <div className="text-xs text-gray-500">{s.desc}</div>
                     </button>
                   ))}
                 </div>
@@ -428,21 +428,21 @@ export default function InstagramPostPlannerClient() {
                   onChange={(e) =>
                     updatePost(post.id, { caption: e.target.value })
                   }
-                  placeholder='Write your caption here… or pick a structure above'
+                  placeholder="Write your caption here… or pick a structure above"
                   rows={5}
-                  className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-pink-400 text-sm resize-none leading-relaxed'
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-pink-400 text-sm resize-none leading-relaxed"
                 />
-                <div className='text-xs text-gray-400 text-right mt-0.5'>
+                <div className="text-xs text-gray-400 text-right mt-0.5">
                   {charCount} / 2,200 chars
                 </div>
               </div>
 
               {/* CTA */}
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-1'>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
                   Call to Action
                 </label>
-                <div className='flex flex-wrap gap-1.5 mb-2'>
+                <div className="flex flex-wrap gap-1.5 mb-2">
                   {CTA_OPTIONS.map((c) => (
                     <button
                       key={c.value}
@@ -461,8 +461,8 @@ export default function InstagramPostPlannerClient() {
 
               {/* Hashtags */}
               <div>
-                <div className='flex items-center justify-between mb-1'>
-                  <label className='text-sm font-semibold text-gray-700'>
+                <div className="flex items-center justify-between mb-1">
+                  <label className="text-sm font-semibold text-gray-700">
                     Hashtags
                   </label>
                   <span
@@ -471,8 +471,8 @@ export default function InstagramPostPlannerClient() {
                     {hashCount} / 30
                   </span>
                 </div>
-                <div className='flex flex-wrap gap-1.5 mb-2'>
-                  <span className='text-xs text-gray-500 mr-1'>Niche:</span>
+                <div className="flex flex-wrap gap-1.5 mb-2">
+                  <span className="text-xs text-gray-500 mr-1">Niche:</span>
                   {Object.keys(HASHTAG_SUGGESTIONS).map((n) => (
                     <button
                       key={n}
@@ -487,7 +487,7 @@ export default function InstagramPostPlannerClient() {
                     </button>
                   ))}
                 </div>
-                <div className='flex flex-wrap gap-1.5 mb-2'>
+                <div className="flex flex-wrap gap-1.5 mb-2">
                   {suggestedTags.map((t) => (
                     <button
                       key={t}
@@ -507,32 +507,32 @@ export default function InstagramPostPlannerClient() {
                   onChange={(e) =>
                     updatePost(post.id, { hashtags: e.target.value })
                   }
-                  placeholder='#yourtag #anothertag'
+                  placeholder="#yourtag #anothertag"
                   rows={2}
-                  className='w-full px-4 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-purple-400 text-sm resize-none font-mono'
+                  className="w-full px-4 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-purple-400 text-sm resize-none font-mono"
                 />
               </div>
 
               {/* Schedule */}
-              <div className='grid grid-cols-2 gap-3'>
+              <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className='block text-sm font-semibold text-gray-700 mb-1'>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">
                     Schedule Date
                   </label>
                   <input
-                    type='date'
+                    type="date"
                     value={post.scheduled}
                     onChange={(e) =>
                       updatePost(post.id, { scheduled: e.target.value })
                     }
-                    className='w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-pink-400 text-sm'
+                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-pink-400 text-sm"
                   />
                 </div>
                 <div>
-                  <label className='block text-sm font-semibold text-gray-700 mb-1'>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">
                     Tile Color
                   </label>
-                  <div className='flex gap-1.5 flex-wrap'>
+                  <div className="flex gap-1.5 flex-wrap">
                     {TILE_COLORS.map((c) => (
                       <button
                         key={c}
@@ -547,15 +547,15 @@ export default function InstagramPostPlannerClient() {
               {/* Copy button */}
               <button
                 onClick={() => copyCaption(post)}
-                className='w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white rounded-xl font-bold transition-all shadow-md'
+                className="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white rounded-xl font-bold transition-all shadow-md"
               >
                 {copied === String(post.id) ? (
                   <>
-                    <Check className='w-5 h-5' /> Copied to clipboard!
+                    <Check className="w-5 h-5" /> Copied to clipboard!
                   </>
                 ) : (
                   <>
-                    <Copy className='w-5 h-5' /> Copy Full Caption + Hashtags
+                    <Copy className="w-5 h-5" /> Copy Full Caption + Hashtags
                   </>
                 )}
               </button>

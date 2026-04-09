@@ -66,7 +66,7 @@ export default function Post() {
         password manager, and let the manager handle the rest.
       </p>
       <p>
-        Our <a href='/tools/password-generator'>Password Generator</a> creates
+        Our <a href="/tools/password-generator">Password Generator</a> creates
         cryptographically random passwords in your browser nothing is sent to a
         server. You can set length (go for 16+ characters), toggle character
         sets to match a site's requirements, and generate a new one instantly.
@@ -161,7 +161,7 @@ export default function Post() {
         into everything else.
       </p>
       <p>
-        Use our free <a href='/tools/password-generator'>Password Generator</a>{" "}
+        Use our free <a href="/tools/password-generator">Password Generator</a>{" "}
         to get started no account, no install, works right now in your browser.
       </p>
     </>

@@ -60,28 +60,28 @@ export default function VatCalculatorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl mb-4 shadow-lg'>
-              <Receipt className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl mb-4 shadow-lg">
+              <Receipt className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               VAT Calculator
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Add or remove VAT from any price — supports custom rates
             </p>
           </div>
 
-          <div className='space-y-6'>
+          <div className="space-y-6">
             {/* Mode */}
             <div>
-              <label className='block text-sm font-medium text-gray-700 mb-2'>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 What do you want to do?
               </label>
-              <div className='grid grid-cols-2 gap-3'>
+              <div className="grid grid-cols-2 gap-3">
                 {(
                   [
                     { key: "add", label: "Add VAT (net → gross)" },
@@ -104,31 +104,31 @@ export default function VatCalculatorClient() {
             </div>
 
             {/* Inputs */}
-            <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
-              <div className='grid md:grid-cols-2 gap-4'>
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className='block text-sm font-medium text-gray-700 mb-2'>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     {mode === "add"
                       ? "Net Amount (excl. VAT)"
                       : "Gross Amount (incl. VAT)"}
                   </label>
                   <input
-                    type='number'
+                    type="number"
                     value={amount}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setAmount(e.target.value)
                     }
-                    placeholder='0.00'
-                    min='0'
-                    step='0.01'
-                    className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
+                    placeholder="0.00"
+                    min="0"
+                    step="0.01"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   />
                 </div>
                 <div>
-                  <label className='block text-sm font-medium text-gray-700 mb-2'>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     VAT Rate (%)
                   </label>
-                  <div className='flex flex-wrap gap-2 mb-2'>
+                  <div className="flex flex-wrap gap-2 mb-2">
                     {PRESET_RATES.map((r) => (
                       <button
                         key={r}
@@ -147,24 +147,24 @@ export default function VatCalculatorClient() {
                     ))}
                   </div>
                   <input
-                    type='number'
+                    type="number"
                     value={customRate}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setCustomRate(e.target.value)
                     }
-                    placeholder='Custom rate...'
-                    min='0'
-                    max='100'
-                    step='0.1'
-                    className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
+                    placeholder="Custom rate..."
+                    min="0"
+                    max="100"
+                    step="0.1"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   />
                 </div>
-                <div className='flex items-end'>
+                <div className="flex items-end">
                   <button
                     onClick={reset}
-                    className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2'
+                    className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2"
                   >
-                    <RotateCcw className='w-4 h-4' />
+                    <RotateCcw className="w-4 h-4" />
                     Reset All
                   </button>
                 </div>
@@ -173,11 +173,11 @@ export default function VatCalculatorClient() {
 
             {/* Results */}
             {result && (
-              <div className='bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200'>
-                <h3 className='text-xl font-bold text-gray-900 mb-4'>
+              <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Breakdown
                 </h3>
-                <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {[
                     {
                       label: "Net Amount",
@@ -216,9 +216,9 @@ export default function VatCalculatorClient() {
             )}
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Tips:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600">
+            <p className="font-semibold mb-2">Tips:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Use &ldquo;Add VAT&rdquo; when you have an ex-VAT price and need
                 the customer-facing total

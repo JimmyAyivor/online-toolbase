@@ -509,50 +509,50 @@ export default function RhymeFinderClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-full mb-4 shadow-lg'>
-              <Music className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-full mb-4 shadow-lg">
+              <Music className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Rhyme Finder
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Find rhyming words for poetry, lyrics, and creative writing
             </p>
           </div>
 
-          <div className='space-y-6'>
+          <div className="space-y-6">
             {/* Input */}
             <div>
-              <label className='block text-sm font-medium text-gray-700 mb-2'>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Enter a Word
               </label>
-              <div className='flex gap-3'>
+              <div className="flex gap-3">
                 <input
-                  type='text'
+                  type="text"
                   value={word}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setWord(e.target.value)
                   }
                   onKeyDown={(e) => e.key === "Enter" && search()}
-                  placeholder='e.g. love, night, fire, day...'
-                  className='flex-1 px-3 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-lg'
+                  placeholder="e.g. love, night, fire, day..."
+                  className="flex-1 px-3 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-lg"
                 />
                 <button
                   onClick={search}
                   disabled={!word.trim()}
-                  className='px-6 py-2 bg-pink-600 hover:bg-pink-700 disabled:opacity-40 text-white font-semibold rounded-lg transition-colors'
+                  className="px-6 py-2 bg-pink-600 hover:bg-pink-700 disabled:opacity-40 text-white font-semibold rounded-lg transition-colors"
                 >
                   Find Rhymes
                 </button>
                 <button
                   onClick={reset}
-                  className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2'
+                  className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2"
                 >
-                  <RotateCcw className='w-4 h-4' />
+                  <RotateCcw className="w-4 h-4" />
                   Reset
                 </button>
               </div>
@@ -560,27 +560,27 @@ export default function RhymeFinderClient() {
 
             {/* Results */}
             {rhymes !== null && (
-              <div className='space-y-4'>
-                <div className='bg-gradient-to-r from-pink-50 to-rose-50 rounded-xl p-6 border border-pink-200'>
-                  <h3 className='text-xl font-bold text-gray-900 mb-4'>
+              <div className="space-y-4">
+                <div className="bg-gradient-to-r from-pink-50 to-rose-50 rounded-xl p-6 border border-pink-200">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
                     {rhymes.length > 0
                       ? `${rhymes.length} rhymes found for &ldquo;${word}&rdquo;`
                       : `No rhymes found for &ldquo;${word}&rdquo;`}
                   </h3>
                   {rhymes.length > 0 ? (
-                    <div className='flex flex-wrap gap-2'>
+                    <div className="flex flex-wrap gap-2">
                       {rhymes.map((r) => (
                         <button
                           key={r}
                           onClick={() => copyWord(r)}
-                          className='px-4 py-2 bg-white hover:bg-pink-50 border border-gray-200 hover:border-pink-300 text-gray-800 font-medium rounded-lg transition-colors text-sm'
+                          className="px-4 py-2 bg-white hover:bg-pink-50 border border-gray-200 hover:border-pink-300 text-gray-800 font-medium rounded-lg transition-colors text-sm"
                         >
                           {copied === r ? "✓ Copied" : r}
                         </button>
                       ))}
                     </div>
                   ) : (
-                    <p className='text-gray-500 text-sm'>
+                    <p className="text-gray-500 text-sm">
                       Try a simpler or more common English word.
                     </p>
                   )}
@@ -589,11 +589,11 @@ export default function RhymeFinderClient() {
             )}
 
             {/* Popular words */}
-            <div className='bg-gray-50 rounded-xl p-4 border border-gray-200'>
-              <h3 className='font-semibold text-gray-700 mb-3'>
+            <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+              <h3 className="font-semibold text-gray-700 mb-3">
                 Popular Words to Try
               </h3>
-              <div className='flex flex-wrap gap-2'>
+              <div className="flex flex-wrap gap-2">
                 {POPULAR_WORDS.map((w) => (
                   <button
                     key={w}
@@ -602,7 +602,7 @@ export default function RhymeFinderClient() {
                       setRhymes(findRhymes(w));
                       setCopied(null);
                     }}
-                    className='px-3 py-1.5 bg-white hover:bg-pink-50 border border-gray-200 hover:border-pink-300 text-gray-600 hover:text-pink-700 rounded-lg text-sm transition-colors'
+                    className="px-3 py-1.5 bg-white hover:bg-pink-50 border border-gray-200 hover:border-pink-300 text-gray-600 hover:text-pink-700 rounded-lg text-sm transition-colors"
                   >
                     {w}
                   </button>
@@ -611,9 +611,9 @@ export default function RhymeFinderClient() {
             </div>
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>💡 Tips:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">💡 Tips:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>Press Enter to search without clicking the button</li>
               <li>
                 Click any rhyme word to copy it instantly to your clipboard

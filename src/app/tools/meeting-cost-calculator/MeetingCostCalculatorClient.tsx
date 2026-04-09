@@ -58,28 +58,28 @@ export default function MeetingCostCalculatorClient() {
           };
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full mb-4 shadow-lg'>
-              <Users className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full mb-4 shadow-lg">
+              <Users className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Meeting Cost Calculator
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Calculate the real labour cost of any meeting
             </p>
           </div>
 
-          <div className='grid md:grid-cols-2 gap-8'>
-            <div className='space-y-5'>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-5">
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Currency
                 </label>
-                <div className='flex gap-2'>
+                <div className="flex gap-2">
                   {Object.keys(CURRENCY_SYMBOLS).map((c) => (
                     <button
                       key={c}
@@ -125,16 +125,16 @@ export default function MeetingCostCalculatorClient() {
                 },
               ].map(({ label, val, set, min, max, step, fmt: f }) => (
                 <div key={label}>
-                  <div className='flex items-center justify-between mb-2'>
-                    <label className='text-sm font-semibold text-gray-700'>
+                  <div className="flex items-center justify-between mb-2">
+                    <label className="text-sm font-semibold text-gray-700">
                       {label}
                     </label>
-                    <span className='text-sm font-bold text-amber-600'>
+                    <span className="text-sm font-bold text-amber-600">
                       {f(val)}
                     </span>
                   </div>
                   <input
-                    type='range'
+                    type="range"
                     min={min}
                     max={max}
                     step={step}
@@ -142,9 +142,9 @@ export default function MeetingCostCalculatorClient() {
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       set(parseFloat(e.target.value))
                     }
-                    className='w-full accent-amber-500'
+                    className="w-full accent-amber-500"
                   />
-                  <div className='flex justify-between text-xs text-gray-400 mt-1'>
+                  <div className="flex justify-between text-xs text-gray-400 mt-1">
                     <span>{f(min)}</span>
                     <span>{f(max)}</span>
                   </div>
@@ -152,10 +152,10 @@ export default function MeetingCostCalculatorClient() {
               ))}
 
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Meeting frequency
                 </label>
-                <div className='grid grid-cols-2 gap-2'>
+                <div className="grid grid-cols-2 gap-2">
                   {(["once", "daily", "weekly", "monthly"] as const).map(
                     (f) => (
                       <button
@@ -171,35 +171,35 @@ export default function MeetingCostCalculatorClient() {
               </div>
             </div>
 
-            <div className='space-y-4'>
+            <div className="space-y-4">
               <div className={`rounded-2xl p-6 border-2 ${costRating.bg}`}>
-                <p className='text-xs font-bold uppercase tracking-widest text-gray-400 mb-1'>
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">
                   Meeting cost
                 </p>
                 <p className={`text-5xl font-black ${costRating.color}`}>
                   {fmt(singleCost)}
                 </p>
-                <p className='text-sm text-gray-500 mt-1'>
+                <p className="text-sm text-gray-500 mt-1">
                   {costRating.label} · {fmt(singleCost / attendees)} per person
                 </p>
               </div>
 
               {frequency !== "once" && (
-                <div className='bg-indigo-50 border border-indigo-100 rounded-2xl p-5'>
-                  <p className='text-xs font-bold uppercase tracking-widest text-gray-400 mb-1'>
+                <div className="bg-indigo-50 border border-indigo-100 rounded-2xl p-5">
+                  <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">
                     Annual cost ({frequency})
                   </p>
-                  <p className='text-4xl font-black text-indigo-700'>
+                  <p className="text-4xl font-black text-indigo-700">
                     {fmt(annualCost)}
                   </p>
-                  <p className='text-sm text-gray-500 mt-1'>
+                  <p className="text-sm text-gray-500 mt-1">
                     If held every{" "}
                     {frequency === "daily" ? "working day" : `${frequency}`}
                   </p>
                 </div>
               )}
 
-              <div className='grid grid-cols-3 gap-3'>
+              <div className="grid grid-cols-3 gap-3">
                 {[
                   { label: "Attendees", value: attendees },
                   { label: "Duration", value: `${duration}m` },
@@ -207,16 +207,16 @@ export default function MeetingCostCalculatorClient() {
                 ].map(({ label, value }) => (
                   <div
                     key={label}
-                    className='bg-amber-50 border border-amber-100 rounded-xl p-3 text-center'
+                    className="bg-amber-50 border border-amber-100 rounded-xl p-3 text-center"
                   >
-                    <p className='text-lg font-black text-amber-700'>{value}</p>
-                    <p className='text-xs text-gray-500 mt-0.5'>{label}</p>
+                    <p className="text-lg font-black text-amber-700">{value}</p>
+                    <p className="text-xs text-gray-500 mt-0.5">{label}</p>
                   </div>
                 ))}
               </div>
 
-              <div className='bg-gray-900 rounded-2xl p-5'>
-                <p className='text-gray-400 text-xs mb-3 font-semibold uppercase tracking-widest'>
+              <div className="bg-gray-900 rounded-2xl p-5">
+                <p className="text-gray-400 text-xs mb-3 font-semibold uppercase tracking-widest">
                   Cost breakdown
                 </p>
                 {[
@@ -236,10 +236,10 @@ export default function MeetingCostCalculatorClient() {
                 ].map(({ label, value }) => (
                   <div
                     key={label}
-                    className='flex justify-between py-1.5 border-b border-gray-700 last:border-0'
+                    className="flex justify-between py-1.5 border-b border-gray-700 last:border-0"
                   >
-                    <span className='text-gray-400 text-sm'>{label}</span>
-                    <span className='text-white font-bold text-sm'>
+                    <span className="text-gray-400 text-sm">{label}</span>
+                    <span className="text-white font-bold text-sm">
                       {value}
                     </span>
                   </div>
@@ -255,16 +255,16 @@ export default function MeetingCostCalculatorClient() {
               setDuration(60);
               setFrequency("once");
             }}
-            className='flex items-center gap-2 text-sm text-gray-500 hover:text-amber-600 transition-colors mt-6 mb-4'
+            className="flex items-center gap-2 text-sm text-gray-500 hover:text-amber-600 transition-colors mt-6 mb-4"
           >
-            <RotateCcw className='w-4 h-4' />
+            <RotateCcw className="w-4 h-4" />
             Reset
           </button>
-          <div className='p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>
+          <div className="p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">
               💡 Meeting efficiency tips:
             </p>
-            <ul className='list-disc list-inside space-y-1'>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Reduce attendees: cutting from 8 to 5 people saves 37.5% of the
                 meeting cost

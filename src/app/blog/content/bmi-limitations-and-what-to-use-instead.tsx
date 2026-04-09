@@ -30,7 +30,7 @@ export default function Post() {
         health bodies use different cut-offs for specific populations.
       </p>
       <p>
-        Use our free <a href='/tools/bmi-calculator'>BMI Calculator</a> to get
+        Use our free <a href="/tools/bmi-calculator">BMI Calculator</a> to get
         your number it supports both metric and imperial and gives you your
         category instantly.
       </p>
@@ -117,7 +117,7 @@ export default function Post() {
           <strong>Body fat percentage.</strong> Measured accurately via DEXA
           scan (expensive but precise) or estimated via skin-fold measurements
           or bioelectrical impedance scales. Our{" "}
-          <a href='/tools/body-fat-calculator'>Body Fat Calculator</a> gives you
+          <a href="/tools/body-fat-calculator">Body Fat Calculator</a> gives you
           an estimate from standard measurements.
         </li>
         <li>
@@ -142,9 +142,9 @@ export default function Post() {
         with high visceral fat at normal BMI.
       </p>
       <p>
-        Use our <a href='/tools/bmi-calculator'>BMI Calculator</a> as one data
+        Use our <a href="/tools/bmi-calculator">BMI Calculator</a> as one data
         point, and combine it with the{" "}
-        <a href='/tools/body-fat-calculator'>Body Fat Calculator</a> for a more
+        <a href="/tools/body-fat-calculator">Body Fat Calculator</a> for a more
         complete picture.
       </p>
     </>

@@ -52,7 +52,7 @@ export default function Post() {
         plus signs rather than spaces.
       </p>
       <p>
-        Our <a href='/tools/url-encoder-decoder'>URL Encoder/Decoder</a> handles
+        Our <a href="/tools/url-encoder-decoder">URL Encoder/Decoder</a> handles
         both standards so you can encode and decode in whichever format your
         context requires.
       </p>
@@ -124,7 +124,7 @@ export default function Post() {
         When debugging API calls, analysing server logs, or inspecting redirect
         chains, URL-encoded strings are hard to read. Decoding them reveals the
         original values. Paste encoded URLs into the{" "}
-        <a href='/tools/url-encoder-decoder'>URL Decoder</a> to see them in
+        <a href="/tools/url-encoder-decoder">URL Decoder</a> to see them in
         readable form useful when tracking down parameter parsing bugs or
         analysing tracking URLs in marketing campaigns.
       </p>
@@ -170,7 +170,7 @@ export default function Post() {
         disproportionate confusion when it breaks. The core principle is simple:
         anything that isn't a letter, digit, or a handful of safe symbols needs
         to be percent-encoded before going into a URL. Use the{" "}
-        <a href='/tools/url-encoder-decoder'>URL Encoder/Decoder</a> for quick
+        <a href="/tools/url-encoder-decoder">URL Encoder/Decoder</a> for quick
         encoding, decoding, and debugging and use{" "}
         <code>encodeURIComponent()</code> in JavaScript when constructing
         parameter values programmatically.

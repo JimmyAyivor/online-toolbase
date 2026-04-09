@@ -58,25 +58,25 @@ export default function TextToBulletPointsClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-teal-50 via-cyan-50 to-teal-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-full mb-4 shadow-lg'>
-              <List className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-teal-50 via-cyan-50 to-teal-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-full mb-4 shadow-lg">
+              <List className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Text to Bullet Points
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Convert any paragraph into clean bullet point lists instantly
             </p>
           </div>
 
-          <div className='space-y-6'>
+          <div className="space-y-6">
             {/* Input */}
             <div>
-              <label className='block text-sm font-medium text-gray-700 mb-2'>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Enter Your Text
               </label>
               <textarea
@@ -84,10 +84,10 @@ export default function TextToBulletPointsClient() {
                 onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
                   setText(e.target.value)
                 }
-                placeholder='Paste a paragraph, article, or notes here...'
-                className='w-full h-48 p-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none'
+                placeholder="Paste a paragraph, article, or notes here..."
+                className="w-full h-48 p-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none"
               />
-              <div className='flex justify-between mt-2 text-sm text-gray-500'>
+              <div className="flex justify-between mt-2 text-sm text-gray-500">
                 <span>
                   {text.trim().split(/\s+/).filter(Boolean).length} words
                 </span>
@@ -96,12 +96,12 @@ export default function TextToBulletPointsClient() {
             </div>
 
             {/* Options */}
-            <div className='bg-gray-50 rounded-xl p-4 border border-gray-200'>
-              <div className='flex items-center gap-2 mb-3'>
-                <List className='w-5 h-5 text-gray-600' />
-                <h3 className='font-semibold text-gray-700'>Bullet Style</h3>
+            <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+              <div className="flex items-center gap-2 mb-3">
+                <List className="w-5 h-5 text-gray-600" />
+                <h3 className="font-semibold text-gray-700">Bullet Style</h3>
               </div>
-              <div className='grid grid-cols-3 gap-3'>
+              <div className="grid grid-cols-3 gap-3">
                 {(
                   [
                     { key: "bullet", label: "• Bullet" },
@@ -124,53 +124,53 @@ export default function TextToBulletPointsClient() {
               </div>
             </div>
 
-            <div className='flex gap-3'>
+            <div className="flex gap-3">
               <button
                 onClick={convert}
                 disabled={!text.trim()}
-                className='flex-1 py-3 bg-teal-600 hover:bg-teal-700 disabled:opacity-40 text-white font-semibold rounded-lg transition-colors'
+                className="flex-1 py-3 bg-teal-600 hover:bg-teal-700 disabled:opacity-40 text-white font-semibold rounded-lg transition-colors"
               >
                 Convert to Bullet Points
               </button>
               <button
                 onClick={reset}
-                className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2'
+                className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2"
               >
-                <RotateCcw className='w-4 h-4' />
+                <RotateCcw className="w-4 h-4" />
                 Reset
               </button>
             </div>
 
             {/* Results */}
             {output && (
-              <div className='bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl p-6 border border-teal-200'>
-                <div className='flex items-center justify-between mb-4'>
+              <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl p-6 border border-teal-200">
+                <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h3 className='text-xl font-bold text-gray-900'>
+                    <h3 className="text-xl font-bold text-gray-900">
                       Bullet Points
                     </h3>
-                    <p className='text-sm text-gray-600'>
+                    <p className="text-sm text-gray-600">
                       {bulletCount} points
                     </p>
                   </div>
                   <button
                     onClick={copyOutput}
-                    className='flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold rounded-lg transition-colors'
+                    className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold rounded-lg transition-colors"
                   >
-                    <Copy className='w-4 h-4' />
+                    <Copy className="w-4 h-4" />
                     {copied ? "Copied!" : "Copy"}
                   </button>
                 </div>
-                <pre className='text-gray-700 text-sm leading-relaxed whitespace-pre-wrap font-sans bg-white rounded-lg p-4 border border-gray-200'>
+                <pre className="text-gray-700 text-sm leading-relaxed whitespace-pre-wrap font-sans bg-white rounded-lg p-4 border border-gray-200">
                   {output}
                 </pre>
               </div>
             )}
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>💡 Tips:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">💡 Tips:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Each sentence becomes its own bullet point — punctuation is used
                 as the split point

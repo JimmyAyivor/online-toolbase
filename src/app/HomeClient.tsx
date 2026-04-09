@@ -319,24 +319,24 @@ export default function HomeClient() {
     <>
       {/* ── Categories ─────────────────────────────────────────────────────── */}
       <section
-        id='categories'
-        className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16'
-        aria-labelledby='categories-heading'
+        id="categories"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
+        aria-labelledby="categories-heading"
       >
         <h2
-          id='categories-heading'
-          className='text-4xl font-bold text-gray-900 mb-4 text-center'
+          id="categories-heading"
+          className="text-4xl font-bold text-gray-900 mb-4 text-center"
         >
           Browse Free Tools by Category
         </h2>
-        <p className='text-center text-gray-500 mb-12 max-w-2xl mx-auto'>
+        <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">
           {ALL_CATEGORIES.length} categories covering writing, development,
           design, health, finance, social media, and more.
         </p>
 
         <ul
-          className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4'
-          role='list'
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
+          role="list"
         >
           {/* All tools button */}
           <li>
@@ -347,7 +347,7 @@ export default function HomeClient() {
                 scrollToTools();
               }}
               aria-pressed={activeCategory === null}
-              aria-label='Show all tools'
+              aria-label="Show all tools"
               className={`w-full rounded-2xl shadow p-5 border-2 text-left hover:-translate-y-1 transition-all duration-300 ${
                 activeCategory === null
                   ? "bg-linear-to-r from-indigo-600 to-purple-600 border-indigo-600 text-white"
@@ -356,23 +356,23 @@ export default function HomeClient() {
             >
               <div
                 className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${activeCategory === null ? "bg-white/20" : "bg-indigo-100"}`}
-                aria-hidden='true'
+                aria-hidden="true"
               >
                 <svg
                   className={`w-5 h-5 ${activeCategory === null ? "text-white" : "text-indigo-600"}`}
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
                   <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     strokeWidth={2}
-                    d='M4 6h16M4 10h16M4 14h16M4 18h16'
+                    d="M4 6h16M4 10h16M4 14h16M4 18h16"
                   />
                 </svg>
               </div>
-              <span className='font-bold text-sm block'>All Tools</span>
+              <span className="font-bold text-sm block">All Tools</span>
               <span
                 className={`text-xs mt-1 block ${activeCategory === null ? "text-white/80" : "text-gray-500"}`}
               >
@@ -404,23 +404,23 @@ export default function HomeClient() {
                 >
                   <div
                     className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${isActive ? "bg-white/20" : c.iconBg}`}
-                    aria-hidden='true'
+                    aria-hidden="true"
                   >
                     <svg
-                      className='w-5 h-5 text-white'
-                      fill='none'
-                      stroke='currentColor'
-                      viewBox='0 0 24 24'
+                      className="w-5 h-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
                       <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         strokeWidth={2}
                         d={c.icon}
                       />
                     </svg>
                   </div>
-                  <span className='font-bold text-sm block'>
+                  <span className="font-bold text-sm block">
                     {cat
                       .replace(/-/g, " ")
                       .replace(/\b\w/g, (c) => c.toUpperCase())}
@@ -439,62 +439,62 @@ export default function HomeClient() {
 
       {/* ── Tools Grid ─────────────────────────────────────────────────────── */}
       <section
-        id='tools'
-        className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white rounded-3xl shadow-xl mb-16'
-        aria-labelledby='tools-heading'
-        aria-live='polite'
-        aria-atomic='true'
+        id="tools"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white rounded-3xl shadow-xl mb-16"
+        aria-labelledby="tools-heading"
+        aria-live="polite"
+        aria-atomic="true"
       >
         {/* Search */}
-        <div className='mb-8' role='search'>
-          <label htmlFor='tool-search' className='sr-only'>
+        <div className="mb-8" role="search">
+          <label htmlFor="tool-search" className="sr-only">
             Search free online tools
           </label>
-          <div className='relative max-w-2xl'>
+          <div className="relative max-w-2xl">
             <input
-              id='tool-search'
-              type='search'
+              id="tool-search"
+              type="search"
               value={search}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setSearch(e.target.value);
                 setActiveCategory(null);
               }}
-              placeholder='Search tools — e.g. BMI calculator, QR code generator…'
-              aria-label='Search free online tools'
-              className='w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-2xl focus:outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 transition-all'
+              placeholder="Search tools — e.g. BMI calculator, QR code generator…"
+              aria-label="Search free online tools"
+              className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-2xl focus:outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 transition-all"
             />
             <svg
-              className='absolute right-6 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-              aria-hidden='true'
+              className="absolute right-6 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 strokeWidth={2}
-                d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
             </svg>
           </div>
         </div>
 
-        <div className='flex items-center justify-between mb-4 flex-wrap gap-4'>
-          <h2 id='tools-heading' className='text-4xl font-bold text-gray-900'>
+        <div className="flex items-center justify-between mb-4 flex-wrap gap-4">
+          <h2 id="tools-heading" className="text-4xl font-bold text-gray-900">
             {activeCategory
               ? `${activeCategory} Tools`
               : "All Free Online Tools"}
           </h2>
           <span
-            className='text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full font-medium'
-            aria-live='polite'
+            className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full font-medium"
+            aria-live="polite"
           >
             {filteredTools.length} tool{filteredTools.length !== 1 ? "s" : ""}
           </span>
         </div>
 
-        <p className='text-gray-600 mb-12 max-w-2xl'>
+        <p className="text-gray-600 mb-12 max-w-2xl">
           {activeCategory && CATEGORY_META[activeCategory]
             ? CATEGORY_META[activeCategory].description + ". "
             : ""}
@@ -504,37 +504,37 @@ export default function HomeClient() {
         </p>
 
         {filteredTools.length === 0 ? (
-          <div className='text-center py-20' role='status'>
+          <div className="text-center py-20" role="status">
             <div
-              className='w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-4'
-              aria-hidden='true'
+              className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-4"
+              aria-hidden="true"
             >
               <svg
-                className='w-8 h-8 text-gray-400'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
+                className="w-8 h-8 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
                 <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   strokeWidth={2}
-                  d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                 />
               </svg>
             </div>
-            <p className='text-gray-500 text-lg'>
+            <p className="text-gray-500 text-lg">
               No tools found for &quot;{search}&quot;
             </p>
             <button
               onClick={clearFilters}
-              className='mt-4 text-indigo-600 font-medium hover:underline'
+              className="mt-4 text-indigo-600 font-medium hover:underline"
             >
               Clear search
             </button>
           </div>
         ) : (
-          <ul className='grid md:grid-cols-2 lg:grid-cols-3 gap-6' role='list'>
+          <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
             {filteredTools.map((tool: Tool) => {
               const c = getColors(tool.category);
               return (
@@ -546,17 +546,17 @@ export default function HomeClient() {
                   >
                     <div
                       className={`w-14 h-14 ${c.iconBg} rounded-xl flex items-center justify-center mb-4`}
-                      aria-hidden='true'
+                      aria-hidden="true"
                     >
                       <svg
-                        className='w-7 h-7 text-white'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
+                        className="w-7 h-7 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
                         <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           strokeWidth={2}
                           d={c.icon}
                         />
@@ -569,28 +569,28 @@ export default function HomeClient() {
                         .replace(/-/g, " ")
                         .replace(/\b\w/g, (c) => c.toUpperCase())}
                     </span>
-                    <h3 className='text-xl font-bold text-gray-900 mb-2'>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
                       {tool.name}
                     </h3>
-                    <p className='text-gray-600 text-sm mb-4 leading-relaxed'>
+                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                       {tool.description}
                     </p>
                     <div
                       className={`flex items-center ${c.text} font-semibold text-sm mt-auto`}
-                      aria-hidden='true'
+                      aria-hidden="true"
                     >
                       <span>Use Tool Free</span>
                       <svg
-                        className='w-4 h-4 ml-2'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
+                        className="w-4 h-4 ml-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
                         <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           strokeWidth={2}
-                          d='M9 5l7 7-7 7'
+                          d="M9 5l7 7-7 7"
                         />
                       </svg>
                     </div>

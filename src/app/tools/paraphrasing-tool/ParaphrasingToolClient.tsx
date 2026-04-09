@@ -170,52 +170,52 @@ export default function ParaphrasingToolClient() {
   };
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-violet-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='text-center mb-8'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-violet-600 to-purple-600 rounded-full mb-4 shadow-lg'>
-            <Wand2 className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-violet-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-violet-600 to-purple-600 rounded-full mb-4 shadow-lg">
+            <Wand2 className="w-8 h-8 text-white" />
           </div>
-          <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">
             Paraphrasing Tool
           </h2>
-          <p className='text-gray-500'>
+          <p className="text-gray-500">
             Rewrite your text with different words while keeping the meaning
           </p>
         </div>
 
-        <div className='grid lg:grid-cols-3 gap-6 mb-6'>
-          <div className='lg:col-span-2 space-y-6'>
-            <div className='bg-white rounded-2xl shadow-xl p-6'>
-              <h3 className='font-bold text-gray-900 mb-6 flex items-center gap-2 text-xl'>
-                <FileText className='w-6 h-6 text-violet-600' />
+        <div className="grid lg:grid-cols-3 gap-6 mb-6">
+          <div className="lg:col-span-2 space-y-6">
+            <div className="bg-white rounded-2xl shadow-xl p-6">
+              <h3 className="font-bold text-gray-900 mb-6 flex items-center gap-2 text-xl">
+                <FileText className="w-6 h-6 text-violet-600" />
                 Original Text
               </h3>
 
               <textarea
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
-                placeholder='Paste or type your text here to paraphrase...'
-                className='w-full h-64 px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent resize-none text-base leading-relaxed'
+                placeholder="Paste or type your text here to paraphrase..."
+                className="w-full h-64 px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent resize-none text-base leading-relaxed"
               />
 
-              <div className='grid grid-cols-2 gap-4 mt-4'>
-                <div className='bg-violet-50 rounded-xl p-4 text-center'>
-                  <div className='text-2xl font-bold text-violet-600'>
+              <div className="grid grid-cols-2 gap-4 mt-4">
+                <div className="bg-violet-50 rounded-xl p-4 text-center">
+                  <div className="text-2xl font-bold text-violet-600">
                     {stats.inputWords}
                   </div>
-                  <div className='text-sm text-gray-600'>Words</div>
+                  <div className="text-sm text-gray-600">Words</div>
                 </div>
-                <div className='bg-purple-50 rounded-xl p-4 text-center'>
-                  <div className='text-2xl font-bold text-purple-600'>
+                <div className="bg-purple-50 rounded-xl p-4 text-center">
+                  <div className="text-2xl font-bold text-purple-600">
                     {stats.inputChars}
                   </div>
-                  <div className='text-sm text-gray-600'>Characters</div>
+                  <div className="text-sm text-gray-600">Characters</div>
                 </div>
               </div>
             </div>
 
-            <div className='flex justify-center'>
+            <div className="flex justify-center">
               <button
                 onClick={paraphraseText}
                 disabled={!inputText.trim() || isProcessing}
@@ -227,87 +227,87 @@ export default function ParaphrasingToolClient() {
               >
                 {isProcessing ? (
                   <>
-                    <div className='animate-spin rounded-full h-6 w-6 border-4 border-white border-t-transparent'></div>
+                    <div className="animate-spin rounded-full h-6 w-6 border-4 border-white border-t-transparent"></div>
                     Processing...
                   </>
                 ) : (
                   <>
-                    <Wand2 className='w-6 h-6' />
+                    <Wand2 className="w-6 h-6" />
                     Paraphrase Text
-                    <ArrowRight className='w-6 h-6' />
+                    <ArrowRight className="w-6 h-6" />
                   </>
                 )}
               </button>
             </div>
 
             {outputText && (
-              <div className='bg-white rounded-2xl shadow-xl p-6'>
-                <div className='flex justify-between items-center mb-6'>
-                  <h3 className='font-bold text-gray-900 flex items-center gap-2 text-xl'>
-                    <Wand2 className='w-6 h-6 text-violet-600' />
+              <div className="bg-white rounded-2xl shadow-xl p-6">
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="font-bold text-gray-900 flex items-center gap-2 text-xl">
+                    <Wand2 className="w-6 h-6 text-violet-600" />
                     Paraphrased Text
                   </h3>
-                  <div className='flex gap-2'>
+                  <div className="flex gap-2">
                     <button
                       onClick={handleCopy}
-                      className='flex items-center gap-2 px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white rounded-lg font-medium transition-colors'
+                      className="flex items-center gap-2 px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white rounded-lg font-medium transition-colors"
                     >
                       {copied ? (
-                        <Check className='w-4 h-4' />
+                        <Check className="w-4 h-4" />
                       ) : (
-                        <Copy className='w-4 h-4' />
+                        <Copy className="w-4 h-4" />
                       )}
                       {copied ? "Copied!" : "Copy"}
                     </button>
                     <button
                       onClick={handleDownload}
-                      className='flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors'
+                      className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
                     >
-                      <Download className='w-4 h-4' />
+                      <Download className="w-4 h-4" />
                       Download
                     </button>
                     <button
                       onClick={handleClear}
-                      className='flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors'
+                      className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors"
                     >
-                      <Trash2 className='w-4 h-4' />
+                      <Trash2 className="w-4 h-4" />
                       Clear
                     </button>
                   </div>
                 </div>
 
-                <div className='p-4 bg-gradient-to-br from-violet-50 to-purple-50 rounded-xl border-2 border-violet-200'>
-                  <p className='text-gray-800 leading-relaxed whitespace-pre-wrap'>
+                <div className="p-4 bg-gradient-to-br from-violet-50 to-purple-50 rounded-xl border-2 border-violet-200">
+                  <p className="text-gray-800 leading-relaxed whitespace-pre-wrap">
                     {outputText}
                   </p>
                 </div>
 
-                <div className='grid grid-cols-2 gap-4 mt-4'>
-                  <div className='bg-violet-50 rounded-xl p-4 text-center'>
-                    <div className='text-2xl font-bold text-violet-600'>
+                <div className="grid grid-cols-2 gap-4 mt-4">
+                  <div className="bg-violet-50 rounded-xl p-4 text-center">
+                    <div className="text-2xl font-bold text-violet-600">
                       {stats.outputWords}
                     </div>
-                    <div className='text-sm text-gray-600'>Words</div>
+                    <div className="text-sm text-gray-600">Words</div>
                   </div>
-                  <div className='bg-purple-50 rounded-xl p-4 text-center'>
-                    <div className='text-2xl font-bold text-purple-600'>
+                  <div className="bg-purple-50 rounded-xl p-4 text-center">
+                    <div className="text-2xl font-bold text-purple-600">
                       {stats.outputChars}
                     </div>
-                    <div className='text-sm text-gray-600'>Characters</div>
+                    <div className="text-sm text-gray-600">Characters</div>
                   </div>
                 </div>
               </div>
             )}
           </div>
 
-          <div className='space-y-6'>
-            <div className='bg-white rounded-2xl shadow-xl p-6 sticky top-8'>
-              <h3 className='font-bold text-gray-900 mb-6 flex items-center gap-2'>
-                <RefreshCw className='w-5 h-5 text-violet-600' />
+          <div className="space-y-6">
+            <div className="bg-white rounded-2xl shadow-xl p-6 sticky top-8">
+              <h3 className="font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <RefreshCw className="w-5 h-5 text-violet-600" />
                 Paraphrasing Mode
               </h3>
 
-              <div className='space-y-3'>
+              <div className="space-y-3">
                 {modes.map((m) => (
                   <label
                     key={m.id}
@@ -318,21 +318,21 @@ export default function ParaphrasingToolClient() {
                     }`}
                   >
                     <input
-                      type='radio'
-                      name='mode'
+                      type="radio"
+                      name="mode"
                       value={m.id}
                       checked={mode === m.id}
                       onChange={(e) => setMode(e.target.value)}
-                      className='mt-1 w-5 h-5 text-violet-600'
+                      className="mt-1 w-5 h-5 text-violet-600"
                     />
-                    <div className='flex-1'>
-                      <div className='flex items-center gap-2 mb-1'>
-                        <span className='text-xl'>{m.icon}</span>
-                        <span className='font-bold text-gray-900'>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-xl">{m.icon}</span>
+                        <span className="font-bold text-gray-900">
                           {m.name}
                         </span>
                       </div>
-                      <div className='text-sm text-gray-600'>
+                      <div className="text-sm text-gray-600">
                         {m.description}
                       </div>
                     </div>
@@ -341,9 +341,9 @@ export default function ParaphrasingToolClient() {
               </div>
             </div>
 
-            <div className='p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-              <p className='font-semibold mb-2 text-gray-800'>💡 Tips:</p>
-              <ul className='list-disc list-inside space-y-1'>
+            <div className="p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+              <p className="font-semibold mb-2 text-gray-800">💡 Tips:</p>
+              <ul className="list-disc list-inside space-y-1">
                 <li>Always review and edit the output before publishing</li>
                 <li>
                   Use Formal mode for business emails and professional documents

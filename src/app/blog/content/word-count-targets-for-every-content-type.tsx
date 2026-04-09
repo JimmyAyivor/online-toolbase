@@ -25,7 +25,7 @@ export default function Post() {
         segment.
       </p>
       <p>
-        Our <a href='/tools/word-character-counter'>Word & Character Counter</a>{" "}
+        Our <a href="/tools/word-character-counter">Word & Character Counter</a>{" "}
         tracks both simultaneously as you type, so you can monitor the metric
         that matters for your specific context without switching tools.
       </p>
@@ -146,7 +146,7 @@ export default function Post() {
         completeness. Pages that cover a topic thoroughly answering the
         questions a reader has, including ones they haven't thought to ask yet
         tend to outperform pages that hit a word count target mechanically. A{" "}
-        <a href='/tools/readability-score-calculator'>readability check</a>{" "}
+        <a href="/tools/readability-score-calculator">readability check</a>{" "}
         ensures that completeness is also accessible.
       </p>
 
@@ -170,7 +170,7 @@ export default function Post() {
       <p>
         At an average reading speed of 238 words per minute, a 5-minute read is
         approximately 1,190 words. Use our{" "}
-        <a href='/tools/reading-time-estimator'>Reading Time Estimator</a> to
+        <a href="/tools/reading-time-estimator">Reading Time Estimator</a> to
         check the estimated reading time for any specific piece.
       </p>
 
@@ -179,7 +179,7 @@ export default function Post() {
         Knowing the right limits and targets for your content type prevents
         truncation, keeps your work platform-appropriate, and helps you plan
         content that fits its purpose. Use the{" "}
-        <a href='/tools/word-character-counter'>Word & Character Counter</a> as
+        <a href="/tools/word-character-counter">Word & Character Counter</a> as
         a live reference while writing, and cross-reference with the platform
         guidelines above for anything with hard limits.
       </p>

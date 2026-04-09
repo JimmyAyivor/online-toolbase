@@ -206,59 +206,59 @@ export default function PasswordGeneratorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 p-4 md:p-8'>
-      <div className='max-w-4xl mx-auto'>
-        <div className='text-center mb-8'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl mb-4 shadow-lg'>
-            <Shield className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 p-4 md:p-8">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl mb-4 shadow-lg">
+            <Shield className="w-8 h-8 text-white" />
           </div>
-          <h2 className='text-4xl font-bold text-gray-900 mb-2'>
+          <h2 className="text-4xl font-bold text-gray-900 mb-2">
             Password Generator
           </h2>
-          <p className='text-gray-600'>
+          <p className="text-gray-600">
             Create strong, secure passwords in seconds
           </p>
         </div>
 
-        <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-6'>
+        <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-6">
           {/* Password display */}
-          <div className='mb-6'>
-            <label className='block text-sm font-bold text-gray-700 mb-3'>
+          <div className="mb-6">
+            <label className="block text-sm font-bold text-gray-700 mb-3">
               Generated Password
             </label>
-            <div className='flex items-center gap-3 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl'>
-              <Lock className='w-5 h-5 text-blue-600 flex-shrink-0' />
+            <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl">
+              <Lock className="w-5 h-5 text-blue-600 flex-shrink-0" />
               <input
                 type={showPassword ? "text" : "password"}
                 value={password}
                 readOnly
-                className='flex-1 bg-transparent text-lg font-mono font-semibold text-gray-900 focus:outline-none'
+                className="flex-1 bg-transparent text-lg font-mono font-semibold text-gray-900 focus:outline-none"
               />
               <button
                 onClick={() => setShowPassword((v) => !v)}
                 aria-label={showPassword ? "Hide password" : "Show password"}
-                className='p-2 hover:bg-white rounded-lg transition-colors'
+                className="p-2 hover:bg-white rounded-lg transition-colors"
               >
                 {showPassword ? (
-                  <EyeOff className='w-5 h-5 text-gray-600' />
+                  <EyeOff className="w-5 h-5 text-gray-600" />
                 ) : (
-                  <Eye className='w-5 h-5 text-gray-600' />
+                  <Eye className="w-5 h-5 text-gray-600" />
                 )}
               </button>
             </div>
           </div>
 
           {/* Strength bar */}
-          <div className='mb-6'>
-            <div className='flex justify-between items-center mb-2'>
-              <span className='text-sm font-bold text-gray-700'>
+          <div className="mb-6">
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-sm font-bold text-gray-700">
                 Password Strength
               </span>
               <span className={`text-sm font-bold text-${strength.color}-600`}>
                 {strength.label}
               </span>
             </div>
-            <div className='h-3 bg-gray-200 rounded-full overflow-hidden'>
+            <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
               <div
                 className={`h-full ${strengthBarColor} transition-all duration-500 ease-out`}
                 style={{ width: strengthBarWidth }}
@@ -267,77 +267,77 @@ export default function PasswordGeneratorClient() {
           </div>
 
           {/* Actions */}
-          <div className='flex gap-3 mb-8'>
+          <div className="flex gap-3 mb-8">
             <button
               onClick={handleCopy}
-              className='flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200'
+              className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
             >
               {copied ? (
                 <>
-                  <Check className='w-5 h-5' /> Copied!
+                  <Check className="w-5 h-5" /> Copied!
                 </>
               ) : (
                 <>
-                  <Copy className='w-5 h-5' /> Copy Password
+                  <Copy className="w-5 h-5" /> Copy Password
                 </>
               )}
             </button>
             <button
               onClick={regenerate}
-              className='flex items-center justify-center gap-2 px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200'
+              className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
             >
-              <RefreshCw className='w-5 h-5' />
+              <RefreshCw className="w-5 h-5" />
               Regenerate
             </button>
           </div>
 
           {/* Settings */}
-          <div className='space-y-6'>
+          <div className="space-y-6">
             {/* Length slider */}
             <div>
-              <div className='flex justify-between items-center mb-3'>
-                <label className='text-sm font-bold text-gray-700'>
+              <div className="flex justify-between items-center mb-3">
+                <label className="text-sm font-bold text-gray-700">
                   Password Length: {length}
                 </label>
-                <span className='text-xs text-gray-500'>
+                <span className="text-xs text-gray-500">
                   {lengthLabel(length)}
                 </span>
               </div>
               <input
-                type='range'
+                type="range"
                 min={4}
                 max={32}
                 value={length}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setLength(parseInt(e.target.value))
                 }
-                className='w-full h-3 bg-gradient-to-r from-blue-200 to-indigo-300 rounded-lg appearance-none cursor-pointer'
-                aria-label='Password length'
+                className="w-full h-3 bg-gradient-to-r from-blue-200 to-indigo-300 rounded-lg appearance-none cursor-pointer"
+                aria-label="Password length"
               />
-              <div className='flex justify-between text-xs text-gray-500 mt-2'>
+              <div className="flex justify-between text-xs text-gray-500 mt-2">
                 <span>4</span>
                 <span>32</span>
               </div>
             </div>
 
             {/* Charset checkboxes */}
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {CHARSET_OPTIONS.map(({ label, subtext, value, set }) => (
                 <label
                   key={label}
-                  className='flex items-center gap-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 cursor-pointer transition-colors'
+                  className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 cursor-pointer transition-colors"
                 >
                   <input
-                    type='checkbox'
+                    type="checkbox"
                     checked={value}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       set(e.target.checked)
                     }
-                    className='w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500'
+                    className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
                   />
                   <div>
-                    <div className='font-semibold text-gray-900'>{label}</div>
-                    <div className='text-xs text-gray-600'>{subtext}</div>
+                    <div className="font-semibold text-gray-900">{label}</div>
+                    <div className="text-xs text-gray-600">{subtext}</div>
                   </div>
                 </label>
               ))}
@@ -346,16 +346,16 @@ export default function PasswordGeneratorClient() {
         </div>
 
         {/* Security tips */}
-        <div className='bg-white rounded-xl shadow-md p-6'>
-          <h3 className='font-bold text-gray-900 mb-4 flex items-center gap-2'>
-            <Zap className='w-5 h-5 text-blue-600' />
+        <div className="bg-white rounded-xl shadow-md p-6">
+          <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <Zap className="w-5 h-5 text-blue-600" />
             Password Security Tips
           </h3>
-          <div className='grid md:grid-cols-2 gap-4'>
+          <div className="grid md:grid-cols-2 gap-4">
             {SECURITY_TIPS.map(({ icon: Icon, text, color }) => (
-              <div key={text} className='flex items-start gap-3'>
+              <div key={text} className="flex items-start gap-3">
                 <Icon className={`w-5 h-5 ${color} flex-shrink-0 mt-0.5`} />
-                <span className='text-sm text-gray-700'>{text}</span>
+                <span className="text-sm text-gray-700">{text}</span>
               </div>
             ))}
           </div>

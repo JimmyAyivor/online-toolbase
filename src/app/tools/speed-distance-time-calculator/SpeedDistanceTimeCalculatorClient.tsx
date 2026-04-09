@@ -59,22 +59,22 @@ export default function SpeedDistanceTimeCalculatorClient() {
     "w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-transparent";
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <Zap className='w-8 h-8 text-indigo-600' />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4">
+              <Zap className="w-8 h-8 text-indigo-600" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Speed Distance Time Calculator
             </h2>
-            <p className='text-gray-600'>
+            <p className="text-gray-600">
               Solve for speed, distance, or time using the SDT formula
             </p>
           </div>
 
-          <div className='flex justify-center gap-3 mb-8'>
+          <div className="flex justify-center gap-3 mb-8">
             {(["speed", "distance", "time"] as Solve[]).map((s) => (
               <button
                 key={s}
@@ -86,27 +86,27 @@ export default function SpeedDistanceTimeCalculatorClient() {
             ))}
           </div>
 
-          <div className='grid md:grid-cols-3 gap-6 mb-8'>
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
             {/* Speed */}
             <div
               className={`rounded-xl border-2 p-5 ${solve === "speed" ? "border-indigo-200 bg-indigo-50" : "border-gray-100"}`}
             >
-              <label className='block text-sm font-bold text-gray-700 mb-3'>
+              <label className="block text-sm font-bold text-gray-700 mb-3">
                 Speed{" "}
                 {solve === "speed" && (
-                  <span className='text-indigo-600'>(solving)</span>
+                  <span className="text-indigo-600">(solving)</span>
                 )}
               </label>
               {solve !== "speed" ? (
-                <div className='space-y-2'>
+                <div className="space-y-2">
                   <input
-                    type='number'
-                    min='0'
+                    type="number"
+                    min="0"
                     value={speed}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setSpeed(e.target.value)
                     }
-                    placeholder='Enter speed'
+                    placeholder="Enter speed"
                     className={INP}
                   />
                   <select
@@ -116,17 +116,17 @@ export default function SpeedDistanceTimeCalculatorClient() {
                     }
                     className={`w-full ${SEL}`}
                   >
-                    <option value='mph'>mph</option>
-                    <option value='kmh'>km/h</option>
-                    <option value='ms'>m/s</option>
+                    <option value="mph">mph</option>
+                    <option value="kmh">km/h</option>
+                    <option value="ms">m/s</option>
                   </select>
                 </div>
               ) : (
-                <div className='h-24 flex items-center justify-center'>
-                  <div className='text-center'>
+                <div className="h-24 flex items-center justify-center">
+                  <div className="text-center">
                     {result ? (
                       <>
-                        <p className='text-3xl font-black text-indigo-700'>
+                        <p className="text-3xl font-black text-indigo-700">
                           {fmt((result as any).speed)}
                         </p>
                         <select
@@ -136,13 +136,13 @@ export default function SpeedDistanceTimeCalculatorClient() {
                           }
                           className={`mt-2 ${SEL}`}
                         >
-                          <option value='mph'>mph</option>
-                          <option value='kmh'>km/h</option>
-                          <option value='ms'>m/s</option>
+                          <option value="mph">mph</option>
+                          <option value="kmh">km/h</option>
+                          <option value="ms">m/s</option>
                         </select>
                       </>
                     ) : (
-                      <p className='text-gray-400 text-sm'>
+                      <p className="text-gray-400 text-sm">
                         Fill in the other fields
                       </p>
                     )}
@@ -154,22 +154,22 @@ export default function SpeedDistanceTimeCalculatorClient() {
             <div
               className={`rounded-xl border-2 p-5 ${solve === "distance" ? "border-indigo-200 bg-indigo-50" : "border-gray-100"}`}
             >
-              <label className='block text-sm font-bold text-gray-700 mb-3'>
+              <label className="block text-sm font-bold text-gray-700 mb-3">
                 Distance{" "}
                 {solve === "distance" && (
-                  <span className='text-indigo-600'>(solving)</span>
+                  <span className="text-indigo-600">(solving)</span>
                 )}
               </label>
               {solve !== "distance" ? (
-                <div className='space-y-2'>
+                <div className="space-y-2">
                   <input
-                    type='number'
-                    min='0'
+                    type="number"
+                    min="0"
                     value={distance}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setDistance(e.target.value)
                     }
-                    placeholder='Enter distance'
+                    placeholder="Enter distance"
                     className={INP}
                   />
                   <select
@@ -179,17 +179,17 @@ export default function SpeedDistanceTimeCalculatorClient() {
                     }
                     className={`w-full ${SEL}`}
                   >
-                    <option value='miles'>miles</option>
-                    <option value='km'>km</option>
-                    <option value='m'>m</option>
+                    <option value="miles">miles</option>
+                    <option value="km">km</option>
+                    <option value="m">m</option>
                   </select>
                 </div>
               ) : (
-                <div className='h-24 flex items-center justify-center'>
-                  <div className='text-center'>
+                <div className="h-24 flex items-center justify-center">
+                  <div className="text-center">
                     {result ? (
                       <>
-                        <p className='text-3xl font-black text-indigo-700'>
+                        <p className="text-3xl font-black text-indigo-700">
                           {fmt((result as any).distance)}
                         </p>
                         <select
@@ -199,13 +199,13 @@ export default function SpeedDistanceTimeCalculatorClient() {
                           }
                           className={`mt-2 ${SEL}`}
                         >
-                          <option value='miles'>miles</option>
-                          <option value='km'>km</option>
-                          <option value='m'>m</option>
+                          <option value="miles">miles</option>
+                          <option value="km">km</option>
+                          <option value="m">m</option>
                         </select>
                       </>
                     ) : (
-                      <p className='text-gray-400 text-sm'>
+                      <p className="text-gray-400 text-sm">
                         Fill in the other fields
                       </p>
                     )}
@@ -217,22 +217,22 @@ export default function SpeedDistanceTimeCalculatorClient() {
             <div
               className={`rounded-xl border-2 p-5 ${solve === "time" ? "border-indigo-200 bg-indigo-50" : "border-gray-100"}`}
             >
-              <label className='block text-sm font-bold text-gray-700 mb-3'>
+              <label className="block text-sm font-bold text-gray-700 mb-3">
                 Time{" "}
                 {solve === "time" && (
-                  <span className='text-indigo-600'>(solving)</span>
+                  <span className="text-indigo-600">(solving)</span>
                 )}
               </label>
               {solve !== "time" ? (
-                <div className='space-y-2'>
+                <div className="space-y-2">
                   <input
-                    type='number'
-                    min='0'
+                    type="number"
+                    min="0"
                     value={time}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setTime(e.target.value)
                     }
-                    placeholder='Enter time'
+                    placeholder="Enter time"
                     className={INP}
                   />
                   <select
@@ -242,24 +242,24 @@ export default function SpeedDistanceTimeCalculatorClient() {
                     }
                     className={`w-full ${SEL}`}
                   >
-                    <option value='hours'>hours</option>
-                    <option value='minutes'>minutes</option>
-                    <option value='seconds'>seconds</option>
+                    <option value="hours">hours</option>
+                    <option value="minutes">minutes</option>
+                    <option value="seconds">seconds</option>
                   </select>
                 </div>
               ) : (
-                <div className='h-24 flex items-center justify-center text-center'>
+                <div className="h-24 flex items-center justify-center text-center">
                   {result ? (
                     <>
-                      <p className='text-3xl font-black text-indigo-700'>
+                      <p className="text-3xl font-black text-indigo-700">
                         {(result as any).formatted}
                       </p>
-                      <p className='text-xs text-gray-400 mt-1'>
+                      <p className="text-xs text-gray-400 mt-1">
                         {fmt((result as any).seconds)} seconds
                       </p>
                     </>
                   ) : (
-                    <p className='text-gray-400 text-sm'>
+                    <p className="text-gray-400 text-sm">
                       Fill in the other fields
                     </p>
                   )}
@@ -274,15 +274,15 @@ export default function SpeedDistanceTimeCalculatorClient() {
               setDistance("");
               setTime("");
             }}
-            className='flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-600 transition-colors mb-8'
+            className="flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-600 transition-colors mb-8"
           >
-            <RotateCcw className='w-4 h-4' />
+            <RotateCcw className="w-4 h-4" />
             Reset
           </button>
 
-          <div className='p-4 bg-gray-50 rounded-lg border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>The SDT formula:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="p-4 bg-gray-50 rounded-lg border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2">The SDT formula:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>Speed = Distance ÷ Time</li>
               <li>Distance = Speed × Time</li>
               <li>Time = Distance ÷ Speed</li>

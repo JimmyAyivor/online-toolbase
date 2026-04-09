@@ -150,25 +150,25 @@ export default function PlagiarismCheckerClient() {
   const words = wordCount(text);
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full mb-4 shadow-lg'>
-              <Search className='w-8 h-8 text-white' />
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full mb-4 shadow-lg">
+              <Search className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Plagiarism Checker
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Check your text against live web sources for originality
             </p>
           </div>
 
           {/* Input */}
-          <div className='mb-5'>
-            <label className='block text-sm font-semibold text-gray-700 mb-2'>
+          <div className="mb-5">
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
               Enter text to check
             </label>
             <textarea
@@ -177,11 +177,11 @@ export default function PlagiarismCheckerClient() {
                 setText(e.target.value);
                 setError("");
               }}
-              placeholder='Paste your text here (minimum 10 words)…'
+              placeholder="Paste your text here (minimum 10 words)…"
               rows={8}
-              className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none'
+              className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"
             />
-            <div className='flex justify-between mt-1.5 text-xs text-gray-400'>
+            <div className="flex justify-between mt-1.5 text-xs text-gray-400">
               <span>{words} words</span>
               <span>{text.length} characters</span>
             </div>
@@ -189,8 +189,8 @@ export default function PlagiarismCheckerClient() {
 
           {/* Error */}
           {error && (
-            <div className='flex items-center gap-2 px-4 py-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm mb-5'>
-              <AlertCircle className='w-4 h-4 shrink-0' />
+            <div className="flex items-center gap-2 px-4 py-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm mb-5">
+              <AlertCircle className="w-4 h-4 shrink-0" />
               <span>{error}</span>
             </div>
           )}
@@ -199,16 +199,16 @@ export default function PlagiarismCheckerClient() {
           <button
             onClick={checkPlagiarism}
             disabled={loading}
-            className='w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:opacity-60 text-white font-bold py-3.5 px-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2'
+            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:opacity-60 text-white font-bold py-3.5 px-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
           >
             {loading ? (
               <>
-                <Loader2 className='w-5 h-5 animate-spin' />
+                <Loader2 className="w-5 h-5 animate-spin" />
                 Checking for plagiarism…
               </>
             ) : (
               <>
-                <Search className='w-5 h-5' />
+                <Search className="w-5 h-5" />
                 Check Plagiarism
               </>
             )}
@@ -216,15 +216,15 @@ export default function PlagiarismCheckerClient() {
 
           {/* Results */}
           {results && (
-            <div className='mt-8 space-y-5'>
+            <div className="mt-8 space-y-5">
               {/* Score summary */}
               <div
                 className={`bg-gradient-to-r ${getScoreBg(results.originalityScore)} border-2 rounded-2xl p-6`}
               >
-                <p className='text-xs font-bold uppercase tracking-widest text-gray-400 mb-4'>
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">
                   Analysis Results
                 </p>
-                <div className='grid grid-cols-3 gap-4 mb-5'>
+                <div className="grid grid-cols-3 gap-4 mb-5">
                   {[
                     {
                       label: "Phrases checked",
@@ -244,19 +244,19 @@ export default function PlagiarismCheckerClient() {
                   ].map(({ label, value, color }) => (
                     <div
                       key={label}
-                      className='bg-white rounded-xl p-4 text-center shadow-sm'
+                      className="bg-white rounded-xl p-4 text-center shadow-sm"
                     >
                       <p className={`text-3xl font-black ${color}`}>{value}</p>
-                      <p className='text-xs text-gray-500 mt-1'>{label}</p>
+                      <p className="text-xs text-gray-500 mt-1">{label}</p>
                     </div>
                   ))}
                 </div>
 
                 {results.originalityScore >= 80 && (
-                  <div className='flex items-start gap-3 px-4 py-3 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-700 text-sm'>
-                    <CheckCircle className='w-5 h-5 shrink-0 mt-0.5' />
+                  <div className="flex items-start gap-3 px-4 py-3 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-700 text-sm">
+                    <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
                     <div>
-                      <p className='font-bold'>Good originality!</p>
+                      <p className="font-bold">Good originality!</p>
                       <p>
                         Your text appears to be mostly original based on our web
                         search.
@@ -266,10 +266,10 @@ export default function PlagiarismCheckerClient() {
                 )}
                 {results.originalityScore >= 50 &&
                   results.originalityScore < 80 && (
-                    <div className='flex items-start gap-3 px-4 py-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 text-sm'>
-                      <AlertCircle className='w-5 h-5 shrink-0 mt-0.5' />
+                    <div className="flex items-start gap-3 px-4 py-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 text-sm">
+                      <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
                       <div>
-                        <p className='font-bold'>
+                        <p className="font-bold">
                           Moderate similarity detected
                         </p>
                         <p>
@@ -280,10 +280,10 @@ export default function PlagiarismCheckerClient() {
                     </div>
                   )}
                 {results.originalityScore < 50 && (
-                  <div className='flex items-start gap-3 px-4 py-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm'>
-                    <AlertCircle className='w-5 h-5 shrink-0 mt-0.5' />
+                  <div className="flex items-start gap-3 px-4 py-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
+                    <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
                     <div>
-                      <p className='font-bold'>High similarity detected</p>
+                      <p className="font-bold">High similarity detected</p>
                       <p>
                         Significant portions of your text may match existing web
                         content. Review and cite sources as needed.
@@ -296,43 +296,43 @@ export default function PlagiarismCheckerClient() {
               {/* Matches */}
               {results.matches.length > 0 ? (
                 <div>
-                  <p className='text-sm font-bold text-gray-500 uppercase tracking-widest mb-3'>
+                  <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-3">
                     Potential matches
                   </p>
-                  <div className='space-y-3'>
+                  <div className="space-y-3">
                     {results.matches.map((match, idx) => (
                       <div
                         key={`${match.url}-${idx}`}
-                        className='bg-gray-50 border border-gray-100 rounded-2xl p-5 hover:shadow-sm transition-shadow'
+                        className="bg-gray-50 border border-gray-100 rounded-2xl p-5 hover:shadow-sm transition-shadow"
                       >
-                        <p className='font-bold text-gray-800 text-sm mb-1'>
+                        <p className="font-bold text-gray-800 text-sm mb-1">
                           {match.title}
                         </p>
                         {match.snippet && (
-                          <p className='text-sm text-gray-500 mb-2 leading-relaxed'>
+                          <p className="text-sm text-gray-500 mb-2 leading-relaxed">
                             {match.snippet}
                           </p>
                         )}
                         <a
                           href={match.url}
-                          target='_blank'
-                          rel='noopener noreferrer'
-                          className='inline-flex items-center gap-1 text-xs text-indigo-600 hover:text-indigo-700 font-medium'
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs text-indigo-600 hover:text-indigo-700 font-medium"
                         >
                           {match.url.length > 70
                             ? `${match.url.slice(0, 70)}…`
                             : match.url}
-                          <ExternalLink className='w-3 h-3' />
+                          <ExternalLink className="w-3 h-3" />
                         </a>
                       </div>
                     ))}
                   </div>
                 </div>
               ) : (
-                <div className='text-center py-10 bg-emerald-50 rounded-2xl border border-emerald-100'>
-                  <CheckCircle className='w-12 h-12 text-emerald-500 mx-auto mb-3' />
-                  <p className='font-bold text-gray-800'>No matches found</p>
-                  <p className='text-sm text-gray-500 mt-1'>
+                <div className="text-center py-10 bg-emerald-50 rounded-2xl border border-emerald-100">
+                  <CheckCircle className="w-12 h-12 text-emerald-500 mx-auto mb-3" />
+                  <p className="font-bold text-gray-800">No matches found</p>
+                  <p className="text-sm text-gray-500 mt-1">
                     Your text appears to be original based on our web search.
                   </p>
                 </div>
@@ -347,18 +347,18 @@ export default function PlagiarismCheckerClient() {
               setResults(null);
               setError("");
             }}
-            className='flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-600 transition-colors mt-6 mb-4'
+            className="flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-600 transition-colors mt-6 mb-4"
           >
-            <RotateCcw className='w-4 h-4' />
+            <RotateCcw className="w-4 h-4" />
             Clear and start over
           </button>
 
           {/* Tips */}
-          <div className='p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>
+          <div className="p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">
               💡 How this tool works:
             </p>
-            <ul className='list-disc list-inside space-y-1'>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Extracts key phrases from your text and searches them against
                 live web sources

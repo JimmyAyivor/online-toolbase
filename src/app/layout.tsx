@@ -81,17 +81,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='en'>
-      <body className='font-sans antialiased bg-gray-50'>
+    <html lang="en">
+      <body className="font-sans antialiased bg-gray-50">
         <SiteHeader />
         {children}
         <SiteFooter />
 
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-          strategy='afterInteractive'
+          strategy="afterInteractive"
         />
-        <Script id='google-analytics' strategy='afterInteractive'>
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

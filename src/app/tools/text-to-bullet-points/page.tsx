@@ -96,60 +96,63 @@ export default function TextToBulletPointsPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-teal-600 transition-colors'>
+            <a href="/" className="hover:text-teal-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/writing'
-              className='hover:text-teal-600 transition-colors'
+              href="/tools/category/writing"
+              className="hover:text-teal-600 transition-colors"
             >
               Writing Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Text to Bullet Points
             </span>
           </li>
         </ol>
       </nav>
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-teal-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-teal-600 uppercase tracking-widest mb-1">
           Free Writing Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Text to Bullet Points — Convert Paragraphs to Bullet Lists Free
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Paste any paragraph or article and convert it into bullet points,
           dashes, or a numbered list — sentence-by-sentence, with one-click
           copy.
         </p>
       </header>
       <SidebarAdLayout>
-        <main id='main-content' aria-label='Text to Bullet Points tool'>
+        <main id="main-content" aria-label="Text to Bullet Points tool">
           <TextToBulletPointsClient />
         </main>
         <PageEditorial />
-              <ToolEngagement toolSlug="text-to-bullet-points" toolName="Text to Bullet Points" />
+        <ToolEngagement
+          toolSlug="text-to-bullet-points"
+          toolName="Text to Bullet Points"
+        />
       </SidebarAdLayout>
     </>
   );

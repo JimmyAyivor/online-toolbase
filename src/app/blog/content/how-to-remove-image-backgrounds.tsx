@@ -34,7 +34,7 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        Use our <a href='/tools/background-remover'>Background Remover</a> for
+        Use our <a href="/tools/background-remover">Background Remover</a> for
         fast automatic removal no software installation required, works in your
         browser.
       </p>
@@ -101,7 +101,7 @@ export default function Post() {
       </ul>
       <p>
         Use the{" "}
-        <a href='/tools/profile-picture-resizer'>Profile Picture Resizer</a>{" "}
+        <a href="/tools/profile-picture-resizer">Profile Picture Resizer</a>{" "}
         after background removal to size the result correctly for specific
         platforms.
       </p>
@@ -138,7 +138,7 @@ export default function Post() {
       <p>
         AI background removal is fast, accurate for most common use cases, and
         requires no design software. Use the{" "}
-        <a href='/tools/background-remover'>Background Remover</a> for product
+        <a href="/tools/background-remover">Background Remover</a> for product
         photos, profile pictures, and marketing assets check the edges on hair
         and fine details and touch up if needed. Export as PNG to preserve the
         transparency for maximum flexibility.

@@ -38,7 +38,7 @@ export default function Post() {
         minification.
       </p>
       <p>
-        Use our <a href='/tools/html-minifier'>HTML Minifier</a> to minify HTML
+        Use our <a href="/tools/html-minifier">HTML Minifier</a> to minify HTML
         files with a single operation.
       </p>
 
@@ -150,7 +150,7 @@ export default function Post() {
       <p>
         HTML minification is a low-effort, reliable optimisation that belongs in
         any production deployment pipeline. Use the{" "}
-        <a href='/tools/html-minifier'>HTML Minifier</a> for manual minification
+        <a href="/tools/html-minifier">HTML Minifier</a> for manual minification
         of individual files, and implement automated minification in your build
         process for larger projects. Pair it with image optimisation and
         server-side compression for maximum page performance.

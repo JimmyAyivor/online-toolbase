@@ -15,7 +15,7 @@ export default function Post() {
       <h2>The net worth formula</h2>
       <p>Net Worth = Total Assets − Total Liabilities</p>
       <p>
-        Our <a href='/tools/net-worth-calculator'>Net Worth Calculator</a> walks
+        Our <a href="/tools/net-worth-calculator">Net Worth Calculator</a> walks
         you through both sides of the equation systematically, so nothing gets
         missed.
       </p>
@@ -155,7 +155,7 @@ export default function Post() {
         it honestly once, track the direction over time, and use it to identify
         which lever income, debt reduction, or investment will most effectively
         improve it. Use the{" "}
-        <a href='/tools/net-worth-calculator'>Net Worth Calculator</a> to work
+        <a href="/tools/net-worth-calculator">Net Worth Calculator</a> to work
         through assets and liabilities systematically and see your current
         position clearly.
       </p>

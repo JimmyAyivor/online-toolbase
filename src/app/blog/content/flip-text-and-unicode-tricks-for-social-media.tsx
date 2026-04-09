@@ -26,7 +26,7 @@ export default function Post() {
       <p>
         The resulting text is not "encoded" it's just different Unicode
         characters that look similar to the originals when rotated or mirrored.
-        Use our <a href='/tools/flip-text-generator'>Flip Text Generator</a> to
+        Use our <a href="/tools/flip-text-generator">Flip Text Generator</a> to
         convert any text to upside-down, mirrored, or reversed form.
       </p>
       <h2>Creative uses</h2>
@@ -76,7 +76,7 @@ export default function Post() {
       <p>
         Flip text is a simple Unicode trick with legitimate creative uses for
         distinctive social media formatting. Use the{" "}
-        <a href='/tools/flip-text-generator'>Flip Text Generator</a> to convert
+        <a href="/tools/flip-text-generator">Flip Text Generator</a> to convert
         text to upside-down, mirrored, or reversed form, ready to paste anywhere
         Unicode text is accepted.
       </p>

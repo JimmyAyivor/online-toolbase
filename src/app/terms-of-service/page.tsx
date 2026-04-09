@@ -60,28 +60,28 @@ export default function TermsOfServicePage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
 
       <LegalLayout
-        title='Terms of Service'
+        title="Terms of Service"
         lastUpdated={LAST_UPDATED}
         description={`Please read these Terms carefully before using ${SITE_NAME}.`}
       >
         {/* 1 ── Acceptance */}
-        <Section title='1. Acceptance of Terms'>
-          <p className='text-gray-700 mb-4'>
+        <Section title="1. Acceptance of Terms">
+          <p className="text-gray-700 mb-4">
             Welcome to {SITE_NAME}. By accessing or using our website and online
             tools (&ldquo;Service&rdquo;), you agree to be bound by these Terms
             of Service (&ldquo;Terms&rdquo;). If you do not agree to these
             Terms, please do not use our Service.
           </p>
-          <p className='text-gray-700'>
+          <p className="text-gray-700">
             We reserve the right to modify these Terms at any time. Your
             continued use of the Service following any changes constitutes
             acceptance of those changes.
@@ -89,8 +89,8 @@ export default function TermsOfServicePage() {
         </Section>
 
         {/* 2 ── Description */}
-        <Section title='2. Description of Service'>
-          <p className='text-gray-700 mb-4'>
+        <Section title="2. Description of Service">
+          <p className="text-gray-700 mb-4">
             {SITE_NAME} provides a collection of free web-based tools including
             calculators, converters, generators, formatters, and utilities
             across categories such as writing, developer tools, image tools,
@@ -98,7 +98,7 @@ export default function TermsOfServicePage() {
             help users with various everyday tasks and are provided free of
             charge.
           </p>
-          <p className='text-gray-700'>
+          <p className="text-gray-700">
             All tools process data <strong>locally in your browser</strong>. We
             do not collect, store, or transmit the data you enter into our
             tools.
@@ -106,13 +106,13 @@ export default function TermsOfServicePage() {
         </Section>
 
         {/* 3 ── License */}
-        <Section title='3. Use License'>
-          <p className='text-gray-700 mb-4'>
+        <Section title="3. Use License">
+          <p className="text-gray-700 mb-4">
             We grant you a limited, non-exclusive, non-transferable, revocable
             licence to use our Service for personal or commercial purposes,
             subject to these Terms.
           </p>
-          <p className='text-gray-700 mb-3'>
+          <p className="text-gray-700 mb-3">
             You agree <strong>NOT</strong> to:
           </p>
           <BulletList
@@ -130,8 +130,8 @@ export default function TermsOfServicePage() {
         </Section>
 
         {/* 4 ── User Responsibilities */}
-        <Section title='4. User Responsibilities'>
-          <p className='text-gray-700 mb-3'>
+        <Section title="4. User Responsibilities">
+          <p className="text-gray-700 mb-3">
             As a user of our Service, you are responsible for:
           </p>
           <BulletList
@@ -146,8 +146,8 @@ export default function TermsOfServicePage() {
         </Section>
 
         {/* 5 ── Warranties */}
-        <Section title='5. Disclaimer of Warranties'>
-          <p className='text-gray-700 mb-4 uppercase font-semibold text-sm'>
+        <Section title="5. Disclaimer of Warranties">
+          <p className="text-gray-700 mb-4 uppercase font-semibold text-sm">
             The Service is provided &ldquo;as is&rdquo; and &ldquo;as
             available&rdquo; without warranties of any kind, either express or
             implied, including but not limited to:
@@ -160,15 +160,15 @@ export default function TermsOfServicePage() {
               "That any errors in the Service will be corrected",
             ]}
           />
-          <p className='text-gray-700'>
+          <p className="text-gray-700">
             We do not warrant that the tools will meet your specific
             requirements or that they are suitable for any particular purpose.
           </p>
         </Section>
 
         {/* 6 ── Liability */}
-        <Section title='6. Limitation of Liability'>
-          <p className='text-gray-700 mb-4 uppercase font-semibold text-sm'>
+        <Section title="6. Limitation of Liability">
+          <p className="text-gray-700 mb-4 uppercase font-semibold text-sm">
             To the maximum extent permitted by law, {SITE_NAME} shall not be
             liable for any:
           </p>
@@ -181,15 +181,15 @@ export default function TermsOfServicePage() {
               "Unauthorised access to or alteration of your data",
             ]}
           />
-          <p className='text-gray-700'>
+          <p className="text-gray-700">
             Our total liability for any claims arising from the use of our
             Service shall not exceed <strong>$100 USD</strong>.
           </p>
         </Section>
 
         {/* 7 ── Professional Advice */}
-        <Section title='7. Professional Advice Disclaimer'>
-          <p className='text-gray-700 mb-4'>
+        <Section title="7. Professional Advice Disclaimer">
+          <p className="text-gray-700 mb-4">
             The tools and information provided on our website are for general
             informational purposes only and should <strong>not</strong> be
             considered professional advice. Specifically:
@@ -226,15 +226,15 @@ export default function TermsOfServicePage() {
               </>,
             ]}
           />
-          <p className='text-gray-700'>
+          <p className="text-gray-700">
             Always verify important calculations and consult qualified
             professionals for critical decisions.
           </p>
         </Section>
 
         {/* 8 ── Third Party */}
-        <Section title='8. Third-Party Links and Services'>
-          <p className='text-gray-700'>
+        <Section title="8. Third-Party Links and Services">
+          <p className="text-gray-700">
             Our Service may contain links to third-party websites or services.
             We are not responsible for the content, privacy policies, or
             practices of any third-party sites. Your use of third-party services
@@ -243,8 +243,8 @@ export default function TermsOfServicePage() {
         </Section>
 
         {/* 9 ── Advertising */}
-        <Section title='9. Advertising'>
-          <p className='text-gray-700'>
+        <Section title="9. Advertising">
+          <p className="text-gray-700">
             Our Service displays advertisements through Google AdSense and
             potentially other advertising partners. We do not control the
             content of these advertisements and are not responsible for the
@@ -254,22 +254,22 @@ export default function TermsOfServicePage() {
         </Section>
 
         {/* 10 ── IP */}
-        <Section title='10. Intellectual Property'>
-          <p className='text-gray-700 mb-4'>
+        <Section title="10. Intellectual Property">
+          <p className="text-gray-700 mb-4">
             The Service, including its original content, features, and
             functionality, is owned by {SITE_NAME} and is protected by
             international copyright, trademark, and other intellectual property
             laws.
           </p>
-          <p className='text-gray-700'>
+          <p className="text-gray-700">
             You may not use our trademarks, logos, or branding without our prior
             written permission.
           </p>
         </Section>
 
         {/* 11 ── Termination */}
-        <Section title='11. Termination'>
-          <p className='text-gray-700'>
+        <Section title="11. Termination">
+          <p className="text-gray-700">
             We reserve the right to terminate or suspend your access to the
             Service at any time, without notice, for conduct that we believe
             violates these Terms or is harmful to other users, us, or third
@@ -278,8 +278,8 @@ export default function TermsOfServicePage() {
         </Section>
 
         {/* 12 ── Indemnification */}
-        <Section title='12. Indemnification'>
-          <p className='text-gray-700'>
+        <Section title="12. Indemnification">
+          <p className="text-gray-700">
             You agree to indemnify, defend, and hold harmless {SITE_NAME} and
             its affiliates, officers, agents, and employees from any claims,
             damages, losses, liabilities, and expenses (including reasonable
@@ -289,8 +289,8 @@ export default function TermsOfServicePage() {
         </Section>
 
         {/* 13 ── Governing Law */}
-        <Section title='13. Governing Law'>
-          <p className='text-gray-700'>
+        <Section title="13. Governing Law">
+          <p className="text-gray-700">
             These Terms shall be governed by and construed in accordance with
             the laws of [Your Jurisdiction], without regard to its conflict of
             law provisions. Any disputes shall be resolved in the courts of
@@ -301,8 +301,8 @@ export default function TermsOfServicePage() {
         </Section>
 
         {/* 14 ── Changes to Service */}
-        <Section title='14. Changes to Service'>
-          <p className='text-gray-700'>
+        <Section title="14. Changes to Service">
+          <p className="text-gray-700">
             We reserve the right to modify, suspend, or discontinue any part of
             the Service at any time without notice. We shall not be liable to
             you or any third party for any modification, suspension, or
@@ -311,8 +311,8 @@ export default function TermsOfServicePage() {
         </Section>
 
         {/* 15 ── Severability */}
-        <Section title='15. Severability'>
-          <p className='text-gray-700'>
+        <Section title="15. Severability">
+          <p className="text-gray-700">
             If any provision of these Terms is found to be unenforceable or
             invalid, that provision shall be limited or eliminated to the
             minimum extent necessary so that the Terms shall otherwise remain in
@@ -321,19 +321,19 @@ export default function TermsOfServicePage() {
         </Section>
 
         {/* 16 ── Entire Agreement */}
-        <Section title='16. Entire Agreement'>
-          <p className='text-gray-700'>
+        <Section title="16. Entire Agreement">
+          <p className="text-gray-700">
             These Terms, together with our{" "}
             <Link
-              href='/privacy-policy'
-              className='text-indigo-600 hover:underline'
+              href="/privacy-policy"
+              className="text-indigo-600 hover:underline"
             >
               Privacy Policy
             </Link>{" "}
             and{" "}
             <Link
-              href='/disclaimer'
-              className='text-indigo-600 hover:underline'
+              href="/disclaimer"
+              className="text-indigo-600 hover:underline"
             >
               Disclaimer
             </Link>
@@ -343,23 +343,23 @@ export default function TermsOfServicePage() {
         </Section>
 
         {/* 17 ── Contact */}
-        <Section title='17. Contact Information'>
-          <p className='text-gray-700 mb-4'>
+        <Section title="17. Contact Information">
+          <p className="text-gray-700 mb-4">
             If you have any questions about these Terms, please contact us:
           </p>
-          <div className='bg-gray-50 rounded-xl p-6 border-2 border-gray-200 space-y-2'>
-            <p className='text-gray-700'>
+          <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 space-y-2">
+            <p className="text-gray-700">
               <strong>Legal enquiries:</strong>{" "}
               <a
-                href='mailto:legal@onlinetoolbase.com'
-                className='text-indigo-600 hover:underline'
+                href="mailto:legal@onlinetoolbase.com"
+                className="text-indigo-600 hover:underline"
               >
                 legal@onlinetoolbase.com
               </a>
             </p>
-            <p className='text-gray-700'>
+            <p className="text-gray-700">
               <strong>Website:</strong>{" "}
-              <Link href='/' className='text-indigo-600 hover:underline'>
+              <Link href="/" className="text-indigo-600 hover:underline">
                 {SITE_NAME}
               </Link>
             </p>
@@ -367,8 +367,8 @@ export default function TermsOfServicePage() {
         </Section>
 
         {/* Important notice */}
-        <InfoBox variant='amber' title='⚠️ Important Notice'>
-          <p className='mb-3'>By using {SITE_NAME}, you acknowledge that:</p>
+        <InfoBox variant="amber" title="⚠️ Important Notice">
+          <p className="mb-3">By using {SITE_NAME}, you acknowledge that:</p>
           <BulletList
             items={[
               "You have read and understood these Terms of Service",

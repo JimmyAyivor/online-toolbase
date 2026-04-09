@@ -148,76 +148,76 @@ export default function ImageFormatConverterClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl mb-4 shadow-lg'>
-              <ImageIcon className='w-8 h-8 text-blue-600' />
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl mb-4 shadow-lg">
+              <ImageIcon className="w-8 h-8 text-blue-600" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Image Format Converter
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Convert between JPG, PNG, and WebP formats
             </p>
           </div>
 
           {!image ? (
             /* ── Upload zone ── */
-            <div className='border-4 border-dashed border-gray-300 rounded-xl p-12 text-center hover:border-blue-400 transition-colors'>
-              <label className='cursor-pointer'>
-                <Upload className='w-16 h-16 text-gray-400 mx-auto mb-4' />
-                <div className='text-lg font-semibold text-gray-700 mb-2'>
+            <div className="border-4 border-dashed border-gray-300 rounded-xl p-12 text-center hover:border-blue-400 transition-colors">
+              <label className="cursor-pointer">
+                <Upload className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                <div className="text-lg font-semibold text-gray-700 mb-2">
                   Upload an Image
                 </div>
-                <div className='text-sm text-gray-500 mb-4'>
+                <div className="text-sm text-gray-500 mb-4">
                   JPG, PNG, WebP, or other image formats
                 </div>
-                <div className='inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors'>
+                <div className="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors">
                   Choose Image
                 </div>
                 <input
-                  type='file'
-                  accept='image/*'
+                  type="file"
+                  accept="image/*"
                   onChange={handleImageUpload}
-                  className='hidden'
+                  className="hidden"
                 />
               </label>
             </div>
           ) : (
             /* ── Editor ── */
-            <div className='space-y-6'>
+            <div className="space-y-6">
               {/* Image info */}
-              <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
-                <div className='flex items-center justify-between mb-4'>
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <div className="flex items-center justify-between mb-4">
                   <div>
-                    <div className='font-semibold text-gray-900'>
+                    <div className="font-semibold text-gray-900">
                       {imageName}
                     </div>
-                    <div className='text-sm text-gray-600'>
+                    <div className="text-sm text-gray-600">
                       Original: {originalFormat} · {formatBytes(originalSize)} ·{" "}
                       {image.width}×{image.height}
                     </div>
                   </div>
-                  <label className='px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors cursor-pointer'>
+                  <label className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors cursor-pointer">
                     Change Image
                     <input
-                      type='file'
-                      accept='image/*'
+                      type="file"
+                      accept="image/*"
                       onChange={handleImageUpload}
-                      className='hidden'
+                      className="hidden"
                     />
                   </label>
                 </div>
 
-                <div className='grid md:grid-cols-2 gap-4'>
+                <div className="grid md:grid-cols-2 gap-4">
                   {/* Format picker */}
                   <div>
-                    <label className='block text-sm font-medium text-gray-700 mb-2'>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Convert To
                     </label>
-                    <div className='space-y-2'>
+                    <div className="space-y-2">
                       {FORMATS.map((fmt) => (
                         <label
                           key={fmt.value}
@@ -228,18 +228,18 @@ export default function ImageFormatConverterClient() {
                           }`}
                         >
                           <input
-                            type='radio'
-                            name='format'
+                            type="radio"
+                            name="format"
                             value={fmt.value}
                             checked={targetFormat === fmt.value}
                             onChange={() => handleFormatChange(fmt.value)}
-                            className='mt-1'
+                            className="mt-1"
                           />
-                          <div className='flex-1'>
-                            <div className='font-semibold text-gray-900'>
+                          <div className="flex-1">
+                            <div className="font-semibold text-gray-900">
                               {fmt.label}
                             </div>
-                            <div className='text-xs text-gray-600'>
+                            <div className="text-xs text-gray-600">
                               {fmt.desc}
                             </div>
                           </div>
@@ -250,46 +250,46 @@ export default function ImageFormatConverterClient() {
 
                   {/* Quality + stats */}
                   <div>
-                    <label className='block text-sm font-medium text-gray-700 mb-2'>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Quality: {quality}%
                       {targetFormat === "png" && (
-                        <span className='text-xs text-gray-500 ml-2'>
+                        <span className="text-xs text-gray-500 ml-2">
                           (PNG is lossless)
                         </span>
                       )}
                     </label>
                     <input
-                      type='range'
-                      min='1'
-                      max='100'
+                      type="range"
+                      min="1"
+                      max="100"
                       value={quality}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         handleQualityChange(Number(e.target.value))
                       }
                       disabled={targetFormat === "png"}
-                      className='w-full mb-4'
-                      aria-label='Conversion quality'
+                      className="w-full mb-4"
+                      aria-label="Conversion quality"
                     />
 
-                    <div className='bg-white rounded-lg p-4 border border-gray-200'>
-                      <h4 className='font-semibold text-gray-900 mb-2 text-sm'>
+                    <div className="bg-white rounded-lg p-4 border border-gray-200">
+                      <h4 className="font-semibold text-gray-900 mb-2 text-sm">
                         Conversion Info
                       </h4>
-                      <div className='space-y-2 text-sm'>
-                        <div className='flex justify-between'>
-                          <span className='text-gray-600'>Original Size:</span>
-                          <span className='font-semibold text-gray-900'>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span className="text-gray-600">Original Size:</span>
+                          <span className="font-semibold text-gray-900">
                             {formatBytes(originalSize)}
                           </span>
                         </div>
-                        <div className='flex justify-between'>
-                          <span className='text-gray-600'>New Size:</span>
-                          <span className='font-semibold text-gray-900'>
+                        <div className="flex justify-between">
+                          <span className="text-gray-600">New Size:</span>
+                          <span className="font-semibold text-gray-900">
                             {formatBytes(convertedSize)}
                           </span>
                         </div>
-                        <div className='flex justify-between pt-2 border-t border-gray-200'>
-                          <span className='text-gray-600'>Savings:</span>
+                        <div className="flex justify-between pt-2 border-t border-gray-200">
+                          <span className="text-gray-600">Savings:</span>
                           <span
                             className={`font-bold ${savings > 0 ? "text-green-600" : "text-red-600"}`}
                           >
@@ -303,62 +303,62 @@ export default function ImageFormatConverterClient() {
               </div>
 
               {/* Hidden canvas */}
-              <canvas ref={canvasRef} className='hidden' />
+              <canvas ref={canvasRef} className="hidden" />
 
               {/* Preview */}
-              <div className='grid md:grid-cols-2 gap-6'>
+              <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className='font-semibold text-gray-900 mb-3'>
+                  <h3 className="font-semibold text-gray-900 mb-3">
                     Original Image
                   </h3>
-                  <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
+                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                     <img
                       src={image.src}
-                      alt='Original'
-                      className='max-w-full rounded'
+                      alt="Original"
+                      className="max-w-full rounded"
                     />
                   </div>
-                  <div className='mt-2 text-sm text-gray-600 text-center'>
+                  <div className="mt-2 text-sm text-gray-600 text-center">
                     {originalFormat} · {formatBytes(originalSize)}
                   </div>
                 </div>
 
                 <div>
-                  <h3 className='font-semibold text-gray-900 mb-3'>
+                  <h3 className="font-semibold text-gray-900 mb-3">
                     Converted Image
                   </h3>
-                  <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
+                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                     {convertedImage && (
                       <img
                         src={convertedImage}
-                        alt='Converted'
-                        className='max-w-full rounded'
+                        alt="Converted"
+                        className="max-w-full rounded"
                       />
                     )}
                   </div>
-                  <div className='mt-2 text-sm text-gray-600 text-center'>
+                  <div className="mt-2 text-sm text-gray-600 text-center">
                     {targetFormat.toUpperCase()} · {formatBytes(convertedSize)}
                   </div>
                 </div>
               </div>
 
-              <div className='flex justify-center'>
+              <div className="flex justify-center">
                 <button
                   onClick={downloadConverted}
-                  className='px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-lg transition-colors flex items-center gap-3'
+                  className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-lg transition-colors flex items-center gap-3"
                 >
-                  <Download className='w-6 h-6' />
+                  <Download className="w-6 h-6" />
                   Download {targetFormat.toUpperCase()}
                 </button>
               </div>
 
               {/* Format guide */}
-              <div className='bg-blue-50 border border-blue-200 rounded-lg p-4'>
-                <div className='flex items-start gap-3'>
-                  <Info className='w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5' />
-                  <div className='text-sm text-gray-700'>
-                    <p className='font-semibold mb-1'>Format Guide:</p>
-                    <ul className='space-y-1'>
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div className="flex items-start gap-3">
+                  <Info className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <div className="text-sm text-gray-700">
+                    <p className="font-semibold mb-1">Format Guide:</p>
+                    <ul className="space-y-1">
                       <li>
                         <strong>PNG:</strong> Best for graphics, logos, and
                         images with transparency. Lossless.
@@ -378,9 +378,9 @@ export default function ImageFormatConverterClient() {
             </div>
           )}
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Features:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600">
+            <p className="font-semibold mb-2">Features:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>Convert images between PNG, JPEG, and WebP formats</li>
               <li>Adjust quality for lossy formats (JPEG, WebP)</li>
               <li>See file size comparison before and after conversion</li>

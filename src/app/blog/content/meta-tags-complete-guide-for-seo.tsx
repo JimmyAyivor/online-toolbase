@@ -123,11 +123,11 @@ export default function Post() {
 
       <h2>Generating meta tags efficiently</h2>
       <p>
-        Our <a href='/tools/meta-tag-generator'>Meta Tag Generator</a> creates
+        Our <a href="/tools/meta-tag-generator">Meta Tag Generator</a> creates
         all the essential meta tags title, description, Open Graph, Twitter
         Card, and robots from a simple form. Copy the output directly into your
         page's <code>&lt;head&gt;</code>. Combine with our{" "}
-        <a href='/tools/open-graph-preview'>Open Graph Preview</a> tool to
+        <a href="/tools/open-graph-preview">Open Graph Preview</a> tool to
         verify how your share cards will look before publishing.
       </p>
 
@@ -161,9 +161,9 @@ export default function Post() {
         Meta tags are a small investment with significant returns a properly set
         title and description improve CTR from search results, and Open Graph
         tags ensure your pages look professional when shared. Use the{" "}
-        <a href='/tools/meta-tag-generator'>Meta Tag Generator</a> to produce
+        <a href="/tools/meta-tag-generator">Meta Tag Generator</a> to produce
         the complete set quickly and preview social share cards with the{" "}
-        <a href='/tools/open-graph-preview'>Open Graph Preview</a> tool before
+        <a href="/tools/open-graph-preview">Open Graph Preview</a> tool before
         going live.
       </p>
     </>

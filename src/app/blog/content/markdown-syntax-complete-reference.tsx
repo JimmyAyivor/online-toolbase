@@ -22,7 +22,7 @@ export default function Post() {
       </p>
       <p>
         Our{" "}
-        <a href='/tools/markdown-to-html-converter'>
+        <a href="/tools/markdown-to-html-converter">
           Markdown to HTML Converter
         </a>{" "}
         renders any Markdown to clean HTML instantly useful for previewing
@@ -185,7 +185,7 @@ ___`}</code>
         needs to be stored as plain text or converted to HTML. The syntax takes
         minutes to learn and covers everything needed for most documentation and
         content authoring. Use the{" "}
-        <a href='/tools/markdown-to-html-converter'>
+        <a href="/tools/markdown-to-html-converter">
           Markdown to HTML Converter
         </a>{" "}
         to preview rendering, convert for publication, or check that your syntax

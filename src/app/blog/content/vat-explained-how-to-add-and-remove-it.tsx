@@ -39,7 +39,7 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        Use our <a href='/tools/vat-calculator'>VAT Calculator</a> to add or
+        Use our <a href="/tools/vat-calculator">VAT Calculator</a> to add or
         remove VAT from any price at any rate.
       </p>
 
@@ -134,9 +134,9 @@ export default function Post() {
       <p>
         The critical calculation to get right is reverse VAT dividing by (1 +
         rate) rather than subtracting a percentage of the gross. Use the{" "}
-        <a href='/tools/vat-calculator'>VAT Calculator</a> to add or remove VAT
+        <a href="/tools/vat-calculator">VAT Calculator</a> to add or remove VAT
         at any rate without arithmetic errors, and use the{" "}
-        <a href='/tools/sales-tax-calculator'>Sales Tax Calculator</a> for US
+        <a href="/tools/sales-tax-calculator">Sales Tax Calculator</a> for US
         state tax calculations.
       </p>
     </>

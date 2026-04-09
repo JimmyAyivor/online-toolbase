@@ -179,31 +179,31 @@ export default function GpaCalculatorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-4 md:p-8'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='text-center mb-8'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl mb-4 shadow-lg'>
-            <GraduationCap className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl mb-4 shadow-lg">
+            <GraduationCap className="w-8 h-8 text-white" />
           </div>
-          <h2 className='text-4xl font-bold text-gray-900 mb-2'>
+          <h2 className="text-4xl font-bold text-gray-900 mb-2">
             GPA Calculator
           </h2>
-          <p className='text-gray-500'>
+          <p className="text-gray-500">
             Calculate your semester and cumulative GPA easily
           </p>
         </div>
 
-        <div className='grid lg:grid-cols-3 gap-6'>
+        <div className="grid lg:grid-cols-3 gap-6">
           {/* ── Left / main column ── */}
-          <div className='lg:col-span-2 space-y-6'>
+          <div className="lg:col-span-2 space-y-6">
             {/* Grade scale selector */}
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
-              <h3 className='font-bold text-gray-900 mb-6 flex items-center gap-2 text-xl'>
-                <Calculator className='w-6 h-6 text-indigo-600' />
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+              <h3 className="font-bold text-gray-900 mb-6 flex items-center gap-2 text-xl">
+                <Calculator className="w-6 h-6 text-indigo-600" />
                 Grade Scale
               </h3>
 
-              <div className='grid grid-cols-3 gap-4 mb-6'>
+              <div className="grid grid-cols-3 gap-4 mb-6">
                 {SCALE_BUTTONS.map(({ value, label }) => (
                   <button
                     key={value}
@@ -219,41 +219,41 @@ export default function GpaCalculatorClient() {
                 ))}
               </div>
 
-              <div className='bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6'>
-                <h4 className='font-bold text-gray-900 mb-2'>
+              <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6">
+                <h4 className="font-bold text-gray-900 mb-2">
                   Current GPA (Optional)
                 </h4>
-                <p className='text-sm text-gray-600 mb-4'>
+                <p className="text-sm text-gray-600 mb-4">
                   Enter your current GPA and credits to calculate cumulative GPA
                 </p>
-                <div className='grid md:grid-cols-2 gap-4'>
+                <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Current GPA
                     </label>
                     <input
-                      type='number'
-                      step='0.01'
+                      type="number"
+                      step="0.01"
                       value={currentGPA}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         setCurrentGPA(e.target.value)
                       }
-                      placeholder='3.50'
-                      className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors'
+                      placeholder="3.50"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
                     />
                   </div>
                   <div>
-                    <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Completed Credits
                     </label>
                     <input
-                      type='number'
+                      type="number"
                       value={currentCredits}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         setCurrentCredits(e.target.value)
                       }
-                      placeholder='60'
-                      className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors'
+                      placeholder="60"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
                     />
                   </div>
                 </div>
@@ -261,48 +261,48 @@ export default function GpaCalculatorClient() {
             </div>
 
             {/* Course list */}
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
-              <div className='flex justify-between items-center mb-6'>
-                <h3 className='font-bold text-gray-900 flex items-center gap-2 text-xl'>
-                  <BookOpen className='w-6 h-6 text-indigo-600' />
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="font-bold text-gray-900 flex items-center gap-2 text-xl">
+                  <BookOpen className="w-6 h-6 text-indigo-600" />
                   Courses
                 </h3>
                 <button
                   onClick={addCourse}
-                  className='flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors'
+                  className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors"
                 >
-                  <Plus className='w-4 h-4' />
+                  <Plus className="w-4 h-4" />
                   Add Course
                 </button>
               </div>
 
-              <div className='space-y-4'>
+              <div className="space-y-4">
                 {courses.map((course, index) => (
-                  <div key={course.id} className='p-4 bg-gray-50 rounded-xl'>
-                    <div className='flex justify-between items-center mb-3'>
-                      <span className='font-semibold text-gray-700'>
+                  <div key={course.id} className="p-4 bg-gray-50 rounded-xl">
+                    <div className="flex justify-between items-center mb-3">
+                      <span className="font-semibold text-gray-700">
                         Course {index + 1}
                       </span>
                       {courses.length > 1 && (
                         <button
                           onClick={() => removeCourse(course.id)}
                           aria-label={`Remove course ${index + 1}`}
-                          className='p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors'
+                          className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                         >
-                          <Trash2 className='w-4 h-4' />
+                          <Trash2 className="w-4 h-4" />
                         </button>
                       )}
                     </div>
 
-                    <div className='grid md:grid-cols-3 gap-3'>
+                    <div className="grid md:grid-cols-3 gap-3">
                       <input
-                        type='text'
-                        placeholder='Course Name'
+                        type="text"
+                        placeholder="Course Name"
                         value={course.name}
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                           updateCourse(course.id, "name", e.target.value)
                         }
-                        className='w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500 transition-colors'
+                        className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500 transition-colors"
                       />
 
                       <select
@@ -310,9 +310,9 @@ export default function GpaCalculatorClient() {
                         onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                           updateCourse(course.id, "grade", e.target.value)
                         }
-                        className='w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500 transition-colors'
+                        className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500 transition-colors"
                       >
-                        <option value=''>Select Grade</option>
+                        <option value="">Select Grade</option>
                         {GRADE_SCALE_KEYS.map((grade) => (
                           <option key={grade} value={grade}>
                             {grade} ({currentScale[grade]})
@@ -321,8 +321,8 @@ export default function GpaCalculatorClient() {
                       </select>
 
                       <input
-                        type='number'
-                        placeholder='Credits'
+                        type="number"
+                        placeholder="Credits"
                         value={course.credits}
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                           updateCourse(
@@ -331,9 +331,9 @@ export default function GpaCalculatorClient() {
                             parseFloat(e.target.value) || 0,
                           )
                         }
-                        min='0'
-                        step='0.5'
-                        className='w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500 transition-colors'
+                        min="0"
+                        step="0.5"
+                        className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500 transition-colors"
                       />
                     </div>
                   </div>
@@ -343,50 +343,50 @@ export default function GpaCalculatorClient() {
           </div>
 
           {/* ── Sidebar ── */}
-          <div className='space-y-6'>
-            <div className='bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl shadow-xl p-6 md:p-8 text-white sticky top-8'>
-              <h3 className='font-bold mb-6 flex items-center gap-2 text-xl'>
-                <Award className='w-6 h-6' />
+          <div className="space-y-6">
+            <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl shadow-xl p-6 md:p-8 text-white sticky top-8">
+              <h3 className="font-bold mb-6 flex items-center gap-2 text-xl">
+                <Award className="w-6 h-6" />
                 Your Results
               </h3>
 
-              <div className='space-y-6'>
+              <div className="space-y-6">
                 {/* Semester GPA */}
-                <div className='bg-white/10 backdrop-blur rounded-xl p-5 border-2 border-white/20'>
-                  <div className='flex items-center justify-between mb-2'>
-                    <span className='text-sm text-indigo-100'>
+                <div className="bg-white/10 backdrop-blur rounded-xl p-5 border-2 border-white/20">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-indigo-100">
                       Semester GPA
                     </span>
-                    <span className='text-2xl'>{gpaLevel.emoji}</span>
+                    <span className="text-2xl">{gpaLevel.emoji}</span>
                   </div>
-                  <div className='text-5xl font-bold mb-2'>
+                  <div className="text-5xl font-bold mb-2">
                     {gpa.toFixed(2)}
                   </div>
-                  <div className='inline-block px-3 py-1 bg-white/20 rounded-full text-sm font-semibold'>
+                  <div className="inline-block px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">
                     {gpaLevel.label}
                   </div>
                 </div>
 
                 {/* Total credits */}
-                <div className='bg-white/10 backdrop-blur rounded-xl p-4'>
-                  <div className='text-sm text-indigo-100 mb-1'>
+                <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                  <div className="text-sm text-indigo-100 mb-1">
                     Total Credits This Semester
                   </div>
-                  <div className='text-3xl font-bold'>
+                  <div className="text-3xl font-bold">
                     {totalCredits.toFixed(1)}
                   </div>
                 </div>
 
                 {/* Cumulative GPA */}
                 {currentGPA && currentCredits && (
-                  <div className='bg-white/20 backdrop-blur rounded-xl p-5 border-2 border-white/30'>
-                    <div className='text-sm text-indigo-100 mb-2'>
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-5 border-2 border-white/30">
+                    <div className="text-sm text-indigo-100 mb-2">
                       Cumulative GPA
                     </div>
-                    <div className='text-4xl font-bold mb-1'>
+                    <div className="text-4xl font-bold mb-1">
                       {cumulativeGPA.toFixed(2)}
                     </div>
-                    <div className='text-xs text-indigo-100'>
+                    <div className="text-xs text-indigo-100">
                       Total: {(prevCreditsNum + totalCredits).toFixed(1)}{" "}
                       credits
                     </div>
@@ -394,22 +394,22 @@ export default function GpaCalculatorClient() {
                 )}
 
                 {/* Grade breakdown */}
-                <div className='bg-white/10 backdrop-blur rounded-xl p-4'>
-                  <h4 className='font-bold text-sm text-indigo-100 mb-3 uppercase tracking-wider'>
+                <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                  <h4 className="font-bold text-sm text-indigo-100 mb-3 uppercase tracking-wider">
                     Grade Breakdown
                   </h4>
-                  <div className='space-y-2'>
+                  <div className="space-y-2">
                     {courses
                       .filter((c) => c.grade)
                       .map((course) => (
                         <div
                           key={course.id}
-                          className='flex justify-between text-sm'
+                          className="flex justify-between text-sm"
                         >
-                          <span className='truncate flex-1 mr-2'>
+                          <span className="truncate flex-1 mr-2">
                             {course.name || "Untitled"}
                           </span>
-                          <span className='font-bold whitespace-nowrap'>
+                          <span className="font-bold whitespace-nowrap">
                             {course.grade} ({course.credits}cr)
                           </span>
                         </div>
@@ -420,12 +420,12 @@ export default function GpaCalculatorClient() {
             </div>
 
             {/* Scale guide */}
-            <div className='bg-white rounded-xl shadow-md p-6'>
-              <h4 className='font-bold text-gray-900 mb-4 flex items-center gap-2'>
-                <Target className='w-5 h-5 text-indigo-600' />
+            <div className="bg-white rounded-xl shadow-md p-6">
+              <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <Target className="w-5 h-5 text-indigo-600" />
                 GPA Scale Guide
               </h4>
-              <div className='space-y-3 text-sm'>
+              <div className="space-y-3 text-sm">
                 {[
                   {
                     label: "A (Excellent)",
@@ -472,9 +472,9 @@ export default function GpaCalculatorClient() {
             </div>
 
             {/* Study tips */}
-            <div className='bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl shadow-md p-6 border-2 border-indigo-200'>
-              <h4 className='font-bold text-gray-900 mb-3'>📚 Study Tips</h4>
-              <div className='space-y-2 text-sm text-gray-700'>
+            <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl shadow-md p-6 border-2 border-indigo-200">
+              <h4 className="font-bold text-gray-900 mb-3">📚 Study Tips</h4>
+              <div className="space-y-2 text-sm text-gray-700">
                 <p>• Aim for consistency across all courses</p>
                 <p>• Focus extra effort on higher credit courses</p>
                 <p>• Seek help early if struggling</p>

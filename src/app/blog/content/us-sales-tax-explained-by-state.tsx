@@ -29,7 +29,7 @@ export default function Post() {
         tax) to over 12% in some localities.
       </p>
       <p>
-        Use our <a href='/tools/sales-tax-calculator'>Sales Tax Calculator</a>{" "}
+        Use our <a href="/tools/sales-tax-calculator">Sales Tax Calculator</a>{" "}
         to calculate the tax amount and final price for any base price and rate.
       </p>
 
@@ -126,7 +126,7 @@ export default function Post() {
         Multiply the pre-tax price by the combined tax rate (expressed as a
         decimal). A $50 item at 8.5% tax: $50 × 0.085 = $4.25 tax, total =
         $54.25. Use the{" "}
-        <a href='/tools/sales-tax-calculator'>Sales Tax Calculator</a> to handle
+        <a href="/tools/sales-tax-calculator">Sales Tax Calculator</a> to handle
         this instantly for any rate.
       </p>
 
@@ -136,9 +136,9 @@ export default function Post() {
         world for businesses operating across state lines. For individuals, the
         key variables are the combined rate in your locality and what's exempt
         in your state. Use the{" "}
-        <a href='/tools/sales-tax-calculator'>Sales Tax Calculator</a> to
+        <a href="/tools/sales-tax-calculator">Sales Tax Calculator</a> to
         compute the tax and final price for any purchase, and the{" "}
-        <a href='/tools/vat-calculator'>VAT Calculator</a> for UK and EU
+        <a href="/tools/vat-calculator">VAT Calculator</a> for UK and EU
         transactions.
       </p>
     </>

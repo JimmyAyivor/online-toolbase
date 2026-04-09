@@ -76,7 +76,7 @@ export default function Post() {
       <p>
         If you receive a blob of JSON from an API and can't read it, paste it
         into our{" "}
-        <a href='/tools/json-formatter-validator'>JSON Formatter & Validator</a>{" "}
+        <a href="/tools/json-formatter-validator">JSON Formatter & Validator</a>{" "}
         it prettifies, colour-codes, and validates the structure instantly.
       </p>
 
@@ -173,7 +173,7 @@ export default function Post() {
       </ul>
       <p>
         For quick validation and formatting, our{" "}
-        <a href='/tools/json-formatter-validator'>JSON Formatter & Validator</a>{" "}
+        <a href="/tools/json-formatter-validator">JSON Formatter & Validator</a>{" "}
         accepts any JSON, points out exactly where errors are, and renders the
         structure clearly useful for debugging API responses without opening an
         IDE.

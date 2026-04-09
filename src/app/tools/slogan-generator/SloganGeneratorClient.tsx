@@ -101,25 +101,25 @@ export default function SloganGeneratorClient() {
   };
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-rose-50 via-orange-50 to-amber-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-rose-500 to-orange-500 rounded-full mb-4 shadow-lg'>
-              <Zap className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-orange-50 to-amber-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-rose-500 to-orange-500 rounded-full mb-4 shadow-lg">
+              <Zap className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Slogan Generator
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Generate memorable brand slogans and taglines in seconds
             </p>
           </div>
 
-          <div className='grid md:grid-cols-2 gap-8'>
-            <div className='space-y-5'>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-5">
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Brand or product name
                 </label>
                 <input
@@ -127,12 +127,12 @@ export default function SloganGeneratorClient() {
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setBrand(e.target.value)
                   }
-                  placeholder='e.g. NovaBrew, SwiftDesk, Lumina'
-                  className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-rose-400 focus:border-transparent'
+                  placeholder="e.g. NovaBrew, SwiftDesk, Lumina"
+                  className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-rose-400 focus:border-transparent"
                 />
               </div>
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Core product, service, or value
                 </label>
                 <input
@@ -140,15 +140,15 @@ export default function SloganGeneratorClient() {
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setKeyword(e.target.value)
                   }
-                  placeholder='e.g. coffee, productivity, security'
-                  className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-rose-400 focus:border-transparent'
+                  placeholder="e.g. coffee, productivity, security"
+                  className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-rose-400 focus:border-transparent"
                 />
               </div>
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Tone & style
                 </label>
-                <div className='space-y-2'>
+                <div className="space-y-2">
                   {(
                     Object.entries(STYLE_META) as [
                       Style,
@@ -166,7 +166,7 @@ export default function SloganGeneratorClient() {
                         {emoji}
                       </span>
                       <div>
-                        <p className='font-semibold text-sm'>{label}</p>
+                        <p className="font-semibold text-sm">{label}</p>
                         <p
                           className={`text-xs ${style === s ? "text-rose-200" : "text-gray-400"}`}
                         >
@@ -181,8 +181,8 @@ export default function SloganGeneratorClient() {
 
             <div>
               {results.length > 0 ? (
-                <div className='space-y-3'>
-                  <p className='text-sm font-semibold text-gray-500 uppercase tracking-widest mb-3'>
+                <div className="space-y-3">
+                  <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-3">
                     Generated slogans
                   </p>
                   {results.map((line, i) => (
@@ -190,39 +190,39 @@ export default function SloganGeneratorClient() {
                       key={i}
                       className={`rounded-2xl px-5 py-4 flex items-start justify-between gap-3 border ${i === 0 ? "bg-gradient-to-r from-rose-50 to-orange-50 border-rose-200" : "bg-gray-50 border-gray-100"}`}
                     >
-                      <div className='flex gap-3 items-center'>
+                      <div className="flex gap-3 items-center">
                         <span
                           className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-black ${i === 0 ? "bg-rose-600 text-white" : "bg-gray-200 text-gray-500"}`}
                         >
                           {i + 1}
                         </span>
-                        <p className='text-gray-800 text-sm font-medium italic leading-relaxed'>
+                        <p className="text-gray-800 text-sm font-medium italic leading-relaxed">
                           &ldquo;{line}&rdquo;
                         </p>
                       </div>
                       <button
                         onClick={() => copy(line)}
-                        className='shrink-0 text-gray-300 hover:text-rose-600 transition-colors'
+                        className="shrink-0 text-gray-300 hover:text-rose-600 transition-colors"
                       >
                         {copied === line ? (
-                          <Check className='w-4 h-4 text-green-500' />
+                          <Check className="w-4 h-4 text-green-500" />
                         ) : (
-                          <Copy className='w-4 h-4' />
+                          <Copy className="w-4 h-4" />
                         )}
                       </button>
                     </div>
                   ))}
-                  <div className='bg-amber-50 border border-amber-100 rounded-xl px-5 py-4 text-sm text-amber-800 mt-2'>
+                  <div className="bg-amber-50 border border-amber-100 rounded-xl px-5 py-4 text-sm text-amber-800 mt-2">
                     <strong>Tip:</strong> Great slogans are short (3–8 words),
                     easy to say aloud, and reflect your brand's tone. Combine
                     elements from multiple results to find your perfect tagline.
                   </div>
                 </div>
               ) : (
-                <div className='flex items-center justify-center h-64 bg-rose-50 rounded-2xl border-2 border-dashed border-rose-200'>
-                  <div className='text-center text-rose-400'>
-                    <Zap className='w-12 h-12 mx-auto mb-3 opacity-40' />
-                    <p className='text-sm font-medium'>
+                <div className="flex items-center justify-center h-64 bg-rose-50 rounded-2xl border-2 border-dashed border-rose-200">
+                  <div className="text-center text-rose-400">
+                    <Zap className="w-12 h-12 mx-auto mb-3 opacity-40" />
+                    <p className="text-sm font-medium">
                       Enter brand name and keyword to generate
                     </p>
                   </div>
@@ -237,16 +237,16 @@ export default function SloganGeneratorClient() {
               setKeyword("");
               setStyle("bold");
             }}
-            className='flex items-center gap-2 text-sm text-gray-500 hover:text-rose-600 transition-colors mt-6 mb-4'
+            className="flex items-center gap-2 text-sm text-gray-500 hover:text-rose-600 transition-colors mt-6 mb-4"
           >
-            <RotateCcw className='w-4 h-4' />
+            <RotateCcw className="w-4 h-4" />
             Reset
           </button>
-          <div className='p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>
+          <div className="p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">
               💡 Slogan writing tips:
             </p>
-            <ul className='list-disc list-inside space-y-1'>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Aim for 3–8 words — shorter slogans are more memorable and
                 versatile

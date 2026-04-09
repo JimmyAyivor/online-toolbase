@@ -111,64 +111,64 @@ export default function HtmlMinifierClient() {
   ];
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <Minimize2 className='w-8 h-8 text-indigo-600' />
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4">
+              <Minimize2 className="w-8 h-8 text-indigo-600" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               HTML Minifier
             </h2>
-            <p className='text-gray-600'>
+            <p className="text-gray-600">
               Remove whitespace, comments, and redundant code to reduce HTML
               size
             </p>
           </div>
 
           {/* Options */}
-          <div className='bg-gray-50 rounded-xl border border-gray-200 p-5 mb-6'>
-            <p className='text-sm font-semibold text-gray-700 mb-3'>
+          <div className="bg-gray-50 rounded-xl border border-gray-200 p-5 mb-6">
+            <p className="text-sm font-semibold text-gray-700 mb-3">
               Minification options
             </p>
-            <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-3'>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {OPTION_LABELS.map(({ key, label, desc }) => (
                 <label
                   key={key}
-                  className='flex items-start gap-3 cursor-pointer group'
+                  className="flex items-start gap-3 cursor-pointer group"
                 >
-                  <div className='relative mt-0.5'>
+                  <div className="relative mt-0.5">
                     <input
-                      type='checkbox'
+                      type="checkbox"
                       checked={opts[key]}
                       onChange={() => toggle(key)}
-                      className='sr-only'
+                      className="sr-only"
                     />
                     <div
                       className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${opts[key] ? "bg-indigo-600 border-indigo-600" : "border-gray-300 bg-white group-hover:border-indigo-400"}`}
                     >
                       {opts[key] && (
                         <svg
-                          className='w-3 h-3 text-white'
-                          viewBox='0 0 12 12'
-                          fill='none'
+                          className="w-3 h-3 text-white"
+                          viewBox="0 0 12 12"
+                          fill="none"
                         >
                           <path
-                            d='M2 6l3 3 5-5'
-                            stroke='currentColor'
-                            strokeWidth='2'
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
+                            d="M2 6l3 3 5-5"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           />
                         </svg>
                       )}
                     </div>
                   </div>
                   <div>
-                    <p className='text-sm font-medium text-gray-800'>{label}</p>
-                    <p className='text-xs text-gray-400'>{desc}</p>
+                    <p className="text-sm font-medium text-gray-800">{label}</p>
+                    <p className="text-xs text-gray-400">{desc}</p>
                   </div>
                 </label>
               ))}
@@ -176,11 +176,11 @@ export default function HtmlMinifierClient() {
           </div>
 
           {/* Input / Output */}
-          <div className='grid md:grid-cols-2 gap-6 mb-6'>
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className='block text-sm font-medium text-gray-700 mb-2'>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Original HTML{" "}
-                <span className='text-gray-400 font-normal'>
+                <span className="text-gray-400 font-normal">
                   ({formatBytes(inputBytes)})
                 </span>
               </label>
@@ -193,35 +193,35 @@ export default function HtmlMinifierClient() {
                   "<!DOCTYPE html>\n<html>\n  <head>\n    <!-- page title -->\n    <title>My Page</title>\n  </head>\n  <body>\n    <h1>Hello World</h1>\n  </body>\n</html>"
                 }
                 rows={14}
-                className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none font-mono text-sm'
+                className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none font-mono text-sm"
               />
             </div>
 
             <div>
-              <div className='flex items-center justify-between mb-2'>
-                <label className='block text-sm font-medium text-gray-700'>
+              <div className="flex items-center justify-between mb-2">
+                <label className="block text-sm font-medium text-gray-700">
                   Minified HTML{" "}
-                  <span className='text-gray-400 font-normal'>
+                  <span className="text-gray-400 font-normal">
                     ({formatBytes(outputBytes)})
                   </span>
                 </label>
                 {output && (
                   <button
                     onClick={handleCopy}
-                    className='flex items-center gap-1.5 text-sm text-indigo-600 hover:text-indigo-800 transition-colors'
+                    className="flex items-center gap-1.5 text-sm text-indigo-600 hover:text-indigo-800 transition-colors"
                   >
                     {copied ? (
-                      <Check className='w-4 h-4' />
+                      <Check className="w-4 h-4" />
                     ) : (
-                      <Copy className='w-4 h-4' />
+                      <Copy className="w-4 h-4" />
                     )}
                     {copied ? "Copied!" : "Copy"}
                   </button>
                 )}
               </div>
-              <div className='w-full min-h-[336px] border-2 border-gray-200 bg-gray-50 rounded-lg px-4 py-3 font-mono text-sm text-gray-800 whitespace-pre-wrap break-all overflow-auto'>
+              <div className="w-full min-h-[336px] border-2 border-gray-200 bg-gray-50 rounded-lg px-4 py-3 font-mono text-sm text-gray-800 whitespace-pre-wrap break-all overflow-auto">
                 {output || (
-                  <span className='text-gray-400'>
+                  <span className="text-gray-400">
                     Minified output will appear here…
                   </span>
                 )}
@@ -231,7 +231,7 @@ export default function HtmlMinifierClient() {
 
           {/* Stats */}
           {output && (
-            <div className='grid grid-cols-3 gap-4 mb-6'>
+            <div className="grid grid-cols-3 gap-4 mb-6">
               {[
                 { label: "Original size", value: formatBytes(inputBytes) },
                 { label: "Minified size", value: formatBytes(outputBytes) },
@@ -246,7 +246,7 @@ export default function HtmlMinifierClient() {
                   >
                     {value}
                   </div>
-                  <div className='text-xs text-gray-500 mt-0.5'>{label}</div>
+                  <div className="text-xs text-gray-500 mt-0.5">{label}</div>
                 </div>
               ))}
             </div>
@@ -255,18 +255,18 @@ export default function HtmlMinifierClient() {
           {/* Reset */}
           <button
             onClick={() => setInput("")}
-            className='flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-600 transition-colors mb-8'
+            className="flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-600 transition-colors mb-8"
           >
-            <RotateCcw className='w-4 h-4' />
+            <RotateCcw className="w-4 h-4" />
             Reset
           </button>
 
           {/* Tips */}
-          <div className='mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>
+          <div className="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2">
               Understanding HTML minification:
             </p>
-            <ul className='list-disc list-inside space-y-1'>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Minification only removes non-functional characters — your HTML
                 remains valid and renders identically

@@ -99,60 +99,63 @@ export default function DiscountCalculatorPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-red-600 transition-colors'>
+            <a href="/" className="hover:text-red-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/calculator'
-              className='hover:text-red-600 transition-colors'
+              href="/tools/category/calculator"
+              className="hover:text-red-600 transition-colors"
             >
               Calculator Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Discount Calculator
             </span>
           </li>
         </ol>
       </nav>
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-red-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-red-600 uppercase tracking-widest mb-1">
           Free Calculator Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Discount Calculator — Calculate Sale Price &amp; Savings Instantly,
           Free Online
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Calculate the discounted price and savings for any sale — percentage
           discount, fixed amount, stacked discounts, or with sales tax.
         </p>
       </header>
       <SidebarAdLayout>
-        <main id='main-content' aria-label='Discount Calculator tool'>
+        <main id="main-content" aria-label="Discount Calculator tool">
           <DiscountCalculatorClient />
         </main>
         <PageEditorial />
-              <ToolEngagement toolSlug="discount-calculator" toolName="Discount Calculator" />
+        <ToolEngagement
+          toolSlug="discount-calculator"
+          toolName="Discount Calculator"
+        />
       </SidebarAdLayout>
     </>
   );

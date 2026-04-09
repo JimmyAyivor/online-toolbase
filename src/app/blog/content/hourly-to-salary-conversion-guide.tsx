@@ -28,7 +28,7 @@ export default function Post() {
       </p>
       <p>
         Our{" "}
-        <a href='/tools/hourly-to-salary-calculator'>
+        <a href="/tools/hourly-to-salary-calculator">
           Hourly to Salary Calculator
         </a>{" "}
         converts in both directions and lets you adjust hours per week and weeks
@@ -109,7 +109,7 @@ export default function Post() {
       <p>
         $50,000 ÷ 2,080 = $24.04/hour on the standard 40-hour, 52-week basis.
         Use the{" "}
-        <a href='/tools/hourly-to-salary-calculator'>
+        <a href="/tools/hourly-to-salary-calculator">
           Hourly to Salary Calculator
         </a>{" "}
         for any specific combination.
@@ -121,7 +121,7 @@ export default function Post() {
         offer evaluation, adjust for actual time off and include benefits in the
         comparison especially when comparing salaried employment against
         contractor or freelance rates. Use the{" "}
-        <a href='/tools/hourly-to-salary-calculator'>
+        <a href="/tools/hourly-to-salary-calculator">
           Hourly to Salary Calculator
         </a>{" "}
         for any rate and hours combination.

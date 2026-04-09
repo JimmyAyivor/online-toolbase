@@ -21,7 +21,7 @@ export default function Post() {
       </p>
       <p>
         Use our{" "}
-        <a href='/tools/linkedin-post-formatter'>LinkedIn Post Formatter</a> to
+        <a href="/tools/linkedin-post-formatter">LinkedIn Post Formatter</a> to
         format posts with proper line breaks, check your opening hook, and
         preview your post as it will appear in the feed.
       </p>
@@ -125,7 +125,7 @@ export default function Post() {
         LinkedIn rewards professional authenticity, practical value, and
         consistent posting. Format for the feed (short paragraphs, strong first
         two lines, no external links in body), use the{" "}
-        <a href='/tools/linkedin-post-formatter'>LinkedIn Post Formatter</a> to
+        <a href="/tools/linkedin-post-formatter">LinkedIn Post Formatter</a> to
         structure your posts correctly, and build a consistent posting habit
         over time.
       </p>

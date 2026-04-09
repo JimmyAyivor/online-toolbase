@@ -134,46 +134,46 @@ export default function PasswordStrengthCheckerClient() {
   const level = getLevel(score);
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-red-50 via-rose-50 to-pink-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-500 to-rose-600 rounded-full mb-4 shadow-lg'>
-              <Shield className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-rose-50 to-pink-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-500 to-rose-600 rounded-full mb-4 shadow-lg">
+              <Shield className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Password Strength Checker
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               100% private — your password never leaves your browser
             </p>
           </div>
 
-          <div className='grid md:grid-cols-2 gap-8'>
-            <div className='space-y-5'>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-5">
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Enter your password
                 </label>
-                <div className='relative'>
+                <div className="relative">
                   <input
                     type={show ? "text" : "password"}
                     value={pw}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setPw(e.target.value)
                     }
-                    placeholder='Type your password here…'
-                    autoComplete='off'
-                    className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 pr-12 font-mono focus:ring-2 focus:ring-red-400 focus:border-transparent'
+                    placeholder="Type your password here…"
+                    autoComplete="off"
+                    className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 pr-12 font-mono focus:ring-2 focus:ring-red-400 focus:border-transparent"
                   />
                   <button
                     onClick={() => setShow((s) => !s)}
-                    className='absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600'
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                   >
                     {show ? (
-                      <EyeOff className='w-5 h-5' />
+                      <EyeOff className="w-5 h-5" />
                     ) : (
-                      <Eye className='w-5 h-5' />
+                      <Eye className="w-5 h-5" />
                     )}
                   </button>
                 </div>
@@ -182,22 +182,22 @@ export default function PasswordStrengthCheckerClient() {
               {pw && (
                 <>
                   <div>
-                    <div className='flex justify-between mb-2'>
-                      <span className='text-sm font-semibold text-gray-700'>
+                    <div className="flex justify-between mb-2">
+                      <span className="text-sm font-semibold text-gray-700">
                         Strength
                       </span>
                       <span className={`text-sm font-bold ${level.text}`}>
                         {level.label}
                       </span>
                     </div>
-                    <div className='w-full bg-gray-100 rounded-full h-3'>
+                    <div className="w-full bg-gray-100 rounded-full h-3">
                       <div
                         className={`${level.color} ${level.width} h-3 rounded-full transition-all duration-500`}
                       />
                     </div>
                   </div>
 
-                  <div className='grid grid-cols-3 gap-3'>
+                  <div className="grid grid-cols-3 gap-3">
                     {[
                       { label: "Length", value: pw.length },
                       { label: "Score", value: `${score}/9` },
@@ -205,12 +205,12 @@ export default function PasswordStrengthCheckerClient() {
                     ].map(({ label, value }) => (
                       <div
                         key={label}
-                        className='bg-rose-50 border border-rose-100 rounded-xl p-3 text-center'
+                        className="bg-rose-50 border border-rose-100 rounded-xl p-3 text-center"
                       >
                         <p className={`text-lg font-black ${level.text}`}>
                           {value}
                         </p>
-                        <p className='text-xs text-gray-500 mt-0.5'>{label}</p>
+                        <p className="text-xs text-gray-500 mt-0.5">{label}</p>
                       </div>
                     ))}
                   </div>
@@ -219,17 +219,17 @@ export default function PasswordStrengthCheckerClient() {
 
               <button
                 onClick={() => setPw("")}
-                className='flex items-center gap-2 text-sm text-gray-500 hover:text-red-600 transition-colors'
+                className="flex items-center gap-2 text-sm text-gray-500 hover:text-red-600 transition-colors"
               >
-                <RotateCcw className='w-4 h-4' />
+                <RotateCcw className="w-4 h-4" />
                 Clear
               </button>
             </div>
 
             <div>
               {pw ? (
-                <div className='space-y-2'>
-                  <p className='text-sm font-semibold text-gray-500 uppercase tracking-widest mb-3'>
+                <div className="space-y-2">
+                  <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-3">
                     Checklist
                   </p>
                   {SUGGESTIONS.map(({ key, pos, neg }) => {
@@ -254,10 +254,10 @@ export default function PasswordStrengthCheckerClient() {
                   })}
                 </div>
               ) : (
-                <div className='flex items-center justify-center h-64 bg-rose-50 rounded-2xl border-2 border-dashed border-rose-200'>
-                  <div className='text-center text-rose-400'>
-                    <Shield className='w-12 h-12 mx-auto mb-3 opacity-40' />
-                    <p className='text-sm font-medium'>
+                <div className="flex items-center justify-center h-64 bg-rose-50 rounded-2xl border-2 border-dashed border-rose-200">
+                  <div className="text-center text-rose-400">
+                    <Shield className="w-12 h-12 mx-auto mb-3 opacity-40" />
+                    <p className="text-sm font-medium">
                       Type a password to check its strength
                     </p>
                   </div>
@@ -266,11 +266,11 @@ export default function PasswordStrengthCheckerClient() {
             </div>
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">
               🔒 Password security tips:
             </p>
-            <ul className='list-disc list-inside space-y-1'>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Use a passphrase: 4 random words (e.g.
                 correct-horse-battery-staple) beats most complex passwords

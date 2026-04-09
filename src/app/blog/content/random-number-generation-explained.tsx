@@ -34,7 +34,7 @@ export default function Post() {
         you know some outputs. Used for security-critical applications.
       </p>
       <p>
-        Our <a href='/tools/random-number-generator'>Random Number Generator</a>{" "}
+        Our <a href="/tools/random-number-generator">Random Number Generator</a>{" "}
         generates random numbers in any range using a cryptographically secure
         source.
       </p>
@@ -147,7 +147,7 @@ export default function Post() {
         Most everyday random number needs are well-served by a standard random
         number generator. For security applications, always use a
         cryptographically secure source. Use the{" "}
-        <a href='/tools/random-number-generator'>Random Number Generator</a> for
+        <a href="/tools/random-number-generator">Random Number Generator</a> for
         instant random numbers in any custom range from a single number to large
         batches.
       </p>

@@ -37,7 +37,7 @@ export default function Post() {
         (200×4) + (70×9) = 600 + 800 + 630 = 2,030 calories.
       </p>
       <p>
-        Our <a href='/tools/macro-calculator'>Macro Calculator</a> calculates
+        Our <a href="/tools/macro-calculator">Macro Calculator</a> calculates
         your personalised daily macro targets based on your weight, activity
         level, and goal.
       </p>
@@ -150,7 +150,7 @@ export default function Post() {
         fat while preserving muscle): tracking protein at minimum, alongside
         calories, produces meaningfully better results. Full macro tracking is
         for those with specific performance or body composition goals. See also:{" "}
-        <a href='/tools/calorie-macro-calculator'>Calorie & Macro Calculator</a>{" "}
+        <a href="/tools/calorie-macro-calculator">Calorie & Macro Calculator</a>{" "}
         for a combined approach.
       </p>
 
@@ -160,9 +160,9 @@ export default function Post() {
         Set protein first based on bodyweight, fat at a health-supporting
         minimum, and fill remaining calories with carbohydrates based on
         training volume and preference. Use the{" "}
-        <a href='/tools/macro-calculator'>Macro Calculator</a> to get your
+        <a href="/tools/macro-calculator">Macro Calculator</a> to get your
         personalised gram targets for any goal, and combine with the{" "}
-        <a href='/tools/calorie-deficit-calculator'>
+        <a href="/tools/calorie-deficit-calculator">
           Calorie Deficit Calculator
         </a>{" "}
         for a complete nutritional plan.

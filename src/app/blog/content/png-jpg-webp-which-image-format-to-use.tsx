@@ -96,7 +96,7 @@ export default function Post() {
 
       <h2>Format conversion</h2>
       <p>
-        Our <a href='/tools/image-format-converter'>Image Format Converter</a>{" "}
+        Our <a href="/tools/image-format-converter">Image Format Converter</a>{" "}
         converts between PNG, JPG, WebP, and other formats. Use it to convert
         JPEG photos to WebP for web publishing, or PNG screenshots to JPG when
         transparency isn't needed and file size matters.
@@ -133,9 +133,9 @@ export default function Post() {
         The format decision comes down to content type: photographs → WebP (or
         JPG for maximum compatibility); graphics/logos with transparency → PNG
         or SVG; simple vector graphics → SVG; animations → WebP. Use the{" "}
-        <a href='/tools/image-format-converter'>Image Format Converter</a> to
+        <a href="/tools/image-format-converter">Image Format Converter</a> to
         convert between formats, and follow with the{" "}
-        <a href='/tools/image-compressor'>Image Compressor</a> to reduce file
+        <a href="/tools/image-compressor">Image Compressor</a> to reduce file
         size before publishing.
       </p>
     </>

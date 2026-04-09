@@ -1494,61 +1494,61 @@ export default async function BlogPostPage({
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <div className='bg-linear-to-b from-slate-900 via-slate-800 to-slate-900'>
-        <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-14'>
+      <div className="bg-linear-to-b from-slate-900 via-slate-800 to-slate-900">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-14">
           {/* Breadcrumb */}
-          <nav aria-label='Breadcrumb' className='mb-7'>
-            <ol className='flex items-center gap-2 text-sm text-slate-400 flex-wrap'>
+          <nav aria-label="Breadcrumb" className="mb-7">
+            <ol className="flex items-center gap-2 text-sm text-slate-400 flex-wrap">
               <li>
-                <Link href='/' className='hover:text-white transition-colors'>
+                <Link href="/" className="hover:text-white transition-colors">
                   Home
                 </Link>
               </li>
-              <li className='text-slate-600' aria-hidden='true'>
+              <li className="text-slate-600" aria-hidden="true">
                 ›
               </li>
               <li>
-                <a href='/blog' className='hover:text-white transition-colors'>
+                <a href="/blog" className="hover:text-white transition-colors">
                   Blog
                 </a>
               </li>
-              <li className='text-slate-600' aria-hidden='true'>
+              <li className="text-slate-600" aria-hidden="true">
                 ›
               </li>
-              <li className='text-slate-300 font-medium truncate max-w-xs'>
+              <li className="text-slate-300 font-medium truncate max-w-xs">
                 {post.category}
               </li>
             </ol>
           </nav>
 
           {/* Category + reading time pills */}
-          <div className='flex flex-wrap items-center gap-2.5 mb-5'>
+          <div className="flex flex-wrap items-center gap-2.5 mb-5">
             <span
               className={`text-xs font-bold px-3 py-1 rounded-full ${catStyle.pill}`}
             >
               {post.category}
             </span>
-            <span className='flex items-center gap-1.5 text-xs text-slate-400'>
+            <span className="flex items-center gap-1.5 text-xs text-slate-400">
               <svg
-                className='w-3.5 h-3.5'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
+                className="w-3.5 h-3.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
                 <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   strokeWidth={2}
-                  d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
               {post.readingTime}
@@ -1556,47 +1556,47 @@ export default async function BlogPostPage({
           </div>
 
           {/* Title */}
-          <h1 className='text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.1] tracking-tight max-w-3xl mb-5'>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.1] tracking-tight max-w-3xl mb-5">
             {post.title}
           </h1>
 
           {/* Description */}
-          <p className='text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl mb-9'>
+          <p className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl mb-9">
             {post.description}
           </p>
 
           {/* Author / date bar */}
-          <Link href='/about'>
-            <div className='flex flex-wrap items-center gap-x-5 gap-y-3 pt-6 border-t border-slate-700'>
+          <Link href="/about">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-3 pt-6 border-t border-slate-700">
               {/* Avatar + name */}
-              <div className='flex items-center gap-3'>
-                <div className='w-9 h-9 rounded-full bg-linear-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white text-xs font-black select-none'>
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-linear-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white text-xs font-black select-none">
                   OT
                 </div>
                 <div>
-                  <p className='text-sm font-semibold text-white leading-none'>
+                  <p className="text-sm font-semibold text-white leading-none">
                     {SITE_NAME}
                   </p>
 
-                  <p className='text-xs text-slate-400 mt-0.5'>
+                  <p className="text-xs text-slate-400 mt-0.5">
                     Editorial Team
                   </p>
                 </div>
               </div>
 
               {/* Date */}
-              <div className='flex items-center gap-1.5 text-sm text-slate-400'>
+              <div className="flex items-center gap-1.5 text-sm text-slate-400">
                 <svg
-                  className='w-4 h-4'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
                   <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     strokeWidth={1.5}
-                    d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                   />
                 </svg>
                 <time dateTime={post.publishedAt}>
@@ -1605,18 +1605,18 @@ export default async function BlogPostPage({
               </div>
               {/* Updated */}
               {post.updatedAt && (
-                <div className='flex items-center gap-1.5 text-sm text-slate-400'>
+                <div className="flex items-center gap-1.5 text-sm text-slate-400">
                   <svg
-                    className='w-4 h-4'
-                    fill='none'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
                   >
                     <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       strokeWidth={1.5}
-                      d='M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15'
+                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
                     />
                   </svg>
                   <span>Updated {formatDate(post.updatedAt)}</span>
@@ -1628,39 +1628,39 @@ export default async function BlogPostPage({
       </div>
 
       {/* ── BODY ─────────────────────────────────────────────────────────── */}
-      <div className='bg-slate-50 min-h-screen'>
-        <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10'>
+      <div className="bg-slate-50 min-h-screen">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           {/* Two-column grid: article (left) + sidebar (right) */}
-          <div className='lg:grid lg:grid-cols-[1fr_300px] lg:gap-12 xl:gap-16'>
+          <div className="lg:grid lg:grid-cols-[1fr_300px] lg:gap-12 xl:gap-16">
             {/* ── ARTICLE COLUMN ─────────────────────────────────────────── */}
-            <div className='min-w-0'>
+            <div className="min-w-0">
               {/* Key Takeaways */}
               {takeaways && (
-                <div className='mb-8 rounded-2xl overflow-hidden border border-indigo-200 shadow-sm'>
-                  <div className='bg-indigo-600 px-6 py-3.5 flex items-center gap-2.5'>
+                <div className="mb-8 rounded-2xl overflow-hidden border border-indigo-200 shadow-sm">
+                  <div className="bg-indigo-600 px-6 py-3.5 flex items-center gap-2.5">
                     <svg
-                      className='w-4 h-4 text-white'
-                      fill='currentColor'
-                      viewBox='0 0 20 20'
+                      className="w-4 h-4 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
                     >
                       <path
-                        fillRule='evenodd'
-                        d='M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z'
-                        clipRule='evenodd'
+                        fillRule="evenodd"
+                        d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                        clipRule="evenodd"
                       />
                     </svg>
-                    <span className='text-sm font-bold text-white tracking-wide uppercase'>
+                    <span className="text-sm font-bold text-white tracking-wide uppercase">
                       Key Takeaways
                     </span>
                   </div>
-                  <div className='bg-white px-6 py-5'>
-                    <ul className='space-y-3'>
+                  <div className="bg-white px-6 py-5">
+                    <ul className="space-y-3">
                       {takeaways.map((item, i) => (
                         <li
                           key={i}
-                          className='flex items-start gap-3 text-sm text-slate-700 leading-relaxed'
+                          className="flex items-start gap-3 text-sm text-slate-700 leading-relaxed"
                         >
-                          <span className='mt-0.5 w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold flex items-center justify-center shrink-0'>
+                          <span className="mt-0.5 w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold flex items-center justify-center shrink-0">
                             {i + 1}
                           </span>
                           <span>{item}</span>
@@ -1673,8 +1673,8 @@ export default async function BlogPostPage({
 
               {/* Article prose */}
               <article
-                id='article-body'
-                className='
+                id="article-body"
+                className="
                   bg-white rounded-2xl shadow-sm border border-slate-100
                   px-6 sm:px-10 lg:px-12 py-10 lg:py-12
                   prose prose-slate lg:prose-lg max-w-none
@@ -1699,17 +1699,17 @@ export default async function BlogPostPage({
                   prose-blockquote:text-slate-700
                   prose-table:text-sm prose-th:bg-slate-50 prose-th:font-semibold
                   prose-tr:border-slate-100
-                '
+                "
               >
                 <PostContent />
               </article>
 
               {/* Tags */}
-              <div className='mt-6 flex flex-wrap gap-2'>
+              <div className="mt-6 flex flex-wrap gap-2">
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className='text-xs bg-white border border-slate-200 text-slate-500 px-3 py-1.5 rounded-full hover:border-indigo-300 hover:text-indigo-600 transition-colors'
+                    className="text-xs bg-white border border-slate-200 text-slate-500 px-3 py-1.5 rounded-full hover:border-indigo-300 hover:text-indigo-600 transition-colors"
                   >
                     #{tag}
                   </span>
@@ -1717,43 +1717,43 @@ export default async function BlogPostPage({
               </div>
 
               {/* Share bar */}
-              <div className='mt-7 bg-white rounded-2xl border border-slate-100 shadow-sm px-6 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4'>
+              <div className="mt-7 bg-white rounded-2xl border border-slate-100 shadow-sm px-6 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <p className='text-sm font-bold text-slate-800'>
+                  <p className="text-sm font-bold text-slate-800">
                     Found this helpful?
                   </p>
-                  <p className='text-xs text-slate-400 mt-0.5'>
+                  <p className="text-xs text-slate-400 mt-0.5">
                     Share it with someone who&apos;d find it useful.
                   </p>
                 </div>
-                <div className='flex items-center gap-2.5'>
+                <div className="flex items-center gap-2.5">
                   <a
                     href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(postUrl)}`}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='inline-flex items-center gap-2 bg-black text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-slate-800 transition-colors'
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-black text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-slate-800 transition-colors"
                   >
                     <svg
-                      className='w-3.5 h-3.5'
-                      fill='currentColor'
-                      viewBox='0 0 24 24'
+                      className="w-3.5 h-3.5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      <path d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z' />
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                     </svg>
                     Share on X
                   </a>
                   <a
                     href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='inline-flex items-center gap-2 bg-[#0A66C2] text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-blue-700 transition-colors'
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#0A66C2] text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-blue-700 transition-colors"
                   >
                     <svg
-                      className='w-3.5 h-3.5'
-                      fill='currentColor'
-                      viewBox='0 0 24 24'
+                      className="w-3.5 h-3.5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      <path d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z' />
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                     </svg>
                     Share on LinkedIn
                   </a>
@@ -1762,51 +1762,51 @@ export default async function BlogPostPage({
 
               {/* Related tools CTA */}
               {post.relatedTools.length > 0 && (
-                <div className='mt-6 rounded-2xl bg-linear-to-br from-indigo-600 to-violet-700 p-7 shadow-lg'>
-                  <div className='flex items-start gap-4 mb-5'>
-                    <div className='w-10 h-10 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center shrink-0'>
+                <div className="mt-6 rounded-2xl bg-linear-to-br from-indigo-600 to-violet-700 p-7 shadow-lg">
+                  <div className="flex items-start gap-4 mb-5">
+                    <div className="w-10 h-10 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center shrink-0">
                       <svg
-                        className='w-5 h-5 text-white'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
+                        className="w-5 h-5 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
                         <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           strokeWidth={2}
-                          d='M13 10V3L4 14h7v7l9-11h-7z'
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
                         />
                       </svg>
                     </div>
                     <div>
-                      <h2 className='text-base font-bold text-white mb-1'>
+                      <h2 className="text-base font-bold text-white mb-1">
                         Free tools mentioned in this article
                       </h2>
-                      <p className='text-indigo-200 text-sm leading-snug'>
+                      <p className="text-indigo-200 text-sm leading-snug">
                         Works in your browser — no signup, no install required.
                       </p>
                     </div>
                   </div>
-                  <div className='flex flex-wrap gap-2.5'>
+                  <div className="flex flex-wrap gap-2.5">
                     {post.relatedTools.map((tool) => (
                       <a
                         key={tool.href}
                         href={tool.href}
-                        className='inline-flex items-center gap-1.5 bg-white text-indigo-700 text-sm font-semibold px-4 py-2.5 rounded-xl hover:bg-indigo-50 transition-colors shadow-sm'
+                        className="inline-flex items-center gap-1.5 bg-white text-indigo-700 text-sm font-semibold px-4 py-2.5 rounded-xl hover:bg-indigo-50 transition-colors shadow-sm"
                       >
                         {tool.label}
                         <svg
-                          className='w-3.5 h-3.5'
-                          fill='none'
-                          stroke='currentColor'
-                          viewBox='0 0 24 24'
+                          className="w-3.5 h-3.5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
                         >
                           <path
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                             strokeWidth={2.5}
-                            d='M9 5l7 7-7 7'
+                            d="M9 5l7 7-7 7"
                           />
                         </svg>
                       </a>
@@ -1816,22 +1816,22 @@ export default async function BlogPostPage({
               )}
 
               {/* Back link */}
-              <div className='mt-8 pb-2'>
+              <div className="mt-8 pb-2">
                 <a
-                  href='/blog'
-                  className='inline-flex items-center gap-2 text-sm text-indigo-600 hover:text-indigo-800 font-semibold transition-colors'
+                  href="/blog"
+                  className="inline-flex items-center gap-2 text-sm text-indigo-600 hover:text-indigo-800 font-semibold transition-colors"
                 >
                   <svg
-                    className='w-4 h-4'
-                    fill='none'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
                   >
                     <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       strokeWidth={2}
-                      d='M15 19l-7-7 7-7'
+                      d="M15 19l-7-7 7-7"
                     />
                   </svg>
                   Back to all articles
@@ -1840,41 +1840,41 @@ export default async function BlogPostPage({
             </div>
 
             {/* ── SIDEBAR ─────────────────────────────────────────────────── */}
-            <aside className='hidden lg:block'>
+            <aside className="hidden lg:block">
               {/* Sticky wrapper */}
-              <div className='sticky top-6 space-y-5'>
+              <div className="sticky top-6 space-y-5">
                 {/* Scroll-spy TOC — client component */}
                 <BlogPostClient postUrl={postUrl} postTitle={post.title} />
 
                 {/* Tools widget */}
                 {post.relatedTools.length > 0 && (
-                  <div className='bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden'>
-                    <div className='px-5 py-4 border-b border-slate-100'>
-                      <p className='text-[11px] font-black text-slate-400 uppercase tracking-widest'>
+                  <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                    <div className="px-5 py-4 border-b border-slate-100">
+                      <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest">
                         Free Tools
                       </p>
                     </div>
-                    <div className='p-3 space-y-0.5'>
+                    <div className="p-3 space-y-0.5">
                       {post.relatedTools.map((tool) => (
                         <a
                           key={tool.href}
                           href={tool.href}
-                          className='flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-indigo-50 group transition-colors'
+                          className="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-indigo-50 group transition-colors"
                         >
-                          <span className='text-sm text-slate-700 group-hover:text-indigo-700 font-medium transition-colors leading-snug'>
+                          <span className="text-sm text-slate-700 group-hover:text-indigo-700 font-medium transition-colors leading-snug">
                             {tool.label}
                           </span>
                           <svg
-                            className='w-4 h-4 text-slate-300 group-hover:text-indigo-400 transition-colors shrink-0 ml-2'
-                            fill='none'
-                            stroke='currentColor'
-                            viewBox='0 0 24 24'
+                            className="w-4 h-4 text-slate-300 group-hover:text-indigo-400 transition-colors shrink-0 ml-2"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
                           >
                             <path
-                              strokeLinecap='round'
-                              strokeLinejoin='round'
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
                               strokeWidth={2}
-                              d='M9 5l7 7-7 7'
+                              d="M9 5l7 7-7 7"
                             />
                           </svg>
                         </a>
@@ -1883,20 +1883,20 @@ export default async function BlogPostPage({
                   </div>
                 )}
                 {/*// Inside the sidebar sticky div, after the tools widget:*/}
-                <SubscribeForm variant='inline' />
+                <SubscribeForm variant="inline" />
                 {/* Promo card */}
-                <div className='rounded-2xl bg-linear-to-br from-slate-900 to-slate-800 p-6 text-white'>
-                  <div className='text-3xl mb-3'>🛠️</div>
-                  <h3 className='font-black text-base mb-2 leading-snug'>
+                <div className="rounded-2xl bg-linear-to-br from-slate-900 to-slate-800 p-6 text-white">
+                  <div className="text-3xl mb-3">🛠️</div>
+                  <h3 className="font-black text-base mb-2 leading-snug">
                     150+ Free Online Tools
                   </h3>
-                  <p className='text-slate-400 text-sm leading-relaxed mb-5'>
+                  <p className="text-slate-400 text-sm leading-relaxed mb-5">
                     Calculators, converters, generators and more. No account
                     needed.
                   </p>
                   <a
-                    href='/tools'
-                    className='block text-center bg-indigo-500 hover:bg-indigo-400 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition-colors'
+                    href="/tools"
+                    className="block text-center bg-indigo-500 hover:bg-indigo-400 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition-colors"
                   >
                     Browse All Tools →
                   </a>

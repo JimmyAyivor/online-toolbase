@@ -166,44 +166,44 @@ export default function CronExpressionBuilderClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full mb-4 shadow-lg'>
-              <Clock className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full mb-4 shadow-lg">
+              <Clock className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Cron Expression Builder
             </h2>
-            <p className='text-gray-600'>
+            <p className="text-gray-600">
               Build and validate cron job expressions with a visual editor
             </p>
           </div>
 
-          <div className='space-y-6'>
+          <div className="space-y-6">
             {/* Expression output */}
-            <div className='bg-gray-900 rounded-xl p-6'>
-              <div className='text-xs text-gray-400 uppercase tracking-wider mb-2'>
+            <div className="bg-gray-900 rounded-xl p-6">
+              <div className="text-xs text-gray-400 uppercase tracking-wider mb-2">
                 Cron Expression
               </div>
-              <div className='flex flex-col sm:flex-row sm:items-center justify-between gap-4'>
-                <code className='text-2xl font-mono font-bold text-green-400 tracking-widest'>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <code className="text-2xl font-mono font-bold text-green-400 tracking-widest">
                   {expression}
                 </code>
-                <div className='flex gap-2'>
+                <div className="flex gap-2">
                   <button
                     onClick={reset}
-                    className='px-4 py-2 bg-gray-700 hover:bg-gray-600 text-gray-200 rounded-lg font-medium transition-colors flex items-center gap-2 text-sm'
+                    className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-gray-200 rounded-lg font-medium transition-colors flex items-center gap-2 text-sm"
                   >
-                    <RotateCcw className='w-4 h-4' />
+                    <RotateCcw className="w-4 h-4" />
                     Reset
                   </button>
                   <button
                     onClick={copyExpr}
-                    className='px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-colors flex items-center gap-2 text-sm'
+                    className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-colors flex items-center gap-2 text-sm"
                   >
-                    <Copy className='w-4 h-4' />
+                    <Copy className="w-4 h-4" />
                     {copied ? "Copied!" : "Copy"}
                   </button>
                 </div>
@@ -211,20 +211,20 @@ export default function CronExpressionBuilderClient() {
             </div>
 
             {/* Field editors */}
-            <div className='bg-gray-50 rounded-xl border border-gray-200 p-4'>
-              <h3 className='font-semibold text-gray-900 mb-4'>
+            <div className="bg-gray-50 rounded-xl border border-gray-200 p-4">
+              <h3 className="font-semibold text-gray-900 mb-4">
                 Configure Fields
               </h3>
-              <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4'>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                 {FIELDS.map((field) => {
                   const s = fields[field.key];
                   return (
                     <div key={field.key}>
-                      <div className='flex items-center justify-between mb-2'>
-                        <label className='block text-sm font-medium text-gray-700'>
+                      <div className="flex items-center justify-between mb-2">
+                        <label className="block text-sm font-medium text-gray-700">
                           {field.label}
                         </label>
-                        <code className='text-xs bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded font-mono'>
+                        <code className="text-xs bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded font-mono">
                           {buildExpr(s)}
                         </code>
                       </div>
@@ -233,29 +233,29 @@ export default function CronExpressionBuilderClient() {
                         onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                           update(field.key, { mode: e.target.value as Mode })
                         }
-                        className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm mb-2'
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm mb-2"
                       >
-                        <option value='every'>Every</option>
-                        <option value='specific'>Specific</option>
-                        <option value='range'>Range</option>
-                        <option value='step'>Every N</option>
+                        <option value="every">Every</option>
+                        <option value="specific">Specific</option>
+                        <option value="range">Range</option>
+                        <option value="step">Every N</option>
                       </select>
 
                       {s.mode === "specific" && (
                         <input
-                          type='text'
+                          type="text"
                           value={s.specific}
                           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                             update(field.key, { specific: e.target.value })
                           }
                           placeholder={`${field.min}–${field.max}`}
-                          className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent font-mono text-sm'
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent font-mono text-sm"
                         />
                       )}
                       {s.mode === "range" && (
-                        <div className='flex gap-1 items-center'>
+                        <div className="flex gap-1 items-center">
                           <input
-                            type='number'
+                            type="number"
                             value={s.rangeFrom}
                             onChange={(
                               e: React.ChangeEvent<HTMLInputElement>,
@@ -265,11 +265,11 @@ export default function CronExpressionBuilderClient() {
                             placeholder={String(field.min)}
                             min={field.min}
                             max={field.max}
-                            className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent font-mono text-sm'
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent font-mono text-sm"
                           />
-                          <span className='text-gray-400'>–</span>
+                          <span className="text-gray-400">–</span>
                           <input
-                            type='number'
+                            type="number"
                             value={s.rangeTo}
                             onChange={(
                               e: React.ChangeEvent<HTMLInputElement>,
@@ -277,39 +277,39 @@ export default function CronExpressionBuilderClient() {
                             placeholder={String(field.max)}
                             min={field.min}
                             max={field.max}
-                            className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent font-mono text-sm'
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent font-mono text-sm"
                           />
                         </div>
                       )}
                       {s.mode === "step" && (
-                        <div className='space-y-1'>
+                        <div className="space-y-1">
                           <input
-                            type='number'
+                            type="number"
                             value={s.stepEvery}
                             onChange={(
                               e: React.ChangeEvent<HTMLInputElement>,
                             ) =>
                               update(field.key, { stepEvery: e.target.value })
                             }
-                            placeholder='Every N'
+                            placeholder="Every N"
                             min={1}
-                            className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent font-mono text-sm'
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent font-mono text-sm"
                           />
                           <input
-                            type='text'
+                            type="text"
                             value={s.stepStart}
                             onChange={(
                               e: React.ChangeEvent<HTMLInputElement>,
                             ) =>
                               update(field.key, { stepStart: e.target.value })
                             }
-                            placeholder='Start or *'
-                            className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent font-mono text-sm'
+                            placeholder="Start or *"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent font-mono text-sm"
                           />
                         </div>
                       )}
                       {field.names && (
-                        <div className='mt-2 flex flex-wrap gap-1'>
+                        <div className="mt-2 flex flex-wrap gap-1">
                           {field.names.map((name, i) => (
                             <button
                               key={name}
@@ -319,7 +319,7 @@ export default function CronExpressionBuilderClient() {
                                   specific: String(field.min + i),
                                 })
                               }
-                              className='text-xs bg-white hover:bg-indigo-50 border border-gray-200 text-gray-600 hover:text-indigo-700 px-1.5 py-0.5 rounded transition-colors'
+                              className="text-xs bg-white hover:bg-indigo-50 border border-gray-200 text-gray-600 hover:text-indigo-700 px-1.5 py-0.5 rounded transition-colors"
                             >
                               {name}
                             </button>
@@ -334,21 +334,21 @@ export default function CronExpressionBuilderClient() {
 
             {/* Presets */}
             <div>
-              <h3 className='text-lg font-semibold text-gray-900 mb-3'>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
                 Common Presets
               </h3>
-              <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3'>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
                 {PRESETS.map((p) => (
                   <button
                     key={p.expr}
                     onClick={() => setFields(parsePreset(p.expr))}
                     title={p.desc}
-                    className='text-left bg-gray-50 hover:bg-indigo-50 border border-gray-200 hover:border-indigo-300 rounded-lg p-3 transition-colors'
+                    className="text-left bg-gray-50 hover:bg-indigo-50 border border-gray-200 hover:border-indigo-300 rounded-lg p-3 transition-colors"
                   >
-                    <div className='text-xs font-semibold text-gray-700 mb-1'>
+                    <div className="text-xs font-semibold text-gray-700 mb-1">
                       {p.label}
                     </div>
-                    <code className='text-xs text-gray-500 font-mono'>
+                    <code className="text-xs text-gray-500 font-mono">
                       {p.expr}
                     </code>
                   </button>
@@ -357,38 +357,38 @@ export default function CronExpressionBuilderClient() {
             </div>
 
             {/* Reference */}
-            <div className='bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200'>
-              <h3 className='text-xl font-bold text-gray-900 mb-4'>
+            <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
                 Format Reference
               </h3>
-              <div className='text-center font-mono text-lg mb-4 tracking-widest text-gray-700'>
-                <span className='text-red-500'>min</span>{" "}
-                <span className='text-amber-500'>hour</span>{" "}
-                <span className='text-emerald-500'>dom</span>{" "}
-                <span className='text-blue-500'>month</span>{" "}
-                <span className='text-purple-500'>dow</span>
+              <div className="text-center font-mono text-lg mb-4 tracking-widest text-gray-700">
+                <span className="text-red-500">min</span>{" "}
+                <span className="text-amber-500">hour</span>{" "}
+                <span className="text-emerald-500">dom</span>{" "}
+                <span className="text-blue-500">month</span>{" "}
+                <span className="text-purple-500">dow</span>
               </div>
-              <div className='grid grid-cols-2 md:grid-cols-4 gap-3'>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {[
                   { sym: "*", desc: "every value" },
                   { sym: "*/n", desc: "every n units" },
                   { sym: "a-b", desc: "range from a to b" },
                   { sym: "a,b", desc: "a and b" },
                 ].map(({ sym, desc }) => (
-                  <div key={sym} className='bg-white rounded-lg p-3'>
-                    <div className='text-2xl font-bold text-indigo-600 font-mono'>
+                  <div key={sym} className="bg-white rounded-lg p-3">
+                    <div className="text-2xl font-bold text-indigo-600 font-mono">
                       {sym}
                     </div>
-                    <div className='text-sm text-gray-600 mt-1'>{desc}</div>
+                    <div className="text-sm text-gray-600 mt-1">{desc}</div>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>Tips:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">Tips:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>Click any preset to instantly load that schedule</li>
               <li>Day of week: 0 = Sunday, 1 = Monday, through 6 = Saturday</li>
               <li>

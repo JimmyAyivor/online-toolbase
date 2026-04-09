@@ -39,7 +39,7 @@ export default function Post() {
         around day 16–20. For a 24-day cycle, around day 8–12.
       </p>
       <p>
-        Our <a href='/tools/ovulation-calculator'>Ovulation Calculator</a>{" "}
+        Our <a href="/tools/ovulation-calculator">Ovulation Calculator</a>{" "}
         estimates your ovulation date and fertile window based on your cycle
         length and last period start date.
       </p>
@@ -136,7 +136,7 @@ export default function Post() {
       <p>
         Ovulation calculators give a useful starting estimate for fertile window
         timing, most accurate for regular cycles. Use the{" "}
-        <a href='/tools/ovulation-calculator'>Ovulation Calculator</a> alongside
+        <a href="/tools/ovulation-calculator">Ovulation Calculator</a> alongside
         physical signs particularly cervical mucus changes or OPK results for
         the most reliable picture of your fertile days.
       </p>

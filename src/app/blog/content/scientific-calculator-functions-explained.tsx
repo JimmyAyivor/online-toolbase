@@ -119,7 +119,7 @@ export default function Post() {
 
       <h2>Using our scientific calculator</h2>
       <p>
-        Our <a href='/tools/scientific-calculator'>Scientific Calculator</a>{" "}
+        Our <a href="/tools/scientific-calculator">Scientific Calculator</a>{" "}
         provides all standard scientific functions trig, logarithms, exponents,
         roots, factorials, and combinations with both degree and radian mode and
         support for parentheses in complex expressions.
@@ -157,7 +157,7 @@ export default function Post() {
         relationships each one encodes a concept (exponential growth, angular
         ratios, multiplicative counting) that appears across dozens of
         real-world applications. Use the{" "}
-        <a href='/tools/scientific-calculator'>Scientific Calculator</a> for any
+        <a href="/tools/scientific-calculator">Scientific Calculator</a> for any
         calculation requiring these functions, and refer to this guide when you
         encounter an unfamiliar button.
       </p>

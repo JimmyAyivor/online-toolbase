@@ -50,7 +50,7 @@ export default function Post() {
         produces much better results.
       </p>
       <p>
-        Our <a href='/tools/acronym-generator'>Acronym Generator</a> takes your
+        Our <a href="/tools/acronym-generator">Acronym Generator</a> takes your
         phrase and generates acronym options, giving you material to work with
         in either direction.
       </p>
@@ -139,7 +139,7 @@ export default function Post() {
         concept into a form that's easy to use and remember. Start with the
         concept, work towards a pronounceable word, check for conflicts, and
         keep it short. Use the{" "}
-        <a href='/tools/acronym-generator'>Acronym Generator</a> to explore
+        <a href="/tools/acronym-generator">Acronym Generator</a> to explore
         options quickly and find combinations worth developing further.
       </p>
     </>

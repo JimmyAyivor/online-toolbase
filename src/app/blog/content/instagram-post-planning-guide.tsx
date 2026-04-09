@@ -32,7 +32,7 @@ export default function Post() {
         content means the account doesn't convert.
       </p>
       <p>
-        Our <a href='/tools/instagram-post-planner'>Instagram Post Planner</a>{" "}
+        Our <a href="/tools/instagram-post-planner">Instagram Post Planner</a>{" "}
         helps you organise posts by content pillar, draft captions, and plan
         your posting schedule.
       </p>
@@ -124,9 +124,9 @@ export default function Post() {
       <p>
         Instagram growth comes from consistent, themed, value-driven content
         posted reliably. Plan by content pillars, batch your creation, and use
-        the <a href='/tools/instagram-post-planner'>Instagram Post Planner</a>{" "}
+        the <a href="/tools/instagram-post-planner">Instagram Post Planner</a>{" "}
         to organise posts, captions, and your schedule in one place. Combine
-        with the <a href='/tools/hashtag-generator'>Hashtag Generator</a> to
+        with the <a href="/tools/hashtag-generator">Hashtag Generator</a> to
         find relevant tags for each post.
       </p>
     </>

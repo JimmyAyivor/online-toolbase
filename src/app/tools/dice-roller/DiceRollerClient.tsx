@@ -142,38 +142,38 @@ export default function DiceRollerClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl mb-4 shadow-lg'>
-              <Dices className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl mb-4 shadow-lg">
+              <Dices className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Dice Roller
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Roll virtual dice for games and decisions
             </p>
           </div>
 
-          <div className='grid md:grid-cols-3 gap-6'>
+          <div className="grid md:grid-cols-3 gap-6">
             {/* ── Left / main column ── */}
-            <div className='md:col-span-2 space-y-6'>
+            <div className="md:col-span-2 space-y-6">
               {/* Select dice */}
               <div>
-                <h3 className='font-semibold text-gray-900 mb-3'>
+                <h3 className="font-semibold text-gray-900 mb-3">
                   Select Dice
                 </h3>
-                <div className='grid grid-cols-4 gap-2'>
+                <div className="grid grid-cols-4 gap-2">
                   {DICE_TYPES.map((sides) => (
                     <button
                       key={sides}
                       onClick={() => addDie(sides)}
-                      className='p-4 bg-purple-100 hover:bg-purple-200 border-2 border-purple-300 rounded-lg transition-colors text-center'
+                      className="p-4 bg-purple-100 hover:bg-purple-200 border-2 border-purple-300 rounded-lg transition-colors text-center"
                     >
-                      <div className='text-3xl mb-1'>{getDiceIcon(sides)}</div>
-                      <div className='text-sm font-semibold text-gray-900'>
+                      <div className="text-3xl mb-1">{getDiceIcon(sides)}</div>
+                      <div className="text-sm font-semibold text-gray-900">
                         d{sides}
                       </div>
                     </button>
@@ -183,49 +183,49 @@ export default function DiceRollerClient() {
 
               {/* Your dice */}
               <div>
-                <div className='flex items-center justify-between mb-3'>
-                  <h3 className='font-semibold text-gray-900'>Your Dice</h3>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="font-semibold text-gray-900">Your Dice</h3>
                   <button
                     onClick={clearAll}
-                    className='text-sm text-red-600 hover:text-red-700 flex items-center gap-1'
+                    className="text-sm text-red-600 hover:text-red-700 flex items-center gap-1"
                   >
-                    <RotateCcw className='w-4 h-4' />
+                    <RotateCcw className="w-4 h-4" />
                     Clear All
                   </button>
                 </div>
 
                 {dice.length === 0 ? (
-                  <div className='text-center py-8 text-gray-400'>
+                  <div className="text-center py-8 text-gray-400">
                     No dice selected. Click dice above to add.
                   </div>
                 ) : (
-                  <div className='space-y-2'>
+                  <div className="space-y-2">
                     {dice.map((die) => (
                       <div
                         key={die.id}
-                        className='flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200'
+                        className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200"
                       >
-                        <div className='text-2xl'>{getDiceIcon(die.sides)}</div>
-                        <div className='flex-1'>
-                          <div className='font-semibold text-gray-900'>
+                        <div className="text-2xl">{getDiceIcon(die.sides)}</div>
+                        <div className="flex-1">
+                          <div className="font-semibold text-gray-900">
                             d{die.sides}
                           </div>
-                          <div className='text-xs text-gray-500'>
+                          <div className="text-xs text-gray-500">
                             {die.sides}-sided die
                           </div>
                         </div>
-                        <div className='flex items-center gap-2'>
+                        <div className="flex items-center gap-2">
                           <button
                             onClick={() =>
                               updateDieCount(die.id, die.count - 1)
                             }
-                            className='w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded font-bold transition-colors'
+                            className="w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded font-bold transition-colors"
                             aria-label={`Decrease d${die.sides} count`}
                           >
                             −
                           </button>
                           <input
-                            type='number'
+                            type="number"
                             value={die.count}
                             onChange={(
                               e: React.ChangeEvent<HTMLInputElement>,
@@ -235,16 +235,16 @@ export default function DiceRollerClient() {
                                 parseInt(e.target.value) || 0,
                               )
                             }
-                            className='w-12 text-center border border-gray-300 rounded py-1 font-semibold'
-                            min='1'
-                            max='99'
+                            className="w-12 text-center border border-gray-300 rounded py-1 font-semibold"
+                            min="1"
+                            max="99"
                             aria-label={`d${die.sides} count`}
                           />
                           <button
                             onClick={() =>
                               updateDieCount(die.id, die.count + 1)
                             }
-                            className='w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded font-bold transition-colors'
+                            className="w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded font-bold transition-colors"
                             aria-label={`Increase d${die.sides} count`}
                           >
                             +
@@ -252,10 +252,10 @@ export default function DiceRollerClient() {
                         </div>
                         <button
                           onClick={() => removeDie(die.id)}
-                          className='p-2 text-red-600 hover:bg-red-100 rounded transition-colors'
+                          className="p-2 text-red-600 hover:bg-red-100 rounded transition-colors"
                           aria-label={`Remove d${die.sides}`}
                         >
-                          <Trash2 className='w-4 h-4' />
+                          <Trash2 className="w-4 h-4" />
                         </button>
                       </div>
                     ))}
@@ -266,27 +266,27 @@ export default function DiceRollerClient() {
               {/* Modifier */}
               <div>
                 <label
-                  htmlFor='modifier-input'
-                  className='block text-sm font-medium text-gray-700 mb-2'
+                  htmlFor="modifier-input"
+                  className="block text-sm font-medium text-gray-700 mb-2"
                 >
                   Modifier
                 </label>
                 <input
-                  id='modifier-input'
-                  type='number'
+                  id="modifier-input"
+                  type="number"
                   value={modifier}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setModifier(parseInt(e.target.value) || 0)
                   }
-                  className='w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent'
-                  placeholder='Add/subtract from total'
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  placeholder="Add/subtract from total"
                 />
               </div>
 
               {/* Notation */}
-              <div className='bg-purple-50 rounded-lg p-4 border border-purple-200'>
-                <div className='text-sm text-gray-600 mb-1'>Dice Notation</div>
-                <div className='text-2xl font-bold text-purple-600 font-mono'>
+              <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
+                <div className="text-sm text-gray-600 mb-1">Dice Notation</div>
+                <div className="text-2xl font-bold text-purple-600 font-mono">
                   {getDiceNotation()}
                 </div>
               </div>
@@ -299,34 +299,34 @@ export default function DiceRollerClient() {
                   rolling ? "animate-pulse" : ""
                 }`}
               >
-                <Dices className='w-6 h-6' />
+                <Dices className="w-6 h-6" />
                 {rolling ? "Rolling..." : "Roll Dice"}
               </button>
 
               {/* Results */}
               {results && (
-                <div className='bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl p-6 border border-purple-200'>
-                  <h3 className='font-bold text-gray-900 mb-4 text-lg'>
+                <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl p-6 border border-purple-200">
+                  <h3 className="font-bold text-gray-900 mb-4 text-lg">
                     Results
                   </h3>
 
-                  <div className='space-y-3 mb-4'>
+                  <div className="space-y-3 mb-4">
                     {results.rollResults.map((result, idx) => (
-                      <div key={idx} className='bg-white rounded-lg p-4'>
-                        <div className='flex items-center justify-between mb-2'>
-                          <div className='flex items-center gap-2'>
-                            <span className='text-2xl'>
+                      <div key={idx} className="bg-white rounded-lg p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <span className="text-2xl">
                               {getDiceIcon(result.sides)}
                             </span>
-                            <span className='font-semibold text-gray-900'>
+                            <span className="font-semibold text-gray-900">
                               {result.count}d{result.sides}
                             </span>
                           </div>
-                          <span className='text-xl font-bold text-purple-600'>
+                          <span className="text-xl font-bold text-purple-600">
                             {result.subtotal}
                           </span>
                         </div>
-                        <div className='flex flex-wrap gap-2'>
+                        <div className="flex flex-wrap gap-2">
                           {result.rolls.map((roll, rollIdx) => (
                             <div
                               key={rollIdx}
@@ -347,16 +347,16 @@ export default function DiceRollerClient() {
                   </div>
 
                   {modifier !== 0 && (
-                    <div className='bg-white rounded-lg p-4 mb-4'>
-                      <div className='flex justify-between items-center'>
-                        <span className='text-gray-600'>Dice Total:</span>
-                        <span className='text-xl font-bold text-gray-900'>
+                    <div className="bg-white rounded-lg p-4 mb-4">
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-600">Dice Total:</span>
+                        <span className="text-xl font-bold text-gray-900">
                           {results.subtotal}
                         </span>
                       </div>
-                      <div className='flex justify-between items-center'>
-                        <span className='text-gray-600'>Modifier:</span>
-                        <span className='text-xl font-bold text-gray-900'>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-600">Modifier:</span>
+                        <span className="text-xl font-bold text-gray-900">
                           {modifier > 0 ? "+" : ""}
                           {modifier}
                         </span>
@@ -364,14 +364,14 @@ export default function DiceRollerClient() {
                     </div>
                   )}
 
-                  <div className='bg-purple-600 text-white rounded-lg p-4'>
-                    <div className='flex justify-between items-center'>
-                      <span className='text-sm opacity-90'>Final Total</span>
-                      <span className='text-4xl font-bold'>
+                  <div className="bg-purple-600 text-white rounded-lg p-4">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm opacity-90">Final Total</span>
+                      <span className="text-4xl font-bold">
                         {results.total}
                       </span>
                     </div>
-                    <div className='text-xs opacity-75 mt-2'>
+                    <div className="text-xs opacity-75 mt-2">
                       Range: {results.minPossible} – {results.maxPossible}
                     </div>
                   </div>
@@ -381,27 +381,27 @@ export default function DiceRollerClient() {
 
             {/* ── History column ── */}
             <div>
-              <h3 className='font-semibold text-gray-900 mb-3'>Roll History</h3>
-              <div className='space-y-2'>
+              <h3 className="font-semibold text-gray-900 mb-3">Roll History</h3>
+              <div className="space-y-2">
                 {history.length === 0 ? (
-                  <div className='text-center py-8 text-gray-400 text-sm'>
+                  <div className="text-center py-8 text-gray-400 text-sm">
                     No rolls yet
                   </div>
                 ) : (
                   history.map((roll) => (
                     <div
                       key={roll.id}
-                      className='bg-gray-50 rounded-lg p-3 border border-gray-200'
+                      className="bg-gray-50 rounded-lg p-3 border border-gray-200"
                     >
-                      <div className='flex justify-between items-center mb-1'>
-                        <span className='text-xs text-gray-500'>
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-xs text-gray-500">
                           {roll.timestamp}
                         </span>
-                        <span className='text-lg font-bold text-purple-600'>
+                        <span className="text-lg font-bold text-purple-600">
                           {roll.total}
                         </span>
                       </div>
-                      <div className='text-xs text-gray-600 font-mono'>
+                      <div className="text-xs text-gray-600 font-mono">
                         {roll.rollResults
                           .map((r) => `${r.count}d${r.sides}`)
                           .join(" + ")}
@@ -415,9 +415,9 @@ export default function DiceRollerClient() {
             </div>
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Dice Guide:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600">
+            <p className="font-semibold mb-2">Dice Guide:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 <strong>d4:</strong> 4-sided die (tetrahedron) — common in
                 D&amp;D for daggers

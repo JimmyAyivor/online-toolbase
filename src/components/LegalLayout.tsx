@@ -3,20 +3,20 @@
 // Matches the app's existing breadcrumb + section conventions.
 
 import React from "react";
-import Link  from "next/link";
+import Link from "next/link";
 
 interface LegalLayoutProps {
-  title:       string;
+  title: string;
   lastUpdated: string;
   description: string;
-  children:    React.ReactNode;
+  children: React.ReactNode;
 }
 
 const LEGAL_NAV = [
-  { href: "/privacy-policy",  label: "Privacy Policy"  },
-  { href: "/terms-of-service",label: "Terms of Service"},
-  { href: "/disclaimer",      label: "Disclaimer"      },
-  { href: "/contact",         label: "Contact"         },
+  { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/terms-of-service", label: "Terms of Service" },
+  { href: "/disclaimer", label: "Disclaimer" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function LegalLayout({
@@ -35,7 +35,9 @@ export default function LegalLayout({
               Home
             </Link>
           </li>
-          <li aria-hidden="true" className="text-gray-300">/</li>
+          <li aria-hidden="true" className="text-gray-300">
+            /
+          </li>
           <li>
             <span aria-current="page" className="text-gray-900 font-medium">
               {title}
@@ -68,7 +70,9 @@ export default function LegalLayout({
           {/* Page header */}
           <h1 className="text-4xl font-bold text-gray-900 mb-2">{title}</h1>
           <p className="text-gray-500 text-sm mb-2">{description}</p>
-          <p className="text-gray-400 text-xs mb-8">Last Updated: {lastUpdated}</p>
+          <p className="text-gray-400 text-xs mb-8">
+            Last Updated: {lastUpdated}
+          </p>
 
           {/* Divider */}
           <div className="border-t border-gray-100 mb-8" />
@@ -88,8 +92,8 @@ export function Section({
   title,
   children,
 }: {
-  id?:      string;
-  title:    string;
+  id?: string;
+  title: string;
   children: React.ReactNode;
 }) {
   return (
@@ -104,7 +108,7 @@ export function SubSection({
   title,
   children,
 }: {
-  title:    string;
+  title: string;
   children: React.ReactNode;
 }) {
   return (
@@ -130,14 +134,14 @@ export function InfoBox({
   title,
   children,
 }: {
-  variant:  "blue" | "amber" | "red" | "green";
-  title:    string;
+  variant: "blue" | "amber" | "red" | "green";
+  title: string;
   children: React.ReactNode;
 }) {
   const styles: Record<string, string> = {
-    blue:  "bg-blue-50  border-blue-200  text-blue-900",
+    blue: "bg-blue-50  border-blue-200  text-blue-900",
     amber: "bg-amber-50 border-amber-200 text-amber-900",
-    red:   "bg-red-50   border-red-200   text-red-900",
+    red: "bg-red-50   border-red-200   text-red-900",
     green: "bg-green-50 border-green-200 text-green-900",
   };
   return (

@@ -31,7 +31,7 @@ export default function Post() {
       </p>
       <p>
         Use our{" "}
-        <a href='/tools/twitter-thread-builder'>Twitter Thread Builder</a> to
+        <a href="/tools/twitter-thread-builder">Twitter Thread Builder</a> to
         draft, preview, and structure your thread before publishing.
       </p>
 
@@ -111,7 +111,7 @@ export default function Post() {
       <p>
         A good thread delivers real value in a tight format each tweet earns the
         read of the next. Use the{" "}
-        <a href='/tools/twitter-thread-builder'>Twitter Thread Builder</a> to
+        <a href="/tools/twitter-thread-builder">Twitter Thread Builder</a> to
         structure your threads, draft each tweet at the right length, and
         preview the complete thread before publishing.
       </p>

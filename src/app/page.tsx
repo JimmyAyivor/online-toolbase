@@ -168,38 +168,38 @@ export default function HomePage() {
     <>
       {/* ── Structured data (server-rendered, present at crawl time) ───── */}
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <div className='min-h-screen bg-linear-to-br from-slate-50 via-white to-purple-50'>
+      <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-purple-50">
         {/* ── Hero ─────────────────────────────────────────────────────── */}
         <section
-          className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center'
-          aria-labelledby='hero-heading'
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center"
+          aria-labelledby="hero-heading"
         >
           <h1
-            id='hero-heading'
-            className='text-5xl md:text-6xl font-extrabold text-gray-900 mb-6'
+            id="hero-heading"
+            className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-6"
           >
             {TOOL_COUNT}+ Free Online Tools —
-            <span className='block bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mt-2'>
+            <span className="block bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mt-2">
               Calculators, Converters &amp; Generators
             </span>
           </h1>
-          <p className='text-xl text-gray-600 max-w-3xl mx-auto mb-12'>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
             Access {TOOL_COUNT}+ professional-grade free online tools — from BMI
             calculators and currency converters to password generators, QR code
             makers, and social media tools. No signup, no download, 100% free
@@ -207,7 +207,7 @@ export default function HomePage() {
           </p>
 
           {/* Stats */}
-          <dl className='grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto'>
+          <dl className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {(
               [
                 {
@@ -224,9 +224,9 @@ export default function HomePage() {
                 { value: "∞", label: "Usage Limit", color: "text-blue-600" },
               ] as const
             ).map((s) => (
-              <div key={s.label} className='bg-white rounded-2xl shadow-lg p-6'>
+              <div key={s.label} className="bg-white rounded-2xl shadow-lg p-6">
                 <dt className={`text-4xl font-bold ${s.color}`}>{s.value}</dt>
-                <dd className='text-sm text-gray-600 mt-1'>{s.label}</dd>
+                <dd className="text-sm text-gray-600 mt-1">{s.label}</dd>
               </div>
             ))}
           </dl>
@@ -234,23 +234,23 @@ export default function HomePage() {
 
         {/* ── Client shell: category filter + tools grid ───────────────── */}
         <HomeClient />
-        <RecentBlogPosts /> 
+        <RecentBlogPosts />
         {/* ── Why Us ───────────────────────────────────────────────────── */}
         <section
-          className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16'
-          aria-labelledby='why-heading'
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
+          aria-labelledby="why-heading"
         >
           <h2
-            id='why-heading'
-            className='text-4xl font-bold text-gray-900 mb-4 text-center'
+            id="why-heading"
+            className="text-4xl font-bold text-gray-900 mb-4 text-center"
           >
             Why Use Our Free Online Tools?
           </h2>
-          <p className='text-center text-gray-500 mb-12 max-w-2xl mx-auto'>
+          <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">
             Built for speed, privacy, and ease — professional results with zero
             friction.
           </p>
-          <ul className='grid md:grid-cols-2 lg:grid-cols-4 gap-8' role='list'>
+          <ul className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
             {(
               [
                 {
@@ -279,29 +279,29 @@ export default function HomePage() {
                 },
               ] as const
             ).map((f) => (
-              <li key={f.title} className='text-center group list-none'>
+              <li key={f.title} className="text-center group list-none">
                 <div
                   className={`w-16 h-16 bg-linear-to-br ${f.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}
-                  aria-hidden='true'
+                  aria-hidden="true"
                 >
                   <svg
-                    className='w-8 h-8 text-white'
-                    fill='none'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'
+                    className="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
                   >
                     <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       strokeWidth={2}
                       d={f.icon}
                     />
                   </svg>
                 </div>
-                <h3 className='text-xl font-bold text-gray-900 mb-2'>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {f.title}
                 </h3>
-                <p className='text-gray-600'>{f.desc}</p>
+                <p className="text-gray-600">{f.desc}</p>
               </li>
             ))}
           </ul>
@@ -309,17 +309,17 @@ export default function HomePage() {
 
         {/* ── FAQ ──────────────────────────────────────────────────────── */}
         <section
-          id='faq'
-          className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16'
-          aria-labelledby='faq-heading'
+          id="faq"
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
+          aria-labelledby="faq-heading"
         >
           <h2
-            id='faq-heading'
-            className='text-4xl font-bold text-gray-900 mb-12 text-center'
+            id="faq-heading"
+            className="text-4xl font-bold text-gray-900 mb-12 text-center"
           >
             Frequently Asked Questions
           </h2>
-          <dl className='space-y-6'>
+          <dl className="space-y-6">
             {[
               {
                 q: "Are these tools really free?",
@@ -370,11 +370,11 @@ export default function HomePage() {
                 a: "Please let us know via the Contact page. Include the tool name, what you were trying to do, and which browser and device you're using. We fix reported bugs quickly. If a tool is producing unexpected results, double-check the input format — many tools have specific formatting requirements described in the tool's instructions.",
               },
             ].map((faq) => (
-              <div key={faq.q} className='bg-white rounded-2xl shadow-lg p-8'>
-                <dt className='text-xl font-bold text-gray-900 mb-3'>
+              <div key={faq.q} className="bg-white rounded-2xl shadow-lg p-8">
+                <dt className="text-xl font-bold text-gray-900 mb-3">
                   {faq.q}
                 </dt>
-                <dd className='text-gray-600 leading-relaxed'>{faq.a}</dd>
+                <dd className="text-gray-600 leading-relaxed">{faq.a}</dd>
               </div>
             ))}
           </dl>

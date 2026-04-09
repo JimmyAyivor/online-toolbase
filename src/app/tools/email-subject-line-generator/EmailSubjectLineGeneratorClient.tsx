@@ -233,63 +233,63 @@ export default function EmailSubjectLineGeneratorClient() {
   };
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full mb-4 shadow-lg'>
-              <Mail className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full mb-4 shadow-lg">
+              <Mail className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Email Subject Line Generator
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Generate high open-rate subject lines across 5 psychological
               trigger styles
             </p>
           </div>
 
-          <div className='grid md:grid-cols-2 gap-8'>
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Inputs */}
-            <div className='space-y-5'>
+            <div className="space-y-5">
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Email topic or product
                 </label>
                 <input
-                  type='text'
+                  type="text"
                   value={topic}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setTopic(e.target.value)
                   }
-                  placeholder='e.g. summer sale, new feature launch, annual report'
-                  className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+                  placeholder="e.g. summer sale, new feature launch, annual report"
+                  className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
 
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Recipient first name{" "}
-                  <span className='text-gray-400 font-normal'>
+                  <span className="text-gray-400 font-normal">
                     (optional — for personalised variants)
                   </span>
                 </label>
                 <input
-                  type='text'
+                  type="text"
                   value={name}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setName(e.target.value)
                   }
-                  placeholder='e.g. Sarah'
-                  className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+                  placeholder="e.g. Sarah"
+                  className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
 
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Email type
                 </label>
-                <div className='grid grid-cols-2 gap-2'>
+                <div className="grid grid-cols-2 gap-2">
                   {(Object.keys(TYPE_LABELS) as EmailType[]).map((t) => (
                     <button
                       key={t}
@@ -303,10 +303,10 @@ export default function EmailSubjectLineGeneratorClient() {
               </div>
 
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Trigger style
                 </label>
-                <div className='space-y-2'>
+                <div className="space-y-2">
                   {(Object.keys(TONE_LABELS) as Tone[]).map((t) => {
                     const { label, emoji, color } = TONE_LABELS[t];
                     return (
@@ -320,7 +320,7 @@ export default function EmailSubjectLineGeneratorClient() {
                         >
                           {emoji}
                         </span>
-                        <span className='font-semibold text-sm'>{label}</span>
+                        <span className="font-semibold text-sm">{label}</span>
                       </button>
                     );
                   })}
@@ -331,8 +331,8 @@ export default function EmailSubjectLineGeneratorClient() {
             {/* Results */}
             <div>
               {results.length > 0 ? (
-                <div className='space-y-3'>
-                  <p className='text-sm font-semibold text-gray-500 uppercase tracking-widest mb-3'>
+                <div className="space-y-3">
+                  <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-3">
                     Generated subject lines
                   </p>
                   {results.map((line, i) => (
@@ -340,31 +340,31 @@ export default function EmailSubjectLineGeneratorClient() {
                       key={i}
                       className={`bg-gradient-to-r ${i === 0 ? "from-blue-50 to-indigo-50 border-blue-200" : "from-gray-50 to-gray-50 border-gray-100"} border rounded-2xl px-5 py-4 flex items-start justify-between gap-3 group`}
                     >
-                      <div className='flex gap-3 items-start'>
+                      <div className="flex gap-3 items-start">
                         <span
                           className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-black ${i === 0 ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-500"}`}
                         >
                           {i + 1}
                         </span>
-                        <p className='text-gray-800 text-sm font-medium leading-relaxed'>
+                        <p className="text-gray-800 text-sm font-medium leading-relaxed">
                           {line}
                         </p>
                       </div>
                       <button
                         onClick={() => copy(line)}
-                        className='shrink-0 text-gray-300 hover:text-blue-600 transition-colors mt-0.5'
+                        className="shrink-0 text-gray-300 hover:text-blue-600 transition-colors mt-0.5"
                       >
                         {copied === line ? (
-                          <Check className='w-4 h-4 text-green-500' />
+                          <Check className="w-4 h-4 text-green-500" />
                         ) : (
-                          <Copy className='w-4 h-4' />
+                          <Copy className="w-4 h-4" />
                         )}
                       </button>
                     </div>
                   ))}
 
                   {/* Character count guide */}
-                  <div className='bg-amber-50 border border-amber-100 rounded-xl px-5 py-4 text-sm text-amber-800 mt-4'>
+                  <div className="bg-amber-50 border border-amber-100 rounded-xl px-5 py-4 text-sm text-amber-800 mt-4">
                     <strong>Subject line length:</strong> 40–60 characters is
                     the sweet spot for most email clients. Desktop shows ~60
                     chars, mobile shows ~30–40. Check your top pick is under 60
@@ -372,10 +372,10 @@ export default function EmailSubjectLineGeneratorClient() {
                   </div>
                 </div>
               ) : (
-                <div className='flex items-center justify-center h-64 bg-blue-50 rounded-2xl border-2 border-dashed border-blue-200'>
-                  <div className='text-center text-blue-400'>
-                    <Mail className='w-12 h-12 mx-auto mb-3 opacity-40' />
-                    <p className='text-sm font-medium'>
+                <div className="flex items-center justify-center h-64 bg-blue-50 rounded-2xl border-2 border-dashed border-blue-200">
+                  <div className="text-center text-blue-400">
+                    <Mail className="w-12 h-12 mx-auto mb-3 opacity-40" />
+                    <p className="text-sm font-medium">
                       Enter a topic to generate subject lines
                     </p>
                   </div>
@@ -391,17 +391,17 @@ export default function EmailSubjectLineGeneratorClient() {
               setEmailType("promotional");
               setTone("benefit");
             }}
-            className='flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors mt-6 mb-4'
+            className="flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors mt-6 mb-4"
           >
-            <RotateCcw className='w-4 h-4' />
+            <RotateCcw className="w-4 h-4" />
             Reset
           </button>
 
-          <div className='p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>
+          <div className="p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">
               💡 Open rate tips:
             </p>
-            <ul className='list-disc list-inside space-y-1'>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 A/B test two subject lines — even 10% lift in open rate
                 compounds significantly over time

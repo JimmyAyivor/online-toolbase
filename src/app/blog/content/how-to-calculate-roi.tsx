@@ -22,7 +22,7 @@ export default function Post() {
         £10,000) × 100 = 40%.
       </p>
       <p>
-        Use our <a href='/tools/roi-calculator'>ROI Calculator</a> to compute
+        Use our <a href="/tools/roi-calculator">ROI Calculator</a> to compute
         ROI for any investment scenario and see annualised return for
         investments held over different time periods.
       </p>
@@ -123,7 +123,7 @@ export default function Post() {
       <p>
         ROI is a useful starting point for evaluating investments but requires
         careful definition of what goes into the return and cost figures. Use
-        the <a href='/tools/roi-calculator'>ROI Calculator</a> to compute both
+        the <a href="/tools/roi-calculator">ROI Calculator</a> to compute both
         basic and annualised ROI, and treat the result as an input to a broader
         evaluation rather than a final verdict.
       </p>

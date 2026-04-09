@@ -15,9 +15,9 @@ export default function Post() {
         A stopwatch counts up from zero use it when you want to know how long
         something took. A countdown timer counts down from a set duration use it
         when you want to know when something will end. Both are available here:
-        use our <a href='/tools/online-stopwatch'>Online Stopwatch</a> for
+        use our <a href="/tools/online-stopwatch">Online Stopwatch</a> for
         elapsed time and our{" "}
-        <a href='/tools/countdown-timer'>Countdown Timer</a> for deadline-based
+        <a href="/tools/countdown-timer">Countdown Timer</a> for deadline-based
         timing.
       </p>
 
@@ -89,7 +89,7 @@ export default function Post() {
       <h2>Lap and split timing</h2>
       <p>
         Laps record individual segment times without stopping the overall timer.
-        Our <a href='/tools/online-stopwatch'>Stopwatch</a> records each lap
+        Our <a href="/tools/online-stopwatch">Stopwatch</a> records each lap
         time alongside the cumulative time, so you can see both how long each
         segment took and where you are in the overall elapsed time.
       </p>
@@ -143,7 +143,7 @@ export default function Post() {
       <p>
         A stopwatch is the right tool whenever you need to know how long
         something took rather than when it will end. Use the{" "}
-        <a href='/tools/online-stopwatch'>Online Stopwatch</a> for sports
+        <a href="/tools/online-stopwatch">Online Stopwatch</a> for sports
         timing, productivity tracking, presentation practice, and any
         elapsed-time measurement with lap recording for interval and segment
         analysis.

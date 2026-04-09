@@ -27,7 +27,7 @@ export default function Post() {
         smaller. Use for: photographs and complex images.
       </p>
       <p>
-        Our <a href='/tools/image-compressor'>Image Compressor</a> reduces file
+        Our <a href="/tools/image-compressor">Image Compressor</a> reduces file
         size with adjustable quality settings while showing you the size saving
         and quality comparison.
       </p>
@@ -74,7 +74,7 @@ export default function Post() {
       <ol>
         <li>
           Resize the image to actual display dimensions first (see:{" "}
-          <a href='/tools/image-cropper-resizer'>Image Cropper & Resizer</a>)
+          <a href="/tools/image-cropper-resizer">Image Cropper & Resizer</a>)
         </li>
         <li>
           Convert to the appropriate format (WebP for photos, PNG for graphics
@@ -120,7 +120,7 @@ export default function Post() {
       <p>
         Image compression is the highest-impact, lowest-effort web performance
         optimisation available. Use the{" "}
-        <a href='/tools/image-compressor'>Image Compressor</a> to reduce file
+        <a href="/tools/image-compressor">Image Compressor</a> to reduce file
         size on any image before web publishing, targeting under 150KB for most
         full-width images and under 50KB for smaller supporting images.
       </p>

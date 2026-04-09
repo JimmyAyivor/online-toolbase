@@ -32,7 +32,7 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        Our <a href='/tools/pdf-merger-splitter'>PDF Merger & Splitter</a>{" "}
+        Our <a href="/tools/pdf-merger-splitter">PDF Merger & Splitter</a>{" "}
         combines any number of PDF files in your chosen order and exports a
         single merged document.
       </p>
@@ -105,7 +105,7 @@ export default function Post() {
         locally (without uploading to a server) are safe. For confidential
         documents, check whether the tool processes locally in your browser or
         uploads to external servers. Our{" "}
-        <a href='/tools/pdf-merger-splitter'>PDF Merger & Splitter</a> processes
+        <a href="/tools/pdf-merger-splitter">PDF Merger & Splitter</a> processes
         files in your browser without server uploads.
       </p>
 
@@ -113,7 +113,7 @@ export default function Post() {
       <p>
         PDF merging and splitting are straightforward operations that don't
         require paid desktop software. Use the{" "}
-        <a href='/tools/pdf-merger-splitter'>PDF Merger & Splitter</a> for both
+        <a href="/tools/pdf-merger-splitter">PDF Merger & Splitter</a> for both
         operations drag in your files, specify the operation, and download the
         result.
       </p>

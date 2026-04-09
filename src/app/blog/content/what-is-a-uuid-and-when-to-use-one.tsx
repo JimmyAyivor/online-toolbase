@@ -29,7 +29,7 @@ export default function Post() {
       </p>
       <p>
         Generate UUIDs instantly with our{" "}
-        <a href='/tools/uuid-guid-generator'>UUID/GUID Generator</a>.
+        <a href="/tools/uuid-guid-generator">UUID/GUID Generator</a>.
       </p>
 
       <h2>UUID versions and their differences</h2>
@@ -149,7 +149,7 @@ export default function Post() {
         across systems, when you're exposing IDs publicly, or when you may need
         to merge datasets. For simpler single-system applications, integer
         primary keys may serve you better. Generate UUIDs as needed with the{" "}
-        <a href='/tools/uuid-guid-generator'>UUID/GUID Generator</a>.
+        <a href="/tools/uuid-guid-generator">UUID/GUID Generator</a>.
       </p>
     </>
   );

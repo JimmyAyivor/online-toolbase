@@ -1,7 +1,8 @@
 // src/app/robots.ts
 import type { MetadataRoute } from "next";
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
+const baseUrl =
+  process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -14,6 +15,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
-    host:    baseUrl,
+    host: baseUrl,
   };
 }

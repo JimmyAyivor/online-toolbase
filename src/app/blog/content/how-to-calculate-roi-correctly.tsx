@@ -138,10 +138,10 @@ export default function Post() {
 
       <h2>Calculate yours</h2>
       <p>
-        Our free <a href='/tools/roi-calculator'>ROI Calculator</a> handles the
+        Our free <a href="/tools/roi-calculator">ROI Calculator</a> handles the
         formula correctly enter your investment cost and returns, and it
         calculates both ROI percentage and the net gain. Combine it with the{" "}
-        <a href='/tools/percentage-calculator'>Percentage Calculator</a> for any
+        <a href="/tools/percentage-calculator">Percentage Calculator</a> for any
         related calculations.
       </p>
     </>

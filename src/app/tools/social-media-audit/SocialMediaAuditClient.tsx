@@ -203,60 +203,60 @@ export default function SocialMediaAuditClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-violet-600 to-indigo-600 rounded-2xl mb-4 shadow-lg'>
-              <ClipboardCheck className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-violet-600 to-indigo-600 rounded-2xl mb-4 shadow-lg">
+              <ClipboardCheck className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Social Media Audit Tool
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Work through the checklist and get an instant score for your
               social media presence
             </p>
           </div>
 
-          <div className='space-y-6'>
+          <div className="space-y-6">
             {/* Score */}
-            <div className='bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200'>
-              <div className='flex items-center justify-between mb-4'>
-                <h3 className='text-xl font-bold text-gray-900'>Your Score</h3>
+            <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-gray-900">Your Score</h3>
                 <button
                   onClick={reset}
-                  className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2'
+                  className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2"
                 >
-                  <RotateCcw className='w-4 h-4' />
+                  <RotateCcw className="w-4 h-4" />
                   Reset All
                 </button>
               </div>
-              <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-4'>
-                <div className='bg-white rounded-lg p-4'>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                <div className="bg-white rounded-lg p-4">
                   <div className={`text-4xl font-bold ${color}`}>{score}%</div>
-                  <div className='text-sm text-gray-600'>Overall Score</div>
+                  <div className="text-sm text-gray-600">Overall Score</div>
                 </div>
-                <div className='bg-white rounded-lg p-4'>
-                  <div className='text-2xl font-bold text-indigo-600'>
+                <div className="bg-white rounded-lg p-4">
+                  <div className="text-2xl font-bold text-indigo-600">
                     {checked.size}
                   </div>
-                  <div className='text-sm text-gray-600'>Completed</div>
+                  <div className="text-sm text-gray-600">Completed</div>
                 </div>
-                <div className='bg-white rounded-lg p-4'>
-                  <div className='text-2xl font-bold text-gray-400'>
+                <div className="bg-white rounded-lg p-4">
+                  <div className="text-2xl font-bold text-gray-400">
                     {CHECKLIST.length - checked.size}
                   </div>
-                  <div className='text-sm text-gray-600'>Remaining</div>
+                  <div className="text-sm text-gray-600">Remaining</div>
                 </div>
-                <div className='bg-white rounded-lg p-4'>
+                <div className="bg-white rounded-lg p-4">
                   <div className={`text-sm font-bold ${color}`}>{label}</div>
-                  <div className='text-xs text-gray-500 mt-1'>Status</div>
+                  <div className="text-xs text-gray-500 mt-1">Status</div>
                 </div>
               </div>
-              <div className='w-full bg-gray-200 rounded-full h-3'>
+              <div className="w-full bg-gray-200 rounded-full h-3">
                 <div
-                  className='bg-indigo-600 h-3 rounded-full transition-all duration-300'
+                  className="bg-indigo-600 h-3 rounded-full transition-all duration-300"
                   style={{ width: `${score}%` }}
                 />
               </div>
@@ -268,26 +268,26 @@ export default function SocialMediaAuditClient() {
               const catChecked = items.filter((c) => checked.has(c.id)).length;
               return (
                 <div key={category}>
-                  <div className='flex items-center justify-between mb-3'>
-                    <h3 className='text-lg font-semibold text-gray-900'>
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-lg font-semibold text-gray-900">
                       {category}
                     </h3>
-                    <span className='text-sm text-gray-500'>
+                    <span className="text-sm text-gray-500">
                       {catChecked}/{items.length}
                     </span>
                   </div>
-                  <div className='bg-white border border-gray-200 rounded-lg overflow-hidden'>
-                    <div className='divide-y divide-gray-200'>
+                  <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+                    <div className="divide-y divide-gray-200">
                       {items.map((item) => (
                         <label
                           key={item.id}
-                          className='flex items-start gap-4 px-4 py-3 hover:bg-gray-50 cursor-pointer'
+                          className="flex items-start gap-4 px-4 py-3 hover:bg-gray-50 cursor-pointer"
                         >
                           <input
-                            type='checkbox'
+                            type="checkbox"
                             checked={checked.has(item.id)}
                             onChange={() => toggle(item.id)}
-                            className='w-4 h-4 text-indigo-600 rounded focus:ring-2 focus:ring-indigo-500 mt-0.5 flex-shrink-0'
+                            className="w-4 h-4 text-indigo-600 rounded focus:ring-2 focus:ring-indigo-500 mt-0.5 flex-shrink-0"
                           />
                           <div>
                             <div
@@ -299,7 +299,7 @@ export default function SocialMediaAuditClient() {
                             >
                               {item.label}
                             </div>
-                            <div className='text-xs text-gray-500 mt-0.5'>
+                            <div className="text-xs text-gray-500 mt-0.5">
                               {item.detail}
                             </div>
                           </div>
@@ -312,9 +312,9 @@ export default function SocialMediaAuditClient() {
             })}
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Tips:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600">
+            <p className="font-semibold mb-2">Tips:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Work through the audit one category at a time — Profile Basics
                 first, then Content Quality

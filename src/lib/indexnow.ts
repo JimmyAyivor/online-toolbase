@@ -31,20 +31,22 @@ import { blogPosts } from "@/app/blog/blog-posts";
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
-const SITE_URL  = (process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com").replace(/\/$/, "");
+const SITE_URL = (
+  process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com"
+).replace(/\/$/, "");
 const INDEX_KEY = process.env.INDEXNOW_KEY ?? "";
-const KEY_FILE  = `${SITE_URL}/${INDEX_KEY}.txt`;
-const ENDPOINT  = "https://api.indexnow.org/indexnow";
-const IS_PROD   = process.env.NODE_ENV === "production";
+const KEY_FILE = `${SITE_URL}/${INDEX_KEY}.txt`;
+const ENDPOINT = "https://api.indexnow.org/indexnow";
+const IS_PROD = process.env.NODE_ENV === "production";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export interface IndexNowResult {
   submitted: number;
-  urls:      string[];
-  status:    number | null;
-  ok:        boolean;
-  skipped?:  string;
+  urls: string[];
+  status: number | null;
+  ok: boolean;
+  skipped?: string;
 }
 
 // ─── Core submit function ─────────────────────────────────────────────────────
@@ -56,52 +58,82 @@ export interface IndexNowResult {
  */
 export async function submitUrls(paths: string[]): Promise<IndexNowResult> {
   if (!IS_PROD) {
-    console.log(`[IndexNow] Skipped (not production) — would have submitted ${paths.length} URL(s)`);
-    return { submitted: 0, urls: [], status: null, ok: true, skipped: "not production" };
+    console.log(
+      `[IndexNow] Skipped (not production) — would have submitted ${paths.length} URL(s)`,
+    );
+    return {
+      submitted: 0,
+      urls: [],
+      status: null,
+      ok: true,
+      skipped: "not production",
+    };
   }
 
   if (!INDEX_KEY) {
-    console.warn("[IndexNow] INDEXNOW_KEY env var not set — skipping submission");
-    return { submitted: 0, urls: [], status: null, ok: false, skipped: "no key configured" };
+    console.warn(
+      "[IndexNow] INDEXNOW_KEY env var not set — skipping submission",
+    );
+    return {
+      submitted: 0,
+      urls: [],
+      status: null,
+      ok: false,
+      skipped: "no key configured",
+    };
   }
 
   const resolved = Array.from(
     new Set(
-      paths.map((p) => (p.startsWith("http") ? p : `${SITE_URL}${p.startsWith("/") ? p : `/${p}`}`))
-    )
+      paths.map((p) =>
+        p.startsWith("http")
+          ? p
+          : `${SITE_URL}${p.startsWith("/") ? p : `/${p}`}`,
+      ),
+    ),
   );
 
   const chunks = chunkArray(resolved, 10_000);
-  let lastResult: IndexNowResult = { submitted: 0, urls: resolved, status: null, ok: true };
+  let lastResult: IndexNowResult = {
+    submitted: 0,
+    urls: resolved,
+    status: null,
+    ok: true,
+  };
 
   for (const chunk of chunks) {
     const host = new URL(SITE_URL).hostname;
 
     const body = {
       host,
-      key:         INDEX_KEY,
+      key: INDEX_KEY,
       keyLocation: KEY_FILE,
-      urlList:     chunk,
+      urlList: chunk,
     };
 
     try {
       const res = await fetch(ENDPOINT, {
-        method:  "POST",
+        method: "POST",
         headers: { "Content-Type": "application/json; charset=utf-8" },
-        body:    JSON.stringify(body),
+        body: JSON.stringify(body),
       });
 
       lastResult = {
         submitted: chunk.length,
-        urls:      chunk,
-        status:    res.status,
-        ok:        res.status === 200 || res.status === 202,
+        urls: chunk,
+        status: res.status,
+        ok: res.status === 200 || res.status === 202,
       };
 
       if (!lastResult.ok) {
-        console.error(`[IndexNow] Submission failed — HTTP ${res.status}`, chunk);
+        console.error(
+          `[IndexNow] Submission failed — HTTP ${res.status}`,
+          chunk,
+        );
       } else {
-        console.log(`[IndexNow] Submitted ${chunk.length} URL(s) — HTTP ${res.status}`);
+        console.log(
+          `[IndexNow] Submitted ${chunk.length} URL(s) — HTTP ${res.status}`,
+        );
       }
     } catch (err) {
       console.error("[IndexNow] Network error during submission", err);
@@ -166,7 +198,12 @@ export async function submitFullSite(): Promise<IndexNowResult> {
   const toolPaths = tools.map((t) => `/tools/${t.slug}`);
 
   const categoryPaths = Array.from(
-    new Set(tools.map((t) => `/tools/category/${t.category.toLowerCase().replace(/\s+/g, "-")}`))
+    new Set(
+      tools.map(
+        (t) =>
+          `/tools/category/${t.category.toLowerCase().replace(/\s+/g, "-")}`,
+      ),
+    ),
   );
 
   const blogPaths = blogPosts.map((p) => `/blog/${p.slug}`);

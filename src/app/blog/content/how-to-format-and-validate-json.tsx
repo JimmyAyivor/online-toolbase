@@ -55,7 +55,7 @@ export default function Post() {
       </p>
       <p>
         Our{" "}
-        <a href='/tools/json-formatter-validator'>JSON Formatter & Validator</a>{" "}
+        <a href="/tools/json-formatter-validator">JSON Formatter & Validator</a>{" "}
         formats minified JSON into readable indented output and validates the
         syntax simultaneously flagging the specific line and character where any
         error occurs.
@@ -135,7 +135,7 @@ export default function Post() {
       <p>
         When debugging API responses, pasting the raw response body into a
         formatter immediately makes the structure readable. Combine this with
-        our <a href='/tools/jwt-decoder'>JWT Decoder</a> if the API uses JWT
+        our <a href="/tools/jwt-decoder">JWT Decoder</a> if the API uses JWT
         authentication decode the token to inspect its claims alongside the
         response data.
       </p>
@@ -170,7 +170,7 @@ export default function Post() {
       <p>
         Formatting and validating JSON is a routine development task that pays
         for itself immediately in debugging time saved. Use the{" "}
-        <a href='/tools/json-formatter-validator'>JSON Formatter & Validator</a>{" "}
+        <a href="/tools/json-formatter-validator">JSON Formatter & Validator</a>{" "}
         whenever you're working with raw JSON format before reading, validate
         before debugging, and never try to read minified JSON with the naked
         eye.

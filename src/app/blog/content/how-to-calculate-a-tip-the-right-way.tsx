@@ -20,7 +20,7 @@ export default function Post() {
         This covers the three standard tip percentages with only two mental
         operations each. For everything else splitting among multiple people,
         adjusting for service quality, calculating the total our{" "}
-        <a href='/tools/tip-calculator'>Tip Calculator</a> handles it instantly.
+        <a href="/tools/tip-calculator">Tip Calculator</a> handles it instantly.
       </p>
 
       <h2>Standard tipping rates by country and context</h2>
@@ -122,7 +122,7 @@ export default function Post() {
       <p>
         The 10% mental maths trick covers most quick calculations. For groups,
         large bills, or situations where you want to split precisely, use the{" "}
-        <a href='/tools/tip-calculator'>Tip Calculator</a> to get the right
+        <a href="/tools/tip-calculator">Tip Calculator</a> to get the right
         number and a fair split without any mental arithmetic.
       </p>
     </>

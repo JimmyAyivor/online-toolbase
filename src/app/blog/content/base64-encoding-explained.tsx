@@ -69,7 +69,7 @@ export default function Post() {
         + with - and / with _ to make it safe in URLs). The header and payload
         are just Base64-encoded JSON no encryption. Anyone can decode them. The
         signature section is what provides security. Our{" "}
-        <a href='/tools/jwt-decoder'>JWT Decoder</a> decodes all three sections
+        <a href="/tools/jwt-decoder">JWT Decoder</a> decodes all three sections
         and displays the contents.
       </p>
 
@@ -97,7 +97,7 @@ export default function Post() {
         strings safe for use in URL parameters and path segments without
         requiring percent-encoding. Many systems (OAuth tokens, JWT, signed
         URLs) use URL-safe Base64. Our{" "}
-        <a href='/tools/base64-encoder-decoder'>Base64 Encoder/Decoder</a>{" "}
+        <a href="/tools/base64-encoder-decoder">Base64 Encoder/Decoder</a>{" "}
         supports both variants.
       </p>
 

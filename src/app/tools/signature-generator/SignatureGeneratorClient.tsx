@@ -250,51 +250,51 @@ export default function SignatureGeneratorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-rose-50 via-white to-pink-50 p-4 md:p-8'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='text-center mb-8'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-rose-600 to-pink-600 rounded-2xl mb-4 shadow-lg'>
-            <PenTool className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-white to-pink-50 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-rose-600 to-pink-600 rounded-2xl mb-4 shadow-lg">
+            <PenTool className="w-8 h-8 text-white" />
           </div>
-          <h2 className='text-4xl font-bold text-gray-900 mb-2'>
+          <h2 className="text-4xl font-bold text-gray-900 mb-2">
             Signature Generator
           </h2>
-          <p className='text-gray-600'>
+          <p className="text-gray-600">
             Create beautiful digital signatures for documents and emails
           </p>
         </div>
 
-        <div className='grid lg:grid-cols-3 gap-6'>
+        <div className="grid lg:grid-cols-3 gap-6">
           {/* ── Main panel ── */}
-          <div className='lg:col-span-2 space-y-6'>
+          <div className="lg:col-span-2 space-y-6">
             {/* Canvas card */}
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
-              <h3 className='font-bold text-gray-900 mb-6 flex items-center gap-2 text-xl'>
-                <Type className='w-6 h-6 text-rose-600' />
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+              <h3 className="font-bold text-gray-900 mb-6 flex items-center gap-2 text-xl">
+                <Type className="w-6 h-6 text-rose-600" />
                 Your Signature
               </h3>
 
-              <div className='mb-6'>
-                <label className='block text-sm font-bold text-gray-700 mb-3'>
+              <div className="mb-6">
+                <label className="block text-sm font-bold text-gray-700 mb-3">
                   Enter Your Name
                 </label>
                 <input
-                  type='text'
+                  type="text"
                   value={signatureText}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setSignatureText(e.target.value)
                   }
-                  placeholder='John Smith'
+                  placeholder="John Smith"
                   maxLength={30}
-                  className='w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-rose-500 transition-colors text-lg'
+                  className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-rose-500 transition-colors text-lg"
                 />
               </div>
 
-              <div className='bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 flex items-center justify-center min-h-[300px] border-2 border-gray-200'>
-                <canvas ref={canvasRef} className='max-w-full h-auto' />
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 flex items-center justify-center min-h-[300px] border-2 border-gray-200">
+                <canvas ref={canvasRef} className="max-w-full h-auto" />
               </div>
 
-              <div className='flex flex-wrap gap-3 mt-6'>
+              <div className="flex flex-wrap gap-3 mt-6">
                 <button
                   onClick={handleDownload}
                   disabled={!signatureText}
@@ -304,7 +304,7 @@ export default function SignatureGeneratorClient() {
                       : "bg-gray-200 text-gray-400 cursor-not-allowed"
                   }`}
                 >
-                  <Download className='w-5 h-5' />
+                  <Download className="w-5 h-5" />
                   Download PNG
                 </button>
                 <button
@@ -317,45 +317,45 @@ export default function SignatureGeneratorClient() {
                   }`}
                 >
                   {copied ? (
-                    <Check className='w-5 h-5' />
+                    <Check className="w-5 h-5" />
                   ) : (
-                    <Copy className='w-5 h-5' />
+                    <Copy className="w-5 h-5" />
                   )}
                   {copied ? "Copied!" : "Copy Image"}
                 </button>
                 <button
                   onClick={() => setSignatureText("")}
                   disabled={!signatureText}
-                  aria-label='Clear signature'
+                  aria-label="Clear signature"
                   className={`px-6 py-3 rounded-xl font-semibold transition-all ${
                     signatureText
                       ? "bg-red-600 hover:bg-red-700 text-white shadow-lg"
                       : "bg-gray-200 text-gray-400 cursor-not-allowed"
                   }`}
                 >
-                  <Trash2 className='w-5 h-5' />
+                  <Trash2 className="w-5 h-5" />
                 </button>
               </div>
             </div>
 
             {/* Presets */}
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
-              <h3 className='font-bold text-gray-900 mb-6 flex items-center gap-2 text-xl'>
-                <Palette className='w-6 h-6 text-rose-600' />
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+              <h3 className="font-bold text-gray-900 mb-6 flex items-center gap-2 text-xl">
+                <Palette className="w-6 h-6 text-rose-600" />
                 Preset Styles
               </h3>
-              <div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {PRESET_STYLES.map((preset) => (
                   <button
                     key={preset.name}
                     onClick={() => applyPreset(preset)}
-                    className='p-4 bg-gradient-to-br from-gray-50 to-gray-100 hover:from-rose-50 hover:to-pink-50 rounded-xl border-2 border-gray-200 hover:border-rose-300 transition-all text-center'
+                    className="p-4 bg-gradient-to-br from-gray-50 to-gray-100 hover:from-rose-50 hover:to-pink-50 rounded-xl border-2 border-gray-200 hover:border-rose-300 transition-all text-center"
                   >
-                    <div className='font-bold text-gray-900 mb-1'>
+                    <div className="font-bold text-gray-900 mb-1">
                       {preset.name}
                     </div>
                     <div
-                      className='text-2xl mt-2'
+                      className="text-2xl mt-2"
                       style={{
                         fontFamily: `"${preset.font}", cursive`,
                         color: preset.color,
@@ -371,17 +371,17 @@ export default function SignatureGeneratorClient() {
           </div>
 
           {/* ── Sidebar ── */}
-          <div className='space-y-6'>
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8 sticky top-8'>
-              <h3 className='font-bold text-gray-900 mb-6 flex items-center gap-2'>
-                <Sliders className='w-5 h-5 text-rose-600' />
+          <div className="space-y-6">
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 sticky top-8">
+              <h3 className="font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <Sliders className="w-5 h-5 text-rose-600" />
                 Customize
               </h3>
 
-              <div className='space-y-6'>
+              <div className="space-y-6">
                 {/* Font */}
                 <div>
-                  <label className='block text-sm font-bold text-gray-700 mb-3'>
+                  <label className="block text-sm font-bold text-gray-700 mb-3">
                     Font Style
                   </label>
                   <select
@@ -389,7 +389,7 @@ export default function SignatureGeneratorClient() {
                     onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                       setFontFamily(e.target.value)
                     }
-                    className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-rose-500 transition-colors'
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-rose-500 transition-colors"
                   >
                     {FONTS.map((font) => (
                       <option
@@ -405,49 +405,49 @@ export default function SignatureGeneratorClient() {
 
                 {/* Font size */}
                 <div>
-                  <label className='block text-sm font-bold text-gray-700 mb-3'>
+                  <label className="block text-sm font-bold text-gray-700 mb-3">
                     Font Size: {fontSize}px
                   </label>
                   <input
-                    type='range'
+                    type="range"
                     min={32}
                     max={100}
                     value={fontSize}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setFontSize(parseInt(e.target.value))
                     }
-                    aria-label='Font size'
-                    className='w-full h-3 bg-gradient-to-r from-rose-200 to-pink-300 rounded-lg appearance-none cursor-pointer'
+                    aria-label="Font size"
+                    className="w-full h-3 bg-gradient-to-r from-rose-200 to-pink-300 rounded-lg appearance-none cursor-pointer"
                   />
                 </div>
 
                 {/* Text color */}
                 <div>
-                  <label className='block text-sm font-bold text-gray-700 mb-3'>
+                  <label className="block text-sm font-bold text-gray-700 mb-3">
                     Text Color
                   </label>
-                  <div className='flex gap-3'>
+                  <div className="flex gap-3">
                     <input
-                      type='color'
+                      type="color"
                       value={color}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         setColor(e.target.value)
                       }
-                      className='w-16 h-12 rounded-lg cursor-pointer border-2 border-gray-300'
+                      className="w-16 h-12 rounded-lg cursor-pointer border-2 border-gray-300"
                     />
                     <input
-                      type='text'
+                      type="text"
                       value={color}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         setColor(e.target.value)
                       }
-                      className='flex-1 px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-rose-500'
+                      className="flex-1 px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-rose-500"
                     />
                   </div>
                 </div>
 
                 {/* Checkboxes */}
-                <div className='space-y-3'>
+                <div className="space-y-3">
                   {[
                     { label: "Italic Style", checked: italic, set: setItalic },
                     {
@@ -458,17 +458,17 @@ export default function SignatureGeneratorClient() {
                   ].map(({ label, checked, set }) => (
                     <label
                       key={label}
-                      className='flex items-center gap-3 p-3 bg-gray-50 rounded-xl cursor-pointer hover:bg-gray-100 transition-colors'
+                      className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl cursor-pointer hover:bg-gray-100 transition-colors"
                     >
                       <input
-                        type='checkbox'
+                        type="checkbox"
                         checked={checked}
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                           set(e.target.checked)
                         }
-                        className='w-5 h-5 text-rose-600 rounded'
+                        className="w-5 h-5 text-rose-600 rounded"
                       />
-                      <span className='font-medium text-gray-900'>{label}</span>
+                      <span className="font-medium text-gray-900">{label}</span>
                     </label>
                   ))}
                 </div>
@@ -476,60 +476,60 @@ export default function SignatureGeneratorClient() {
                 {/* Stroke width */}
                 {underline && (
                   <div>
-                    <label className='block text-sm font-bold text-gray-700 mb-3'>
+                    <label className="block text-sm font-bold text-gray-700 mb-3">
                       Line Thickness: {strokeWidth}px
                     </label>
                     <input
-                      type='range'
+                      type="range"
                       min={1}
                       max={6}
                       value={strokeWidth}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         setStrokeWidth(parseInt(e.target.value))
                       }
-                      aria-label='Line thickness'
-                      className='w-full h-3 bg-gradient-to-r from-gray-200 to-gray-400 rounded-lg appearance-none cursor-pointer'
+                      aria-label="Line thickness"
+                      className="w-full h-3 bg-gradient-to-r from-gray-200 to-gray-400 rounded-lg appearance-none cursor-pointer"
                     />
                   </div>
                 )}
 
                 {/* Background */}
                 <div>
-                  <label className='flex items-center gap-3 p-3 bg-gray-50 rounded-xl cursor-pointer hover:bg-gray-100 transition-colors mb-3'>
+                  <label className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl cursor-pointer hover:bg-gray-100 transition-colors mb-3">
                     <input
-                      type='checkbox'
+                      type="checkbox"
                       checked={showBackground}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         setShowBackground(e.target.checked)
                       }
-                      className='w-5 h-5 text-rose-600 rounded'
+                      className="w-5 h-5 text-rose-600 rounded"
                     />
-                    <span className='font-medium text-gray-900'>
+                    <span className="font-medium text-gray-900">
                       Show Background
                     </span>
                   </label>
 
                   {showBackground && (
                     <div>
-                      <label className='block text-sm font-bold text-gray-700 mb-3'>
+                      <label className="block text-sm font-bold text-gray-700 mb-3">
                         Background Color
                       </label>
-                      <div className='flex gap-3'>
+                      <div className="flex gap-3">
                         <input
-                          type='color'
+                          type="color"
                           value={backgroundColor}
                           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                             setBackgroundColor(e.target.value)
                           }
-                          className='w-16 h-12 rounded-lg cursor-pointer border-2 border-gray-300'
+                          className="w-16 h-12 rounded-lg cursor-pointer border-2 border-gray-300"
                         />
                         <input
-                          type='text'
+                          type="text"
                           value={backgroundColor}
                           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                             setBackgroundColor(e.target.value)
                           }
-                          className='flex-1 px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-rose-500'
+                          className="flex-1 px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-rose-500"
                         />
                       </div>
                     </div>
@@ -539,11 +539,11 @@ export default function SignatureGeneratorClient() {
             </div>
 
             {/* Tips */}
-            <div className='bg-gradient-to-br from-rose-50 to-pink-50 rounded-xl shadow-md p-6 border-2 border-rose-200'>
-              <h4 className='font-bold text-gray-900 mb-4'>✨ Usage Tips</h4>
-              <div className='space-y-3 text-sm text-gray-700'>
+            <div className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-xl shadow-md p-6 border-2 border-rose-200">
+              <h4 className="font-bold text-gray-900 mb-4">✨ Usage Tips</h4>
+              <div className="space-y-3 text-sm text-gray-700">
                 {TIPS.map(({ color: c, label, desc }) => (
-                  <div key={label} className='flex items-start gap-2'>
+                  <div key={label} className="flex items-start gap-2">
                     <div
                       className={`w-2 h-2 ${c} rounded-full mt-2 flex-shrink-0`}
                     />
@@ -556,9 +556,9 @@ export default function SignatureGeneratorClient() {
             </div>
 
             {/* Perfect for */}
-            <div className='bg-white rounded-xl shadow-md p-6'>
-              <h4 className='font-bold text-gray-900 mb-3'>🎯 Perfect For</h4>
-              <div className='space-y-2 text-sm text-gray-700'>
+            <div className="bg-white rounded-xl shadow-md p-6">
+              <h4 className="font-bold text-gray-900 mb-3">🎯 Perfect For</h4>
+              <div className="space-y-2 text-sm text-gray-700">
                 {PERFECT_FOR.map((item) => (
                   <p key={item}>• {item}</p>
                 ))}
@@ -568,8 +568,8 @@ export default function SignatureGeneratorClient() {
         </div>
 
         <link
-          href='https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Great+Vibes&family=Allura&family=Alex+Brush&family=Sacramento&family=Tangerine:wght@700&family=Satisfy&family=Kaushan+Script&family=Cookie&family=Caveat:wght@700&family=Permanent+Marker&display=swap'
-          rel='stylesheet'
+          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Great+Vibes&family=Allura&family=Alex+Brush&family=Sacramento&family=Tangerine:wght@700&family=Satisfy&family=Kaushan+Script&family=Cookie&family=Caveat:wght@700&family=Permanent+Marker&display=swap"
+          rel="stylesheet"
         />
       </div>
     </div>

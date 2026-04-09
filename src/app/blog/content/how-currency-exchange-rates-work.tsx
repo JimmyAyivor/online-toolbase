@@ -22,7 +22,7 @@ export default function Post() {
         the pricing.
       </p>
       <p>
-        Our <a href='/tools/currency-converter'>Currency Converter</a> converts
+        Our <a href="/tools/currency-converter">Currency Converter</a> converts
         between any two currencies using current mid-market rates.
       </p>
 
@@ -142,7 +142,7 @@ export default function Post() {
         The exchange rate you see quoted online is the mid-market benchmark;
         what you actually get depends on which provider you use and their
         spread. Use the{" "}
-        <a href='/tools/currency-converter'>Currency Converter</a> for accurate
+        <a href="/tools/currency-converter">Currency Converter</a> for accurate
         conversions at mid-market rates, and compare providers before any
         significant currency exchange.
       </p>

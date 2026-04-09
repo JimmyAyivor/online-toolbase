@@ -97,59 +97,62 @@ export default function SleepCalculatorPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-violet-600 transition-colors'>
+            <a href="/" className="hover:text-violet-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/health'
-              className='hover:text-violet-600 transition-colors'
+              href="/tools/category/health"
+              className="hover:text-violet-600 transition-colors"
             >
               Health Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Sleep Calculator
             </span>
           </li>
         </ol>
       </nav>
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-violet-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-violet-600 uppercase tracking-widest mb-1">
           Free Health Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Sleep Calculator — Best Bedtime & Wake-Up Times by Sleep Cycle
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Find optimal bedtimes and wake-up times aligned with 90-minute sleep
           cycles so you always wake at the lightest point of sleep.
         </p>
       </header>
       <SidebarAdLayout>
-        <main id='main-content' aria-label='Sleep Calculator tool'>
+        <main id="main-content" aria-label="Sleep Calculator tool">
           <SleepCalculatorClient />
         </main>
         <PageEditorial />
-              <ToolEngagement toolSlug="sleep-calculator" toolName="Sleep Calculator" />
+        <ToolEngagement
+          toolSlug="sleep-calculator"
+          toolName="Sleep Calculator"
+        />
       </SidebarAdLayout>
     </>
   );

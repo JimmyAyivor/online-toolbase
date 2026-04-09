@@ -13,7 +13,7 @@ export default function Post() {
       <h2>Character limits at a glance</h2>
       <p>
         Use our{" "}
-        <a href='/tools/social-media-character-counter'>
+        <a href="/tools/social-media-character-counter">
           Social Media Character Counter
         </a>{" "}
         to track your character count in real time against any platform's limit
@@ -234,7 +234,7 @@ export default function Post() {
         Platform character limits are both a constraint and a guideline the hard
         limit tells you the maximum; the visible preview length tells you the
         practical target. Use the{" "}
-        <a href='/tools/social-media-character-counter'>
+        <a href="/tools/social-media-character-counter">
           Social Media Character Counter
         </a>{" "}
         while drafting any post to track your count against the platform you're

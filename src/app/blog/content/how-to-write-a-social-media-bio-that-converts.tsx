@@ -37,7 +37,7 @@ export default function Post() {
       </ul>
       <p>
         Our{" "}
-        <a href='/tools/social-media-bio-generator'>
+        <a href="/tools/social-media-bio-generator">
           Social Media Bio Generator
         </a>{" "}
         creates optimised bios within each platform's character limits based on
@@ -138,7 +138,7 @@ export default function Post() {
       <p>
         A bio that converts is specific about who you serve, clear about what
         you offer, and ends with a direction for what to do next. Use the{" "}
-        <a href='/tools/social-media-bio-generator'>
+        <a href="/tools/social-media-bio-generator">
           Social Media Bio Generator
         </a>{" "}
         to produce platform-appropriate bios within character limits, and test

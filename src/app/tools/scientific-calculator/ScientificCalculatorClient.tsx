@@ -133,31 +133,31 @@ export default function ScientificCalculatorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-slate-700 to-indigo-800 rounded-2xl mb-4 shadow-lg'>
-              <Calculator className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-slate-700 to-indigo-800 rounded-2xl mb-4 shadow-lg">
+              <Calculator className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Scientific Calculator
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Full-featured scientific calculator with trigonometry and
               logarithm functions
             </p>
           </div>
 
-          <div className='space-y-6'>
+          <div className="space-y-6">
             {/* Angle mode + reset */}
-            <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
-              <div className='flex items-center justify-between'>
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div className="flex items-center justify-between">
                 <div>
-                  <label className='block text-sm font-medium text-gray-700 mb-2'>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Angle Mode
                   </label>
-                  <div className='flex gap-2'>
+                  <div className="flex gap-2">
                     {(["deg", "rad"] as AngleMode[]).map((m) => (
                       <button
                         key={m}
@@ -175,17 +175,17 @@ export default function ScientificCalculatorClient() {
                 </div>
                 <button
                   onClick={reset}
-                  className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2'
+                  className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2"
                 >
-                  <RotateCcw className='w-4 h-4' />
+                  <RotateCcw className="w-4 h-4" />
                   Reset
                 </button>
               </div>
             </div>
 
             {/* Display */}
-            <div className='bg-gray-900 rounded-xl p-5 min-h-[90px] flex flex-col items-end justify-center'>
-              <div className='text-gray-400 text-sm font-mono min-h-[20px]'>
+            <div className="bg-gray-900 rounded-xl p-5 min-h-[90px] flex flex-col items-end justify-center">
+              <div className="text-gray-400 text-sm font-mono min-h-[20px]">
                 {expr || " "}
               </div>
               <div
@@ -198,7 +198,7 @@ export default function ScientificCalculatorClient() {
             </div>
 
             {/* Button grid */}
-            <div className='grid grid-cols-4 gap-2'>
+            <div className="grid grid-cols-4 gap-2">
               {BUTTONS.map(({ label, value, type }) => (
                 <button
                   key={`${label}-${value}`}
@@ -217,16 +217,16 @@ export default function ScientificCalculatorClient() {
             {/* History */}
             {history.length > 0 && (
               <div>
-                <h3 className='text-lg font-semibold text-gray-900 mb-3'>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
                   History
                 </h3>
-                <div className='bg-white border border-gray-200 rounded-lg overflow-hidden'>
-                  <div className='max-h-48 overflow-y-auto'>
-                    <table className='w-full'>
-                      <tbody className='divide-y divide-gray-200'>
+                <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+                  <div className="max-h-48 overflow-y-auto">
+                    <table className="w-full">
+                      <tbody className="divide-y divide-gray-200">
                         {history.map((entry, i) => (
-                          <tr key={i} className='hover:bg-gray-50'>
-                            <td className='px-4 py-2 text-sm font-mono text-gray-600'>
+                          <tr key={i} className="hover:bg-gray-50">
+                            <td className="px-4 py-2 text-sm font-mono text-gray-600">
                               {entry}
                             </td>
                           </tr>
@@ -239,9 +239,9 @@ export default function ScientificCalculatorClient() {
             )}
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Tips:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600">
+            <p className="font-semibold mb-2">Tips:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Switch between DEG and RAD for trigonometric functions — sin(90)
                 in DEG = 1

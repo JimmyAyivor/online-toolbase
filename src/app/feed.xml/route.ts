@@ -25,7 +25,9 @@ export async function GET() {
       new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
   );
 
-  const lastBuildDate = new Date(sorted[0]?.publishedAt ?? new Date()).toUTCString();
+  const lastBuildDate = new Date(
+    sorted[0]?.publishedAt ?? new Date(),
+  ).toUTCString();
 
   const items = sorted
     .map((post) => {

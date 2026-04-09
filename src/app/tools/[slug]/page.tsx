@@ -270,19 +270,19 @@ export default async function ToolPage({ params }: Props) {
     <>
       {/* ── Structured data ───────────────────────────────────────────── */}
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
@@ -296,35 +296,35 @@ export default async function ToolPage({ params }: Props) {
       )}
 
       {/* ── SEO content block (visible, crawlable, below the tool) ────── */}
-      <section className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
-        <div className='bg-white rounded-2xl shadow-lg border border-gray-100 p-8 mb-8'>
-          <h2 className='text-2xl font-bold text-gray-900 mb-4'>
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
             About this free {tool.name.toLowerCase()}
           </h2>
-          <p className='text-gray-600 leading-relaxed mb-4'>
+          <p className="text-gray-600 leading-relaxed mb-4">
             This free online {tool.name.toLowerCase()} runs entirely in your
             browser — no signup, no download, and no cost. {tool.description}{" "}
             Use it as many times as you need, on any device, completely free.
           </p>
-          <p className='text-gray-600 leading-relaxed'>
+          <p className="text-gray-600 leading-relaxed">
             Part of our {tool.category} tools collection. All processing happens
             client-side, which means your data never leaves your device.
           </p>
         </div>
 
         {/* FAQ section — crawlable, feeds the JSON-LD */}
-        <div className='bg-white rounded-2xl shadow-lg border border-gray-100 p-8 mb-8'>
-          <h2 className='text-2xl font-bold text-gray-900 mb-6'>
+        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Frequently asked questions
           </h2>
-          <dl className='space-y-5'>
+          <dl className="space-y-5">
             {generateFaqs(tool.name).map((faq) => (
               <div
                 key={faq.name}
-                className='border-b border-gray-50 pb-5 last:border-0 last:pb-0'
+                className="border-b border-gray-50 pb-5 last:border-0 last:pb-0"
               >
-                <dt className='font-semibold text-gray-800 mb-2'>{faq.name}</dt>
-                <dd className='text-gray-600 leading-relaxed'>
+                <dt className="font-semibold text-gray-800 mb-2">{faq.name}</dt>
+                <dd className="text-gray-600 leading-relaxed">
                   {faq.acceptedAnswer.text}
                 </dd>
               </div>
@@ -333,11 +333,11 @@ export default async function ToolPage({ params }: Props) {
         </div>
 
         {/* Related tools — internal linking */}
-        <div className='bg-white rounded-2xl shadow-lg border border-gray-100 p-8'>
-          <h2 className='text-2xl font-bold text-gray-900 mb-4'>
+        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
             More free {tool.category.toLowerCase()} tools
           </h2>
-          <ul className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {tools
               .filter(
                 (t) => t.category === tool.category && t.slug !== tool.slug,
@@ -347,28 +347,28 @@ export default async function ToolPage({ params }: Props) {
                 <li key={related.slug}>
                   <a
                     href={`/tools/${related.slug}`}
-                    className='flex items-center gap-3 p-3 rounded-xl border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50 transition-colors group'
+                    className="flex items-center gap-3 p-3 rounded-xl border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50 transition-colors group"
                   >
-                    <span className='w-8 h-8 bg-linear-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center shrink-0'>
+                    <span className="w-8 h-8 bg-linear-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center shrink-0">
                       <svg
-                        className='w-4 h-4 text-white'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
+                        className="w-4 h-4 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
                         <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           strokeWidth={2}
-                          d='M13 10V3L4 14h7v7l9-11h-7z'
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
                         />
                       </svg>
                     </span>
                     <div>
-                      <div className='text-sm font-semibold text-gray-800 group-hover:text-indigo-700'>
+                      <div className="text-sm font-semibold text-gray-800 group-hover:text-indigo-700">
                         {related.name}
                       </div>
-                      <div className='text-xs text-gray-500 truncate'>
+                      <div className="text-xs text-gray-500 truncate">
                         {related.description}
                       </div>
                     </div>
@@ -377,8 +377,8 @@ export default async function ToolPage({ params }: Props) {
               ))}
           </ul>
           <Link
-            href='/'
-            className='inline-flex items-center gap-2 mt-4 text-sm font-semibold text-indigo-600 hover:text-purple-600 transition-colors'
+            href="/"
+            className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-indigo-600 hover:text-purple-600 transition-colors"
           >
             View all 130+ free tools →
           </Link>

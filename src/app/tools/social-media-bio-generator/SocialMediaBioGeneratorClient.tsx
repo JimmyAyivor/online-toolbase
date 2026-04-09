@@ -432,31 +432,31 @@ export default function SocialMediaBioGeneratorClient() {
   ];
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-amber-50 to-orange-50 p-4 md:p-8'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl mb-4 shadow-lg'>
-              <User className='w-8 h-8 text-white' />
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl mb-4 shadow-lg">
+              <User className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Social Media Bio Generator
             </h2>
-            <p className='text-gray-600'>
+            <p className="text-gray-600">
               Craft the perfect bio for every platform in seconds
             </p>
           </div>
 
-          <div className='grid md:grid-cols-2 gap-8'>
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Left: inputs */}
-            <div className='space-y-5'>
+            <div className="space-y-5">
               {/* Platform */}
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Platform
                 </label>
-                <div className='grid grid-cols-5 gap-2'>
+                <div className="grid grid-cols-5 gap-2">
                   {PLATFORM_KEYS.map((pk) => (
                     <button
                       key={pk}
@@ -470,7 +470,7 @@ export default function SocialMediaBioGeneratorClient() {
                           : "border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200"
                       }`}
                     >
-                      <span className='text-lg'>{PLATFORMS[pk].icon}</span>
+                      <span className="text-lg">{PLATFORMS[pk].icon}</span>
                       <span>{PLATFORMS[pk].label.split("/")[0]!.trim()}</span>
                     </button>
                   ))}
@@ -484,10 +484,10 @@ export default function SocialMediaBioGeneratorClient() {
 
               {/* Tone */}
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Tone
                 </label>
-                <div className='grid grid-cols-2 gap-2'>
+                <div className="grid grid-cols-2 gap-2">
                   {TONES.map(({ value, label, desc }) => (
                     <button
                       key={value}
@@ -498,10 +498,10 @@ export default function SocialMediaBioGeneratorClient() {
                           : "border-gray-100 bg-gray-50 hover:border-amber-200"
                       }`}
                     >
-                      <div className='text-sm font-semibold text-gray-900'>
+                      <div className="text-sm font-semibold text-gray-900">
                         {label}
                       </div>
-                      <div className='text-xs text-gray-500'>{desc}</div>
+                      <div className="text-xs text-gray-500">{desc}</div>
                     </button>
                   ))}
                 </div>
@@ -509,27 +509,27 @@ export default function SocialMediaBioGeneratorClient() {
 
               {/* Fields */}
               <div>
-                <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Your Details
                 </label>
-                <div className='space-y-2'>
+                <div className="space-y-2">
                   {FIELD_DEFS.filter(
                     ({ key }) =>
                       // Always show name, title, niche, value, cta — hide link unless Instagram
                       key !== "link" || platform === "instagram",
                   ).map(({ key, label, placeholder }) => (
                     <div key={key}>
-                      <label className='block text-xs font-medium text-gray-600 mb-0.5'>
+                      <label className="block text-xs font-medium text-gray-600 mb-0.5">
                         {label}
                       </label>
                       <input
-                        type='text'
+                        type="text"
                         value={fields[key]}
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                           setField(key, e.target.value)
                         }
                         placeholder={placeholder}
-                        className='w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-amber-400 text-sm'
+                        className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-amber-400 text-sm"
                       />
                     </div>
                   ))}
@@ -538,17 +538,17 @@ export default function SocialMediaBioGeneratorClient() {
 
               <button
                 onClick={handleGenerate}
-                className='w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white rounded-xl font-bold transition-all shadow-md hover:shadow-lg'
+                className="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white rounded-xl font-bold transition-all shadow-md hover:shadow-lg"
               >
-                <Sparkles className='w-5 h-5' />
+                <Sparkles className="w-5 h-5" />
                 Generate Bio
               </button>
             </div>
 
             {/* Right: output */}
-            <div className='space-y-4'>
-              <div className='flex items-center justify-between'>
-                <h3 className='font-bold text-gray-900'>Generated Bio</h3>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <h3 className="font-bold text-gray-900">Generated Bio</h3>
                 {bio && (
                   <span
                     className={`text-xs font-semibold ${over ? "text-red-500" : "text-gray-500"}`}
@@ -561,7 +561,7 @@ export default function SocialMediaBioGeneratorClient() {
               {bio ? (
                 <>
                   {/* Character bar */}
-                  <div className='w-full bg-gray-100 rounded-full h-2'>
+                  <div className="w-full bg-gray-100 rounded-full h-2">
                     <div
                       className={`h-2 rounded-full transition-all ${over ? "bg-red-500" : "bg-amber-400"}`}
                       style={{
@@ -570,44 +570,44 @@ export default function SocialMediaBioGeneratorClient() {
                     />
                   </div>
                   {over && (
-                    <p className='text-xs text-red-500 font-semibold'>
+                    <p className="text-xs text-red-500 font-semibold">
                       ⚠️ {bio.length - limit} characters over the {cfg.label}{" "}
                       limit
                     </p>
                   )}
 
                   {/* Bio preview */}
-                  <div className='bg-gray-50 border-2 border-gray-200 rounded-xl p-5 min-h-[140px] text-gray-900 text-sm whitespace-pre-wrap leading-relaxed font-medium'>
+                  <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-5 min-h-[140px] text-gray-900 text-sm whitespace-pre-wrap leading-relaxed font-medium">
                     {bio}
                   </div>
 
-                  <div className='flex gap-2'>
+                  <div className="flex gap-2">
                     <button
                       onClick={handleCopy}
-                      className='flex-1 flex items-center justify-center gap-2 py-2.5 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-semibold transition-colors'
+                      className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-semibold transition-colors"
                     >
                       {copied ? (
                         <>
-                          <Check className='w-4 h-4' /> Copied!
+                          <Check className="w-4 h-4" /> Copied!
                         </>
                       ) : (
                         <>
-                          <Copy className='w-4 h-4' /> Copy Bio
+                          <Copy className="w-4 h-4" /> Copy Bio
                         </>
                       )}
                     </button>
                     <button
                       onClick={handleGenerate}
-                      aria-label='Regenerate'
-                      className='px-4 py-2.5 bg-gray-100 hover:bg-gray-200 rounded-xl transition-colors'
+                      aria-label="Regenerate"
+                      className="px-4 py-2.5 bg-gray-100 hover:bg-gray-200 rounded-xl transition-colors"
                     >
-                      <RefreshCw className='w-4 h-4 text-gray-600' />
+                      <RefreshCw className="w-4 h-4 text-gray-600" />
                     </button>
                   </div>
 
                   {/* Editable textarea */}
                   <div>
-                    <label className='block text-xs font-semibold text-gray-600 mb-1'>
+                    <label className="block text-xs font-semibold text-gray-600 mb-1">
                       Edit directly ✏️
                     </label>
                     <textarea
@@ -616,26 +616,26 @@ export default function SocialMediaBioGeneratorClient() {
                         setBio(e.target.value)
                       }
                       rows={5}
-                      className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-amber-400 text-sm resize-none leading-relaxed'
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-amber-400 text-sm resize-none leading-relaxed"
                     />
                   </div>
                 </>
               ) : (
-                <div className='bg-gray-50 border-2 border-dashed border-gray-200 rounded-xl p-8 text-center text-gray-400 min-h-[200px] flex flex-col items-center justify-center'>
-                  <Sparkles className='w-10 h-10 mb-3 opacity-30' />
-                  <p className='font-medium'>
+                <div className="bg-gray-50 border-2 border-dashed border-gray-200 rounded-xl p-8 text-center text-gray-400 min-h-[200px] flex flex-col items-center justify-center">
+                  <Sparkles className="w-10 h-10 mb-3 opacity-30" />
+                  <p className="font-medium">
                     Fill in your details and click Generate
                   </p>
-                  <p className='text-xs mt-1'>Your bio will appear here</p>
+                  <p className="text-xs mt-1">Your bio will appear here</p>
                 </div>
               )}
 
               {/* Tips */}
-              <div className='bg-amber-50 border border-amber-200 rounded-xl p-4'>
-                <p className='text-xs font-bold text-amber-800 mb-2'>
+              <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+                <p className="text-xs font-bold text-amber-800 mb-2">
                   ✨ Platform Tips
                 </p>
-                <ul className='space-y-1 text-xs text-amber-900'>
+                <ul className="space-y-1 text-xs text-amber-900">
                   <li>
                     • Use line breaks on Instagram and LinkedIn for readability
                   </li>

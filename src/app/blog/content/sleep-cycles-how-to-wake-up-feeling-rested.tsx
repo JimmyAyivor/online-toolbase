@@ -46,7 +46,7 @@ export default function Post() {
 
       <h2>How to time your sleep</h2>
       <p>
-        Our <a href='/tools/sleep-calculator'>Sleep Calculator</a> calculates
+        Our <a href="/tools/sleep-calculator">Sleep Calculator</a> calculates
         ideal bedtimes to wake up at a target time (or ideal wake times from a
         target bedtime), aligning with 90-minute cycle completions.
       </p>
@@ -144,7 +144,7 @@ export default function Post() {
       <p>
         Aligning your alarm to 90-minute sleep cycle completions is the simplest
         sleep quality improvement most people can make. Use the{" "}
-        <a href='/tools/sleep-calculator'>Sleep Calculator</a> to find the ideal
+        <a href="/tools/sleep-calculator">Sleep Calculator</a> to find the ideal
         bedtime for your wake time, target 5–6 complete cycles, and prioritise a
         consistent wake time as the anchor of your sleep schedule.
       </p>

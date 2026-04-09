@@ -92,7 +92,7 @@ export default function Post() {
         percentage was applied to the base price, not the final price.
       </p>
       <p>
-        Our <a href='/tools/percentage-calculator'>Percentage Calculator</a>{" "}
+        Our <a href="/tools/percentage-calculator">Percentage Calculator</a>{" "}
         handles all three calculation types and percentage changes use it any
         time the arithmetic gets ambiguous.
       </p>
@@ -131,7 +131,7 @@ export default function Post() {
         Mastering the three percentage question types and understanding
         percentage change versus percentage points covers the vast majority of
         real-world percentage problems. Use the{" "}
-        <a href='/tools/percentage-calculator'>Percentage Calculator</a> for
+        <a href="/tools/percentage-calculator">Percentage Calculator</a> for
         quick calculations and to double-check mental arithmetic on anything
         consequential.
       </p>

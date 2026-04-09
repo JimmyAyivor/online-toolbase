@@ -16,7 +16,7 @@ export default function Post() {
       <p>
         The most reliable approach: convert both dates to a day count from a
         fixed reference point, then subtract. Our{" "}
-        <a href='/tools/date-difference-calculator'>
+        <a href="/tools/date-difference-calculator">
           Date Difference Calculator
         </a>{" "}
         calculates the exact number of days, weeks, months, and years between
@@ -83,7 +83,7 @@ export default function Post() {
         <li>
           <strong>Age calculation:</strong> The exact number of years, months,
           and days between a birthdate and today. Our{" "}
-          <a href='/tools/age-calculator'>Age Calculator</a> handles this
+          <a href="/tools/age-calculator">Age Calculator</a> handles this
           specifically.
         </li>
         <li>
@@ -136,7 +136,7 @@ export default function Post() {
       <p>
         Date difference calculations require care about counting conventions,
         month lengths, and leap years. Use the{" "}
-        <a href='/tools/date-difference-calculator'>
+        <a href="/tools/date-difference-calculator">
           Date Difference Calculator
         </a>{" "}
         for reliable results across any time period, and specify your counting

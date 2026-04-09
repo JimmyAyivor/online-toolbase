@@ -34,7 +34,7 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        Our <a href='/tools/regex-tester'>Regex Tester</a> lets you write a
+        Our <a href="/tools/regex-tester">Regex Tester</a> lets you write a
         pattern, test it against sample text, and see matches highlighted in
         real time the fastest way to build and debug regex patterns.
       </p>
@@ -195,7 +195,7 @@ export default function Post() {
       <p>
         Regular expressions reward investment. The initial learning curve is
         real, but the core patterns cover the vast majority of practical use
-        cases. Use the <a href='/tools/regex-tester'>Regex Tester</a> to build
+        cases. Use the <a href="/tools/regex-tester">Regex Tester</a> to build
         patterns iteratively write the pattern, test against real examples,
         refine until it matches what you need and nothing else, then copy to
         your code.

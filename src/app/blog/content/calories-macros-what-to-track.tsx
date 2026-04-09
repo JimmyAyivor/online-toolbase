@@ -114,7 +114,7 @@ export default function Post() {
       </p>
       <p>
         Our{" "}
-        <a href='/tools/calorie-macro-calculator'>Calorie & Macro Calculator</a>{" "}
+        <a href="/tools/calorie-macro-calculator">Calorie & Macro Calculator</a>{" "}
         calculates both your TDEE and suggested macro split based on your goal
         weight loss, maintenance, or muscle gain. It handles the maths so you
         can focus on the food.

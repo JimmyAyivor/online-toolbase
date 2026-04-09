@@ -103,38 +103,38 @@ export default function CaptionGeneratorPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* Breadcrumb */}
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-indigo-600 transition-colors'>
+            <a href="/" className="hover:text-indigo-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/social-media'
-              className='hover:text-indigo-600 transition-colors'
+              href="/tools/category/social-media"
+              className="hover:text-indigo-600 transition-colors"
             >
               Social Media Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Caption Generator
             </span>
           </li>
@@ -142,14 +142,14 @@ export default function CaptionGeneratorPage() {
       </nav>
 
       {/* Category badge + SR H1 */}
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Social Media Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Caption Generator — Free Online Caption Generator
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Generate engaging captions for photos and social media posts.
         </p>
       </header>
@@ -157,67 +157,67 @@ export default function CaptionGeneratorPage() {
       {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
       <SidebarAdLayout>
         {/* ── Tool component (main interactive area) ──────────────────── */}
-        <main id='main-content' aria-label='Caption Generator tool'>
+        <main id="main-content" aria-label="Caption Generator tool">
           <CaptionGeneratorClient />
         </main>
 
         {/* ── Zone G: below tool result — highest value placement ──────── */}
         {/* Sits immediately after the tool, before any editorial content   */}
-        <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-center'>
+        <div className="max-w-6xl mx-auto px-4 mt-6 flex justify-center">
           {/* desktop: rectangle 336×280; mobile: medium rectangle 300×250 */}
-          <div className='hidden sm:block'>
-            <AdSlot variant='rectangle' slotId={SLOT_BELOW_TOOL} />
+          <div className="hidden sm:block">
+            <AdSlot variant="rectangle" slotId={SLOT_BELOW_TOOL} />
           </div>
-          <div className='block sm:hidden'>
-            <AdSlot variant='mediumrectangle' slotId={SLOT_BELOW_TOOL} />
+          <div className="block sm:hidden">
+            <AdSlot variant="mediumrectangle" slotId={SLOT_BELOW_TOOL} />
           </div>
         </div>
 
         {/* ── Zone H: between tool + How To editorial ──────────────────── */}
-        <div className='max-w-6xl mx-auto px-4 mt-4 flex justify-center'>
+        <div className="max-w-6xl mx-auto px-4 mt-4 flex justify-center">
           <AdSlot
-            variant='leaderboard'
+            variant="leaderboard"
             slotId={SLOT_LEADERBOARD}
-            className='hidden sm:flex'
+            className="hidden sm:flex"
           />
           <AdSlot
-            variant='mediumrectangle'
+            variant="mediumrectangle"
             slotId={SLOT_LEADERBOARD}
-            className='flex sm:hidden'
+            className="flex sm:hidden"
           />
         </div>
 
         {/* ── Editorial: How To + Related Tools ────────────────────────── */}
         {/* ── HOW TO USE ─────────────────────────────────────────────────────────── */}
         <section
-          id='how-to-use'
-          className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16'
-          aria-labelledby='how-to-use-heading'
+          id="how-to-use"
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
+          aria-labelledby="how-to-use-heading"
         >
           <h2
-            id='how-to-use-heading'
-            className='text-4xl font-bold text-gray-900 mb-4 text-center'
+            id="how-to-use-heading"
+            className="text-4xl font-bold text-gray-900 mb-4 text-center"
           >
             How to Use the Caption Generator
           </h2>
-          <p className='text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed'>
+          <p className="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed">
             Describe your post, pick a tone and platform, and get five
             ready-to-use captions with platform-appropriate hashtags in one
             click.
           </p>
 
           {/* ── Steps ── */}
-          <div className='space-y-6 mb-14'>
+          <div className="space-y-6 mb-14">
             {/* Step 1 */}
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white font-black text-lg flex items-center justify-center'>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white font-black text-lg flex items-center justify-center">
                 1
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Describe what your post is about
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-3'>
+                <p className="text-gray-600 leading-relaxed mb-3">
                   Type a short description of your post into the{" "}
                   <strong>What Is Your Post About?</strong> field. This becomes
                   the subject that gets woven into each generated caption. You
@@ -225,20 +225,20 @@ export default function CaptionGeneratorPage() {
                   placeholder, but specific topics always produce more usable
                   results.
                 </p>
-                <div className='bg-indigo-50 rounded-xl px-5 py-4 text-sm text-indigo-800 leading-relaxed'>
+                <div className="bg-indigo-50 rounded-xl px-5 py-4 text-sm text-indigo-800 leading-relaxed">
                   <strong>Be specific:</strong> The more descriptive your topic,
                   the more relevant the captions. Compare:
-                  <ul className='mt-2 space-y-1'>
-                    <li className='flex items-start gap-2'>
-                      <span className='text-red-400 font-bold flex-shrink-0'>
+                  <ul className="mt-2 space-y-1">
+                    <li className="flex items-start gap-2">
+                      <span className="text-red-400 font-bold flex-shrink-0">
                         ✗
                       </span>
                       <span>
                         <em>"product"</em> — too vague, produces generic output
                       </span>
                     </li>
-                    <li className='flex items-start gap-2'>
-                      <span className='text-indigo-500 font-bold flex-shrink-0'>
+                    <li className="flex items-start gap-2">
+                      <span className="text-indigo-500 font-bold flex-shrink-0">
                         ✓
                       </span>
                       <span>
@@ -246,8 +246,8 @@ export default function CaptionGeneratorPage() {
                         produces usable captions
                       </span>
                     </li>
-                    <li className='flex items-start gap-2'>
-                      <span className='text-indigo-500 font-bold flex-shrink-0'>
+                    <li className="flex items-start gap-2">
+                      <span className="text-indigo-500 font-bold flex-shrink-0">
                         ✓
                       </span>
                       <span>
@@ -255,8 +255,8 @@ export default function CaptionGeneratorPage() {
                         concrete
                       </span>
                     </li>
-                    <li className='flex items-start gap-2'>
-                      <span className='text-indigo-500 font-bold flex-shrink-0'>
+                    <li className="flex items-start gap-2">
+                      <span className="text-indigo-500 font-bold flex-shrink-0">
                         ✓
                       </span>
                       <span>
@@ -270,21 +270,21 @@ export default function CaptionGeneratorPage() {
             </div>
 
             {/* Step 2 */}
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white font-black text-lg flex items-center justify-center'>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white font-black text-lg flex items-center justify-center">
                 2
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Choose a tone
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-4'>
+                <p className="text-gray-600 leading-relaxed mb-4">
                   Select the voice that matches the feeling of your post. The
                   tone shapes the sentence structure, vocabulary, and energy of
                   every caption — the topic stays the same but the framing
                   changes completely.
                 </p>
-                <div className='grid sm:grid-cols-2 gap-3'>
+                <div className="grid sm:grid-cols-2 gap-3">
                   {[
                     {
                       tone: "Fun 😄",
@@ -309,20 +309,20 @@ export default function CaptionGeneratorPage() {
                   ].map(({ tone, badge, desc }) => (
                     <div
                       key={tone}
-                      className='bg-gray-50 rounded-xl border border-gray-100 px-4 py-3'
+                      className="bg-gray-50 rounded-xl border border-gray-100 px-4 py-3"
                     >
                       <span
                         className={`text-xs font-bold px-2.5 py-1 rounded-full inline-block mb-2 ${badge}`}
                       >
                         {tone}
                       </span>
-                      <p className='text-sm text-gray-600 leading-relaxed'>
+                      <p className="text-sm text-gray-600 leading-relaxed">
                         {desc}
                       </p>
                     </div>
                   ))}
                 </div>
-                <p className='mt-4 text-sm text-gray-500'>
+                <p className="mt-4 text-sm text-gray-500">
                   Not sure which tone to use? Generate with one, then hit{" "}
                   <strong>Regenerate</strong> after switching to another. Seeing
                   the same topic in two tones side-by-side makes the choice
@@ -332,20 +332,20 @@ export default function CaptionGeneratorPage() {
             </div>
 
             {/* Step 3 */}
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white font-black text-lg flex items-center justify-center'>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white font-black text-lg flex items-center justify-center">
                 3
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Select your platform
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-4'>
+                <p className="text-gray-600 leading-relaxed mb-4">
                   Each platform has different norms for caption length, hashtag
                   volume, and tone — the tool adjusts the hashtag set
                   automatically based on your selection.
                 </p>
-                <div className='space-y-2'>
+                <div className="space-y-2">
                   {[
                     {
                       platform: "Instagram",
@@ -375,16 +375,16 @@ export default function CaptionGeneratorPage() {
                   ].map(({ platform, tags, note }) => (
                     <div
                       key={platform}
-                      className='flex items-start gap-3 text-sm bg-gray-50 rounded-xl px-4 py-3'
+                      className="flex items-start gap-3 text-sm bg-gray-50 rounded-xl px-4 py-3"
                     >
-                      <span className='font-bold text-indigo-600 w-24 flex-shrink-0'>
+                      <span className="font-bold text-indigo-600 w-24 flex-shrink-0">
                         {platform}
                       </span>
                       <div>
-                        <code className='text-xs text-gray-400 block mb-1'>
+                        <code className="text-xs text-gray-400 block mb-1">
                           {tags}
                         </code>
-                        <p className='text-gray-500 leading-relaxed'>{note}</p>
+                        <p className="text-gray-500 leading-relaxed">{note}</p>
                       </div>
                     </div>
                   ))}
@@ -393,22 +393,22 @@ export default function CaptionGeneratorPage() {
             </div>
 
             {/* Step 4 */}
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5'>
-              <div className='flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white font-black text-lg flex items-center justify-center'>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white font-black text-lg flex items-center justify-center">
                 4
               </div>
               <div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Generate, pick, copy
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-4'>
+                <p className="text-gray-600 leading-relaxed mb-4">
                   Click <strong>Generate Captions</strong> to get five
                   variations. Each result card shows the full caption text, its
                   character count, and a <strong>Copy</strong> button that
                   copies everything — caption and hashtags — to your clipboard
                   in one click.
                 </p>
-                <div className='space-y-3'>
+                <div className="space-y-3">
                   {[
                     {
                       action: "Regenerate",
@@ -428,16 +428,16 @@ export default function CaptionGeneratorPage() {
                   ].map(({ action, icon, desc }) => (
                     <div
                       key={action}
-                      className='flex items-start gap-3 text-sm bg-gray-50 rounded-xl px-4 py-3'
+                      className="flex items-start gap-3 text-sm bg-gray-50 rounded-xl px-4 py-3"
                     >
-                      <span className='w-7 h-7 rounded-lg bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center flex-shrink-0'>
+                      <span className="w-7 h-7 rounded-lg bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center flex-shrink-0">
                         {icon}
                       </span>
                       <div>
-                        <p className='font-semibold text-gray-900 mb-0.5'>
+                        <p className="font-semibold text-gray-900 mb-0.5">
                           {action}
                         </p>
-                        <p className='text-gray-500 leading-relaxed'>{desc}</p>
+                        <p className="text-gray-500 leading-relaxed">{desc}</p>
                       </div>
                     </div>
                   ))}
@@ -447,10 +447,10 @@ export default function CaptionGeneratorPage() {
           </div>
 
           {/* ── Getting the most out of it ── */}
-          <h3 className='text-2xl font-bold text-gray-900 mb-6'>
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">
             Getting the best results
           </h3>
-          <div className='grid sm:grid-cols-2 gap-4 mb-14'>
+          <div className="grid sm:grid-cols-2 gap-4 mb-14">
             {[
               {
                 emoji: "✏️",
@@ -485,21 +485,21 @@ export default function CaptionGeneratorPage() {
             ].map(({ emoji, title, desc }) => (
               <div
                 key={title}
-                className='bg-white rounded-2xl border border-gray-100 shadow-sm p-5'
+                className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5"
               >
-                <div className='text-2xl mb-3'>{emoji}</div>
-                <p className='font-bold text-gray-900 text-sm mb-2'>{title}</p>
-                <p className='text-xs text-gray-500 leading-relaxed'>{desc}</p>
+                <div className="text-2xl mb-3">{emoji}</div>
+                <p className="font-bold text-gray-900 text-sm mb-2">{title}</p>
+                <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
 
           {/* ── Platform character limits ── */}
-          <div className='bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6'>
-            <h3 className='text-xl font-bold text-gray-900 mb-4'>
+          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">
               Platform character limits at a glance
             </h3>
-            <div className='space-y-2'>
+            <div className="space-y-2">
               {[
                 {
                   platform: "Instagram",
@@ -539,7 +539,7 @@ export default function CaptionGeneratorPage() {
               ].map(({ platform, limit, sweet, color }) => (
                 <div
                   key={platform}
-                  className='flex items-start gap-3 text-sm px-4 py-3 bg-gray-50 rounded-xl'
+                  className="flex items-start gap-3 text-sm px-4 py-3 bg-gray-50 rounded-xl"
                 >
                   <span
                     className={`text-xs font-bold px-2.5 py-1 rounded-full flex-shrink-0 ${color}`}
@@ -547,10 +547,10 @@ export default function CaptionGeneratorPage() {
                     {platform}
                   </span>
                   <div>
-                    <span className='font-semibold text-gray-900'>
+                    <span className="font-semibold text-gray-900">
                       Limit: {limit}
                     </span>
-                    <p className='text-gray-400 text-xs mt-0.5'>{sweet}</p>
+                    <p className="text-gray-400 text-xs mt-0.5">{sweet}</p>
                   </div>
                 </div>
               ))}
@@ -558,12 +558,12 @@ export default function CaptionGeneratorPage() {
           </div>
 
           {/* ── Footer note ── */}
-          <div className='bg-gradient-to-br from-indigo-600 to-blue-700 rounded-2xl p-8 text-white text-center'>
-            <div className='text-3xl mb-3'>✍️</div>
-            <h3 className='text-xl font-bold mb-3'>
+          <div className="bg-gradient-to-br from-indigo-600 to-blue-700 rounded-2xl p-8 text-white text-center">
+            <div className="text-3xl mb-3">✍️</div>
+            <h3 className="text-xl font-bold mb-3">
               Captions generated in your browser
             </h3>
-            <p className='text-indigo-100 leading-relaxed max-w-xl mx-auto text-sm'>
+            <p className="text-indigo-100 leading-relaxed max-w-xl mx-auto text-sm">
               All caption generation runs locally in JavaScript — no text is
               sent to a server and nothing is logged. Generate as many captions
               as you need, for as many posts as you like, with no limits.
@@ -571,13 +571,13 @@ export default function CaptionGeneratorPage() {
           </div>
 
           {/* ── Zone I: related tools grid with native ad slot ──────────── */}
-          <div className='mt-8'>
-            <h3 className='text-lg font-bold text-gray-900 mb-4'>
+          <div className="mt-8">
+            <h3 className="text-lg font-bold text-gray-900 mb-4">
               Related Free Social Media Tools
             </h3>
             {/* 3-slot grid; the 4th card position (index 3) is reserved for */}
             {/* a native sponsored card — set data-ad-format="fluid" in AdSense */}
-            <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
                 {
                   href: "/tools/hashtag-generator",
@@ -598,19 +598,22 @@ export default function CaptionGeneratorPage() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className='block bg-white rounded-xl shadow p-5 border-2 border-transparent hover:border-indigo-200 hover:-translate-y-1 transition-all duration-200'
+                  className="block bg-white rounded-xl shadow p-5 border-2 border-transparent hover:border-indigo-200 hover:-translate-y-1 transition-all duration-200"
                   aria-label={`${link.label} — ${link.desc}`}
                 >
-                  <div className='font-bold text-gray-900 text-sm mb-1'>
+                  <div className="font-bold text-gray-900 text-sm mb-1">
                     {link.label}
                   </div>
-                  <div className='text-xs text-gray-500'>{link.desc}</div>
+                  <div className="text-xs text-gray-500">{link.desc}</div>
                 </a>
               ))}
             </div>
           </div>
         </section>
-              <ToolEngagement toolSlug="caption-generator" toolName="Caption Generator" />
+        <ToolEngagement
+          toolSlug="caption-generator"
+          toolName="Caption Generator"
+        />
       </SidebarAdLayout>
     </>
   );

@@ -26,7 +26,7 @@ export default function Post() {
         content.
       </p>
       <p>
-        Use our <a href='/tools/robots-txt-generator'>Robots.txt Generator</a>{" "}
+        Use our <a href="/tools/robots-txt-generator">Robots.txt Generator</a>{" "}
         to build a valid robots.txt file without memorising the syntax.
       </p>
 
@@ -183,7 +183,7 @@ Disallow: /search/`}</code>
       <p>
         A well-configured robots.txt file is basic SEO hygiene it keeps crawlers
         focused on content that matters and out of pages that don't. Use the{" "}
-        <a href='/tools/robots-txt-generator'>Robots.txt Generator</a> to create
+        <a href="/tools/robots-txt-generator">Robots.txt Generator</a> to create
         a correctly formatted file, include your sitemap URL, and test your
         configuration in Google Search Console's robots.txt tester before
         deploying.

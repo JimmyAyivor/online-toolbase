@@ -140,7 +140,7 @@ export default function AdSlot({
     >
       <div ref={containerRef}>
         <ins
-          className='adsbygoogle'
+          className="adsbygoogle"
           style={{
             display: "block",
             width: typeof cfg.width === "number" ? `${cfg.width}px` : cfg.width,
@@ -188,8 +188,8 @@ function AdPlaceholder({
           width: typeof cfg.width === "number" ? `${cfg.width}px` : "100%",
           height: `${cfg.height}px`,
         }}
-        className='flex items-center justify-center bg-gray-100 border-2 border-dashed border-gray-300 rounded text-gray-400 text-xs font-mono'
-        aria-hidden='true'
+        className="flex items-center justify-center bg-gray-100 border-2 border-dashed border-gray-300 rounded text-gray-400 text-xs font-mono"
+        aria-hidden="true"
       >
         Ad Slot — {cfg.label}
       </div>
@@ -218,19 +218,19 @@ function AdWrapper({
   if (sticky) {
     return (
       <div
-        className='fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-lg flex items-center justify-center'
+        className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-lg flex items-center justify-center"
         style={{ minHeight: `${cfg.height + 8}px` }}
-        role='complementary'
-        aria-label='Advertisement'
+        role="complementary"
+        aria-label="Advertisement"
       >
-        <div className='relative px-2 py-1'>
+        <div className="relative px-2 py-1">
           <AdLabel />
           {children}
           {onClose && (
             <button
               onClick={onClose}
-              className='absolute -top-1 -right-1 w-5 h-5 bg-gray-600 hover:bg-gray-800 text-white rounded-full text-xs flex items-center justify-center leading-none transition-colors'
-              aria-label='Close advertisement'
+              className="absolute -top-1 -right-1 w-5 h-5 bg-gray-600 hover:bg-gray-800 text-white rounded-full text-xs flex items-center justify-center leading-none transition-colors"
+              aria-label="Close advertisement"
             >
               ×
             </button>
@@ -246,8 +246,8 @@ function AdWrapper({
       className={`flex flex-col items-center ${className}`}
       // Reserve exact height before ad loads — prevents layout shift
       style={{ minHeight: `${cfg.height + 20}px` }} // +20 for the label
-      role='complementary'
-      aria-label='Advertisement'
+      role="complementary"
+      aria-label="Advertisement"
     >
       <AdLabel />
       {children}
@@ -259,7 +259,7 @@ function AdWrapper({
 
 function AdLabel() {
   return (
-    <p className='text-xs text-gray-400 uppercase tracking-widest mb-1 select-none'>
+    <p className="text-xs text-gray-400 uppercase tracking-widest mb-1 select-none">
       Advertisement
     </p>
   );

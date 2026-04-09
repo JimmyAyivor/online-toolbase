@@ -482,28 +482,28 @@ export default function RandomNameGeneratorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 p-4 md:p-8'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='text-center mb-8'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl mb-4 shadow-lg'>
-            <Sparkles className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl mb-4 shadow-lg">
+            <Sparkles className="w-8 h-8 text-white" />
           </div>
-          <h2 className='text-4xl font-bold text-gray-900 mb-2'>
+          <h2 className="text-4xl font-bold text-gray-900 mb-2">
             Random Name Generator
           </h2>
-          <p className='text-gray-500'>Generate random names for any purpose</p>
+          <p className="text-gray-500">Generate random names for any purpose</p>
         </div>
 
-        <div className='grid lg:grid-cols-3 gap-6'>
-          <div className='lg:col-span-2'>
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-6'>
-              <h3 className='font-bold text-gray-900 mb-6 flex items-center gap-2 text-xl'>
-                <User className='w-6 h-6 text-purple-600' />
+        <div className="grid lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2">
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-6">
+              <h3 className="font-bold text-gray-900 mb-6 flex items-center gap-2 text-xl">
+                <User className="w-6 h-6 text-purple-600" />
                 Name Type
               </h3>
 
               {/* Type selector */}
-              <div className='grid grid-cols-2 md:grid-cols-5 gap-3 mb-6'>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
                 {NAME_TYPE_CONFIGS.map(({ id, label, icon: Icon }) => (
                   <button
                     key={id}
@@ -514,19 +514,19 @@ export default function RandomNameGeneratorClient() {
                         : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                     }`}
                   >
-                    <Icon className='w-6 h-6' />
-                    <span className='text-sm'>{label}</span>
+                    <Icon className="w-6 h-6" />
+                    <span className="text-sm">{label}</span>
                   </button>
                 ))}
               </div>
 
               {/* Gender */}
               {showGender && (
-                <div className='mb-6'>
-                  <label className='block text-sm font-bold text-gray-700 mb-3'>
+                <div className="mb-6">
+                  <label className="block text-sm font-bold text-gray-700 mb-3">
                     Gender
                   </label>
-                  <div className='grid grid-cols-3 gap-3'>
+                  <div className="grid grid-cols-3 gap-3">
                     {GENDER_BUTTONS.map(({ id, label, activeColor }) => (
                       <button
                         key={id}
@@ -545,22 +545,22 @@ export default function RandomNameGeneratorClient() {
               )}
 
               {/* Count slider */}
-              <div className='mb-6'>
-                <label className='block text-sm font-bold text-gray-700 mb-3'>
+              <div className="mb-6">
+                <label className="block text-sm font-bold text-gray-700 mb-3">
                   Number of Names: {count}
                 </label>
                 <input
-                  type='range'
+                  type="range"
                   min={1}
                   max={50}
                   value={count}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setCount(parseInt(e.target.value))
                   }
-                  className='w-full h-3 bg-gradient-to-r from-purple-200 to-blue-300 rounded-lg appearance-none cursor-pointer'
-                  aria-label='Number of names'
+                  className="w-full h-3 bg-gradient-to-r from-purple-200 to-blue-300 rounded-lg appearance-none cursor-pointer"
+                  aria-label="Number of names"
                 />
-                <div className='flex justify-between text-xs text-gray-500 mt-2'>
+                <div className="flex justify-between text-xs text-gray-500 mt-2">
                   <span>1</span>
                   <span>50</span>
                 </div>
@@ -568,61 +568,61 @@ export default function RandomNameGeneratorClient() {
 
               <button
                 onClick={generateNames}
-                className='w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white rounded-xl font-bold text-lg shadow-lg transition-all'
+                className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white rounded-xl font-bold text-lg shadow-lg transition-all"
               >
-                <RefreshCw className='w-6 h-6' />
+                <RefreshCw className="w-6 h-6" />
                 Generate Names
               </button>
             </div>
 
             {/* Results */}
             {generatedNames.length > 0 && (
-              <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
-                <div className='flex justify-between items-center mb-6'>
-                  <h3 className='font-bold text-gray-900 flex items-center gap-2 text-xl'>
-                    <Sparkles className='w-6 h-6 text-purple-600' />
+              <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="font-bold text-gray-900 flex items-center gap-2 text-xl">
+                    <Sparkles className="w-6 h-6 text-purple-600" />
                     Generated Names ({generatedNames.length})
                   </h3>
-                  <div className='flex gap-2'>
+                  <div className="flex gap-2">
                     <button
                       onClick={handleCopyAll}
-                      className='flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors'
+                      className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors"
                     >
                       {copied === "all" ? (
-                        <Check className='w-4 h-4' />
+                        <Check className="w-4 h-4" />
                       ) : (
-                        <Copy className='w-4 h-4' />
+                        <Copy className="w-4 h-4" />
                       )}
                       {copied === "all" ? "Copied!" : "Copy All"}
                     </button>
                     <button
                       onClick={handleDownload}
-                      className='flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors'
+                      className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
                     >
-                      <Download className='w-4 h-4' />
+                      <Download className="w-4 h-4" />
                       Download
                     </button>
                   </div>
                 </div>
 
-                <div className='grid md:grid-cols-2 gap-3'>
+                <div className="grid md:grid-cols-2 gap-3">
                   {generatedNames.map((item) => (
                     <div
                       key={item.id}
-                      className='flex items-center justify-between p-4 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl hover:shadow-md transition-shadow'
+                      className="flex items-center justify-between p-4 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl hover:shadow-md transition-shadow"
                     >
-                      <span className='font-semibold text-gray-900'>
+                      <span className="font-semibold text-gray-900">
                         {item.name}
                       </span>
                       <button
                         onClick={() => handleCopyName(item.name)}
                         aria-label={`Copy ${item.name}`}
-                        className='p-2 hover:bg-white rounded-lg transition-colors'
+                        className="p-2 hover:bg-white rounded-lg transition-colors"
                       >
                         {copied === item.name ? (
-                          <Check className='w-4 h-4 text-green-600' />
+                          <Check className="w-4 h-4 text-green-600" />
                         ) : (
-                          <Copy className='w-4 h-4 text-gray-600' />
+                          <Copy className="w-4 h-4 text-gray-600" />
                         )}
                       </button>
                     </div>
@@ -633,26 +633,26 @@ export default function RandomNameGeneratorClient() {
           </div>
 
           {/* Sidebar */}
-          <div className='space-y-6'>
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8 sticky top-8'>
-              <h3 className='font-bold text-gray-900 mb-6'>💡 Use Cases</h3>
-              <div className='space-y-4'>
+          <div className="space-y-6">
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 sticky top-8">
+              <h3 className="font-bold text-gray-900 mb-6">💡 Use Cases</h3>
+              <div className="space-y-4">
                 {USE_CASES.map(({ bg, titleColor, emoji, title, desc }) => (
                   <div key={title} className={`p-4 ${bg} rounded-xl`}>
                     <h4 className={`font-bold ${titleColor} mb-2`}>
                       {emoji} {title}
                     </h4>
-                    <p className='text-sm text-gray-700'>{desc}</p>
+                    <p className="text-sm text-gray-700">{desc}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className='bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl shadow-md p-6 border-2 border-purple-200'>
-              <h4 className='font-bold text-gray-900 mb-4'>✨ Features</h4>
-              <div className='space-y-3 text-sm text-gray-700'>
+            <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl shadow-md p-6 border-2 border-purple-200">
+              <h4 className="font-bold text-gray-900 mb-4">✨ Features</h4>
+              <div className="space-y-3 text-sm text-gray-700">
                 {FEATURES.map(({ color, text }) => (
-                  <div key={text} className='flex items-start gap-2'>
+                  <div key={text} className="flex items-start gap-2">
                     <div
                       className={`w-2 h-2 ${color} rounded-full mt-2 flex-shrink-0`}
                     />
@@ -662,11 +662,11 @@ export default function RandomNameGeneratorClient() {
               </div>
             </div>
 
-            <div className='bg-white rounded-xl shadow-md p-6'>
-              <h4 className='font-bold text-gray-900 mb-3'>
+            <div className="bg-white rounded-xl shadow-md p-6">
+              <h4 className="font-bold text-gray-900 mb-3">
                 🎯 Popular Categories
               </h4>
-              <div className='space-y-2 text-sm text-gray-700'>
+              <div className="space-y-2 text-sm text-gray-700">
                 {[
                   "Full names for characters",
                   "First names only",

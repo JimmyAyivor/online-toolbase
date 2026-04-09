@@ -25,7 +25,7 @@ export default function Post() {
         more compelling when made visibly real rather than stated abstractly.
       </p>
       <p>
-        Use our <a href='/tools/countdown-timer'>Countdown Timer</a> to count
+        Use our <a href="/tools/countdown-timer">Countdown Timer</a> to count
         down to any date and time events, launches, birthdays, project
         deadlines, or self-imposed goals.
       </p>
@@ -88,7 +88,7 @@ export default function Post() {
         Most countdown tools display the time remaining until the target moment
         in UTC or the user's local time. When sharing a countdown with a
         distributed audience, clarify which timezone the target event is in. Our{" "}
-        <a href='/tools/countdown-timer'>Countdown Timer</a> lets you specify
+        <a href="/tools/countdown-timer">Countdown Timer</a> lets you specify
         the target in any timezone for accurate cross-timezone sharing.
       </p>
 
@@ -106,7 +106,7 @@ export default function Post() {
         zero it measures elapsed time from a start event. Use a countdown when
         the end point is fixed; use a stopwatch when you're measuring how long
         something takes. Our{" "}
-        <a href='/tools/online-stopwatch'>Online Stopwatch</a> handles the
+        <a href="/tools/online-stopwatch">Online Stopwatch</a> handles the
         elapsed-time case.
       </p>
 
@@ -116,7 +116,7 @@ export default function Post() {
         reminders that create focus and urgency. Whether for a major life event,
         a project deadline, or a focused work sprint, a countdown makes time
         tangible in a way that keeps goals alive in daily attention. Use the{" "}
-        <a href='/tools/countdown-timer'>Countdown Timer</a> for any date-based
+        <a href="/tools/countdown-timer">Countdown Timer</a> for any date-based
         countdown, shareable and displayable across any device.
       </p>
     </>

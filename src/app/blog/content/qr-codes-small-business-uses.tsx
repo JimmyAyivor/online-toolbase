@@ -142,7 +142,7 @@ export default function Post() {
       </p>
       <p>
         Create your QR codes with our free{" "}
-        <a href='/tools/qr-code-generator'>QR Code Generator</a> instant, no
+        <a href="/tools/qr-code-generator">QR Code Generator</a> instant, no
         signup, downloads as SVG or PNG.
       </p>
     </>

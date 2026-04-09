@@ -24,7 +24,7 @@ export default function Post() {
         maintenance scripts, clearing caches.
       </p>
       <p>
-        Our <a href='/tools/cron-expression-builder'>Cron Expression Builder</a>{" "}
+        Our <a href="/tools/cron-expression-builder">Cron Expression Builder</a>{" "}
         lets you build and validate cron expressions visually choose the
         schedule parameters and see the resulting expression alongside a
         human-readable description.
@@ -175,7 +175,7 @@ export default function Post() {
         Cron is the standard tool for scheduled automation on Linux and Unix
         systems. The five-field expression syntax covers any recurring schedule
         you need. Use the{" "}
-        <a href='/tools/cron-expression-builder'>Cron Expression Builder</a> to
+        <a href="/tools/cron-expression-builder">Cron Expression Builder</a> to
         construct and validate expressions visually before adding them to your
         crontab, and always test new cron jobs manually before relying on
         automated execution.

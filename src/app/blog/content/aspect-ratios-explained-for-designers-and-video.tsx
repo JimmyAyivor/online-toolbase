@@ -19,7 +19,7 @@ export default function Post() {
         shape, not the size.
       </p>
       <p>
-        Our <a href='/tools/aspect-ratio-calculator'>Aspect Ratio Calculator</a>{" "}
+        Our <a href="/tools/aspect-ratio-calculator">Aspect Ratio Calculator</a>{" "}
         calculates the missing dimension when you know the ratio and one
         dimension, or finds the ratio from known dimensions.
       </p>
@@ -121,7 +121,7 @@ export default function Post() {
         LinkedIn recommends 4:1 for company page banners (1128×191px) and
         different dimensions for personal profiles. Always check current
         platform specifications these change. The{" "}
-        <a href='/tools/aspect-ratio-calculator'>Aspect Ratio Calculator</a>{" "}
+        <a href="/tools/aspect-ratio-calculator">Aspect Ratio Calculator</a>{" "}
         helps you scale to exact platform dimensions while maintaining the right
         proportions.
       </p>
@@ -138,7 +138,7 @@ export default function Post() {
       <p>
         Knowing the required aspect ratio for your platform before you start
         designing or filming prevents resizing headaches. Use the{" "}
-        <a href='/tools/aspect-ratio-calculator'>Aspect Ratio Calculator</a> to
+        <a href="/tools/aspect-ratio-calculator">Aspect Ratio Calculator</a> to
         find missing dimensions when scaling existing content, or to verify that
         your dimensions maintain the intended ratio.
       </p>

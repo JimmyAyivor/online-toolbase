@@ -24,7 +24,7 @@ export default function Post() {
         2026 − 1990 = 36.
       </p>
       <p>
-        Our <a href='/tools/age-calculator'>Age Calculator</a> computes exact
+        Our <a href="/tools/age-calculator">Age Calculator</a> computes exact
         age in years, months, and days from any birthdate to today (or any
         target date).
       </p>
@@ -97,7 +97,7 @@ export default function Post() {
       <h3>Can the age calculator work for historical dates?</h3>
       <p>
         Yes age between any two dates, past or future, works the same way. Use
-        the <a href='/tools/age-calculator'>Age Calculator</a> with a custom
+        the <a href="/tools/age-calculator">Age Calculator</a> with a custom
         target date to calculate age at any specific point in time.
       </p>
 
@@ -106,7 +106,7 @@ export default function Post() {
         Exact age calculation is straightforward in concept but requires
         attention to whether the current year's birthday has passed and how leap
         year birthdays are handled. Use the{" "}
-        <a href='/tools/age-calculator'>Age Calculator</a> for any age-related
+        <a href="/tools/age-calculator">Age Calculator</a> for any age-related
         calculation exact years, months, and days from any start date to any end
         date.
       </p>

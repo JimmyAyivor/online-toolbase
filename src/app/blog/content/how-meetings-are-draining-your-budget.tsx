@@ -27,7 +27,7 @@ export default function Post() {
         $60,000/year employee costs approximately $30–45/hour fully loaded.
       </p>
       <p>
-        Our <a href='/tools/meeting-cost-calculator'>Meeting Cost Calculator</a>{" "}
+        Our <a href="/tools/meeting-cost-calculator">Meeting Cost Calculator</a>{" "}
         computes the cost in real time based on attendee count, average salary,
         and meeting duration.
       </p>
@@ -118,7 +118,7 @@ export default function Post() {
       <p>
         Meetings are an expensive tool that most organisations deploy without
         calculating the cost. Use the{" "}
-        <a href='/tools/meeting-cost-calculator'>Meeting Cost Calculator</a> to
+        <a href="/tools/meeting-cost-calculator">Meeting Cost Calculator</a> to
         put a real number on your recurring meetings the results are often
         sobering and use that number to make better decisions about which
         meetings to have, how long to run them, and who needs to be there.

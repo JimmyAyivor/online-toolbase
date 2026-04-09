@@ -39,7 +39,7 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        Our <a href='/tools/ideal-weight-calculator'>Ideal Weight Calculator</a>{" "}
+        Our <a href="/tools/ideal-weight-calculator">Ideal Weight Calculator</a>{" "}
         computes results from all four formulas and shows the healthy BMI weight
         range for context.
       </p>
@@ -80,8 +80,8 @@ export default function Post() {
         For an individual assessment, body composition metrics body fat
         percentage, waist circumference, metabolic markers are more informative
         than ideal body weight formulas alone. See also:{" "}
-        <a href='/tools/bmi-calculator'>BMI Calculator</a> and{" "}
-        <a href='/tools/body-fat-calculator'>Body Fat Calculator</a>.
+        <a href="/tools/bmi-calculator">BMI Calculator</a> and{" "}
+        <a href="/tools/body-fat-calculator">Body Fat Calculator</a>.
       </p>
 
       <h2>FAQ</h2>
@@ -113,7 +113,7 @@ export default function Post() {
       <p>
         Ideal weight formulas provide a clinical reference range rather than a
         personal target. Use the{" "}
-        <a href='/tools/ideal-weight-calculator'>Ideal Weight Calculator</a> to
+        <a href="/tools/ideal-weight-calculator">Ideal Weight Calculator</a> to
         see results from multiple formulas alongside your healthy BMI range, and
         treat the result as a contextual reference rather than a specific goal.
       </p>

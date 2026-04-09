@@ -34,26 +34,26 @@ export default function AcronymGeneratorClient() {
   };
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-sky-50 via-blue-50 to-sky-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
+    <div className="min-h-screen bg-gradient-to-br from-sky-50 via-blue-50 to-sky-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-sky-500 to-blue-600 rounded-full mb-4 shadow-lg'>
-              <Zap className='w-8 h-8 text-white' />
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-sky-500 to-blue-600 rounded-full mb-4 shadow-lg">
+              <Zap className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Acronym Generator
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Turn any phrase into a crisp acronym instantly
             </p>
           </div>
 
-          <div className='max-w-xl mx-auto'>
+          <div className="max-w-xl mx-auto">
             {/* Phrase input */}
-            <div className='mb-4'>
-              <label className='block text-sm font-medium text-gray-700 mb-2'>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Enter a phrase
               </label>
               <textarea
@@ -61,18 +61,18 @@ export default function AcronymGeneratorClient() {
                 onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
                   setPhrase(e.target.value)
                 }
-                placeholder='e.g. As Soon As Possible'
+                placeholder="e.g. As Soon As Possible"
                 rows={3}
-                className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-sky-500 focus:border-transparent resize-none'
+                className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-sky-500 focus:border-transparent resize-none"
               />
             </div>
 
             {/* Style selector */}
-            <div className='mb-6'>
-              <label className='block text-sm font-medium text-gray-700 mb-2'>
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Format style
               </label>
-              <div className='flex gap-3'>
+              <div className="flex gap-3">
                 {(["upper", "lower", "dot"] as const).map((s) => (
                   <button
                     key={s}
@@ -95,38 +95,38 @@ export default function AcronymGeneratorClient() {
 
             {/* Result */}
             {acronym && (
-              <div className='bg-sky-50 border-2 border-sky-100 rounded-xl p-6 mb-6'>
-                <div className='flex items-center justify-between mb-3'>
-                  <span className='text-sm font-medium text-sky-600'>
+              <div className="bg-sky-50 border-2 border-sky-100 rounded-xl p-6 mb-6">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-sm font-medium text-sky-600">
                     Your Acronym
                   </span>
                   <button
                     onClick={handleCopy}
-                    className='flex items-center gap-1.5 text-sm text-sky-600 hover:text-sky-800 transition-colors'
+                    className="flex items-center gap-1.5 text-sm text-sky-600 hover:text-sky-800 transition-colors"
                   >
                     {copied ? (
-                      <Check className='w-4 h-4' />
+                      <Check className="w-4 h-4" />
                     ) : (
-                      <Copy className='w-4 h-4' />
+                      <Copy className="w-4 h-4" />
                     )}
                     {copied ? "Copied!" : "Copy"}
                   </button>
                 </div>
-                <div className='text-5xl font-extrabold text-sky-700 tracking-widest mb-4'>
+                <div className="text-5xl font-extrabold text-sky-700 tracking-widest mb-4">
                   {acronym}
                 </div>
                 {/* Letter breakdown */}
-                <div className='flex flex-wrap gap-2'>
+                <div className="flex flex-wrap gap-2">
                   {wordList.map((word, i) => (
-                    <div key={i} className='flex items-baseline gap-1'>
-                      <span className='text-lg font-bold text-sky-600'>
+                    <div key={i} className="flex items-baseline gap-1">
+                      <span className="text-lg font-bold text-sky-600">
                         {word[0]}
                       </span>
-                      <span className='text-sm text-gray-500'>
+                      <span className="text-sm text-gray-500">
                         {word.slice(1)}
                       </span>
                       {i < wordList.length - 1 && (
-                        <span className='text-gray-300 mx-1'>·</span>
+                        <span className="text-gray-300 mx-1">·</span>
                       )}
                     </div>
                   ))}
@@ -136,7 +136,7 @@ export default function AcronymGeneratorClient() {
 
             {/* Stats */}
             {phrase.trim() && (
-              <div className='grid grid-cols-3 gap-4 mb-6'>
+              <div className="grid grid-cols-3 gap-4 mb-6">
                 {[
                   { label: "Words", value: wordList.length },
                   {
@@ -150,12 +150,12 @@ export default function AcronymGeneratorClient() {
                 ].map(({ label, value }) => (
                   <div
                     key={label}
-                    className='bg-gray-50 rounded-xl p-3 text-center border border-gray-200'
+                    className="bg-gray-50 rounded-xl p-3 text-center border border-gray-200"
                   >
-                    <div className='text-2xl font-bold text-sky-600'>
+                    <div className="text-2xl font-bold text-sky-600">
                       {value}
                     </div>
-                    <div className='text-xs text-gray-500 mt-0.5'>{label}</div>
+                    <div className="text-xs text-gray-500 mt-0.5">{label}</div>
                   </div>
                 ))}
               </div>
@@ -164,18 +164,18 @@ export default function AcronymGeneratorClient() {
             {/* Reset */}
             <button
               onClick={handleReset}
-              className='flex items-center gap-2 text-sm text-gray-500 hover:text-sky-600 transition-colors mb-8'
+              className="flex items-center gap-2 text-sm text-gray-500 hover:text-sky-600 transition-colors mb-8"
             >
-              <RotateCcw className='w-4 h-4' />
+              <RotateCcw className="w-4 h-4" />
               Reset
             </button>
 
             {/* Tips */}
-            <div className='mt-4 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-              <p className='font-semibold mb-2 text-gray-800'>
+            <div className="mt-4 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+              <p className="font-semibold mb-2 text-gray-800">
                 💡 Tips for great acronyms:
               </p>
-              <ul className='list-disc list-inside space-y-1'>
+              <ul className="list-disc list-inside space-y-1">
                 <li>Use UPPERCASE for standard acronyms like NASA or NATO</li>
                 <li>
                   The D.O.T. style adds periods between letters for formal

@@ -27,44 +27,44 @@ export default function MacroCalculatorClient() {
         }
       : null;
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <Utensils className='w-8 h-8 text-indigo-600' />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4">
+              <Utensils className="w-8 h-8 text-indigo-600" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Macro Calculator
             </h2>
-            <p className='text-gray-600'>
+            <p className="text-gray-600">
               Calculate your daily protein, carbs, and fat targets based on your
               goal
             </p>
           </div>
-          <div className='grid md:grid-cols-2 gap-8'>
-            <div className='space-y-4'>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-4">
               <div>
-                <label className='block text-sm font-medium text-gray-700 mb-1'>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
                   Your daily TDEE (maintenance calories)
                 </label>
                 <input
-                  type='number'
-                  min='0'
+                  type="number"
+                  min="0"
                   value={tdee}
                   onChange={(e) => setTdee(e.target.value)}
-                  placeholder='e.g. 2200'
-                  className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
+                  placeholder="e.g. 2200"
+                  className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                 />
-                <p className='text-xs text-gray-400 mt-1'>
+                <p className="text-xs text-gray-400 mt-1">
                   Use our Calorie Calculator to find your TDEE.
                 </p>
               </div>
               <div>
-                <label className='block text-sm font-medium text-gray-700 mb-2'>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Goal
                 </label>
-                <div className='space-y-2'>
+                <div className="space-y-2">
                   {(
                     Object.entries(GOALS) as [Goal, (typeof GOALS)[Goal]][]
                   ).map(([k, v]) => (
@@ -86,15 +86,15 @@ export default function MacroCalculatorClient() {
               </div>
             </div>
             {result && (
-              <div className='space-y-3'>
-                <div className='bg-indigo-50 border-2 border-indigo-100 rounded-xl p-5 text-center'>
-                  <p className='text-xs text-gray-500 mb-1'>
+              <div className="space-y-3">
+                <div className="bg-indigo-50 border-2 border-indigo-100 rounded-xl p-5 text-center">
+                  <p className="text-xs text-gray-500 mb-1">
                     Daily calorie target
                   </p>
-                  <p className='text-4xl font-black text-indigo-700'>
+                  <p className="text-4xl font-black text-indigo-700">
                     {Math.round(result.calories)}
                   </p>
-                  <p className='text-sm text-gray-500 mt-1'>
+                  <p className="text-sm text-gray-500 mt-1">
                     calories/day{" "}
                     {g.adj !== 0
                       ? `(${g.adj > 0 ? "+" : ""}${g.adj} from maintenance)`
@@ -124,14 +124,14 @@ export default function MacroCalculatorClient() {
                     color: "text-green-600",
                   },
                 ].map(({ l, v, pct, cal, color }) => (
-                  <div key={l} className='bg-gray-50 rounded-xl px-4 py-3'>
-                    <div className='flex justify-between items-center'>
-                      <span className='text-sm font-medium text-gray-700'>
+                  <div key={l} className="bg-gray-50 rounded-xl px-4 py-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm font-medium text-gray-700">
                         {l}
                       </span>
                       <span className={`font-black text-lg ${color}`}>{v}</span>
                     </div>
-                    <div className='flex justify-between text-xs text-gray-400 mt-0.5'>
+                    <div className="flex justify-between text-xs text-gray-400 mt-0.5">
                       <span>{pct} of calories</span>
                       <span>{cal}</span>
                     </div>
@@ -145,14 +145,14 @@ export default function MacroCalculatorClient() {
               setTdee("");
               setGoal("maintain");
             }}
-            className='flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-600 transition-colors mt-6 mb-8'
+            className="flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-600 transition-colors mt-6 mb-8"
           >
-            <RotateCcw className='w-4 h-4' />
+            <RotateCcw className="w-4 h-4" />
             Reset
           </button>
-          <div className='p-4 bg-gray-50 rounded-lg border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Macronutrient basics:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="p-4 bg-gray-50 rounded-lg border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2">Macronutrient basics:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Protein: 4 calories per gram — builds and repairs muscle, high
                 satiety

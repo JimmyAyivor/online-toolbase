@@ -57,8 +57,11 @@ export async function POST(req: NextRequest) {
     result = await submitUrls(body.urls);
   } else {
     return NextResponse.json(
-      { error: "Provide either { urls: string[] } or { mode: 'all-tools' | 'full-site' }" },
-      { status: 400 }
+      {
+        error:
+          "Provide either { urls: string[] } or { mode: 'all-tools' | 'full-site' }",
+      },
+      { status: 400 },
     );
   }
 

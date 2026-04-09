@@ -41,21 +41,21 @@ export default async function CategoryPage({ params }: Props) {
   if (categoryTools.length === 0) return notFound();
 
   return (
-    <div className='min-h-screen bg-gray-50'>
-      <div className='max-w-6xl mx-auto px-6 py-16'>
-        <h1 className='text-4xl font-bold mb-10 capitalize'>
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <h1 className="text-4xl font-bold mb-10 capitalize">
           {category.replace(/-/g, " ")} Tools
         </h1>
 
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categoryTools.map((tool) => (
             <Link
               key={tool.slug}
               href={`/tools/${tool.slug}`}
-              className='block bg-white rounded-xl shadow p-6 hover:shadow-xl transition'
+              className="block bg-white rounded-xl shadow p-6 hover:shadow-xl transition"
             >
-              <h3 className='text-xl font-bold mb-2'>{tool.name}</h3>
-              <p className='text-gray-600 text-sm'>{tool.description}</p>
+              <h3 className="text-xl font-bold mb-2">{tool.name}</h3>
+              <p className="text-gray-600 text-sm">{tool.description}</p>
             </Link>
           ))}
         </div>

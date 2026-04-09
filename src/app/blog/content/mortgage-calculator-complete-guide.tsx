@@ -48,7 +48,7 @@ export default function Post() {
         mortgage versus a 20-year mortgage on the same loan might save you
         £200/month now but cost you an extra £40,000+ in total interest over the
         life of the loan. Our{" "}
-        <a href='/tools/loan-mortgage-calculator'>Loan & Mortgage Calculator</a>{" "}
+        <a href="/tools/loan-mortgage-calculator">Loan & Mortgage Calculator</a>{" "}
         shows the full repayment schedule so you can see this trade-off clearly.
       </p>
 
@@ -137,7 +137,7 @@ export default function Post() {
       </p>
       <p>
         Run scenarios for both in our{" "}
-        <a href='/tools/loan-mortgage-calculator'>Loan & Mortgage Calculator</a>{" "}
+        <a href="/tools/loan-mortgage-calculator">Loan & Mortgage Calculator</a>{" "}
         try different rates, terms, and deposit sizes to understand the full
         range of outcomes before you commit.
       </p>

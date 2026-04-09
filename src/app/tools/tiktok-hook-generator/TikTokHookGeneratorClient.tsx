@@ -228,60 +228,60 @@ export default function TikTokHookGeneratorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-rose-950 p-4 md:p-8'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-gray-900 border border-gray-800 rounded-2xl shadow-2xl p-8'>
+    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-rose-950 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl shadow-2xl p-8">
           {/* Header */}
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-rose-500 to-pink-600 rounded-2xl mb-4 shadow-lg'>
-              <Zap className='w-8 h-8 text-white' />
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-rose-500 to-pink-600 rounded-2xl mb-4 shadow-lg">
+              <Zap className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-white mb-2'>
+            <h2 className="text-3xl font-bold text-white mb-2">
               TikTok Hook Generator
             </h2>
-            <p className='text-gray-400'>
+            <p className="text-gray-400">
               Scroll-stopping opening lines that keep viewers watching
             </p>
           </div>
 
           {/* Inputs */}
-          <div className='grid md:grid-cols-2 gap-4 mb-6'>
+          <div className="grid md:grid-cols-2 gap-4 mb-6">
             <div>
-              <label className='block text-sm font-semibold text-gray-300 mb-2'>
+              <label className="block text-sm font-semibold text-gray-300 mb-2">
                 Topic / Subject
               </label>
               <input
-                type='text'
+                type="text"
                 value={topic}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setTopic(e.target.value)
                 }
-                placeholder='e.g. morning routines, investing, meal prep…'
-                className='w-full px-4 py-3 bg-gray-800 border-2 border-gray-700 focus:border-rose-500 rounded-xl text-white placeholder-gray-500 focus:outline-none transition-colors'
+                placeholder="e.g. morning routines, investing, meal prep…"
+                className="w-full px-4 py-3 bg-gray-800 border-2 border-gray-700 focus:border-rose-500 rounded-xl text-white placeholder-gray-500 focus:outline-none transition-colors"
               />
             </div>
             <div>
-              <label className='block text-sm font-semibold text-gray-300 mb-2'>
+              <label className="block text-sm font-semibold text-gray-300 mb-2">
                 Your Niche / Audience
               </label>
               <input
-                type='text'
+                type="text"
                 value={niche}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setNiche(e.target.value)
                 }
-                placeholder='e.g. entrepreneurs, busy moms, gym-goers…'
-                className='w-full px-4 py-3 bg-gray-800 border-2 border-gray-700 focus:border-rose-500 rounded-xl text-white placeholder-gray-500 focus:outline-none transition-colors'
+                placeholder="e.g. entrepreneurs, busy moms, gym-goers…"
+                className="w-full px-4 py-3 bg-gray-800 border-2 border-gray-700 focus:border-rose-500 rounded-xl text-white placeholder-gray-500 focus:outline-none transition-colors"
               />
             </div>
           </div>
 
           {/* Category */}
-          <div className='mb-4'>
-            <label className='block text-sm font-semibold text-gray-300 mb-2'>
+          <div className="mb-4">
+            <label className="block text-sm font-semibold text-gray-300 mb-2">
               Content Category
             </label>
-            <div className='grid grid-cols-4 md:grid-cols-7 gap-2'>
+            <div className="grid grid-cols-4 md:grid-cols-7 gap-2">
               {(Object.keys(CATEGORIES) as ContentCategory[]).map((cat) => (
                 <button
                   key={cat}
@@ -292,8 +292,8 @@ export default function TikTokHookGeneratorClient() {
                       : "border-gray-700 bg-gray-800 text-gray-400 hover:border-gray-600"
                   }`}
                 >
-                  <span className='text-lg'>{CATEGORIES[cat].icon}</span>
-                  <span className='text-center leading-tight'>
+                  <span className="text-lg">{CATEGORIES[cat].icon}</span>
+                  <span className="text-center leading-tight">
                     {CATEGORIES[cat].label}
                   </span>
                 </button>
@@ -302,17 +302,17 @@ export default function TikTokHookGeneratorClient() {
           </div>
 
           {/* Best hooks for this category */}
-          <div className='bg-gray-800 border border-rose-900 rounded-xl p-4 mb-6'>
-            <div className='flex items-center gap-2 mb-3'>
-              <span className='text-rose-400 font-bold text-sm'>
+          <div className="bg-gray-800 border border-rose-900 rounded-xl p-4 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-rose-400 font-bold text-sm">
                 🔥 Best hooks for {cfg.label}
               </span>
             </div>
-            <div className='flex flex-wrap gap-2'>
+            <div className="flex flex-wrap gap-2">
               {cfg.bestStyles.map((s) => (
                 <span
                   key={s}
-                  className='px-3 py-1 bg-rose-900 text-rose-300 rounded-full text-xs font-semibold'
+                  className="px-3 py-1 bg-rose-900 text-rose-300 rounded-full text-xs font-semibold"
                 >
                   {STYLE_LABELS[s]}
                 </span>
@@ -321,11 +321,11 @@ export default function TikTokHookGeneratorClient() {
           </div>
 
           {/* Style filter */}
-          <div className='mb-4'>
-            <label className='block text-sm font-semibold text-gray-300 mb-2'>
+          <div className="mb-4">
+            <label className="block text-sm font-semibold text-gray-300 mb-2">
               Filter by Style
             </label>
-            <div className='flex flex-wrap gap-2'>
+            <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setFilter("all")}
                 className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-all ${filter === "all" ? "bg-white text-gray-900 border-white" : "border-gray-600 text-gray-400 hover:border-gray-400"}`}
@@ -349,45 +349,45 @@ export default function TikTokHookGeneratorClient() {
           </div>
 
           {/* Hook cards */}
-          <div className='grid md:grid-cols-2 gap-3'>
+          <div className="grid md:grid-cols-2 gap-3">
             {visibleHooks.map((hook, idx) => {
               const generated = hook.template(topic, niche);
               const isCopied = copiedIdx === idx;
               return (
                 <div
                   key={`${hook.style}-${hook.label}`}
-                  className='bg-gray-800 border border-gray-700 rounded-xl p-4 hover:border-gray-500 transition-all'
+                  className="bg-gray-800 border border-gray-700 rounded-xl p-4 hover:border-gray-500 transition-all"
                 >
-                  <div className='flex items-center justify-between mb-2'>
-                    <div className='flex items-center gap-2'>
-                      <span className='text-lg'>{hook.icon}</span>
-                      <span className='text-sm font-bold text-white'>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">{hook.icon}</span>
+                      <span className="text-sm font-bold text-white">
                         {hook.label}
                       </span>
-                      <span className='px-2 py-0.5 bg-gray-700 text-gray-400 rounded-full text-xs'>
+                      <span className="px-2 py-0.5 bg-gray-700 text-gray-400 rounded-full text-xs">
                         {STYLE_LABELS[hook.style]}
                       </span>
                     </div>
                     <button
                       onClick={() => copyHook(hook, idx)}
-                      aria-label='Copy hook'
-                      className='p-1.5 bg-gray-700 hover:bg-rose-700 rounded-lg transition-colors'
+                      aria-label="Copy hook"
+                      className="p-1.5 bg-gray-700 hover:bg-rose-700 rounded-lg transition-colors"
                     >
                       {isCopied ? (
-                        <Check className='w-4 h-4 text-green-400' />
+                        <Check className="w-4 h-4 text-green-400" />
                       ) : (
-                        <Copy className='w-4 h-4 text-gray-300' />
+                        <Copy className="w-4 h-4 text-gray-300" />
                       )}
                     </button>
                   </div>
 
-                  <p className='text-gray-200 text-sm leading-relaxed mb-3 min-h-[60px]'>
+                  <p className="text-gray-200 text-sm leading-relaxed mb-3 min-h-[60px]">
                     {generated}
                   </p>
 
-                  <div className='border-t border-gray-700 pt-2'>
-                    <p className='text-xs text-gray-500'>
-                      <span className='text-rose-400 font-semibold'>
+                  <div className="border-t border-gray-700 pt-2">
+                    <p className="text-xs text-gray-500">
+                      <span className="text-rose-400 font-semibold">
                         Why it works:{" "}
                       </span>
                       {hook.why}
@@ -399,11 +399,11 @@ export default function TikTokHookGeneratorClient() {
           </div>
 
           {/* Tips */}
-          <div className='mt-6 p-4 bg-gray-800 border border-gray-700 rounded-xl text-sm text-gray-400'>
-            <p className='font-semibold text-white mb-2'>
+          <div className="mt-6 p-4 bg-gray-800 border border-gray-700 rounded-xl text-sm text-gray-400">
+            <p className="font-semibold text-white mb-2">
               ⚡ Hook Writing Rules
             </p>
-            <ul className='space-y-1 list-disc list-inside'>
+            <ul className="space-y-1 list-disc list-inside">
               <li>
                 First 1–3 seconds is all that matters — hook before the cut
               </li>

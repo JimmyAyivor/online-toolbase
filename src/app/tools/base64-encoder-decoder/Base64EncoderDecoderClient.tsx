@@ -196,23 +196,23 @@ export default function Base64EncoderDecoderClient() {
   };
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-emerald-50 to-teal-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-emerald-100 rounded-full mb-4'>
-              <Lock className='w-8 h-8 text-emerald-600' />
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 rounded-full mb-4">
+              <Lock className="w-8 h-8 text-emerald-600" />
             </div>
-            <h1 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h1 className="text-3xl font-bold text-gray-800 mb-2">
               Base64 Encoder/Decoder
             </h1>
-            <p className='text-gray-600'>
+            <p className="text-gray-600">
               Convert text and images to/from Base64 format
             </p>
           </div>
 
-          <div className='mb-6 flex flex-wrap gap-3 items-center justify-between'>
-            <div className='flex gap-2'>
+          <div className="mb-6 flex flex-wrap gap-3 items-center justify-between">
+            <div className="flex gap-2">
               <button
                 onClick={() => setMode("encode")}
                 className={`px-6 py-2 rounded-lg font-semibold transition-colors flex items-center gap-2 ${
@@ -221,7 +221,7 @@ export default function Base64EncoderDecoderClient() {
                     : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                 }`}
               >
-                <Lock className='w-4 h-4' />
+                <Lock className="w-4 h-4" />
                 Encode
               </button>
               <button
@@ -232,35 +232,35 @@ export default function Base64EncoderDecoderClient() {
                     : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                 }`}
               >
-                <Unlock className='w-4 h-4' />
+                <Unlock className="w-4 h-4" />
                 Decode
               </button>
             </div>
 
-            <div className='flex gap-2'>
-              <label className='px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors cursor-pointer flex items-center gap-2'>
-                <Upload className='w-4 h-4' />
+            <div className="flex gap-2">
+              <label className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors cursor-pointer flex items-center gap-2">
+                <Upload className="w-4 h-4" />
                 Upload Text
                 <input
-                  type='file'
+                  type="file"
                   onChange={handleFileUpload}
-                  className='hidden'
-                  accept='.txt,.json,.xml,.csv'
+                  className="hidden"
+                  accept=".txt,.json,.xml,.csv"
                 />
               </label>
-              <label className='px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors cursor-pointer flex items-center gap-2'>
-                <ImageIcon className='w-4 h-4' />
+              <label className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors cursor-pointer flex items-center gap-2">
+                <ImageIcon className="w-4 h-4" />
                 Upload Image
                 <input
-                  type='file'
+                  type="file"
                   onChange={handleImageUpload}
-                  className='hidden'
-                  accept='image/*'
+                  className="hidden"
+                  accept="image/*"
                 />
               </label>
               <button
                 onClick={clearAll}
-                className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors'
+                className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors"
               >
                 Clear
               </button>
@@ -268,14 +268,14 @@ export default function Base64EncoderDecoderClient() {
           </div>
 
           {fileInfo && (
-            <div className='mb-6 bg-blue-50 border border-blue-200 rounded-lg p-4'>
-              <div className='flex items-center gap-3'>
-                <FileText className='w-5 h-5 text-blue-600' />
-                <div className='flex-1'>
-                  <div className='font-semibold text-gray-800'>
+            <div className="mb-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="flex items-center gap-3">
+                <FileText className="w-5 h-5 text-blue-600" />
+                <div className="flex-1">
+                  <div className="font-semibold text-gray-800">
                     {fileInfo.name}
                   </div>
-                  <div className='text-sm text-gray-600'>
+                  <div className="text-sm text-gray-600">
                     {fileInfo.size} • {fileInfo.type}
                   </div>
                 </div>
@@ -284,14 +284,14 @@ export default function Base64EncoderDecoderClient() {
           )}
 
           {error && (
-            <div className='mb-6 flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-lg'>
-              <div className='font-semibold text-red-800'>{error}</div>
+            <div className="mb-6 flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-lg">
+              <div className="font-semibold text-red-800">{error}</div>
             </div>
           )}
 
-          <div className='grid md:grid-cols-2 gap-6 mb-6'>
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className='block text-sm font-medium text-gray-700 mb-2'>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Input {mode === "encode" ? "(Plain Text)" : "(Base64)"}
               </label>
               <textarea
@@ -302,32 +302,32 @@ export default function Base64EncoderDecoderClient() {
                     ? "Enter text to encode..."
                     : "Enter Base64 to decode..."
                 }
-                className='w-full h-64 p-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent resize-none font-mono text-sm'
+                className="w-full h-64 p-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent resize-none font-mono text-sm"
               />
-              <div className='mt-2 text-sm text-gray-500'>
+              <div className="mt-2 text-sm text-gray-500">
                 {input.length} characters
               </div>
             </div>
 
             <div>
-              <div className='flex items-center justify-between mb-2'>
-                <label className='block text-sm font-medium text-gray-700'>
+              <div className="flex items-center justify-between mb-2">
+                <label className="block text-sm font-medium text-gray-700">
                   Output {mode === "encode" ? "(Base64)" : "(Plain Text)"}
                 </label>
-                <div className='flex gap-2'>
+                <div className="flex gap-2">
                   <button
                     onClick={copyToClipboard}
                     disabled={!output}
-                    className='px-3 py-1 bg-green-600 hover:bg-green-700 disabled:bg-gray-300 disabled:text-gray-500 text-white text-xs rounded font-medium transition-colors flex items-center gap-1'
+                    className="px-3 py-1 bg-green-600 hover:bg-green-700 disabled:bg-gray-300 disabled:text-gray-500 text-white text-xs rounded font-medium transition-colors flex items-center gap-1"
                   >
                     {copied ? (
                       <>
-                        <CheckCircle className='w-3 h-3' />
+                        <CheckCircle className="w-3 h-3" />
                         Copied
                       </>
                     ) : (
                       <>
-                        <Copy className='w-3 h-3' />
+                        <Copy className="w-3 h-3" />
                         Copy
                       </>
                     )}
@@ -335,9 +335,9 @@ export default function Base64EncoderDecoderClient() {
                   <button
                     onClick={downloadOutput}
                     disabled={!output}
-                    className='px-3 py-1 bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-300 disabled:text-gray-500 text-white text-xs rounded font-medium transition-colors flex items-center gap-1'
+                    className="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-300 disabled:text-gray-500 text-white text-xs rounded font-medium transition-colors flex items-center gap-1"
                   >
-                    <Download className='w-3 h-3' />
+                    <Download className="w-3 h-3" />
                     Download
                   </button>
                 </div>
@@ -345,52 +345,52 @@ export default function Base64EncoderDecoderClient() {
               <textarea
                 value={output}
                 readOnly
-                placeholder='Output will appear here...'
-                className='w-full h-64 p-4 border-2 border-gray-300 rounded-lg bg-gray-50 resize-none font-mono text-sm'
+                placeholder="Output will appear here..."
+                className="w-full h-64 p-4 border-2 border-gray-300 rounded-lg bg-gray-50 resize-none font-mono text-sm"
               />
-              <div className='mt-2 text-sm text-gray-500'>
+              <div className="mt-2 text-sm text-gray-500">
                 {output.length} characters
               </div>
             </div>
           </div>
 
           {imagePreview && (
-            <div className='mb-6 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl p-6 border border-emerald-200'>
-              <div className='flex items-center justify-between mb-3'>
-                <h3 className='font-semibold text-gray-800'>Image Preview</h3>
+            <div className="mb-6 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl p-6 border border-emerald-200">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="font-semibold text-gray-800">Image Preview</h3>
                 <button
                   onClick={downloadImage}
-                  className='px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm rounded-lg font-medium transition-colors flex items-center gap-2'
+                  className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm rounded-lg font-medium transition-colors flex items-center gap-2"
                 >
-                  <Download className='w-4 h-4' />
+                  <Download className="w-4 h-4" />
                   Download Image
                 </button>
               </div>
-              <div className='bg-white rounded-lg p-4 flex items-center justify-center'>
+              <div className="bg-white rounded-lg p-4 flex items-center justify-center">
                 <img
                   src={imagePreview}
-                  alt='Preview'
-                  className='max-w-full max-h-96 object-contain'
+                  alt="Preview"
+                  className="max-w-full max-h-96 object-contain"
                   onError={() => setImagePreview("")}
                 />
               </div>
             </div>
           )}
 
-          <div className='flex justify-center mb-6'>
+          <div className="flex justify-center mb-6">
             <button
               onClick={swapMode}
               disabled={!output}
-              className='px-6 py-3 bg-teal-600 hover:bg-teal-700 disabled:bg-gray-300 disabled:text-gray-500 text-white rounded-lg font-semibold transition-colors flex items-center gap-2'
+              className="px-6 py-3 bg-teal-600 hover:bg-teal-700 disabled:bg-gray-300 disabled:text-gray-500 text-white rounded-lg font-semibold transition-colors flex items-center gap-2"
             >
-              <Unlock className='w-5 h-5' />
+              <Unlock className="w-5 h-5" />
               Swap & {mode === "encode" ? "Decode" : "Encode"}
             </button>
           </div>
 
-          <div className='p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>About Base64:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="p-4 bg-gray-50 rounded-lg text-sm text-gray-600">
+            <p className="font-semibold mb-2">About Base64:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Base64 encoding converts binary data into ASCII text format
               </li>

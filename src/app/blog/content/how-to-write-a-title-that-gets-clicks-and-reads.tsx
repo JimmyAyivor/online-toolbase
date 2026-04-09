@@ -101,7 +101,7 @@ export default function Post() {
 
       <h2>Using a title generator as a starting point</h2>
       <p>
-        Our <a href='/tools/essay-title-generator'>Essay Title Generator</a>{" "}
+        Our <a href="/tools/essay-title-generator">Essay Title Generator</a>{" "}
         produces title variations based on your topic and article type. Use it
         when you're stuck on a title, need to generate multiple options to test,
         or want to see your topic expressed through different structural
@@ -156,7 +156,7 @@ export default function Post() {
         Writing strong titles is a discipline. Use the structural frameworks
         above as a starting template, keep search intent and keyword placement
         in mind for SEO content, and use the{" "}
-        <a href='/tools/essay-title-generator'>Essay Title Generator</a> to
+        <a href="/tools/essay-title-generator">Essay Title Generator</a> to
         expand your options when you're stuck. The goal is a title that earns
         the click and respects the reader's expectations not just one or the
         other.

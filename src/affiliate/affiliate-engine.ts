@@ -8,8 +8,8 @@ export function getAffiliateOffers(tool: {
   const offers = Object.values(affiliateOffers);
 
   // 1. Category match
-  const categoryMatches = offers.filter(o =>
-    o.categories.includes(tool.category)
+  const categoryMatches = offers.filter((o) =>
+    o.categories.includes(tool.category),
   );
 
   // 2. Keyword boosts (high intent)
@@ -29,7 +29,7 @@ export function getAffiliateOffers(tool: {
 
   // Merge + dedupe
   const final = [
-    ...keywordBoosts.map(k => affiliateOffers[k]),
+    ...keywordBoosts.map((k) => affiliateOffers[k]),
     ...categoryMatches,
   ];
 
@@ -38,7 +38,7 @@ export function getAffiliateOffers(tool: {
 
 function dedupe(arr: any[]) {
   const seen = new Set();
-  return arr.filter(item => {
+  return arr.filter((item) => {
     if (!item) return false;
     if (seen.has(item.key)) return false;
     seen.add(item.key);

@@ -35,7 +35,7 @@ export default function Post() {
       </p>
       <p>
         Use our{" "}
-        <a href='/tools/color-contrast-checker'>Color Contrast Checker</a> to
+        <a href="/tools/color-contrast-checker">Color Contrast Checker</a> to
         instantly verify any foreground/background colour combination against
         WCAG AA and AAA standards.
       </p>
@@ -124,7 +124,7 @@ export default function Post() {
       <p>
         Check each state's colour combination separately hover backgrounds,
         focus ring colours, active states. Enter the colours for each state into
-        the <a href='/tools/color-contrast-checker'>Color Contrast Checker</a>{" "}
+        the <a href="/tools/color-contrast-checker">Color Contrast Checker</a>{" "}
         to verify all interactive states independently.
       </p>
 
@@ -133,7 +133,7 @@ export default function Post() {
         Contrast verification should be part of every design review, not an
         afterthought. Check all text/background combinations against WCAG AA as
         a minimum. Use the{" "}
-        <a href='/tools/color-contrast-checker'>Color Contrast Checker</a>{" "}
+        <a href="/tools/color-contrast-checker">Color Contrast Checker</a>{" "}
         during the design process it's faster to fix at design stage than after
         implementation.
       </p>

@@ -22,7 +22,7 @@ export default function Post() {
         , S = ··· , M = .
       </p>
       <p>
-        Use our <a href='/tools/morse-code-translator'>Morse Code Translator</a>{" "}
+        Use our <a href="/tools/morse-code-translator">Morse Code Translator</a>{" "}
         to convert any text to Morse code and decode Morse code back to text
         instantly.
       </p>
@@ -84,7 +84,7 @@ export default function Post() {
       <p>
         Morse code is a beautifully simple encoding system that demonstrates
         fundamental principles of information theory. Use the{" "}
-        <a href='/tools/morse-code-translator'>Morse Code Translator</a> to
+        <a href="/tools/morse-code-translator">Morse Code Translator</a> to
         convert between text and Morse instantly whether for a practical radio
         application, an educational exercise, or just curiosity.
       </p>

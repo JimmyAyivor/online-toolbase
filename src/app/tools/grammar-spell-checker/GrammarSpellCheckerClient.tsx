@@ -155,26 +155,26 @@ Return only the JSON, no other text or markdown.`,
   const scoreConfig = results ? getScoreConfig(results.score) : null;
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full mb-4 shadow-lg'>
-              <CheckCircle className='w-8 h-8 text-white' />
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full mb-4 shadow-lg">
+              <CheckCircle className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Grammar &amp; Spell Checker
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               AI-powered writing analysis — grammar, spelling, punctuation, and
               style
             </p>
           </div>
 
           {/* Input */}
-          <div className='mb-5'>
-            <label className='block text-sm font-semibold text-gray-700 mb-2'>
+          <div className="mb-5">
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
               Enter your text
             </label>
             <textarea
@@ -183,11 +183,11 @@ Return only the JSON, no other text or markdown.`,
                 setText(e.target.value);
                 setError("");
               }}
-              placeholder='Type or paste your text here…'
+              placeholder="Type or paste your text here…"
               rows={8}
-              className='w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none'
+              className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none"
             />
-            <div className='flex justify-between mt-1.5 text-xs text-gray-400'>
+            <div className="flex justify-between mt-1.5 text-xs text-gray-400">
               <span>{wordCount(text)} words</span>
               <span>{text.length} characters</span>
             </div>
@@ -195,8 +195,8 @@ Return only the JSON, no other text or markdown.`,
 
           {/* Error */}
           {error && (
-            <div className='flex items-center gap-2 px-4 py-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm mb-5'>
-              <AlertCircle className='w-4 h-4 shrink-0' />
+            <div className="flex items-center gap-2 px-4 py-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm mb-5">
+              <AlertCircle className="w-4 h-4 shrink-0" />
               <span>{error}</span>
             </div>
           )}
@@ -205,16 +205,16 @@ Return only the JSON, no other text or markdown.`,
           <button
             onClick={checkGrammar}
             disabled={loading}
-            className='w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 disabled:opacity-60 text-white font-bold py-3.5 px-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2'
+            className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 disabled:opacity-60 text-white font-bold py-3.5 px-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
           >
             {loading ? (
               <>
-                <Loader2 className='w-5 h-5 animate-spin' />
+                <Loader2 className="w-5 h-5 animate-spin" />
                 Analysing your text…
               </>
             ) : (
               <>
-                <CheckCircle className='w-5 h-5' />
+                <CheckCircle className="w-5 h-5" />
                 Check Grammar &amp; Spelling
               </>
             )}
@@ -222,37 +222,37 @@ Return only the JSON, no other text or markdown.`,
 
           {/* Results */}
           {results && scoreConfig && (
-            <div className='mt-8 space-y-6'>
+            <div className="mt-8 space-y-6">
               {/* Score card */}
               <div
                 className={`bg-gradient-to-r ${scoreConfig.bg} border-2 rounded-2xl p-6`}
               >
-                <div className='flex items-center justify-between mb-4'>
-                  <p className='text-xs font-bold uppercase tracking-widest text-gray-400'>
+                <div className="flex items-center justify-between mb-4">
+                  <p className="text-xs font-bold uppercase tracking-widest text-gray-400">
                     Writing Score
                   </p>
                   <p className={`text-5xl font-black ${scoreConfig.color}`}>
                     {results.score}
-                    <span className='text-2xl'>%</span>
+                    <span className="text-2xl">%</span>
                   </p>
                 </div>
                 <div
                   className={`flex items-start gap-3 px-4 py-3 rounded-xl text-sm ${results.score >= 90 ? "bg-emerald-50 border border-emerald-200 text-emerald-700" : results.score >= 70 ? "bg-amber-50 border border-amber-200 text-amber-700" : "bg-red-50 border border-red-200 text-red-700"}`}
                 >
                   {results.score >= 90 ? (
-                    <CheckCircle className='w-5 h-5 shrink-0 mt-0.5' />
+                    <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
                   ) : (
-                    <AlertCircle className='w-5 h-5 shrink-0 mt-0.5' />
+                    <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
                   )}
                   <div>
-                    <p className='font-bold'>{scoreConfig.label}</p>
+                    <p className="font-bold">{scoreConfig.label}</p>
                     <p>{scoreConfig.desc}</p>
                   </div>
                 </div>
 
                 {/* Type summary pills */}
                 {results.issues.length > 0 && (
-                  <div className='flex flex-wrap gap-2 mt-4'>
+                  <div className="flex flex-wrap gap-2 mt-4">
                     {(
                       [
                         "grammar",
@@ -281,32 +281,32 @@ Return only the JSON, no other text or markdown.`,
               {/* Issues list */}
               {results.issues.length > 0 && (
                 <div>
-                  <p className='text-sm font-bold text-gray-500 uppercase tracking-widest mb-3'>
+                  <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-3">
                     Issues found ({results.issues.length})
                   </p>
-                  <div className='space-y-3'>
+                  <div className="space-y-3">
                     {results.issues.map((issue, idx) => (
                       <div
                         key={idx}
-                        className='bg-gray-50 border border-gray-100 rounded-2xl p-5'
+                        className="bg-gray-50 border border-gray-100 rounded-2xl p-5"
                       >
-                        <div className='flex items-start gap-3'>
+                        <div className="flex items-start gap-3">
                           <span
                             className={`mt-0.5 px-2.5 py-1 rounded-full text-xs font-bold uppercase shrink-0 ${TYPE_STYLES[issue.type]?.pill ?? "bg-gray-100 text-gray-600"}`}
                           >
                             {issue.type}
                           </span>
-                          <div className='flex-1 min-w-0'>
-                            <div className='flex flex-wrap items-center gap-2 mb-2'>
-                              <span className='text-red-600 line-through text-sm font-medium'>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex flex-wrap items-center gap-2 mb-2">
+                              <span className="text-red-600 line-through text-sm font-medium">
                                 {issue.original}
                               </span>
-                              <span className='text-gray-400'>→</span>
-                              <span className='text-emerald-700 font-bold text-sm'>
+                              <span className="text-gray-400">→</span>
+                              <span className="text-emerald-700 font-bold text-sm">
                                 {issue.correction}
                               </span>
                             </div>
-                            <p className='text-xs text-gray-500 leading-relaxed'>
+                            <p className="text-xs text-gray-500 leading-relaxed">
                               {issue.explanation}
                             </p>
                           </div>
@@ -319,29 +319,29 @@ Return only the JSON, no other text or markdown.`,
 
               {/* Corrected text */}
               <div>
-                <div className='flex items-center justify-between mb-3'>
-                  <p className='text-sm font-bold text-gray-500 uppercase tracking-widest'>
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-sm font-bold text-gray-500 uppercase tracking-widest">
                     Corrected text
                   </p>
                   <button
                     onClick={copyToClipboard}
-                    className='flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl transition-colors'
+                    className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl transition-colors"
                   >
                     {copied ? (
                       <>
-                        <CheckCircle className='w-4 h-4' />
+                        <CheckCircle className="w-4 h-4" />
                         Copied!
                       </>
                     ) : (
                       <>
-                        <Copy className='w-4 h-4' />
+                        <Copy className="w-4 h-4" />
                         Copy text
                       </>
                     )}
                   </button>
                 </div>
-                <div className='bg-emerald-50 border-2 border-emerald-100 rounded-2xl p-5'>
-                  <p className='text-gray-800 leading-relaxed whitespace-pre-wrap'>
+                <div className="bg-emerald-50 border-2 border-emerald-100 rounded-2xl p-5">
+                  <p className="text-gray-800 leading-relaxed whitespace-pre-wrap">
                     {results.correctedText}
                   </p>
                 </div>
@@ -356,16 +356,16 @@ Return only the JSON, no other text or markdown.`,
               setResults(null);
               setError("");
             }}
-            className='flex items-center gap-2 text-sm text-gray-500 hover:text-green-600 transition-colors mt-6 mb-4'
+            className="flex items-center gap-2 text-sm text-gray-500 hover:text-green-600 transition-colors mt-6 mb-4"
           >
-            <RotateCcw className='w-4 h-4' />
+            <RotateCcw className="w-4 h-4" />
             Clear and start over
           </button>
 
           {/* Tips */}
-          <div className='p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2 text-gray-800'>💡 Writing tips:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2 text-gray-800">💡 Writing tips:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Use active voice instead of passive voice for more direct,
                 engaging writing

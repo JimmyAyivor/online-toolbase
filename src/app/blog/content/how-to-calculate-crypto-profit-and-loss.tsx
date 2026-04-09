@@ -22,7 +22,7 @@ export default function Post() {
       <p>Profit = £14,000 − £10,000 − £200 = £3,800.</p>
       <p>
         Our{" "}
-        <a href='/tools/crypto-profit-calculator'>Crypto Profit Calculator</a>{" "}
+        <a href="/tools/crypto-profit-calculator">Crypto Profit Calculator</a>{" "}
         handles the calculation for any cryptocurrency, entry price, exit price,
         quantity, and fees.
       </p>
@@ -155,7 +155,7 @@ export default function Post() {
         Crypto profit calculation requires including fees, using the correct
         cost basis method for your jurisdiction, and accounting for all taxable
         events. Use the{" "}
-        <a href='/tools/crypto-profit-calculator'>Crypto Profit Calculator</a>{" "}
+        <a href="/tools/crypto-profit-calculator">Crypto Profit Calculator</a>{" "}
         for quick trade-by-trade calculations, and use dedicated crypto tax
         software for filing compliance across multiple trades.
       </p>

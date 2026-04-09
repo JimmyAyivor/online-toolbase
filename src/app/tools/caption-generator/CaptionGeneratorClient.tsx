@@ -119,46 +119,46 @@ export default function CaptionGeneratorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4'>
-              <MessageSquare className='w-8 h-8 text-indigo-600' />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4">
+              <MessageSquare className="w-8 h-8 text-indigo-600" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Caption Generator
             </h2>
-            <p className='text-gray-600'>
+            <p className="text-gray-600">
               Generate engaging captions for photos and social media posts
             </p>
           </div>
 
-          <div className='space-y-6'>
+          <div className="space-y-6">
             {/* Topic input */}
             <div>
-              <label className='block text-sm font-medium text-gray-700 mb-2'>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 What Is Your Post About?
               </label>
               <input
-                type='text'
+                type="text"
                 value={topic}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setTopic(e.target.value)
                 }
-                placeholder='e.g. a product launch, a trip, a personal milestone...'
-                className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
+                placeholder="e.g. a product launch, a trip, a personal milestone..."
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
               />
             </div>
 
             {/* Options */}
-            <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
-              <div className='grid md:grid-cols-2 gap-4'>
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className='block text-sm font-medium text-gray-700 mb-2'>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Tone
                   </label>
-                  <div className='grid grid-cols-2 gap-2'>
+                  <div className="grid grid-cols-2 gap-2">
                     {TONES.map((t) => (
                       <button
                         key={t.key}
@@ -175,10 +175,10 @@ export default function CaptionGeneratorClient() {
                   </div>
                 </div>
                 <div>
-                  <label className='block text-sm font-medium text-gray-700 mb-2'>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Platform
                   </label>
-                  <div className='flex flex-wrap gap-2'>
+                  <div className="flex flex-wrap gap-2">
                     {PLATFORMS.map((p) => (
                       <button
                         key={p.key}
@@ -197,54 +197,54 @@ export default function CaptionGeneratorClient() {
               </div>
             </div>
 
-            <div className='flex gap-3'>
+            <div className="flex gap-3">
               <button
                 onClick={generate}
-                className='flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition-colors'
+                className="flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition-colors"
               >
                 Generate Captions
               </button>
               <button
                 onClick={reset}
-                className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2'
+                className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors flex items-center gap-2"
               >
-                <RotateCcw className='w-4 h-4' />
+                <RotateCcw className="w-4 h-4" />
                 Reset
               </button>
             </div>
 
             {/* Results */}
             {captions.length > 0 && (
-              <div className='space-y-3'>
-                <div className='flex items-center justify-between'>
-                  <h3 className='text-lg font-semibold text-gray-800'>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold text-gray-800">
                     Generated Captions
                   </h3>
                   <button
                     onClick={generate}
-                    className='flex items-center gap-2 text-sm text-indigo-600 hover:underline'
+                    className="flex items-center gap-2 text-sm text-indigo-600 hover:underline"
                   >
-                    <RefreshCw className='w-3 h-3' />
+                    <RefreshCw className="w-3 h-3" />
                     Regenerate
                   </button>
                 </div>
                 {captions.map((caption, i) => (
                   <div
                     key={i}
-                    className='bg-white border border-gray-200 rounded-lg p-4'
+                    className="bg-white border border-gray-200 rounded-lg p-4"
                   >
-                    <p className='text-sm text-gray-700 leading-relaxed whitespace-pre-line mb-3'>
+                    <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-line mb-3">
                       {caption}
                     </p>
-                    <div className='flex items-center justify-between'>
-                      <span className='text-xs text-gray-400'>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-gray-400">
                         {caption.length} characters
                       </span>
                       <button
                         onClick={() => copyCaption(i)}
-                        className='flex items-center gap-1 text-sm text-indigo-600 hover:underline'
+                        className="flex items-center gap-1 text-sm text-indigo-600 hover:underline"
                       >
-                        <Copy className='w-3 h-3' />
+                        <Copy className="w-3 h-3" />
                         {copied === i ? "Copied!" : "Copy"}
                       </button>
                     </div>
@@ -254,9 +254,9 @@ export default function CaptionGeneratorClient() {
             )}
           </div>
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Tips:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600">
+            <p className="font-semibold mb-2">Tips:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Be specific with your topic — &ldquo;product launch for my
                 skincare brand&rdquo; beats just &ldquo;product&rdquo;

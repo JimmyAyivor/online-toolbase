@@ -20,7 +20,7 @@ export default function Post() {
       </p>
       <p>
         Our{" "}
-        <a href='/tools/calorie-deficit-calculator'>
+        <a href="/tools/calorie-deficit-calculator">
           Calorie Deficit Calculator
         </a>{" "}
         calculates your TDEE and sets a deficit based on your goal rate of fat
@@ -111,7 +111,7 @@ export default function Post() {
       </ul>
       <p>
         Use the{" "}
-        <a href='/tools/protein-intake-calculator'>Protein Intake Calculator</a>{" "}
+        <a href="/tools/protein-intake-calculator">Protein Intake Calculator</a>{" "}
         to set your daily protein target alongside the calorie deficit.
       </p>
 
@@ -147,7 +147,7 @@ export default function Post() {
         A moderate, consistent calorie deficit with adequate protein and
         resistance training produces sustainable fat loss without significant
         muscle loss. Use the{" "}
-        <a href='/tools/calorie-deficit-calculator'>
+        <a href="/tools/calorie-deficit-calculator">
           Calorie Deficit Calculator
         </a>{" "}
         to find your target intake, set a realistic pace, and adjust based on

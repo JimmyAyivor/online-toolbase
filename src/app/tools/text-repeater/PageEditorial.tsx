@@ -30,44 +30,44 @@ function QRModal({ onClose }: { onClose: () => void }) {
   }, []);
   return (
     <div
-      className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm'
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <div className='relative bg-white rounded-3xl shadow-2xl p-8 mx-4 max-w-xs w-full text-center'>
+      <div className="relative bg-white rounded-3xl shadow-2xl p-8 mx-4 max-w-xs w-full text-center">
         <button
           onClick={onClose}
-          className='absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 transition-colors'
-          aria-label='Close'
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 transition-colors"
+          aria-label="Close"
         >
           ✕
         </button>
-        <div className='inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 mb-4 shadow-lg'>
+        <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 mb-4 shadow-lg">
           <svg
-            viewBox='0 0 24 24'
-            fill='none'
-            className='w-6 h-6 text-white'
-            stroke='currentColor'
+            viewBox="0 0 24 24"
+            fill="none"
+            className="w-6 h-6 text-white"
+            stroke="currentColor"
             strokeWidth={2}
           >
-            <rect x='3' y='3' width='7' height='7' rx='1' />
-            <rect x='14' y='3' width='7' height='7' rx='1' />
-            <rect x='3' y='14' width='7' height='7' rx='1' />
-            <rect x='14' y='14' width='3' height='3' rx='0.5' />
-            <rect x='18' y='14' width='3' height='3' rx='0.5' />
-            <rect x='14' y='18' width='3' height='3' rx='0.5' />
-            <rect x='18' y='18' width='3' height='3' rx='0.5' />
+            <rect x="3" y="3" width="7" height="7" rx="1" />
+            <rect x="14" y="3" width="7" height="7" rx="1" />
+            <rect x="3" y="14" width="7" height="7" rx="1" />
+            <rect x="14" y="14" width="3" height="3" rx="0.5" />
+            <rect x="18" y="14" width="3" height="3" rx="0.5" />
+            <rect x="14" y="18" width="3" height="3" rx="0.5" />
+            <rect x="18" y="18" width="3" height="3" rx="0.5" />
           </svg>
         </div>
-        <h3 className='text-lg font-black text-gray-900 mb-1'>
+        <h3 className="text-lg font-black text-gray-900 mb-1">
           Take it with you
         </h3>
-        <p className='text-sm text-gray-400 mb-5 leading-relaxed'>
+        <p className="text-sm text-gray-400 mb-5 leading-relaxed">
           Scan to open {TOOL_NAME} on mobile
         </p>
-        <div className='inline-block rounded-2xl overflow-hidden border-4 border-indigo-100 shadow-inner mb-5'>
+        <div className="inline-block rounded-2xl overflow-hidden border-4 border-indigo-100 shadow-inner mb-5">
           <canvas ref={canvasRef} />
         </div>
-        <p className='text-xs text-gray-300 font-mono break-all'>{TOOL_URL}</p>
+        <p className="text-xs text-gray-300 font-mono break-all">{TOOL_URL}</p>
       </div>
     </div>
   );
@@ -91,8 +91,8 @@ function ShareBar() {
       href: `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`,
       bg: "bg-black hover:bg-gray-800",
       icon: (
-        <svg viewBox='0 0 24 24' fill='currentColor' className='w-4 h-4'>
-          <path d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.733-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z' />
+        <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.733-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
         </svg>
       ),
     },
@@ -101,8 +101,8 @@ function ShareBar() {
       href: `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`,
       bg: "bg-[#0A66C2] hover:bg-[#004182]",
       icon: (
-        <svg viewBox='0 0 24 24' fill='currentColor' className='w-4 h-4'>
-          <path d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z' />
+        <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
         </svg>
       ),
     },
@@ -111,8 +111,8 @@ function ShareBar() {
       href: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`,
       bg: "bg-[#1877F2] hover:bg-[#0c5ab9]",
       icon: (
-        <svg viewBox='0 0 24 24' fill='currentColor' className='w-4 h-4'>
-          <path d='M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z' />
+        <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
         </svg>
       ),
     },
@@ -120,23 +120,23 @@ function ShareBar() {
   return (
     <>
       {qrOpen && <QRModal onClose={() => setQrOpen(false)} />}
-      <div className='bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-5 mb-6'>
-        <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4'>
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-5 mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <p className='text-sm font-bold text-gray-900 mb-0.5'>
+            <p className="text-sm font-bold text-gray-900 mb-0.5">
               Found this useful?
             </p>
-            <p className='text-xs text-gray-400'>
+            <p className="text-xs text-gray-400">
               Share the tool or scan to open on mobile
             </p>
           </div>
-          <div className='flex flex-wrap items-center gap-2'>
+          <div className="flex flex-wrap items-center gap-2">
             {SHARES.map(({ label, href, bg, icon }) => (
               <a
                 key={label}
                 href={href}
-                target='_blank'
-                rel='noopener noreferrer'
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-white text-xs font-semibold transition-colors ${bg}`}
               >
                 {icon}
@@ -145,13 +145,13 @@ function ShareBar() {
             ))}
             <button
               onClick={copyLink}
-              className='inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 text-xs font-semibold transition-colors'
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 text-xs font-semibold transition-colors"
             >
               {copied ? "✓ Copied!" : "🔗 Copy link"}
             </button>
             <button
               onClick={() => setQrOpen(true)}
-              className='inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 text-xs font-semibold transition-colors'
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 text-xs font-semibold transition-colors"
             >
               📱 QR code
             </button>
@@ -188,30 +188,30 @@ const FAQS = [
 function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
   return (
-    <div className='bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6'>
-      <h2 className='text-xl font-bold text-gray-900 mb-6'>
+    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6">
+      <h2 className="text-xl font-bold text-gray-900 mb-6">
         Frequently Asked Questions
       </h2>
-      <div className='space-y-3'>
+      <div className="space-y-3">
         {FAQS.map((faq, i) => (
           <div
             key={i}
-            className='border border-gray-100 rounded-xl overflow-hidden'
+            className="border border-gray-100 rounded-xl overflow-hidden"
           >
             <button
-              className='w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors'
+              className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
               onClick={() => setOpen(open === i ? null : i)}
               aria-expanded={open === i}
             >
-              <span className='font-semibold text-gray-900 text-sm'>
+              <span className="font-semibold text-gray-900 text-sm">
                 {faq.q}
               </span>
-              <span className='text-indigo-600 text-lg shrink-0'>
+              <span className="text-indigo-600 text-lg shrink-0">
                 {open === i ? "−" : "+"}
               </span>
             </button>
             {open === i && (
-              <div className='px-5 pb-4 text-sm text-gray-600 leading-relaxed'>
+              <div className="px-5 pb-4 text-sm text-gray-600 leading-relaxed">
                 {faq.a}
               </div>
             )}
@@ -224,15 +224,15 @@ function FAQSection() {
 
 export default function PageEditorial() {
   return (
-    <section aria-label='Additional information' className='mt-6'>
+    <section aria-label="Additional information" className="mt-6">
       <ShareBar />
-      <AdSlot slotId={SLOT_BELOW_TOOL} className='mb-6' />
+      <AdSlot slotId={SLOT_BELOW_TOOL} className="mb-6" />
 
-      <div className='bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6'>
-        <h2 className='text-xl font-bold text-gray-900 mb-4'>
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-6">
+        <h2 className="text-xl font-bold text-gray-900 mb-4">
           How to use the Text Repeater
         </h2>
-        <div className='space-y-4'>
+        <div className="space-y-4">
           {[
             {
               n: "1",
@@ -255,13 +255,13 @@ export default function PageEditorial() {
               body: "The output appears in real time below. Click Copy to capture the full result to your clipboard — even if the display is truncated, the copy always includes everything.",
             },
           ].map(({ n, title, body }) => (
-            <div key={n} className='flex items-start gap-4 text-sm'>
-              <span className='w-7 h-7 rounded-full bg-indigo-100 text-indigo-700 font-black text-xs flex items-center justify-center flex-shrink-0 mt-0.5'>
+            <div key={n} className="flex items-start gap-4 text-sm">
+              <span className="w-7 h-7 rounded-full bg-indigo-100 text-indigo-700 font-black text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
                 {n}
               </span>
               <div>
-                <p className='font-semibold text-gray-900 mb-0.5'>{title}</p>
-                <p className='text-gray-500 leading-relaxed'>{body}</p>
+                <p className="font-semibold text-gray-900 mb-0.5">{title}</p>
+                <p className="text-gray-500 leading-relaxed">{body}</p>
               </div>
             </div>
           ))}
@@ -270,10 +270,10 @@ export default function PageEditorial() {
 
       <FAQSection />
 
-      <h2 className='text-2xl font-bold text-gray-900 mb-6'>
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">
         Common use cases
       </h2>
-      <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10'>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
         {[
           {
             emoji: "🧪",
@@ -308,22 +308,22 @@ export default function PageEditorial() {
         ].map(({ emoji, title, desc }) => (
           <div
             key={title}
-            className='bg-white rounded-2xl border border-gray-100 shadow-sm p-5'
+            className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5"
           >
-            <div className='text-2xl mb-3'>{emoji}</div>
-            <p className='font-bold text-gray-900 text-sm mb-2'>{title}</p>
-            <p className='text-xs text-gray-500 leading-relaxed'>{desc}</p>
+            <div className="text-2xl mb-3">{emoji}</div>
+            <p className="font-bold text-gray-900 text-sm mb-2">{title}</p>
+            <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
           </div>
         ))}
       </div>
 
-      <AdSlot slotId={SLOT_LEADERBOARD} className='mb-10' />
+      <AdSlot slotId={SLOT_LEADERBOARD} className="mb-10" />
 
       <div>
-        <h3 className='text-lg font-bold text-gray-900 mb-4'>
+        <h3 className="text-lg font-bold text-gray-900 mb-4">
           Related Free Text Tools
         </h3>
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
             {
               href: "/tools/word-counter-live",
@@ -344,13 +344,13 @@ export default function PageEditorial() {
             <a
               key={link.href}
               href={link.href}
-              className='block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-indigo-200 hover:-translate-y-1 transition-all duration-200 p-5'
+              className="block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-indigo-200 hover:-translate-y-1 transition-all duration-200 p-5"
               aria-label={`${link.label} — ${link.desc}`}
             >
-              <div className='font-bold text-gray-900 text-sm mb-1'>
+              <div className="font-bold text-gray-900 text-sm mb-1">
                 {link.label}
               </div>
-              <div className='text-xs text-gray-500'>{link.desc}</div>
+              <div className="text-xs text-gray-500">{link.desc}</div>
             </a>
           ))}
         </div>

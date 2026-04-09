@@ -30,8 +30,8 @@ export const ABUSE_CONFIG = {
 
 export function getIp(req: NextRequest): string {
   return (
-    req.headers.get("cf-connecting-ip") ??       // Cloudflare
-    req.headers.get("x-real-ip") ??              // Nginx proxy
+    req.headers.get("cf-connecting-ip") ?? // Cloudflare
+    req.headers.get("x-real-ip") ?? // Nginx proxy
     req.headers.get("x-forwarded-for")?.split(",")[0].trim() ??
     "unknown"
   );
@@ -135,9 +135,9 @@ export async function isDuplicateContent(
 // ─── Basic spam heuristics ────────────────────────────────────────────────────
 
 const SPAM_PATTERNS = [
-  /https?:\/\//i,              // URLs in short content
+  /https?:\/\//i, // URLs in short content
   /\b(casino|viagra|crypto|nft|click here|buy now|free money)\b/i,
-  /(.)\1{6,}/,                 // same character 7+ times in a row e.g. "aaaaaaa"
+  /(.)\1{6,}/, // same character 7+ times in a row e.g. "aaaaaaa"
 ];
 
 export function looksLikeSpam(text: string): boolean {

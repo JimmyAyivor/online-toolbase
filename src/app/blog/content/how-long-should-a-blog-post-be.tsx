@@ -30,7 +30,7 @@ export default function Post() {
         If you're writing for developers or researchers, assume longer.
       </p>
       <p>
-        Our <a href='/tools/reading-time-estimator'>Reading Time Estimator</a>{" "}
+        Our <a href="/tools/reading-time-estimator">Reading Time Estimator</a>{" "}
         gives you an instant estimate based on your word count, so you can
         sense-check the length before publishing.
       </p>
@@ -128,7 +128,7 @@ export default function Post() {
         A useful editorial test: could this post be 20% shorter without losing
         anything genuinely useful? If yes, cut it. Filler content doesn't just
         fail to help SEO it actively dilutes the quality of what's there. A{" "}
-        <a href='/tools/word-character-counter'>word counter</a> while drafting
+        <a href="/tools/word-character-counter">word counter</a> while drafting
         keeps you honest about length as you write.
       </p>
 
@@ -170,7 +170,7 @@ export default function Post() {
       <p>
         Blog post length should follow from the topic, the audience, and the
         search intent not from a word count target set in advance. Use the{" "}
-        <a href='/tools/reading-time-estimator'>Reading Time Estimator</a> to
+        <a href="/tools/reading-time-estimator">Reading Time Estimator</a> to
         translate word count into the metric readers actually care about, and
         build your content plan around the time commitment that fits your
         audience's behaviour. Write what the post needs. Not a word more.

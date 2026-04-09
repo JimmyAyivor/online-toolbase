@@ -23,7 +23,7 @@ export default function Post() {
       </ul>
       <p>
         Use our{" "}
-        <a href='/tools/roman-numeral-converter'>Roman Numeral Converter</a> to
+        <a href="/tools/roman-numeral-converter">Roman Numeral Converter</a> to
         convert any number to Roman numerals and back.
       </p>
       <h2>The two rules: addition and subtraction</h2>
@@ -115,7 +115,7 @@ export default function Post() {
         Roman numerals are easier to understand than they appear once you know
         the additive and subtractive rules. They remain in genuine use across
         dozens of contexts, from movie credits to clock faces to royalty. Use
-        the <a href='/tools/roman-numeral-converter'>Roman Numeral Converter</a>{" "}
+        the <a href="/tools/roman-numeral-converter">Roman Numeral Converter</a>{" "}
         to convert any number to Roman numerals or decode any Roman numeral back
         to decimal.
       </p>

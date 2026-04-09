@@ -168,111 +168,111 @@ export default function ImageCropperResizerClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-teal-50 to-cyan-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-full mb-4 shadow-lg'>
-              <Crop className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-teal-50 to-cyan-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-full mb-4 shadow-lg">
+              <Crop className="w-8 h-8 text-white" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Image Cropper &amp; Resizer
             </h2>
-            <p className='text-gray-500'>
+            <p className="text-gray-500">
               Crop and resize images to specific dimensions
             </p>
           </div>
 
           {!image ? (
             /* ── Upload zone ── */
-            <div className='border-4 border-dashed border-gray-300 rounded-xl p-12 text-center hover:border-teal-400 transition-colors'>
-              <label className='cursor-pointer'>
-                <Upload className='w-16 h-16 text-gray-400 mx-auto mb-4' />
-                <div className='text-lg font-semibold text-gray-700 mb-2'>
+            <div className="border-4 border-dashed border-gray-300 rounded-xl p-12 text-center hover:border-teal-400 transition-colors">
+              <label className="cursor-pointer">
+                <Upload className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                <div className="text-lg font-semibold text-gray-700 mb-2">
                   Upload an Image
                 </div>
-                <div className='text-sm text-gray-500 mb-4'>
+                <div className="text-sm text-gray-500 mb-4">
                   Click to browse or drag and drop
                 </div>
-                <div className='inline-block px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-semibold transition-colors'>
+                <div className="inline-block px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-semibold transition-colors">
                   Choose File
                 </div>
                 <input
-                  type='file'
-                  accept='image/*'
+                  type="file"
+                  accept="image/*"
                   onChange={handleImageUpload}
-                  className='hidden'
+                  className="hidden"
                 />
               </label>
             </div>
           ) : (
             /* ── Editor ── */
-            <div className='space-y-6'>
+            <div className="space-y-6">
               {/* Image info + change */}
-              <div className='bg-gray-50 rounded-xl border border-gray-200 p-4'>
-                <div className='flex items-center justify-between mb-4'>
+              <div className="bg-gray-50 rounded-xl border border-gray-200 p-4">
+                <div className="flex items-center justify-between mb-4">
                   <div>
-                    <div className='font-semibold text-gray-900'>
+                    <div className="font-semibold text-gray-900">
                       {imageName}
                     </div>
-                    <div className='text-sm text-gray-600'>
+                    <div className="text-sm text-gray-600">
                       Original: {dimensions.width} × {dimensions.height} px
                     </div>
                   </div>
-                  <label className='px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-medium transition-colors cursor-pointer'>
+                  <label className="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-medium transition-colors cursor-pointer">
                     Change Image
                     <input
-                      type='file'
-                      accept='image/*'
+                      type="file"
+                      accept="image/*"
                       onChange={handleImageUpload}
-                      className='hidden'
+                      className="hidden"
                     />
                   </label>
                 </div>
 
                 {/* Dimensions */}
-                <div className='grid md:grid-cols-2 gap-4'>
+                <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className='block text-sm font-medium text-gray-700 mb-2'>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Width (px)
                     </label>
                     <input
-                      type='number'
+                      type="number"
                       value={newWidth}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         handleWidthChange(e.target.value)
                       }
-                      className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent'
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                     />
                   </div>
                   <div>
-                    <label className='block text-sm font-medium text-gray-700 mb-2'>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Height (px)
                     </label>
                     <input
-                      type='number'
+                      type="number"
                       value={newHeight}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         handleHeightChange(e.target.value)
                       }
-                      className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent'
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                     />
                   </div>
                 </div>
 
-                <div className='mt-4 flex items-center gap-2'>
+                <div className="mt-4 flex items-center gap-2">
                   <input
-                    type='checkbox'
-                    id='maintainAspect'
+                    type="checkbox"
+                    id="maintainAspect"
                     checked={maintainAspect}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setMaintainAspect(e.target.checked)
                     }
-                    className='w-4 h-4 text-teal-600 rounded focus:ring-2 focus:ring-teal-500'
+                    className="w-4 h-4 text-teal-600 rounded focus:ring-2 focus:ring-teal-500"
                   />
                   <label
-                    htmlFor='maintainAspect'
-                    className='text-sm text-gray-700'
+                    htmlFor="maintainAspect"
+                    className="text-sm text-gray-700"
                   >
                     Maintain aspect ratio
                   </label>
@@ -280,16 +280,16 @@ export default function ImageCropperResizerClient() {
               </div>
 
               {/* Presets */}
-              <div className='bg-gray-50 rounded-xl border border-gray-200 p-4'>
-                <h3 className='font-semibold text-gray-900 mb-3'>
+              <div className="bg-gray-50 rounded-xl border border-gray-200 p-4">
+                <h3 className="font-semibold text-gray-900 mb-3">
                   Quick Presets
                 </h3>
-                <div className='grid grid-cols-2 md:grid-cols-5 gap-2'>
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
                   {PRESETS.map(({ id, label, w, h }) => (
                     <button
                       key={id}
                       onClick={() => applyPreset(id)}
-                      className='px-3 py-2 bg-white hover:bg-teal-50 border border-gray-300 hover:border-teal-400 rounded-lg text-sm font-medium transition-colors'
+                      className="px-3 py-2 bg-white hover:bg-teal-50 border border-gray-300 hover:border-teal-400 rounded-lg text-sm font-medium transition-colors"
                     >
                       {label}
                       <br />
@@ -300,14 +300,14 @@ export default function ImageCropperResizerClient() {
               </div>
 
               {/* Transform */}
-              <div className='bg-gray-50 rounded-xl border border-gray-200 p-4'>
-                <h3 className='font-semibold text-gray-900 mb-3'>Transform</h3>
-                <div className='flex gap-2 flex-wrap'>
+              <div className="bg-gray-50 rounded-xl border border-gray-200 p-4">
+                <h3 className="font-semibold text-gray-900 mb-3">Transform</h3>
+                <div className="flex gap-2 flex-wrap">
                   <button
                     onClick={rotate90}
-                    className='flex items-center gap-2 px-4 py-2 bg-white hover:bg-teal-50 border border-gray-300 hover:border-teal-400 rounded-lg font-medium transition-colors'
+                    className="flex items-center gap-2 px-4 py-2 bg-white hover:bg-teal-50 border border-gray-300 hover:border-teal-400 rounded-lg font-medium transition-colors"
                   >
-                    <RotateCw className='w-4 h-4' />
+                    <RotateCw className="w-4 h-4" />
                     Rotate 90°
                   </button>
                   <button
@@ -318,7 +318,7 @@ export default function ImageCropperResizerClient() {
                         : "bg-white hover:bg-teal-50 border-gray-300 hover:border-teal-400"
                     }`}
                   >
-                    <FlipHorizontal className='w-4 h-4' />
+                    <FlipHorizontal className="w-4 h-4" />
                     Flip H
                   </button>
                   <button
@@ -329,20 +329,20 @@ export default function ImageCropperResizerClient() {
                         : "bg-white hover:bg-teal-50 border-gray-300 hover:border-teal-400"
                     }`}
                   >
-                    <FlipVertical className='w-4 h-4' />
+                    <FlipVertical className="w-4 h-4" />
                     Flip V
                   </button>
                 </div>
               </div>
 
               {/* Export settings */}
-              <div className='bg-gray-50 rounded-xl border border-gray-200 p-4'>
-                <h3 className='font-semibold text-gray-900 mb-3'>
+              <div className="bg-gray-50 rounded-xl border border-gray-200 p-4">
+                <h3 className="font-semibold text-gray-900 mb-3">
                   Export Settings
                 </h3>
-                <div className='grid md:grid-cols-2 gap-4'>
+                <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className='block text-sm font-medium text-gray-700 mb-2'>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Format
                     </label>
                     <select
@@ -350,61 +350,61 @@ export default function ImageCropperResizerClient() {
                       onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                         setFormat(e.target.value as ExportFormat)
                       }
-                      className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent'
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                     >
-                      <option value='png'>PNG</option>
-                      <option value='jpg'>JPEG</option>
-                      <option value='webp'>WebP</option>
+                      <option value="png">PNG</option>
+                      <option value="jpg">JPEG</option>
+                      <option value="webp">WebP</option>
                     </select>
                   </div>
                   <div>
-                    <label className='block text-sm font-medium text-gray-700 mb-2'>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Quality: {quality}%
                     </label>
                     <input
-                      type='range'
-                      min='1'
-                      max='100'
+                      type="range"
+                      min="1"
+                      max="100"
                       value={quality}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         setQuality(Number(e.target.value))
                       }
-                      className='w-full'
-                      aria-label='Export quality'
+                      className="w-full"
+                      aria-label="Export quality"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Canvas preview */}
-              <div className='bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl border border-teal-200 p-6'>
-                <h3 className='font-semibold text-gray-900 mb-3'>Preview</h3>
-                <div className='bg-white rounded-xl p-4 flex items-center justify-center min-h-64 overflow-auto'>
+              <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl border border-teal-200 p-6">
+                <h3 className="font-semibold text-gray-900 mb-3">Preview</h3>
+                <div className="bg-white rounded-xl p-4 flex items-center justify-center min-h-64 overflow-auto">
                   <canvas
                     ref={canvasRef}
-                    className='max-w-full max-h-96 border border-gray-300'
+                    className="max-w-full max-h-96 border border-gray-300"
                   />
                 </div>
-                <div className='mt-3 text-sm text-gray-600 text-center'>
+                <div className="mt-3 text-sm text-gray-600 text-center">
                   Output: {newWidth} × {newHeight} px
                 </div>
               </div>
 
-              <div className='flex justify-center'>
+              <div className="flex justify-center">
                 <button
                   onClick={downloadImage}
-                  className='px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-semibold text-lg transition-colors flex items-center gap-3'
+                  className="px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-semibold text-lg transition-colors flex items-center gap-3"
                 >
-                  <Download className='w-6 h-6' />
+                  <Download className="w-6 h-6" />
                   Download Image
                 </button>
               </div>
             </div>
           )}
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Features:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-600">
+            <p className="font-semibold mb-2">Features:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Resize images to custom dimensions or use social media presets
               </li>

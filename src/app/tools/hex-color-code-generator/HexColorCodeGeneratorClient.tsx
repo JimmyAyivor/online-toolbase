@@ -177,38 +177,38 @@ export default function HexColorCodeGeneratorClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50 p-4 md:p-8'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='text-center mb-8'>
-          <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-pink-600 to-purple-600 rounded-2xl mb-4 shadow-lg'>
-            <Palette className='w-8 h-8 text-white' />
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-pink-600 to-purple-600 rounded-2xl mb-4 shadow-lg">
+            <Palette className="w-8 h-8 text-white" />
           </div>
-          <h2 className='text-4xl font-bold text-gray-900 mb-2'>
+          <h2 className="text-4xl font-bold text-gray-900 mb-2">
             Hex Color Code Generator
           </h2>
-          <p className='text-gray-600'>
+          <p className="text-gray-600">
             Generate, explore, and save beautiful color palettes
           </p>
         </div>
 
-        <div className='grid lg:grid-cols-3 gap-6'>
+        <div className="grid lg:grid-cols-3 gap-6">
           {/* ── Main column ── */}
-          <div className='lg:col-span-2 space-y-6'>
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
+          <div className="lg:col-span-2 space-y-6">
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
               {/* Color preview */}
               <div
-                className='w-full h-64 rounded-2xl shadow-lg mb-6 flex items-center justify-center transition-all duration-300'
+                className="w-full h-64 rounded-2xl shadow-lg mb-6 flex items-center justify-center transition-all duration-300"
                 style={{ backgroundColor: currentColor }}
               >
-                <div className='text-center'>
+                <div className="text-center">
                   <div
-                    className='text-5xl font-bold mb-2'
+                    className="text-5xl font-bold mb-2"
                     style={{ color: contrastColor }}
                   >
                     {currentColor}
                   </div>
                   <div
-                    className='text-xl'
+                    className="text-xl"
                     style={{ color: contrastColor, opacity: 0.8 }}
                   >
                     Click to change color
@@ -217,45 +217,45 @@ export default function HexColorCodeGeneratorClient() {
               </div>
 
               {/* Action buttons */}
-              <div className='grid grid-cols-2 md:grid-cols-4 gap-3 mb-6'>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
                 <button
                   onClick={generateRandomColor}
-                  className='flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white rounded-xl font-semibold shadow-lg transition-all'
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white rounded-xl font-semibold shadow-lg transition-all"
                 >
-                  <Shuffle className='w-5 h-5' />
+                  <Shuffle className="w-5 h-5" />
                   Random
                 </button>
                 <button
                   onClick={() => handleCopy(currentColor, "hex")}
-                  className='flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold shadow-lg transition-all'
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold shadow-lg transition-all"
                 >
                   {copied === "hex" ? (
-                    <Check className='w-5 h-5' />
+                    <Check className="w-5 h-5" />
                   ) : (
-                    <Copy className='w-5 h-5' />
+                    <Copy className="w-5 h-5" />
                   )}
                   Copy HEX
                 </button>
                 <button
                   onClick={saveColor}
-                  className='flex items-center justify-center gap-2 px-4 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold shadow-lg transition-all'
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold shadow-lg transition-all"
                 >
-                  <Heart className='w-5 h-5' />
+                  <Heart className="w-5 h-5" />
                   Save
                 </button>
                 <input
-                  type='color'
+                  type="color"
                   value={currentColor}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setCurrentColor(e.target.value.toUpperCase())
                   }
-                  aria-label='Pick a color'
-                  className='w-full h-full rounded-xl cursor-pointer border-2 border-gray-300'
+                  aria-label="Pick a color"
+                  className="w-full h-full rounded-xl cursor-pointer border-2 border-gray-300"
                 />
               </div>
 
               {/* Color code display */}
-              <div className='space-y-4'>
+              <div className="space-y-4">
                 {(
                   [
                     { label: "HEX", value: currentColor, id: "hex-code" },
@@ -271,24 +271,24 @@ export default function HexColorCodeGeneratorClient() {
                     },
                   ] as const
                 ).map(({ label, value, id }) => (
-                  <div key={id} className='p-4 bg-gray-50 rounded-xl'>
-                    <div className='flex justify-between items-center mb-2'>
-                      <span className='font-semibold text-gray-700'>
+                  <div key={id} className="p-4 bg-gray-50 rounded-xl">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="font-semibold text-gray-700">
                         {label}
                       </span>
                       <button
                         onClick={() => handleCopy(value, id)}
-                        className='p-2 hover:bg-white rounded-lg transition-colors'
+                        className="p-2 hover:bg-white rounded-lg transition-colors"
                         aria-label={`Copy ${label} value`}
                       >
                         {copied === id ? (
-                          <Check className='w-4 h-4 text-green-600' />
+                          <Check className="w-4 h-4 text-green-600" />
                         ) : (
-                          <Copy className='w-4 h-4 text-gray-600' />
+                          <Copy className="w-4 h-4 text-gray-600" />
                         )}
                       </button>
                     </div>
-                    <code className='text-lg font-mono font-bold text-gray-900'>
+                    <code className="text-lg font-mono font-bold text-gray-900">
                       {value}
                     </code>
                   </div>
@@ -297,23 +297,23 @@ export default function HexColorCodeGeneratorClient() {
             </div>
 
             {/* Analogous palette */}
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
-              <h3 className='font-bold text-gray-900 mb-4 flex items-center gap-2 text-xl'>
-                <Palette className='w-6 h-6 text-pink-600' />
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+              <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2 text-xl">
+                <Palette className="w-6 h-6 text-pink-600" />
                 Analogous Color Palette
               </h3>
-              <div className='grid grid-cols-5 gap-3'>
+              <div className="grid grid-cols-5 gap-3">
                 {palette.map((color, index) => (
                   <div
                     key={index}
                     onClick={() => setCurrentColor(color)}
-                    className='cursor-pointer group'
+                    className="cursor-pointer group"
                   >
                     <div
-                      className='w-full h-20 rounded-xl shadow-md group-hover:shadow-lg transition-all group-hover:scale-105'
+                      className="w-full h-20 rounded-xl shadow-md group-hover:shadow-lg transition-all group-hover:scale-105"
                       style={{ backgroundColor: color }}
                     />
-                    <p className='text-xs font-mono text-center mt-2 text-gray-600'>
+                    <p className="text-xs font-mono text-center mt-2 text-gray-600">
                       {color}
                     </p>
                   </div>
@@ -323,21 +323,21 @@ export default function HexColorCodeGeneratorClient() {
 
             {/* History */}
             {colorHistory.length > 0 && (
-              <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8'>
-                <h3 className='font-bold text-gray-900 mb-4 flex items-center gap-2 text-xl'>
-                  <RefreshCw className='w-6 h-6 text-purple-600' />
+              <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2 text-xl">
+                  <RefreshCw className="w-6 h-6 text-purple-600" />
                   Recent Colors
                 </h3>
-                <div className='grid grid-cols-6 md:grid-cols-12 gap-3'>
+                <div className="grid grid-cols-6 md:grid-cols-12 gap-3">
                   {colorHistory.map((color, index) => (
                     <div
                       key={index}
                       onClick={() => setCurrentColor(color)}
-                      className='cursor-pointer group'
+                      className="cursor-pointer group"
                       title={color}
                     >
                       <div
-                        className='w-full h-12 rounded-lg shadow-md group-hover:shadow-lg transition-all group-hover:scale-110'
+                        className="w-full h-12 rounded-lg shadow-md group-hover:shadow-lg transition-all group-hover:scale-110"
                         style={{ backgroundColor: color }}
                       />
                     </div>
@@ -348,65 +348,65 @@ export default function HexColorCodeGeneratorClient() {
           </div>
 
           {/* ── Sidebar ── */}
-          <div className='space-y-6'>
-            <div className='bg-white rounded-2xl shadow-xl p-6 md:p-8 sticky top-8'>
-              <div className='flex justify-between items-center mb-4'>
-                <h3 className='font-bold text-gray-900 flex items-center gap-2'>
-                  <Heart className='w-5 h-5 text-pink-600' />
+          <div className="space-y-6">
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 sticky top-8">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="font-bold text-gray-900 flex items-center gap-2">
+                  <Heart className="w-5 h-5 text-pink-600" />
                   Saved Colors ({savedColors.length})
                 </h3>
                 {savedColors.length > 0 && (
                   <button
                     onClick={handleExportPalette}
-                    className='flex items-center gap-1 px-3 py-1 bg-pink-600 hover:bg-pink-700 text-white rounded-lg text-sm font-medium transition-colors'
+                    className="flex items-center gap-1 px-3 py-1 bg-pink-600 hover:bg-pink-700 text-white rounded-lg text-sm font-medium transition-colors"
                   >
-                    <Download className='w-4 h-4' />
+                    <Download className="w-4 h-4" />
                     Export
                   </button>
                 )}
               </div>
 
               {savedColors.length === 0 ? (
-                <div className='text-center py-8 text-gray-500'>
-                  <Heart className='w-12 h-12 mx-auto mb-3 opacity-30' />
-                  <p className='text-sm'>No saved colors yet</p>
-                  <p className='text-xs mt-1'>Click save to add colors</p>
+                <div className="text-center py-8 text-gray-500">
+                  <Heart className="w-12 h-12 mx-auto mb-3 opacity-30" />
+                  <p className="text-sm">No saved colors yet</p>
+                  <p className="text-xs mt-1">Click save to add colors</p>
                 </div>
               ) : (
-                <div className='space-y-3 max-h-96 overflow-y-auto'>
+                <div className="space-y-3 max-h-96 overflow-y-auto">
                   {savedColors.map((color, index) => (
                     <div
                       key={index}
-                      className='flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:shadow-md transition-shadow'
+                      className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:shadow-md transition-shadow"
                     >
                       <div
-                        className='w-12 h-12 rounded-lg shadow-md flex-shrink-0 cursor-pointer'
+                        className="w-12 h-12 rounded-lg shadow-md flex-shrink-0 cursor-pointer"
                         style={{ backgroundColor: color }}
                         onClick={() => setCurrentColor(color)}
                         title={`Select ${color}`}
                       />
-                      <div className='flex-1 min-w-0'>
-                        <code className='text-sm font-mono font-bold text-gray-900 block truncate'>
+                      <div className="flex-1 min-w-0">
+                        <code className="text-sm font-mono font-bold text-gray-900 block truncate">
                           {color}
                         </code>
                       </div>
                       <button
                         onClick={() => handleCopy(color, `saved-${index}`)}
-                        className='p-2 hover:bg-white rounded-lg transition-colors'
+                        className="p-2 hover:bg-white rounded-lg transition-colors"
                         aria-label={`Copy ${color}`}
                       >
                         {copied === `saved-${index}` ? (
-                          <Check className='w-4 h-4 text-green-600' />
+                          <Check className="w-4 h-4 text-green-600" />
                         ) : (
-                          <Copy className='w-4 h-4 text-gray-600' />
+                          <Copy className="w-4 h-4 text-gray-600" />
                         )}
                       </button>
                       <button
                         onClick={() => removeColor(color)}
-                        className='p-2 hover:bg-white rounded-lg transition-colors'
+                        className="p-2 hover:bg-white rounded-lg transition-colors"
                         aria-label={`Remove ${color}`}
                       >
-                        <Trash2 className='w-4 h-4 text-red-600' />
+                        <Trash2 className="w-4 h-4 text-red-600" />
                       </button>
                     </div>
                   ))}
@@ -414,9 +414,9 @@ export default function HexColorCodeGeneratorClient() {
               )}
             </div>
 
-            <div className='bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl shadow-md p-6 border-2 border-pink-200'>
-              <h4 className='font-bold text-gray-900 mb-4'>🎨 Color Formats</h4>
-              <div className='space-y-3 text-sm text-gray-700'>
+            <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl shadow-md p-6 border-2 border-pink-200">
+              <h4 className="font-bold text-gray-900 mb-4">🎨 Color Formats</h4>
+              <div className="space-y-3 text-sm text-gray-700">
                 {[
                   {
                     color: "bg-pink-600",
@@ -443,7 +443,7 @@ export default function HexColorCodeGeneratorClient() {
                     ),
                   },
                 ].map((item, i) => (
-                  <div key={i} className='flex items-start gap-2'>
+                  <div key={i} className="flex items-start gap-2">
                     <div
                       className={`w-2 h-2 ${item.color} rounded-full mt-2 flex-shrink-0`}
                     />
@@ -453,9 +453,9 @@ export default function HexColorCodeGeneratorClient() {
               </div>
             </div>
 
-            <div className='bg-white rounded-xl shadow-md p-6'>
-              <h4 className='font-bold text-gray-900 mb-3'>💡 Quick Tips</h4>
-              <div className='space-y-2 text-sm text-gray-700'>
+            <div className="bg-white rounded-xl shadow-md p-6">
+              <h4 className="font-bold text-gray-900 mb-3">💡 Quick Tips</h4>
+              <div className="space-y-2 text-sm text-gray-700">
                 <p>• Use color picker for precise selection</p>
                 <p>• Save colors to build custom palettes</p>
                 <p>• Export saved colors for your projects</p>

@@ -21,7 +21,7 @@ export default function Post() {
       </p>
       <p>
         Use our{" "}
-        <a href='/tools/hex-color-code-generator'>Hex Color Code Generator</a>{" "}
+        <a href="/tools/hex-color-code-generator">Hex Color Code Generator</a>{" "}
         to explore colours, generate random hex codes, and copy values
         instantly.
       </p>
@@ -63,7 +63,7 @@ export default function Post() {
         <li>
           <strong>On white background:</strong> Does it have sufficient contrast
           for text use? (Use the{" "}
-          <a href='/tools/color-contrast-checker'>Color Contrast Checker</a>)
+          <a href="/tools/color-contrast-checker">Color Contrast Checker</a>)
         </li>
         <li>
           <strong>On dark background:</strong> How does it perform inverted?
@@ -146,10 +146,10 @@ export default function Post() {
         A hex code is a starting point, not a complete colour system. Specify
         tints, shades, and neutrals alongside your primary colours, test each
         colour in context for contrast and usability, and use the{" "}
-        <a href='/tools/hex-color-code-generator'>Hex Color Code Generator</a>{" "}
+        <a href="/tools/hex-color-code-generator">Hex Color Code Generator</a>{" "}
         to explore options and copy values. Combine with the{" "}
-        <a href='/tools/color-code-converter'>Color Code Converter</a> and{" "}
-        <a href='/tools/color-contrast-checker'>Color Contrast Checker</a> for a
+        <a href="/tools/color-code-converter">Color Code Converter</a> and{" "}
+        <a href="/tools/color-contrast-checker">Color Contrast Checker</a> for a
         complete colour workflow.
       </p>
     </>

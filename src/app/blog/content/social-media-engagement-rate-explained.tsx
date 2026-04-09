@@ -25,7 +25,7 @@ export default function Post() {
       </p>
       <p>
         Our{" "}
-        <a href='/tools/engagement-rate-calculator'>
+        <a href="/tools/engagement-rate-calculator">
           Engagement Rate Calculator
         </a>{" "}
         computes rate from any combination of engagement metrics and follower
@@ -123,7 +123,7 @@ export default function Post() {
       <p>
         Engagement rate is a more honest measure of content performance than raw
         follower count or impressions. Use the{" "}
-        <a href='/tools/engagement-rate-calculator'>
+        <a href="/tools/engagement-rate-calculator">
           Engagement Rate Calculator
         </a>{" "}
         to track your rate across posts and time periods, benchmark against

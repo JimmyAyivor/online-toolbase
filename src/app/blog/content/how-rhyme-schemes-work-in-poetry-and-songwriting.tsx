@@ -89,7 +89,7 @@ export default function Post() {
       </p>
       <p>
         The fix is to work with more options. Our{" "}
-        <a href='/tools/rhyme-finder'>Rhyme Finder</a> generates full, near, and
+        <a href="/tools/rhyme-finder">Rhyme Finder</a> generates full, near, and
         related rhymes for any word giving you a large vocabulary of options to
         select from rather than forcing you to make do with the two you can
         think of on the spot. The best rhyme in the set might be a near-rhyme
@@ -129,7 +129,7 @@ export default function Post() {
         Use a rhyme finder to explore the full range, including near rhymes and
         multisyllabic options. Words like "orange", "purple", and "silver" are
         often cited as "impossible to rhyme" but near rhyme expands your options
-        significantly. Our <a href='/tools/rhyme-finder'>Rhyme Finder</a> shows
+        significantly. Our <a href="/tools/rhyme-finder">Rhyme Finder</a> shows
         you the full range including slant rhymes you might not think of
         independently.
       </p>
@@ -148,7 +148,7 @@ export default function Post() {
         forcing meaning to accommodate sound it creates resonance and
         memorability that prose can't quite replicate. Used poorly, it makes
         writing feel amateurish and constrained. Use the{" "}
-        <a href='/tools/rhyme-finder'>Rhyme Finder</a> to expand your options,
+        <a href="/tools/rhyme-finder">Rhyme Finder</a> to expand your options,
         include near rhymes in your consideration, and always let meaning drive
         the choice rather than the reverse.
       </p>

@@ -31,7 +31,7 @@ export default function Post() {
       </p>
       <p>
         Our{" "}
-        <a href='/tools/loan-mortgage-calculator'>Loan & Mortgage Calculator</a>{" "}
+        <a href="/tools/loan-mortgage-calculator">Loan & Mortgage Calculator</a>{" "}
         computes the monthly payment for any loan amount, rate, and term, and
         shows the full amortisation schedule.
       </p>
@@ -106,7 +106,7 @@ export default function Post() {
       <p>
         At remortgage time, even a small rate reduction saves significant money
         over the remaining term. Modelling the new payment with the{" "}
-        <a href='/tools/loan-mortgage-calculator'>mortgage calculator</a> versus
+        <a href="/tools/loan-mortgage-calculator">mortgage calculator</a> versus
         your current payment quickly shows whether a switch makes financial
         sense.
       </p>
@@ -149,7 +149,7 @@ export default function Post() {
         Understanding amortisation the slow shift from interest-heavy to
         principal-heavy payments over a loan's life changes how you think about
         overpayments, term length, and the true cost of borrowing. Use the{" "}
-        <a href='/tools/loan-mortgage-calculator'>Loan & Mortgage Calculator</a>{" "}
+        <a href="/tools/loan-mortgage-calculator">Loan & Mortgage Calculator</a>{" "}
         to model different scenarios and make decisions with full visibility of
         the numbers.
       </p>

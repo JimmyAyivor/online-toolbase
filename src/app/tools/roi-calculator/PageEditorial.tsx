@@ -3,8 +3,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import AdSlot from "@/components/AdSlot";
 
-const SLOT_BELOW_TOOL = process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
-const SLOT_LEADERBOARD = process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
+const SLOT_BELOW_TOOL =
+  process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
+const SLOT_LEADERBOARD =
+  process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 const TOOL_URL = "https://onlinetoolbase.com/tools/roi-calculator";
 const TOOL_NAME = "ROI Calculator";
 
@@ -14,17 +16,37 @@ function QRModal({ onClose }: { onClose: () => void }) {
     let cancelled = false;
     import("qrcode").then((QRCode) => {
       if (cancelled || !canvasRef.current) return;
-      QRCode.toCanvas(canvasRef.current, TOOL_URL, { width: 220, margin: 2, color: { dark: "#064e3b", light: "#ecfdf5" } });
+      QRCode.toCanvas(canvasRef.current, TOOL_URL, {
+        width: 220,
+        margin: 2,
+        color: { dark: "#064e3b", light: "#ecfdf5" },
+      });
     });
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, []);
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm" onClick={(e) => e.target === e.currentTarget && onClose()}>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
       <div className="relative bg-white rounded-3xl shadow-2xl p-8 mx-4 max-w-xs w-full text-center">
-        <button onClick={onClose} className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500">✕</button>
-        <h3 className="text-lg font-black text-gray-900 mb-1">Take it with you</h3>
-        <p className="text-sm text-gray-400 mb-5">Scan to open the {TOOL_NAME} on mobile</p>
-        <div className="inline-block rounded-2xl overflow-hidden border-4 border-emerald-100 shadow-inner mb-5"><canvas ref={canvasRef} /></div>
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500"
+        >
+          ✕
+        </button>
+        <h3 className="text-lg font-black text-gray-900 mb-1">
+          Take it with you
+        </h3>
+        <p className="text-sm text-gray-400 mb-5">
+          Scan to open the {TOOL_NAME} on mobile
+        </p>
+        <div className="inline-block rounded-2xl overflow-hidden border-4 border-emerald-100 shadow-inner mb-5">
+          <canvas ref={canvasRef} />
+        </div>
         <p className="text-xs text-gray-300 font-mono break-all">{TOOL_URL}</p>
       </div>
     </div>
@@ -34,25 +56,78 @@ function QRModal({ onClose }: { onClose: () => void }) {
 function ShareBar() {
   const [qrOpen, setQrOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-  const shareText = encodeURIComponent("Free ROI calculator — calculate return on investment, annualised ROI, net profit, and return multiple. No signup.");
+  const shareText = encodeURIComponent(
+    "Free ROI calculator — calculate return on investment, annualised ROI, net profit, and return multiple. No signup.",
+  );
   const shareUrl = encodeURIComponent(TOOL_URL);
-  const copyLink = () => { navigator.clipboard.writeText(TOOL_URL); setCopied(true); setTimeout(() => setCopied(false), 2000); };
+  const copyLink = () => {
+    navigator.clipboard.writeText(TOOL_URL);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
   const SHARES = [
-    { label: "X / Twitter", href: `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`, bg: "bg-black hover:bg-gray-800" },
-    { label: "LinkedIn",    href: `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`,     bg: "bg-[#0A66C2] hover:bg-[#004182]" },
-    { label: "Facebook",    href: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`,             bg: "bg-[#1877F2] hover:bg-[#0c5ab9]" },
-    { label: "WhatsApp",    href: `https://wa.me/?text=${shareText}%20${shareUrl}`,                       bg: "bg-[#25D366] hover:bg-[#1da851]" },
+    {
+      label: "X / Twitter",
+      href: `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`,
+      bg: "bg-black hover:bg-gray-800",
+    },
+    {
+      label: "LinkedIn",
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`,
+      bg: "bg-[#0A66C2] hover:bg-[#004182]",
+    },
+    {
+      label: "Facebook",
+      href: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`,
+      bg: "bg-[#1877F2] hover:bg-[#0c5ab9]",
+    },
+    {
+      label: "WhatsApp",
+      href: `https://wa.me/?text=${shareText}%20${shareUrl}`,
+      bg: "bg-[#25D366] hover:bg-[#1da851]",
+    },
   ];
   return (
     <>
       {qrOpen && <QRModal onClose={() => setQrOpen(false)} />}
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-5 mb-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div><p className="text-sm font-bold text-gray-900 mb-0.5">Found this useful?</p><p className="text-xs text-gray-400">Share the tool or scan to open on your phone</p></div>
+          <div>
+            <p className="text-sm font-bold text-gray-900 mb-0.5">
+              Found this useful?
+            </p>
+            <p className="text-xs text-gray-400">
+              Share the tool or scan to open on your phone
+            </p>
+          </div>
           <div className="flex flex-wrap items-center gap-2">
-            {SHARES.map(({ label, href, bg }) => (<a key={label} href={href} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center px-3 py-2 rounded-xl text-white text-xs font-semibold transition-all shadow-sm hover:-translate-y-0.5 ${bg}`}>{label}</a>))}
-            <button onClick={copyLink} className="px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold">{copied ? <span className="text-emerald-600">✓ Copied!</span> : "Copy link"}</button>
-            <button onClick={() => setQrOpen(true)} className="hidden sm:block px-3 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-xs font-semibold hover:-translate-y-0.5 transition-all">Scan QR</button>
+            {SHARES.map(({ label, href, bg }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center px-3 py-2 rounded-xl text-white text-xs font-semibold transition-all shadow-sm hover:-translate-y-0.5 ${bg}`}
+              >
+                {label}
+              </a>
+            ))}
+            <button
+              onClick={copyLink}
+              className="px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold"
+            >
+              {copied ? (
+                <span className="text-emerald-600">✓ Copied!</span>
+              ) : (
+                "Copy link"
+              )}
+            </button>
+            <button
+              onClick={() => setQrOpen(true)}
+              className="hidden sm:block px-3 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-xs font-semibold hover:-translate-y-0.5 transition-all"
+            >
+              Scan QR
+            </button>
           </div>
         </div>
       </div>
@@ -61,10 +136,26 @@ function ShareBar() {
 }
 
 const ROI_EXAMPLES = [
-  ["Stock investment",   "$10,000 → $14,500 over 2 years",    "ROI: 45%  |  Ann. ROI: 20.4%  |  Multiple: 1.45×"],
-  ["Marketing campaign", "$5,000 spend → $20,000 revenue",    "ROI: 300%  |  1-year period  |  Multiple: 4.00×"],
-  ["Real estate",        "$200,000 → $280,000 over 5 years",  "ROI: 40%  |  Ann. ROI: 6.96%  |  Multiple: 1.40×"],
-  ["Failed investment",  "$10,000 → $7,000 over 1 year",      "ROI: −30%  |  Net loss: −$3,000  |  Multiple: 0.70×"],
+  [
+    "Stock investment",
+    "$10,000 → $14,500 over 2 years",
+    "ROI: 45%  |  Ann. ROI: 20.4%  |  Multiple: 1.45×",
+  ],
+  [
+    "Marketing campaign",
+    "$5,000 spend → $20,000 revenue",
+    "ROI: 300%  |  1-year period  |  Multiple: 4.00×",
+  ],
+  [
+    "Real estate",
+    "$200,000 → $280,000 over 5 years",
+    "ROI: 40%  |  Ann. ROI: 6.96%  |  Multiple: 1.40×",
+  ],
+  [
+    "Failed investment",
+    "$10,000 → $7,000 over 1 year",
+    "ROI: −30%  |  Net loss: −$3,000  |  Multiple: 0.70×",
+  ],
 ];
 
 const FAQS = [
@@ -98,15 +189,29 @@ function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
   return (
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">
+        Frequently Asked Questions
+      </h2>
       <div className="space-y-3">
         {FAQS.map((f, i) => (
-          <div key={i} className="border border-gray-100 rounded-xl overflow-hidden">
-            <button className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors" onClick={() => setOpen(open === i ? null : i)}>
+          <div
+            key={i}
+            className="border border-gray-100 rounded-xl overflow-hidden"
+          >
+            <button
+              className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
+              onClick={() => setOpen(open === i ? null : i)}
+            >
               <span className="font-semibold text-gray-900 text-sm">{f.q}</span>
-              <span className="text-emerald-600 text-lg shrink-0">{open === i ? "−" : "+"}</span>
+              <span className="text-emerald-600 text-lg shrink-0">
+                {open === i ? "−" : "+"}
+              </span>
             </button>
-            {open === i && <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed">{f.a}</div>}
+            {open === i && (
+              <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed">
+                {f.a}
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -118,18 +223,40 @@ export default function PageEditorial() {
   return (
     <>
       <div className="max-w-6xl mx-auto px-4 mt-6 flex justify-center">
-        <div className="hidden sm:block"><AdSlot variant="rectangle" slotId={SLOT_BELOW_TOOL} /></div>
-        <div className="block sm:hidden"><AdSlot variant="mediumrectangle" slotId={SLOT_BELOW_TOOL} /></div>
+        <div className="hidden sm:block">
+          <AdSlot variant="rectangle" slotId={SLOT_BELOW_TOOL} />
+        </div>
+        <div className="block sm:hidden">
+          <AdSlot variant="mediumrectangle" slotId={SLOT_BELOW_TOOL} />
+        </div>
       </div>
       <div className="max-w-6xl mx-auto px-4 mt-4 flex justify-center">
-        <AdSlot variant="leaderboard" slotId={SLOT_LEADERBOARD} className="hidden sm:flex" />
-        <AdSlot variant="mediumrectangle" slotId={SLOT_LEADERBOARD} className="flex sm:hidden" />
+        <AdSlot
+          variant="leaderboard"
+          slotId={SLOT_LEADERBOARD}
+          className="hidden sm:flex"
+        />
+        <AdSlot
+          variant="mediumrectangle"
+          slotId={SLOT_LEADERBOARD}
+          className="flex sm:hidden"
+        />
       </div>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10"><ShareBar /></div>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+        <ShareBar />
+      </div>
 
-      <section id="how-to-use" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">How to Use the ROI Calculator</h2>
-        <p className="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed">Enter your initial investment, final value, and time period — get ROI %, annualised ROI, net profit, and return multiple instantly.</p>
+      <section
+        id="how-to-use"
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10"
+      >
+        <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">
+          How to Use the ROI Calculator
+        </h2>
+        <p className="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-14 leading-relaxed">
+          Enter your initial investment, final value, and time period — get ROI
+          %, annualised ROI, net profit, and return multiple instantly.
+        </p>
 
         <div className="space-y-6 mb-14">
           {[
@@ -137,7 +264,18 @@ export default function PageEditorial() {
               n: 1,
               title: "Enter your initial investment",
               body: "Type the total amount invested — the cost you paid to make the investment. This includes all costs directly associated with acquiring or making the investment: for stocks, include the purchase price; for a marketing campaign, include all spend (ads, creative, agency fees); for real estate, include the purchase price plus acquisition costs. Use the same currency throughout both fields for consistent results.",
-              enrich: <div className="bg-emerald-50 rounded-xl px-5 py-4 text-sm text-emerald-800 leading-relaxed"><strong>What counts as the investment cost:</strong> Include all costs that are part of making the investment, not ongoing operational costs after the investment. For marketing: total campaign spend. For stocks: purchase price + brokerage fees. For real estate: purchase price + stamp duty / closing costs. Excluding relevant costs inflates your ROI — be comprehensive in what you include as the initial investment for accurate results.</div>,
+              enrich: (
+                <div className="bg-emerald-50 rounded-xl px-5 py-4 text-sm text-emerald-800 leading-relaxed">
+                  <strong>What counts as the investment cost:</strong> Include
+                  all costs that are part of making the investment, not ongoing
+                  operational costs after the investment. For marketing: total
+                  campaign spend. For stocks: purchase price + brokerage fees.
+                  For real estate: purchase price + stamp duty / closing costs.
+                  Excluding relevant costs inflates your ROI — be comprehensive
+                  in what you include as the initial investment for accurate
+                  results.
+                </div>
+              ),
             },
             {
               n: 2,
@@ -146,18 +284,43 @@ export default function PageEditorial() {
               enrich: (
                 <div className="overflow-x-auto rounded-xl border border-gray-100 text-sm">
                   <table className="w-full text-left">
-                    <thead className="bg-gray-50"><tr><th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">Investment type</th><th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">Enter as Final Value</th></tr></thead>
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
+                          Investment type
+                        </th>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
+                          Enter as Final Value
+                        </th>
+                      </tr>
+                    </thead>
                     <tbody className="divide-y divide-gray-50">
                       {[
-                        ["Stocks / ETFs",        "Current market value + dividends received"],
-                        ["Marketing campaign",    "Total attributed revenue from the campaign"],
-                        ["Real estate",           "Sale price + rental income received"],
-                        ["Business investment",   "Proceeds received + business value if sold"],
-                        ["Training / education",  "Estimated salary increase value over time"],
+                        [
+                          "Stocks / ETFs",
+                          "Current market value + dividends received",
+                        ],
+                        [
+                          "Marketing campaign",
+                          "Total attributed revenue from the campaign",
+                        ],
+                        ["Real estate", "Sale price + rental income received"],
+                        [
+                          "Business investment",
+                          "Proceeds received + business value if sold",
+                        ],
+                        [
+                          "Training / education",
+                          "Estimated salary increase value over time",
+                        ],
                       ].map(([type, value]) => (
                         <tr key={type} className="hover:bg-emerald-50">
-                          <td className="px-4 py-2 font-bold text-emerald-700 text-xs">{type}</td>
-                          <td className="px-4 py-2 text-xs text-gray-500">{value}</td>
+                          <td className="px-4 py-2 font-bold text-emerald-700 text-xs">
+                            {type}
+                          </td>
+                          <td className="px-4 py-2 text-xs text-gray-500">
+                            {value}
+                          </td>
                         </tr>
                       ))}
                     </tbody>
@@ -169,7 +332,16 @@ export default function PageEditorial() {
               n: 3,
               title: "Set the time period",
               body: "Enter the number of years the investment was held or the campaign ran. For periods shorter than a year, use decimals: 6 months = 0.5, 3 months = 0.25, 18 months = 1.5. The time period is used to calculate the annualised ROI — it doesn't affect the total ROI % or net profit, only the annualised rate. For a one-time campaign without a duration (e.g. a single ad campaign that ran for 1 month), set 0.083 (1/12 of a year) to see the annualised equivalent.",
-              enrich: <div className="bg-teal-50 rounded-xl px-5 py-4 text-sm text-teal-800 leading-relaxed"><strong>Why annualised ROI matters:</strong> A 50% ROI over 1 year (50% annualised) is much better than a 50% ROI over 5 years (8.45% annualised). Without the time component, ROI comparisons are misleading. Always use annualised ROI when comparing investments held for different periods — the calculator shows both so you can see the difference.</div>,
+              enrich: (
+                <div className="bg-teal-50 rounded-xl px-5 py-4 text-sm text-teal-800 leading-relaxed">
+                  <strong>Why annualised ROI matters:</strong> A 50% ROI over 1
+                  year (50% annualised) is much better than a 50% ROI over 5
+                  years (8.45% annualised). Without the time component, ROI
+                  comparisons are misleading. Always use annualised ROI when
+                  comparing investments held for different periods — the
+                  calculator shows both so you can see the difference.
+                </div>
+              ),
             },
             {
               n: 4,
@@ -178,13 +350,31 @@ export default function PageEditorial() {
               enrich: (
                 <div className="overflow-x-auto rounded-xl border border-gray-100 text-sm">
                   <table className="w-full text-left">
-                    <thead className="bg-gray-50"><tr><th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">Example</th><th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">Inputs</th><th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">Key outputs</th></tr></thead>
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
+                          Example
+                        </th>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
+                          Inputs
+                        </th>
+                        <th className="px-4 py-2 text-xs font-bold text-gray-500 uppercase">
+                          Key outputs
+                        </th>
+                      </tr>
+                    </thead>
                     <tbody className="divide-y divide-gray-50">
                       {ROI_EXAMPLES.map(([name, inputs, outputs]) => (
                         <tr key={name} className="hover:bg-emerald-50">
-                          <td className="px-4 py-2 font-bold text-emerald-700 text-xs whitespace-nowrap">{name}</td>
-                          <td className="px-4 py-2 text-xs text-gray-700">{inputs}</td>
-                          <td className="px-4 py-2 text-xs font-mono text-gray-500">{outputs}</td>
+                          <td className="px-4 py-2 font-bold text-emerald-700 text-xs whitespace-nowrap">
+                            {name}
+                          </td>
+                          <td className="px-4 py-2 text-xs text-gray-700">
+                            {inputs}
+                          </td>
+                          <td className="px-4 py-2 text-xs font-mono text-gray-500">
+                            {outputs}
+                          </td>
                         </tr>
                       ))}
                     </tbody>
@@ -193,26 +383,66 @@ export default function PageEditorial() {
               ),
             },
           ].map(({ n, title, body, enrich }) => (
-            <div key={n} className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-600 text-white font-black text-lg flex items-center justify-center">{n}</div>
-              <div><h3 className="text-lg font-bold text-gray-900 mb-2">{title}</h3><p className="text-gray-600 leading-relaxed mb-3">{body}</p>{enrich}</div>
+            <div
+              key={n}
+              className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 flex gap-5"
+            >
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-600 text-white font-black text-lg flex items-center justify-center">
+                {n}
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  {title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-3">{body}</p>
+                {enrich}
+              </div>
             </div>
           ))}
         </div>
 
         <FAQSection />
 
-        <h3 className="text-2xl font-bold text-gray-900 mb-6">Common use cases</h3>
+        <h3 className="text-2xl font-bold text-gray-900 mb-6">
+          Common use cases
+        </h3>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
           {[
-            { emoji: "📣", title: "Marketing campaign ROI", desc: "Calculate the return on ad spend (ROAS) and overall campaign ROI — enter total campaign cost and attributed revenue." },
-            { emoji: "📈", title: "Stock and portfolio returns", desc: "Calculate the total and annualised return on stock investments — enter purchase cost and current or sale value with holding period." },
-            { emoji: "🏠", title: "Real estate investment", desc: "Evaluate property investment performance — include purchase costs and total returns from rental income and sale proceeds." },
-            { emoji: "💼", title: "Business investment evaluation", desc: "Compare the ROI of different business investments — equipment, training, software, or expansion — using annualised returns." },
-            { emoji: "🎓", title: "Education and training ROI", desc: "Estimate the return on education or training investment — compare course cost against expected salary increase over time." },
-            { emoji: "⚖️", title: "Investment comparison", desc: "Use annualised ROI to compare investments held for different periods — the annualised figure normalises the time factor for fair comparison." },
+            {
+              emoji: "📣",
+              title: "Marketing campaign ROI",
+              desc: "Calculate the return on ad spend (ROAS) and overall campaign ROI — enter total campaign cost and attributed revenue.",
+            },
+            {
+              emoji: "📈",
+              title: "Stock and portfolio returns",
+              desc: "Calculate the total and annualised return on stock investments — enter purchase cost and current or sale value with holding period.",
+            },
+            {
+              emoji: "🏠",
+              title: "Real estate investment",
+              desc: "Evaluate property investment performance — include purchase costs and total returns from rental income and sale proceeds.",
+            },
+            {
+              emoji: "💼",
+              title: "Business investment evaluation",
+              desc: "Compare the ROI of different business investments — equipment, training, software, or expansion — using annualised returns.",
+            },
+            {
+              emoji: "🎓",
+              title: "Education and training ROI",
+              desc: "Estimate the return on education or training investment — compare course cost against expected salary increase over time.",
+            },
+            {
+              emoji: "⚖️",
+              title: "Investment comparison",
+              desc: "Use annualised ROI to compare investments held for different periods — the annualised figure normalises the time factor for fair comparison.",
+            },
           ].map(({ emoji, title, desc }) => (
-            <div key={title} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:border-emerald-200 hover:-translate-y-1 transition-all duration-200">
+            <div
+              key={title}
+              className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:border-emerald-200 hover:-translate-y-1 transition-all duration-200"
+            >
               <div className="text-2xl mb-3">{emoji}</div>
               <p className="font-bold text-gray-900 text-sm mb-2">{title}</p>
               <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
@@ -222,20 +452,54 @@ export default function PageEditorial() {
 
         <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-8 text-white text-center mb-14">
           <div className="text-3xl mb-3">📊</div>
-          <h3 className="text-xl font-bold mb-3">Total ROI and annualised ROI tell different stories — use both to understand your investment performance fully</h3>
-          <p className="text-emerald-100 leading-relaxed max-w-xl mx-auto text-sm">A 100% total ROI sounds impressive — but whether it's actually good depends entirely on how long it took. 100% ROI in 1 year is exceptional (100% annualised). 100% ROI in 10 years is modest (7.2% annualised — roughly matching a stock market index fund over the same period). Without the time dimension, total ROI comparisons between different investments are misleading. This calculator shows both metrics side by side so you can evaluate performance both in absolute terms (total return and net profit) and in time-adjusted terms (annualised ROI) — the combination gives you the complete picture of any investment's performance.</p>
+          <h3 className="text-xl font-bold mb-3">
+            Total ROI and annualised ROI tell different stories — use both to
+            understand your investment performance fully
+          </h3>
+          <p className="text-emerald-100 leading-relaxed max-w-xl mx-auto text-sm">
+            A 100% total ROI sounds impressive — but whether it's actually good
+            depends entirely on how long it took. 100% ROI in 1 year is
+            exceptional (100% annualised). 100% ROI in 10 years is modest (7.2%
+            annualised — roughly matching a stock market index fund over the
+            same period). Without the time dimension, total ROI comparisons
+            between different investments are misleading. This calculator shows
+            both metrics side by side so you can evaluate performance both in
+            absolute terms (total return and net profit) and in time-adjusted
+            terms (annualised ROI) — the combination gives you the complete
+            picture of any investment's performance.
+          </p>
         </div>
 
         <div>
-          <h3 className="text-lg font-bold text-gray-900 mb-4">Related Free Finance Tools</h3>
+          <h3 className="text-lg font-bold text-gray-900 mb-4">
+            Related Free Finance Tools
+          </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { href: "/tools/investment-return-calculator", label: "Investment Return Calculator", desc: "Calculate the future value of an investment with compound interest over time." },
-              { href: "/tools/percentage-calculator", label: "Percentage Calculator", desc: "Calculate percentages, percentage changes, and find what percentage one number is of another." },
-              { href: "/tools/discount-calculator", label: "Discount Calculator", desc: "Calculate discounted prices — enter original price and discount percentage to find the sale price." },
+              {
+                href: "/tools/investment-return-calculator",
+                label: "Investment Return Calculator",
+                desc: "Calculate the future value of an investment with compound interest over time.",
+              },
+              {
+                href: "/tools/percentage-calculator",
+                label: "Percentage Calculator",
+                desc: "Calculate percentages, percentage changes, and find what percentage one number is of another.",
+              },
+              {
+                href: "/tools/discount-calculator",
+                label: "Discount Calculator",
+                desc: "Calculate discounted prices — enter original price and discount percentage to find the sale price.",
+              },
             ].map(({ href, label, desc }) => (
-              <a key={href} href={href} className="block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-emerald-200 hover:-translate-y-1 transition-all duration-200 p-5">
-                <div className="font-bold text-gray-900 text-sm mb-1">{label}</div>
+              <a
+                key={href}
+                href={href}
+                className="block bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-emerald-200 hover:-translate-y-1 transition-all duration-200 p-5"
+              >
+                <div className="font-bold text-gray-900 text-sm mb-1">
+                  {label}
+                </div>
                 <div className="text-xs text-gray-500">{desc}</div>
               </a>
             ))}

@@ -36,7 +36,7 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        Our <a href='/tools/caption-generator'>Caption Generator</a> produces
+        Our <a href="/tools/caption-generator">Caption Generator</a> produces
         platform-appropriate captions for any photo or topic, with variations
         for different tones and goals.
       </p>
@@ -101,7 +101,7 @@ export default function Post() {
       <p>
         Batch caption writing draft a week of captions in one sitting rather
         than writing each one right before posting. Use the{" "}
-        <a href='/tools/caption-generator'>Caption Generator</a> for a starting
+        <a href="/tools/caption-generator">Caption Generator</a> for a starting
         point you can edit into your voice, which is faster than writing from
         blank each time.
       </p>
@@ -110,7 +110,7 @@ export default function Post() {
       <p>
         Effective captions are specific to the platform's norms, front-loaded
         with their best line, and matched to a single clear goal. Use the{" "}
-        <a href='/tools/caption-generator'>Caption Generator</a> to produce
+        <a href="/tools/caption-generator">Caption Generator</a> to produce
         options, edit into your voice, and test what resonates with your
         specific audience.
       </p>

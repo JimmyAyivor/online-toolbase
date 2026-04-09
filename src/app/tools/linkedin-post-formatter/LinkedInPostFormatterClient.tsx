@@ -84,19 +84,19 @@ function toSans(text: string): string {
 const FORMAT_OPTIONS: FormatOption[] = [
   {
     label: "Bold",
-    icon: <Bold className='w-3.5 h-3.5' />,
+    icon: <Bold className="w-3.5 h-3.5" />,
     apply: toBold,
     example: "𝗛𝗲𝗹𝗹𝗼",
   },
   {
     label: "Italic",
-    icon: <Italic className='w-3.5 h-3.5' />,
+    icon: <Italic className="w-3.5 h-3.5" />,
     apply: toItalic,
     example: "𝘏𝘦𝘭𝘭𝘰",
   },
   {
     label: "Sans",
-    icon: <Type className='w-3.5 h-3.5' />,
+    icon: <Type className="w-3.5 h-3.5" />,
     apply: toSans,
     example: "𝖧𝖾𝗅𝗅𝗈",
   },
@@ -314,28 +314,28 @@ export default function LinkedInPostFormatterClient() {
   // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-blue-50 to-sky-50 p-4 md:p-8'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-sky-50 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-sky-700 rounded-2xl mb-4 shadow-lg'>
-              <span className='text-2xl'>💼</span>
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-sky-700 rounded-2xl mb-4 shadow-lg">
+              <span className="text-2xl">💼</span>
             </div>
-            <h2 className='text-3xl font-bold text-gray-900 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               LinkedIn Post Formatter
             </h2>
-            <p className='text-gray-600'>
+            <p className="text-gray-600">
               Create perfectly formatted, high-engagement LinkedIn posts
             </p>
           </div>
 
           {/* Post type selector */}
-          <div className='mb-6'>
-            <label className='block text-sm font-semibold text-gray-700 mb-2'>
+          <div className="mb-6">
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
               Post Type
             </label>
-            <div className='grid grid-cols-3 md:grid-cols-6 gap-2'>
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
               {POST_TYPE_KEYS.map((type) => {
                 const tpl = POST_TEMPLATES[type];
                 return (
@@ -348,8 +348,8 @@ export default function LinkedInPostFormatterClient() {
                         : "border-gray-100 bg-gray-50 text-gray-600 hover:border-blue-200"
                     }`}
                   >
-                    <span className='text-xl'>{tpl.icon}</span>
-                    <span className='text-center leading-tight'>
+                    <span className="text-xl">{tpl.icon}</span>
+                    <span className="text-center leading-tight">
                       {tpl.label}
                     </span>
                   </button>
@@ -358,12 +358,12 @@ export default function LinkedInPostFormatterClient() {
             </div>
           </div>
 
-          <div className='grid md:grid-cols-2 gap-6'>
+          <div className="grid md:grid-cols-2 gap-6">
             {/* Editor */}
-            <div className='space-y-3'>
+            <div className="space-y-3">
               {/* Format toolbar */}
-              <div className='flex items-center gap-2'>
-                <span className='text-xs font-semibold text-gray-500 mr-1'>
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-semibold text-gray-500 mr-1">
                   Format selection:
                 </span>
                 {FORMAT_OPTIONS.map(({ label, icon, apply, example }) => (
@@ -371,7 +371,7 @@ export default function LinkedInPostFormatterClient() {
                     key={label}
                     onClick={() => applyFormat(apply)}
                     title={`${label} — ${example}`}
-                    className='flex items-center gap-1 px-2.5 py-1.5 bg-gray-100 hover:bg-blue-100 hover:text-blue-700 border border-gray-200 rounded-lg text-xs font-semibold text-gray-700 transition-colors'
+                    className="flex items-center gap-1 px-2.5 py-1.5 bg-gray-100 hover:bg-blue-100 hover:text-blue-700 border border-gray-200 rounded-lg text-xs font-semibold text-gray-700 transition-colors"
                   >
                     {icon} {label}
                   </button>
@@ -384,12 +384,12 @@ export default function LinkedInPostFormatterClient() {
                 onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
                   setText(e.target.value)
                 }
-                placeholder='Paste or write your LinkedIn post here, or pick a template above…'
+                placeholder="Paste or write your LinkedIn post here, or pick a template above…"
                 rows={18}
-                className='w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 text-sm resize-none leading-relaxed font-mono'
+                className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 text-sm resize-none leading-relaxed font-mono"
               />
 
-              <div className='flex items-center justify-between'>
+              <div className="flex items-center justify-between">
                 <span
                   className={`text-sm font-semibold ${over ? "text-red-600" : charCount > CHAR_LIMIT * 0.85 ? "text-orange-500" : "text-gray-400"}`}
                 >
@@ -398,15 +398,15 @@ export default function LinkedInPostFormatterClient() {
                 </span>
                 <button
                   onClick={copyPost}
-                  className='flex items-center gap-2 px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-xl font-semibold text-sm transition-colors'
+                  className="flex items-center gap-2 px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-xl font-semibold text-sm transition-colors"
                 >
                   {copied ? (
                     <>
-                      <Check className='w-4 h-4' /> Copied!
+                      <Check className="w-4 h-4" /> Copied!
                     </>
                   ) : (
                     <>
-                      <Copy className='w-4 h-4' /> Copy Post
+                      <Copy className="w-4 h-4" /> Copy Post
                     </>
                   )}
                 </button>
@@ -414,35 +414,35 @@ export default function LinkedInPostFormatterClient() {
             </div>
 
             {/* Live preview */}
-            <div className='space-y-4'>
-              <h3 className='font-bold text-gray-700'>Feed Preview</h3>
+            <div className="space-y-4">
+              <h3 className="font-bold text-gray-700">Feed Preview</h3>
 
               {/* Fake LinkedIn card */}
-              <div className='border border-gray-200 rounded-xl overflow-hidden shadow-sm'>
+              <div className="border border-gray-200 rounded-xl overflow-hidden shadow-sm">
                 {/* Profile bar */}
-                <div className='flex items-center gap-3 px-4 pt-4 pb-3'>
-                  <div className='w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center text-white font-bold text-sm'>
+                <div className="flex items-center gap-3 px-4 pt-4 pb-3">
+                  <div className="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center text-white font-bold text-sm">
                     Y
                   </div>
                   <div>
-                    <div className='text-sm font-bold text-gray-900'>
+                    <div className="text-sm font-bold text-gray-900">
                       Your Name
                     </div>
-                    <div className='text-xs text-gray-500'>
+                    <div className="text-xs text-gray-500">
                       Your Title · 1st · Just now
                     </div>
                   </div>
-                  <div className='ml-auto'>
-                    <span className='text-xs text-blue-700 font-semibold'>
+                  <div className="ml-auto">
+                    <span className="text-xs text-blue-700 font-semibold">
                       + Follow
                     </span>
                   </div>
                 </div>
 
                 {/* Post content */}
-                <div className='px-4 pb-2 text-sm text-gray-900 leading-relaxed whitespace-pre-wrap min-h-[80px]'>
+                <div className="px-4 pb-2 text-sm text-gray-900 leading-relaxed whitespace-pre-wrap min-h-[80px]">
                   {previewText || (
-                    <span className='text-gray-400 italic'>
+                    <span className="text-gray-400 italic">
                       Your post will appear here…
                     </span>
                   )}
@@ -451,17 +451,17 @@ export default function LinkedInPostFormatterClient() {
                 {text.length > PREVIEW_LIMIT && (
                   <button
                     onClick={() => setShowFull((v) => !v)}
-                    className='px-4 pb-3 text-xs text-gray-500 hover:text-gray-700 font-semibold'
+                    className="px-4 pb-3 text-xs text-gray-500 hover:text-gray-700 font-semibold"
                   >
                     {showFull ? "…see less" : "…see more"}
                   </button>
                 )}
 
                 {/* Engagement bar */}
-                <div className='border-t border-gray-100 px-4 py-2 flex gap-4 text-xs text-gray-500'>
+                <div className="border-t border-gray-100 px-4 py-2 flex gap-4 text-xs text-gray-500">
                   {["👍 Like", "💬 Comment", "🔁 Repost", "✈️ Send"].map(
                     (a) => (
-                      <span key={a} className='font-semibold'>
+                      <span key={a} className="font-semibold">
                         {a}
                       </span>
                     ),
@@ -470,8 +470,8 @@ export default function LinkedInPostFormatterClient() {
               </div>
 
               {/* Character warnings */}
-              <div className='bg-blue-50 border border-blue-200 rounded-xl p-4 text-xs text-blue-800 space-y-1.5'>
-                <div className='font-bold text-blue-900 mb-2'>
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-xs text-blue-800 space-y-1.5">
+                <div className="font-bold text-blue-900 mb-2">
                   📐 LinkedIn Post Rules
                 </div>
                 <div
@@ -494,24 +494,24 @@ export default function LinkedInPostFormatterClient() {
               </div>
 
               {/* Format examples */}
-              <div className='bg-gray-50 rounded-xl p-4 border border-gray-100'>
-                <div className='text-xs font-bold text-gray-700 mb-2'>
+              <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                <div className="text-xs font-bold text-gray-700 mb-2">
                   Unicode Formatting Examples
                 </div>
-                <div className='space-y-1 text-sm'>
+                <div className="space-y-1 text-sm">
                   <div>
-                    <span className='text-gray-400 text-xs'>Bold: </span>𝗧𝗵𝗶𝘀 𝗶𝘀
+                    <span className="text-gray-400 text-xs">Bold: </span>𝗧𝗵𝗶𝘀 𝗶𝘀
                     𝗯𝗼𝗹𝗱 𝘁𝗲𝘅𝘁
                   </div>
                   <div>
-                    <span className='text-gray-400 text-xs'>Italic: </span>𝘛𝘩𝘪𝘴
+                    <span className="text-gray-400 text-xs">Italic: </span>𝘛𝘩𝘪𝘴
                     𝘪𝘴 𝘪𝘵𝘢𝘭𝘪𝘤 𝘵𝘦𝘹𝘵
                   </div>
                   <div>
-                    <span className='text-gray-400 text-xs'>Sans: </span>𝖳𝗁𝗂𝗌 𝗂𝗌
+                    <span className="text-gray-400 text-xs">Sans: </span>𝖳𝗁𝗂𝗌 𝗂𝗌
                     𝗌𝖺𝗇𝗌 𝗍𝖾𝗑𝗍
                   </div>
-                  <div className='text-xs text-gray-400 mt-1'>
+                  <div className="text-xs text-gray-400 mt-1">
                     Select text in the editor → click a format button
                   </div>
                 </div>

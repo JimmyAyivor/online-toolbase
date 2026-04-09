@@ -101,7 +101,7 @@ background: radial-gradient(ellipse at center, #ffffff, #000000);`}</code>
 
       <h2>Our gradient generator</h2>
       <p>
-        Our <a href='/tools/gradient-generator'>CSS Gradient Generator</a>{" "}
+        Our <a href="/tools/gradient-generator">CSS Gradient Generator</a>{" "}
         creates gradients visually with live preview, lets you add and position
         colour stops, choose direction and gradient type, and outputs copy-ready
         CSS. No memorising syntax required.
@@ -137,7 +137,7 @@ background: radial-gradient(ellipse at center, #ffffff, #000000);`}</code>
         CSS gradients are versatile and performance-free. The muddy middle
         problem is the main quality issue to watch for use intermediate colour
         stops or HSL interpolation to avoid it. Use the{" "}
-        <a href='/tools/gradient-generator'>CSS Gradient Generator</a> to build
+        <a href="/tools/gradient-generator">CSS Gradient Generator</a> to build
         gradients visually and copy production-ready CSS directly.
       </p>
     </>

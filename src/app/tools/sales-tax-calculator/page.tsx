@@ -101,60 +101,63 @@ export default function SalesTaxCalculatorPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-purple-600 transition-colors'>
+            <a href="/" className="hover:text-purple-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/calculator'
-              className='hover:text-purple-600 transition-colors'
+              href="/tools/category/calculator"
+              className="hover:text-purple-600 transition-colors"
             >
               Calculator Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Sales Tax Calculator
             </span>
           </li>
         </ol>
       </nav>
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-purple-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-purple-600 uppercase tracking-widest mb-1">
           Free Calculator Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Sales Tax Calculator — Calculate Tax &amp; Final Price by US State,
           Free Online
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Calculate sales tax and final price for any US state or custom rate —
           single item or multi-item cart with full itemised breakdown.
         </p>
       </header>
       <SidebarAdLayout tool={tool}>
-        <main id='main-content' aria-label='Sales Tax Calculator tool'>
+        <main id="main-content" aria-label="Sales Tax Calculator tool">
           <SalesTaxCalculatorClient />
         </main>
         <PageEditorial />
-              <ToolEngagement toolSlug="sales-tax-calculator" toolName="Sales Tax Calculator" />
+        <ToolEngagement
+          toolSlug="sales-tax-calculator"
+          toolName="Sales Tax Calculator"
+        />
       </SidebarAdLayout>
     </>
   );

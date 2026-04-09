@@ -80,7 +80,7 @@ export default function Post() {
 
       <h2>Using the unit converter</h2>
       <p>
-        Our <a href='/tools/unit-converter'>Unit Converter</a> handles length,
+        Our <a href="/tools/unit-converter">Unit Converter</a> handles length,
         weight, volume, temperature, area, speed, and more covering the full
         range of metric and imperial units with accurate conversions. Use it
         whenever the quick mental approximations aren't precise enough.
@@ -115,7 +115,7 @@ export default function Post() {
         A handful of reference points 1 inch = 2.54cm, 1kg = 2.2lbs, the
         temperature conversion formula handles most everyday conversions
         mentally. For everything else, use the{" "}
-        <a href='/tools/unit-converter'>Unit Converter</a> for fast, accurate
+        <a href="/tools/unit-converter">Unit Converter</a> for fast, accurate
         results across all measurement types.
       </p>
     </>

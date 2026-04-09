@@ -99,38 +99,38 @@ export default function AcronymGeneratorPage() {
   return (
     <>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* Breadcrumb */}
-      <nav aria-label='Breadcrumb' className='max-w-6xl mx-auto px-4 pt-4 pb-2'>
-        <ol className='flex items-center gap-2 text-sm text-gray-500'>
+      <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
+        <ol className="flex items-center gap-2 text-sm text-gray-500">
           <li>
-            <a href='/' className='hover:text-sky-600 transition-colors'>
+            <a href="/" className="hover:text-sky-600 transition-colors">
               Home
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
             <a
-              href='/tools/category/text'
-              className='hover:text-sky-600 transition-colors'
+              href="/tools/category/text"
+              className="hover:text-sky-600 transition-colors"
             >
               Text Tools
             </a>
           </li>
-          <li aria-hidden='true' className='text-gray-300'>
+          <li aria-hidden="true" className="text-gray-300">
             /
           </li>
           <li>
-            <span aria-current='page' className='text-gray-900 font-medium'>
+            <span aria-current="page" className="text-gray-900 font-medium">
               Acronym Generator
             </span>
           </li>
@@ -138,25 +138,28 @@ export default function AcronymGeneratorPage() {
       </nav>
 
       {/* Category badge + SR H1 */}
-      <header className='max-w-6xl mx-auto px-4 pt-2 pb-0'>
-        <p className='text-xs font-semibold text-sky-600 uppercase tracking-widest mb-1'>
+      <header className="max-w-6xl mx-auto px-4 pt-2 pb-0">
+        <p className="text-xs font-semibold text-sky-600 uppercase tracking-widest mb-1">
           Free Text Tool · No Signup · Works Instantly
         </p>
-        <h1 className='sr-only'>
+        <h1 className="sr-only">
           Acronym Generator — Free Online Acronym Generator
         </h1>
-        <p className='hidden md:block text-sm text-gray-500 max-w-2xl mb-2'>
+        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
           Turn any phrase into an acronym instantly. Choose uppercase,
           lowercase, or dot-separated styles. Free, no account needed.
         </p>
       </header>
 
       <SidebarAdLayout tool={tool}>
-        <main id='main-content' aria-label='Acronym Generator tool'>
+        <main id="main-content" aria-label="Acronym Generator tool">
           <AcronymGeneratorClient />
         </main>
         <PageEditorial />
-              <ToolEngagement toolSlug="acronym-generator" toolName="Acronym Generator" />
+        <ToolEngagement
+          toolSlug="acronym-generator"
+          toolName="Acronym Generator"
+        />
       </SidebarAdLayout>
     </>
   );

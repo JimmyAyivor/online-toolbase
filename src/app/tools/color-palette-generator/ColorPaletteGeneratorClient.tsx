@@ -207,110 +207,110 @@ export default function ColorPaletteGeneratorClient() {
   // ─── Render ────────────────────────────────────────────────────────────────
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-pink-50 to-purple-100 p-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-xl p-8'>
-          <div className='text-center mb-8'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-pink-100 rounded-full mb-4'>
-              <Palette className='w-8 h-8 text-pink-600' />
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-pink-100 rounded-full mb-4">
+              <Palette className="w-8 h-8 text-pink-600" />
             </div>
-            <h2 className='text-3xl font-bold text-gray-800 mb-2'>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Color Palette Generator
             </h2>
-            <p className='text-gray-600'>Extract color palettes from images</p>
+            <p className="text-gray-600">Extract color palettes from images</p>
           </div>
 
-          <div className='mb-6 flex flex-wrap gap-3 items-center justify-between'>
-            <div className='flex items-center gap-3'>
-              <label className='px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-lg font-medium transition-colors cursor-pointer flex items-center gap-2'>
-                <Upload className='w-4 h-4' />
+          <div className="mb-6 flex flex-wrap gap-3 items-center justify-between">
+            <div className="flex items-center gap-3">
+              <label className="px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-lg font-medium transition-colors cursor-pointer flex items-center gap-2">
+                <Upload className="w-4 h-4" />
                 Upload Image
                 <input
-                  type='file'
-                  accept='image/*'
+                  type="file"
+                  accept="image/*"
                   onChange={handleImageUpload}
-                  className='hidden'
+                  className="hidden"
                 />
               </label>
 
               <button
                 onClick={generateRandom}
-                className='px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors flex items-center gap-2'
+                className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors flex items-center gap-2"
               >
-                <RefreshCw className='w-4 h-4' />
+                <RefreshCw className="w-4 h-4" />
                 Random Palette
               </button>
             </div>
 
-            <div className='flex items-center gap-3'>
-              <label className='text-sm font-medium text-gray-700'>
+            <div className="flex items-center gap-3">
+              <label className="text-sm font-medium text-gray-700">
                 Colors: {colorCount}
               </label>
               <input
-                type='range'
-                min='3'
-                max='10'
+                type="range"
+                min="3"
+                max="10"
                 value={colorCount}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   const count = Number(e.target.value);
                   setColorCount(count);
                   if (image) extractColors(image, count);
                 }}
-                className='w-32'
+                className="w-32"
               />
             </div>
           </div>
 
-          <canvas ref={canvasRef} className='hidden' />
+          <canvas ref={canvasRef} className="hidden" />
 
           {image && (
-            <div className='mb-6'>
-              <h3 className='font-semibold text-gray-800 mb-3'>Source Image</h3>
-              <div className='bg-gray-50 rounded-lg p-4 border border-gray-200 flex justify-center'>
+            <div className="mb-6">
+              <h3 className="font-semibold text-gray-800 mb-3">Source Image</h3>
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 flex justify-center">
                 <img
                   src={image.src}
-                  alt='Uploaded source for color extraction'
-                  className='max-w-full max-h-64 rounded'
+                  alt="Uploaded source for color extraction"
+                  className="max-w-full max-h-64 rounded"
                 />
               </div>
             </div>
           )}
 
           {palette.length > 0 && (
-            <div className='space-y-6'>
-              <div className='bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl p-6 border border-pink-200'>
-                <div className='flex items-center justify-between mb-4'>
-                  <h3 className='font-semibold text-gray-800'>Color Palette</h3>
+            <div className="space-y-6">
+              <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl p-6 border border-pink-200">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-semibold text-gray-800">Color Palette</h3>
                   <button
                     onClick={exportPalette}
-                    className='px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-lg font-medium transition-colors text-sm flex items-center gap-2'
+                    className="px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-lg font-medium transition-colors text-sm flex items-center gap-2"
                   >
-                    <Download className='w-4 h-4' />
+                    <Download className="w-4 h-4" />
                     Export CSS
                   </button>
                 </div>
 
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {palette.map((color, idx) => (
                     <div
                       key={idx}
-                      className='bg-white rounded-lg overflow-hidden border border-gray-200 shadow-sm'
+                      className="bg-white rounded-lg overflow-hidden border border-gray-200 shadow-sm"
                     >
                       <div
-                        className='h-32 flex items-center justify-center cursor-pointer transition-transform hover:scale-105'
+                        className="h-32 flex items-center justify-center cursor-pointer transition-transform hover:scale-105"
                         style={{ backgroundColor: color.hex }}
                         onClick={() => copyColor(color)}
                       >
                         {copiedColor === color.hex ? (
-                          <div className='flex items-center gap-2 px-4 py-2 bg-black bg-opacity-20 rounded-lg'>
+                          <div className="flex items-center gap-2 px-4 py-2 bg-black bg-opacity-20 rounded-lg">
                             <CheckCircle
-                              className='w-5 h-5'
+                              className="w-5 h-5"
                               style={{
                                 color: getTextColor(color.r, color.g, color.b),
                               }}
                             />
                             <span
-                              className='font-semibold'
+                              className="font-semibold"
                               style={{
                                 color: getTextColor(color.r, color.g, color.b),
                               }}
@@ -320,7 +320,7 @@ export default function ColorPaletteGeneratorClient() {
                           </div>
                         ) : (
                           <Copy
-                            className='w-6 h-6 opacity-0 hover:opacity-100 transition-opacity'
+                            className="w-6 h-6 opacity-0 hover:opacity-100 transition-opacity"
                             style={{
                               color: getTextColor(color.r, color.g, color.b),
                             }}
@@ -328,31 +328,31 @@ export default function ColorPaletteGeneratorClient() {
                         )}
                       </div>
 
-                      <div className='p-4 space-y-2'>
-                        <div className='flex items-center justify-between'>
-                          <span className='text-sm font-semibold text-gray-700'>
+                      <div className="p-4 space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-semibold text-gray-700">
                             HEX
                           </span>
                           <button
                             onClick={() => copyColor(color)}
-                            className='font-mono text-sm text-gray-800 hover:text-pink-600'
+                            className="font-mono text-sm text-gray-800 hover:text-pink-600"
                           >
                             {color.hex}
                           </button>
                         </div>
-                        <div className='flex items-center justify-between'>
-                          <span className='text-sm font-semibold text-gray-700'>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-semibold text-gray-700">
                             RGB
                           </span>
-                          <span className='font-mono text-sm text-gray-800'>
+                          <span className="font-mono text-sm text-gray-800">
                             {color.r}, {color.g}, {color.b}
                           </span>
                         </div>
-                        <div className='flex items-center justify-between'>
-                          <span className='text-sm font-semibold text-gray-700'>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-semibold text-gray-700">
                             HSL
                           </span>
-                          <span className='font-mono text-sm text-gray-800'>
+                          <span className="font-mono text-sm text-gray-800">
                             {color.hsl.h}°, {color.hsl.s}%, {color.hsl.l}%
                           </span>
                         </div>
@@ -362,31 +362,31 @@ export default function ColorPaletteGeneratorClient() {
                 </div>
               </div>
 
-              <div className='bg-white border border-gray-200 rounded-lg p-6'>
-                <h3 className='font-semibold text-gray-800 mb-3'>
+              <div className="bg-white border border-gray-200 rounded-lg p-6">
+                <h3 className="font-semibold text-gray-800 mb-3">
                   Color Strip
                 </h3>
-                <div className='flex h-24 rounded-lg overflow-hidden'>
+                <div className="flex h-24 rounded-lg overflow-hidden">
                   {palette.map((color, idx) => (
                     <div
                       key={idx}
-                      className='flex-1 cursor-pointer'
+                      className="flex-1 cursor-pointer"
                       style={{ backgroundColor: color.hex }}
                       onClick={() => copyColor(color)}
                       title={color.hex}
-                      role='button'
+                      role="button"
                       aria-label={`Copy color ${color.hex}`}
                     />
                   ))}
                 </div>
               </div>
 
-              <div className='bg-gray-50 rounded-lg p-4 border border-gray-200'>
-                <h3 className='font-semibold text-gray-800 mb-3'>
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <h3 className="font-semibold text-gray-800 mb-3">
                   CSS Variables
                 </h3>
-                <div className='bg-gray-900 rounded-lg p-4 overflow-x-auto'>
-                  <pre className='text-sm text-green-400'>
+                <div className="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                  <pre className="text-sm text-green-400">
                     <code>
                       {`:root {\n${palette.map((c, i) => `  --color-${i + 1}: ${c.hex};`).join("\n")}\n}`}
                     </code>
@@ -396,9 +396,9 @@ export default function ColorPaletteGeneratorClient() {
             </div>
           )}
 
-          <div className='mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600'>
-            <p className='font-semibold mb-2'>Tips:</p>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className="mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600">
+            <p className="font-semibold mb-2">Tips:</p>
+            <ul className="list-disc list-inside space-y-1">
               <li>
                 Upload an image to automatically extract its dominant colors
               </li>

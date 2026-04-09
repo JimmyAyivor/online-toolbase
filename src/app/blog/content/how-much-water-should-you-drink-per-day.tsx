@@ -42,7 +42,7 @@ export default function Post() {
       </p>
       <p>
         Use our{" "}
-        <a href='/tools/water-intake-calculator'>Water Intake Calculator</a> to
+        <a href="/tools/water-intake-calculator">Water Intake Calculator</a> to
         get a personalised recommendation based on your weight, activity level,
         and climate.
       </p>
@@ -118,7 +118,7 @@ export default function Post() {
         Yes larger bodies have more cells to hydrate and generally have higher
         metabolic activity. A common rough guideline: 30–35ml of water per kg of
         bodyweight per day. At 70kg: 2.1–2.45 litres; at 90kg: 2.7–3.15 litres.
-        The <a href='/tools/water-intake-calculator'>Water Intake Calculator</a>{" "}
+        The <a href="/tools/water-intake-calculator">Water Intake Calculator</a>{" "}
         applies this and adjusts for activity level.
       </p>
 
@@ -135,7 +135,7 @@ export default function Post() {
         Ignore the 8-glasses rule and use a personalised estimate instead. A
         rough target: 30–35ml per kg of bodyweight, adjusted upward for
         exercise, heat, illness, and pregnancy. Use the{" "}
-        <a href='/tools/water-intake-calculator'>Water Intake Calculator</a> for
+        <a href="/tools/water-intake-calculator">Water Intake Calculator</a> for
         a specific recommendation and use urine colour as your daily feedback
         mechanism.
       </p>

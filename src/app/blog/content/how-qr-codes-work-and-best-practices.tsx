@@ -28,7 +28,7 @@ export default function Post() {
         an angle and it works.
       </p>
       <p>
-        Our <a href='/tools/qr-code-generator'>QR Code Generator</a> creates
+        Our <a href="/tools/qr-code-generator">QR Code Generator</a> creates
         codes for URLs, text, Wi-Fi credentials, email addresses, phone numbers,
         and more.
       </p>
@@ -149,7 +149,7 @@ export default function Post() {
         devices use them whenever you need a fast, frictionless bridge between
         physical and digital. Generate codes for URLs, Wi-Fi, contacts, or any
         custom data with our{" "}
-        <a href='/tools/qr-code-generator'>QR Code Generator</a>, and test
+        <a href="/tools/qr-code-generator">QR Code Generator</a>, and test
         thoroughly before printing or deploying at scale.
       </p>
     </>

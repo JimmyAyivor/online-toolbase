@@ -42,7 +42,7 @@ export default function Post() {
         tags or attribute delimiters.
       </p>
       <p>
-        Our <a href='/tools/html-entity-encoder'>HTML Entity Encoder</a>{" "}
+        Our <a href="/tools/html-entity-encoder">HTML Entity Encoder</a>{" "}
         converts text to its HTML-safe encoded form and decodes entities back to
         plain text.
       </p>
@@ -135,7 +135,7 @@ export default function Post() {
         </li>
         <li>
           <strong>URLs:</strong> Use{" "}
-          <a href='/tools/url-encoder-decoder'>URL encoding</a> for values in
+          <a href="/tools/url-encoder-decoder">URL encoding</a> for values in
           URL parameters.
         </li>
         <li>
@@ -184,7 +184,7 @@ export default function Post() {
         HTML entity encoding is the first line of defence against XSS and
         necessary for correct display of special characters. Encode any
         untrusted content before inserting it into HTML. Use the{" "}
-        <a href='/tools/html-entity-encoder'>HTML Entity Encoder</a> to convert
+        <a href="/tools/html-entity-encoder">HTML Entity Encoder</a> to convert
         text to its safe form or decode entities from source code. For
         user-generated HTML, use a proper sanitisation library rather than
         encoding alone.
