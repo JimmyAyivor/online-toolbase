@@ -13,6 +13,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getBlogPost, blogPosts } from "../blog-posts";
 import BlogPostClient from "./BlogPostClient";
+import { tools } from "@/lib/tools";
+
 // ─── Static import map ────────────────────────────────────────────────────────
 // ── Existing posts ─────────────────────────────────────────────────────────
 import Base64EncodingExplained from "../content/base64-encoding-explained";
@@ -359,6 +361,8 @@ const CONTENT_MAP: Record<string, React.ComponentType> = {
   "writing-captions-for-social-media": WritingCaptionsForSocialMedia,
 };
 const ABOUT_PAGE = "/about";
+const TOOL_COUNT = tools.length;
+
 // ─── Key Takeaways ────────────────────────────────────────────────────────────
 const KEY_TAKEAWAYS: Record<string, string[]> = {
   // ── Existing posts ──────────────────────────────────────────────────────
@@ -1888,7 +1892,7 @@ export default async function BlogPostPage({
                 <div className="rounded-2xl bg-linear-to-br from-slate-900 to-slate-800 p-6 text-white">
                   <div className="text-3xl mb-3">🛠️</div>
                   <h3 className="font-black text-base mb-2 leading-snug">
-                    150+ Free Online Tools
+                  {TOOL_COUNT} Free Online Tools
                   </h3>
                   <p className="text-slate-400 text-sm leading-relaxed mb-5">
                     Calculators, converters, generators and more. No account

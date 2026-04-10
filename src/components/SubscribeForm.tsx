@@ -20,7 +20,8 @@
 
 import { useState, useRef, type FormEventHandler } from "react";
 
-const ENDPOINT = process.env.NEXT_PUBLIC_SUBSCRIBE_ENDPOINT ?? "";
+// POST to our own API route — avoids Mailchimp CORS block
+const ENDPOINT = "/api/subscribe";
 
 interface Props {
   variant?: "card" | "inline";
@@ -45,33 +46,24 @@ export default function SubscribeForm({
     e.preventDefault();
     if (!email.trim()) return;
 
-    // Dev guard — shows a clear message if the endpoint isn't configured yet
-    if (!ENDPOINT) {
-      setStatus("error");
-      setErrorMsg(
-        "Subscribe endpoint not configured. Set NEXT_PUBLIC_SUBSCRIBE_ENDPOINT in your .env file.",
-      );
-      return;
-    }
-
     setStatus("loading");
     setErrorMsg("");
 
     try {
-      const body = new URLSearchParams({
-        EMAIL: email.trim(),
-      });
       const res = await fetch(ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: body.toString(),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim() }),
       });
+
+      const data = await res.json();
 
       if (res.ok) {
         setStatus("success");
         setEmail("");
       } else {
-        throw new Error(`HTTP ${res.status}`);
+        setStatus("error");
+        setErrorMsg(data?.error ?? "Something went wrong. Please try again.");
       }
     } catch {
       setStatus("error");
