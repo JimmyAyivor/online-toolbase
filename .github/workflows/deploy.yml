@@ -27,7 +27,6 @@ jobs:
 
             NEW_RELEASE="$RELEASES_DIR/$(date +%Y%m%d%H%M%S)"
 
-            # 🛡 Prevent collisions + cleanup on failure
             trap 'echo "❌ Deploy failed. Cleaning up..."; rm -rf "$NEW_RELEASE"' ERR
 
             if [ -d "$NEW_RELEASE" ]; then
@@ -44,11 +43,16 @@ jobs:
             npm ci --legacy-peer-deps --no-audit --no-fund
 
             echo "⚙️ Loading environment..."
-            if [ -f "$BASE_DIR/.env" ]; then
-              set -a
-              source "$BASE_DIR/.env"
-              set +a
+            if [ ! -f "$BASE_DIR/.env" ]; then
+              echo "❌ Missing .env file at $BASE_DIR/.env"
+              exit 1
             fi
+
+            # safe env loading (no broken amp parsing)
+            export $(grep -v '^#' "$BASE_DIR/.env" | xargs)
+
+            echo "📦 Node: $(node -v)"
+            echo "📦 NPM: $(npm -v)"
 
             export NODE_OPTIONS="--max-old-space-size=4096"
             export NEXT_PRIVATE_BUILD_WORKERS=$(nproc)
@@ -67,12 +71,9 @@ jobs:
             cd "$CURRENT_LINK"
 
             if pm2 describe online-tool-base > /dev/null 2>&1; then
-              pm2 reload online-tool-base --update-env || pm2 restart online-tool-base
+              pm2 reload "$CURRENT_LINK/ecosystem.config.js" --update-env
             else
-              pm2 start npm \
-                --name online-tool-base \
-                --cwd "$CURRENT_LINK" \
-                -- start
+              pm2 start "$CURRENT_LINK/ecosystem.config.js"
             fi
 
             pm2 save
@@ -89,7 +90,7 @@ jobs:
             HTTP=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.SITE_URL }}")
 
             if [ "$HTTP" = "200" ]; then
-              echo "✅ This App is healthy"
+              echo "✅ App is healthy"
 
               curl -X POST "${{ secrets.SITE_URL }}/api/indexnow" \
                 -H "Content-Type: application/json" \
@@ -125,7 +126,7 @@ jobs:
             ln -sfn "$PREVIOUS" "$CURRENT_LINK"
 
             cd "$CURRENT_LINK"
-            pm2 reload online-tool-base --update-env || pm2 restart online-tool-base
+            pm2 reload "$CURRENT_LINK/ecosystem.config.js" --update-env || pm2 restart online-tool-base
             pm2 save
           EOF
 
