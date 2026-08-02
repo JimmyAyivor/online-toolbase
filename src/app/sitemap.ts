@@ -56,6 +56,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.3,
     },
+    {
+      url: `${baseUrl}/cookies`,
+      lastModified: BUILD_DATE,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/disclaimer`,
+      lastModified: BUILD_DATE,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/partners`,
+      lastModified: BUILD_DATE,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
   ];
 
   /* ── Individual tool pages (highest value pages for ranking) ─────────── */

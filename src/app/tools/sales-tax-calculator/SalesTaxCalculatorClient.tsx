@@ -24,6 +24,9 @@ interface TaxRate {
   rate: number;
 }
 
+type Props = {
+  defaultRate?: number;
+};
 // ─── Constants ───────────────────────────────────────────────────────────────
 
 const COMMON_TAX_RATES: TaxRate[] = [
@@ -77,10 +80,12 @@ function computeTax(
 
 // ─── Component ───────────────────────────────────────────────────────────────
 
-export default function SalesTaxCalculatorClient() {
+export default function SalesTaxCalculatorClient({ defaultRate }: Props) {
   const [mode, setMode] = useState<Mode>("add");
   const [amount, setAmount] = useState<string>("");
-  const [taxRate, setTaxRate] = useState<string>("8.5");
+  const [taxRate, setTaxRate] = useState<string>(
+    defaultRate !== undefined ? defaultRate.toString() : "0",
+  );
   const [items, setItems] = useState<Item[]>([]);
   const [itemName, setItemName] = useState<string>("");
   const [itemPrice, setItemPrice] = useState<string>("");

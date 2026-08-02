@@ -1,8 +1,10 @@
 "use client";
 // src/app/tools/acronym-generator/PageEditorial.tsx
 import React, { useState, useEffect, useRef } from "react";
+import PostToolOffer from "@/components/monetization/PostToolOffer";
+import ToolShareBar from "@/components/monetization/ToolShareBar";
 import AdSlot from "@/components/AdSlot";
-
+import { Tool } from "@/types/tool";
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
 const SLOT_LEADERBOARD =
@@ -178,17 +180,23 @@ function FAQSection() {
             <button
               className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
               onClick={() => setOpen(open === i ? null : i)}
-            >
+              aria-expanded={open === i}            >
               <span className="font-semibold text-gray-900 text-sm">{f.q}</span>
               <span className="text-sky-600 text-lg shrink-0">
                 {open === i ? "−" : "+"}
               </span>
             </button>
-            {open === i && (
-              <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed">
-                {f.a}
-              </div>
-            )}
+            <div
+              className="px-5 text-sm text-gray-600 leading-relaxed overflow-hidden transition-all duration-200"
+              style={{
+                maxHeight: open === i ? "1000px" : "0px",
+                paddingBottom: open === i ? "20px" : "0px",
+                visibility: open === i ? "visible" : "hidden",
+              }}
+              aria-hidden={open !== i}
+            >
+              {f.a}
+            </div>
           </div>
         ))}
       </div>
@@ -196,7 +204,7 @@ function FAQSection() {
   );
 }
 
-export default function PageEditorial() {
+export default function PageEditorial({ tool }: { tool: Tool }) {
   return (
     <>
       <div className="max-w-6xl mx-auto px-4 mt-6 flex justify-center">
@@ -220,6 +228,7 @@ export default function PageEditorial() {
         />
       </div>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+      {tool && <PostToolOffer toolSlug={tool.slug} toolCategory={tool.category} />}
         <ShareBar />
       </div>
 

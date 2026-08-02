@@ -1,12 +1,24 @@
 // src/app/tools/password-generator/page.tsx
 import type { Metadata } from "next";
-import PasswordGeneratorClient from "./PasswordGeneratorClient";
+import dynamic from "next/dynamic";
+import { tools } from "@/lib/tools";
+
+const PasswordGeneratorClient = dynamic(
+  () => import("./PasswordGeneratorClient"),
+  {
+    
+    loading: () => (
+      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+    ),
+  }
+);
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import ToolEngagement from "@/components/ToolEngagement";
+const tool = tools.find((t) => t.slug === "password-generator");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 
 // ─── Slot IDs from env ────────────────────────────────────────────────────────
 const SLOT_BELOW_TOOL =
@@ -100,6 +112,64 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is the Password Generator free to use?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — the Password Generator is completely free. No signup, no download, and no payment is required. It runs entirely in your browser.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does the Password Generator work on mobile?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, the Password Generator is fully responsive and works on smartphones, tablets, and desktop computers without any app installation.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is my data private when using the Password Generator?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "All calculations are performed locally in your browser. No data is sent to any server or stored anywhere.",
+      },
+    }
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Use the Password Generator",
+  description: "Step-by-step guide to using the free Password Generator on Calculators, Pdf Tools & More.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Set your password requirements",
+      text: "Choose the password length and select which character types to include — uppercase, lowercase, numbers, and symbols.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Generate your password",
+      text: "Click Generate to create a cryptographically random password meeting your criteria.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Copy and save your password",
+      text: "Click Copy to copy to clipboard, then save it immediately in your password manager.",
+    }
+  ],
+};
+
 export default function PasswordGeneratorPage() {
   return (
     <>
@@ -110,6 +180,14 @@ export default function PasswordGeneratorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumb */}
@@ -147,17 +225,17 @@ export default function PasswordGeneratorPage() {
         <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Security Tool · No Signup · Works Instantly
         </p>
-        <h1 className="sr-only">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
           Password Generator — Free Online Password Generator
         </h1>
-        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
+        <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Generate strong, secure, random passwords with customizable options.
           Free, instant, no account needed.
         </p>
       </header>
 
       {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         {/* ── Tool component (main interactive area) ──────────────────── */}
         <main id="main-content" aria-label="Password Generator tool">
           <PasswordGeneratorClient />

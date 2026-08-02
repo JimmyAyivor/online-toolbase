@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Zap, Copy, Check, RotateCcw } from "lucide-react";
+import { trackToolUse } from "@/components/monetization/UsageStreakPrompt";
 
 export default function AcronymGeneratorClient() {
   const [phrase, setPhrase] = useState<string>("");
@@ -13,6 +14,7 @@ export default function AcronymGeneratorClient() {
     const letters = words.map((w) => w[0]).filter(Boolean);
     if (style === "upper") return letters.join("").toUpperCase();
     if (style === "lower") return letters.join("").toLowerCase();
+    trackToolUse("acronym-generator");
     return letters.join(".").toUpperCase() + ".";
   };
 

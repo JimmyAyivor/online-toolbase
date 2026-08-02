@@ -9,7 +9,7 @@ import LegalLayout, {
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 const LAST_UPDATED = "January 22, 2024";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/terms-of-service`,
     siteName: SITE_NAME,
     title: `Terms of Service | ${SITE_NAME}`,
-    description: `Terms and conditions for using ${SITE_NAME}'s free online tools.`,
+    description: `Terms and conditions for using ${SITE_NAME}'s Calculators, Pdf Tools & More.`,
   },
 };
 

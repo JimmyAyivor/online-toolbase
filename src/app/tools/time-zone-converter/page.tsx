@@ -1,15 +1,26 @@
 // src/app/tools/time-zone-converter/page.tsx
 import type { Metadata } from "next";
-import TimeZoneConverterClient from "./TimeZoneConverterClient";
+import dynamic from "next/dynamic";
+import { tools } from "@/lib/tools";
+const tool = tools.find((t) => t.slug === "time-zone-converter");
+const TimeZoneConverterClient = dynamic(
+  () => import("./TimeZoneConverterClient"),
+  {
+    
+    loading: () => (
+      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+    ),
+  }
+);
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 
 export const metadata: Metadata = {
-  title: "Time Zone Converter — Convert Times Between Time Zones Free Online",
+  title: "Free Time Zone Converter — Convert Between Any Zones",
   description:
     "Convert times between any two time zones instantly. Add multiple zones for a world clock comparison. See UTC offsets and local times side by side. Free, no signup.",
   keywords:
@@ -33,7 +44,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/time-zone-converter`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title: "Time Zone Converter — Convert Times Between Time Zones Free Online",
+    title: "Free Time Zone Converter — Convert Between Any Zones",
     description:
       "Convert times between any two time zones instantly. Add multiple zones for world clock comparison. Free, no signup.",
     images: [
@@ -49,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title: "Time Zone Converter — Convert Times Between Time Zones Free Online",
+    title: "Free Time Zone Converter — Convert Between Any Zones",
     description:
       "Convert times between any time zones. Multi-zone world clock. Free.",
   },
@@ -92,6 +103,80 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is UTC and why is it used as the reference time zone?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "UTC (Coordinated Universal Time) is the primary international time standard from which all other time zones are defined as positive or negative offsets. It replaced GMT (Greenwich Mean Time) as the global reference in 1972, though both are used interchangeably in everyday contexts. UTC has no daylight saving time offset — it stays constant year-round. Every time zone is expressed as UTC+N or UTC-N: New York is UTC-5 (EST) or UTC-4 (EDT) in summer, London is UTC+0 in winter and UTC+1 in summer, Tokyo is UTC+9 year-round...",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the difference between GMT and UTC?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "GMT (Greenwich Mean Time) and UTC (Coordinated Universal Time) are nearly identical for everyday purposes — both represent time at the prime meridian (0° longitude). The technical difference: GMT is an astronomical measurement based on Earth's rotation, while UTC is maintained by a network of atomic clocks adjusted with occasional leap seconds. For practical time zone conversions, the two are interchangeable. The UK observes GMT in winter and BST (British Summer Time, UTC+1) in summer — a common source of confusion.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do I schedule a meeting across multiple time zones?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Add all participant time zones using this tool, then adjust the source time until the displayed local times fall within reasonable working hours for each location. Finding a single time that works across Americas, Europe, and Asia-Pacific simultaneously is often impossible during normal business hours — some participants will need to join early morning or evening. Aim for times between 8 AM and 6 PM in as many zones as possible. For recurring international meetings, rotating the inconvenient time slot between teams is standard practice.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Why does the time difference between two cities change throughout the year?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Daylight saving time (DST) transitions happen on different dates in different countries — the US and Europe both observe DST but switch on different dates, creating 2–3 week periods where the difference between them temporarily changes. Southern hemisphere countries (Australia, New Zealand) observe DST during their summer (northern winter), so their offset relative to northern zones changes at completely different points in the year. Some regions observe no DST at all — Arizona, Japan, India, China — so their offset relative to DST-observing zones shifts seasonally.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What time zone abbreviations are commonly confused?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Several abbreviations refer to multiple time zones. IST means Indian Standard Time (UTC+5:30), Irish Standard Time (UTC+1), and Israel Standard Time (UTC+2). CST is Central Standard Time (UTC-6 in the US), China Standard Time (UTC+8), and Cuba Standard Time (UTC-5). EST means Eastern Standard Time (UTC-5) in North America but is also used informally for Australian Eastern Standard Time (UTC+10). When precision matters for scheduling, always specify the UTC offset or the full time zone name rather than the abbreviation.",
+      },
+    }
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Use the Time Zone Converter",
+  description: "Step-by-step guide to using the free Time Zone Converter on Calculators, Pdf Tools & More.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Open the tool",
+      text: "Navigate to the free Time Zone Converter on Calculators, Pdf Tools & More. No signup or download is required.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Enter your data",
+      text: "Fill in the required fields. The Time Zone Converter provides instant results as you type or click calculate.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Copy or use your results",
+      text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
+    }
+  ],
+};
+
 export default function TimeZoneConverterPage() {
   return (
     <>
@@ -102,6 +187,14 @@ export default function TimeZoneConverterPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
         <ol className="flex items-center gap-2 text-sm text-gray-500">
@@ -135,15 +228,15 @@ export default function TimeZoneConverterPage() {
         <p className="text-xs font-semibold text-sky-600 uppercase tracking-widest mb-1">
           Free Productivity Tool · No Signup · Works Instantly
         </p>
-        <h1 className="sr-only">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
           Time Zone Converter — Convert Times Between Time Zones Free Online
         </h1>
-        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
+        <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Convert a time between any two time zones and add multiple zones for a
           side-by-side world clock comparison.
         </p>
       </header>
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         <main id="main-content" aria-label="Time Zone Converter tool">
           <TimeZoneConverterClient />
         </main>

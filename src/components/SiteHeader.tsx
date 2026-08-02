@@ -18,7 +18,7 @@ export default function SiteHeader() {
         <Link
           href="/"
           className="flex items-center gap-3 flex-shrink-0"
-          aria-label="Free Online Tools — Home"
+          aria-label="Calculators, Pdf Tools & More — Home"
         >
           <div
             className="w-10 h-10 bg-linear-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center"
@@ -39,7 +39,7 @@ export default function SiteHeader() {
             </svg>
           </div>
           <span className="text-2xl font-extrabold bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent hidden sm:block">
-            Free Online Tools
+            Calculators, Pdf Tools & More
           </span>
         </Link>
 
@@ -57,7 +57,7 @@ export default function SiteHeader() {
             Categories
           </Link>
           <Link
-            href="/#tools"
+            href="/tools"
             className="text-gray-700 hover:text-indigo-600 font-medium transition-colors"
           >
             All Tools

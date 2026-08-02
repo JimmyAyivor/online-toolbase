@@ -1,12 +1,23 @@
 // src/app/tools/random-name-generator/page.tsx
 import type { Metadata } from "next";
-import RandomNameGeneratorClient from "./RandomNameGeneratorClient";
+import dynamic from "next/dynamic";
+import { tools } from "@/lib/tools";
+const tool = tools.find((t) => t.slug === "random-name-generator");
+const RandomNameGeneratorClient = dynamic(
+  () => import("./RandomNameGeneratorClient"),
+  {
+    
+    loading: () => (
+      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+    ),
+  }
+);
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 
 export const metadata: Metadata = {
   title: "Random Name Generator — Generate Random Names Free Online",
@@ -92,6 +103,72 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What are random name generators used for?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Random name generators are used across a wide range of contexts. Fiction writers use them to name characters in novels, short stories, screenplays, and tabletop RPGs — getting past blank-page paralysis and finding names that feel authentic to a character's cultural background. Game developers use them to populate NPCs with distinct names. Software developers and testers use random names to generate realistic-looking test data without using real personal information. Designers use them to create realistic mockups and wireframes with plausible names rather than 'John Doe' placeholders...",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How are the names generated?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The names are drawn from curated lists of real first names and surnames organised by cultural origin and gender. When you select your options and click Generate, the tool randomly selects from the relevant list to produce the requested number of names. The randomisation uses JavaScript's Math.random() function — the same type of pseudo-random generation used in games and simulations. Names are sourced from lists representing common names in each cultural tradition, including English, Latin/Hispanic, French, German, Slavic, East Asian, South Asian, and other origin groups.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I use these names for my novel or game?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — the generated names are simply common names from various cultural traditions, and common names are not copyrightable or trademarked. You're free to use any generated name for fiction, games, creative projects, business use, or any other purpose. The tool draws from pools of real names that exist in the world — generating one doesn't create any ownership or attribution requirement. If you're writing characters from a specific cultural background, filtering by origin can help ensure names feel authentic and respectful.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What should I look for when choosing a character name?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A good character name has three qualities: it fits the character's cultural background or fictional setting; it sounds distinct enough from other character names to avoid reader confusion (particularly the first letter — having Tom, Tyler, and Travis in the same story causes constant confusion); and it suits the character's role and personality. Generate multiple options, say them aloud, and consider how they feel in context alongside your other character names. Often the right name is recognisable when you encounter it — it sounds like it belongs to the character you've imagined.",
+      },
+    }
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Use the Random Name Generator",
+  description: "Step-by-step guide to using the free Random Name Generator on Calculators, Pdf Tools & More.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Open the tool",
+      text: "Navigate to the free Random Name Generator on Calculators, Pdf Tools & More. No signup or download is required.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Enter your data",
+      text: "Fill in the required fields. The Random Name Generator provides instant results as you type or click calculate.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Copy or use your results",
+      text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
+    }
+  ],
+};
+
 export default function RandomNameGeneratorPage() {
   return (
     <>
@@ -102,6 +179,14 @@ export default function RandomNameGeneratorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
         <ol className="flex items-center gap-2 text-sm text-gray-500">
@@ -135,15 +220,15 @@ export default function RandomNameGeneratorPage() {
         <p className="text-xs font-semibold text-purple-600 uppercase tracking-widest mb-1">
           Free Fun Tool · No Signup · Works Instantly
         </p>
-        <h1 className="sr-only">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
           Random Name Generator — Generate Random Names Free Online
         </h1>
-        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
+        <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Generate random first names, last names, or full names by gender and
           cultural origin — up to 50 at a time, with CSV export.
         </p>
       </header>
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         <main id="main-content" aria-label="Random Name Generator tool">
           <RandomNameGeneratorClient />
         </main>

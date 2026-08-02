@@ -20,7 +20,7 @@ interface Props {
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 
 function slugify(str: string) {
   return str
@@ -127,7 +127,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `online ${tool.name.toLowerCase()}`,
       `free online ${tool.name.toLowerCase()}`,
       `${tool.category.toLowerCase()} tools`,
-      "free online tools",
+      "Calculators, Pdf Tools & More",
       "no signup",
       "browser tool",
     ].join(", "),
@@ -227,7 +227,7 @@ export default async function ToolPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "HowTo",
     name: `How to use the free online ${tool.name.toLowerCase()}`,
-    description: `Step-by-step guide to using the free ${tool.name.toLowerCase()} on Free Online Tools.`,
+    description: `Step-by-step guide to using the free ${tool.name.toLowerCase()} on Calculators, Pdf Tools & More.`,
     step: [
       {
         "@type": "HowToStep",

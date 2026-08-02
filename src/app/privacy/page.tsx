@@ -10,18 +10,18 @@ import LegalLayout, {
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 const LAST_UPDATED = "January 22, 2024";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   title: `Privacy Policy | ${SITE_NAME}`,
   description: `Privacy Policy for ${SITE_NAME}. Learn how we protect your data and privacy. All tools process data locally — we never store your input.`,
-  alternates: { canonical: `${SITE_URL}/privacy-policy` },
+  alternates: { canonical: `${SITE_URL}/privacy` },
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
-    url: `${SITE_URL}/privacy-policy`,
+    url: `${SITE_URL}/privacy`,
     siteName: SITE_NAME,
     title: `Privacy Policy | ${SITE_NAME}`,
     description: `How ${SITE_NAME} protects your privacy. Your data never leaves your browser.`,
@@ -38,7 +38,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Privacy Policy",
-      item: `${SITE_URL}/privacy-policy`,
+      item: `${SITE_URL}/privacy`,
     },
   ],
 };
@@ -47,7 +47,7 @@ const webPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Privacy Policy",
-  url: `${SITE_URL}/privacy-policy`,
+  url: `${SITE_URL}/privacy`,
   description: `Privacy Policy for ${SITE_NAME}.`,
   publisher: {
     "@type": "Organization",

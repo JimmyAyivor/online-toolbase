@@ -1,16 +1,28 @@
 // src/app/tools/pomodoro-timer/page.tsx
 import type { Metadata } from "next";
-import PomodoroTimerClient from "./PomodoroTimerClient";
+import dynamic from "next/dynamic";
+import { tools } from "@/lib/tools";
+const tool = tools.find((t) => t.slug === "pomodoro-timer");
+
+const PomodoroTimerClient = dynamic(
+  () => import("./PomodoroTimerClient"),
+  {
+    
+    loading: () => (
+      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+    ),
+  }
+);
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 
 export const metadata: Metadata = {
   title:
-    "Pomodoro Timer — Free Online Pomodoro Timer with Work/Break Intervals",
+    "Free Pomodoro Timer — Work & Break Intervals Online",
   description:
     "Stay focused with the Pomodoro Technique — customisable 25-minute work sessions, 5-minute short breaks, and 15-minute long breaks. Track completed sessions and adjust durations. Free, no signup.",
   keywords:
@@ -35,7 +47,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     locale: "en_US",
     title:
-      "Pomodoro Timer — Free Online Pomodoro Timer with Work/Break Intervals",
+      "Free Pomodoro Timer — Work & Break Intervals Online",
     description:
       "Pomodoro timer with customisable work/break durations. Tracks sessions, auto-advances modes, plays audio alert. Free, no signup.",
     images: [
@@ -52,7 +64,7 @@ export const metadata: Metadata = {
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
     title:
-      "Pomodoro Timer — Free Online Pomodoro Timer with Work/Break Intervals",
+      "Free Pomodoro Timer — Work & Break Intervals Online",
     description:
       "Pomodoro timer with work/break cycles, session tracking, and custom durations. Free.",
   },
@@ -95,6 +107,80 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is the Pomodoro Technique?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. The method uses a timer to break work into 25-minute focused intervals (called 'Pomodoros' after the Italian word for tomato, from the tomato-shaped kitchen timer Cirillo used as a student) separated by short breaks. The standard sequence is: 25 minutes of focused work, 5-minute short break, repeat for 4 cycles, then take a longer 15-minute break...",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Why 25 minutes? Can I change the interval length?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Cirillo originally chose 25 minutes as the interval duration based on his observation that this was a sustainable focus period for most tasks before mental fatigue set in. Research since then has varied on the 'optimal' focus window — some studies suggest 52-minute work periods with 17-minute breaks (the popular '52/17' variation), others suggest 90-minute 'ultradian rhythm' cycles. The most important principle is consistency: whatever interval length you choose, maintaining it regularly across multiple sessions is more important than the specific duration...",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "When should I take a break if I'm in flow?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The Pomodoro Technique is intentionally prescriptive — you end the session when the timer goes off even if you're mid-task. This is by design: the end of a Pomodoro is meant to be a hard stop, and making a note of where you are before taking the break. The reasoning is that enforcing breaks prevents the kind of unrecognised mental fatigue that degrades work quality without feeling tiring. If you find yourself consistently in flow when the timer goes off, consider extending your work interval to 35 or 45 minutes in settings — the underlying principle matters more than the specific number.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What should I do during a Pomodoro break?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Short breaks (5 minutes) should involve complete disconnection from work: stand up and move around, stretch, look out a window at a distant point (helps eye strain from screens), get water or a snack, or simply breathe. Avoid checking work emails, social media, or news during short breaks — these activities engage the same prefrontal cortex activity as work and don't provide the cognitive rest the break is meant to deliver. Long breaks (15 minutes) allow for a more complete rest: a short walk outside, a conversation with a colleague or friend, light exercise, or simple relaxation...",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does the Pomodoro Technique work for creative or collaborative work?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The technique works well for tasks with clear deliverables and independent execution — writing, coding, studying, analysis, and design work. It is less suitable for collaborative work requiring continuous communication, meetings, or creative sessions where interruptions break the creative flow in ways that are difficult to resume. Many professionals use a hybrid approach: Pomodoros for deep independent work and unstructured time for collaborative or creative sessions. Some creatives extend intervals to 50–90 minutes for creative work while keeping the break structure...",
+      },
+    }
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Use the Pomodoro Timer",
+  description: "Step-by-step guide to using the free Pomodoro Timer on Calculators, Pdf Tools & More.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Open the tool",
+      text: "Navigate to the free Pomodoro Timer on Calculators, Pdf Tools & More. No signup or download is required.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Enter your data",
+      text: "Fill in the required fields. The Pomodoro Timer provides instant results as you type or click calculate.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Copy or use your results",
+      text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
+    }
+  ],
+};
+
 export default function PomodoroTimerPage() {
   return (
     <>
@@ -105,6 +191,14 @@ export default function PomodoroTimerPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
         <ol className="flex items-center gap-2 text-sm text-gray-500">
@@ -138,15 +232,15 @@ export default function PomodoroTimerPage() {
         <p className="text-xs font-semibold text-red-600 uppercase tracking-widest mb-1">
           Free Productivity Tool · No Signup · Works Instantly
         </p>
-        <h1 className="sr-only">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
           Pomodoro Timer — Free Online Pomodoro Timer with Work/Break Intervals
         </h1>
-        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
+        <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Stay focused with the Pomodoro Technique — 25-minute work sessions,
           5-minute breaks, customisable durations, and session tracking.
         </p>
       </header>
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         <main id="main-content" aria-label="Pomodoro Timer tool">
           <PomodoroTimerClient />
         </main>

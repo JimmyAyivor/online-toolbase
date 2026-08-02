@@ -1,15 +1,26 @@
 // src/app/tools/color-contrast-checker/page.tsx
 import type { Metadata } from "next";
-import ColorContrastCheckerClient from "./ColorContrastCheckerClient";
+import dynamic from "next/dynamic"; 
+import { tools } from "@/lib/tools";
+const ColorContrastCheckerClient = dynamic(
+  () => import("./ColorContrastCheckerClient"),
+  {
+    
+    loading: () => (
+      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+    ),
+  }
+);
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
+const tool = tools.find((t) => t.slug === "color-contrast-checker");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 
 export const metadata: Metadata = {
-  title: "Color Contrast Checker — WCAG AA & AAA Accessibility Ratio Tool",
+  title: "Free Color Contrast Checker — WCAG AA & AAA Tool",
   description:
     "Check color contrast ratios for WCAG AA and AAA accessibility compliance. Test text and background color pairs instantly. Free, no signup.",
   keywords:
@@ -33,7 +44,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/color-contrast-checker`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title: "Color Contrast Checker — WCAG AA & AAA Accessibility",
+    title: "Free Color Contrast Checker — WCAG AA & AAA Tool",
     description:
       "Test text/background color pairs against WCAG AA and AAA contrast ratio standards instantly.",
     images: [
@@ -49,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title: "Color Contrast Checker — WCAG AA & AAA",
+    title: "Free Color Contrast Checker — WCAG AA & AAA Tool",
     description:
       "Check WCAG color contrast ratios for web accessibility. Free.",
   },
@@ -93,6 +104,80 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is WCAG and why does contrast ratio matter?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "WCAG (Web Content Accessibility Guidelines) is the international standard for web accessibility, published by the W3C. Contrast ratio measures the luminance difference between foreground (text) and background colors. Low contrast makes text difficult or impossible to read for users with low vision, colour blindness, or in high-glare environments. WCAG AA compliance (4.5:1 for normal text) is legally required in many jurisdictions under accessibility laws such as the ADA (US), EN 301 549 (EU), and the Equality Act (UK).",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the difference between WCAG AA and AAA?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "WCAG AA is the minimum legal standard for most contexts: 4.5:1 for normal text and 3:1 for large text (18pt+ or 14pt+ bold). WCAG AAA is the enhanced level: 7:1 for normal text and 4.5:1 for large text. WCAG AAA is recommended for high-priority content such as body text in health, legal, or financial applications, but achieving AAA for all colors simultaneously is extremely difficult. Most teams target AA as the baseline with AAA for critical text.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does contrast ratio apply to images and icons?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — WCAG 1.4.11 (Non-text Contrast) requires a minimum 3:1 contrast ratio for UI components like buttons, input borders, and icons against adjacent colors. This is distinct from the 4.5:1 text contrast requirement. Icons that convey meaning (not just decorative) must meet the 3:1 UI component requirement. Images used as text must meet the full text contrast requirements.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I use a light gray text on a white background?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Light gray on white is one of the most common accessibility failures in modern web design. For example, #999999 on #FFFFFF has a contrast ratio of only 2.85:1 — failing WCAG AA. The lightest gray that passes AA for normal text on white is approximately #767676 (4.54:1). Use this checker to verify before using any light gray in your design.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is dark mode automatically more accessible?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Not automatically — dark mode shifts the contrast equation rather than solving it. Light text on dark backgrounds can fail just as easily as dark text on light backgrounds if the colors are not properly chosen. White (#FFFFFF) on true black (#000000) has a 21:1 ratio (maximum), but many dark mode palettes use off-blacks and off-whites that can drop below 4.5:1. Always check both light and dark mode color pairs with this tool.",
+      },
+    }
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Use the Color Contrast Checker",
+  description: "Step-by-step guide to using the free Color Contrast Checker on Calculators, Pdf Tools & More.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Open the tool",
+      text: "Navigate to the free Color Contrast Checker on Calculators, Pdf Tools & More. No signup or download is required.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Enter your data",
+      text: "Fill in the required fields. The Color Contrast Checker provides instant results as you type or click calculate.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Copy or use your results",
+      text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
+    }
+  ],
+};
+
 export default function ColorContrastCheckerPage() {
   return (
     <>
@@ -103,6 +188,14 @@ export default function ColorContrastCheckerPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
         <ol className="flex items-center gap-2 text-sm text-gray-500">
@@ -136,16 +229,16 @@ export default function ColorContrastCheckerPage() {
         <p className="text-xs font-semibold text-violet-600 uppercase tracking-widest mb-1">
           Free Design Tool · No Signup · Works Instantly
         </p>
-        <h1 className="sr-only">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
           Color Contrast Checker — WCAG AA & AAA Accessibility Ratio Tool
         </h1>
-        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
+        <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Check text and background color pairs for WCAG AA and AAA contrast
           ratio compliance — see pass/fail for normal text, large text, and UI
           components.
         </p>
       </header>
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         <main id="main-content" aria-label="Color Contrast Checker tool">
           <ColorContrastCheckerClient />
         </main>

@@ -263,15 +263,28 @@ function FAQSection() {
               <span className="font-semibold text-gray-900 text-sm">
                 {faq.q}
               </span>
-              <span className="text-red-600 text-lg shrink-0">
+              <span className="text-red-600 text-lg shrink-0" aria-hidden="true">
                 {open === i ? "−" : "+"}
               </span>
             </button>
-            {open === i && (
-              <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed">
-                {faq.a}
-              </div>
-            )}
+            {/*
+              Answer text is always present in the DOM — CSS controls visibility.
+              This ensures Google indexes all FAQ answers on initial page load,
+              which is required for FAQPage rich results in search.
+              Previously {open === i && <div>} meant answers were absent from
+              the HTML until clicked — Google never saw them.
+            */}
+            <div
+              className="px-5 text-sm text-gray-600 leading-relaxed overflow-hidden transition-all duration-200"
+              style={{
+                maxHeight: open === i ? "1000px" : "0px",
+                paddingBottom: open === i ? "20px" : "0px",
+                visibility: open === i ? "visible" : "hidden",
+              }}
+              aria-hidden={open !== i}
+            >
+              {faq.a}
+            </div>
           </div>
         ))}
       </div>

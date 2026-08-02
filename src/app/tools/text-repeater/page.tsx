@@ -1,12 +1,23 @@
 // src/app/tools/text-repeater/page.tsx
 import type { Metadata } from "next";
-import TextRepeaterClient from "./TextRepeaterClient";
+import dynamic from "next/dynamic";
+import { tools } from "@/lib/tools";
+const tool = tools.find((t) => t.slug === "text-repeater");
+const TextRepeaterClient = dynamic(
+  () => import("./TextRepeaterClient"),
+  {
+    
+    loading: () => (
+      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+    ),
+  }
+);
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 
 export const metadata: Metadata = {
   title: "Text Repeater — Free Online Text Repeater",
@@ -93,6 +104,80 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How many times can I repeat text?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The tool supports up to 1,000 repetitions. Use the slider for quick adjustments or type an exact number into the count field. The copy button always captures the full output regardless of how long it is.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What separators are available?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "You can choose from five built-in separators: New line (each repetition on its own line), Space (repetitions separated by a single space), Comma (comma and space), Pipe (space | space), or Custom (any character, emoji, or string you type). The Custom option gives you complete flexibility.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Will the tool copy the full output even if it is truncated on screen?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. The display truncates very long outputs at 2,000 characters for performance, but the Copy button always copies the complete, untruncated result to your clipboard.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I repeat multi-line text?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. You can paste multiple lines of text into the input field and the entire block will be repeated as a unit, with your chosen separator placed between each repetition.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What are some practical uses for repeated text?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Common uses include: generating test data for forms and databases, creating placeholder content for design mockups, building practice typing exercises, producing repeated list entries for templates, and creating separator lines made from repeated characters.",
+      },
+    }
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Use the Text Repeater",
+  description: "Step-by-step guide to using the free Text Repeater on Calculators, Pdf Tools & More.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Open the tool",
+      text: "Navigate to the free Text Repeater on Calculators, Pdf Tools & More. No signup or download is required.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Enter your data",
+      text: "Fill in the required fields. The Text Repeater provides instant results as you type or click calculate.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Copy or use your results",
+      text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
+    }
+  ],
+};
+
 export default function TextRepeaterPage() {
   return (
     <>
@@ -103,6 +188,14 @@ export default function TextRepeaterPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
@@ -138,14 +231,14 @@ export default function TextRepeaterPage() {
         <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Text Tool · No Signup · Works Instantly
         </p>
-        <h1 className="sr-only">Text Repeater — Free Online Text Repeater</h1>
-        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">Text Repeater — Free Online Text Repeater</h1>
+        <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Repeat any text or phrase multiple times with a custom separator.
           Free, no account needed.
         </p>
       </header>
 
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         <main id="main-content" aria-label="Text Repeater tool">
           <TextRepeaterClient />
         </main>

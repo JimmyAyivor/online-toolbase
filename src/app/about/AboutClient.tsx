@@ -155,18 +155,18 @@ const PRINCIPLES = [
 ];
 
 const CATEGORIES = [
-  { emoji: "✍️", name: "Writing & Text", count: 20 },
-  { emoji: "💻", name: "Developer", count: 20 },
-  { emoji: "🔢", name: "Calculators", count: 17 },
-  { emoji: "💰", name: "Finance", count: 11 },
-  { emoji: "❤️", name: "Health", count: 12 },
-  { emoji: "📱", name: "Social Media", count: 12 },
-  { emoji: "🎨", name: "Design & Image", count: 12 },
-  { emoji: "⏱️", name: "Productivity", count: 5 },
-  { emoji: "🔒", name: "Security", count: 2 },
-  { emoji: "🎲", name: "Fun & Utilities", count: 5 },
-  { emoji: "📣", name: "Marketing", count: 4 },
-  { emoji: "💼", name: "Business", count: 4 },
+  { emoji: "✍️", name: "Writing & Text", count: 20, category: "writing" },
+  { emoji: "💻", name: "Developer", count: 20, category: "developer" },
+  { emoji: "🔢", name: "Calculators", count: 17, category: "calculator" },
+  { emoji: "💰", name: "Finance", count: 11, category: "finance" },
+  { emoji: "❤️", name: "Health", count: 12, category: "health" },
+  { emoji: "📱", name: "Social Media", count: 12, category: "social-media" },
+  { emoji: "🎨", name: "Design & Image", count: 12, category: "design" },
+  { emoji: "⏱️", name: "Productivity", count: 5, category: "productivity" },
+  { emoji: "🔒", name: "Security", count: 2, category: "security" },
+  { emoji: "🎲", name: "Fun & Utilities", count: 5, category: "fun" },
+  { emoji: "📣", name: "Marketing", count: 4, category: "marketing" },
+  { emoji: "💼", name: "Business", count: 4, category: "business" },
 ];
 
 /* ─── Component ──────────────────────────────────────────────────────────── */
@@ -224,7 +224,7 @@ export default function AboutClient() {
             style={{ animation: "fadeUp 0.6s ease 0.1s forwards" }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-            About Free Online Tools
+            About Calculators, Pdf Tools & More
           </div>
 
           {/* Main heading */}
@@ -435,7 +435,7 @@ export default function AboutClient() {
                 {CATEGORIES.map((cat, i) => (
                   <Reveal key={cat.name} delay={i * 40}>
                     <Link
-                      href={`/?category=${encodeURIComponent(cat.name)}`}
+                      href={`/tools/category/${encodeURIComponent(cat.category)}`}
                       className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gray-50 hover:bg-indigo-50 border border-transparent hover:border-indigo-200 transition-all duration-200 group"
                     >
                       <span className="text-xl">{cat.emoji}</span>

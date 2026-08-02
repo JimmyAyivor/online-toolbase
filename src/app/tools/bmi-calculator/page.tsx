@@ -1,12 +1,25 @@
 // src/app/tools/bmi-calculator/page.tsx
 import type { Metadata } from "next";
-import BmiCalculatorClient from "./BmiCalculatorClient";
+import dynamic from "next/dynamic";
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import ToolEngagement from "@/components/ToolEngagement";
+import PostToolOffer from "@/components/monetization/PostToolOffer";
+import ToolShareBar from "@/components/monetization/ToolShareBar";
+import { tools } from "@/lib/tools";
+const BmiCalculatorClient = dynamic(
+  () => import("./BmiCalculatorClient"),
+  {
+    
+    loading: () => (
+      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+    ),
+  }
+); 
 
+const tool = tools.find((t) => t.slug === "bmi-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 
 // ─── Slot IDs from env ────────────────────────────────────────────────────────
 const SLOT_BELOW_TOOL =
@@ -100,6 +113,64 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is the BMI Calculator free to use?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — the BMI Calculator is completely free. No signup, no download, and no payment is required. It runs entirely in your browser.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does the BMI Calculator work on mobile?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, the BMI Calculator is fully responsive and works on smartphones, tablets, and desktop computers without any app installation.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is my data private when using the BMI Calculator?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "All calculations are performed locally in your browser. No data is sent to any server or stored anywhere.",
+      },
+    }
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Use the BMI Calculator",
+  description: "Step-by-step guide to using the free BMI Calculator on Calculators, Pdf Tools & More.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Enter your height and weight",
+      text: "Input your height and weight in either metric (cm, kg) or imperial (feet, inches, lbs) units.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "View your BMI result",
+      text: "Your BMI score is calculated instantly alongside your weight category — underweight, normal, overweight, or obese.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Understand your result",
+      text: "Read the context provided about what your BMI score means and the limitations of BMI as a health indicator.",
+    }
+  ],
+};
+
 export default function BmiCalculatorPage() {
   return (
     <>
@@ -110,6 +181,14 @@ export default function BmiCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumb */}
@@ -147,15 +226,15 @@ export default function BmiCalculatorPage() {
         <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Health Tool · No Signup · Works Instantly
         </p>
-        <h1 className="sr-only">BMI Calculator — Free Online BMI Calculator</h1>
-        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">BMI Calculator — Free Online BMI Calculator</h1>
+        <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Calculate your Body Mass Index and discover your healthy weight range.
           Free, instant, no account needed.
         </p>
       </header>
 
       {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         {/* ── Tool component (main interactive area) ──────────────────── */}
         <main id="main-content" aria-label="BMI Calculator tool">
           <BmiCalculatorClient />
@@ -186,7 +265,10 @@ export default function BmiCalculatorPage() {
             className="flex sm:hidden"
           />
         </div>
-
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+      {tool && <PostToolOffer toolSlug={tool.slug} toolCategory={tool.category} />}
+      {tool && <ToolShareBar toolSlug={tool.slug} toolName={tool.name} />}
+      </div>
         {/* ── Editorial: How To + Related Tools ────────────────────────── */}
         {/* ── HOW TO USE ─────────────────────────────────────────────────────────── */}
         <section

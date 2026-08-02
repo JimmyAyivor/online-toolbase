@@ -1,15 +1,26 @@
 // src/app/tools/resume-builder/page.tsx
 import type { Metadata } from "next";
-import ResumeBuilderClient from "./ResumeBuilderClient";
+import dynamic from "next/dynamic";
+import { tools } from "@/lib/tools";
+const tool = tools.find((t) => t.slug === "resume-builder");
+const ResumeBuilderClient = dynamic(
+  () => import("./ResumeBuilderClient"),
+  {
+    
+    loading: () => (
+      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+    ),
+  }
+);
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 
 export const metadata: Metadata = {
-  title: "Resume Builder — Build & Download a Professional Resume Free Online",
+  title: "Free Resume Builder — Download Professional Resume",
   description:
     "Build a professional resume with sections for work experience, education, skills, and a summary. Live preview updates as you type. Download as PDF. Free, no signup, no data stored.",
   keywords:
@@ -34,7 +45,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     locale: "en_US",
     title:
-      "Resume Builder — Build & Download a Professional Resume Free Online",
+      "Free Resume Builder — Download Professional Resume",
     description:
       "Build a resume with work experience, education, skills, and summary. Live preview. Download as PDF. Free, no signup, no data stored.",
     images: [
@@ -51,7 +62,7 @@ export const metadata: Metadata = {
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
     title:
-      "Resume Builder — Build & Download a Professional Resume Free Online",
+      "Free Resume Builder — Download Professional Resume",
     description:
       "Build a professional resume with live preview and PDF download. Free, no signup.",
   },
@@ -94,6 +105,88 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How long should a resume be?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The standard resume length is one page for candidates with under 10 years of experience, and two pages for more experienced professionals with extensive relevant experience to show. Three-page resumes are rarely appropriate except in academic CV contexts (where the format is different from a standard resume) or very senior executive roles...",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is an ATS and how do I make my resume ATS-friendly?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "ATS stands for Applicant Tracking System — software used by most medium and large employers to scan, parse, and rank resumes before a human recruiter sees them. ATS systems extract text from your resume and compare keywords, job titles, and skills against the job description requirements. An ATS-unfriendly resume gets filtered out before any human reads it...",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How should I format my work experience bullet points?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Effective resume bullet points follow the CAR or STAR structure: start with a strong action verb, describe what you did, and quantify the result where possible. The formula is: '[Action verb] + [what you did] + [measurable outcome]'...",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Should I include a professional summary on my resume?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — a 3–5 sentence professional summary at the top of your resume is valuable for most candidates, especially those with more than 3 years of experience. The summary gives recruiters an immediate snapshot of who you are and what you bring, without requiring them to read the entire document. It's also an opportunity to include targeted keywords for ATS systems and to address any context that the rest of your resume doesn't immediately convey (such as a career transition, a gap, or an unusual background)...",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the difference between a resume and a CV?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "In the US and Canada, 'resume' and 'CV' are sometimes used interchangeably in casual conversation, but they refer to different documents in professional contexts. A resume is a concise 1–2 page document tailored to a specific job application, focused on relevant work experience, skills, and achievements...",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Should I tailor my resume for each job application?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — tailoring your resume to each job application significantly improves your callback rate. Tailoring doesn't mean rewriting your entire resume from scratch; it means adjusting your professional summary, reordering or emphasising relevant bullet points, and ensuring your skills section mirrors the keywords and requirements in the specific job description. Many candidates submit an identical resume to every job — employers and ATS systems can tell...",
+      },
+    }
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Use the Resume Builder",
+  description: "Step-by-step guide to using the free Resume Builder on Calculators, Pdf Tools & More.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Open the tool",
+      text: "Navigate to the free Resume Builder on Calculators, Pdf Tools & More. No signup or download is required.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Enter your data",
+      text: "Fill in the required fields. The Resume Builder provides instant results as you type or click calculate.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Copy or use your results",
+      text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
+    }
+  ],
+};
+
 export default function ResumeBuilderPage() {
   return (
     <>
@@ -104,6 +197,14 @@ export default function ResumeBuilderPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
         <ol className="flex items-center gap-2 text-sm text-gray-500">
@@ -137,16 +238,16 @@ export default function ResumeBuilderPage() {
         <p className="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-1">
           Free Business Tool · No Signup · Works Instantly
         </p>
-        <h1 className="sr-only">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
           Resume Builder — Build &amp; Download a Professional Resume Free
           Online
         </h1>
-        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
+        <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Build a professional resume with work experience, education, skills,
           and summary — live preview updates as you type and downloads as a PDF.
         </p>
       </header>
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         <main id="main-content" aria-label="Resume Builder tool">
           <ResumeBuilderClient />
         </main>

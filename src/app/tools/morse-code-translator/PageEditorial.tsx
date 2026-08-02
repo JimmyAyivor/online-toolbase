@@ -168,17 +168,23 @@ function FAQSection() {
             <button
               className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
               onClick={() => setOpen(open === i ? null : i)}
-            >
+              aria-expanded={open === i}            >
               <span className="font-semibold text-gray-900 text-sm">{f.q}</span>
               <span className="text-yellow-600 text-lg shrink-0">
                 {open === i ? "−" : "+"}
               </span>
             </button>
-            {open === i && (
-              <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed">
-                {f.a}
-              </div>
-            )}
+            <div
+              className="px-5 text-sm text-gray-600 leading-relaxed overflow-hidden transition-all duration-200"
+              style={{
+                maxHeight: open === i ? "1000px" : "0px",
+                paddingBottom: open === i ? "20px" : "0px",
+                visibility: open === i ? "visible" : "hidden",
+              }}
+              aria-hidden={open !== i}
+            >
+              {f.a}
+            </div>
           </div>
         ))}
       </div>

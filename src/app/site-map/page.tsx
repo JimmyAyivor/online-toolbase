@@ -10,8 +10,8 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
 
 export const metadata: Metadata = {
-  title: "Visual Sitemap — Free Online Tools",
-  description: `Interactive visual sitemap of all ${tools.length} free online tools across ${new Set(tools.map((t) => t.category)).size} categories.`,
+  title: "Visual Sitemap — Calculators, Pdf Tools & More",
+  description: `Interactive visual sitemap of all ${tools.length} Calculators, Pdf Tools & More across ${new Set(tools.map((t) => t.category)).size} categories.`,
   alternates: { canonical: `${SITE_URL}/site-map` },
   robots: { index: true, follow: true },
 };

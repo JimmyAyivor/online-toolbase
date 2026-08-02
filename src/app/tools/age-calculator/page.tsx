@@ -1,12 +1,23 @@
 // src/app/tools/age-calculator/page.tsx
 import type { Metadata } from "next";
-import AgeCalculatorClient from "./AgeCalculatorClient";
+import dynamic from "next/dynamic";
+import { tools } from "@/lib/tools";
+const AgeCalculatorClient = dynamic(
+  () => import("./AgeCalculatorClient"),
+  {
+    
+    loading: () => (
+      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+    ),
+  }
+);
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import ToolEngagement from "@/components/ToolEngagement";
+const tool = tools.find((t) => t.slug === "age-calculator");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 
 // ─── Slot IDs from env ────────────────────────────────────────────────────────
 const SLOT_BELOW_TOOL =
@@ -100,6 +111,64 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is the Age Calculator free to use?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — the Age Calculator is completely free. No signup, no download, and no payment is required. It runs entirely in your browser.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does the Age Calculator work on mobile?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, the Age Calculator is fully responsive and works on smartphones, tablets, and desktop computers without any app installation.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is my data private when using the Age Calculator?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "All calculations are performed locally in your browser. No data is sent to any server or stored anywhere.",
+      },
+    }
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Use the Age Calculator",
+  description: "Step-by-step guide to using the free Age Calculator on Calculators, Pdf Tools & More.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Open the tool",
+      text: "Navigate to the free Age Calculator on Calculators, Pdf Tools & More. No signup or download is required.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Enter your data",
+      text: "Fill in the required fields. The Age Calculator provides instant results as you type or click calculate.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Copy or use your results",
+      text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
+    }
+  ],
+};
+
 export default function AgeCalculatorPage() {
   return (
     <>
@@ -110,6 +179,14 @@ export default function AgeCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumb */}
@@ -147,15 +224,15 @@ export default function AgeCalculatorPage() {
         <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Calculator Tool · No Signup · Works Instantly
         </p>
-        <h1 className="sr-only">Age Calculator — Free Online Age Calculator</h1>
-        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">Age Calculator — Free Online Age Calculator</h1>
+        <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Calculate your exact age in years, months, days, hours, and minutes
           from any birth date instantly. Free, instant, no account needed.
         </p>
       </header>
 
       {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         {/* ── Tool component (main interactive area) ──────────────────── */}
         <main id="main-content" aria-label="Age Calculator tool">
           <AgeCalculatorClient />

@@ -1,11 +1,23 @@
 // src/app/tools/countdown-timer/page.tsx
 import type { Metadata } from "next";
-import CountdownTimerClient from "./CountdownTimerClient";
+import dynamic from "next/dynamic";
+import { tools } from "@/lib/tools";
+const CountdownTimerClient = dynamic(
+  () => import("./CountdownTimerClient"),
+  {
+    
+    loading: () => (
+      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+    ),
+  }
+);
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
+
+const tool = tools.find((t) => t.slug === "countdown-timer");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 export const metadata: Metadata = {
   title: "Countdown Timer — Set a Timer Online, Free",
   description:
@@ -85,6 +97,80 @@ const breadcrumbJsonLd = {
     },
   ],
 };
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is the Pomodoro Technique?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. It involves working in 25-minute focused intervals (Pomodoros) separated by 5-minute short breaks, with a longer 15–30 minute break after every four Pomodoros. The 25-minute preset in this timer is specifically designed for Pomodoro sessions. Research supports short work sprints for maintaining concentration and reducing mental fatigue over long work periods.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do I use a countdown timer for studying?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "For studying, the most effective approach is fixed-interval timing. Set a 25–45 minute timer and commit to working only on one topic until it ends — no phone, no context switching. When the timer completes, take a genuine 5–10 minute break away from the screen. This method, supported by research on deliberate practice, helps build sustained concentration over time. Track how many focused sessions you complete per day for a concrete measure of productive study time.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I use a timer for cooking?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — kitchen timing is one of the most practical uses. Set the timer for your cooking duration, add a label like 'Pasta' or 'Roast chicken', and keep the browser tab open. The tab shows the remaining time in the title, so you can monitor it while using other tabs. For recipes requiring multiple timers simultaneously, open the tool in multiple browser tabs.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does the timer continue if I change browser tabs?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — the countdown uses JavaScript's setInterval which continues running in the background when you switch tabs. However, some mobile browsers aggressively suspend background tabs to save battery. For reliable background timing on mobile, keep the timer tab visible or adjust your browser's background activity settings. Desktop browsers are generally reliable for background timers.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the difference between a countdown timer and a stopwatch?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A countdown timer counts down from a set duration to zero — you define the end point. A stopwatch counts up from zero — you measure elapsed time. Use a countdown timer when you have a fixed duration to manage (cooking, work sprints, exam time limits). Use a stopwatch when you are measuring how long something takes without a predefined limit (running laps, task time tracking).",
+      },
+    }
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Use the Countdown Timer",
+  description: "Step-by-step guide to using the free Countdown Timer on Calculators, Pdf Tools & More.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Open the tool",
+      text: "Navigate to the free Countdown Timer on Calculators, Pdf Tools & More. No signup or download is required.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Enter your data",
+      text: "Fill in the required fields. The Countdown Timer provides instant results as you type or click calculate.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Copy or use your results",
+      text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
+    }
+  ],
+};
 export default function CountdownTimerPage() {
   return (
     <>
@@ -95,6 +181,14 @@ export default function CountdownTimerPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
         <ol className="flex items-center gap-2 text-sm text-gray-500">
@@ -128,9 +222,9 @@ export default function CountdownTimerPage() {
         <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Productivity Tool · No Signup · Works Instantly
         </p>
-        <h1 className="sr-only">Countdown Timer — Set a Timer Online, Free</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">Countdown Timer — Set a Timer Online, Free</h1>
       </header>
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         <main id="main-content" aria-label="Countdown Timer tool">
           <CountdownTimerClient />
         </main>

@@ -568,7 +568,7 @@ export default function AdvertiseClient() {
             </h1>
 
             <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-10 leading-relaxed">
-              Free Online Tools serves a massive, actively engaged audience of
+              Calculators, Pdf Tools & More serves a massive, actively engaged audience of
               professionals, developers, and creators — people using tools to
               get things done right now. Put your brand in front of them.
             </p>

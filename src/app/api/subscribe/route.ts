@@ -1,11 +1,7 @@
 // src/app/api/subscribe/route.ts
 // Server-side Mailchimp subscription handler.
 // Keeps the API key off the client and avoids the Mailchimp CORS block.
-//
-// Required env vars (server-side only — no NEXT_PUBLIC_ prefix):
-//   MAILCHIMP_API_KEY=05b221c55a2d3bd1d481f4b7816d42fa-us15
-//   MAILCHIMP_SERVER_PREFIX=us15
-//   MAILCHIMP_AUDIENCE_ID=6e5b305961
+
 
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";

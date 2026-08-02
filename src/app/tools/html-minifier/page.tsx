@@ -1,13 +1,24 @@
 // src/app/tools/html-minifier/page.tsx
 import type { Metadata } from "next";
-import HtmlMinifierClient from "./HtmlMinifierClient";
+import dynamic from "next/dynamic";
+import { tools } from "@/lib/tools";
+const HtmlMinifierClient = dynamic(
+  () => import("./HtmlMinifierClient"),
+  {
+    
+    loading: () => (
+      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+    ),
+  }
+);
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
+const tool = tools.find((t) => t.slug === "html-minifier");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
@@ -99,6 +110,80 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Does minifying HTML break my page?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. HTML minification only removes characters that browsers ignore — excess whitespace, line breaks, and comments. The HTML structure, tag order, and attributes remain unchanged, so the rendered page looks and behaves identically. The only exception is whitespace inside pre or textarea tags, which this tool preserves by design.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How much file size reduction should I expect?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Typical HTML files see a 10–30% reduction in raw file size after minification. Pages with a lot of inline CSS, JavaScript, or lengthy comments can see savings of 40% or more. However, if your server already uses gzip or Brotli compression, the marginal gain from minification is smaller, since compression algorithms already remove repeated patterns very efficiently.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Should I minify HTML in production?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, for high-traffic sites it's worth doing — even small reductions in HTML size compound over millions of requests, reducing bandwidth costs and slightly improving Time to First Byte (TTFB). Most modern build tools like Vite, Next.js, and webpack minify HTML automatically in production builds, so you may already have this covered if you're using a framework.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the difference between minification and compression?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Minification changes the source code by removing unnecessary characters, producing a smaller but still valid HTML file. Compression (gzip, Brotli) is applied at the transport layer by your web server, encoding the file into a binary format for transmission and decompressing it in the browser. They work at different levels and can both be applied simultaneously for the best result.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Why does the tool preserve IE conditional comments?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "IE conditional comments (<!--[if IE]>...<![endif]-->) are a special Microsoft extension used to serve different HTML to Internet Explorer versions. Although IE is now retired, many legacy codebases still contain these comments and removing them would change the HTML's conditional behaviour. The tool detects and preserves them to avoid unexpected breakage.",
+      },
+    }
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Use the HTML Minifier",
+  description: "Step-by-step guide to using the free HTML Minifier on Calculators, Pdf Tools & More.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Open the tool",
+      text: "Navigate to the free HTML Minifier on Calculators, Pdf Tools & More. No signup or download is required.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Enter your data",
+      text: "Fill in the required fields. The HTML Minifier provides instant results as you type or click calculate.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Copy or use your results",
+      text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
+    }
+  ],
+};
+
 export default function HtmlMinifierPage() {
   return (
     <>
@@ -109,6 +194,14 @@ export default function HtmlMinifierPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
@@ -144,15 +237,15 @@ export default function HtmlMinifierPage() {
         <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Developer Tool · No Signup · Works Instantly
         </p>
-        <h1 className="sr-only">HTML Minifier — Free Online HTML Minifier</h1>
-        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">HTML Minifier — Free Online HTML Minifier</h1>
+        <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Paste your HTML and minify it instantly — removes whitespace,
           comments, and redundant code to shrink file size. Free, no account
           needed.
         </p>
       </header>
 
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         <main id="main-content" aria-label="HTML Minifier tool">
           <HtmlMinifierClient />
         </main>

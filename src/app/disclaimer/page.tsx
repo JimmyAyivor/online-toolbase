@@ -10,13 +10,13 @@ import LegalLayout, {
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 const LAST_UPDATED = "January 22, 2024";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   title: `Disclaimer | ${SITE_NAME}`,
-  description: `Disclaimer for ${SITE_NAME}. Understand the limitations of our free online tools and when to seek professional advice.`,
+  description: `Disclaimer for ${SITE_NAME}. Understand the limitations of our Calculators, Pdf Tools & More and when to seek professional advice.`,
   alternates: { canonical: `${SITE_URL}/disclaimer` },
   robots: { index: true, follow: true },
   openGraph: {

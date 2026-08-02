@@ -9,6 +9,7 @@
 import { useState, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { tools } from "@/lib/tools";
+import SponsoredToolSlot from "@/components/monetization/SponsoredToolSlot";
 
 /* ─── Types ──────────────────────────────────────────────────────────────── */
 
@@ -19,6 +20,9 @@ interface Tool {
   category: string;
 }
 
+interface SponsoredItem {
+  type: "sponsored";
+}
 /* ─── Category meta ──────────────────────────────────────────────────────── */
 
 type ColorKey =
@@ -278,11 +282,6 @@ const ALL_CATEGORIES = Array.from(
   new Set(tools.map((t: Tool) => t.category)),
 ).sort();
 
-const CATEGORY_COUNTS: Record<string, number> = {};
-tools.forEach((t: Tool) => {
-  CATEGORY_COUNTS[t.category] = (CATEGORY_COUNTS[t.category] ?? 0) + 1;
-});
-
 /* ─── Component ──────────────────────────────────────────────────────────── */
 
 export default function HomeClient() {
@@ -303,7 +302,15 @@ export default function HomeClient() {
       }),
     [search, activeCategory],
   );
-
+  const toolsWithSponsored = useMemo<(Tool | SponsoredItem)[]>(() => {
+    const list: (Tool | SponsoredItem)[] = [...filteredTools];
+  
+    const insertIndex = Math.min(6, list.length);
+  
+    list.splice(insertIndex, 0, { type: "sponsored" });
+  
+    return list;
+  }, [filteredTools]);
   const scrollToTools = useCallback((): void => {
     if (typeof window !== "undefined") {
       document.getElementById("tools")?.scrollIntoView({ behavior: "smooth" });
@@ -327,10 +334,10 @@ export default function HomeClient() {
           id="categories-heading"
           className="text-4xl font-bold text-gray-900 mb-4 text-center"
         >
-          Browse Free Tools by Category
+          Browse Free Online Calculators and Pdf Tools by Category
         </h2>
         <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">
-          {ALL_CATEGORIES.length} categories covering writing, development,
+          Free online tools categories covering writing, development,
           design, health, finance, social media, and more.
         </p>
 
@@ -376,7 +383,7 @@ export default function HomeClient() {
               <span
                 className={`text-xs mt-1 block ${activeCategory === null ? "text-white/80" : "text-gray-500"}`}
               >
-                {tools.length} tools
+                Free online Calculators, Pdf Tools tools
               </span>
             </button>
           </li>
@@ -394,7 +401,6 @@ export default function HomeClient() {
                     scrollToTools();
                   }}
                   aria-pressed={isActive}
-                  aria-label={`Filter by ${cat} — ${CATEGORY_COUNTS[cat] ?? 0} tools`}
                   title={meta.description}
                   className={`w-full rounded-2xl shadow p-5 border-2 text-left hover:-translate-y-1 transition-all duration-300 ${
                     isActive
@@ -428,7 +434,6 @@ export default function HomeClient() {
                   <span
                     className={`text-xs mt-1 block ${isActive ? "text-white/80" : "text-gray-500"}`}
                   >
-                    {CATEGORY_COUNTS[cat] ?? 0} tools
                   </span>
                 </button>
               </li>
@@ -448,7 +453,7 @@ export default function HomeClient() {
         {/* Search */}
         <div className="mb-8" role="search">
           <label htmlFor="tool-search" className="sr-only">
-            Search free online tools
+            Search Calculators, Pdf Tools & More
           </label>
           <div className="relative max-w-2xl">
             <input
@@ -460,7 +465,7 @@ export default function HomeClient() {
                 setActiveCategory(null);
               }}
               placeholder="Search tools — e.g. BMI calculator, QR code generator…"
-              aria-label="Search free online tools"
+              aria-label="Search Calculators, Pdf Tools & More"
               className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-2xl focus:outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 transition-all"
             />
             <svg
@@ -484,13 +489,12 @@ export default function HomeClient() {
           <h2 id="tools-heading" className="text-4xl font-bold text-gray-900">
             {activeCategory
               ? `${activeCategory} Tools`
-              : "All Free Online Tools"}
+              : "All Calculators, Pdf Tools & More"}
           </h2>
           <span
             className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full font-medium"
             aria-live="polite"
           >
-            {filteredTools.length} tool{filteredTools.length !== 1 ? "s" : ""}
           </span>
         </div>
 
@@ -500,7 +504,7 @@ export default function HomeClient() {
             : ""}
           {activeCategory
             ? `Browse all free ${activeCategory.toLowerCase()} tools below — no signup required.`
-            : `Browse all ${tools.length}+ free online tools below. Click any card to start instantly — no account needed.`}
+            : `Browse all  Calculators, Pdf Tools & More below. Click any card to start instantly — no account needed.`}
         </p>
 
         {filteredTools.length === 0 ? (
@@ -535,69 +539,79 @@ export default function HomeClient() {
           </div>
         ) : (
           <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
-            {filteredTools.map((tool: Tool) => {
-              const c = getColors(tool.category);
-              return (
-                <li key={tool.slug}>
-                  <Link
-                    href={`/tools/${tool.slug}`}
-                    className={`block h-full bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 border-2 border-transparent ${c.hoverBorder} hover:-translate-y-1 transition-all duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300`}
-                    aria-label={`${tool.name} — ${tool.description}`}
-                  >
-                    <div
-                      className={`w-14 h-14 ${c.iconBg} rounded-xl flex items-center justify-center mb-4`}
-                      aria-hidden="true"
-                    >
-                      <svg
-                        className="w-7 h-7 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d={c.icon}
-                        />
-                      </svg>
-                    </div>
-                    <span
-                      className={`text-xs font-semibold uppercase tracking-wider ${c.text} mb-2 block`}
-                    >
-                      {tool.category
-                        .replace(/-/g, " ")
-                        .replace(/\b\w/g, (c) => c.toUpperCase())}
-                    </span>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      {tool.name}
-                    </h3>
-                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                      {tool.description}
-                    </p>
-                    <div
-                      className={`flex items-center ${c.text} font-semibold text-sm mt-auto`}
-                      aria-hidden="true"
-                    >
-                      <span>Use Tool Free</span>
-                      <svg
-                        className="w-4 h-4 ml-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </div>
-                  </Link>
-                </li>
-              );
-            })}
+            {toolsWithSponsored.map((item, index) => {
+  if (!("category" in item)) {
+    return (
+      <li key={`sponsored-${index}`}>
+        <SponsoredToolSlot />
+      </li>
+    );
+  }
+
+  const tool = item;
+  const c = getColors(tool.category);
+
+  return (
+    <li key={tool.slug}>
+      <Link
+        href={`/tools/${tool.slug}`}
+        className={`block h-full bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 border-2 border-transparent ${c.hoverBorder} hover:-translate-y-1 transition-all duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300`}
+        aria-label={`${tool.name} — ${tool.description}`}
+      >
+        <div
+          className={`w-14 h-14 ${c.iconBg} rounded-xl flex items-center justify-center mb-4`}
+        >
+          <svg
+            className="w-7 h-7 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d={c.icon}
+            />
+          </svg>
+        </div>
+
+        <span
+          className={`text-xs font-semibold uppercase tracking-wider ${c.text} mb-2 block`}
+        >
+          {tool.category
+            .replace(/-/g, " ")
+            .replace(/\b\w/g, (c) => c.toUpperCase())}
+        </span>
+
+        <h3 className="text-xl font-bold text-gray-900 mb-2">
+          {tool.name}
+        </h3>
+
+        <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+          {tool.description}
+        </p>
+
+        <div className={`flex items-center ${c.text} font-semibold text-sm mt-auto`}>
+          <span>Use Tool Free</span>
+          <svg
+            className="w-4 h-4 ml-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </div>
+      </Link>
+    </li>
+  );
+})}
           </ul>
         )}
       </section>

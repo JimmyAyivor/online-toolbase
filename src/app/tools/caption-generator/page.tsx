@@ -1,12 +1,23 @@
 // src/app/tools/caption-generator/page.tsx
 import type { Metadata } from "next";
-import CaptionGeneratorClient from "./CaptionGeneratorClient";
+import dynamic from "next/dynamic";
+import { tools } from "@/lib/tools";
+const CaptionGeneratorClient = dynamic(
+  () => import("./CaptionGeneratorClient"),
+  {
+    
+    loading: () => (
+      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+    ),
+  }
+);
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import ToolEngagement from "@/components/ToolEngagement";
 
+const tool = tools.find((t) => t.slug === "caption-generator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 
 // ─── Slot IDs from env ────────────────────────────────────────────────────────
 const SLOT_BELOW_TOOL =
@@ -99,6 +110,64 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is the Caption Generator free to use?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — the Caption Generator is completely free. No signup, no download, and no payment is required. It runs entirely in your browser.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does the Caption Generator work on mobile?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, the Caption Generator is fully responsive and works on smartphones, tablets, and desktop computers without any app installation.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is my data private when using the Caption Generator?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "All calculations are performed locally in your browser. No data is sent to any server or stored anywhere.",
+      },
+    }
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Use the Caption Generator",
+  description: "Step-by-step guide to using the free Caption Generator on Calculators, Pdf Tools & More.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Open the tool",
+      text: "Navigate to the free Caption Generator on Calculators, Pdf Tools & More. No signup or download is required.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Enter your data",
+      text: "Fill in the required fields. The Caption Generator provides instant results as you type or click calculate.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Copy or use your results",
+      text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
+    }
+  ],
+};
+
 export default function CaptionGeneratorPage() {
   return (
     <>
@@ -109,6 +178,14 @@ export default function CaptionGeneratorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumb */}
@@ -146,16 +223,16 @@ export default function CaptionGeneratorPage() {
         <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Social Media Tool · No Signup · Works Instantly
         </p>
-        <h1 className="sr-only">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
           Caption Generator — Free Online Caption Generator
         </h1>
-        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
+        <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Generate engaging captions for photos and social media posts.
         </p>
       </header>
 
       {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         {/* ── Tool component (main interactive area) ──────────────────── */}
         <main id="main-content" aria-label="Caption Generator tool">
           <CaptionGeneratorClient />

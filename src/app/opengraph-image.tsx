@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Online Tool Base — Free Online Tools";
+export const alt = "Online Tool Base — Calculators, Pdf Tools & More";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -30,7 +30,7 @@ export default function OgImage() {
         🛠️ Online Tool Base
       </div>
       <div style={{ fontSize: 32, color: "rgba(255,255,255,0.85)" }}>
-        60+ Free Online Tools — No Signup Required
+        60+ Calculators, Pdf Tools & More — No Signup Required
       </div>
     </div>,
     { ...size },

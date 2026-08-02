@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${SITE_URL}/about`,
-    title: "About Free Online Tools",
+    title: "About Calculators, Pdf Tools & More",
     description:
       "130+ free browser-based tools. No signup, no data collection, no cost — ever. Learn why we built them.",
     images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],

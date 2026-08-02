@@ -4,28 +4,30 @@ import type { ReactNode } from "react";
 import Script from "next/script";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import GlobalMonetization from "@/components/GlobalMonetization";
+import CookieBanner from "@/components/CookieBanner";
 import "./globals.css";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 const TWITTER = "@onlinetoolbase";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   // Fallback title — individual pages override this with their own title.
-  // Template appends site name: "Age Calculator — Free Online Tool | Free Online Tools"
+  // Template appends site name: "Age Calculator — Free Online Tool | Calculators, Pdf Tools & More"
   title: {
-    default: `${SITE_NAME} — 130+ Free Calculators, Converters & Generators`,
+    default: `${SITE_NAME} : Free Online Calculators - Math, Fitness, Finance, Science`,
     template: `%s | ${SITE_NAME}`,
   },
 
   description:
-    "130+ free online tools — calculators, converters, generators and more. BMI calculator, QR code generator, password generator, currency converter, and hundreds more. No signup, no download, 100% free.",
+    "130+ Calculators, Pdf Tools & More — free calculators, converters, generators and more. BMI calculator, QR code generator, password generator, currency converter, and hundreds more. No signup, no download, 100% free.",
 
   keywords:
-    "free online tools, free calculators, free converters, free generators, online utilities, BMI calculator, currency converter, QR code generator, password generator, word counter, unit converter",
+    "Calculators, Pdf Tools & More, free calculators, free converters, free generators, online utilities, BMI calculator, currency converter, QR code generator, password generator, word counter, unit converter",
 
   alternates: { canonical: SITE_URL },
 
@@ -53,7 +55,7 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: `${SITE_NAME} — Free Online Tools`,
+        alt: `${SITE_NAME} — Calculators, Pdf Tools & More`,
       },
     ],
   },
@@ -63,7 +65,7 @@ export const metadata: Metadata = {
     site: TWITTER,
     creator: TWITTER,
     title: `${SITE_NAME} — 130+ Free Calculators, Converters & Generators`,
-    description: "130+ free online tools. No signup required.",
+    description: "130+ Calculators, Pdf Tools & More. No signup required.",
   },
 
   authors: [{ name: SITE_NAME, url: SITE_URL }],
@@ -85,6 +87,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <SiteHeader />
         {children}
         <SiteFooter />
+        <GlobalMonetization />
 
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
@@ -98,6 +101,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
           `}
         </Script>
+        <CookieBanner />
       </body>
     </html>
   );

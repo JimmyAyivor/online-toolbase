@@ -25,6 +25,8 @@ const STATIC_PAGES = [
   { href: "/contact", label: "/contact", icon: "✉️", root: false },
   { href: "/privacy", label: "/privacy", icon: "🔒", root: false },
   { href: "/terms", label: "/terms", icon: "📄", root: false },
+  { href: "/cookies", label: "/cookies", icon: "🍪", root: false },
+  { href: "/disclaimer", label: "/disclaimer", icon: "🚫", root: false },
   { href: "/sitemap.xml", label: "/sitemap.xml", icon: "🗺", root: false },
   { href: "/robots.txt", label: "/robots.txt", icon: "🤖", root: false },
 ];

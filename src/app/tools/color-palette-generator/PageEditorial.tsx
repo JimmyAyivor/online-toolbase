@@ -1,7 +1,7 @@
 "use client";
 // src/app/tools/color-palette-generator/PageEditorial.tsx
 //
-// Drop this component directly into your page.tsx inside <SidebarAdLayout>
+// Drop this component directly into your page.tsx inside <SidebarAdLayout tool={tool}>
 // after the ad units, replacing the existing editorial section.
 //
 // Requires: qrcode (npm i qrcode @types/qrcode)

@@ -13,8 +13,9 @@ interface LegalLayoutProps {
 }
 
 const LEGAL_NAV = [
-  { href: "/privacy-policy", label: "Privacy Policy" },
-  { href: "/terms-of-service", label: "Terms of Service" },
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms of Service" },
+  { href: "/cookies", label: "Cookie Policy" },
   { href: "/disclaimer", label: "Disclaimer" },
   { href: "/contact", label: "Contact" },
 ];

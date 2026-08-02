@@ -1,13 +1,24 @@
 // src/app/tools/compound-interest-calculator/page.tsx
 import type { Metadata } from "next";
-import CompoundInterestCalculatorClient from "./CompoundInterestCalculatorClient";
+import dynamic from "next/dynamic";
+import { tools } from "@/lib/tools";
+const CompoundInterestCalculatorClient = dynamic(
+  () => import("./CompoundInterestCalculatorClient"),
+  {
+    
+    loading: () => (
+      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+    ),
+  }
+);
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
+const tool = tools.find((t) => t.slug === "compound-interest-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 
 // ─── Slot IDs from env ────────────────────────────────────────────────────────
 const SLOT_BELOW_TOOL =
@@ -17,7 +28,7 @@ const SLOT_LEADERBOARD =
 
 export const metadata: Metadata = {
   title:
-    "Compound Interest Calculator — Free Online Compound Interest Calculator",
+    "Free Compound Interest Calculator — Growth Over Time",
   description:
     "Calculate compound interest and see your investment grow over time. Free, instant, no signup required.",
   keywords:
@@ -42,7 +53,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     locale: "en_US",
     title:
-      "Compound Interest Calculator — Free Online Compound Interest Calculator",
+      "Free Compound Interest Calculator — Growth Over Time",
     description:
       "Calculate compound interest and see your investment grow over time. Free, instant, no signup.",
     images: [
@@ -59,7 +70,7 @@ export const metadata: Metadata = {
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
     title:
-      "Compound Interest Calculator — Free Online Compound Interest Calculator",
+      "Free Compound Interest Calculator — Growth Over Time",
     description:
       "Calculate compound interest and see your investment grow over time.",
   },
@@ -104,6 +115,64 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is the Compound Interest Calculator free to use?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — the Compound Interest Calculator is completely free. No signup, no download, and no payment is required. It runs entirely in your browser.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does the Compound Interest Calculator work on mobile?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, the Compound Interest Calculator is fully responsive and works on smartphones, tablets, and desktop computers without any app installation.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is my data private when using the Compound Interest Calculator?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "All calculations are performed locally in your browser. No data is sent to any server or stored anywhere.",
+      },
+    }
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Use the Compound Interest Calculator",
+  description: "Step-by-step guide to using the free Compound Interest Calculator on Calculators, Pdf Tools & More.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Open the tool",
+      text: "Navigate to the free Compound Interest Calculator on Calculators, Pdf Tools & More. No signup or download is required.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Enter your data",
+      text: "Fill in the required fields. The Compound Interest Calculator provides instant results as you type or click calculate.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Copy or use your results",
+      text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
+    }
+  ],
+};
+
 export default function CompoundInterestCalculatorPage() {
   return (
     <>
@@ -114,6 +183,14 @@ export default function CompoundInterestCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumb */}
@@ -151,18 +228,18 @@ export default function CompoundInterestCalculatorPage() {
         <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Calculator Tool · No Signup · Works Instantly
         </p>
-        <h1 className="sr-only">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
           Compound Interest Calculator — Free Online Compound Interest
           Calculator
         </h1>
-        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
+        <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Calculate compound interest and see your investment grow over time.
           Free, instant, no account needed.
         </p>
       </header>
 
       {/* ── Zone F: sticky sidebar wraps the entire main + editorial area ── */}
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         {/* ── Tool component (main interactive area) ──────────────────── */}
         <main id="main-content" aria-label="Compound Interest Calculator tool">
           <CompoundInterestCalculatorClient />

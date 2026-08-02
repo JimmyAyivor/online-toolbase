@@ -1,12 +1,23 @@
 // src/app/tools/dice-roller/page.tsx
 import type { Metadata } from "next";
-import DiceRollerClient from "./DiceRollerClient";
+import dynamic from "next/dynamic";
+import { tools } from "@/lib/tools";
+const DiceRollerClient = dynamic(
+  () => import("./DiceRollerClient"),
+  {
+    
+    loading: () => (
+      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+    ),
+  }
+);
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
+const tool = tools.find((t) => t.slug === "dice-roller");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 
 export const metadata: Metadata = {
   title: "Dice Roller — Roll Virtual Dice Free Online",
@@ -91,6 +102,64 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is the Dice Roller free to use?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — the Dice Roller is completely free. No signup, no download, and no payment is required. It runs entirely in your browser.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does the Dice Roller work on mobile?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, the Dice Roller is fully responsive and works on smartphones, tablets, and desktop computers without any app installation.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is my data private when using the Dice Roller?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "All calculations are performed locally in your browser. No data is sent to any server or stored anywhere.",
+      },
+    }
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Use the Dice Roller",
+  description: "Step-by-step guide to using the free Dice Roller on Calculators, Pdf Tools & More.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Open the tool",
+      text: "Navigate to the free Dice Roller on Calculators, Pdf Tools & More. No signup or download is required.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Enter your data",
+      text: "Fill in the required fields. The Dice Roller provides instant results as you type or click calculate.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Copy or use your results",
+      text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
+    }
+  ],
+};
+
 export default function DiceRollerPage() {
   return (
     <>
@@ -101,6 +170,14 @@ export default function DiceRollerPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
         <ol className="flex items-center gap-2 text-sm text-gray-500">
@@ -134,13 +211,13 @@ export default function DiceRollerPage() {
         <p className="text-xs font-semibold text-purple-600 uppercase tracking-widest mb-1">
           Free Fun Tool · No Signup · Works Instantly
         </p>
-        <h1 className="sr-only">Dice Roller — Roll Virtual Dice Free Online</h1>
-        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">Dice Roller — Roll Virtual Dice Free Online</h1>
+        <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Roll virtual d4, d6, d8, d10, d12, d20, and custom dice — add multiple
           dice of each type and get your total and individual results instantly.
         </p>
       </header>
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         <main id="main-content" aria-label="Dice Roller tool">
           <DiceRollerClient />
         </main>

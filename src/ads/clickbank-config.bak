@@ -1,0 +1,291 @@
+// src/ads/clickbank-config.ts
+//
+// ClickBank affiliate product catalog for onlinetoolbase.com
+//
+// ── How ClickBank hoplinks work ───────────────────────────────────────────────
+// Format: https://[YOUR_AFFILIATE_ID].[VENDOR_ID].hop.clickbank.net/
+// Optional tracking ID: append ?tid=[tool-slug] to track which page drove the sale
+//
+// ── Setup ────────────────────────────────────────────────────────────────────
+// 1. Sign up at clickbank.com → Accounts → Create account (affiliate)
+// 2. Your affiliate nickname is your CLICKBANK_AFFILIATE_ID (e.g. "jimmytools")
+// 3. For each product below, find it in the ClickBank Marketplace → get vendor ID
+// 4. Set CLICKBANK_AFFILIATE_ID in .env
+// 5. Each product link is auto-built as https://[yours].[vendor].hop.clickbank.net/?tid=[tool]
+//
+// ── Commission rates (typical ClickBank) ─────────────────────────────────────
+// Health products:      50–75% per sale ($20–$90 avg commission)
+// Marketing/SEO:        40–60% per sale ($30–$200 avg commission)
+// Finance/Trading:      40–60% per sale ($50–$150 avg commission)
+// Writing/Software:     50–75% per sale ($20–$60 avg commission)
+// Recurring products:   30–50% monthly (compounding revenue)
+//
+// ── Add to .env ──────────────────────────────────────────────────────────────
+// CLICKBANK_AFFILIATE_ID=your_nickname_here
+//
+// ── SQL for click tracking (run once) ────────────────────────────────────────
+// create table clickbank_clicks (
+//   id          uuid primary key default gen_random_uuid(),
+//   product_key text not null,
+//   vendor_id   text not null,
+//   tool_slug   text,
+//   ip          text,
+//   user_agent  text,
+//   created_at  timestamptz not null default now()
+// );
+// create index on clickbank_clicks (product_key, created_at desc);
+// create index on clickbank_clicks (tool_slug, created_at desc);
+
+export type ClickBankProduct = {
+    /** Internal key — used in URLs and DB */
+    key: string;
+    /** ClickBank vendor account ID (the seller's nickname) */
+    vendorId: string;
+    /** Product display name */
+    name: string;
+    /** One-line value proposition — what the user gets */
+    headline: string;
+    /** Supporting description — 1–2 sentences, outcome-focused */
+    description: string;
+    /** Badge text shown on the card — e.g. "Most popular" or "75% commission" */
+    badge?: string;
+    /** Emoji icon for the card */
+    icon: string;
+    /** Tool categories this product targets */
+    categories: string[];
+    /** Also show on these specific tool slugs regardless of category */
+    toolSlugs?: string[];
+    /** Priority 1–10 — higher wins when multiple products match */
+    priority: number;
+    /** Commission percentage shown to you (for internal reference) */
+    commissionPct: number;
+    /** Whether this product is currently active */
+    active: boolean;
+  };
+  
+  export const CLICKBANK_PRODUCTS: Record<string, ClickBankProduct> = {
+    // ── Health & Fitness ─────────────────────────────────────────────────────
+    // Shown on: BMI Calculator, Calorie Calculator, Body Fat Calculator,
+    //           Water Intake Calculator, Protein Intake Calculator, Sleep Calculator
+  
+    customKeto: {
+      key: "customKeto",
+      vendorId: "wheatbelly",   // replace with real CB vendor ID
+      name: "Custom Keto Diet",
+      headline: "A personalised keto meal plan built for your body",
+      description:
+        "Answer 6 questions and get an 8-week keto meal plan based on your height, weight, activity level and food preferences. No guesswork.",
+      badge: "Most popular",
+      icon: "🥑",
+      categories: ["Health"],
+      toolSlugs: ["bmi-calculator", "calorie-calculator", "calorie-deficit-calculator", "body-fat-calculator"],
+      priority: 10,
+      commissionPct: 75,
+      active: true,
+    },
+  
+    biotrust: {
+      key: "biotrust",
+      vendorId: "biotrust",     // replace with real CB vendor ID
+      name: "BioTrust Nutrition",
+      headline: "Science-backed supplements for real results",
+      description:
+        "Third-party tested protein powders, fat burners, and health supplements with no artificial sweeteners or junk fillers.",
+      badge: "75% commission",
+      icon: "💊",
+      categories: ["Health"],
+      toolSlugs: ["protein-intake-calculator", "water-intake-calculator", "calorie-macro-calculator"],
+      priority: 9,
+      commissionPct: 75,
+      active: true,
+    },
+  
+    sleepGuard: {
+      key: "sleepGuard",
+      vendorId: "resurge",      // replace with real CB vendor ID
+      name: "Deep Sleep Support",
+      headline: "Fall asleep faster and wake up energised",
+      description:
+        "A natural supplement formulated to support deep, restorative sleep — no habit-forming ingredients. 60-day money-back guarantee.",
+      icon: "😴",
+      categories: ["Health"],
+      toolSlugs: ["sleep-calculator", "pomodoro-timer"],
+      priority: 8,
+      commissionPct: 70,
+      active: true,
+    },
+  
+    // ── Finance & Money ───────────────────────────────────────────────────────
+    // Shown on: Mortgage Calculator, Loan Calculator, Compound Interest,
+    //           Budget Planner, Investment Return Calculator, Freelance Rate
+  
+    incomeElite: {
+      key: "incomeElite",
+      vendorId: "incometbk",    // replace with real CB vendor ID
+      name: "Income Elite Team",
+      headline: "Proven system to earn commissions online",
+      description:
+        "Step-by-step affiliate marketing training with done-for-you funnels. Start part-time, scale to full income.",
+      badge: "High ticket",
+      icon: "💰",
+      categories: ["Finance", "Business"],
+      toolSlugs: ["budget-planner", "freelance-rate-calculator", "investment-return-calculator"],
+      priority: 10,
+      commissionPct: 75,
+      active: true,
+    },
+  
+    wealthSignals: {
+      key: "wealthSignals",
+      vendorId: "wealthsig",    // replace with real CB vendor ID
+      name: "Wealth Signals",
+      headline: "Stock & crypto signals used by serious investors",
+      description:
+        "Daily trade alerts with entry and exit points — tested over 10 years of market data. 60-day refund guarantee.",
+      icon: "📈",
+      categories: ["Finance"],
+      toolSlugs: ["compound-interest-calculator", "investment-return-calculator", "crypto-profit-calculator"],
+      priority: 9,
+      commissionPct: 50,
+      active: true,
+    },
+  
+    creditRepair: {
+      key: "creditRepair",
+      vendorId: "creditfix",    // replace with real CB vendor ID
+      name: "Credit Repair Magic",
+      headline: "Raise your credit score in 37 days",
+      description:
+        "A legally-sound system to dispute and remove negative items from your credit report — no lawyer needed.",
+      icon: "💳",
+      categories: ["Finance"],
+      toolSlugs: ["credit-card-payoff-calculator", "loan-mortgage-calculator", "mortgage-affordability-calculator"],
+      priority: 8,
+      commissionPct: 75,
+      active: true,
+    },
+  
+    // ── Writing & Content ─────────────────────────────────────────────────────
+    // Shown on: Text tools, AI generators, word counter, readability score
+  
+    aiWritingSecrets: {
+      key: "aiWritingSecrets",
+      vendorId: "aiwrite",      // replace with real CB vendor ID
+      name: "AI Writing Secrets",
+      headline: "Write faster, rank higher — with AI",
+      description:
+        "A complete course on using ChatGPT and Claude to write blog posts, sales copy, and SEO content 10× faster without sounding robotic.",
+      badge: "Bestseller",
+      icon: "✍️",
+      categories: ["Writing", "Text"],
+      toolSlugs: ["word-character-counter", "readability-score-calculator", "essay-title-generator", "text-summarizer"],
+      priority: 10,
+      commissionPct: 75,
+      active: true,
+    },
+  
+    publishingProfits: {
+      key: "publishingProfits",
+      vendorId: "pubprofits",   // replace with real CB vendor ID
+      name: "Self-Publishing School",
+      headline: "Write and publish your book in 90 days",
+      description:
+        "The system used by 7,000+ authors to write, publish, and market a book — with no prior experience required.",
+      icon: "📚",
+      categories: ["Writing", "Education"],
+      toolSlugs: ["writing-prompt-generator", "word-character-counter", "reading-time-estimator"],
+      priority: 9,
+      commissionPct: 65,
+      active: true,
+    },
+  
+    // ── Marketing & SEO ───────────────────────────────────────────────────────
+    // Shown on: Hashtag generator, engagement rate, TikTok hook, social media tools
+  
+    socialMediaMastery: {
+      key: "socialMediaMastery",
+      vendorId: "socmastery",   // replace with real CB vendor ID
+      name: "Social Media Mastery",
+      headline: "Grow from 0 to 10k followers in 60 days",
+      description:
+        "Proven posting schedules, caption formulas, and hashtag strategies for Instagram, TikTok, and LinkedIn — updated quarterly.",
+      badge: "60-day guarantee",
+      icon: "📱",
+      categories: ["Social Media", "Marketing"],
+      toolSlugs: ["hashtag-generator", "engagement-rate-calculator", "tiktok-hook-generator", "instagram-post-planner"],
+      priority: 10,
+      commissionPct: 60,
+      active: true,
+    },
+  
+    clickBankUniversity: {
+      key: "clickBankUniversity",
+      vendorId: "cbuni",        // replace with real CB vendor ID
+      name: "ClickBank University",
+      headline: "Launch your own digital product in 12 weeks",
+      description:
+        "Learn to create, launch, and profit from digital products — step-by-step video training from seven-figure marketers.",
+      icon: "🎓",
+      categories: ["Marketing", "Business"],
+      toolSlugs: ["facebook-ad-copy-generator", "content-calendar-planner", "viral-hook-generator"],
+      priority: 9,
+      commissionPct: 75,
+      active: true,
+    },
+  
+    // ── Developer & Security ──────────────────────────────────────────────────
+  
+    vpnPros: {
+      key: "vpnPros",
+      vendorId: "vpnpros",      // replace with real CB vendor ID
+      name: "VPN Unlimited",
+      headline: "Browse privately on any device, forever",
+      description:
+        "Lifetime VPN access on unlimited devices — one payment, no subscription. Military-grade encryption, no-logs policy.",
+      icon: "🔒",
+      categories: ["Security", "Developer"],
+      toolSlugs: ["password-generator", "hash-generator", "ip-address-lookup"],
+      priority: 9,
+      commissionPct: 50,
+      active: true,
+    },
+  };
+  
+  // ── Product selection logic ───────────────────────────────────────────────────
+  
+  /**
+   * Returns the best matching ClickBank product for a given tool.
+   * Specific toolSlug match > category match > highest priority.
+   */
+  export function selectClickBankProduct(tool: {
+    slug: string;
+    category: string;
+  }): ClickBankProduct | null {
+    const active = Object.values(CLICKBANK_PRODUCTS).filter(p => p.active);
+  
+    // 1. Exact tool slug match (highest specificity)
+    const slugMatches = active
+      .filter(p => p.toolSlugs?.includes(tool.slug))
+      .sort((a, b) => b.priority - a.priority);
+    if (slugMatches.length > 0) return slugMatches[0];
+  
+    // 2. Category match
+    const catMatches = active
+      .filter(p => p.categories.includes(tool.category))
+      .sort((a, b) => b.priority - a.priority);
+    if (catMatches.length > 0) return catMatches[0];
+  
+    return null;
+  }
+  
+  /**
+   * Builds the ClickBank hoplink for a product.
+   * tid (tracking ID) lets you see which tool drove the conversion in CB reporting.
+   */
+  export function buildHopLink(
+    vendorId: string,
+    affiliateId: string,
+    toolSlug: string
+  ): string {
+    return `https://${affiliateId}.${vendorId}.hop.clickbank.net/?tid=${toolSlug}`;
+  }

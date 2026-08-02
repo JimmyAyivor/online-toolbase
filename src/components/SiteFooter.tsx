@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { tools } from "@/lib/tools";
 import SubscribeForm from "./SubscribeForm";
+import SocialLinks from "./SocialLinks";
 const FEATURED_SLUGS = [
   "bmi-calculator",
   "password-generator",
@@ -16,14 +17,17 @@ const TOOL_COUNT = tools.length;
 export default function SiteFooter() {
   return (
     <footer className="bg-gray-900 text-white mt-24" role="contentinfo">
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+      <SubscribeForm variant="inline"/>
+
+        <div className="grid md:grid-cols-4 gap-8 mt-20 mb-8">
           {/* Brand */}
           <div className="md:col-span-1">
             <Link
               href="/"
               className="flex items-center gap-3 mb-4"
-              aria-label="Free Online Tools — Home"
+              aria-label="Calculators, Pdf Tools & More — Home"
             >
               <div
                 className="w-10 h-10 bg-linear-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center"
@@ -43,12 +47,13 @@ export default function SiteFooter() {
                   />
                 </svg>
               </div>
-              <span className="text-xl font-bold">Free Online Tools</span>
+              <span className="text-xl font-bold">Calculators, Pdf Tools & More</span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              {TOOL_COUNT}+ free online tools for productivity, health, finance,
+              {TOOL_COUNT}+ Calculators, Pdf Tools & More for productivity, health, finance,
               development, social media, and more. No signup. No cost.
             </p>
+            <SocialLinks />
           </div>
 
           {/* Popular Tools */}
@@ -97,9 +102,11 @@ export default function SiteFooter() {
               {[
                 { href: "/about", label: "About Us" },
                 { href: "/contact", label: "Contact Us" },
-                { href: "/privacy-policy", label: "Privacy Policy" },
-                { href: "/terms-of-service", label: "Terms of Service" },
+                { href: "/privacy", label: "Privacy Policy" },
+                { href: "/terms", label: "Terms of Service" },
+                { href: "/cookies", label: "Cookie Policy" },
                 { href: "/disclaimer", label: "Disclaimer" },
+                { href: "/partners", label: "Partners" },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link
@@ -113,11 +120,10 @@ export default function SiteFooter() {
             </ul>
           </nav>
         </div>
-        <SubscribeForm />
 
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
           <p>
-            &copy; {new Date().getFullYear()} Free Online Tools. All rights
+            &copy; {new Date().getFullYear()} Calculators, Pdf Tools & More. All rights
             reserved.
           </p>
           <p className="mt-2 text-gray-600">

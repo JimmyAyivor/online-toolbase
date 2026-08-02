@@ -1,12 +1,23 @@
 // src/app/tools/email-subject-line-generator/page.tsx
 import type { Metadata } from "next";
-import EmailSubjectLineGeneratorClient from "./EmailSubjectLineGeneratorClient";
+import dynamic from "next/dynamic"; 
+import { tools } from "@/lib/tools";
+const EmailSubjectLineGeneratorClient = dynamic(
+  () => import("./EmailSubjectLineGeneratorClient"),
+  {
+    
+    loading: () => (
+      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+    ),
+  }
+);
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
+const tool = tools.find((t) => t.slug === "email-subject-line-generator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 
 export const metadata: Metadata = {
   title: "Email Subject Line Generator — High Open-Rate Subject Lines",
@@ -93,6 +104,80 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What makes an email subject line effective?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Effective subject lines achieve three things: pass the spam filter, appear fully in the preview pane on the recipient's device, and give a compelling reason to open. Specificity beats vagueness (numbers help), relevance beats generic claims, and a clear benefit or curiosity gap beats empty hype. Subject lines that feel personal — using the recipient's name or referencing recent behaviour — consistently outperform generic ones.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How long should an email subject line be?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The benchmark is 40–60 characters for broad compatibility. Desktop email clients show ~60–80 characters, but most email is opened on mobile — iOS Mail and Gmail on mobile show ~30–40 characters before truncating. Keep your most compelling words in the first 30 characters so they're seen regardless of device.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do emojis improve email open rates?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Research from multiple ESPs shows emojis in subject lines can improve open rates by 10–56% depending on audience and context. They work best for consumer-facing promotional emails with a conversational brand voice. Emojis typically hurt open rates in B2B and cold outreach contexts. Test with your specific audience rather than assuming aggregate study results apply.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What words should I avoid in email subject lines?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Spam trigger words that can land emails in junk folders include: FREE (all caps), GUARANTEED, WINNER, CLICK HERE, ACT NOW, and excessive exclamation marks or dollar signs. Beyond spam filters, subject lines that feel manipulative damage brand trust and increase unsubscribes over time. Authentic, specific language that accurately reflects the email's content is the safest long-term approach.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How many subject line variants should I A/B test?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Most email platforms support A/B testing two to three variants. For statistically reliable results you need a minimum of ~1,000 recipients per variant. With smaller lists, treat results as directional rather than conclusive. Over time, consistent testing of subject line strategies (urgency vs. benefit, question vs. statement) reveals patterns specific to your audience.",
+      },
+    }
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Use the Email Subject Line Generator",
+  description: "Step-by-step guide to using the free Email Subject Line Generator on Calculators, Pdf Tools & More.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Open the tool",
+      text: "Navigate to the free Email Subject Line Generator on Calculators, Pdf Tools & More. No signup or download is required.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Enter your data",
+      text: "Fill in the required fields. The Email Subject Line Generator provides instant results as you type or click calculate.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Copy or use your results",
+      text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
+    }
+  ],
+};
+
 export default function EmailSubjectLineGeneratorPage() {
   return (
     <>
@@ -103,6 +188,14 @@ export default function EmailSubjectLineGeneratorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
         <ol className="flex items-center gap-2 text-sm text-gray-500">
@@ -136,15 +229,15 @@ export default function EmailSubjectLineGeneratorPage() {
         <p className="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-1">
           Free Business Tool · No Signup · Works Instantly
         </p>
-        <h1 className="sr-only">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
           Email Subject Line Generator — High Open-Rate Subject Lines
         </h1>
-        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
+        <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Generate compelling email subject lines across different psychological
           trigger styles — urgency, curiosity, benefit, and personalisation.
         </p>
       </header>
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         <main id="main-content" aria-label="Email Subject Line Generator tool">
           <EmailSubjectLineGeneratorClient />
         </main>

@@ -1,7 +1,7 @@
 "use client";
 // src/app/tools/compound-interest-calculator/PageEditorial.tsx
 //
-// Drop inside <SidebarAdLayout> in page.tsx, after <CalorieMacroCalculatorClient />.
+// Drop inside <SidebarAdLayout tool={tool}> in page.tsx, after <CalorieMacroCalculatorClient />.
 // Requires: npm i qrcode @types/qrcode
 
 import React, { useState, useEffect, useRef } from "react";

@@ -11,7 +11,7 @@ import RecentBlogPosts from "@/components/RecentBlogPosts";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 const TWITTER = "@onlinetoolbase";
 const TOOL_COUNT = tools.length; // real count, not hardcoded
 
@@ -19,9 +19,9 @@ const TOOL_COUNT = tools.length; // real count, not hardcoded
 
 export const metadata: Metadata = {
   title: `${SITE_NAME} — ${TOOL_COUNT}+ Free Calculators, Converters & Generators`,
-  description: `Access ${TOOL_COUNT}+ free online tools — BMI calculators, currency converters, QR code generators, password tools, social media utilities, and more. No signup, no download, 100% free forever.`,
+  description: `Access ${TOOL_COUNT}+ Calculators, Pdf Tools & More — BMI calculators, currency converters, QR code generators, password tools, social media utilities, and more. No signup, no download, 100% free forever.`,
   keywords:
-    "free online tools, calculators, converters, generators, utilities, BMI calculator, currency converter, password generator, QR code generator",
+    "Calculators, Pdf Tools & More, calculators, converters, generators, utilities, BMI calculator, currency converter, password generator, QR code generator",
   alternates: { canonical: SITE_URL },
   robots: {
     index: true,
@@ -37,15 +37,15 @@ export const metadata: Metadata = {
     type: "website",
     siteName: SITE_NAME,
     url: SITE_URL,
-    title: `${SITE_NAME} — ${TOOL_COUNT}+ Free Online Tools`,
-    description: `${TOOL_COUNT}+ free online tools — calculators, converters, generators & more. No signup, no download, 100% free.`,
+    title: `${SITE_NAME} — ${TOOL_COUNT}+ Calculators, Pdf Tools & More`,
+    description: `${TOOL_COUNT}+ Calculators, Pdf Tools & More — calculators, converters, generators & more. No signup, no download, 100% free.`,
     locale: "en_US",
     images: [
       {
         url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: `${SITE_NAME} — Free Online Tools Directory`,
+        alt: `${SITE_NAME} — Calculators, Pdf Tools & More Directory`,
       },
     ],
   },
@@ -53,8 +53,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: TWITTER,
     creator: TWITTER,
-    title: `${SITE_NAME} — ${TOOL_COUNT}+ Free Online Tools`,
-    description: `${TOOL_COUNT}+ free online tools. No signup required.`,
+    title: `${SITE_NAME} — ${TOOL_COUNT}+ Calculators, Pdf Tools & More`,
+    description: `${TOOL_COUNT}+ Calculators, Pdf Tools & More. No signup required.`,
   },
 };
 
@@ -65,7 +65,7 @@ const websiteJsonLd = {
   "@type": "WebSite",
   name: SITE_NAME,
   url: SITE_URL,
-  description: `${TOOL_COUNT}+ free online tools — calculators, converters, generators & more. No signup required.`,
+  description: `${TOOL_COUNT}+ Calculators, Pdf Tools & More — calculators, converters, generators & more. No signup required.`,
   potentialAction: {
     "@type": "SearchAction",
     target: {
@@ -100,8 +100,8 @@ const organizationJsonLd = {
 const itemListJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Free Online Tools Directory",
-  description: "A comprehensive directory of free online tools.",
+  name: "Calculators, Pdf Tools & More Directory",
+  description: "A comprehensive directory of Calculators, Pdf Tools & More.",
   numberOfItems: TOOL_COUNT,
   itemListElement: tools.map((tool, i) => ({
     "@type": "ListItem",
@@ -194,13 +194,13 @@ export default function HomePage() {
             id="hero-heading"
             className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-6"
           >
-            {TOOL_COUNT}+ Free Online Tools —
+            {TOOL_COUNT}+ Calculators, Pdf Tools & More —
             <span className="block bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mt-2">
               Calculators, Converters &amp; Generators
             </span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-            Access {TOOL_COUNT}+ professional-grade free online tools — from BMI
+            Access {TOOL_COUNT}+ professional-grade Calculators, Pdf Tools & More — from BMI
             calculators and currency converters to password generators, QR code
             makers, and social media tools. No signup, no download, 100% free
             forever.
@@ -244,7 +244,7 @@ export default function HomePage() {
             id="why-heading"
             className="text-4xl font-bold text-gray-900 mb-4 text-center"
           >
-            Why Use Our Free Online Tools?
+            Why Use Our Calculators, Pdf Tools & More?
           </h2>
           <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">
             Built for speed, privacy, and ease — professional results with zero

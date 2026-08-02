@@ -36,9 +36,11 @@ export function getAffiliateOffers(tool: {
   return dedupe(final).slice(0, 3);
 }
 
-function dedupe(arr: any[]) {
-  const seen = new Set();
-  return arr.filter((item) => {
+function dedupe<T extends { key: string }>(
+  arr: Array<T | null | undefined>,
+): T[] {
+  const seen = new Set<string>();
+  return arr.filter((item): item is T => {
     if (!item) return false;
     if (seen.has(item.key)) return false;
     seen.add(item.key);

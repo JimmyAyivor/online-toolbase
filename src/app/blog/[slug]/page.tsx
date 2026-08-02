@@ -1892,7 +1892,7 @@ export default async function BlogPostPage({
                 <div className="rounded-2xl bg-linear-to-br from-slate-900 to-slate-800 p-6 text-white">
                   <div className="text-3xl mb-3">🛠️</div>
                   <h3 className="font-black text-base mb-2 leading-snug">
-                  {TOOL_COUNT} Free Online Tools
+                  {TOOL_COUNT} Calculators, Pdf Tools & More
                   </h3>
                   <p className="text-slate-400 text-sm leading-relaxed mb-5">
                     Calculators, converters, generators and more. No account

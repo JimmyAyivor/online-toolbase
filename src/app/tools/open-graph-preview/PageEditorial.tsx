@@ -261,11 +261,17 @@ function FAQSection() {
                 {open === i ? "−" : "+"}
               </span>
             </button>
-            {open === i && (
-              <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed">
-                {faq.a}
-              </div>
-            )}
+            <div
+              className="px-5 text-sm text-gray-600 leading-relaxed overflow-hidden transition-all duration-200"
+              style={{
+                maxHeight: open === i ? "1000px" : "0px",
+                paddingBottom: open === i ? "20px" : "0px",
+                visibility: open === i ? "visible" : "hidden",
+              }}
+              aria-hidden={open !== i}
+            >
+              {faq.a}
+            </div>
           </div>
         ))}
       </div>

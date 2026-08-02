@@ -1,16 +1,28 @@
 // src/app/tools/json-formatter-validator/page.tsx
 import type { Metadata } from "next";
-import JsonFormatterValidatorClient from "./JsonFormatterValidatorClient";
+import dynamic from "next/dynamic";
+const JsonFormatterValidatorClient = dynamic(
+  () => import("./JsonFormatterValidatorClient"),
+  {
+    
+    loading: () => (
+      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+    ),
+  }
+);
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
+import { tools } from "@/lib/tools";
+
+const tool = tools.find((t) => t.slug === "json-formatter-validator");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 
 export const metadata: Metadata = {
   title:
-    "JSON Formatter & Validator — Format, Beautify & Validate JSON Free & Instant",
+    "Free JSON Formatter & Validator — Beautify & Check",
   description:
     "Format, beautify, and validate JSON data instantly in your browser. Adjustable indentation, sort keys, minify, copy, and download. Real-time error messages. Free, no signup.",
   keywords:
@@ -35,7 +47,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     locale: "en_US",
     title:
-      "JSON Formatter & Validator — Format, Beautify & Validate JSON Free & Instant",
+      "Free JSON Formatter & Validator — Beautify & Check",
     description:
       "Format, beautify, and validate JSON instantly. Adjustable indentation, sort keys, minify, copy, and download. Real-time validation errors. Free, no signup.",
     images: [
@@ -52,7 +64,7 @@ export const metadata: Metadata = {
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
     title:
-      "JSON Formatter & Validator — Format, Beautify & Validate JSON Free & Instant",
+      "Free JSON Formatter & Validator — Beautify & Check",
     description:
       "Format, validate, and minify JSON instantly. Real-time error messages, sort keys, download. Free.",
   },
@@ -95,6 +107,88 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is JSON and why does it need to be formatted?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "JSON (JavaScript Object Notation) is a lightweight text format for storing and transmitting structured data. It's the most widely used data interchange format in web APIs, configuration files, databases, and application settings. Raw JSON from APIs, logs, or minified files is often a single unbroken line with no whitespace — technically valid but extremely difficult for humans to read and debug. Formatting (also called beautifying or pretty-printing) adds indentation and line breaks to reveal the nested structure of the data...",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What does the validator check?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The validator parses your JSON using the browser's native JSON.parse() function, which enforces the full JSON specification (RFC 8259). Common errors it detects include: unquoted or single-quoted keys (JSON requires double-quoted string keys), missing or extra commas, mismatched brackets or braces, trailing commas after the last item in an array or object (not permitted in JSON), unescaped special characters in strings, invalid number formats, and the use of undefined, NaN, or Infinity as values (which are JavaScript concepts not present in JSON)...",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the difference between beautify and minify?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Beautify (also called pretty-print or format) adds indentation and newlines to make JSON human-readable. It increases file size but makes the structure easy to read, debug, and edit. Minify removes all whitespace — spaces, tabs, and newlines — from the JSON, producing the most compact possible representation. Minified JSON is ideal for production environments where bandwidth matters, such as API responses sent over the network or JSON stored in databases. The difference in file size can be significant for large JSON files: a 50KB beautified file might minify to 30KB...",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What does 'Sort keys alphabetically' do?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Enabling Sort keys alphabetically reorders the keys in every object in your JSON into alphabetical order before formatting. The JSON data itself is unchanged — only the key order within each object changes...",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What do the JSON statistics mean?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "When your JSON is valid, the tool displays four statistics. Type shows whether the root element is an Object or Array — the two valid JSON root types. Size shows the character count of the minified JSON (without whitespace), which approximates the file size in bytes for ASCII content. Depth shows the maximum nesting level — how many levels of objects and arrays are nested inside each other. A depth of 1 means a flat object with no nested structures; a depth of 5 or more indicates heavily nested data...",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is my JSON data sent to a server?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No — all processing runs entirely in your browser using JavaScript. Your JSON data is never sent to any server, logged, or stored anywhere. The tool uses the browser's built-in JSON.parse() and JSON.stringify() functions to parse, validate, and format the data. This means the tool works offline (after the page has loaded), and you can safely use it with sensitive or confidential JSON data such as API responses containing personal information, configuration files with credentials, or internal business data. Your data stays on your device at all times.",
+      },
+    }
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Use the JSON Formatter & Validator",
+  description: "Step-by-step guide to using the free JSON Formatter & Validator on Calculators, Pdf Tools & More.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Open the tool",
+      text: "Navigate to the free JSON Formatter & Validator on Calculators, Pdf Tools & More. No signup or download is required.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Enter your data",
+      text: "Fill in the required fields. The JSON Formatter & Validator provides instant results as you type or click calculate.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Copy or use your results",
+      text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
+    }
+  ],
+};
+
 export default function JsonFormatterValidatorPage() {
   return (
     <>
@@ -105,6 +199,14 @@ export default function JsonFormatterValidatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 pt-4 pb-2">
         <ol className="flex items-center gap-2 text-sm text-gray-500">
@@ -138,16 +240,16 @@ export default function JsonFormatterValidatorPage() {
         <p className="text-xs font-semibold text-cyan-600 uppercase tracking-widest mb-1">
           Free Developer Tool · No Signup · Works Instantly
         </p>
-        <h1 className="sr-only">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
           JSON Formatter &amp; Validator — Format, Beautify &amp; Validate JSON
           Free &amp; Instant
         </h1>
-        <p className="hidden md:block text-sm text-gray-500 max-w-2xl mb-2">
+        <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Format, validate, and minify JSON instantly — adjustable indentation,
           sort keys, real-time error messages, copy and download.
         </p>
       </header>
-      <SidebarAdLayout>
+      <SidebarAdLayout tool={tool}>
         <main id="main-content" aria-label="JSON Formatter & Validator tool">
           <JsonFormatterValidatorClient />
         </main>

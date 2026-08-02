@@ -5,13 +5,13 @@ import LegalLayout, { Section, InfoBox } from "@/components/LegalLayout";
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Free Online Tools";
+const SITE_NAME = "Calculators, Pdf Tools & More";
 const LAST_UPDATED = "January 22, 2024";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   title: `Contact Us | ${SITE_NAME}`,
-  description: `Get in touch with ${SITE_NAME}. Report bugs, request features, or ask questions about our free online tools.`,
+  description: `Get in touch with ${SITE_NAME}. Report bugs, request features, or ask questions about our Calculators, Pdf Tools & More.`,
   alternates: { canonical: `${SITE_URL}/contact` },
   robots: { index: true, follow: true },
   openGraph: {
@@ -246,8 +246,9 @@ export default function ContactPage() {
           </h3>
           <div className="flex flex-wrap gap-3">
             {[
-              { href: "/privacy-policy", label: "Privacy Policy" },
-              { href: "/terms-of-service", label: "Terms of Service" },
+              { href: "/privacy", label: "Privacy Policy" },
+              { href: "/terms", label: "Terms of Service" },
+              { href: "/cookies", label: "Cookie Policy" },
               { href: "/disclaimer", label: "Disclaimer" },
             ].map(({ href, label }) => (
               <Link

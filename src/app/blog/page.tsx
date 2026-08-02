@@ -8,7 +8,7 @@ const SITE_NAME = "Online Tool Base";
 export const metadata: Metadata = {
   title: "Blog — Tips, Guides & How-Tos | Online Tool Base",
   description:
-    "Practical guides on productivity, writing, security, social media, finance, and more — written to help you get the most from free online tools.",
+    "Practical guides on productivity, writing, security, social media, finance, and more — written to help you get the most from Calculators, Pdf Tools & More.",
   alternates: { canonical: `${SITE_URL}/blog` },
   openGraph: {
     type: "website",
@@ -58,7 +58,7 @@ export default function BlogIndexPage() {
           </h1>
           <p className="text-gray-500 max-w-xl">
             Practical articles on productivity, writing, security, social media,
-            and more — written to help you work smarter with free online tools.
+            and more — written to help you work smarter with Calculators, Pdf Tools & More.
           </p>
         </div>
       </div>
