@@ -7,13 +7,19 @@
 //   3. SponsoredAd (direct sponsor — fades in at 800ms)
 //   4. ClickBankOffer (affiliate product — fades in at 1200ms, after sponsored ad)
 //
-// In sidebar (desktop):
+// In sidebar (desktop), variant="full" (default):
 //   1. AdSlot (Google AdSense half-page 300×600)
 //   2. AffiliateSection (existing affiliate links)
 //   3. SidebarRecentPosts (blog posts)
 //   4. ClickBankSidebar (affiliate product card)
 //   5. SponsoredAdSidebar (direct sponsor card)
 //   6. SubscribeForm (newsletter)
+//
+// In sidebar, variant="minimal":
+//   1. AdSlot (Google AdSense half-page 300×600)
+//   2. SidebarRecentPosts (blog posts, labelled "Latest Articles")
+//   3. ClickBankSidebar (affiliate product card)
+//   Main content column (AffiliateSection, SponsoredAd, ClickBankOffer) is unchanged either way.
 
 import AdSlot from "./AdSlot";
 import AffiliateSection from "./AffiliateSection";
@@ -27,16 +33,18 @@ import { selectClickBankProduct } from "@/ads/clickbank-config";
 const SIDEBAR_SLOT_ID = process.env.NEXT_PUBLIC_AD_SLOT_SIDEBAR ?? "0000000000";
 
 interface SidebarAdLayoutProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   tool?: {
     slug: string;
     name: string;
     description?: string;
     category: string;
   };
+  /** "full" (default) = existing sidebar; "minimal" = ad + Latest Articles + ClickBank only */
+  sidebarVariant?: "full" | "minimal";
 }
 
-export default function SidebarAdLayout({ children, tool }: SidebarAdLayoutProps) {
+export default function SidebarAdLayout({ children, tool, sidebarVariant = "full" }: SidebarAdLayoutProps) {
   // Select ads server-side — zero client JS required for selection
   const sponsoredAd  = tool ? selectAdForTool(tool) : null;
   const cbProduct    = tool ? selectClickBankProduct(tool) : null;
@@ -47,7 +55,7 @@ export default function SidebarAdLayout({ children, tool }: SidebarAdLayoutProps
 
         {/* ── Main content column ──────────────────────────────────────────── */}
         <div className="flex-1 min-w-0">
-          {children}
+          {sidebarVariant !== "minimal" && children}
 
           {/* Affiliate section (existing SaaS offers) */}
           {tool && (
@@ -83,38 +91,57 @@ export default function SidebarAdLayout({ children, tool }: SidebarAdLayoutProps
           aria-label="Sidebar"
         >
           <div className="sticky top-20 space-y-4">
-            {/* Google AdSense */}
-            <AdSlot variant="halfpage" slotId={SIDEBAR_SLOT_ID} />
+            {sidebarVariant === "minimal" ? (
+              <>
+                {/* Google AdSense */}
+                <AdSlot variant="halfpage" slotId={SIDEBAR_SLOT_ID} />
 
-            {/* Direct sponsor card */}
-            {sponsoredAd && tool && (
-              <SponsoredAdWrapper
-                ad={sponsoredAd}
-                toolSlug={tool.slug}
-                variant="sidebar"
-                delayMs={0}
-              />
+                {/* Latest Articles */}
+                <SidebarRecentPosts title="Latest Articles" />
+
+                {/* ClickBank offer card */}
+                {cbProduct && tool && (
+                  <ClickBankWrapper
+                    product={cbProduct}
+                    toolSlug={tool.slug}
+                    variant="sidebar"
+                  />
+                )}
+              </>
+            ) : (
+              <>
+                {/* Google AdSense */}
+                <AdSlot variant="halfpage" slotId={SIDEBAR_SLOT_ID} />
+
+                {/* Direct sponsor card */}
+                {sponsoredAd && tool && (
+                  <SponsoredAdWrapper
+                    ad={sponsoredAd}
+                    toolSlug={tool.slug}
+                    variant="sidebar"
+                    delayMs={0}
+                  />
+                )}
+
+                {/* SaaS affiliate links */}
+                {tool && <AffiliateSection tool={tool} />}
+
+                {/* Blog posts */}
+                <SidebarRecentPosts />
+
+                {/* ClickBank offer card */}
+                {cbProduct && tool && (
+                  <ClickBankWrapper
+                    product={cbProduct}
+                    toolSlug={tool.slug}
+                    variant="sidebar"
+                  />
+                )}
+
+                {/* Newsletter */}
+                <SubscribeForm variant="inline" />
+              </>
             )}
-
-            {/* SaaS affiliate links */}
-            {tool && <AffiliateSection tool={tool} />}
-
-            {/* Blog posts */}
-            <SidebarRecentPosts />
-
-            {/* ClickBank offer card */}
-            {cbProduct && tool && (
-              <ClickBankWrapper
-                product={cbProduct}
-                toolSlug={tool.slug}
-                variant="sidebar"
-              />
-            )}
-
-            
-
-            {/* Newsletter */}
-            <SubscribeForm variant="inline" />
           </div>
         </aside>
 

@@ -76,11 +76,7 @@ export default function ClickBankOffer({
               <span className="text-sm font-semibold text-gray-900 group-hover:text-indigo-700 transition-colors">
                 {product.name}
               </span>
-              {product.badge && (
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">
-                  {product.badge}
-                </span>
-              )}
+          
             </div>
             <p className="text-sm font-medium text-gray-700 leading-snug">
               {product.headline}

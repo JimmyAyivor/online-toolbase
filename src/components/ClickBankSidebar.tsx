@@ -42,14 +42,14 @@ export default function ClickBankSidebar({ product, toolSlug = "" }: Props) {
             {product.icon}
           </div>
           <div className="min-w-0">
-            <p className="text-sm font-semibold text-slate-800 leading-snug truncate">
+            <p className="text-m font-semibold text-slate-800 leading-snug truncate">
               {product.name}
             </p>
-            {product.badge && (
+            {/* {product.badge && (
               <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-700">
                 {product.badge}
               </span>
-            )}
+            )} */}
           </div>
         </div>
 

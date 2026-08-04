@@ -14,6 +14,8 @@ import { notFound } from "next/navigation";
 import { getBlogPost, blogPosts } from "../blog-posts";
 import BlogPostClient from "./BlogPostClient";
 import { tools } from "@/lib/tools";
+import SidebarPromoWidgets from "@/components/SidebarPromoWidgets";
+import ToolEngagement from "@/components/ToolEngagement";
 
 // ─── Static import map ────────────────────────────────────────────────────────
 // ── Existing posts ─────────────────────────────────────────────────────────
@@ -360,8 +362,9 @@ const CONTENT_MAP: Record<string, React.ComponentType> = {
     WordFrequencyAnalysisForBetterWriting,
   "writing-captions-for-social-media": WritingCaptionsForSocialMedia,
 };
-const ABOUT_PAGE = "/about";
-const TOOL_COUNT = tools.length;
+
+
+
 
 // ─── Key Takeaways ────────────────────────────────────────────────────────────
 const KEY_TAKEAWAYS: Record<string, string[]> = {
@@ -1438,7 +1441,6 @@ export async function generateMetadata({
     },
   };
 }
-
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-GB", {
@@ -1466,6 +1468,14 @@ export default async function BlogPostPage({
   };
   const takeaways = KEY_TAKEAWAYS[slug] ?? null;
   const postUrl = `${SITE_URL}/blog/${slug}`;
+
+  // The tool this post is primarily about — used for ClickBank/ad matching in
+  // the sidebar. post.relatedTools only carries {href, label}, so resolve the
+  // full tool record (slug, name, description, category) from the tools list.
+  const primaryToolHref = post.relatedTools[0]?.href;
+  const tool = primaryToolHref
+    ? tools.find((t) => t.href === primaryToolHref || `/tools/${t.slug}` === primaryToolHref)
+    : undefined;
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -1847,9 +1857,14 @@ export default async function BlogPostPage({
             <aside className="hidden lg:block">
               {/* Sticky wrapper */}
               <div className="sticky top-6 space-y-5">
+
+                {/* Ad + Latest Articles + ClickBank recommendation */}
+                {tool && <SidebarPromoWidgets tool={tool} />}
+
                 {/* Scroll-spy TOC — client component */}
                 <BlogPostClient postUrl={postUrl} postTitle={post.title} />
 
+          
                 {/* Tools widget */}
                 {post.relatedTools.length > 0 && (
                   <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
@@ -1892,10 +1907,10 @@ export default async function BlogPostPage({
                 <div className="rounded-2xl bg-linear-to-br from-slate-900 to-slate-800 p-6 text-white">
                   <div className="text-3xl mb-3">🛠️</div>
                   <h3 className="font-black text-base mb-2 leading-snug">
-                  {TOOL_COUNT} Calculators, Pdf Tools & More
+                   Online Calculators, Pdf Tools & More
                   </h3>
                   <p className="text-slate-400 text-sm leading-relaxed mb-5">
-                    Calculators, converters, generators and more. No account
+                    Calculators, converters, generators, Pdf Tools and more. No account
                     needed.
                   </p>
                   <a

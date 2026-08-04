@@ -26,7 +26,12 @@
 //  Fun/Fate     → user wants novelty → primed for astrology/entertainment offers
 //
 // ── Hoplink format ────────────────────────────────────────────────────────────
-// https://[YOUR_AFFILIATE_ID].[VENDOR_ID].hop.clickbank.net/?tid=[tool-slug]
+// https://hop.clickbank.net/?affiliate=[YOUR_AFFILIATE_ID]&vendor=[VENDOR_ID]&tid=[tool-slug]
+//
+// NOTE (Aug 2026): switched from the affiliate.vendor.hop.clickbank.net subdomain
+// format to ClickBank's documented query-param format after hitting SSL cert
+// warnings — the two-nickname subdomain format isn't listed as a supported
+// pattern in ClickBank's HopLinks Guide and its cert coverage is unreliable.
 //
 // ── .env ─────────────────────────────────────────────────────────────────────
 // CLICKBANK_AFFILIATE_ID=your_nickname_here
@@ -548,5 +553,5 @@ export function buildHopLink(
   affiliateId: string,
   toolSlug: string
 ): string {
-  return `https://${affiliateId}.${vendorId}.hop.clickbank.net/?tid=${toolSlug}`;
+  return `https://hop.clickbank.net/?affiliate=${affiliateId}&vendor=${vendorId}&tid=${toolSlug}`;
 }

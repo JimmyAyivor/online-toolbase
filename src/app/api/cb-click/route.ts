@@ -31,7 +31,7 @@ export async function GET(req: NextRequest) {
     // No affiliate ID set — redirect to vendor homepage without hoplink
     // so you don't lose the click entirely during setup
     console.warn("[cb-click] CLICKBANK_AFFILIATE_ID not set in .env");
-    return NextResponse.redirect(`https://www.clickbank.com`, { status: 302 });
+    return NextResponse.redirect(`https://hop.clickbank.net/?affiliate=otbase&vendor=GENIUSBR&tid=grammar-spell-checker`, { status: 302 });
   }
 
   const hopLink = buildHopLink(product.vendorId, affiliateId, toolSlug);
