@@ -13,9 +13,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getBlogPost, blogPosts } from "../blog-posts";
 import BlogPostClient from "./BlogPostClient";
-import { tools } from "@/lib/tools";
 import SidebarPromoWidgets from "@/components/SidebarPromoWidgets";
-import ToolEngagement from "@/components/ToolEngagement";
+import { tools } from "@/lib/tools";
+const tool = tools.find((t) => t.slug === "age-calculator");
 
 // ─── Static import map ────────────────────────────────────────────────────────
 // ── Existing posts ─────────────────────────────────────────────────────────
@@ -1473,9 +1473,7 @@ export default async function BlogPostPage({
   // the sidebar. post.relatedTools only carries {href, label}, so resolve the
   // full tool record (slug, name, description, category) from the tools list.
   const primaryToolHref = post.relatedTools[0]?.href;
-  const tool = primaryToolHref
-    ? tools.find((t) => t.href === primaryToolHref || `/tools/${t.slug}` === primaryToolHref)
-    : undefined;
+  
 
   const articleJsonLd = {
     "@context": "https://schema.org",

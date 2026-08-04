@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { categories } from "@/lib/categories";
 import { tools } from "@/lib/tools";
 import SubscribeForm from "./SubscribeForm";
 import SocialLinks from "./SocialLinks";
@@ -11,8 +12,7 @@ const FEATURED_SLUGS = [
   "instagram-post-planner",
 ];
 
-const ALL_CATEGORIES = Array.from(new Set(tools.map((t) => t.category))).sort();
-const TOOL_COUNT = tools.length;
+const ALL_CATEGORIES = Array.from(new Set(categories.map((t) => t.slug))).sort();
 
 export default function SiteFooter() {
   return (
@@ -50,7 +50,7 @@ export default function SiteFooter() {
               <span className="text-xl font-bold">Calculators, Pdf Tools & More</span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              {TOOL_COUNT}+ Calculators, Pdf Tools & More for productivity, health, finance,
+              Online Calculators, Pdf Tools, Genrators & More for productivity, health, finance,
               development, social media, and more. No signup. No cost.
             </p>
             <SocialLinks />
@@ -80,7 +80,7 @@ export default function SiteFooter() {
           <nav aria-label="Tool categories">
             <h3 className="font-bold mb-4 text-white">Categories</h3>
             <ul className="space-y-2 text-gray-400 columns-2">
-              {ALL_CATEGORIES.map((cat) => (
+              {ALL_CATEGORIES.map((cat: string) => (
                 <li key={cat}>
                   <Link
                     href={`/tools/category/${cat.toLowerCase()}`}
@@ -127,7 +127,7 @@ export default function SiteFooter() {
             reserved.
           </p>
           <p className="mt-2 text-gray-600">
-            {TOOL_COUNT}+ free tools — calculators, converters, generators &amp;
+             Free Online tools — calculators, converters, generators &amp;
             more. No signup required.
           </p>
         </div>

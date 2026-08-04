@@ -97,7 +97,7 @@ export default function SidebarAdLayout({ children, tool, sidebarVariant = "full
                 <AdSlot variant="halfpage" slotId={SIDEBAR_SLOT_ID} />
 
                 {/* Latest Articles */}
-                <SidebarRecentPosts title="Latest Articles" />
+                <SidebarRecentPosts  />
 
                 {/* ClickBank offer card */}
                 {cbProduct && tool && (

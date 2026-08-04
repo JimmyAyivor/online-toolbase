@@ -1,65 +1,239 @@
-import { notFound } from "next/navigation";
+// src/app/tools/category/[category]/page.tsx
+//
+// SEO category pages. One page per canonical category in lib/categories.ts.
+// Statically generated at build time (generateStaticParams) since the
+// category list and tool assignments only change on deploy.
+//
+// Integration notes (adjust to match your actual components — I don't have
+// their prop signatures, so these are reasonable guesses based on your
+// component names):
+// - <SiteHeader /> / <SiteFooter />: assumed no required props.
+// - <AdSlot />: assumed takes a `slot` id string. Swap for your real prop.
+// - Adjust the import paths below if your tsconfig path alias isn't "@/*".
+
+import type { Metadata } from "next";
 import Link from "next/link";
-import { tools } from "@/lib/tools";
+import { notFound } from "next/navigation";
+import {
+  categories,
+  getCategoryBySlug,
+  getToolsForCategory,
+  getRelatedCategories,
+} from "@/lib/categories";
+import AdSlot from "@/components/AdSlot";
 
 type Props = {
   params: Promise<{ category: string }>;
 };
 
-export async function generateStaticParams() {
-  const categories = Array.from(
-    new Set(tools.map((tool) => tool.category.toLowerCase())),
-  );
+const SITE_URL = "https://onlinetoolbase.com";
 
-  return categories.map((category) => ({
-    category,
-  }));
+// ─────────────────────────────────────────────────────────────────────────
+// Static generation — one page per category at build time.
+// ─────────────────────────────────────────────────────────────────────────
+export function generateStaticParams() {
+  return categories.map((c) => ({ category: c.slug }));
 }
 
-export async function generateMetadata({ params }: Props) {
-  const { category } = await params;
+// ─────────────────────────────────────────────────────────────────────────
+// Metadata — title, description, canonical, Open Graph.
+// ─────────────────────────────────────────────────────────────────────────
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { category: categorySlug } = await params;
+  const category = getCategoryBySlug(categorySlug);
+  if (!category) {
+    return { title: "Category Not Found | Online Tool Base" };
+  }
 
-  const formatted =
-    category.replace(/-/g, " ").charAt(0).toUpperCase() +
-    category.replace(/-/g, " ").slice(1);
+  const canonicalUrl = `${SITE_URL}/tools/category/${category.slug}`;
 
   return {
-    title: `${formatted} Tools – Free Online Utilities`,
-    description: `Explore free ${formatted} tools including calculators, generators, and converters.`,
+    title: category.title,
+    description: category.metaDescription,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: category.title,
+      description: category.metaDescription,
+      url: canonicalUrl,
+      siteName: "Online Tool Base",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: category.title,
+      description: category.metaDescription,
+    },
   };
 }
 
+// ─────────────────────────────────────────────────────────────────────────
+// Page
+// ─────────────────────────────────────────────────────────────────────────
 export default async function CategoryPage({ params }: Props) {
-  const { category } = await params;
+  const { category: categorySlug } = await params;
+  const category = getCategoryBySlug(categorySlug);
+  if (!category) notFound();
 
-  if (!category) return notFound();
+  const categoryTools = getToolsForCategory(category.slug);
+  const relatedCategories = getRelatedCategories(category.slug);
+  const canonicalUrl = `${SITE_URL}/tools/category/${category.slug}`;
 
-  const categoryTools = tools.filter(
-    (tool) => tool.category?.toLowerCase() === category.toLowerCase(),
-  );
+  // ── Structured data ───────────────────────────────────────────────────
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Categories", item: `${SITE_URL}/tools` },
+      { "@type": "ListItem", position: 3, name: category.name, item: canonicalUrl },
+    ],
+  };
 
-  if (categoryTools.length === 0) return notFound();
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: category.title,
+    description: category.metaDescription,
+    url: canonicalUrl,
+    hasPart: categoryTools.map((tool) => ({
+      "@type": "SoftwareApplication",
+      name: tool.name,
+      description: tool.description,
+      url: `${SITE_URL}/tools/${tool.slug}`,
+      applicationCategory: "UtilitiesApplication",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+    })),
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: category.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-6xl mx-auto px-6 py-16">
-        <h1 className="text-4xl font-bold mb-10 capitalize">
-          {category.replace(/-/g, " ")} Tools
-        </h1>
+    <>
+      {/* JSON-LD — three separate scripts is fine; Google parses each independently */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categoryTools.map((tool) => (
-            <Link
-              key={tool.slug}
-              href={`/tools/${tool.slug}`}
-              className="block bg-white rounded-xl shadow p-6 hover:shadow-xl transition"
-            >
-              <h3 className="text-xl font-bold mb-2">{tool.name}</h3>
-              <p className="text-gray-600 text-sm">{tool.description}</p>
-            </Link>
+
+      <main className="mx-auto max-w-5xl px-4 py-10">
+        {/* Breadcrumbs */}
+        <nav aria-label="Breadcrumb" className="mb-6 text-sm text-gray-500">
+          <ol className="flex flex-wrap items-center gap-1">
+            <li>
+              <Link href="/" className="hover:text-gray-900">
+                Home
+              </Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li>
+              <Link href="/tools" className="hover:text-gray-900">
+                Categories
+              </Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li className="text-gray-900" aria-current="page">
+              {category.name}
+            </li>
+          </ol>
+        </nav>
+
+        {/* H1 + intro */}
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          {category.name}
+        </h1>
+        <p className="mt-2 text-sm text-gray-500">
+          {categoryTools.length} free tools · No signup required
+        </p>
+
+        <div className="prose prose-gray mt-6 max-w-none">
+          {category.intro.split("\n\n").map((paragraph, i) => (
+            <p key={i}>{paragraph}</p>
           ))}
         </div>
-      </div>
-    </div>
+
+        <AdSlot slot="category-top" />
+
+        {/* Tool grid */}
+        <section aria-label={`${category.name} tools`} className="mt-8">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {categoryTools.map((tool) => (
+              <Link
+                key={tool.slug}
+                href={`/tools/${tool.slug}`}
+                className="rounded-lg border border-gray-200 p-4 transition hover:border-gray-300 hover:shadow-sm"
+              >
+                <h2 className="font-semibold text-gray-900">{tool.name}</h2>
+                <p className="mt-1 text-sm text-gray-600">{tool.description}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <AdSlot slot="category-mid" />
+
+        {/* FAQ */}
+        <section aria-label="Frequently asked questions" className="mt-12">
+          <h2 className="text-2xl font-bold text-gray-900">
+            Frequently Asked Questions
+          </h2>
+          <dl className="mt-4 space-y-6">
+            {category.faqs.map((faq, i) => (
+              <div key={i}>
+                <dt className="font-semibold text-gray-900">{faq.question}</dt>
+                <dd className="mt-1 text-gray-600">{faq.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        {/* Related categories */}
+        {relatedCategories.length > 0 && (
+          <section aria-label="Related categories" className="mt-12 border-t border-gray-200 pt-8">
+            <h2 className="text-lg font-semibold text-gray-900">
+              Related Categories
+            </h2>
+            <ul className="mt-3 flex flex-wrap gap-3">
+              {relatedCategories.map((rel) => (
+                <li key={rel.slug}>
+                  <Link
+                    href={`/tools/category/${rel.slug}`}
+                    className="inline-block rounded-full border border-gray-200 px-4 py-2 text-sm text-gray-700 hover:border-gray-300 hover:bg-gray-50"
+                  >
+                    {rel.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+      </main>
+
+    </>
   );
 }

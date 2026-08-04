@@ -22,9 +22,9 @@ const SIDEBAR_SLOT_ID = process.env.NEXT_PUBLIC_AD_SLOT_SIDEBAR ?? "0000000000";
 interface SidebarPromoWidgetsProps {
   tool: {
     slug: string;
+    category: string;
     name: string;
     description?: string;
-    category: string;
   };
 }
 
@@ -37,7 +37,7 @@ export default function SidebarPromoWidgets({ tool }: SidebarPromoWidgetsProps) 
       <AdSlot variant="halfpage" slotId={SIDEBAR_SLOT_ID} />
 
       {/* Latest Articles */}
-      <SidebarRecentPosts title="Latest Articles" />
+      <SidebarRecentPosts  />
 
       {/* ClickBank offer card */}
       {cbProduct && (
