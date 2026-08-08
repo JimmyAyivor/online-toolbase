@@ -3,22 +3,18 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 
-const OnlineStopwatchClient = dynamic(
-  () => import("./OnlineStopwatchClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const OnlineStopwatchClient = dynamic(() => import("./OnlineStopwatchClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./Pageeditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "online-stopwatch");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Online Stopwatch — Free Stopwatch with Lap Timer",
@@ -147,7 +143,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Mobile browsers typically pause JavaScript execution when the screen locks, which will pause the stopwatch. For uninterrupted mobile timing, keep the screen active or use a native stopwatch app. Desktop browsers generally continue running JavaScript when the window is minimised or when you switch between applications.",
       },
-    }
+    },
   ],
 };
 
@@ -155,7 +151,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Online Stopwatch",
-  description: "Step-by-step guide to using the free Online Stopwatch on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Online Stopwatch on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -174,7 +171,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -209,7 +206,7 @@ export default function OnlineStopwatchPage() {
           </li>
           <li>
             <a
-              href="/tools/category/productivity"
+              href="/tools/category/business-productivity"
               className="hover:text-cyan-600 transition-colors"
             >
               Productivity Tools

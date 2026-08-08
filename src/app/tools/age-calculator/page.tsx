@@ -2,22 +2,18 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
-const AgeCalculatorClient = dynamic(
-  () => import("./AgeCalculatorClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const AgeCalculatorClient = dynamic(() => import("./AgeCalculatorClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "age-calculator");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 // ─── Slot IDs from env ────────────────────────────────────────────────────────
 const SLOT_BELOW_TOOL =
@@ -138,7 +134,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "All calculations are performed locally in your browser. No data is sent to any server or stored anywhere.",
       },
-    }
+    },
   ],
 };
 
@@ -146,7 +142,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Age Calculator",
-  description: "Step-by-step guide to using the free Age Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Age Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -165,7 +162,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -202,7 +199,7 @@ export default function AgeCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Calculator Tools
@@ -224,7 +221,9 @@ export default function AgeCalculatorPage() {
         <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Calculator Tool · No Signup · Works Instantly
         </p>
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">Age Calculator — Free Online Age Calculator</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
+          Age Calculator — Free Online Age Calculator
+        </h1>
         <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Calculate your exact age in years, months, days, hours, and minutes
           from any birth date instantly. Free, instant, no account needed.

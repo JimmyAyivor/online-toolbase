@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "savings-goal-calculator");
 const SavingsGoalCalculatorClient = dynamic(
   () => import("./SavingsGoalCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Savings Goal Calculator — How Long to Reach Your Goal?",
@@ -146,7 +145,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Use the rate from the specific account where you plan to save. For HYSAs in 2024–2025, 4–5% APY is realistic. For a standard savings account, use 0.5% or lower. For a money market account, 3–4%. For bonds or CDs, check current rates. For long-term investment accounts (stocks), historical average is roughly 7% real return (after inflation), though this carries risk and is not appropriate for short-term goals. Using a slightly conservative rate (1–2% below your expected rate) builds in a useful margin of safety.",
       },
-    }
+    },
   ],
 };
 
@@ -154,7 +153,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Savings Goal Calculator",
-  description: "Step-by-step guide to using the free Savings Goal Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Savings Goal Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -173,7 +173,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -208,7 +208,7 @@ export default function SavingsGoalCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/finance"
+              href="/tools/category/finance-calculators"
               className="hover:text-emerald-600 transition-colors"
             >
               Finance Tools

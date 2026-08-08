@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const HourlyToSalaryCalculatorClient = dynamic(
   () => import("./HourlyToSalaryCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
@@ -18,15 +17,14 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "hourly-to-salary-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
 const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 export const metadata: Metadata = {
-  title:
-    "Free Hourly to Salary Calculator — Annual Pay Finder",
+  title: "Free Hourly to Salary Calculator — Annual Pay Finder",
   description:
     "Convert hourly wage to annual salary and salary to hourly rate instantly. See weekly, monthly, and yearly breakdowns. Free, no signup.",
   keywords:
@@ -50,8 +48,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/hourly-to-salary-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Hourly to Salary Calculator — Annual Pay Finder",
+    title: "Free Hourly to Salary Calculator — Annual Pay Finder",
     description:
       "Convert hourly wage to annual salary instantly. See weekly, monthly and yearly pay. Free.",
     images: [
@@ -153,7 +150,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "If your salary includes paid vacation and sick days, you work fewer than 52 paid weeks but still receive pay for all 52. In that case, keep weeks at 52 — your hourly rate over actual working hours will be slightly higher than the standard calculation. If you are comparing with a role that offers no paid leave, reduce the weeks field to 50 (for 2 weeks unpaid) to get the true comparison on an hours-worked basis.",
       },
-    }
+    },
   ],
 };
 
@@ -161,7 +158,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Hourly to Salary Calculator",
-  description: "Step-by-step guide to using the free Hourly to Salary Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Hourly to Salary Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -180,7 +178,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -215,7 +213,7 @@ export default function HourlyToSalaryCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Calculator Tools

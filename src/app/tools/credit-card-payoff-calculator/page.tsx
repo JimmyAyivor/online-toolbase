@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const CreditCardPayoffCalculatorClient = dynamic(
   () => import("./CreditCardPayoffCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
@@ -18,15 +17,14 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "credit-card-payoff-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
 const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 export const metadata: Metadata = {
-  title:
-    "Free Credit Card Payoff Calculator — Pay Off Faster",
+  title: "Free Credit Card Payoff Calculator — Pay Off Faster",
   description:
     "Calculate how long it takes to pay off your credit card and how much interest you'll pay. Free, no signup.",
   keywords:
@@ -50,8 +48,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/credit-card-payoff-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Credit Card Payoff Calculator — Pay Off Faster",
+    title: "Free Credit Card Payoff Calculator — Pay Off Faster",
     description:
       "Calculate how long it takes to pay off your credit card and how much interest you'll pay. Free, no signup.",
     images: [
@@ -67,8 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Credit Card Payoff Calculator — Pay Off Faster",
+    title: "Free Credit Card Payoff Calculator — Pay Off Faster",
     description:
       "Calculate how long it takes to pay off your credit card and how much interest you'll pay. Free, no signup.",
   },
@@ -155,7 +151,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "The avalanche method pays off the highest-APR debt first, minimising total interest paid — mathematically optimal. The snowball method pays off the smallest balance first, providing psychological wins from eliminating individual debts — often more sustainable behaviourally. If you have multiple cards, run this calculator for each to compare the avalanche order and see total interest across all.",
       },
-    }
+    },
   ],
 };
 
@@ -163,7 +159,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Credit Card Payoff Calculator",
-  description: "Step-by-step guide to using the free Credit Card Payoff Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Credit Card Payoff Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -182,7 +179,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -217,7 +214,7 @@ export default function CreditCardPayoffCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/finance"
+              href="/tools/category/finance-calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Finance Tools

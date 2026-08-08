@@ -2,22 +2,18 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
-const MacroCalculatorClient = dynamic(
-  () => import("./MacroCalculatorClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const MacroCalculatorClient = dynamic(() => import("./MacroCalculatorClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "macro-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Macro Calculator — Daily Protein, Carb & Fat Targets",
@@ -146,7 +142,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "No — macro targets are averages over time, not daily requirements that must be hit precisely. Being within ±5g of protein and ±10g of carbs and fat on most days is practically equivalent to hitting targets exactly. Weekly averages matter more than daily perfection. The most important macro to prioritise is protein — getting adequate protein is the most impactful single variable for body composition. Carbs and fat can be more flexible as long as total calories are approximately correct.",
       },
-    }
+    },
   ],
 };
 
@@ -154,7 +150,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Macro Calculator",
-  description: "Step-by-step guide to using the free Macro Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Macro Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -173,7 +170,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -208,7 +205,7 @@ export default function MacroCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/health"
+              href="/tools/category/health-fitness-calculators"
               className="hover:text-amber-600 transition-colors"
             >
               Health Tools

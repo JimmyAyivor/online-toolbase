@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "protein-intake-calculator");
 const ProteinIntakeCalculatorClient = dynamic(
   () => import("./ProteinIntakeCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Protein Intake Calculator — Daily Target by Goal",
@@ -147,7 +146,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Research supports distributing protein evenly across 3–5 meals rather than consuming most of it in one sitting. Each meal should ideally contain 30–40g of protein, which is the approximate threshold to maximise muscle protein synthesis per meal. A common pattern: 30–40g at breakfast, 30–40g at lunch, 30–40g at dinner, and optional protein-rich snacks pre or post workout.",
       },
-    }
+    },
   ],
 };
 
@@ -155,7 +154,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Protein Intake Calculator",
-  description: "Step-by-step guide to using the free Protein Intake Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Protein Intake Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -174,7 +174,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -210,7 +210,7 @@ export default function ProteinIntakeCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/health"
+              href="/tools/category/health-fitness-calculators"
               className="hover:text-emerald-600 transition-colors"
             >
               Health Tools

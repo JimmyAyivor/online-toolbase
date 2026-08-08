@@ -23,12 +23,16 @@ interface Props {
   delayMs?: number;
 }
 
-export default function SponsoredAd({ ad, toolSlug = "", delayMs = 800 }: Props) {
-  const [visible, setVisible]       = useState(false);
-  const [dismissed, setDismissed]   = useState(false);
-  const [menuOpen, setMenuOpen]     = useState(false);
-  const [logoError, setLogoError]   = useState(false);
-  const menuRef                     = useRef<HTMLDivElement>(null);
+export default function SponsoredAd({
+  ad,
+  toolSlug = "",
+  delayMs = 800,
+}: Props) {
+  const [visible, setVisible] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [logoError, setLogoError] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   // Fade in after delay
   useEffect(() => {
@@ -61,7 +65,6 @@ export default function SponsoredAd({ ad, toolSlug = "", delayMs = 800 }: Props)
       aria-label={`Sponsored content from ${ad.brandName}`}
     >
       <div className="border-t border-gray-100 pt-4 mt-2 text-sm">
-
         {/* ── Header: logo + brand name + options button ── */}
         <div className="flex items-center justify-between gap-3 select-none">
           <div className="flex items-center gap-2">
@@ -96,7 +99,7 @@ export default function SponsoredAd({ ad, toolSlug = "", delayMs = 800 }: Props)
           {/* Options button */}
           <div className="relative" ref={menuRef}>
             <button
-              onClick={() => setMenuOpen(o => !o)}
+              onClick={() => setMenuOpen((o) => !o)}
               aria-label="Ad options"
               aria-haspopup="menu"
               aria-expanded={menuOpen}
@@ -104,10 +107,16 @@ export default function SponsoredAd({ ad, toolSlug = "", delayMs = 800 }: Props)
               type="button"
             >
               {/* Ellipsis icon */}
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                <circle cx="3" cy="8" r="1.5"/>
-                <circle cx="8" cy="8" r="1.5"/>
-                <circle cx="13" cy="8" r="1.5"/>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <circle cx="3" cy="8" r="1.5" />
+                <circle cx="8" cy="8" r="1.5" />
+                <circle cx="13" cy="8" r="1.5" />
               </svg>
             </button>
 
@@ -119,7 +128,10 @@ export default function SponsoredAd({ ad, toolSlug = "", delayMs = 800 }: Props)
               >
                 <button
                   role="menuitem"
-                  onClick={() => { setDismissed(true); setMenuOpen(false); }}
+                  onClick={() => {
+                    setDismissed(true);
+                    setMenuOpen(false);
+                  }}
                   className="w-full text-left px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
                 >
                   Hide this ad
@@ -197,16 +209,18 @@ function AdCreativeImage({
   if (error || !src || src === "/ads/placeholder.png") {
     // Branded monogram fallback
     const colors: Record<string, string> = {
-      Grammarly:    "bg-green-100 text-green-700",
-      Semrush:      "bg-orange-100 text-orange-700",
-      NordVPN:      "bg-blue-100 text-blue-700",
+      Grammarly: "bg-green-100 text-green-700",
+      Semrush: "bg-orange-100 text-orange-700",
+      NordVPN: "bg-blue-100 text-blue-700",
       DigitalOcean: "bg-blue-100 text-blue-700",
-      "Jasper AI":  "bg-orange-100 text-orange-700",
-      Fiverr:       "bg-green-100 text-green-700",
+      "Jasper AI": "bg-orange-100 text-orange-700",
+      Fiverr: "bg-green-100 text-green-700",
     };
     const cls = colors[brandName] ?? "bg-gray-100 text-gray-600";
     return (
-      <div className={`shrink-0 rounded-lg aspect-square h-[64px] w-[64px] flex items-center justify-center font-bold text-xl ${cls}`}>
+      <div
+        className={`shrink-0 rounded-lg aspect-square h-[64px] w-[64px] flex items-center justify-center font-bold text-xl ${cls}`}
+      >
         {brandName.charAt(0)}
       </div>
     );

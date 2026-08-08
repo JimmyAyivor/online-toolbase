@@ -4,25 +4,20 @@ import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const tool = tools.find((t) => t.slug === "pomodoro-timer");
 
-const PomodoroTimerClient = dynamic(
-  () => import("./PomodoroTimerClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const PomodoroTimerClient = dynamic(() => import("./PomodoroTimerClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Pomodoro Timer — Work & Break Intervals Online",
+  title: "Free Pomodoro Timer — Work & Break Intervals Online",
   description:
     "Stay focused with the Pomodoro Technique — customisable 25-minute work sessions, 5-minute short breaks, and 15-minute long breaks. Track completed sessions and adjust durations. Free, no signup.",
   keywords:
@@ -46,8 +41,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/pomodoro-timer`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Pomodoro Timer — Work & Break Intervals Online",
+    title: "Free Pomodoro Timer — Work & Break Intervals Online",
     description:
       "Pomodoro timer with customisable work/break durations. Tracks sessions, auto-advances modes, plays audio alert. Free, no signup.",
     images: [
@@ -63,8 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Pomodoro Timer — Work & Break Intervals Online",
+    title: "Free Pomodoro Timer — Work & Break Intervals Online",
     description:
       "Pomodoro timer with work/break cycles, session tracking, and custom durations. Free.",
   },
@@ -150,7 +143,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "The technique works well for tasks with clear deliverables and independent execution — writing, coding, studying, analysis, and design work. It is less suitable for collaborative work requiring continuous communication, meetings, or creative sessions where interruptions break the creative flow in ways that are difficult to resume. Many professionals use a hybrid approach: Pomodoros for deep independent work and unstructured time for collaborative or creative sessions. Some creatives extend intervals to 50–90 minutes for creative work while keeping the break structure...",
       },
-    }
+    },
   ],
 };
 
@@ -158,7 +151,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Pomodoro Timer",
-  description: "Step-by-step guide to using the free Pomodoro Timer on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Pomodoro Timer on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -177,7 +171,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -212,7 +206,7 @@ export default function PomodoroTimerPage() {
           </li>
           <li>
             <a
-              href="/tools/category/productivity"
+              href="/tools/category/business-productivity"
               className="hover:text-red-600 transition-colors"
             >
               Productivity Tools

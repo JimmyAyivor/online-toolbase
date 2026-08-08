@@ -6,11 +6,10 @@ import { tools } from "@/lib/tools";
 const PasswordStrengthCheckerClient = dynamic(
   () => import("./PasswordStrengthCheckerClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -18,7 +17,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "password-strength-checker");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Password Strength Checker — How Strong Is Your Password?",
@@ -147,7 +146,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Two-factor authentication (2FA) requires a second verification step beyond your password — typically a code from an authenticator app (Google Authenticator, Authy) or a physical security key. Even if someone steals your password, they cannot access your account without the second factor. Enable 2FA on all important accounts: email, banking, cloud storage, social media, and work tools. Authenticator app codes are more secure than SMS codes (which can be intercepted via SIM swapping). Password strength matters, but 2FA adds a layer that is independent of password security.",
       },
-    }
+    },
   ],
 };
 
@@ -155,7 +154,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Password Strength Checker",
-  description: "Step-by-step guide to using the free Password Strength Checker on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Password Strength Checker on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -174,7 +174,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -209,7 +209,7 @@ export default function PasswordStrengthCheckerPage() {
           </li>
           <li>
             <a
-              href="/tools/category/productivity"
+              href="/tools/category/security-tools"
               className="hover:text-red-600 transition-colors"
             >
               Productivity Tools

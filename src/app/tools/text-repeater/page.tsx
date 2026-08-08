@@ -3,21 +3,17 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const tool = tools.find((t) => t.slug === "text-repeater");
-const TextRepeaterClient = dynamic(
-  () => import("./TextRepeaterClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const TextRepeaterClient = dynamic(() => import("./TextRepeaterClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Text Repeater — Free Online Text Repeater",
@@ -147,7 +143,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Common uses include: generating test data for forms and databases, creating placeholder content for design mockups, building practice typing exercises, producing repeated list entries for templates, and creating separator lines made from repeated characters.",
       },
-    }
+    },
   ],
 };
 
@@ -155,7 +151,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Text Repeater",
-  description: "Step-by-step guide to using the free Text Repeater on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Text Repeater on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -174,7 +171,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -210,7 +207,7 @@ export default function TextRepeaterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/text"
+              href="/tools/category/writing-text-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Text Tools
@@ -231,7 +228,9 @@ export default function TextRepeaterPage() {
         <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Text Tool · No Signup · Works Instantly
         </p>
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">Text Repeater — Free Online Text Repeater</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
+          Text Repeater — Free Online Text Repeater
+        </h1>
         <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Repeat any text or phrase multiple times with a custom separator.
           Free, no account needed.

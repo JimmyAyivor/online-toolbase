@@ -6,22 +6,20 @@ const tool = tools.find((t) => t.slug === "scientific-calculator");
 const ScientificCalculatorClient = dynamic(
   () => import("./ScientificCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Scientific Calculator — Trig, Log & More Online",
+  title: "Free Scientific Calculator — Trig, Log & More Online",
   description:
     "Full-featured scientific calculator with sin, cos, tan, sqrt, log, ln, powers, constants π and e, and DEG/RAD angle modes. Calculation history saved. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/scientific-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Scientific Calculator — Trig, Log & More Online",
+    title: "Free Scientific Calculator — Trig, Log & More Online",
     description:
       "Scientific calculator with sin, cos, tan, log, ln, sqrt, powers, π, e, DEG/RAD modes, and calculation history. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Scientific Calculator — Trig, Log & More Online",
+    title: "Free Scientific Calculator — Trig, Log & More Online",
     description:
       "Scientific calculator with trig, log, sqrt, powers, π, e, DEG/RAD. Free.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "The most common errors when using a scientific calculator are: wrong angle mode — using DEG when a problem requires RAD (or vice versa) is the most frequent cause of wrong trig results; forgetting to close parentheses in function arguments — sin(30 produces an error where sin(30) is correct; multiplying by a constant but forgetting the × sign — 2pi should be 2*pi; computing square roots using √x when you mean the square root of an entire expression (use sqrt(x+y) not sqrt(x+y) with x and y entered separately); and operator precedence errors — 1+2^3 = 9 (not 27) because 2^3=8 is calculated f..",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Scientific Calculator",
-  description: "Step-by-step guide to using the free Scientific Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Scientific Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function ScientificCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Calculator Tools

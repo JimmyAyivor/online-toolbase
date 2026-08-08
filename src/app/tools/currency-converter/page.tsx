@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const CurrencyConverterClient = dynamic(
   () => import("./CurrencyConverterClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,11 +16,10 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "currency-converter");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Currency Converter — Live Rates, 30+ Currencies",
+  title: "Free Currency Converter — Live Rates, 30+ Currencies",
   description:
     "Convert between 30+ world currencies using live exchange rates. USD to EUR, GBP to JPY, AUD to CAD, and more. Includes a multi-currency comparison table and rate history context. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/currency-converter`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Currency Converter — Live Rates, 30+ Currencies",
+    title: "Free Currency Converter — Live Rates, 30+ Currencies",
     description:
       "Convert between 30+ currencies with live exchange rates — USD, EUR, GBP, JPY, AUD, CAD, CHF, and more. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Currency Converter — Live Rates, 30+ Currencies",
+    title: "Free Currency Converter — Live Rates, 30+ Currencies",
     description:
       "Live rates for 30+ currencies — USD, EUR, GBP, JPY, AUD, CAD and more. Free, no signup.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "To get the best exchange rate when travelling: use a no-foreign-transaction-fee credit card for purchases where possible, as the card network rate (Visa/Mastercard) is very close to the mid-market rate with no added spread — cards like Charles Schwab, Wise, and Revolut are popular for this. Withdraw local currency from ATMs rather than exchanging cash — use your bank's ATMs or networks to minimise withdrawal fees, and always choose to be charged in local currency (decline the 'dynamic currency conversion' offer to pay in your home currency, which always uses an unfavourable rate)...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Currency Converter",
-  description: "Step-by-step guide to using the free Currency Converter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Currency Converter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "View the converted amount",
       text: "See the converted value alongside the current exchange rate and when it was last updated.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function CurrencyConverterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/finance"
+              href="/tools/category/finance-calculators"
               className="hover:text-emerald-600 transition-colors"
             >
               Finance Tools

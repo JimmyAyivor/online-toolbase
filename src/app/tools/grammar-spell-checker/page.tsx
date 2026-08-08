@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const GrammarSpellCheckerClient = dynamic(
   () => import("./GrammarSpellCheckerClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,7 +16,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "grammar-spell-checker");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Grammar & Spell Checker — Free Online Grammar Checker",
@@ -154,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "AI grammar correction can occasionally make changes that alter nuance, especially when the original phrasing is unconventional but intentional — for example, sentence fragments used for stylistic effect, deliberate repetition for emphasis, or dialect-specific expressions. Always read the corrected text carefully before using it. Accept corrections that fix clear errors, but override suggestions that change your intended meaning or voice. The tool is an assistant, not an authority — you always have final editorial control.",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Grammar & Spell Checker",
-  description: "Step-by-step guide to using the free Grammar & Spell Checker on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Grammar & Spell Checker on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +216,7 @@ export default function GrammarSpellCheckerPage() {
           </li>
           <li>
             <a
-              href="/tools/category/writing"
+              href="/tools/category/writing-text-tools"
               className="hover:text-green-600 transition-colors"
             >
               Writing Tools

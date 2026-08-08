@@ -11,7 +11,7 @@ import RecentBlogPosts from "@/components/RecentBlogPosts";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 const TWITTER = "@onlinetoolbase";
 const TOOL_COUNT = tools.length; // real count, not hardcoded
 
@@ -200,10 +200,10 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-            Access {TOOL_COUNT}+ professional-grade Calculators, Pdf Tools & More — from BMI
-            calculators and currency converters to password generators, QR code
-            makers, and social media tools. No signup, no download, 100% free
-            forever.
+            Access {TOOL_COUNT}+ professional-grade Calculators, Pdf Tools &
+            More — from BMI calculators and currency converters to password
+            generators, QR code makers, and social media tools. No signup, no
+            download, 100% free forever.
           </p>
 
           {/* Stats */}

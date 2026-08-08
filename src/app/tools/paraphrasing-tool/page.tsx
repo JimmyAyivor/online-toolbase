@@ -6,11 +6,10 @@ import { tools } from "@/lib/tools";
 const ParaphrasingToolClient = dynamic(
   () => import("./ParaphrasingToolClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -18,7 +17,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "paraphrasing-tool");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Paraphrasing Tool — Rewrite Text in 6 Styles, Free & Instant",
@@ -155,7 +154,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "This tool operates on English text only. The synonym vocabulary and mode-specific logic (contraction expansion in Formal mode, vocabulary simplification in Simple mode) are all calibrated for English grammar and usage patterns. Pasting text in other languages will produce unpredictable results because the synonym substitution and sentence restructuring rules do not account for the grammar, word order, or conjugation of other languages. For non-English paraphrasing, a language-specific tool or a multilingual AI writing assistant would be more appropriate.",
       },
-    }
+    },
   ],
 };
 
@@ -163,7 +162,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Paraphrasing Tool",
-  description: "Step-by-step guide to using the free Paraphrasing Tool on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Paraphrasing Tool on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -182,7 +182,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -217,7 +217,7 @@ export default function ParaphrasingToolPage() {
           </li>
           <li>
             <a
-              href="/tools/category/writing"
+              href="/tools/category/writing-text-tools"
               className="hover:text-violet-600 transition-colors"
             >
               Writing Tools

@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const FractionCalculatorClient = dynamic(
   () => import("./FractionCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -18,11 +17,10 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "fraction-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Fraction Calculator — Add, Subtract & Multiply",
+  title: "Free Fraction Calculator — Add, Subtract & Multiply",
   description:
     "Calculate with fractions — add, subtract, multiply, or divide any two fractions and get the simplified result with step-by-step working shown. Free, instant, no signup.",
   keywords:
@@ -46,8 +44,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/fraction-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Fraction Calculator — Add, Subtract & Multiply",
+    title: "Free Fraction Calculator — Add, Subtract & Multiply",
     description:
       "Add, subtract, multiply, or divide two fractions and get the simplified result with step-by-step working. Free, no signup.",
     images: [
@@ -63,8 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Fraction Calculator — Add, Subtract & Multiply",
+    title: "Free Fraction Calculator — Add, Subtract & Multiply",
     description:
       "Calculate fractions with step-by-step working shown. Results in simplest form. Free.",
   },
@@ -158,7 +154,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "LCM stands for Least Common Multiple — the smallest positive number that is a multiple of two given numbers. When adding or subtracting fractions, you need both fractions to have the same denominator before you can combine their numerators. The LCM of the two denominators gives the smallest possible common denominator, which keeps numbers smaller and makes simplification easier. For example, to add 1/4 + 1/6: the LCM of 4 and 6 is 12 (smaller than 24, which is 4×6 but not the smallest). Convert to 3/12 + 2/12 = 5/12...",
       },
-    }
+    },
   ],
 };
 
@@ -166,7 +162,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Fraction Calculator",
-  description: "Step-by-step guide to using the free Fraction Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Fraction Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -185,7 +182,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -220,7 +217,7 @@ export default function FractionCalculatorPage() {
           </li>
           <li>
             <Link
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Calculator Tools

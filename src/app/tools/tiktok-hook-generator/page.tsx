@@ -6,22 +6,20 @@ const tool = tools.find((t) => t.slug === "tiktok-hook-generator");
 const TiktokHookGeneratorClient = dynamic(
   () => import("./TikTokHookGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free TikTok Hook Generator — Scroll-Stopping Openers",
+  title: "Free TikTok Hook Generator — Scroll-Stopping Openers",
   description:
     "Generate proven TikTok hooks — curiosity, controversy, challenge, story, and how-to formats — customised to your topic and niche. Copy your favourite and use it as your video's opening line. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/tiktok-hook-generator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free TikTok Hook Generator — Scroll-Stopping Openers",
+    title: "Free TikTok Hook Generator — Scroll-Stopping Openers",
     description:
       "Generate TikTok hooks across curiosity, controversy, challenge, story, and how-to formats. Enter your topic, get 10 hooks, copy and use. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free TikTok Hook Generator — Scroll-Stopping Openers",
+    title: "Free TikTok Hook Generator — Scroll-Stopping Openers",
     description:
       "Generate TikTok hooks across 5 formats for any topic. Copy your favourite opening line. Free.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "TikTok's analytics provide the clearest hook performance signal through the 'Average Watch Time' and 'Audience Retention' metrics (available under Creator Tools > Analytics > Video Performance for each post). Look at the 0–3 second drop-off rate: if you're losing more than 50% of viewers in the first 3 seconds, your hook is failing. Also check 'Average % Watched': a video with 20% average watch time on a 60-second video means most people left at 12 seconds — possibly after the hook but before the payoff...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the TikTok Hook Generator",
-  description: "Step-by-step guide to using the free TikTok Hook Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free TikTok Hook Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function TiktokHookGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/social-media"
+              href="/tools/category/social-media-tools"
               className="hover:text-rose-600 transition-colors"
             >
               Social Media Tools

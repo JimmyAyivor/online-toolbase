@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "uuid-guid-generator");
 const UuidGuidGeneratorClient = dynamic(
   () => import("./UuidGuidGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free UUID Generator — v4 UUIDs Instantly Online",
@@ -154,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "UUIDs work well as primary keys in distributed systems where you need to generate IDs without coordinating with a central database — multiple servers, microservices, or offline clients can each generate unique IDs independently. The main trade-offs compared to auto-incrementing integer keys are: UUIDs are larger (16 bytes vs 4–8 bytes for integers), which increases index size; random V4 UUIDs cause index fragmentation in clustered indexes because new records insert in random positions rather than appending to the end; and UUIDs are harder to read and debug in logs...",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the UUID/GUID Generator",
-  description: "Step-by-step guide to using the free UUID/GUID Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free UUID/GUID Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +216,7 @@ export default function UuidGuidGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-emerald-600 transition-colors"
             >
               Developer Tools

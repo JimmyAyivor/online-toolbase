@@ -44,15 +44,18 @@ interface SidebarAdLayoutProps {
   sidebarVariant?: "full" | "minimal";
 }
 
-export default function SidebarAdLayout({ children, tool, sidebarVariant = "full" }: SidebarAdLayoutProps) {
+export default function SidebarAdLayout({
+  children,
+  tool,
+  sidebarVariant = "full",
+}: SidebarAdLayoutProps) {
   // Select ads server-side — zero client JS required for selection
-  const sponsoredAd  = tool ? selectAdForTool(tool) : null;
-  const cbProduct    = tool ? selectClickBankProduct(tool) : null;
+  const sponsoredAd = tool ? selectAdForTool(tool) : null;
+  const cbProduct = tool ? selectClickBankProduct(tool) : null;
 
   return (
     <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
       <div className="flex gap-6 items-start">
-
         {/* ── Main content column ──────────────────────────────────────────── */}
         <div className="flex-1 min-w-0">
           {sidebarVariant !== "minimal" && children}
@@ -97,7 +100,7 @@ export default function SidebarAdLayout({ children, tool, sidebarVariant = "full
                 <AdSlot variant="halfpage" slotId={SIDEBAR_SLOT_ID} />
 
                 {/* Latest Articles */}
-                <SidebarRecentPosts  />
+                <SidebarRecentPosts />
 
                 {/* ClickBank offer card */}
                 {cbProduct && tool && (
@@ -144,7 +147,6 @@ export default function SidebarAdLayout({ children, tool, sidebarVariant = "full
             )}
           </div>
         </aside>
-
       </div>
     </div>
   );

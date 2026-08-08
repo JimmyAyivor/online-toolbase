@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "running-pace-calculator");
 const RunningPaceCalculatorClient = dynamic(
   () => import("./RunningPaceCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Running Pace Calculator — Pace, Time & Distance for Any Race",
@@ -146,7 +145,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Negative splitting means running the second half of a race faster than the first. It is the most efficient racing strategy for most distances because it conserves glycogen early, avoids early lactic acid buildup, and allows a strong finish when competitors are fading. For beginner runners, even pacing is a safer and more achievable goal than planned negative splits.",
       },
-    }
+    },
   ],
 };
 
@@ -154,7 +153,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Running Pace Calculator",
-  description: "Step-by-step guide to using the free Running Pace Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Running Pace Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -173,7 +173,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -208,7 +208,7 @@ export default function RunningPaceCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/health"
+              href="/tools/category/health-fitness-calculators"
               className="hover:text-orange-600 transition-colors"
             >
               Health Tools

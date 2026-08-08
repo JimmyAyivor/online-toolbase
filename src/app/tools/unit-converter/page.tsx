@@ -3,25 +3,20 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const tool = tools.find((t) => t.slug === "unit-converter");
-const UnitConverterClient = dynamic(
-  () => import("./UnitConverterClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const UnitConverterClient = dynamic(() => import("./UnitConverterClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Unit Converter — Length, Weight, Temp & More",
+  title: "Free Unit Converter — Length, Weight, Temp & More",
   description:
     "Convert between length, weight, temperature, volume, speed, and time units. 6 categories, 40+ units — metres to feet, kg to lbs, Celsius to Fahrenheit, litres to gallons, and more. Free, instant, no signup.",
   keywords:
@@ -45,8 +40,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/unit-converter`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Unit Converter — Length, Weight, Temp & More",
+    title: "Free Unit Converter — Length, Weight, Temp & More",
     description:
       "Convert between 40+ units across 6 categories. metres, kg, Celsius, litres, km/h, seconds and more. Free, no signup.",
     images: [
@@ -62,8 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Unit Converter — Length, Weight, Temp & More",
+    title: "Free Unit Converter — Length, Weight, Temp & More",
     description:
       "Convert 40+ units across 6 categories — length, weight, temperature, volume, speed, and time. Free.",
   },
@@ -157,7 +150,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "The metric system was designed in France in the 1790s with a deliberate base-10 structure: each unit is a power of 10 times the base unit (milli = ÷1000, centi = ÷100, kilo = ×1000, mega = ×1,000,000). This makes conversions trivially easy — just move the decimal point. The imperial system evolved organically over centuries from traditional measures: 12 inches in a foot (because 12 is divisible by 2, 3, 4, 6), 3 feet in a yard, 1,760 yards in a mile (derived from 1,000 Roman paces of 5 feet)...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +158,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Unit Converter",
-  description: "Step-by-step guide to using the free Unit Converter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Unit Converter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +178,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +213,7 @@ export default function UnitConverterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Calculator Tools

@@ -10,7 +10,7 @@ import LegalLayout, {
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 const LAST_UPDATED = "January 22, 2024";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────

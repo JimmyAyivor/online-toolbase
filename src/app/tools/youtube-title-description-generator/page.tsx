@@ -2,22 +2,23 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
-const tool = tools.find((t) => t.slug === "youtube-title-description-generator");
+const tool = tools.find(
+  (t) => t.slug === "youtube-title-description-generator",
+);
 const YouTubeTitleDescriptionGeneratorClient = dynamic(
   () => import("./YouTubeTitleDescriptionGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 // Title: 57 chars — fits Google's ~60 char display limit without truncation
@@ -229,7 +230,7 @@ export default function YouTubeTitleDescriptionGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/social-media"
+              href="/tools/category/social-media-tools"
               className="hover:text-red-600 transition-colors"
             >
               Social Media Tools

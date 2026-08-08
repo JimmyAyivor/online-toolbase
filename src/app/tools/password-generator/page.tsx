@@ -6,11 +6,10 @@ import { tools } from "@/lib/tools";
 const PasswordGeneratorClient = dynamic(
   () => import("./PasswordGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
@@ -18,7 +17,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "password-generator");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 // ─── Slot IDs from env ────────────────────────────────────────────────────────
 const SLOT_BELOW_TOOL =
@@ -139,7 +138,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "All calculations are performed locally in your browser. No data is sent to any server or stored anywhere.",
       },
-    }
+    },
   ],
 };
 
@@ -147,7 +146,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Password Generator",
-  description: "Step-by-step guide to using the free Password Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Password Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -166,7 +166,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy and save your password",
       text: "Click Copy to copy to clipboard, then save it immediately in your password manager.",
-    }
+    },
   ],
 };
 
@@ -203,7 +203,7 @@ export default function PasswordGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/security"
+              href="/tools/category/security-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Security Tools

@@ -6,22 +6,20 @@ const tool = tools.find((t) => t.slug === "readability-score-calculator");
 const ReadabilityScoreCalculatorClient = dynamic(
   () => import("./ReadabilityScoreCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Readability Score Calculator — Flesch & More",
+  title: "Free Readability Score Calculator — Flesch & More",
   description:
     "Calculate Flesch Reading Ease, Flesch-Kincaid Grade, Gunning Fog Index, and ARI readability scores for any text. Free, instant, no signup required.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/readability-score-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Readability Score Calculator — Flesch & More",
+    title: "Free Readability Score Calculator — Flesch & More",
     description:
       "Calculate Flesch, Kincaid, Gunning Fog, and ARI readability scores for any text. Free, instant, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Readability Score Calculator — Flesch & More",
+    title: "Free Readability Score Calculator — Flesch & More",
     description:
       "Flesch, Kincaid, Gunning Fog & ARI scores for any text. Free, instant.",
   },
@@ -159,7 +155,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "The four readability formulas measure different aspects of text complexity using different inputs, so they will not always agree. Flesch Reading Ease and Flesch-Kincaid Grade use the same two inputs (sentence length and syllable count per word) but produce inversely-related scales, so they will always be consistent with each other. Gunning Fog weights the percentage of complex words (3+ syllables) more heavily than Flesch, so text with many long technical terms but short sentences will score harder on Fog than on Flesch...",
       },
-    }
+    },
   ],
 };
 
@@ -167,7 +163,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Readability Score Calculator",
-  description: "Step-by-step guide to using the free Readability Score Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Readability Score Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -186,7 +183,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -222,7 +219,7 @@ export default function ReadabilityScoreCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/text"
+              href="/tools/category/writing-text-tools"
               className="hover:text-orange-600 transition-colors"
             >
               Text Tools

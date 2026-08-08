@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const FreelanceRateCalculatorClient = dynamic(
   () => import("./FreelanceRateCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
@@ -18,7 +17,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "freelance-rate-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
 const SLOT_LEADERBOARD =
@@ -152,7 +151,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Give existing clients 30–60 days notice and frame the increase as a reflection of your growing expertise and the value you've delivered. A 10–15% annual increase is typical and usually accepted if delivered professionally. New clients should always receive your current rate — never discount for new business at the expense of your minimum viable rate.",
       },
-    }
+    },
   ],
 };
 
@@ -160,7 +159,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Freelance Rate Calculator",
-  description: "Step-by-step guide to using the free Freelance Rate Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Freelance Rate Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -179,7 +179,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -214,7 +214,7 @@ export default function FreelanceRateCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/finance"
+              href="/tools/category/finance-calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Finance Tools

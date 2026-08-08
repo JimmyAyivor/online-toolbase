@@ -91,8 +91,18 @@ export default async function CategoryPage({ params }: Props) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Categories", item: `${SITE_URL}/tools` },
-      { "@type": "ListItem", position: 3, name: category.name, item: canonicalUrl },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Categories",
+        item: `${SITE_URL}/tools`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: category.name,
+        item: canonicalUrl,
+      },
     ],
   };
 
@@ -145,7 +155,6 @@ export default async function CategoryPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-
       <main className="mx-auto max-w-5xl px-4 py-10">
         {/* Breadcrumbs */}
         <nav aria-label="Breadcrumb" className="mb-6 text-sm text-gray-500">
@@ -182,17 +191,17 @@ export default async function CategoryPage({ params }: Props) {
           ))}
         </div>
         <div className="flex justify-center px-4 py-4">
-      <AdSlot
-        variant="leaderboard"
-        slotId={SLOT_A}
-        className="hidden sm:flex"
-      />
-      <AdSlot
-        variant="mediumrectangle"
-        slotId={SLOT_A}
-        className="flex sm:hidden"
-      />
-    </div>
+          <AdSlot
+            variant="leaderboard"
+            slotId={SLOT_A}
+            className="hidden sm:flex"
+          />
+          <AdSlot
+            variant="mediumrectangle"
+            slotId={SLOT_A}
+            className="flex sm:hidden"
+          />
+        </div>
 
         {/* Tool grid */}
         <section aria-label={`${category.name} tools`} className="mt-8">
@@ -211,17 +220,17 @@ export default async function CategoryPage({ params }: Props) {
         </section>
 
         <div className="flex justify-center px-4 py-4">
-      <AdSlot
-        variant="leaderboard"
-        slotId={SLOT_B}
-        className="hidden sm:flex"
-      />
-      <AdSlot
-        variant="mediumrectangle"
-        slotId={SLOT_B}
-        className="flex sm:hidden"
-      />
-    </div>
+          <AdSlot
+            variant="leaderboard"
+            slotId={SLOT_B}
+            className="hidden sm:flex"
+          />
+          <AdSlot
+            variant="mediumrectangle"
+            slotId={SLOT_B}
+            className="flex sm:hidden"
+          />
+        </div>
 
         {/* FAQ */}
         <section aria-label="Frequently asked questions" className="mt-12">
@@ -240,7 +249,10 @@ export default async function CategoryPage({ params }: Props) {
 
         {/* Related categories */}
         {relatedCategories.length > 0 && (
-          <section aria-label="Related categories" className="mt-12 border-t border-gray-200 pt-8">
+          <section
+            aria-label="Related categories"
+            className="mt-12 border-t border-gray-200 pt-8"
+          >
             <h2 className="text-lg font-semibold text-gray-900">
               Related Categories
             </h2>
@@ -259,7 +271,6 @@ export default async function CategoryPage({ params }: Props) {
           </section>
         )}
       </main>
-
     </>
   );
 }

@@ -6,22 +6,20 @@ const tool = tools.find((t) => t.slug === "writing-prompt-generator");
 const WritingPromptGeneratorClient = dynamic(
   () => import("./WritingPromptGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Writing Prompt Generator — 80+ Genre Prompts",
+  title: "Free Writing Prompt Generator — 80+ Genre Prompts",
   description:
     "Beat writer's block instantly with a random creative writing prompt. 8 genres — Fiction, Sci-Fi, Horror, Romance, Mystery, Fantasy, Non-Fiction, Poetry — 10 prompts each. No repeat prompts, one-click copy, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/writing-prompt-generator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Writing Prompt Generator — 80+ Genre Prompts",
+    title: "Free Writing Prompt Generator — 80+ Genre Prompts",
     description:
       "Beat writer's block with a random creative writing prompt. 8 genres, 80+ unique prompts, no repeats, one-click copy. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Writing Prompt Generator — 80+ Genre Prompts",
+    title: "Free Writing Prompt Generator — 80+ Genre Prompts",
     description:
       "Beat writer's block with a random creative writing prompt. 8 genres, 80+ unique prompts, no repeats.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "In a workshop setting, prompts work best as low-stakes warm-up exercises at the start of a session. A 10-minute timed write from a shared prompt gives every participant something to work from and normalises the act of writing quickly without editing. After the timer, participants can choose to share what they've written or simply use it as a warm-up. For more structured workshop use, the genre-specific modes are useful: a horror workshop can use the Horror prompts exclusively, while a personal essay workshop can work through the Non-Fiction prompts...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Writing Prompt Generator",
-  description: "Step-by-step guide to using the free Writing Prompt Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Writing Prompt Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function WritingPromptGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/writing"
+              href="/tools/category/writing-text-tools"
               className="hover:text-emerald-600 transition-colors"
             >
               Writing Tools

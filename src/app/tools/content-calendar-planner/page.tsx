@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const ContentCalendarPlannerClient = dynamic(
   () => import("./ContentCalendarPlannerClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,11 +16,10 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "content-calendar-planner");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Content Calendar Planner — Plan & Schedule Posts",
+  title: "Free Content Calendar Planner — Plan & Schedule Posts",
   description:
     "Plan and schedule your social media content with a free online content calendar. Add posts by platform, date, and type — view your week at a glance and export your schedule. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/content-calendar-planner`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Content Calendar Planner — Plan & Schedule Posts",
+    title: "Free Content Calendar Planner — Plan & Schedule Posts",
     description:
       "Plan and schedule social media content with a free content calendar. Add posts by platform, date, and type. View by week, export as CSV. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Content Calendar Planner — Plan & Schedule Posts",
+    title: "Free Content Calendar Planner — Plan & Schedule Posts",
     description:
       "Plan and schedule social media content. Weekly view, CSV export. Free.",
   },
@@ -149,7 +145,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Content repurposing is creating one piece of core content and adapting it for multiple platforms rather than creating entirely original content for each. A common repurposing workflow starts with a long-form piece (YouTube video or blog post) and cascades down: a 10-minute YouTube video becomes 3–5 short-form clips for TikTok and Instagram Reels, the key points become a Twitter/X thread, the main insight becomes a LinkedIn post with commentary, and quotes from the video become Instagram carousel slides or Stories...",
       },
-    }
+    },
   ],
 };
 
@@ -157,7 +153,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Content Calendar Planner",
-  description: "Step-by-step guide to using the free Content Calendar Planner on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Content Calendar Planner on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -176,7 +173,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -211,7 +208,7 @@ export default function ContentCalendarPlannerPage() {
           </li>
           <li>
             <a
-              href="/tools/category/social-media"
+              href="/tools/category/social-media-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Social Media Tools

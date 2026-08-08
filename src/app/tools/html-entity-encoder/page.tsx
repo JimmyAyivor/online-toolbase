@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const HtmlEntityEncoderClient = dynamic(
   () => import("./HtmlEntityEncoderClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,7 +16,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "html-entity-encoder");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free HTML Entity Encoder & Decoder — XSS-Safe HTML",
@@ -154,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "XML and XHTML have stricter entity rules than HTML. In XML (and XHTML, which is XML-serialised HTML), only five predefined entities are guaranteed to be available without a DOCTYPE declaration: &amp; (&), &lt; (<), &gt; (>), &quot; (\"), and &apos; ('). All other named entities like &copy; or &euro; are not defined in the XML specification itself — they come from the HTML DTD. To use them in strict XML, you'd need to either declare them in a DOCTYPE, use their numeric equivalents (&#169; for ©, &#8364; for €), or use the actual UTF-8 characters directly...",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the HTML Entity Encoder & Decoder",
-  description: "Step-by-step guide to using the free HTML Entity Encoder & Decoder on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free HTML Entity Encoder & Decoder on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +216,7 @@ export default function HtmlEntityEncoderPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Developer Tools

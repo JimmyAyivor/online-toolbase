@@ -16,7 +16,7 @@ import { query } from "@/lib/db";
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
-  const key      = searchParams.get("key") ?? "";
+  const key = searchParams.get("key") ?? "";
   const toolSlug = searchParams.get("tool") ?? "";
 
   const product = CLICKBANK_PRODUCTS[key];
@@ -31,19 +31,22 @@ export async function GET(req: NextRequest) {
     // No affiliate ID set — redirect to vendor homepage without hoplink
     // so you don't lose the click entirely during setup
     console.warn("[cb-click] CLICKBANK_AFFILIATE_ID not set in .env");
-    return NextResponse.redirect(`https://hop.clickbank.net/?affiliate=otbase&vendor=GENIUSBR&tid=grammar-spell-checker`, { status: 302 });
+    return NextResponse.redirect(
+      `https://hop.clickbank.net/?affiliate=otbase&vendor=GENIUSBR&tid=grammar-spell-checker`,
+      { status: 302 },
+    );
   }
 
   const hopLink = buildHopLink(product.vendorId, affiliateId, toolSlug);
 
   // Log click non-blocking
-  const ip        = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "";
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "";
   const userAgent = req.headers.get("user-agent") ?? "";
 
   query(
     `insert into clickbank_clicks (product_key, vendor_id, tool_slug, ip, user_agent)
      values ($1, $2, $3, $4, $5)`,
-    [key, product.vendorId, toolSlug, ip, userAgent]
+    [key, product.vendorId, toolSlug, ip, userAgent],
   ).catch(() => {});
 
   return NextResponse.redirect(hopLink, { status: 302 });

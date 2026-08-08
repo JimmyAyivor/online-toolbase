@@ -6,11 +6,10 @@ import { tools } from "@/lib/tools";
 const MetaTagGeneratorClient = dynamic(
   () => import("./MetaTagGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -18,11 +17,10 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "meta-tag-generator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Meta Tag Generator — SEO, OG & Twitter Cards",
+  title: "Free Meta Tag Generator — SEO, OG & Twitter Cards",
   description:
     "Generate complete HTML meta tags for SEO, Open Graph (Facebook/LinkedIn), and Twitter Cards. Preview how your page will look when shared. Free, instant, no signup.",
   keywords:
@@ -46,8 +44,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/meta-tag-generator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Meta Tag Generator — SEO, OG & Twitter Cards",
+    title: "Free Meta Tag Generator — SEO, OG & Twitter Cards",
     description:
       "Generate complete HTML meta tags for SEO, Open Graph, and Twitter Cards. Preview social sharing appearance. Free, no signup.",
     images: [
@@ -63,8 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Meta Tag Generator — SEO, OG & Twitter Cards",
+    title: "Free Meta Tag Generator — SEO, OG & Twitter Cards",
     description:
       "Generate SEO meta tags, Open Graph tags, and Twitter Cards with a live social share preview. Free.",
   },
@@ -158,7 +154,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "The canonical tag (<link rel='canonical'>) is technically not a meta tag but a link element — it tells search engines which URL is the 'master' version of a page when duplicate or near-duplicate content exists at multiple URLs. Common situations that need a canonical: the same page accessible at both www and non-www versions, pages with and without trailing slashes, pages with URL parameters (like ?sort=price or ?utm_source=newsletter), and paginated content...",
       },
-    }
+    },
   ],
 };
 
@@ -166,7 +162,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Meta Tag Generator",
-  description: "Step-by-step guide to using the free Meta Tag Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Meta Tag Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -185,7 +182,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -220,7 +217,7 @@ export default function MetaTagGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-teal-600 transition-colors"
             >
               Developer Tools

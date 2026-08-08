@@ -6,22 +6,20 @@ const tool = tools.find((t) => t.slug === "social-media-character-counter");
 const SocialMediaCharacterCounterClient = dynamic(
   () => import("./SocialMediaCharacterCounterClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Social Media Character Counter — All Platforms",
+  title: "Free Social Media Character Counter — All Platforms",
   description:
     "Count characters for Twitter/X, Instagram, LinkedIn, Facebook, TikTok, YouTube, Pinterest, and Threads — all in one tool. Live progress bar, text analysis stats, and platform-specific tips. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/social-media-character-counter`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Social Media Character Counter — All Platforms",
+    title: "Free Social Media Character Counter — All Platforms",
     description:
       "Live character counter for Twitter/X, Instagram, LinkedIn, Facebook, TikTok, YouTube, Pinterest, and Threads. See all-platform overview at a glance. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Social Media Character Counter — All Platforms",
+    title: "Free Social Media Character Counter — All Platforms",
     description:
       "Live character counter for 8 platforms — Twitter/X, Instagram, LinkedIn, TikTok, YouTube, and more. Free.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Yes — this counter works for any text you paste into it. For LinkedIn articles (published through LinkedIn's article editor), the character limit is approximately 125,000 characters — far beyond what this tool focuses on, but you can paste sections of long-form content to check length. For YouTube video descriptions, the 5,000-character limit is tracked in this tool under the YouTube option...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Social Media Character Counter",
-  description: "Step-by-step guide to using the free Social Media Character Counter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Social Media Character Counter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function SocialMediaCharacterCounterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/social-media"
+              href="/tools/category/social-media-tools"
               className="hover:text-sky-600 transition-colors"
             >
               Social Media Tools

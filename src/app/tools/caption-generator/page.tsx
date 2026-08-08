@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const CaptionGeneratorClient = dynamic(
   () => import("./CaptionGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
@@ -17,7 +16,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "caption-generator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 // ─── Slot IDs from env ────────────────────────────────────────────────────────
 const SLOT_BELOW_TOOL =
@@ -137,7 +136,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "All calculations are performed locally in your browser. No data is sent to any server or stored anywhere.",
       },
-    }
+    },
   ],
 };
 
@@ -145,7 +144,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Caption Generator",
-  description: "Step-by-step guide to using the free Caption Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Caption Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -164,7 +164,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -201,7 +201,7 @@ export default function CaptionGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/social-media"
+              href="/tools/category/social-media-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Social Media Tools

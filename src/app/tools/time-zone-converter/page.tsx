@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "time-zone-converter");
 const TimeZoneConverterClient = dynamic(
   () => import("./TimeZoneConverterClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Time Zone Converter — Convert Between Any Zones",
@@ -146,7 +145,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Several abbreviations refer to multiple time zones. IST means Indian Standard Time (UTC+5:30), Irish Standard Time (UTC+1), and Israel Standard Time (UTC+2). CST is Central Standard Time (UTC-6 in the US), China Standard Time (UTC+8), and Cuba Standard Time (UTC-5). EST means Eastern Standard Time (UTC-5) in North America but is also used informally for Australian Eastern Standard Time (UTC+10). When precision matters for scheduling, always specify the UTC offset or the full time zone name rather than the abbreviation.",
       },
-    }
+    },
   ],
 };
 
@@ -154,7 +153,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Time Zone Converter",
-  description: "Step-by-step guide to using the free Time Zone Converter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Time Zone Converter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -173,7 +173,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -208,7 +208,7 @@ export default function TimeZoneConverterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/productivity"
+              href="/tools/category/business-productivity"
               className="hover:text-sky-600 transition-colors"
             >
               Productivity Tools

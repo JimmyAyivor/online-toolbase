@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const KeywordDensityCheckerClient = dynamic(
   () => import("./KeywordDensityCheckerClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,7 +16,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "keyword-density-checker");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Keyword Density Checker — Analyse Any Text",
@@ -144,7 +143,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Stop words are common function words (the, a, and, is, for) that carry little topical meaning. Filtering them out focuses the density analysis on meaningful content words — which is what matters for SEO. Keep stop words enabled if you need a full word frequency distribution for copywriting or readability work. For SEO density checking, filtering stop words is recommended to surface the keywords that actually influence ranking signals.",
       },
-    }
+    },
   ],
 };
 
@@ -152,7 +151,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Keyword Density Checker",
-  description: "Step-by-step guide to using the free Keyword Density Checker on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Keyword Density Checker on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -171,7 +171,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 

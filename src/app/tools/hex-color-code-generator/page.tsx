@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const HexColorCodeGeneratorClient = dynamic(
   () => import("./HexColorCodeGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,11 +16,10 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "hex-color-code-generator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Hex Color Generator — HEX, RGB & HSL Values",
+  title: "Free Hex Color Generator — HEX, RGB & HSL Values",
   description:
     "Pick any colour with the visual colour picker and instantly get the HEX code, RGB values, HSL values, and CSS-ready colour strings. Includes a random colour generator and saved colour history. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/hex-color-code-generator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Hex Color Generator — HEX, RGB & HSL Values",
+    title: "Free Hex Color Generator — HEX, RGB & HSL Values",
     description:
       "Visual colour picker that instantly shows HEX, RGB, and HSL codes for any colour — copy with one click. Random colour generator included. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Hex Color Generator — HEX, RGB & HSL Values",
+    title: "Free Hex Color Generator — HEX, RGB & HSL Values",
     description:
       "Pick any colour and instantly get HEX, RGB, and HSL codes ready to paste into CSS or design tools.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "To convert HEX to RGB: take each pair of hex digits and convert from base-16 to base-10. For #FF6347: FF=255 (red), 63=99 (green), 47=71 (blue) → rgb(255, 99, 71). To convert RGB to HEX: convert each value from decimal to hexadecimal and pad to two digits. 255=FF, 99=63, 71=47 → #FF6347. To convert RGB to HSL: normalise each RGB value to 0–1, find the max and min values, then calculate Hue using the formula H = 60° × ((G-B)/(max-min)) for max=R; Saturation = (max-min) / (1-|2L-1|); Lightness = (max+min)/2...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Hex Color Code Generator",
-  description: "Step-by-step guide to using the free Hex Color Code Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Hex Color Code Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 

@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "roman-numeral-converter");
 const RomanNumeralConverterClient = dynamic(
   () => import("./RomanNumeralConverterClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Roman Numeral Converter — Numbers to Roman Numerals",
@@ -146,7 +145,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Convert the year digit by digit from thousands down. Example for 2024: 2000 = MM, 0 hundreds = nothing, 20 = XX, 4 = IV → MMXXIV. Example for 1999: 1000 = M, 900 = CM, 90 = XC, 9 = IX → MCMXCIX. Use this tool's examples list to quickly check any recent year — click any example to load it into the converter.",
       },
-    }
+    },
   ],
 };
 
@@ -154,7 +153,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Roman Numeral Converter",
-  description: "Step-by-step guide to using the free Roman Numeral Converter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Roman Numeral Converter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -173,7 +173,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -208,7 +208,7 @@ export default function RomanNumeralConverterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/text"
+              href="/tools/category/writing-text-tools"
               className="hover:text-orange-600 transition-colors"
             >
               Text Tools

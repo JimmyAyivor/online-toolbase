@@ -2,22 +2,18 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
-const JwtDecoderClient = dynamic(
-  () => import("./JwtDecoderClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const JwtDecoderClient = dynamic(() => import("./JwtDecoderClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "jwt-decoder");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free JWT Decoder — Inspect Tokens Instantly Online",
@@ -154,7 +150,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "The alg: none attack is a well-known JWT vulnerability where an attacker modifies a JWT's header to set alg to none (indicating no signature), then removes the signature segment entirely. If the verifying server naively accepts alg: none as valid, the attacker can forge arbitrary tokens with any claims they want. This attack was a real vulnerability in several early JWT libraries. Modern JWT libraries prevent it by explicitly requiring the application to specify which algorithms are acceptable, and rejecting tokens with alg: none by default...",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +158,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the JWT Decoder",
-  description: "Step-by-step guide to using the free JWT Decoder on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free JWT Decoder on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +178,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +213,7 @@ export default function JwtDecoderPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Developer Tools

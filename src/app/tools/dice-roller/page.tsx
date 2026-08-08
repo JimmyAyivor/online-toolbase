@@ -2,22 +2,18 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
-const DiceRollerClient = dynamic(
-  () => import("./DiceRollerClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const DiceRollerClient = dynamic(() => import("./DiceRollerClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "dice-roller");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Dice Roller — Roll Virtual Dice Free Online",
@@ -129,7 +125,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "All calculations are performed locally in your browser. No data is sent to any server or stored anywhere.",
       },
-    }
+    },
   ],
 };
 
@@ -137,7 +133,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Dice Roller",
-  description: "Step-by-step guide to using the free Dice Roller on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Dice Roller on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -156,7 +153,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -191,7 +188,7 @@ export default function DiceRollerPage() {
           </li>
           <li>
             <a
-              href="/tools/category/fun"
+              href="/tools/category/fun-generators"
               className="hover:text-purple-600 transition-colors"
             >
               Fun Tools
@@ -211,7 +208,9 @@ export default function DiceRollerPage() {
         <p className="text-xs font-semibold text-purple-600 uppercase tracking-widest mb-1">
           Free Fun Tool · No Signup · Works Instantly
         </p>
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">Dice Roller — Roll Virtual Dice Free Online</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
+          Dice Roller — Roll Virtual Dice Free Online
+        </h1>
         <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Roll virtual d4, d6, d8, d10, d12, d20, and custom dice — add multiple
           dice of each type and get your total and individual results instantly.

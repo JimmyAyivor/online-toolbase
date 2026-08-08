@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "rent-affordability-calculator");
 const RentAffordabilityCalculatorClient = dynamic(
   () => import("./RentAffordabilityCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Rent Affordability Calculator — How Much Rent?",
@@ -146,7 +145,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Lenders use the Debt-to-Income (DTI) ratio to assess borrowing capacity: total monthly debt payments divided by gross monthly income. For renters, landlords often require that rent plus existing debt payments stay below 40–43% of gross income. This calculator lets you input existing monthly debt payments and shows both the raw affordability limit and the adjusted limit after debts — giving a more realistic picture than the simple percentage rule alone.",
       },
-    }
+    },
   ],
 };
 
@@ -154,7 +153,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Rent Affordability Calculator",
-  description: "Step-by-step guide to using the free Rent Affordability Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Rent Affordability Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -173,7 +173,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -208,7 +208,7 @@ export default function RentAffordabilityCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/finance"
+              href="/tools/category/finance-calculators"
               className="hover:text-violet-600 transition-colors"
             >
               Finance Tools

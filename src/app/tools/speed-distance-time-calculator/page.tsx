@@ -6,11 +6,10 @@ const tool = tools.find((t) => t.slug === "speed-distance-time-calculator");
 const SpeedDistanceTimeCalculatorClient = dynamic(
   () => import("./SpeedDistanceTimeCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
@@ -18,15 +17,14 @@ import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
 const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 export const metadata: Metadata = {
-  title:
-    "Free Speed Distance Time Calculator — Solve for Any",
+  title: "Free Speed Distance Time Calculator — Solve for Any",
   description:
     "Calculate speed, distance, or time using the speed-distance-time formula. Supports mph, km/h, m/s. Free, no signup.",
   keywords:
@@ -50,8 +48,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/speed-distance-time-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Speed Distance Time Calculator — Solve for Any",
+    title: "Free Speed Distance Time Calculator — Solve for Any",
     description:
       "Calculate speed, distance, or time using the speed-distance-time formula. Supports mph, km/h, m/s. Free, no signup.",
     images: [
@@ -67,8 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Speed Distance Time Calculator — Solve for Any",
+    title: "Free Speed Distance Time Calculator — Solve for Any",
     description:
       "Calculate speed, distance, or time using the speed-distance-time formula. Supports mph, km/h, m/s. Free, no signup.",
   },
@@ -155,7 +151,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "The calculation is mathematically exact — there is no rounding during the computation. Results are displayed to 2 decimal places by default. Unit conversion factors are precise to 6 significant figures (e.g. 1 mile = 1,609.344 metres exactly). The only source of imprecision is the values you enter.",
       },
-    }
+    },
   ],
 };
 
@@ -163,7 +159,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Speed Distance Time Calculator",
-  description: "Step-by-step guide to using the free Speed Distance Time Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Speed Distance Time Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -182,7 +179,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -217,7 +214,7 @@ export default function SpeedDistanceTimeCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Calculator Tools

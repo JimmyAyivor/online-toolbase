@@ -1,15 +1,14 @@
 // src/app/tools/color-code-converter/page.tsx
 import type { Metadata } from "next";
-import dynamic from "next/dynamic"; 
+import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const ColorCodeConverterClient = dynamic(
   () => import("./ColorCodeConverterClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,7 +16,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "color-code-converter");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Color Code Converter — HEX, RGB, HSL & HSB Conversion Tool",
@@ -147,7 +146,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "No — HEX, RGB, and HSL render identically at runtime. Browsers parse all three formats to the same internal representation. Choose the format that is most maintainable for your project: HEX for conciseness, HSL for design systems where you need programmatic lightness/saturation tweaks, and CSS custom properties (variables) for all approaches in larger projects.",
       },
-    }
+    },
   ],
 };
 
@@ -155,7 +154,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Color Code Converter",
-  description: "Step-by-step guide to using the free Color Code Converter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Color Code Converter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -174,7 +174,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 

@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const CompoundInterestCalculatorClient = dynamic(
   () => import("./CompoundInterestCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
@@ -18,7 +17,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "compound-interest-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 // ─── Slot IDs from env ────────────────────────────────────────────────────────
 const SLOT_BELOW_TOOL =
@@ -27,8 +26,7 @@ const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 export const metadata: Metadata = {
-  title:
-    "Free Compound Interest Calculator — Growth Over Time",
+  title: "Free Compound Interest Calculator — Growth Over Time",
   description:
     "Calculate compound interest and see your investment grow over time. Free, instant, no signup required.",
   keywords:
@@ -52,8 +50,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/compound-interest-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Compound Interest Calculator — Growth Over Time",
+    title: "Free Compound Interest Calculator — Growth Over Time",
     description:
       "Calculate compound interest and see your investment grow over time. Free, instant, no signup.",
     images: [
@@ -69,8 +66,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Compound Interest Calculator — Growth Over Time",
+    title: "Free Compound Interest Calculator — Growth Over Time",
     description:
       "Calculate compound interest and see your investment grow over time.",
   },
@@ -142,7 +138,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "All calculations are performed locally in your browser. No data is sent to any server or stored anywhere.",
       },
-    }
+    },
   ],
 };
 
@@ -150,7 +146,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Compound Interest Calculator",
-  description: "Step-by-step guide to using the free Compound Interest Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Compound Interest Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -169,7 +166,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -206,7 +203,7 @@ export default function CompoundInterestCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Calculator Tools

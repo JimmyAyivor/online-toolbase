@@ -7,19 +7,15 @@ import ToolEngagement from "@/components/ToolEngagement";
 import PostToolOffer from "@/components/monetization/PostToolOffer";
 import ToolShareBar from "@/components/monetization/ToolShareBar";
 import { tools } from "@/lib/tools";
-const BmiCalculatorClient = dynamic(
-  () => import("./BmiCalculatorClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-); 
+const BmiCalculatorClient = dynamic(() => import("./BmiCalculatorClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 
 const tool = tools.find((t) => t.slug === "bmi-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 // ─── Slot IDs from env ────────────────────────────────────────────────────────
 const SLOT_BELOW_TOOL =
@@ -140,7 +136,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "All calculations are performed locally in your browser. No data is sent to any server or stored anywhere.",
       },
-    }
+    },
   ],
 };
 
@@ -148,7 +144,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the BMI Calculator",
-  description: "Step-by-step guide to using the free BMI Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free BMI Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -167,7 +164,7 @@ const howToJsonLd = {
       position: 3,
       name: "Understand your result",
       text: "Read the context provided about what your BMI score means and the limitations of BMI as a health indicator.",
-    }
+    },
   ],
 };
 
@@ -204,7 +201,7 @@ export default function BmiCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/health"
+              href="/tools/category/health-fitness-calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Health Tools
@@ -226,7 +223,9 @@ export default function BmiCalculatorPage() {
         <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Health Tool · No Signup · Works Instantly
         </p>
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">BMI Calculator — Free Online BMI Calculator</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
+          BMI Calculator — Free Online BMI Calculator
+        </h1>
         <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Calculate your Body Mass Index and discover your healthy weight range.
           Free, instant, no account needed.
@@ -266,9 +265,11 @@ export default function BmiCalculatorPage() {
           />
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
-      {tool && <PostToolOffer toolSlug={tool.slug} toolCategory={tool.category} />}
-      {tool && <ToolShareBar toolSlug={tool.slug} toolName={tool.name} />}
-      </div>
+          {tool && (
+            <PostToolOffer toolSlug={tool.slug} toolCategory={tool.category} />
+          )}
+          {tool && <ToolShareBar toolSlug={tool.slug} toolName={tool.name} />}
+        </div>
         {/* ── Editorial: How To + Related Tools ────────────────────────── */}
         {/* ── HOW TO USE ─────────────────────────────────────────────────────────── */}
         <section

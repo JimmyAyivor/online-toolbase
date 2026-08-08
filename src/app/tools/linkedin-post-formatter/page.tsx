@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const LinkedinPostFormatterClient = dynamic(
   () => import("./LinkedInPostFormatterClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,11 +16,10 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "linkedin-post-formatter");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free LinkedIn Post Formatter — Format & Preview Posts",
+  title: "Free LinkedIn Post Formatter — Format & Preview Posts",
   description:
     "Format LinkedIn posts with bold, italic, bullet points, and line spacing. Live preview shows how your post will look when published. Add templates, copy formatted text, and check character count. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/linkedin-post-formatter`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free LinkedIn Post Formatter — Format & Preview Posts",
+    title: "Free LinkedIn Post Formatter — Format & Preview Posts",
     description:
       "Format LinkedIn posts with bold, italic, bullets, and spacing. Live preview shows exactly how your post will look. Choose a template, copy formatted text. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free LinkedIn Post Formatter — Format & Preview Posts",
+    title: "Free LinkedIn Post Formatter — Format & Preview Posts",
     description:
       "Format LinkedIn posts with bold, italic, bullets, and live preview. Copy formatted text. Free.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "LinkedIn engagement data from multiple analytics studies points to Tuesday through Thursday as the highest-engagement days, with peak times between 8–10 AM and 12–1 PM in the local timezone of your primary audience. This reflects LinkedIn's core professional audience checking the platform during work hours and the start of lunch breaks. Monday mornings tend to be lower engagement as users focus on catching up on work, and Fridays see drop-off as people disengage ahead of the weekend. Sunday posting is generally low-reach but can work for motivational or weekend-appropriate content...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the LinkedIn Post Formatter",
-  description: "Step-by-step guide to using the free LinkedIn Post Formatter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free LinkedIn Post Formatter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function LinkedinPostFormatterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/social-media"
+              href="/tools/category/social-media-tools"
               className="hover:text-blue-600 transition-colors"
             >
               Social Media Tools

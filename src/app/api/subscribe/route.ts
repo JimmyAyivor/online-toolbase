@@ -2,13 +2,12 @@
 // Server-side Mailchimp subscription handler.
 // Keeps the API key off the client and avoids the Mailchimp CORS block.
 
-
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
 
-const API_KEY    = process.env.MAILCHIMP_API_KEY ?? "";
-const SERVER     = process.env.MAILCHIMP_SERVER_PREFIX ?? "";
-const AUDIENCE   = process.env.MAILCHIMP_AUDIENCE_ID ?? "";
+const API_KEY = process.env.MAILCHIMP_API_KEY ?? "";
+const SERVER = process.env.MAILCHIMP_SERVER_PREFIX ?? "";
+const AUDIENCE = process.env.MAILCHIMP_AUDIENCE_ID ?? "";
 
 function md5(email: string) {
   return crypto.createHash("md5").update(email.toLowerCase()).digest("hex");
@@ -17,16 +16,23 @@ function md5(email: string) {
 export async function POST(req: NextRequest) {
   // ── Parse body ─────────────────────────────────────────────────────────────
   const body = await req.json().catch(() => null);
-  const email: string = typeof body?.email === "string" ? body.email.trim() : "";
+  const email: string =
+    typeof body?.email === "string" ? body.email.trim() : "";
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return NextResponse.json({ error: "Valid email is required." }, { status: 400 });
+    return NextResponse.json(
+      { error: "Valid email is required." },
+      { status: 400 },
+    );
   }
 
   // ── Config guard ───────────────────────────────────────────────────────────
   if (!API_KEY || !SERVER || !AUDIENCE) {
     console.error("[subscribe] Mailchimp env vars not set.");
-    return NextResponse.json({ error: "Newsletter not configured." }, { status: 500 });
+    return NextResponse.json(
+      { error: "Newsletter not configured." },
+      { status: 500 },
+    );
   }
 
   // ── Upsert member via Mailchimp Marketing API ──────────────────────────────
@@ -44,7 +50,7 @@ export async function POST(req: NextRequest) {
     },
     body: JSON.stringify({
       email_address: email,
-      status_if_new: "subscribed",   // new subscribers → subscribed (no double opt-in)
+      status_if_new: "subscribed", // new subscribers → subscribed (no double opt-in)
       // status left unset so existing members keep their current status
     }),
   });
@@ -56,7 +62,10 @@ export async function POST(req: NextRequest) {
     // Member unsubscribed themselves — don't forcibly re-subscribe
     if (data?.title === "Member In Compliance State") {
       return NextResponse.json(
-        { error: "This email has previously unsubscribed. Please contact us to re-subscribe." },
+        {
+          error:
+            "This email has previously unsubscribed. Please contact us to re-subscribe.",
+        },
         { status: 400 },
       );
     }

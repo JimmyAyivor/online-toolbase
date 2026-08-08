@@ -4,11 +4,10 @@ import dynamic from "next/dynamic";
 const JsonFormatterValidatorClient = dynamic(
   () => import("./JsonFormatterValidatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -18,11 +17,10 @@ import { tools } from "@/lib/tools";
 const tool = tools.find((t) => t.slug === "json-formatter-validator");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free JSON Formatter & Validator — Beautify & Check",
+  title: "Free JSON Formatter & Validator — Beautify & Check",
   description:
     "Format, beautify, and validate JSON data instantly in your browser. Adjustable indentation, sort keys, minify, copy, and download. Real-time error messages. Free, no signup.",
   keywords:
@@ -46,8 +44,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/json-formatter-validator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free JSON Formatter & Validator — Beautify & Check",
+    title: "Free JSON Formatter & Validator — Beautify & Check",
     description:
       "Format, beautify, and validate JSON instantly. Adjustable indentation, sort keys, minify, copy, and download. Real-time validation errors. Free, no signup.",
     images: [
@@ -63,8 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free JSON Formatter & Validator — Beautify & Check",
+    title: "Free JSON Formatter & Validator — Beautify & Check",
     description:
       "Format, validate, and minify JSON instantly. Real-time error messages, sort keys, download. Free.",
   },
@@ -158,7 +154,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "No — all processing runs entirely in your browser using JavaScript. Your JSON data is never sent to any server, logged, or stored anywhere. The tool uses the browser's built-in JSON.parse() and JSON.stringify() functions to parse, validate, and format the data. This means the tool works offline (after the page has loaded), and you can safely use it with sensitive or confidential JSON data such as API responses containing personal information, configuration files with credentials, or internal business data. Your data stays on your device at all times.",
       },
-    }
+    },
   ],
 };
 
@@ -166,7 +162,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the JSON Formatter & Validator",
-  description: "Step-by-step guide to using the free JSON Formatter & Validator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free JSON Formatter & Validator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -185,7 +182,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -220,7 +217,7 @@ export default function JsonFormatterValidatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-cyan-600 transition-colors"
             >
               Developer Tools

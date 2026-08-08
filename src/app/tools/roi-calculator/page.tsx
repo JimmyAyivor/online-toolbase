@@ -3,21 +3,17 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const tool = tools.find((t) => t.slug === "roi-calculator");
-const RoiCalculatorClient = dynamic(
-  () => import("./RoiCalculatorClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const RoiCalculatorClient = dynamic(() => import("./RoiCalculatorClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "ROI Calculator — Calculate Return on Investment Free Online",
@@ -154,7 +150,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "ROI has several important limitations. It doesn't account for risk — two investments with identical ROI percentages may have very different risk profiles. It can be manipulated by choice of inputs — marketing ROI calculations in particular vary enormously depending on how costs and revenues are defined. Simple ROI doesn't account for the time value of money beyond the annualised version — a dollar received today is worth more than a dollar received in 5 years. ROI doesn't capture opportunity cost — a 15% ROI might be poor if the same capital could earn 25% elsewhere...",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +158,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the ROI Calculator",
-  description: "Step-by-step guide to using the free ROI Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free ROI Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +178,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +213,7 @@ export default function RoiCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/finance"
+              href="/tools/category/finance-calculators"
               className="hover:text-emerald-600 transition-colors"
             >
               Finance Tools

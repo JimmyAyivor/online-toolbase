@@ -6,11 +6,10 @@ const tool = tools.find((t) => t.slug === "robots-txt-generator");
 const RobotsTxtGeneratorClient = dynamic(
   () => import("./RobotsTxtGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
@@ -18,7 +17,7 @@ import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
@@ -154,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "This is a growing debate among website owners. Blocking AI training crawlers prevents your content from being used in training datasets for large language models. OpenAI's GPTBot, Anthropic's Claude-Web, and Common Crawl's CCBot all respect robots.txt. If protecting your content from AI training is important to you — particularly for creative work, journalism, or proprietary research — the 'Block AI crawlers' preset in the tool sets up the relevant disallow rules in one click.",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Robots.txt Generator",
-  description: "Step-by-step guide to using the free Robots.txt Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Robots.txt Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -217,7 +217,7 @@ export default function RobotsTxtGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Developer Tools

@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "pregnancy-due-date-calculator");
 const PregnancyDueDateCalculatorClient = dynamic(
   () => import("./PregnancyDueDateCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Pregnancy Due Date Calculator — Calculate Your Baby's Due Date",
@@ -146,7 +145,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "The American College of Obstetricians and Gynecologists (ACOG) defines gestational age milestones as: Early term (37–38 weeks 6 days), Full term (39–40 weeks 6 days), Late term (41–41 weeks 6 days), and Post-term (42 weeks and beyond). Babies born at 39–40 weeks have the best outcomes for lung maturity and feeding. Elective deliveries (inductions or planned C-sections) are generally not recommended before 39 weeks without a medical indication.",
       },
-    }
+    },
   ],
 };
 
@@ -154,7 +153,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Pregnancy Due Date Calculator",
-  description: "Step-by-step guide to using the free Pregnancy Due Date Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Pregnancy Due Date Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -173,7 +173,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -208,7 +208,7 @@ export default function PregnancyDueDateCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/health"
+              href="/tools/category/health-fitness-calculators"
               className="hover:text-rose-600 transition-colors"
             >
               Health Tools

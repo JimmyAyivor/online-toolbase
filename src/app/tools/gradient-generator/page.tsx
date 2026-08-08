@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const GradientGeneratorClient = dynamic(
   () => import("./GradientGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,7 +16,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "gradient-generator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free CSS Gradient Generator — Linear, Radial & Conic",
@@ -147,7 +146,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Safari uses a slightly different colour interpolation method for CSS gradients, which can cause mid-gradient hues to appear different — particularly for gradients passing through hues on opposite sides of the color wheel (e.g. blue to red). For production, always test gradients in Safari explicitly and consider adjusting mid-stop colors if the difference is visually significant.",
       },
-    }
+    },
   ],
 };
 
@@ -155,7 +154,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the CSS Gradient Generator",
-  description: "Step-by-step guide to using the free CSS Gradient Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free CSS Gradient Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -174,7 +174,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 

@@ -24,5 +24,7 @@ export default function ClickBankWrapper({
   if (variant === "sidebar") {
     return <ClickBankSidebar product={product} toolSlug={toolSlug} />;
   }
-  return <ClickBankOffer product={product} toolSlug={toolSlug} delayMs={delayMs} />;
+  return (
+    <ClickBankOffer product={product} toolSlug={toolSlug} delayMs={delayMs} />
+  );
 }

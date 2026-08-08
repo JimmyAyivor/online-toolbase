@@ -263,7 +263,10 @@ function FAQSection() {
               <span className="font-semibold text-gray-900 text-sm">
                 {faq.q}
               </span>
-              <span className="text-red-600 text-lg shrink-0" aria-hidden="true">
+              <span
+                className="text-red-600 text-lg shrink-0"
+                aria-hidden="true"
+              >
                 {open === i ? "−" : "+"}
               </span>
             </button>

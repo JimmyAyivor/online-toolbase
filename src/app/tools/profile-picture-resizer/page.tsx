@@ -6,22 +6,20 @@ const tool = tools.find((t) => t.slug === "profile-picture-resizer");
 const ProfilePictureResizerClient = dynamic(
   () => import("./ProfilePictureResizerClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Profile Picture Resizer — All Social Platforms",
+  title: "Free Profile Picture Resizer — All Social Platforms",
   description:
     "Resize and centre-crop profile pictures for Instagram, Facebook, Twitter/X, LinkedIn, YouTube, TikTok, Discord, WhatsApp, Slack, and GitHub. Download as PNG. Runs in your browser — nothing uploaded. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/profile-picture-resizer`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Profile Picture Resizer — All Social Platforms",
+    title: "Free Profile Picture Resizer — All Social Platforms",
     description:
       "Resize profile pictures for Instagram, LinkedIn, Twitter/X, YouTube, TikTok, Discord, and more. Auto-crops to square. Download as PNG. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Profile Picture Resizer — All Social Platforms",
+    title: "Free Profile Picture Resizer — All Social Platforms",
     description:
       "Resize profile photos for 10 platforms. Auto-crops to square. Download PNG. Free.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Most social media platforms display profile photos cropped to a circle using CSS border-radius (a simple CSS property that rounds the corners of a square image into a circle shape). The underlying stored image is always a square — the circular display is purely a presentation layer applied by each platform's interface. This means the corners of your profile photo are hidden behind the circular mask in most views...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Profile Picture Resizer",
-  description: "Step-by-step guide to using the free Profile Picture Resizer on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Profile Picture Resizer on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function ProfilePictureResizerPage() {
           </li>
           <li>
             <a
-              href="/tools/category/image"
+              href="/tools/category/image-design-tools"
               className="hover:text-pink-600 transition-colors"
             >
               Image Tools

@@ -5,18 +5,17 @@ import { tools } from "@/lib/tools";
 const BusinessNameGeneratorClient = dynamic(
   () => import("./BusinessNameGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "business-name-generator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Business Name Generator — Brand Ideas Instantly",
@@ -144,7 +143,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Generated names can potentially be trademarked if they are distinctive, not already registered in your category, and not merely descriptive of your service. Abstract, coined, or compound names tend to receive stronger trademark protection than purely descriptive ones. The generator provides starting point ideas — always conduct a trademark clearance search through the relevant registry (USPTO, EUIPO, IPO) and consult a trademark attorney before filing. Trademark registration is territory-specific and typically takes 12–18 months.",
       },
-    }
+    },
   ],
 };
 
@@ -152,7 +151,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Business Name Generator",
-  description: "Step-by-step guide to using the free Business Name Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Business Name Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -171,7 +171,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -206,7 +206,7 @@ export default function BusinessNameGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/business"
+              href="/tools/category/business-productivity"
               className="hover:text-violet-600 transition-colors"
             >
               Business Tools

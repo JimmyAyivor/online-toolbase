@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const MarkdownToHtmlConverterClient = dynamic(
   () => import("./MarkdownToHtmlConverterClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,7 +16,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "markdown-to-html-converter");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Markdown to HTML Converter — Live Preview",
@@ -44,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/markdown-to-html-converter`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Markdown to HTML Converter — Live Preview",
+    title: "Free Markdown to HTML Converter — Live Preview",
     description:
       "Convert Markdown to clean HTML with a live rendered preview. Supports headings, tables, code blocks, lists, links, and more. Free, no signup.",
     images: [
@@ -61,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Markdown to HTML Converter — Live Preview",
+    title: "Free Markdown to HTML Converter — Live Preview",
     description:
       "Convert Markdown to HTML instantly with a live preview. Supports tables, code blocks, lists, and more. Free.",
   },
@@ -156,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "In most Markdown parsers, yes — raw HTML can be mixed directly into Markdown documents. Block-level HTML elements (divs, sections, tables) typically work when they're separated from surrounding Markdown by blank lines. Inline HTML (spans, strong tags, anchor tags) can be mixed inline with Markdown text. However, some platforms sanitise HTML for security — notably GitHub, Notion, and most user-generated content platforms strip or escape HTML to prevent XSS attacks...",
       },
-    }
+    },
   ],
 };
 
@@ -164,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Markdown to HTML Converter",
-  description: "Step-by-step guide to using the free Markdown to HTML Converter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Markdown to HTML Converter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -183,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -218,7 +216,7 @@ export default function MarkdownToHtmlConverterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-blue-600 transition-colors"
             >
               Developer Tools

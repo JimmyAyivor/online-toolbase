@@ -6,11 +6,10 @@ import { tools } from "@/lib/tools";
 const OvulationCalculatorClient = dynamic(
   () => import("./OvulationCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -18,7 +17,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "ovulation-calculator");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Ovulation Calculator — Predict Your Fertile Days",
@@ -147,7 +146,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Cycle length can vary due to stress, illness, travel, significant weight changes, intense exercise, thyroid dysfunction, polycystic ovary syndrome (PCOS), perimenopause, or normal biological variation. A cycle that varies by 3–5 days from month to month is considered normal. Cycles shorter than 21 days or longer than 35 days consistently, or extreme irregularity, warrant evaluation by a gynaecologist.",
       },
-    }
+    },
   ],
 };
 
@@ -155,7 +154,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Ovulation Calculator",
-  description: "Step-by-step guide to using the free Ovulation Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Ovulation Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -174,7 +174,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -209,7 +209,7 @@ export default function OvulationCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/health"
+              href="/tools/category/health-fitness-calculators"
               className="hover:text-pink-600 transition-colors"
             >
               Health Tools

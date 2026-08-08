@@ -234,7 +234,8 @@ function FAQSection() {
             <button
               className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
               onClick={() => setOpen(open === i ? null : i)}
-              aria-expanded={open === i}            >
+              aria-expanded={open === i}
+            >
               <span className="font-semibold text-gray-900 text-sm">{f.q}</span>
               <span className="text-green-600 text-lg shrink-0">
                 {open === i ? "−" : "+"}

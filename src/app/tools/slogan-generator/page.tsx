@@ -3,21 +3,17 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const tool = tools.find((t) => t.slug === "slogan-generator");
-const SloganGeneratorClient = dynamic(
-  () => import("./SloganGeneratorClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const SloganGeneratorClient = dynamic(() => import("./SloganGeneratorClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Slogan Generator — Brand Taglines Instantly",
@@ -145,7 +141,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Most branding professionals recommend generating at least 20–30 candidate slogans before shortlisting to 3–5 finalists for testing. Testing can be as simple as asking 10 target customers which feels most authentic and memorable. The generator provides 6 variants per style — run it multiple times with different keywords and tone settings to build a larger pool to work from.",
       },
-    }
+    },
   ],
 };
 
@@ -153,7 +149,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Slogan Generator",
-  description: "Step-by-step guide to using the free Slogan Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Slogan Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -172,7 +169,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -207,7 +204,7 @@ export default function SloganGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/business"
+              href="/tools/category/business-productivity"
               className="hover:text-rose-600 transition-colors"
             >
               Business Tools

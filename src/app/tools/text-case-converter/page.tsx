@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "text-case-converter");
 const TextCaseConverterClient = dynamic(
   () => import("./TextCaseConverterClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./Pageeditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Text Case Converter — Free Online Text Case Converter",
@@ -154,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "dot.case (also called dot notation or dot.notation) separates words with dots and lowercases all letters. It is less common than snake_case or kebab-case but appears in: Java and Kotlin package names (com.example.myapp), some configuration file key formats (server.port, database.url), Node.js and npm package namespacing, and property access notation in some template engines. In general web development, snake_case and kebab-case are more prevalent, but dot.case is standard in JVM ecosystem projects.",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Text Case Converter",
-  description: "Step-by-step guide to using the free Text Case Converter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Text Case Converter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +216,7 @@ export default function TextCaseConverterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/text"
+              href="/tools/category/writing-text-tools"
               className="hover:text-purple-600 transition-colors"
             >
               Text Tools

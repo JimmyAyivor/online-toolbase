@@ -6,11 +6,10 @@ import { tools } from "@/lib/tools";
 const PercentageCalculatorClient = dynamic(
   () => import("./PercentageCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -18,7 +17,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "percentage-calculator");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Percentage Calculator — 5 Percentage Formulas, Free Online",
@@ -155,7 +154,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "This is one of the most counterintuitive aspects of percentage arithmetic. When you increase by X%, the new value is larger — so the same percentage decrease is applied to a larger base, removing more in absolute terms than was added. For example, start at $100. Increase by 50%: $100 × 1.5 = $150. Decrease by 50%: $150 × 0.5 = $75 — not back to $100. The original $100 plus 50% added $50, but 50% of the new $150 removes $75. To reverse a percentage increase of X%, you need to decrease by X/(1+X/100)% — for a 50% increase, you need a 33.33% decrease to return to the original...",
       },
-    }
+    },
   ],
 };
 
@@ -163,7 +162,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Percentage Calculator",
-  description: "Step-by-step guide to using the free Percentage Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Percentage Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -182,7 +182,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -217,7 +217,7 @@ export default function PercentageCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-yellow-600 transition-colors"
             >
               Calculator Tools

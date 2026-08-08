@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "social-media-audit");
 const SocialMediaAuditClient = dynamic(
   () => import("./SocialMediaAuditClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Social Media Audit Tool — Free Profile Checklist & Score",
@@ -154,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Engagement rate is calculated as total engagements (likes + comments + shares + saves) divided by follower count (or reach), multiplied by 100 to express as a percentage. Most platforms provide this data natively in their analytics sections: Instagram Creator Account → Insights → Account Activity; TikTok → Creator Tools → Analytics; LinkedIn → Post Analytics. As a general benchmark, 1–3% is average for Instagram, 3–9% is average for TikTok, and 0.5–2% is typical for LinkedIn — though these benchmarks vary significantly by niche and account size...",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Social Media Audit Tool",
-  description: "Step-by-step guide to using the free Social Media Audit Tool on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Social Media Audit Tool on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +216,7 @@ export default function SocialMediaAuditPage() {
           </li>
           <li>
             <a
-              href="/tools/category/social-media"
+              href="/tools/category/social-media-tools"
               className="hover:text-violet-600 transition-colors"
             >
               Social Media Tools

@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const BinaryToTextConverterClient = dynamic(
   () => import("./BinaryToTextConverterClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
@@ -17,7 +16,7 @@ import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "binary-to-text-converter");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
@@ -153,7 +152,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Binary is the fundamental language of all digital computers. Every file on your computer — whether a document, image, or video — is ultimately stored as a sequence of binary digits. Developers encounter binary in contexts like network protocols, file format headers, low-level debugging, bitwise operations in programming, and digital electronics. Understanding binary encoding is foundational to computer science and software engineering.",
       },
-    }
+    },
   ],
 };
 
@@ -161,7 +160,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Binary to Text Converter",
-  description: "Step-by-step guide to using the free Binary to Text Converter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Binary to Text Converter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -180,7 +180,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +216,7 @@ export default function BinaryToTextConverterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Developer Tools

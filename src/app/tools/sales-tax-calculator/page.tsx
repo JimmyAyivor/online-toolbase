@@ -5,24 +5,22 @@ import { stateTaxData } from "@/lib/stateTaxData";
 const SalesTaxCalculatorClient = dynamic(
   () => import("./SalesTaxCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 import { tools } from "@/lib/tools";
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 const tool = tools.find((t) => t.slug === "sales-tax-calculator");
 
 export const metadata: Metadata = {
-  title:
-    "Free Sales Tax Calculator — All 50 US States | Instant",
+  title: "Free Sales Tax Calculator — All 50 US States | Instant",
   description:
     "Calculate sales tax amount and final price for any purchase. Select your US state for the exact tax rate, or enter a custom rate. Add multiple items to a cart and calculate tax on the total. Free, no signup.",
   keywords:
@@ -46,8 +44,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/sales-tax-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Sales Tax Calculator — All 50 US States | Instant",
+    title: "Free Sales Tax Calculator — All 50 US States | Instant",
     description:
       "Calculate sales tax for any US state or custom rate. Add multiple items to a cart and see the total tax and final price instantly. Free, no signup.",
     images: [
@@ -63,8 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Sales Tax Calculator — All 50 US States | Instant",
+    title: "Free Sales Tax Calculator — All 50 US States | Instant",
     description:
       "Calculate sales tax by US state or custom rate — single item or multi-item cart. Free.",
   },
@@ -158,7 +154,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Before 2018, online retailers were only required to collect sales tax in states where they had a physical presence (nexus) — a store, warehouse, or employee. The 2018 Supreme Court decision in South Dakota v. Wayfair changed this, allowing states to require out-of-state online sellers to collect and remit sales tax based on economic nexus — typically triggered when a seller has more than $100,000 in annual sales into a state or more than 200 transactions per year in that state. All 45 states with a sales tax have now enacted economic nexus laws...",
       },
-    }
+    },
   ],
 };
 
@@ -166,7 +162,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Sales Tax Calculator",
-  description: "Step-by-step guide to using the free Sales Tax Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Sales Tax Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -185,7 +182,7 @@ const howToJsonLd = {
       position: 3,
       name: "View your tax and total",
       text: "The calculator instantly shows the sales tax amount and the final price including tax. Use reverse mode to find the pre-tax price from a receipt total.",
-    }
+    },
   ],
 };
 
@@ -220,7 +217,7 @@ export default function SalesTaxCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-purple-600 transition-colors"
             >
               Calculator Tools
@@ -260,15 +257,15 @@ export default function SalesTaxCalculatorPage() {
         />
       </SidebarAdLayout>
       <h2>Sales Tax by State</h2>
-<ul>
-  {stateTaxData.map((s) => (
-    <li key={s.slug}>
-      <a href={`/tools/sales-tax-calculator/state/${s.slug}`}>
-        {s.name} Sales Tax Calculator
-      </a>
-    </li>
-  ))}
-</ul>
+      <ul>
+        {stateTaxData.map((s) => (
+          <li key={s.slug}>
+            <a href={`/tools/sales-tax-calculator/state/${s.slug}`}>
+              {s.name} Sales Tax Calculator
+            </a>
+          </li>
+        ))}
+      </ul>
     </>
   );
 }

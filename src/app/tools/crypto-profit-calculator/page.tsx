@@ -1,15 +1,14 @@
 // src/app/tools/crypto-profit-calculator/page.tsx
 import type { Metadata } from "next";
-import dynamic from "next/dynamic"; 
+import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const CryptoProfitCalculatorClient = dynamic(
   () => import("./CryptoProfitCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
@@ -18,7 +17,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "crypto-profit-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
 const SLOT_LEADERBOARD =
@@ -152,7 +151,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Dollar-cost averaging (DCA) means buying at multiple prices over time. To calculate overall profit, you need your total investment amount and weighted average buy price. Add up all purchase costs and divide by total coins held to get your average entry price. Then enter that as your buy price in this calculator with your total investment amount.",
       },
-    }
+    },
   ],
 };
 
@@ -160,7 +159,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Crypto Profit Calculator",
-  description: "Step-by-step guide to using the free Crypto Profit Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Crypto Profit Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -179,7 +179,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -214,7 +214,7 @@ export default function CryptoProfitCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/finance"
+              href="/tools/category/finance-calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Finance Tools

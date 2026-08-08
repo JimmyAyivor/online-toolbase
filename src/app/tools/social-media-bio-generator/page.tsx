@@ -6,22 +6,20 @@ const tool = tools.find((t) => t.slug === "social-media-bio-generator");
 const SocialMediaBioGeneratorClient = dynamic(
   () => import("./SocialMediaBioGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Social Media Bio Generator — All Platforms",
+  title: "Free Social Media Bio Generator — All Platforms",
   description:
     "Generate optimised social media bios for Instagram, LinkedIn, Twitter/X, TikTok, YouTube, and more. Enter your name, profession, keywords, and tone — get a ready-to-use bio with a live character counter. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/social-media-bio-generator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Social Media Bio Generator — All Platforms",
+    title: "Free Social Media Bio Generator — All Platforms",
     description:
       "Generate ready-to-use bios for Instagram, LinkedIn, Twitter/X, TikTok, and YouTube. Choose platform, tone, and keywords — get a bio with character counter. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Social Media Bio Generator — All Platforms",
+    title: "Free Social Media Bio Generator — All Platforms",
     description:
       "Generate bios for Instagram, LinkedIn, Twitter/X, TikTok, and YouTube. Choose tone and keywords. Free.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Niche-attracting bios do two things: they include the words and phrases your target audience actually searches for, and they make an immediate, specific promise about what value you provide. For discoverability, use the terms people search on each platform — Instagram and TikTok bios are indexed by their internal search, so including your niche keywords (e.g. 'plant-based recipes', 'beginner investing', 'UX design') can drive profile discovery...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Social Media Bio Generator",
-  description: "Step-by-step guide to using the free Social Media Bio Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Social Media Bio Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function SocialMediaBioGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/social-media"
+              href="/tools/category/social-media-tools"
               className="hover:text-amber-600 transition-colors"
             >
               Social Media Tools

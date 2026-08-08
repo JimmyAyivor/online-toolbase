@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { blogPosts } from "./blog-posts";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Online Tool Base";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Blog — Tips, Guides & How-Tos | Online Tool Base",
@@ -58,7 +58,8 @@ export default function BlogIndexPage() {
           </h1>
           <p className="text-gray-500 max-w-xl">
             Practical articles on productivity, writing, security, social media,
-            and more — written to help you work smarter with Calculators, Pdf Tools & More.
+            and more — written to help you work smarter with Calculators, Pdf
+            Tools & More.
           </p>
         </div>
       </div>

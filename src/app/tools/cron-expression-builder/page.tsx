@@ -1,15 +1,14 @@
 // src/app/tools/cron-expression-builder/page.tsx
 import type { Metadata } from "next";
-import dynamic from "next/dynamic"; 
+import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const CronExpressionBuilderClient = dynamic(
   () => import("./CronExpressionBuilderClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,11 +16,10 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "cron-expression-builder");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Cron Expression Builder — Visual Cron Generator",
+  title: "Free Cron Expression Builder — Visual Cron Generator",
   description:
     "Build cron expressions with a visual editor — set minutes, hours, day of month, month, and day of week. Includes presets, plain-English descriptions, and a syntax reference. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/cron-expression-builder`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Cron Expression Builder — Visual Cron Generator",
+    title: "Free Cron Expression Builder — Visual Cron Generator",
     description:
       "Build cron expressions with a visual editor — set each field individually, use presets, and get plain-English schedule descriptions. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Cron Expression Builder — Visual Cron Generator",
+    title: "Free Cron Expression Builder — Visual Cron Generator",
     description:
       "Build cron job schedules with a visual editor — presets, plain-English descriptions, syntax reference. Free.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Crontab (cron table) is the configuration file that defines which commands to run on which schedule for a specific user — edited with the crontab -e command on Linux/macOS. The cron daemon (crond) is the background process that runs continuously on the server, reads all users' crontabs, and executes commands at the specified times...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Cron Expression Builder",
-  description: "Step-by-step guide to using the free Cron Expression Builder on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Cron Expression Builder on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function CronExpressionBuilderPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Developer Tools

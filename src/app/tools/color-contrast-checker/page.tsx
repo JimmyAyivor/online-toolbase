@@ -1,15 +1,14 @@
 // src/app/tools/color-contrast-checker/page.tsx
 import type { Metadata } from "next";
-import dynamic from "next/dynamic"; 
+import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const ColorContrastCheckerClient = dynamic(
   () => import("./ColorContrastCheckerClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,7 +16,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "color-contrast-checker");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Color Contrast Checker — WCAG AA & AAA Tool",
@@ -147,7 +146,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Not automatically — dark mode shifts the contrast equation rather than solving it. Light text on dark backgrounds can fail just as easily as dark text on light backgrounds if the colors are not properly chosen. White (#FFFFFF) on true black (#000000) has a 21:1 ratio (maximum), but many dark mode palettes use off-blacks and off-whites that can drop below 4.5:1. Always check both light and dark mode color pairs with this tool.",
       },
-    }
+    },
   ],
 };
 
@@ -155,7 +154,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Color Contrast Checker",
-  description: "Step-by-step guide to using the free Color Contrast Checker on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Color Contrast Checker on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -174,7 +174,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 

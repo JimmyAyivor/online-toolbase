@@ -6,22 +6,20 @@ const tool = tools.find((t) => t.slug === "twitter-thread-builder");
 const TwitterThreadBuilderClient = dynamic(
   () => import("./TwitterThreadBuilderClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Twitter Thread Builder — Write & Export Threads",
+  title: "Free Twitter Thread Builder — Write & Export Threads",
   description:
     "Build Twitter / X threads tweet-by-tweet with a live character counter, tweet reordering, numbered formatting, and one-click export. Start from a template or scratch. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/twitter-thread-builder`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Twitter Thread Builder — Write & Export Threads",
+    title: "Free Twitter Thread Builder — Write & Export Threads",
     description:
       "Write Twitter/X threads with live character counts, tweet reordering, numbered formatting, and template options. Export as text. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Twitter Thread Builder — Write & Export Threads",
+    title: "Free Twitter Thread Builder — Write & Export Threads",
     description:
       "Write and reorder Twitter/X threads with live character counts and numbered formatting. Free.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "To post a thread on X: tap the compose button to start a new tweet, write your first tweet, then click the '+' icon (Add tweet) below the tweet to add a second tweet. Continue adding tweets until your thread is complete — each tweet stays connected in the compose interface. Review all tweets for character limits and typos, then click 'Post all' to publish the entire thread simultaneously. All tweets are posted at the same time and appear linked in sequence...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Twitter Thread Builder",
-  description: "Step-by-step guide to using the free Twitter Thread Builder on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Twitter Thread Builder on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function TwitterThreadBuilderPage() {
           </li>
           <li>
             <a
-              href="/tools/category/social-media"
+              href="/tools/category/social-media-tools"
               className="hover:text-sky-600 transition-colors"
             >
               Social Media Tools

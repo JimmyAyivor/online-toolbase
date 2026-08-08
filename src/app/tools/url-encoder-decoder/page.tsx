@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "url-encoder-decoder");
 const UrlEncoderDecoderClient = dynamic(
   () => import("./UrlEncoderDecoderClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free URL Encoder & Decoder — Encode URLs Instantly",
@@ -154,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Yes — both %20 and + represent a space, but they are used in different contexts. %20 is the standard percent-encoding for a space and is valid in all parts of a URL. The + notation for spaces is specific to the application/x-www-form-urlencoded format used in HTML form submissions — it only applies in the query string portion of a URL and is the historical convention from early HTML forms. Modern practice generally favours %20 for consistency and portability, as + in the query string can sometimes cause confusion when it appears in values that should contain literal plus signs...",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the URL Encoder/Decoder",
-  description: "Step-by-step guide to using the free URL Encoder/Decoder on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free URL Encoder/Decoder on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +216,7 @@ export default function UrlEncoderDecoderPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-sky-600 transition-colors"
             >
               Developer Tools

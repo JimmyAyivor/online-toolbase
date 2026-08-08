@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const DateDifferenceCalculatorClient = dynamic(
   () => import("./DateDifferenceCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,11 +16,10 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "date-difference-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Date Difference Calculator — Days Between Dates",
+  title: "Free Date Difference Calculator — Days Between Dates",
   description:
     "Calculate the exact number of days, weeks, months, years, hours, minutes, workdays, and weekend days between any two dates. Quick presets for common ranges. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/date-difference-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Date Difference Calculator — Days Between Dates",
+    title: "Free Date Difference Calculator — Days Between Dates",
     description:
       "Calculate days, weeks, months, years, hours, workdays, and weekend days between two dates. Quick presets included. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Date Difference Calculator — Days Between Dates",
+    title: "Free Date Difference Calculator — Days Between Dates",
     description:
       "Calculate days, weeks, months, workdays between two dates. Free.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Hours and minutes are total elapsed units for the entire period, not average hours or minutes per day. A 365-day period contains 8,760 hours (365 × 24) and 525,600 minutes (365 × 24 × 60). These large numbers are correct and can be useful in specific contexts: software systems that work with elapsed time in hours or minutes, rental or billing periods calculated per hour, or simple curiosity about how many minutes since an event. For most human planning contexts, the days and weeks figures are more intuitive...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Date Difference Calculator",
-  description: "Step-by-step guide to using the free Date Difference Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Date Difference Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function DateDifferenceCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-blue-600 transition-colors"
             >
               Calculator Tools

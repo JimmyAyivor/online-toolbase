@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "random-name-generator");
 const RandomNameGeneratorClient = dynamic(
   () => import("./RandomNameGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Random Name Generator — Generate Random Names Free Online",
@@ -138,7 +137,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "A good character name has three qualities: it fits the character's cultural background or fictional setting; it sounds distinct enough from other character names to avoid reader confusion (particularly the first letter — having Tom, Tyler, and Travis in the same story causes constant confusion); and it suits the character's role and personality. Generate multiple options, say them aloud, and consider how they feel in context alongside your other character names. Often the right name is recognisable when you encounter it — it sounds like it belongs to the character you've imagined.",
       },
-    }
+    },
   ],
 };
 
@@ -146,7 +145,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Random Name Generator",
-  description: "Step-by-step guide to using the free Random Name Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Random Name Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -165,7 +165,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -200,7 +200,7 @@ export default function RandomNameGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/fun"
+              href="/tools/category/fun-generators"
               className="hover:text-purple-600 transition-colors"
             >
               Fun Tools

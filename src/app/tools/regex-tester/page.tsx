@@ -3,25 +3,20 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const tool = tools.find((t) => t.slug === "regex-tester");
-const RegexTesterClient = dynamic(
-  () => import("./RegexTesterClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const RegexTesterClient = dynamic(() => import("./RegexTesterClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Regex Tester — Test & Debug Patterns Instantly",
+  title: "Free Regex Tester — Test & Debug Patterns Instantly",
   description:
     "Test and debug regular expressions against sample text in real time. Live match highlighting, capture groups, flags, and a common patterns library. Free, no signup.",
   keywords:
@@ -45,8 +40,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/regex-tester`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Regex Tester — Test & Debug Patterns Instantly",
+    title: "Free Regex Tester — Test & Debug Patterns Instantly",
     description:
       "Test and debug regular expressions in real time — live match highlighting, capture groups, flags, and a common patterns library. Free, no signup.",
     images: [
@@ -62,8 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Regex Tester — Test & Debug Patterns Instantly",
+    title: "Free Regex Tester — Test & Debug Patterns Instantly",
     description:
       "Test regex in real time — live match highlighting, capture groups, flags, and common patterns library. Free.",
   },
@@ -157,7 +150,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "In regex, many characters have special meaning: . matches any character, + means 'one or more', * means 'zero or more', ? makes a quantifier lazy or marks a group as non-capturing, ( and ) define groups, [ and ] define character classes, { and } define quantifiers with counts, ^ anchors to the start or negates a character class, $ anchors to the end, \\ is the escape character, and | is alternation. To match any of these characters literally, prefix them with a backslash: \\. matches a literal period, \\+ matches a literal plus, \\( matches a literal opening parenthesis, and so on...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +158,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Regex Tester",
-  description: "Step-by-step guide to using the free Regex Tester on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Regex Tester on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +178,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +213,7 @@ export default function RegexTesterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-rose-600 transition-colors"
             >
               Developer Tools

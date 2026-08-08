@@ -6,22 +6,20 @@ const tool = tools.find((t) => t.slug === "word-character-counter");
 const WordCharacterCounterClient = dynamic(
   () => import("./WordCharacterCounterClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Word & Character Counter — Live Count Online",
+  title: "Free Word & Character Counter — Live Count Online",
   description:
     "Count words, characters (with and without spaces), sentences, paragraphs, and get reading and speaking time estimates. Real-time, free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/word-character-counter`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Word & Character Counter — Live Count Online",
+    title: "Free Word & Character Counter — Live Count Online",
     description:
       "Count words, characters, sentences, and paragraphs. Get reading and speaking time estimates. Real-time, free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Word & Character Counter — Live Count Online",
+    title: "Free Word & Character Counter — Live Count Online",
     description:
       "Count words, characters, sentences, and paragraphs. Reading and speaking time estimates. Free, instant.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "The textarea functions as a basic plain-text editor — you can type, paste, and edit freely. Use the Copy button to copy your text to the clipboard and paste it into another application, or click Download to save the current content as a .txt file. Saved files are plain text only — there's no formatting, font information, or document metadata. The tool does not auto-save: if you navigate away or close the tab, your text is lost. For longer editing sessions, periodically download your work as a backup.",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Word & Character Counter",
-  description: "Step-by-step guide to using the free Word & Character Counter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Word & Character Counter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function WordCharacterCounterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/text"
+              href="/tools/category/writing-text-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Text Tools

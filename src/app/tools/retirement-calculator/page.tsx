@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "retirement-calculator");
 const RetirementCalculatorClient = dynamic(
   () => import("./RetirementCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Retirement Calculator — How Much Do You Need to Retire?",
@@ -146,7 +145,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Priority order for most people: (1) 401(k) up to employer match — this is a 50–100% instant return you can't beat; (2) HSA if eligible (triple tax advantaged); (3) Roth IRA to the annual contribution limit ($7,000 in 2025); (4) 401(k) to the annual maximum ($23,500 in 2025). Roth accounts (tax-free growth and withdrawals) are generally preferable if you expect to be in a higher tax bracket in retirement. Traditional accounts (tax-deferred) are better if you expect lower taxes in retirement.",
       },
-    }
+    },
   ],
 };
 
@@ -154,7 +153,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Retirement Calculator",
-  description: "Step-by-step guide to using the free Retirement Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Retirement Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -173,7 +173,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -208,7 +208,7 @@ export default function RetirementCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/finance"
+              href="/tools/category/finance-calculators"
               className="hover:text-blue-600 transition-colors"
             >
               Finance Tools

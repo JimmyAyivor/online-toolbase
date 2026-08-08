@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const ImageCropperResizerClient = dynamic(
   () => import("./ImageCropperResizerClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,11 +16,10 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "image-cropper-resizer");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Image Cropper & Resizer — Crop & Resize Online",
+  title: "Free Image Cropper & Resizer — Crop & Resize Online",
   description:
     "Crop and resize images in your browser — set exact pixel dimensions, maintain aspect ratio, apply preset sizes for social media, and rotate or flip. Supports JPG, PNG, WebP, GIF. Free, no upload, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/image-cropper-resizer`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Image Cropper & Resizer — Crop & Resize Online",
+    title: "Free Image Cropper & Resizer — Crop & Resize Online",
     description:
       "Crop and resize images online — exact dimensions, aspect ratio lock, social media presets, rotate and flip. Runs entirely in your browser. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Image Cropper & Resizer — Crop & Resize Online",
+    title: "Free Image Cropper & Resizer — Crop & Resize Online",
     description:
       "Crop, resize, rotate, and flip images in your browser — social media presets, aspect ratio lock. Free.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Email attachments are typically limited to 10–25 MB by most providers (Gmail, Outlook), and email clients may display large images at reduced quality anyway. For email images: resize photos to a maximum of 1200 pixels wide for inline images, or 800 pixels wide if the email will be viewed primarily on mobile. A good target file size is under 500 KB per image. Use JPEG format with quality set to 70–80% for the best size-to-quality ratio...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Image Cropper & Resizer",
-  description: "Step-by-step guide to using the free Image Cropper & Resizer on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Image Cropper & Resizer on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function ImageCropperResizerPage() {
           </li>
           <li>
             <a
-              href="/tools/category/image"
+              href="/tools/category/image-design-tools"
               className="hover:text-teal-600 transition-colors"
             >
               Image Tools

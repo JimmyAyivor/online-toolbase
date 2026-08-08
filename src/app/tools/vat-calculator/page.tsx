@@ -3,21 +3,17 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const tool = tools.find((t) => t.slug === "vat-calculator");
-const VatCalculatorClient = dynamic(
-  () => import("./VatCalculatorClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const VatCalculatorClient = dynamic(() => import("./VatCalculatorClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free VAT Calculator — Add or Remove VAT Instantly",
@@ -154,7 +150,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "VAT (Value Added Tax) is a consumption tax charged on the sale of goods and services at each stage of the supply chain. Unlike a simple sales tax (which is only charged at the point of final sale), VAT is charged at each stage of production and distribution — but businesses registered for VAT can reclaim the VAT they pay on their own purchases (input VAT), so they only pay VAT on the value they add. The end consumer — who cannot reclaim VAT — ultimately bears the full VAT cost...",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +158,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the VAT Calculator",
-  description: "Step-by-step guide to using the free VAT Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free VAT Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +178,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +213,7 @@ export default function VatCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Calculator Tools

@@ -61,7 +61,8 @@ export const categories: Category[] = [
           "No. Everything runs directly in the browser tab — no extension, no CLI install, no account.",
       },
       {
-        question: "What's the difference between the JSON formatter and JSON to CSV converter?",
+        question:
+          "What's the difference between the JSON formatter and JSON to CSV converter?",
         answer:
           "The JSON formatter validates and pretty-prints JSON so it's readable and checks for syntax errors. The JSON to CSV converter transforms a JSON array into a spreadsheet-ready CSV file — use it when you need to move API data into Excel or Sheets.",
       },
@@ -71,7 +72,11 @@ export const categories: Category[] = [
           "Yes, all tools are responsive and work on phone and tablet browsers, though tools with large text areas (like the JSON formatter) are easier to use on a larger screen.",
       },
     ],
-    relatedSlugs: ["security-tools", "business-productivity", "marketing-seo-tools"],
+    relatedSlugs: [
+      "security-tools",
+      "business-productivity",
+      "marketing-seo-tools",
+    ],
     rawCategories: ["Developer"],
   },
   {
@@ -94,12 +99,17 @@ export const categories: Category[] = [
           "No account is needed to use any calculator. Results are calculated live in your browser and aren't stored on our end.",
       },
       {
-        question: "What's the difference between the Loan & Mortgage Calculator and the Mortgage Calculator?",
+        question:
+          "What's the difference between the Loan & Mortgage Calculator and the Mortgage Calculator?",
         answer:
           "The Mortgage Calculator focuses specifically on home loans with a full amortization schedule. The Loan & Mortgage Calculator is more general-purpose for comparing loan payments across different loan types.",
       },
     ],
-    relatedSlugs: ["finance-calculators", "health-fitness-calculators", "business-productivity"],
+    relatedSlugs: [
+      "finance-calculators",
+      "health-fitness-calculators",
+      "business-productivity",
+    ],
     rawCategories: ["Calculator", "Education"],
   },
   {
@@ -113,8 +123,7 @@ export const categories: Category[] = [
     faqs: [
       {
         question: "Does the plagiarism checker store the text I check?",
-        answer:
-          "No. Text you submit is checked and not retained afterward.",
+        answer: "No. Text you submit is checked and not retained afterward.",
       },
       {
         question: "What readability score do these tools use?",
@@ -127,7 +136,11 @@ export const categories: Category[] = [
           "The tool rewrites text while preserving meaning, but paraphrased text should always be understood and, where required, cited according to your institution's academic integrity policy. Treat it as a drafting aid, not a substitute for original writing.",
       },
     ],
-    relatedSlugs: ["marketing-seo-tools", "social-media-tools", "developer-tools"],
+    relatedSlugs: [
+      "marketing-seo-tools",
+      "social-media-tools",
+      "developer-tools",
+    ],
     rawCategories: ["Writing", "Text"],
   },
   {
@@ -145,7 +158,8 @@ export const categories: Category[] = [
           "They use standard published formulas (e.g. Mifflin-St Jeor for calorie needs, standard BMI formula). They're useful for general planning but aren't a substitute for personalized advice from a doctor or registered dietitian, especially if you have an existing health condition.",
       },
       {
-        question: "What's the difference between the Calorie Calculator and Calorie Deficit Calculator?",
+        question:
+          "What's the difference between the Calorie Calculator and Calorie Deficit Calculator?",
         answer:
           "The Calorie Calculator estimates your total daily calorie needs (TDEE) to maintain your current weight. The Calorie Deficit Calculator takes that TDEE and calculates a target deficit for weight loss at a chosen rate.",
       },
@@ -183,7 +197,11 @@ export const categories: Category[] = [
           "Yes — the Color Contrast Checker specifically checks text/background color pairs against WCAG AA and AAA contrast ratio thresholds.",
       },
     ],
-    relatedSlugs: ["developer-tools", "social-media-tools", "marketing-seo-tools"],
+    relatedSlugs: [
+      "developer-tools",
+      "social-media-tools",
+      "marketing-seo-tools",
+    ],
     rawCategories: ["Image", "Design"],
   },
   {
@@ -211,7 +229,11 @@ export const categories: Category[] = [
           "These are planning and formatting tools, not a scheduler — they help you prepare content (captions, hashtags, calendars) that you then post or schedule through the platform or your existing scheduling tool.",
       },
     ],
-    relatedSlugs: ["marketing-seo-tools", "writing-text-tools", "image-design-tools"],
+    relatedSlugs: [
+      "marketing-seo-tools",
+      "writing-text-tools",
+      "image-design-tools",
+    ],
     rawCategories: ["social-media"],
   },
   {
@@ -224,7 +246,8 @@ export const categories: Category[] = [
       "Personal finance math without a financial advisor's hourly rate attached. Budget planner, retirement calculator, net worth calculator, investment return and CAGR, credit card payoff timeline, savings goal projections — the numbers people run before making a decision, not after.\n\nThese are planning tools built on standard financial formulas (compound interest, amortization, CAGR). They give you a solid estimate to work from — for decisions with real money on the line, pair the output with advice from a financial professional.",
     faqs: [
       {
-        question: "Can I use these calculators to plan a real investment decision?",
+        question:
+          "Can I use these calculators to plan a real investment decision?",
         answer:
           "They're a good starting point for estimates using standard formulas, but investment and retirement decisions have tax and personal-circumstance factors these calculators don't account for. Treat results as planning estimates and confirm significant decisions with a financial advisor.",
       },
@@ -239,7 +262,11 @@ export const categories: Category[] = [
           "No — figures you enter are calculated in your browser and not stored or transmitted.",
       },
     ],
-    relatedSlugs: ["calculators", "business-productivity", "health-fitness-calculators"],
+    relatedSlugs: [
+      "calculators",
+      "business-productivity",
+      "health-fitness-calculators",
+    ],
     rawCategories: ["Finance"],
   },
   {
@@ -263,8 +290,7 @@ export const categories: Category[] = [
       },
       {
         question: "Is the resume builder free to export?",
-        answer:
-          "Yes — there's no paywall to download your finished resume.",
+        answer: "Yes — there's no paywall to download your finished resume.",
       },
     ],
     relatedSlugs: ["calculators", "developer-tools", "finance-calculators"],
@@ -290,7 +316,11 @@ export const categories: Category[] = [
           "It generates starting drafts based on the product details and angle you provide — treat the output as a first draft to edit into your brand voice, not finished copy.",
       },
     ],
-    relatedSlugs: ["social-media-tools", "writing-text-tools", "developer-tools"],
+    relatedSlugs: [
+      "social-media-tools",
+      "writing-text-tools",
+      "developer-tools",
+    ],
     rawCategories: ["Marketing", "Analytics"],
   },
   {
@@ -313,7 +343,11 @@ export const categories: Category[] = [
           "Yes — the Random Name Generator can produce a batch of names in one go rather than one at a time.",
       },
     ],
-    relatedSlugs: ["writing-text-tools", "image-design-tools", "social-media-tools"],
+    relatedSlugs: [
+      "writing-text-tools",
+      "image-design-tools",
+      "social-media-tools",
+    ],
     rawCategories: ["Fun"],
   },
   {
@@ -333,6 +367,56 @@ export const categories: Category[] = [
     ],
     relatedSlugs: ["developer-tools", "business-productivity", "calculators"],
     rawCategories: ["Security"],
+  },
+
+  {
+    slug: "pdf-tools",
+    name: "PDF Tools",
+    title:
+      "Free PDF Tools Online (15+) | Merge, Compress & Convert PDFs | Online Tool Base",
+
+    metaDescription:
+      "Free PDF tools to merge, split, compress, convert and manage PDF files online. Edit PDFs instantly in your browser with no signup, no uploads, and no software required.",
+
+    intro:
+      "Free PDF tools designed to handle the everyday document tasks people run into at work, school, and business. Merge multiple PDF files into one document, split large PDFs into smaller files, compress PDFs to reduce file size, and convert documents quickly without installing expensive software.\n\nWhether you are preparing a business proposal, submitting school documents, organizing invoices, or sending contracts, these browser-based PDF utilities help you complete common PDF tasks faster. Everything runs directly in your browser, making your files easier to manage while keeping the process simple and secure.",
+
+    faqs: [
+      {
+        question: "Are these PDF tools free to use?",
+        answer:
+          "Yes. All PDF tools on Online Tool Base are free to use with no account required, subscriptions, or hidden fees. You can merge, compress, split, and convert PDF files instantly.",
+      },
+      {
+        question: "Can I merge multiple PDF files together?",
+        answer:
+          "Yes. The PDF merger allows you to combine multiple PDF documents into a single organized file, making it easier to manage reports, invoices, contracts, and other documents.",
+      },
+      {
+        question: "Can I compress a PDF without losing quality?",
+        answer:
+          "Yes. The PDF compressor reduces file size while maintaining readable document quality, making PDFs easier to email, upload, and share online.",
+      },
+      {
+        question: "Are my PDF files uploaded to your servers?",
+        answer:
+          "No. PDF processing happens directly in your browser whenever possible. Your documents remain on your device instead of being stored permanently on external servers.",
+      },
+      {
+        question: "Do these PDF tools work on mobile devices?",
+        answer:
+          "Yes. All PDF utilities are optimized for phones, tablets, and desktop browsers, allowing you to manage PDF files wherever you work.",
+      },
+    ],
+
+    relatedSlugs: [
+      "business-productivity",
+      "developer-tools",
+      "writing-tools",
+      "image-tools",
+    ],
+
+    rawCategories: ["Document"],
   },
 ];
 
@@ -372,10 +456,12 @@ export function getRelatedCategories(slug: string): Category[] {
 // from every category page.
 if (process.env.NODE_ENV !== "production") {
   const mappedRaw = new Set(categories.flatMap((c) => c.rawCategories));
-  const unmapped = new Set(tools.map((t) => t.category).filter((c) => !mappedRaw.has(c)));
+  const unmapped = new Set(
+    tools.map((t) => t.category).filter((c) => !mappedRaw.has(c)),
+  );
   if (unmapped.size > 0) {
     console.warn(
-      `[categories.ts] Unmapped raw categories found in tools.ts: ${[...unmapped].join(", ")}`
+      `[categories.ts] Unmapped raw categories found in tools.ts: ${[...unmapped].join(", ")}`,
     );
   }
 }

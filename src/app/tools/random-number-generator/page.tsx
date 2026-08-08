@@ -6,22 +6,20 @@ const tool = tools.find((t) => t.slug === "random-number-generator");
 const RandomNumberGeneratorClient = dynamic(
   () => import("./RandomNumberGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Random Number Generator — Any Range, Instantly",
+  title: "Free Random Number Generator — Any Range, Instantly",
   description:
     "Generate one or many random numbers between any minimum and maximum value. Option for no duplicates. Shows count, min, max, and average stats. Copy all as comma-separated list. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/random-number-generator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Random Number Generator — Any Range, Instantly",
+    title: "Free Random Number Generator — Any Range, Instantly",
     description:
       "Generate random numbers in any range — set min, max, and how many numbers. Option for unique (no duplicate) numbers. Copy as CSV. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Random Number Generator — Any Range, Instantly",
+    title: "Free Random Number Generator — Any Range, Instantly",
     description:
       "Generate random numbers in any range. Set count and unique-only option. Free.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "A pseudo-random number generator (PRNG) is an algorithm that produces a sequence of numbers that approximates the properties of random numbers. Unlike true random number generators (which use physical processes like radioactive decay or atmospheric noise), PRNGs are entirely deterministic — if you know the initial seed value and the algorithm, you can predict the entire sequence...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Random Number Generator",
-  description: "Step-by-step guide to using the free Random Number Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Random Number Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function RandomNumberGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Calculator Tools

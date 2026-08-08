@@ -28,7 +28,9 @@ interface SidebarPromoWidgetsProps {
   };
 }
 
-export default function SidebarPromoWidgets({ tool }: SidebarPromoWidgetsProps) {
+export default function SidebarPromoWidgets({
+  tool,
+}: SidebarPromoWidgetsProps) {
   const cbProduct = selectClickBankProduct(tool);
 
   return (
@@ -37,7 +39,7 @@ export default function SidebarPromoWidgets({ tool }: SidebarPromoWidgetsProps) 
       <AdSlot variant="halfpage" slotId={SIDEBAR_SLOT_ID} />
 
       {/* Latest Articles */}
-      <SidebarRecentPosts  />
+      <SidebarRecentPosts />
 
       {/* ClickBank offer card */}
       {cbProduct && (

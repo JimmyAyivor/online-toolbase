@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const CalorieCalculatorClient = dynamic(
   () => import("./CalorieCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,7 +16,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "calorie-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Calorie Calculator — Daily Calorie Needs (TDEE)",
@@ -146,7 +145,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "No — calorie counting is one tool, not the only path. Many people lose weight successfully through food quality improvements (more whole foods, less ultra-processed food), portion awareness, mindful eating, or time-restricted eating. However, calorie awareness — even approximate — helps most people understand why they are not losing weight when expected. Knowing your TDEE gives you a reference point even if you don't track every meal.",
       },
-    }
+    },
   ],
 };
 
@@ -154,7 +153,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Calorie Calculator",
-  description: "Step-by-step guide to using the free Calorie Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Calorie Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -173,7 +173,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -208,7 +208,7 @@ export default function CalorieCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/health"
+              href="/tools/category/health-fitness-calculators"
               className="hover:text-orange-600 transition-colors"
             >
               Health Tools

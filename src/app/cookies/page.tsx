@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Online Tool Base";
+const SITE_NAME = "OnlineToolBase";
 const LAST_UPDATED = "1 March 2026";
 const CONTACT_EMAIL = "privacy@onlinetoolbase.com";
 
@@ -144,8 +144,7 @@ export default function CookiesPage() {
                 Cookie Policy
               </h1>
               <p className="text-slate-400 text-sm">
-                Last updated:{" "}
-                <time dateTime="2026-03-01">{LAST_UPDATED}</time>
+                Last updated: <time dateTime="2026-03-01">{LAST_UPDATED}</time>
               </p>
             </div>
           </div>
@@ -155,7 +154,6 @@ export default function CookiesPage() {
       {/* Body */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="lg:grid lg:grid-cols-[220px_1fr] lg:gap-12">
-
           {/* Sticky TOC */}
           <aside className="hidden lg:block">
             <div className="sticky top-8">
@@ -181,26 +179,66 @@ export default function CookiesPage() {
                 </p>
                 <ul className="space-y-1.5 text-xs text-emerald-700">
                   <li className="flex items-start gap-1.5">
-                    <svg className="w-3.5 h-3.5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-3.5 h-3.5 shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     We use minimal cookies
                   </li>
                   <li className="flex items-start gap-1.5">
-                    <svg className="w-3.5 h-3.5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-3.5 h-3.5 shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     We never sell your data
                   </li>
                   <li className="flex items-start gap-1.5">
-                    <svg className="w-3.5 h-3.5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-3.5 h-3.5 shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     Analytics are anonymous
                   </li>
                   <li className="flex items-start gap-1.5">
-                    <svg className="w-3.5 h-3.5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-3.5 h-3.5 shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     You can opt out any time
                   </li>
@@ -211,16 +249,12 @@ export default function CookiesPage() {
 
           {/* Main content */}
           <main className="space-y-12">
-
             {/* Intro */}
             <div className="bg-white rounded-2xl border border-slate-100 shadow-sm px-6 py-6 text-[15px] text-slate-600 leading-relaxed">
               <p>
                 This Cookie Policy explains what cookies are, which cookies{" "}
                 <strong className="text-slate-800">{SITE_NAME}</strong> ({" "}
-                <a
-                  href={SITE_URL}
-                  className="text-indigo-600 hover:underline"
-                >
+                <a href={SITE_URL} className="text-indigo-600 hover:underline">
                   {SITE_URL}
                 </a>
                 ) uses, why we use them, and how you can control them.
@@ -233,7 +267,6 @@ export default function CookiesPage() {
             </div>
 
             <div className="bg-white rounded-2xl border border-slate-100 shadow-sm px-6 sm:px-8 py-8 space-y-12">
-
               <Section id="what-are-cookies" title="1. What are cookies?">
                 <p>
                   Cookies are small text files that a website stores on your
@@ -256,11 +289,12 @@ export default function CookiesPage() {
 
               <Section id="cookies-we-use" title="2. Cookies we use">
                 <p>
-                  We use two categories of cookies: <strong className="text-slate-800">essential</strong>{" "}
-                  (always on, required for the site to function) and{" "}
-                  <strong className="text-slate-800">analytics</strong> (optional,
-                  only loaded with your consent). We do not use advertising,
-                  tracking, or social media cookies.
+                  We use two categories of cookies:{" "}
+                  <strong className="text-slate-800">essential</strong> (always
+                  on, required for the site to function) and{" "}
+                  <strong className="text-slate-800">analytics</strong>{" "}
+                  (optional, only loaded with your consent). We do not use
+                  advertising, tracking, or social media cookies.
                 </p>
               </Section>
 
@@ -300,21 +334,26 @@ export default function CookiesPage() {
 
               <Section id="analytics" title="4. Analytics cookies">
                 <p>
-                  Analytics cookies help us understand how visitors use the
-                  site — which tools are popular, where users come from, and
-                  whether there are errors. This helps us improve the tools and
-                  content.
+                  Analytics cookies help us understand how visitors use the site
+                  — which tools are popular, where users come from, and whether
+                  there are errors. This helps us improve the tools and content.
                 </p>
                 <p>
-                  Analytics cookies are <strong className="text-slate-800">only set after you accept</strong>{" "}
+                  Analytics cookies are{" "}
+                  <strong className="text-slate-800">
+                    only set after you accept
+                  </strong>{" "}
                   them via the consent banner. If you choose &ldquo;Essential
                   only&rdquo;, no analytics cookies are loaded — not even
                   briefly.
                 </p>
                 <p>
-                  All analytics data is <strong className="text-slate-800">aggregated and anonymous</strong>.
-                  We cannot identify individual users from analytics data. We do
-                  not share raw analytics data with third parties.
+                  All analytics data is{" "}
+                  <strong className="text-slate-800">
+                    aggregated and anonymous
+                  </strong>
+                  . We cannot identify individual users from analytics data. We
+                  do not share raw analytics data with third parties.
                 </p>
                 <CookieTable
                   rows={[
@@ -387,15 +426,13 @@ export default function CookiesPage() {
                   minimise this.
                 </p>
                 <p>
-                  We have no advertising relationships and set no advertising
-                  or retargeting cookies of any kind.
+                  We have no advertising relationships and set no advertising or
+                  retargeting cookies of any kind.
                 </p>
               </Section>
 
               <Section id="managing" title="6. Managing your cookies">
-                <p>
-                  You have several options for controlling cookies:
-                </p>
+                <p>You have several options for controlling cookies:</p>
 
                 <div className="space-y-4">
                   {/* Option 1 */}
@@ -422,10 +459,22 @@ export default function CookiesPage() {
                     </p>
                     <div className="grid sm:grid-cols-2 gap-2">
                       {[
-                        { name: "Chrome", href: "https://support.google.com/chrome/answer/95647" },
-                        { name: "Firefox", href: "https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox" },
-                        { name: "Safari", href: "https://support.apple.com/en-gb/guide/safari/sfri11471/mac" },
-                        { name: "Edge", href: "https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" },
+                        {
+                          name: "Chrome",
+                          href: "https://support.google.com/chrome/answer/95647",
+                        },
+                        {
+                          name: "Firefox",
+                          href: "https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox",
+                        },
+                        {
+                          name: "Safari",
+                          href: "https://support.apple.com/en-gb/guide/safari/sfri11471/mac",
+                        },
+                        {
+                          name: "Edge",
+                          href: "https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09",
+                        },
                       ].map((b) => (
                         <a
                           key={b.name}
@@ -434,8 +483,18 @@ export default function CookiesPage() {
                           rel="noopener noreferrer"
                           className="flex items-center gap-2 text-sm text-indigo-600 hover:text-indigo-800 hover:underline"
                         >
-                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          <svg
+                            className="w-3.5 h-3.5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
                           </svg>
                           {b.name} instructions
                         </a>
@@ -472,17 +531,22 @@ export default function CookiesPage() {
                 </p>
                 <ul className="list-none space-y-2 pl-0">
                   <li className="flex items-start gap-3">
-                    <span className="mt-1 w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold flex items-center justify-center shrink-0">1</span>
+                    <span className="mt-1 w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold flex items-center justify-center shrink-0">
+                      1
+                    </span>
                     <span>
                       <strong className="text-slate-800">Accept all</strong> —
                       enables both essential and analytics cookies.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="mt-1 w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold flex items-center justify-center shrink-0">2</span>
+                    <span className="mt-1 w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold flex items-center justify-center shrink-0">
+                      2
+                    </span>
                     <span>
-                      <strong className="text-slate-800">Essential only</strong> —
-                      only essential cookies are set. No analytics scripts load.
+                      <strong className="text-slate-800">Essential only</strong>{" "}
+                      — only essential cookies are set. No analytics scripts
+                      load.
                     </span>
                   </li>
                 </ul>
@@ -542,14 +606,16 @@ export default function CookiesPage() {
                 </div>
                 <p>
                   See also our{" "}
-                  <Link href="/privacy" className="text-indigo-600 hover:underline">
+                  <Link
+                    href="/privacy"
+                    className="text-indigo-600 hover:underline"
+                  >
                     Privacy Policy
                   </Link>{" "}
                   for full details on how we collect, use, and protect your
                   personal data.
                 </p>
               </Section>
-
             </div>
           </main>
         </div>

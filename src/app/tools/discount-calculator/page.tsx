@@ -1,15 +1,14 @@
 // src/app/tools/discount-calculator/page.tsx
 import type { Metadata } from "next";
-import dynamic from "next/dynamic"; 
+import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const DiscountCalculatorClient = dynamic(
   () => import("./DiscountCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,11 +16,10 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "discount-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Discount Calculator — Sale Price & Savings",
+  title: "Free Discount Calculator — Sale Price & Savings",
   description:
     "Calculate the discounted price and amount saved for any percentage or fixed discount. Stack two discounts, add sales tax on top, or find what percentage off a price represents. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/discount-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Discount Calculator — Sale Price & Savings",
+    title: "Free Discount Calculator — Sale Price & Savings",
     description:
       "Calculate discounted price, savings amount, and effective discount percentage. Stack two discounts or add sales tax. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Discount Calculator — Sale Price & Savings",
+    title: "Free Discount Calculator — Sale Price & Savings",
     description:
       "Calculate sale price and savings for any discount — percentage, fixed, stacked, or with tax. Free.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "In retail, these terms are often used interchangeably by consumers but have distinct meanings in accounting and merchandising. A discount is a price reduction offered to a specific customer or under specific conditions — volume discounts, loyalty discounts, coupon discounts, or trade discounts given to wholesale buyers. A markdown is a permanent or semi-permanent reduction in the retail selling price of an item, typically applied to slow-moving inventory or at end-of-season. Markdowns are a cost to the retailer because they reduce the margin on goods already purchased at wholesale...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Discount Calculator",
-  description: "Step-by-step guide to using the free Discount Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Discount Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function DiscountCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-red-600 transition-colors"
             >
               Calculator Tools

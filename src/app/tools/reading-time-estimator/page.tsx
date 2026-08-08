@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "reading-time-estimator");
 const ReadingTimeEstimatorClient = dynamic(
   () => import("./ReadingTimeEstimatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Reading Time Estimator — How Long to Read?",
@@ -154,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "When the word count is low enough that the estimated reading time falls below one minute, the tool displays the result in seconds for more precision — for example, '45s' rather than '1m'. This occurs for short content like social media captions, product descriptions, or brief excerpts. For content under 100 words, the seconds display is more useful than rounding up to '1 minute'. As your word count increases past the one-minute threshold, the display automatically switches to the minutes-and-seconds format (e.g. '1m 23s') and then to hours and minutes (e.g. '1h 15m') for very long documents.",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Reading Time Estimator",
-  description: "Step-by-step guide to using the free Reading Time Estimator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Reading Time Estimator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +216,7 @@ export default function ReadingTimeEstimatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/text"
+              href="/tools/category/writing-text-tools"
               className="hover:text-amber-600 transition-colors"
             >
               Text Tools

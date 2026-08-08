@@ -53,7 +53,9 @@ export default function CookieBanner() {
   function essential() {
     localStorage.setItem(STORAGE_KEY, "essential");
     setVisible(false);
-    window.dispatchEvent(new CustomEvent("cookie_consent", { detail: "essential" }));
+    window.dispatchEvent(
+      new CustomEvent("cookie_consent", { detail: "essential" }),
+    );
   }
 
   // Don't render on server or if already answered
@@ -71,23 +73,33 @@ export default function CookieBanner() {
       `}
     >
       {/* Backdrop gradient — softens the page behind */}
-      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" aria-hidden />
+      <div
+        className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"
+        aria-hidden
+      />
 
       {/* Banner card */}
       <div className="relative mx-auto max-w-5xl mb-4 mx-4 sm:mx-6 lg:mx-auto">
         <div className="bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden">
-
           {/* Top accent bar */}
           <div className="h-1 bg-gradient-to-r from-indigo-500 via-violet-500 to-indigo-500" />
 
           <div className="px-5 py-4 sm:px-6 sm:py-5">
             <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-
               {/* Icon */}
               <div className="shrink-0 w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center">
-                <svg className="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                <svg
+                  className="w-5 h-5 text-indigo-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                  />
                 </svg>
               </div>
 
@@ -97,8 +109,9 @@ export default function CookieBanner() {
                   We use cookies to improve your experience
                 </p>
                 <p className="text-sm text-slate-500 leading-relaxed">
-                  Essential cookies keep the site working. Analytics cookies (if you accept) help us
-                  understand which tools are most useful so we can improve them. We never sell your data.{" "}
+                  Essential cookies keep the site working. Analytics cookies (if
+                  you accept) help us understand which tools are most useful so
+                  we can improve them. We never sell your data.{" "}
                   <button
                     onClick={() => setShowDetails(!showDetails)}
                     className="text-indigo-600 hover:text-indigo-800 font-medium underline underline-offset-2 transition-colors"
@@ -113,21 +126,33 @@ export default function CookieBanner() {
                     <div className="rounded-xl bg-slate-50 border border-slate-200 p-3">
                       <div className="flex items-center gap-2 mb-1">
                         <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
-                        <p className="text-xs font-bold text-slate-700">Essential cookies</p>
-                        <span className="ml-auto text-xs text-slate-400 font-medium">Always on</span>
+                        <p className="text-xs font-bold text-slate-700">
+                          Essential cookies
+                        </p>
+                        <span className="ml-auto text-xs text-slate-400 font-medium">
+                          Always on
+                        </span>
                       </div>
                       <p className="text-xs text-slate-500 leading-relaxed">
-                        Keep the site secure and functional. Store your preferences (e.g. dark mode, consent choice). Cannot be disabled.
+                        Keep the site secure and functional. Store your
+                        preferences (e.g. dark mode, consent choice). Cannot be
+                        disabled.
                       </p>
                     </div>
                     <div className="rounded-xl bg-slate-50 border border-slate-200 p-3">
                       <div className="flex items-center gap-2 mb-1">
                         <span className="w-2 h-2 rounded-full bg-indigo-500 shrink-0" />
-                        <p className="text-xs font-bold text-slate-700">Analytics cookies</p>
-                        <span className="ml-auto text-xs text-slate-400 font-medium">Optional</span>
+                        <p className="text-xs font-bold text-slate-700">
+                          Analytics cookies
+                        </p>
+                        <span className="ml-auto text-xs text-slate-400 font-medium">
+                          Optional
+                        </span>
                       </div>
                       <p className="text-xs text-slate-500 leading-relaxed">
-                        Help us see which tools people use and find errors. Data is aggregated and anonymous. No tracking across other websites.
+                        Help us see which tools people use and find errors. Data
+                        is aggregated and anonymous. No tracking across other
+                        websites.
                       </p>
                     </div>
                   </div>
@@ -140,8 +165,18 @@ export default function CookieBanner() {
                   onClick={accept}
                   className="w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
                 >
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                  <svg
+                    className="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                   Accept all
                 </button>
@@ -156,13 +191,22 @@ export default function CookieBanner() {
 
             {/* Footer links */}
             <div className="mt-3 pt-3 border-t border-slate-100 flex flex-wrap gap-x-4 gap-y-1">
-              <a href="/privacy" className="text-xs text-slate-400 hover:text-indigo-600 transition-colors">
+              <a
+                href="/privacy"
+                className="text-xs text-slate-400 hover:text-indigo-600 transition-colors"
+              >
                 Privacy Policy
               </a>
-              <a href="/terms" className="text-xs text-slate-400 hover:text-indigo-600 transition-colors">
+              <a
+                href="/terms"
+                className="text-xs text-slate-400 hover:text-indigo-600 transition-colors"
+              >
                 Terms of Service
               </a>
-              <a href="/cookies" className="text-xs text-slate-400 hover:text-indigo-600 transition-colors">
+              <a
+                href="/cookies"
+                className="text-xs text-slate-400 hover:text-indigo-600 transition-colors"
+              >
                 Cookie Policy
               </a>
             </div>

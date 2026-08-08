@@ -39,7 +39,7 @@ export default function SiteHeader() {
             </svg>
           </div>
           <span className="text-2xl font-extrabold bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent hidden sm:block">
-            Calculators, Pdf Tools & More
+            OnlineToolBase
           </span>
         </Link>
 
@@ -51,7 +51,7 @@ export default function SiteHeader() {
         {/* ── Desktop nav links (unchanged) ───────────────────────────── */}
         <div className="hidden md:flex items-center gap-6 flex-shrink-0">
           <Link
-            href="/#categories"
+            href="/categories"
             className="text-gray-700 hover:text-indigo-600 font-medium transition-colors"
           >
             Categories

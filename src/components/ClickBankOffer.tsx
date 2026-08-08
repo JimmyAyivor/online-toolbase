@@ -24,7 +24,7 @@ export default function ClickBankOffer({
   toolSlug = "",
   delayMs = 1200,
 }: Props) {
-  const [visible, setVisible]   = useState(false);
+  const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
@@ -76,7 +76,6 @@ export default function ClickBankOffer({
               <span className="text-sm font-semibold text-gray-900 group-hover:text-indigo-700 transition-colors">
                 {product.name}
               </span>
-          
             </div>
             <p className="text-sm font-medium text-gray-700 leading-snug">
               {product.headline}
@@ -110,7 +109,8 @@ export default function ClickBankOffer({
         {/* Affiliate disclosure — legally required */}
         <div className="px-5 py-2 border-t border-gray-50 bg-gray-50/40">
           <p className="text-[10px] text-gray-300 leading-relaxed">
-            Affiliate disclosure: We may earn a commission if you purchase through this link, at no extra cost to you.
+            Affiliate disclosure: We may earn a commission if you purchase
+            through this link, at no extra cost to you.
           </p>
         </div>
       </div>

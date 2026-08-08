@@ -10,7 +10,7 @@ import {
 } from "@/lib/partners";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Online Tool Base";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Partners & Resources | Online Tool Base",
@@ -29,28 +29,37 @@ export const metadata: Metadata = {
 
 const CATEGORY_META: Record<
   string,
-  { emoji: string; color: string; bg: string; border: string; description: string }
+  {
+    emoji: string;
+    color: string;
+    bg: string;
+    border: string;
+    description: string;
+  }
 > = {
   "Launch Platforms": {
     emoji: "🚀",
     color: "text-indigo-700",
     bg: "bg-indigo-50",
     border: "border-indigo-200",
-    description: "Directories and communities to discover and launch your product",
+    description:
+      "Directories and communities to discover and launch your product",
   },
   "SEO & Marketing": {
     emoji: "📈",
     color: "text-emerald-700",
     bg: "bg-emerald-50",
     border: "border-emerald-200",
-    description: "Tools and publications for search visibility and digital marketing",
+    description:
+      "Tools and publications for search visibility and digital marketing",
   },
   "Performance & Dev Tools": {
     emoji: "⚡",
     color: "text-violet-700",
     bg: "bg-violet-50",
     border: "border-violet-200",
-    description: "Tools for measuring, building, and optimising web performance",
+    description:
+      "Tools for measuring, building, and optimising web performance",
   },
   "Developer Communities": {
     emoji: "👩‍💻",
@@ -71,7 +80,8 @@ const CATEGORY_META: Record<
     color: "text-slate-700",
     bg: "bg-slate-50",
     border: "border-slate-200",
-    description: "Platforms for deploying, scaling, and securing web applications",
+    description:
+      "Platforms for deploying, scaling, and securing web applications",
   },
 };
 
@@ -167,10 +177,12 @@ export default function PartnersPage() {
             </h1>
             <p className="text-lg text-slate-300 leading-relaxed mb-8">
               We've curated{" "}
-              <strong className="text-white">{totalPartners} trusted tools</strong>,
-              platforms, and communities that complement Online Tool Base. These
-              are resources we genuinely use and recommend — grouped by category
-              so you can find what you need quickly.
+              <strong className="text-white">
+                {totalPartners} trusted tools
+              </strong>
+              , platforms, and communities that complement Online Tool Base.
+              These are resources we genuinely use and recommend — grouped by
+              category so you can find what you need quickly.
             </p>
 
             {/* Quick jump pills */}
@@ -213,15 +225,14 @@ export default function PartnersPage() {
                   {meta.emoji}
                 </div>
                 <div>
-                  <h2 className="text-2xl font-black text-slate-900">
-                    {cat}
-                  </h2>
+                  <h2 className="text-2xl font-black text-slate-900">{cat}</h2>
                   <p className="text-slate-500 text-sm mt-0.5">
                     {meta.description}
                   </p>
                 </div>
                 <span className="ml-auto text-sm text-slate-400 font-medium shrink-0 mt-1">
-                  {catPartners.length} resource{catPartners.length !== 1 ? "s" : ""}
+                  {catPartners.length} resource
+                  {catPartners.length !== 1 ? "s" : ""}
                 </span>
               </div>
 
@@ -261,9 +272,22 @@ export default function PartnersPage() {
                   "Complementary to online tools and productivity",
                   "Quality product with real users",
                 ].map((req) => (
-                  <li key={req} className="flex items-center gap-2 text-sm text-indigo-100">
-                    <svg className="w-4 h-4 text-indigo-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                  <li
+                    key={req}
+                    className="flex items-center gap-2 text-sm text-indigo-100"
+                  >
+                    <svg
+                      className="w-4 h-4 text-indigo-300 shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     {req}
                   </li>
@@ -276,8 +300,18 @@ export default function PartnersPage() {
                 className="inline-flex items-center gap-2 bg-white text-indigo-700 font-bold px-6 py-3.5 rounded-xl hover:bg-indigo-50 transition-colors shadow-lg"
               >
                 Apply to be a partner
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </Link>
               <p className="text-indigo-300 text-xs mt-3 text-center">

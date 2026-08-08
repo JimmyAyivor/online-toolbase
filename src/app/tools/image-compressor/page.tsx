@@ -1,23 +1,19 @@
 // src/app/tools/image-compressor/page.tsx
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";   
+import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
-const ImageCompressorClient = dynamic(
-  () => import("./ImageCompressorClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const ImageCompressorClient = dynamic(() => import("./ImageCompressorClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "image-compressor");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Image Compressor — Reduce JPG, PNG & WebP Size",
@@ -154,7 +150,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "The reduction depends on the original image's content, its existing compression level, and your chosen quality setting. A typical uncompressed or lightly-compressed JPEG photo at quality 80% will be reduced by 40–60% — a 4 MB photo might compress to 1.5–2.5 MB. At quality 60%, reductions of 65–75% are common. PNG files, which use lossless compression, often compress more dramatically when converted to JPEG: a 2 MB PNG screenshot might become a 200 KB JPEG at quality 80%. Images with lots of flat colour, simple graphics, or text compress more than photos with complex textures...",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +158,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Image Compressor",
-  description: "Step-by-step guide to using the free Image Compressor on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Image Compressor on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +178,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +213,7 @@ export default function ImageCompressorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/image"
+              href="/tools/category/image-design-tools"
               className="hover:text-violet-600 transition-colors"
             >
               Image Tools

@@ -1,15 +1,14 @@
 // src/app/tools/engagement-rate-calculator/page.tsx
 import type { Metadata } from "next";
-import dynamic from "next/dynamic"; 
+import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const EngagementRateCalculatorClient = dynamic(
   () => import("./EngagementRateCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,11 +16,10 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "engagement-rate-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Engagement Rate Calculator — All Platforms",
+  title: "Free Engagement Rate Calculator — All Platforms",
   description:
     "Calculate engagement rate by followers, by reach, or by impressions for any social media platform. Enter likes, comments, shares, and follower count — get your ER% with a benchmark rating. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/engagement-rate-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Engagement Rate Calculator — All Platforms",
+    title: "Free Engagement Rate Calculator — All Platforms",
     description:
       "Calculate engagement rate by followers, reach, or impressions. Enter your metrics, get your ER% with a benchmark comparison. Works for Instagram, TikTok, YouTube, and more. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Engagement Rate Calculator — All Platforms",
+    title: "Free Engagement Rate Calculator — All Platforms",
     description:
       "Calculate ER by followers, reach, or impressions for any platform. Benchmark your result. Free.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Engagement rate improvement strategies fall into four categories. Content quality: posts that generate comments typically contain a question, a controversial opinion, a strong emotional reaction, or a call to action. Carousels on Instagram consistently outperform single images for engagement — users who swipe through multiple slides count as higher-quality engagement signals. Timing: posting when your specific audience is most active (visible in each platform's analytics) increases the probability of early engagement, which in turn triggers algorithmic distribution...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Engagement Rate Calculator",
-  description: "Step-by-step guide to using the free Engagement Rate Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Engagement Rate Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "View your engagement rate",
       text: "See your engagement rate as a percentage with platform benchmarks to compare against.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function EngagementRateCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/social-media"
+              href="/tools/category/social-media-tools"
               className="hover:text-emerald-600 transition-colors"
             >
               Social Media Tools

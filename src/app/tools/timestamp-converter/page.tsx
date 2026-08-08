@@ -6,11 +6,10 @@ const tool = tools.find((t) => t.slug === "timestamp-converter");
 const TimestampConverterClient = dynamic(
   () => import("./TimestampConverterClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
@@ -18,7 +17,7 @@ import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
 const SLOT_LEADERBOARD =
@@ -152,7 +151,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "In JavaScript, use Date.now() for milliseconds or Math.floor(Date.now()/1000) for seconds. In Python, use import time; time.time() for seconds as a float. In PHP, use time() for seconds. In Java, use System.currentTimeMillis() for milliseconds. In SQL (PostgreSQL), use EXTRACT(EPOCH FROM NOW()). In SQL (MySQL), use UNIX_TIMESTAMP(). All of these return the number of seconds (or milliseconds) since the Unix epoch in UTC.",
       },
-    }
+    },
   ],
 };
 
@@ -160,7 +159,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Timestamp Converter",
-  description: "Step-by-step guide to using the free Timestamp Converter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Timestamp Converter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -179,7 +179,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -214,7 +214,7 @@ export default function TimestampConverterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Developer Tools

@@ -6,11 +6,10 @@ import { tools } from "@/lib/tools";
 const PlagiarismCheckerClient = dynamic(
   () => import("./PlagiarismCheckerClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -18,7 +17,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "meeting-cost-calculator");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Plagiarism Checker — Free Online Plagiarism Checker",
@@ -155,7 +154,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "No — this tool is a plagiarism checker that looks for matching text across web sources. It does not detect AI-generated content. AI text detection is a separate, distinct problem that requires different tools (GPTZero, Copyleaks AI detector, Originality.ai). AI-generated text is typically not plagiarised from the web — it is synthesised — so web-search-based plagiarism checking will generally score AI text as 'highly original', which may be misleading in academic contexts where AI use is restricted.",
       },
-    }
+    },
   ],
 };
 
@@ -163,7 +162,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Plagiarism Checker",
-  description: "Step-by-step guide to using the free Plagiarism Checker on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Plagiarism Checker on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -182,7 +182,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -217,7 +217,7 @@ export default function PlagiarismCheckerPage() {
           </li>
           <li>
             <a
-              href="/tools/category/writing"
+              href="/tools/category/writing-text-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Writing Tools

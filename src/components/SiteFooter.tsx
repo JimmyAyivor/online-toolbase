@@ -12,14 +12,15 @@ const FEATURED_SLUGS = [
   "instagram-post-planner",
 ];
 
-const ALL_CATEGORIES = Array.from(new Set(categories.map((t) => t.slug))).sort();
+const ALL_CATEGORIES = Array.from(
+  new Set(categories.map((t) => t.slug)),
+).sort();
 
 export default function SiteFooter() {
   return (
     <footer className="bg-gray-900 text-white mt-24" role="contentinfo">
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <SubscribeForm variant="inline"/>
+        <SubscribeForm variant="inline" />
 
         <div className="grid md:grid-cols-4 gap-8 mt-20 mb-8">
           {/* Brand */}
@@ -47,11 +48,14 @@ export default function SiteFooter() {
                   />
                 </svg>
               </div>
-              <span className="text-xl font-bold">Calculators, Pdf Tools & More</span>
+              <span className="text-xl font-bold">
+                Calculators, Pdf Tools & More
+              </span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Online Calculators, Pdf Tools, Genrators & More for productivity, health, finance,
-              development, social media, and more. No signup. No cost.
+              Online Calculators, Pdf Tools, Genrators & More for productivity,
+              health, finance, development, social media, and more. No signup.
+              No cost.
             </p>
             <SocialLinks />
           </div>
@@ -123,12 +127,12 @@ export default function SiteFooter() {
 
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
           <p>
-            &copy; {new Date().getFullYear()} Calculators, Pdf Tools & More. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} Calculators, Pdf Tools & More. All
+            rights reserved.
           </p>
           <p className="mt-2 text-gray-600">
-             Free Online tools — calculators, converters, generators &amp;
-            more. No signup required.
+            Free Online tools — calculators, converters, generators &amp; more.
+            No signup required.
           </p>
         </div>
       </div>

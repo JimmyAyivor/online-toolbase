@@ -6,11 +6,10 @@ import { tools } from "@/lib/tools";
 const MortgageCalculatorClient = dynamic(
   () => import("./MortgageCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -18,7 +17,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "mortgage-calculator");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Mortgage Calculator — Monthly Payment & Interest",
@@ -61,8 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Mortgage Calculator — Monthly Payment & Interest",
+    title: "Free Mortgage Calculator — Monthly Payment & Interest",
     description:
       "Monthly payments, total interest, full amortisation schedule. Free.",
   },
@@ -148,7 +146,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Making even one extra mortgage payment per year — or dividing your monthly payment by 12 and adding that amount to each monthly payment — can save tens of thousands in interest and shorten the loan term significantly. For a 30-year, $400,000 mortgage at 6.5%: making one extra payment per year shaves approximately 4–5 years off the loan term and saves approximately $60,000–70,000 in total interest...",
       },
-    }
+    },
   ],
 };
 
@@ -156,7 +154,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Mortgage Calculator",
-  description: "Step-by-step guide to using the free Mortgage Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Mortgage Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -175,7 +174,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -210,7 +209,7 @@ export default function MortgageCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/finance"
+              href="/tools/category/finance-calculators"
               className="hover:text-emerald-600 transition-colors"
             >
               Finance Tools

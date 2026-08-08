@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "text-difference-checker");
 const TextDifferenceCheckerClient = dynamic(
   () => import("./TextDifferenceCheckerClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Text Difference Checker — Compare & Highlight",
@@ -44,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/text-difference-checker`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Text Difference Checker — Compare & Highlight",
+    title: "Free Text Difference Checker — Compare & Highlight",
     description:
       "Compare two pieces of text side-by-side or in unified view. Highlights added, removed, and modified lines instantly. Free, no signup.",
     images: [
@@ -61,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Text Difference Checker — Compare & Highlight",
+    title: "Free Text Difference Checker — Compare & Highlight",
     description:
       "Compare two texts side-by-side or unified. Highlights added, removed, and modified lines. Free, instant.",
   },
@@ -156,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "When the texts have different line counts, the shorter text is effectively padded with empty lines to match the length of the longer text. Lines that exist in the modified text but not the original (because the modified text is longer) are marked as added. Lines that exist in the original but not the modified text (because the original is longer) are marked as removed...",
       },
-    }
+    },
   ],
 };
 
@@ -164,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Text Difference Checker",
-  description: "Step-by-step guide to using the free Text Difference Checker on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Text Difference Checker on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -183,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -218,7 +216,7 @@ export default function TextDifferenceCheckerPage() {
           </li>
           <li>
             <a
-              href="/tools/category/text"
+              href="/tools/category/writing-text-tools"
               className="hover:text-teal-600 transition-colors"
             >
               Text Tools

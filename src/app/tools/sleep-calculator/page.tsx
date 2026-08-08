@@ -3,21 +3,17 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const tool = tools.find((t) => t.slug === "sleep-calculator");
-const SleepCalculatorClient = dynamic(
-  () => import("./SleepCalculatorClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const SleepCalculatorClient = dynamic(() => import("./SleepCalculatorClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Sleep Calculator — Best Bedtime by Sleep Cycle",
@@ -147,7 +143,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Caffeine blocks adenosine receptors, reducing feelings of sleepiness. Its half-life is approximately 5–7 hours, meaning half the caffeine in a 3 PM coffee is still active at 8–10 PM. The general recommendation is to cut off caffeine at least 6 hours before your target bedtime. Sensitivity varies significantly by individual based on the CYP1A2 gene variant — some people metabolise caffeine twice as fast as others.",
       },
-    }
+    },
   ],
 };
 
@@ -155,7 +151,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Sleep Calculator",
-  description: "Step-by-step guide to using the free Sleep Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Sleep Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -174,7 +171,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -209,7 +206,7 @@ export default function SleepCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/health"
+              href="/tools/category/health-fitness-calculators"
               className="hover:text-violet-600 transition-colors"
             >
               Health Tools

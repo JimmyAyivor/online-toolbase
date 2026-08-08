@@ -3,21 +3,17 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const tool = tools.find((t) => t.slug === "word-counter-live");
-const WordCounterLiveClient = dynamic(
-  () => import("./WordCounterLiveClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const WordCounterLiveClient = dynamic(() => import("./WordCounterLiveClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Word Counter Live — Free Online Word Counter",
@@ -148,7 +144,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Both. The tool shows total characters (including spaces) and characters without spaces as separate statistics, so you can use whichever metric your target platform requires — for example, Twitter counts all characters including spaces.",
       },
-    }
+    },
   ],
 };
 
@@ -156,7 +152,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Word Counter Live",
-  description: "Step-by-step guide to using the free Word Counter Live on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Word Counter Live on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -175,7 +172,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -211,7 +208,7 @@ export default function WordCounterLivePage() {
           </li>
           <li>
             <a
-              href="/tools/category/text"
+              href="/tools/category/writing-text-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Text Tools

@@ -3,21 +3,17 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const tool = tools.find((t) => t.slug === "sentence-counter");
-const SentenceCounterClient = dynamic(
-  () => import("./SentenceCounterClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const SentenceCounterClient = dynamic(() => import("./SentenceCounterClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Sentence Counter — Sentences, Paragraphs & Level",
@@ -44,8 +40,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/sentence-counter`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Sentence Counter — Sentences, Paragraphs & Level",
+    title: "Free Sentence Counter — Sentences, Paragraphs & Level",
     description:
       "Live sentence, word, character, paragraph, and syllable counter with Flesch-Kincaid grade level. Stats update as you type. Free, instant, no signup.",
     images: [
@@ -61,8 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Sentence Counter — Sentences, Paragraphs & Level",
+    title: "Free Sentence Counter — Sentences, Paragraphs & Level",
     description:
       "Live sentence counter with FK reading grade level. Stats update as you type. Free, instant.",
   },
@@ -156,7 +150,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Frequency-based extractive summarisation ranks sentences by how often their words appear across the full document. This works well when the key topic is mentioned repeatedly — a common pattern in informational and journalistic text...",
       },
-    }
+    },
   ],
 };
 
@@ -164,7 +158,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Sentence Counter",
-  description: "Step-by-step guide to using the free Sentence Counter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Sentence Counter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -183,7 +178,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -218,7 +213,7 @@ export default function SentenceCounterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/writing"
+              href="/tools/category/writing-text-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Writing Tools

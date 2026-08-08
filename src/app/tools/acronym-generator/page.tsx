@@ -4,11 +4,10 @@ import dynamic from "next/dynamic";
 const AcronymGeneratorClient = dynamic(
   () => import("./AcronymGeneratorClient"),
   {
-   
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -18,7 +17,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "acronym-generator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Acronym Generator — Free Online Acronym Generator",
@@ -94,7 +93,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Text Tools",
-      item: `${SITE_URL}/tools/category/text`,
+      item: `${SITE_URL}/tools/category/writing-text-tools`,
     },
     {
       "@type": "ListItem",
@@ -204,7 +203,7 @@ export default function AcronymGeneratorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-            <script
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
@@ -225,7 +224,7 @@ export default function AcronymGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/text"
+              href="/tools/category/writing-text-tools-text-tools"
               className="hover:text-sky-600 transition-colors"
             >
               Text Tools

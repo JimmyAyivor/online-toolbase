@@ -5,7 +5,7 @@
 import { blogPosts } from "@/app/blog/blog-posts";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Online Tool Base";
+const SITE_NAME = "OnlineToolBase";
 const SITE_DESCRIPTION =
   "Practical guides on productivity, writing, security, developer tools, social media, finance, health, and more — written to help you work smarter with Calculators, Pdf Tools & More.";
 

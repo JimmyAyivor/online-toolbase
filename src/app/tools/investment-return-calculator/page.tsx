@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const InvestmentReturnCalculatorClient = dynamic(
   () => import("./InvestmentReturnCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
@@ -18,15 +17,14 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "investment-return-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
 const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 export const metadata: Metadata = {
-  title:
-    "Free Investment Return Calculator — Growth & ROI",
+  title: "Free Investment Return Calculator — Growth & ROI",
   description:
     "Calculate the return on any investment with compound interest. See growth over time with charts. Free, no signup.",
   keywords:
@@ -50,8 +48,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/investment-return-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Investment Return Calculator — Growth & ROI",
+    title: "Free Investment Return Calculator — Growth & ROI",
     description:
       "Calculate the return on any investment with compound interest. See growth over time with charts. Free, no signup.",
     images: [
@@ -67,8 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Investment Return Calculator — Growth & ROI",
+    title: "Free Investment Return Calculator — Growth & ROI",
     description:
       "Calculate the return on any investment with compound interest. See growth over time with charts. Free, no signup.",
   },
@@ -155,7 +151,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "The Rule of 72 is a quick mental maths shortcut: divide 72 by your annual return rate to get the approximate years needed for your investment to double. At 7% return, 72 ÷ 7 ≈ 10.3 years to double. At 10% return, 72 ÷ 10 = 7.2 years. At 3% (a savings account), 72 ÷ 3 = 24 years. This illustrates why even small differences in return rate compound dramatically over decades.",
       },
-    }
+    },
   ],
 };
 
@@ -163,7 +159,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Investment Return Calculator",
-  description: "Step-by-step guide to using the free Investment Return Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Investment Return Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -182,7 +179,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -217,7 +214,7 @@ export default function InvestmentReturnCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/finance"
+              href="/tools/category/finance-calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Finance Tools

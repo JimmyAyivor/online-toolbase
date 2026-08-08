@@ -3,21 +3,17 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const tool = tools.find((t) => t.slug === "resume-builder");
-const ResumeBuilderClient = dynamic(
-  () => import("./ResumeBuilderClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const ResumeBuilderClient = dynamic(() => import("./ResumeBuilderClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Resume Builder — Download Professional Resume",
@@ -44,8 +40,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/resume-builder`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Resume Builder — Download Professional Resume",
+    title: "Free Resume Builder — Download Professional Resume",
     description:
       "Build a resume with work experience, education, skills, and summary. Live preview. Download as PDF. Free, no signup, no data stored.",
     images: [
@@ -61,8 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Resume Builder — Download Professional Resume",
+    title: "Free Resume Builder — Download Professional Resume",
     description:
       "Build a professional resume with live preview and PDF download. Free, no signup.",
   },
@@ -156,7 +150,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Yes — tailoring your resume to each job application significantly improves your callback rate. Tailoring doesn't mean rewriting your entire resume from scratch; it means adjusting your professional summary, reordering or emphasising relevant bullet points, and ensuring your skills section mirrors the keywords and requirements in the specific job description. Many candidates submit an identical resume to every job — employers and ATS systems can tell...",
       },
-    }
+    },
   ],
 };
 
@@ -164,7 +158,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Resume Builder",
-  description: "Step-by-step guide to using the free Resume Builder on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Resume Builder on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -183,7 +178,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -218,7 +213,7 @@ export default function ResumeBuilderPage() {
           </li>
           <li>
             <a
-              href="/tools/category/business"
+              href="/tools/category/business-productivity"
               className="hover:text-blue-600 transition-colors"
             >
               Business Tools

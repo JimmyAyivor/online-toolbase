@@ -32,7 +32,6 @@ export type AffiliateOffer = {
 };
 
 export const affiliateOffers: Record<string, AffiliateOffer> = {
-
   // ── Writing ──────────────────────────────────────────────────────────────────
   // grammarly: {
   //   key: "grammarly",
@@ -141,7 +140,8 @@ export const affiliateOffers: Record<string, AffiliateOffer> = {
   nordpass: {
     key: "nordpass",
     name: "NordPass",
-    description: "A password manager that keeps your credentials protected and organized.",
+    description:
+      "A password manager that keeps your credentials protected and organized.",
     url: "https://go.nordpass.io/aff_c?offer_id=488&aff_id=145493&url_id=9356",
     categories: ["Security"],
     priority: 10,

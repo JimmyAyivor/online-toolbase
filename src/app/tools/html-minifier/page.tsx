@@ -2,15 +2,11 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
-const HtmlMinifierClient = dynamic(
-  () => import("./HtmlMinifierClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const HtmlMinifierClient = dynamic(() => import("./HtmlMinifierClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -18,7 +14,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "html-minifier");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
@@ -153,7 +149,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "IE conditional comments (<!--[if IE]>...<![endif]-->) are a special Microsoft extension used to serve different HTML to Internet Explorer versions. Although IE is now retired, many legacy codebases still contain these comments and removing them would change the HTML's conditional behaviour. The tool detects and preserves them to avoid unexpected breakage.",
       },
-    }
+    },
   ],
 };
 
@@ -161,7 +157,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the HTML Minifier",
-  description: "Step-by-step guide to using the free HTML Minifier on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free HTML Minifier on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -180,7 +177,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +213,7 @@ export default function HtmlMinifierPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Developer Tools
@@ -237,7 +234,9 @@ export default function HtmlMinifierPage() {
         <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Developer Tool · No Signup · Works Instantly
         </p>
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">HTML Minifier — Free Online HTML Minifier</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
+          HTML Minifier — Free Online HTML Minifier
+        </h1>
         <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Paste your HTML and minify it instantly — removes whitespace,
           comments, and redundant code to shrink file size. Free, no account

@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const AspectRatioCalculatorClient = dynamic(
   () => import("./AspectRatioCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,11 +16,10 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "aspect-ratio-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Aspect Ratio Calculator — Resize Any Dimension",
+  title: "Free Aspect Ratio Calculator — Resize Any Dimension",
   description:
     "Calculate aspect ratios from dimensions, find missing width or height from a ratio, and scale images proportionally. Includes 8 common ratio presets and a resolution reference table. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/aspect-ratio-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Aspect Ratio Calculator — Resize Any Dimension",
+    title: "Free Aspect Ratio Calculator — Resize Any Dimension",
     description:
       "Find ratio from dimensions, calculate missing width/height, and scale proportionally. Common ratio presets and resolution reference. Free, no signup.",
     images: [
@@ -140,7 +137,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Different platforms use different optimal ratios. Instagram feed posts perform best at 4:5 (1080×1350px) as it takes up the most vertical space in the feed; square 1:1 (1080×1080px) also works well. Instagram Stories and Reels use 9:16 (1080×1920px). TikTok is 9:16 (1080×1920px). YouTube videos are 16:9 (1920×1080px); YouTube Shorts are 9:16. Twitter/X images display at various ratios — 16:9 and 2:1 work well in feed previews. LinkedIn posts use 1:1 or 1.91:1 (1200×628px) for shared links. Facebook feed posts are 1.91:1 for link previews and 1:1 or 4:5 for direct image posts...",
       },
-    }
+    },
   ],
 };
 
@@ -148,7 +145,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Aspect Ratio Calculator",
-  description: "Step-by-step guide to using the free Aspect Ratio Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Aspect Ratio Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -167,7 +165,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -202,7 +200,7 @@ export default function AspectRatioCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-blue-600 transition-colors"
             >
               Calculator Tools

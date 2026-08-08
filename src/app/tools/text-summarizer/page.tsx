@@ -3,21 +3,17 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const tool = tools.find((t) => t.slug === "text-summarizer");
-const TextSummarizerClient = dynamic(
-  () => import("./TextSummarizerClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const TextSummarizerClient = dynamic(() => import("./TextSummarizerClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Text Summarizer — Condense Any Text Instantly",
@@ -154,7 +150,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Frequency-based extractive summarisation ranks sentences by how often their words appear across the full document. This works well when the key topic is mentioned repeatedly — a common pattern in informational and journalistic text...",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +158,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Text Summarizer",
-  description: "Step-by-step guide to using the free Text Summarizer on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Text Summarizer on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +178,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +213,7 @@ export default function TextSummarizerPage() {
           </li>
           <li>
             <a
-              href="/tools/category/writing"
+              href="/tools/category/writing-text-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Writing Tools

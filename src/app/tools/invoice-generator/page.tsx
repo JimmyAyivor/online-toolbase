@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const InvoiceGeneratorClient = dynamic(
   () => import("./InvoiceGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,11 +16,10 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "invoice-generator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Invoice Generator — Professional Invoices Fast",
+  title: "Free Invoice Generator — Professional Invoices Fast",
   description:
     "Create professional invoices with itemised line items, automatic subtotal and tax calculations, payment terms, and notes. Download as PDF or print. Free, no signup, no data stored.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/invoice-generator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Invoice Generator — Professional Invoices Fast",
+    title: "Free Invoice Generator — Professional Invoices Fast",
     description:
       "Create professional invoices with itemised billing, automatic totals, tax, payment terms, and notes. Download as PDF or print. Free, no signup, no data stored.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Invoice Generator — Professional Invoices Fast",
+    title: "Free Invoice Generator — Professional Invoices Fast",
     description:
       "Create invoices with itemised billing, automatic totals, tax, and payment terms. Download as PDF. Free.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Unpaid invoice follow-up should be structured and timely. Send a polite payment reminder on or just after the due date — a brief, professional email referencing the invoice number, amount, and due date is usually sufficient for a first reminder. If the invoice remains unpaid after 7–14 days, send a firmer second reminder that states you will charge a late payment fee if applicable (include this possibility in your original payment terms). After 30 days overdue, consider a formal letter or phone call...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Invoice Generator",
-  description: "Step-by-step guide to using the free Invoice Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Invoice Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function InvoiceGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/business"
+              href="/tools/category/business-productivity"
               className="hover:text-slate-700 transition-colors"
             >
               Business Tools

@@ -29,7 +29,7 @@ import { query } from "@/lib/db";
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
-  const key      = searchParams.get("key") ?? "";
+  const key = searchParams.get("key") ?? "";
   const toolSlug = searchParams.get("tool") ?? "";
 
   const ad = SPONSORED_ADS[key];
@@ -40,15 +40,17 @@ export async function GET(req: NextRequest) {
   }
 
   // Log click asynchronously — never block the redirect
-  const ip        = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "";
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "";
   const userAgent = req.headers.get("user-agent") ?? "";
-  const referrer  = req.headers.get("referer") ?? "";
+  const referrer = req.headers.get("referer") ?? "";
 
   query(
     `insert into sponsored_ad_clicks (ad_key, tool_slug, ip, user_agent, referrer)
      values ($1, $2, $3, $4, $5)`,
-    [key, toolSlug, ip, userAgent, referrer]
-  ).catch(() => { /* non-critical — log silently */ });
+    [key, toolSlug, ip, userAgent, referrer],
+  ).catch(() => {
+    /* non-critical — log silently */
+  });
 
   // Redirect to the destination
   return NextResponse.redirect(ad.destinationUrl, { status: 302 });

@@ -12,17 +12,19 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 
-const SESSION_KEY  = "exit_popup_shown";
+const SESSION_KEY = "exit_popup_shown";
 const SUBSCRIBED_KEY = "user_subscribed";
 const IDLE_TIMEOUT_MS = 45_000; // show on mobile after 45s inactivity
 
 export default function ExitIntentPopup() {
-  const [open, setOpen]       = useState(false);
-  const [email, setEmail]     = useState("");
-  const [status, setStatus]   = useState<"idle"|"loading"|"success"|"error">("idle");
+  const [open, setOpen] = useState(false);
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
   const [errorMsg, setErrorMsg] = useState("");
-  const triggered             = useRef(false);
-  const idleTimer             = useRef<ReturnType<typeof setTimeout>|null>(null);
+  const triggered = useRef(false);
+  const idleTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const trigger = useCallback(() => {
     if (triggered.current) return;
@@ -65,7 +67,9 @@ export default function ExitIntentPopup() {
   // Close on Escape
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
@@ -73,7 +77,9 @@ export default function ExitIntentPopup() {
   // Prevent body scroll when open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -128,8 +134,18 @@ export default function ExitIntentPopup() {
           className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-400 hover:text-gray-600 transition-colors"
           aria-label="Close"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2.5}
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
 
@@ -137,28 +153,58 @@ export default function ExitIntentPopup() {
           {status === "success" ? (
             <div className="text-center py-4">
               <div className="w-14 h-14 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-4">
-                <svg className="w-7 h-7 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                <svg
+                  className="w-7 h-7 text-emerald-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-1">You're in!</h3>
-              <p className="text-sm text-gray-500">Check your inbox to confirm your subscription.</p>
+              <h3 className="text-lg font-bold text-gray-900 mb-1">
+                You're in!
+              </h3>
+              <p className="text-sm text-gray-500">
+                Check your inbox to confirm your subscription.
+              </p>
             </div>
           ) : (
             <>
               {/* Icon */}
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center mb-5 shadow-lg shadow-indigo-200">
-                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                <svg
+                  className="w-7 h-7 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
                 </svg>
               </div>
 
-              <h2 id="exit-popup-heading" className="text-2xl font-black text-gray-900 leading-tight mb-2">
+              <h2
+                id="exit-popup-heading"
+                className="text-2xl font-black text-gray-900 leading-tight mb-2"
+              >
                 Before you go —<br />
-                <span className="text-indigo-600">get our best guides free</span>
+                <span className="text-indigo-600">
+                  get our best guides free
+                </span>
               </h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-6">
-                Practical articles on writing, dev tools, finance, health and more. One email a week. Unsubscribe any time.
+                Practical articles on writing, dev tools, finance, health and
+                more. One email a week. Unsubscribe any time.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-3">
@@ -178,8 +224,13 @@ export default function ExitIntentPopup() {
                   className="w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-sm px-4 py-3.5 rounded-xl transition-colors shadow-sm shadow-indigo-200"
                 >
                   {status === "loading" ? (
-                    <><div className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />Subscribing…</>
-                  ) : "Send me the guides →"}
+                    <>
+                      <div className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                      Subscribing…
+                    </>
+                  ) : (
+                    "Send me the guides →"
+                  )}
                 </button>
                 {status === "error" && (
                   <p className="text-xs text-red-500 text-center">{errorMsg}</p>

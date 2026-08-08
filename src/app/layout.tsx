@@ -10,7 +10,7 @@ import "./globals.css";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 const TWITTER = "@onlinetoolbase";
 
 export const metadata: Metadata = {
@@ -19,15 +19,15 @@ export const metadata: Metadata = {
   // Fallback title — individual pages override this with their own title.
   // Template appends site name: "Age Calculator — Free Online Tool | Calculators, Pdf Tools & More"
   title: {
-    default: `${SITE_NAME} : Free Online Calculators - Math, Fitness, Finance, Science`,
+    default: `${SITE_NAME} : Free Online Calculators - Math, Fitness, Finance, Science, Pdf Tools`,
     template: `%s | ${SITE_NAME}`,
   },
 
   description:
-    "130+ Calculators, Pdf Tools & More — free calculators, converters, generators and more. BMI calculator, QR code generator, password generator, currency converter, and hundreds more. No signup, no download, 100% free.",
+    "Free Online Calculators, Pdf Tools & More — free calculators, converters, generators and more. BMI calculator, QR code generator, password generator, currency converter, and hundreds more. No signup, no download, 100% free.",
 
   keywords:
-    "Calculators, Pdf Tools & More, free calculators, free converters, free generators, online utilities, BMI calculator, currency converter, QR code generator, password generator, word counter, unit converter",
+    "Free Online Calculators, Pdf Tools & More, free calculators, free converters, free generators, online utilities, BMI calculator, currency converter, QR code generator, password generator, word counter, unit converter",
 
   alternates: { canonical: SITE_URL },
 
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: SITE_NAME,
     url: SITE_URL,
-    title: `${SITE_NAME} — 130+ Free Calculators, Converters & Generators`,
+    title: `${SITE_NAME} — 162+ Free Calculators, Converters & Generators`,
     description:
       "130+ free browser-based tools. No signup, no download, no cost — ever.",
     locale: "en_US",
@@ -64,8 +64,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: TWITTER,
     creator: TWITTER,
-    title: `${SITE_NAME} — 130+ Free Calculators, Converters & Generators`,
-    description: "130+ Calculators, Pdf Tools & More. No signup required.",
+    title: `${SITE_NAME} — 162+ Free Calculators, Pdf Tools, Converters & Generators`,
+    description: "162+ Calculators, Pdf Tools & More. No signup required.",
   },
 
   authors: [{ name: SITE_NAME, url: SITE_URL }],
@@ -88,7 +88,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {children}
         <SiteFooter />
         <GlobalMonetization />
-
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_PUB_ID}`}
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
           strategy="afterInteractive"

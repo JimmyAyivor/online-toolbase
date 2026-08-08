@@ -20,7 +20,7 @@ interface Props {
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 function slugify(str: string) {
   return str

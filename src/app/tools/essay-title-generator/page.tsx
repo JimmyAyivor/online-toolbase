@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const EssayTitleGeneratorClient = dynamic(
   () => import("./EssayTitleGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,7 +16,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "essay-title-generator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Essay Title Generator — 10 Titles Instantly",
@@ -44,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/essay-title-generator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Essay Title Generator — 10 Titles Instantly",
+    title: "Free Essay Title Generator — 10 Titles Instantly",
     description:
       "Enter a topic and get 10 title ideas for essays, research papers, blog posts, or reports. 4 writing modes, regenerate for variety, one-click copy.",
     images: [
@@ -61,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Essay Title Generator — 10 Titles Instantly",
+    title: "Free Essay Title Generator — 10 Titles Instantly",
     description:
       "Enter a topic and get 10 title ideas for essays, research papers, blog posts, or reports. Free, instant.",
   },
@@ -156,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Question titles can be effective, especially for argumentative and persuasive essays — they signal that the paper will take a position in response to a debated issue. For example: 'Is Social Media Making Us More Isolated?' or 'Should Governments Regulate Artificial Intelligence?'. However, question titles work better in some contexts than others. In academic writing, many style guides and instructors prefer statement titles over question titles, arguing that a well-framed statement is more precise about the paper's conclusion...",
       },
-    }
+    },
   ],
 };
 
@@ -164,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Essay Title Generator",
-  description: "Step-by-step guide to using the free Essay Title Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Essay Title Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -183,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -218,7 +216,7 @@ export default function EssayTitleGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/writing"
+              href="/tools/category/writing-text-tools"
               className="hover:text-violet-600 transition-colors"
             >
               Writing Tools

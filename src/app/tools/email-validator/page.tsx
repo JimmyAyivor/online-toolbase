@@ -2,22 +2,18 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
-const EmailValidatorClient = dynamic(
-  () => import("./EmailValidatorClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const EmailValidatorClient = dynamic(() => import("./EmailValidatorClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "email-validator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Email Validator — Check Format & Domain Instantly",
@@ -44,8 +40,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/email-validator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Email Validator — Check Format & Domain Instantly",
+    title: "Free Email Validator — Check Format & Domain Instantly",
     description:
       "Validate single or bulk email addresses instantly. Checks format, local part, domain, TLD, and common issues. Free, no signup.",
     images: [
@@ -61,8 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Email Validator — Check Format & Domain Instantly",
+    title: "Free Email Validator — Check Format & Domain Instantly",
     description:
       "Validate single or bulk email addresses instantly — format, domain, TLD checks. Free, no signup.",
   },
@@ -156,7 +150,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Syntax validation is one component of email list hygiene for marketing and compliance purposes, but it is not sufficient on its own for GDPR or marketing compliance. For compliance, you additionally need: confirmed opt-in (proof the person consented to receive emails), active deliverability verification (confirming the mailbox currently exists), suppression list management (removing unsubscribes and bounces), and records of consent...",
       },
-    }
+    },
   ],
 };
 
@@ -164,7 +158,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Email Validator",
-  description: "Step-by-step guide to using the free Email Validator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Email Validator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -183,7 +178,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -218,7 +213,7 @@ export default function EmailValidatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-cyan-600 transition-colors"
             >
               Developer Tools

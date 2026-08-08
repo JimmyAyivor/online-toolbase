@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const MeetingCostCalculatorClient = dynamic(
   () => import("./MeetingCostCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,7 +16,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "meeting-cost-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Meeting Cost Calculator — Real Cost of Meetings",
@@ -146,7 +145,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "For a true cost picture, yes. Research suggests that for every hour in a meeting, attendees spend an average of 4–7 minutes preparing and 15–20 minutes following up (notes, action items, catch-up for those who missed it). For a full assessment, multiply this calculator's result by 1.25–1.5 to approximate the total productivity impact including surrounding overhead.",
       },
-    }
+    },
   ],
 };
 
@@ -154,7 +153,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Meeting Cost Calculator",
-  description: "Step-by-step guide to using the free Meeting Cost Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Meeting Cost Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -173,7 +173,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -209,7 +209,7 @@ export default function MeetingCostCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/productivity"
+              href="/tools/category/business-productivity"
               className="hover:text-amber-600 transition-colors"
             >
               Productivity Tools

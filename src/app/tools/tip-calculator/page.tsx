@@ -3,21 +3,17 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const tool = tools.find((t) => t.slug === "tip-calculator");
-const TipCalculatorClient = dynamic(
-  () => import("./TipCalculatorClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const TipCalculatorClient = dynamic(() => import("./TipCalculatorClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Tip Calculator — Tips & Bill Splitting Instantly",
@@ -44,8 +40,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/tip-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Tip Calculator — Tips & Bill Splitting Instantly",
+    title: "Free Tip Calculator — Tips & Bill Splitting Instantly",
     description:
       "Calculate tip amount and total bill for any percentage. Split between up to 20 people — shows per-person breakdown. Free, no signup.",
     images: [
@@ -61,8 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Tip Calculator — Tips & Bill Splitting Instantly",
+    title: "Free Tip Calculator — Tips & Bill Splitting Instantly",
     description:
       "Calculate tip and total, split by any number of people. Quick presets (10–25%) plus custom tip. Free.",
   },
@@ -156,7 +150,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Tipping expectations vary widely by service type. Hair stylists and barbers: 15–20% of the service cost. Taxi and rideshare drivers: 15–20% of the fare, though many apps prompt this automatically. Hotel housekeeping: $2–5 per night, left each day rather than at checkout. Food delivery: 15–20% of the order total, with a minimum of $3–5 for small orders given the distance and time involved. Bartenders: $1–2 per drink at a bar, or 15–20% on a tab. Movers: $20–50 per mover for a half-day, $50–100 per mover for a full day. Tattoo artists: 15–25% of the service cost...",
       },
-    }
+    },
   ],
 };
 
@@ -164,7 +158,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Tip Calculator",
-  description: "Step-by-step guide to using the free Tip Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Tip Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -183,7 +178,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -218,7 +213,7 @@ export default function TipCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-green-600 transition-colors"
             >
               Calculator Tools

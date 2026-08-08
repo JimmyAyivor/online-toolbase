@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const LoanMortgageCalculatorClient = dynamic(
   () => import("./LoanMortgageCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,11 +16,10 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "loan-mortgage-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Loan & Mortgage Calculator — Payment & Interest",
+  title: "Free Loan & Mortgage Calculator — Payment & Interest",
   description:
     "Calculate monthly payments, total interest paid, and a first-year amortisation schedule for home mortgages, auto loans, and personal loans. Adjust loan amount, down payment, interest rate, and term. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/loan-mortgage-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Loan & Mortgage Calculator — Payment & Interest",
+    title: "Free Loan & Mortgage Calculator — Payment & Interest",
     description:
       "Calculate monthly loan or mortgage payments, total interest, and a first-year amortisation breakdown. Home, auto, or personal loan. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Loan & Mortgage Calculator — Payment & Interest",
+    title: "Free Loan & Mortgage Calculator — Payment & Interest",
     description:
       "Monthly payment, total cost, and first-year amortisation schedule for any loan or mortgage. Free.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Making additional principal payments reduces the outstanding balance faster, which reduces the interest charged in every subsequent period (since interest accrues on the remaining balance). The compounding effect is significant: adding just $100/month in extra principal to a $300,000 mortgage at 6.5% for 30 years saves approximately $57,000 in total interest and pays off the loan about 4.5 years early. Adding $500/month saves about $151,000 and pays off the loan 10 years early. The savings are highest in the early years because interest is charged on a larger balance...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Loan & Mortgage Calculator",
-  description: "Step-by-step guide to using the free Loan & Mortgage Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Loan & Mortgage Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function LoanMortgageCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-emerald-600 transition-colors"
             >
               Calculator Tools

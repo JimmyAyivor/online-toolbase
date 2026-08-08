@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const JsonToCsvConverterClient = dynamic(
   () => import("./JsonToCsvConverterClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
@@ -18,7 +17,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "json-to-csv-converter");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
@@ -136,7 +135,7 @@ const faqJsonLd = {
       name: "How are values with commas or quotes handled?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Any cell value that contains the chosen delimiter, double-quote characters, or newlines is automatically wrapped in double quotes, and any embedded double-quote characters are escaped by doubling them (e.g. \'He said \"hi\"\' becomes \'\"He said \"\"hi\"\"\"\'). This follows the RFC 4180 CSV specification and ensures the output is valid in all compliant CSV parsers.",
+        text: 'Any cell value that contains the chosen delimiter, double-quote characters, or newlines is automatically wrapped in double quotes, and any embedded double-quote characters are escaped by doubling them (e.g. \'He said "hi"\' becomes \'"He said ""hi"""\'). This follows the RFC 4180 CSV specification and ensures the output is valid in all compliant CSV parsers.',
       },
     },
     {
@@ -154,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Yes — since all processing happens in your browser, file size is limited only by your device's available memory. Most browsers can comfortably handle JSON files up to several megabytes. For very large datasets (tens of megabytes or more), processing may take a few seconds, and the CSV preview will display a scrollable portion of the output. Clicking Download will always give you the complete file.",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the JSON to CSV Converter",
-  description: "Step-by-step guide to using the free JSON to CSV Converter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free JSON to CSV Converter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -217,7 +217,7 @@ export default function JsonToCsvConverterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Developer Tools

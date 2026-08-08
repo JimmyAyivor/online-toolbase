@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const ImageFormatConverterClient = dynamic(
   () => import("./ImageFormatConverterClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,7 +16,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "image-format-converter");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Image Format Converter — Convert JPG, PNG, WebP Free Online",
@@ -146,7 +145,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "No — all conversion processing in this tool happens entirely in your browser using the HTML5 Canvas API. When you upload an image, it is read locally by your browser's FileReader API, drawn onto a canvas element, and exported in the target format. Your image is never transmitted to any server. This makes the tool safe to use with personal photos, proprietary graphics, confidential documents, and any image you don't want stored on third-party servers.",
       },
-    }
+    },
   ],
 };
 
@@ -154,7 +153,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Image Format Converter",
-  description: "Step-by-step guide to using the free Image Format Converter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Image Format Converter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -173,7 +173,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -208,7 +208,7 @@ export default function ImageFormatConverterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/image"
+              href="/tools/category/image-design-tools"
               className="hover:text-blue-600 transition-colors"
             >
               Image Tools

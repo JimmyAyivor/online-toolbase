@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const CalorieDeficitCalculatorClient = dynamic(
   () => import("./CalorieDeficitCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,7 +16,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "calorie-deficit-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Calorie Deficit Calculator — Find Your Deficit",
@@ -146,7 +145,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "As you lose weight, your TDEE decreases because: (1) you are lighter (less body mass to move and maintain), (2) metabolic adaptation — the body becomes more efficient and burns fewer calories at rest, and (3) non-exercise activity thermogenesis (NEAT) often decreases subconsciously when in a deficit. This is normal and expected. Recalculate your TDEE every 4–6 weeks using your updated weight, and adjust your calorie target accordingly.",
       },
-    }
+    },
   ],
 };
 
@@ -154,7 +153,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Calorie Deficit Calculator",
-  description: "Step-by-step guide to using the free Calorie Deficit Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Calorie Deficit Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -173,7 +173,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -208,7 +208,7 @@ export default function CalorieDeficitCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/health"
+              href="/tools/category/health-fitness-calculators"
               className="hover:text-red-600 transition-colors"
             >
               Health Tools

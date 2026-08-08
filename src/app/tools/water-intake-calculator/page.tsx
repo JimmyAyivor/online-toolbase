@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "water-intake-calculator");
 const WaterIntakeCalculatorClient = dynamic(
   () => import("./WaterIntakeCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Water Intake Calculator — Daily Hydration Needs",
@@ -44,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/water-intake-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Water Intake Calculator — Daily Hydration Needs",
+    title: "Free Water Intake Calculator — Daily Hydration Needs",
     description:
       "Find your personalised daily water target based on weight, activity, and climate. Litres and glasses.",
     images: [
@@ -148,7 +146,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Yes — pregnant women need additional fluid to support increased blood volume, amniotic fluid, and foetal development. The US recommendation increases to approximately 3.0 litres of total water per day during pregnancy. Breastfeeding increases needs further to approximately 3.8 litres/day due to fluid secreted in breast milk. Respond promptly to thirst signals during pregnancy as they are a reliable indicator of increased need.",
       },
-    }
+    },
   ],
 };
 
@@ -156,7 +154,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Water Intake Calculator",
-  description: "Step-by-step guide to using the free Water Intake Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Water Intake Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -175,7 +174,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -210,7 +209,7 @@ export default function WaterIntakeCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/health"
+              href="/tools/category/health-fitness-calculators"
               className="hover:text-cyan-600 transition-colors"
             >
               Health Tools

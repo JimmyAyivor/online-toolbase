@@ -6,22 +6,20 @@ const tool = tools.find((t) => t.slug === "viral-hook-generator");
 const ViralHookGeneratorClient = dynamic(
   () => import("./ViralHookGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Viral Hook Generator — Scroll-Stopping Content",
+  title: "Free Viral Hook Generator — Scroll-Stopping Content",
   description:
     "Generate viral content hooks across 6 frameworks — curiosity, controversy, story, value, fear, and challenge. Enter your topic and get 5 hooks per type. Copy and use instantly. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/viral-hook-generator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Viral Hook Generator — Scroll-Stopping Content",
+    title: "Free Viral Hook Generator — Scroll-Stopping Content",
     description:
       "Generate hooks across curiosity, controversy, story, value, fear, and challenge frameworks. Enter your topic, get 5 hooks per type. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Viral Hook Generator — Scroll-Stopping Content",
+    title: "Free Viral Hook Generator — Scroll-Stopping Content",
     description:
       "Generate hooks in 6 frameworks for any topic. Copy and use. Free.",
   },
@@ -149,7 +145,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Clicking 'Regenerate' produces a fresh set of 5 hooks for the same topic and hook type without changing any settings. The hooks are drawn randomly from the template pool — each generation is independent, so regenerating gives you a different selection from the available templates for that framework. This is useful when the first set doesn't quite fit your angle — regenerate 2–3 times to see a wider range of options before switching to a different hook type. The template pool for each framework is large enough that repeated generations will typically produce meaningfully different results.",
       },
-    }
+    },
   ],
 };
 
@@ -157,7 +153,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Viral Hook Generator",
-  description: "Step-by-step guide to using the free Viral Hook Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Viral Hook Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -176,7 +173,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -211,7 +208,7 @@ export default function ViralHookGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/social-media"
+              href="/tools/category/social-media-tools"
               className="hover:text-purple-600 transition-colors"
             >
               Social Media Tools

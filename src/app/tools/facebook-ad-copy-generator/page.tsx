@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const FacebookAdCopyGeneratorClient = dynamic(
   () => import("./FacebookAdCopyGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,11 +16,10 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "facebook-ad-copy-generator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Facebook Ad Copy Generator — Ads That Convert",
+  title: "Free Facebook Ad Copy Generator — Ads That Convert",
   description:
     "Generate Facebook ad copy across multiple frameworks — AIDA, PAS, FAB, social proof, and more. Enter your product, audience, and goal — get multiple headline and body copy variations to test. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/facebook-ad-copy-generator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Facebook Ad Copy Generator — Ads That Convert",
+    title: "Free Facebook Ad Copy Generator — Ads That Convert",
     description:
       "Generate Facebook ad copy using AIDA, PAS, FAB, and other proven frameworks. Multiple variations per framework. Enter product, audience, and objective. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Facebook Ad Copy Generator — Ads That Convert",
+    title: "Free Facebook Ad Copy Generator — Ads That Convert",
     description:
       "Generate Facebook ad copy variations using AIDA, PAS, FAB, and more. Free, no signup.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Facebook's ad copy has several distinct character limit zones, each with different truncation behaviour. The primary text (body copy above the image) shows approximately 125 characters before a 'See more' link in the feed — everything after that is hidden until the user clicks to expand. The headline (bold text below the image or video) has a 40-character soft limit before it may be truncated on mobile placements. The description (grey text below the headline) shows 30 characters on most placements. Link descriptions for link ads are often not shown on mobile at all...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Facebook Ad Copy Generator",
-  description: "Step-by-step guide to using the free Facebook Ad Copy Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Facebook Ad Copy Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function FacebookAdCopyGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/social-media"
+              href="/tools/category/social-media-tools"
               className="hover:text-blue-600 transition-colors"
             >
               Social Media Tools

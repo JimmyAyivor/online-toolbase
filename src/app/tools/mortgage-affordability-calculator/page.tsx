@@ -6,11 +6,10 @@ import { tools } from "@/lib/tools";
 const MortgageAffordabilityCalculatorClient = dynamic(
   () => import("./MortgageAffordabilityCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
@@ -19,15 +18,14 @@ import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "mortgage-affordability-calculator");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
 const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 export const metadata: Metadata = {
-  title:
-    "Free Mortgage Affordability Calculator — Budget Check",
+  title: "Free Mortgage Affordability Calculator — Budget Check",
   description:
     "Calculate how much mortgage you can afford based on income, debts, and down payment. Free, no signup.",
   keywords:
@@ -53,8 +51,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/mortgage-affordability-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Mortgage Affordability Calculator — Budget Check",
+    title: "Free Mortgage Affordability Calculator — Budget Check",
     description:
       "Calculate how much mortgage you can afford based on income, debts, and down payment. Free, no signup.",
     images: [
@@ -70,8 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Mortgage Affordability Calculator — Budget Check",
+    title: "Free Mortgage Affordability Calculator — Budget Check",
     description:
       "Calculate how much mortgage you can afford based on income, debts, and down payment. Free, no signup.",
   },
@@ -158,7 +154,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Interest rate has a large impact on affordability. At 5% on a $400k, 30-year loan the monthly payment is ~$2,147. At 7% it rises to ~$2,661 — a difference of $514/month or $6,168/year. A 2 percentage point increase in rates reduces maximum affordability by roughly 20% if monthly payment is fixed. This is why mortgage affordability fell sharply when rates rose in 2022–2023.",
       },
-    }
+    },
   ],
 };
 
@@ -166,7 +162,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Mortgage Affordability Calculator",
-  description: "Step-by-step guide to using the free Mortgage Affordability Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Mortgage Affordability Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -185,7 +182,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -220,7 +217,7 @@ export default function MortgageAffordabilityCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/finance"
+              href="/tools/category/finance-calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Finance Tools

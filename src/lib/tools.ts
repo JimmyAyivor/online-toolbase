@@ -827,6 +827,173 @@ export const tools: Tool[] = [
     category: "Document",
   },
 
+  {
+    slug: "watermark-pdf",
+    name: "Watermark PDF",
+    description: "Add text or image watermarks to PDF files online.",
+    category: "Document",
+  },
+
+  {
+    slug: "unlock-pdf",
+    name: "Unlock PDF",
+    description: "Remove password protection from PDF files you own.",
+    category: "Document",
+  },
+
+  {
+    slug: "sign-pdf",
+    name: "Sign PDF",
+    description: "Add your signature to PDF documents online.",
+    category: "Document",
+  },
+
+  {
+    slug: "rotate-pdf",
+    name: "Rotate PDF",
+    description:
+      "Rotate PDF pages and save your document with the correct orientation.",
+    category: "Document",
+  },
+
+  {
+    slug: "reorder-pdf-pages",
+    name: "Reorder PDF Pages",
+    description: "Rearrange PDF pages into the order you need.",
+    category: "Document",
+  },
+
+  {
+    slug: "protect-pdf",
+    name: "Protect PDF",
+    description: "Add password protection and secure your PDF files online.",
+    category: "Document",
+  },
+
+  {
+    slug: "pdf-to-text",
+    name: "PDF to Text",
+    description:
+      "Extract text from PDF files and convert it to editable plain text.",
+    category: "Document",
+  },
+
+  {
+    slug: "pdf-to-jpg",
+    name: "PDF to JPG",
+    description: "Convert PDF pages to JPG images online.",
+    category: "Document",
+  },
+
+  {
+    slug: "pdf-compressor",
+    name: "PDF Compressor",
+    description:
+      "Compress PDF files and reduce their file size for easier sharing.",
+    category: "Document",
+  },
+
+  {
+    slug: "jpg-to-pdf",
+    name: "JPG to PDF",
+    description: "Convert JPG and image files into a single PDF document.",
+    category: "Document",
+  },
+
+  {
+    slug: "fill-pdf-form",
+    name: "Fill PDF Form",
+    description: "Fill out interactive and printable PDF forms online.",
+    category: "Document",
+  },
+
+  {
+    slug: "extract-images-from-pdf",
+    name: "Extract Images from PDF",
+    description:
+      "Extract images from PDF documents and save them as separate files.",
+    category: "Document",
+  },
+
+  {
+    slug: "edit-pdf-metadata",
+    name: "Edit PDF Metadata",
+    description:
+      "View and edit PDF metadata including title, author, subject and keywords.",
+    category: "Document",
+  },
+
+  {
+    slug: "delete-pdf-pages",
+    name: "Delete PDF Pages",
+    description:
+      "Remove unwanted pages from PDF files and download the updated document.",
+    category: "Document",
+  },
+
+  {
+    slug: "add-pdf-page-numbers",
+    name: "Add PDF Page Numbers",
+    description:
+      "Add page numbers to PDF documents with customizable placement and formatting.",
+    category: "Document",
+  },
+  {
+    slug: "crop-pdf",
+    name: "Crop PDF",
+    description:
+      "Crop PDF pages to remove unwanted margins and adjust the visible page area.",
+    category: "Document",
+  },
+  {
+    slug: "redact-pdf",
+    name: "Redact PDF",
+    description:
+      "Permanently hide sensitive information in PDF documents before sharing.",
+    category: "Document",
+  },
+  {
+    slug: "flatten-pdf",
+    name: "Flatten PDF",
+    description:
+      "Flatten PDF forms and annotations so document content can no longer be edited.",
+    category: "Document",
+  },
+  {
+    slug: "compare-pdfs",
+    name: "Compare PDFs",
+    description:
+      "Compare two PDF documents to identify differences between their content.",
+    category: "Document",
+  },
+  {
+    slug: "txt-to-pdf",
+    name: "TXT to PDF",
+    description:
+      "Convert plain text files into clean, downloadable PDF documents.",
+    category: "Document",
+  },
+  {
+    slug: "word-to-pdf",
+    name: "Word to PDF",
+    description:
+      "Convert Word documents into PDF files for easy sharing and printing.",
+    category: "Document",
+  },
+  {
+    slug: "excel-to-pdf",
+    name: "Excel to PDF",
+    description:
+      "Convert Excel spreadsheets into PDF documents ready for sharing or printing.",
+    category: "Document",
+  },
+  {
+    slug: "extract-pdf-pages",
+    name: "Extract PDF Pages",
+    description:
+      "Extract specific pages from a PDF and save them as a new PDF.",
+    category: "Document",
+  },
   // ── Education ─────────────────────────────────────────────────────────────
   {
     slug: "gpa-calculator",
@@ -874,6 +1041,60 @@ export const tools: Tool[] = [
     slug: "roman-numeral-converter",
     name: "Roman Numeral Converter",
     description: "Convert numbers to Roman numerals and back.",
+    category: "Fun",
+  },
+  {
+    slug: "word-unscrambler",
+    name: "Word Unscrambler",
+    description: "Unscramble letters to find possible words quickly.",
+    category: "Fun",
+  },
+  {
+    slug: "anagram-solver",
+    name: "Anagram Solver",
+    description:
+      "Find words and phrases that can be formed from a set of letters.",
+    category: "Fun",
+  },
+  {
+    slug: "word-scramble-maker",
+    name: "Word Scramble Maker",
+    description:
+      "Create scrambled word puzzles for games, classrooms, and activities.",
+    category: "Fun",
+  },
+  {
+    slug: "scrabble-word-finder",
+    name: "Scrabble Word Finder",
+    description:
+      "Find valid Scrabble words from your available letters and maximize your word-game options.",
+    category: "Fun",
+  },
+  {
+    slug: "word-search-maker",
+    name: "Word Search Maker",
+    description: "Create custom word search puzzles using your own words.",
+    category: "Fun",
+  },
+  {
+    slug: "wordle-solver",
+    name: "Wordle Solver",
+    description:
+      "Find possible Wordle answers using your known letters, misplaced letters, and excluded letters.",
+    category: "Fun",
+  },
+  {
+    slug: "crossword-clue-finder",
+    name: "Crossword Clue Finder",
+    description:
+      "Find possible answers to crossword clues using clue patterns and known letters.",
+    category: "Fun",
+  },
+  {
+    slug: "random-word-generator",
+    name: "Random Word Generator",
+    description:
+      "Generate random words for writing prompts, games, brainstorming, and creative activities.",
     category: "Fun",
   },
 ];

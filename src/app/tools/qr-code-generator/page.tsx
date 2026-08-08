@@ -3,25 +3,20 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const tool = tools.find((t) => t.slug === "qr-code-generator");
-const QrCodeGeneratorClient = dynamic(
-  () => import("./QrCodeGeneratorClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const QrCodeGeneratorClient = dynamic(() => import("./QrCodeGeneratorClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free QR Code Generator — URLs, WiFi, Email & More",
+  title: "Free QR Code Generator — URLs, WiFi, Email & More",
   description:
     "Generate QR codes for URLs, text, WiFi, email, phone, SMS, vCard, and location. Custom colours and sizes. Download as PNG instantly. Free, no signup.",
   keywords:
@@ -45,8 +40,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/qr-code-generator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free QR Code Generator — URLs, WiFi, Email & More",
+    title: "Free QR Code Generator — URLs, WiFi, Email & More",
     description:
       "Generate QR codes for URLs, text, WiFi, email, phone, SMS, vCard, and location. Custom colours, sizes, download as PNG. Free, no signup.",
     images: [
@@ -62,8 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free QR Code Generator — URLs, WiFi, Email & More",
+    title: "Free QR Code Generator — URLs, WiFi, Email & More",
     description:
       "Generate QR codes for URLs, WiFi, email, vCard, and more. Custom colours and sizes, download as PNG. Free.",
   },
@@ -157,7 +150,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Select the Contact Card (vCard) type and enter the contact details in the format Name:Phone:Email — for example: Jane Smith:+447911123456:jane@example.com. The tool encodes this as a vCard 3.0 format, which is the most widely supported contact card standard. When someone scans the QR code, their phone will prompt them to save the contact to their address book with the name, phone number, and email address pre-filled. vCard QR codes are commonly used on business cards as a quick way to share contact details without manual entry...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +158,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the QR Code Generator",
-  description: "Step-by-step guide to using the free QR Code Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free QR Code Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +178,7 @@ const howToJsonLd = {
       position: 3,
       name: "Download your QR code",
       text: "Click Generate then download as PNG or SVG. SVG is recommended for print — it stays sharp at any size.",
-    }
+    },
   ],
 };
 
@@ -219,7 +213,7 @@ export default function QrCodeGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-cyan-600 transition-colors"
             >
               Developer Tools

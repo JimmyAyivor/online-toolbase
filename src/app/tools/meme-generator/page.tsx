@@ -2,22 +2,18 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
-const MemeGeneratorClient = dynamic(
-  () => import("./MemeGeneratorClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const MemeGeneratorClient = dynamic(() => import("./MemeGeneratorClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "meme-generator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Meme Generator — Add Text to Any Image Online",
@@ -154,7 +150,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "The meme text you write and overlay is your own creation. However, the underlying image may be subject to copyright. If you upload your own original photo, you can use the resulting meme however you like. If you use a template image you found online, the underlying photo or artwork may be owned by someone else — using it commercially (for advertising, products, or monetised content) could infringe copyright. Most internet meme templates are widely shared with an implicit permissive culture for non-commercial personal sharing, but this does not constitute a legal licence...",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +158,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Meme Generator",
-  description: "Step-by-step guide to using the free Meme Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Meme Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +178,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +213,7 @@ export default function MemeGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/fun"
+              href="/tools/category/fun-generators"
               className="hover:text-yellow-600 transition-colors"
             >
               Fun Tools

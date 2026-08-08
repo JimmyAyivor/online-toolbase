@@ -1,15 +1,14 @@
 // src/app/tools/ideal-weight-calculator/page.tsx
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { tools } from "@/lib/tools";  
+import { tools } from "@/lib/tools";
 const IdealWeightCalculatorClient = dynamic(
   () => import("./IdealWeightCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,7 +16,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "ideal-weight-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Ideal Weight Calculator — What Is Your Ideal Body Weight?",
@@ -146,7 +145,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Ideal weight formulas provide a useful reference range, but health is determined by more than a number on a scale. Body composition (ratio of fat to muscle), metabolic health markers (blood pressure, blood glucose, cholesterol), fitness levels, and mental wellbeing all matter as much as or more than absolute weight. A person at the 'ideal' weight with poor fitness and high visceral fat may be less healthy than someone slightly above it with good fitness and health markers. Use ideal weight as one reference point — not a rigid target.",
       },
-    }
+    },
   ],
 };
 
@@ -154,7 +153,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Ideal Weight Calculator",
-  description: "Step-by-step guide to using the free Ideal Weight Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Ideal Weight Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -173,7 +173,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -208,7 +208,7 @@ export default function IdealWeightCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/health"
+              href="/tools/category/health-fitness-calculators"
               className="hover:text-green-600 transition-colors"
             >
               Health Tools

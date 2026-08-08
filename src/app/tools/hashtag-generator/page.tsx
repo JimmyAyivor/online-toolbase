@@ -1,15 +1,14 @@
 // src/app/tools/hashtag-generator/page.tsx
 import type { Metadata } from "next";
-import dynamic from "next/dynamic"; 
+import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const HashtagGeneratorClient = dynamic(
   () => import("./HashtagGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,11 +16,10 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "hashtag-generator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Hashtag Generator — Instagram, TikTok & Twitter",
+  title: "Free Hashtag Generator — Instagram, TikTok & Twitter",
   description:
     "Generate hashtags for Instagram, TikTok, Twitter/X, LinkedIn, and YouTube by topic and niche. Mix high-volume, medium, and niche hashtags, select your set, and copy. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/hashtag-generator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Hashtag Generator — Instagram, TikTok & Twitter",
+    title: "Free Hashtag Generator — Instagram, TikTok & Twitter",
     description:
       "Generate hashtag sets for Instagram, TikTok, Twitter/X, LinkedIn, and YouTube by topic and niche. Mix popularity tiers and copy your set. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Hashtag Generator — Instagram, TikTok & Twitter",
+    title: "Free Hashtag Generator — Instagram, TikTok & Twitter",
     description:
       "Generate hashtag sets for any topic and niche, mixed by popularity tier. Copy and use instantly. Free.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Each platform has a different hashtag culture, algorithm, and discovery mechanism. On Instagram, community-based hashtags (#weddingphotography, #plantparent) build niche audiences. On TikTok, hashtags are more keyword-searchable terms (#recipeideas, #homeworkout). On Twitter/X, hashtags are often tied to trending events, news, and conversations — using evergreen niche hashtags is less impactful than participating in trending conversations. On LinkedIn, hashtags function like professional topic tags...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Hashtag Generator",
-  description: "Step-by-step guide to using the free Hashtag Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Hashtag Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function HashtagGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/social-media"
+              href="/tools/category/social-media-tools"
               className="hover:text-violet-600 transition-colors"
             >
               Social Media Tools

@@ -6,22 +6,20 @@ const tool = tools.find((t) => t.slug === "signature-generator");
 const SignatureGeneratorClient = dynamic(
   () => import("./SignatureGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Signature Generator — Digital Signature & PNG",
+  title: "Free Signature Generator — Digital Signature & PNG",
   description:
     "Create a handwritten-style digital signature from your name. Choose font style, colour, size, and line weight — download as a transparent PNG or copy for use in documents and emails. Free, no signup.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/signature-generator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Signature Generator — Digital Signature & PNG",
+    title: "Free Signature Generator — Digital Signature & PNG",
     description:
       "Create a handwritten-style digital signature from your name. Choose font, colour, and size. Download as transparent PNG. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Signature Generator — Digital Signature & PNG",
+    title: "Free Signature Generator — Digital Signature & PNG",
     description:
       "Create a handwritten-style digital signature and download as transparent PNG. Free, no signup.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "For most everyday business purposes — signing contracts, offer letters, NDAs, service agreements, purchase orders, and general business correspondence — a digitally generated signature image is legally acceptable and widely used. For documents with specific legal requirements around signature authenticity — such as wills, certain property transactions, sworn affidavits, and court filings — a wet ink signature or a cryptographically verified digital signature may be required...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Signature Generator",
-  description: "Step-by-step guide to using the free Signature Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Signature Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function SignatureGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/business"
+              href="/tools/category/business-productivity"
               className="hover:text-rose-600 transition-colors"
             >
               Business Tools

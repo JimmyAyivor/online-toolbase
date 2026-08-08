@@ -6,11 +6,10 @@ import { tools } from "@/lib/tools";
 const NetWorthCalculatorClient = dynamic(
   () => import("./NetWorthCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -18,7 +17,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "net-worth-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Net Worth Calculator — Calculate Your Net Worth Online",
@@ -147,7 +146,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Monthly or quarterly is ideal for most people — frequent enough to see trends, not so frequent that short-term market fluctuations cause unnecessary anxiety. Track it in a simple spreadsheet with the date so you can chart progress over months and years. The trend line matters more than any single data point. A consistent upward trend — even slow — indicates you are building wealth.",
       },
-    }
+    },
   ],
 };
 
@@ -155,7 +154,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Net Worth Calculator",
-  description: "Step-by-step guide to using the free Net Worth Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Net Worth Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -174,7 +174,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -209,7 +209,7 @@ export default function NetWorthCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/finance"
+              href="/tools/category/finance-calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Finance Tools

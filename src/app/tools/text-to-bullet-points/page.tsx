@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "text-to-bullet-points");
 const TextToBulletPointsClient = dynamic(
   () => import("./TextToBulletPointsClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Text to Bullet Points — Paragraphs to Lists",
@@ -154,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "There is no explicit character or word limit enforced by the tool — it will process however much text you paste. Performance is browser-based JavaScript, so extremely long documents (tens of thousands of words) may take a moment to process on slower devices, but for typical use cases (articles, reports, meeting notes up to a few thousand words) conversion is instant. The output panel shows the total bullet count so you can verify how many points were extracted from the input.",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Text to Bullet Points",
-  description: "Step-by-step guide to using the free Text to Bullet Points on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Text to Bullet Points on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +216,7 @@ export default function TextToBulletPointsPage() {
           </li>
           <li>
             <a
-              href="/tools/category/writing"
+              href="/tools/category/writing-text-tools"
               className="hover:text-teal-600 transition-colors"
             >
               Writing Tools

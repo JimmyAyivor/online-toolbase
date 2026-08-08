@@ -2,22 +2,18 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
-const CountdownTimerClient = dynamic(
-  () => import("./CountdownTimerClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const CountdownTimerClient = dynamic(() => import("./CountdownTimerClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "countdown-timer");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 export const metadata: Metadata = {
   title: "Countdown Timer — Set a Timer Online, Free",
   description:
@@ -141,7 +137,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "A countdown timer counts down from a set duration to zero — you define the end point. A stopwatch counts up from zero — you measure elapsed time. Use a countdown timer when you have a fixed duration to manage (cooking, work sprints, exam time limits). Use a stopwatch when you are measuring how long something takes without a predefined limit (running laps, task time tracking).",
       },
-    }
+    },
   ],
 };
 
@@ -149,7 +145,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Countdown Timer",
-  description: "Step-by-step guide to using the free Countdown Timer on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Countdown Timer on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -168,7 +165,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 export default function CountdownTimerPage() {
@@ -202,7 +199,7 @@ export default function CountdownTimerPage() {
           </li>
           <li>
             <a
-              href="/tools/category/productivity"
+              href="/tools/category/business-productivity"
               className="hover:text-indigo-600 transition-colors"
             >
               Productivity
@@ -222,7 +219,9 @@ export default function CountdownTimerPage() {
         <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Productivity Tool · No Signup · Works Instantly
         </p>
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">Countdown Timer — Set a Timer Online, Free</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
+          Countdown Timer — Set a Timer Online, Free
+        </h1>
       </header>
       <SidebarAdLayout tool={tool}>
         <main id="main-content" aria-label="Countdown Timer tool">

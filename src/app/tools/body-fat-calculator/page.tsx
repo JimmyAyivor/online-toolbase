@@ -5,22 +5,20 @@ import { tools } from "@/lib/tools";
 const BodyFatCalculatorClient = dynamic(
   () => import("./BodyFatCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "body-fat-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Body Fat Calculator — US Navy Method Estimate",
+  title: "Free Body Fat Calculator — US Navy Method Estimate",
   description:
     "Calculate body fat percentage using the US Navy circumference method. Enter height, weight, waist, neck, and hip measurements — get body fat %, category, lean mass, and fat mass. Metric and imperial. Free, no signup.",
   keywords:
@@ -44,8 +42,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/body-fat-calculator`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Body Fat Calculator — US Navy Method Estimate",
+    title: "Free Body Fat Calculator — US Navy Method Estimate",
     description:
       "Estimate body fat % using the US Navy formula. Enter circumference measurements and weight. Shows body fat %, category, lean mass, and fat mass. Metric and imperial. Free.",
     images: [
@@ -61,8 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Body Fat Calculator — US Navy Method Estimate",
+    title: "Free Body Fat Calculator — US Navy Method Estimate",
     description:
       "Estimate body fat % using the US Navy circumference method. Shows lean mass and category. Free.",
   },
@@ -156,7 +152,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "BMI (Body Mass Index) is calculated from height and weight only — it cannot distinguish between muscle mass and fat mass. This makes it a poor indicator of body composition for muscular individuals, who may have a 'overweight' or 'obese' BMI despite having healthy or low body fat levels. Conversely, individuals with low muscle mass and high fat mass (sometimes called 'skinny fat' or metabolically obese normal weight) may have a 'healthy' BMI despite carrying excess body fat...",
       },
-    }
+    },
   ],
 };
 
@@ -164,7 +160,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Body Fat Calculator",
-  description: "Step-by-step guide to using the free Body Fat Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Body Fat Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -183,7 +180,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -218,7 +215,7 @@ export default function BodyFatCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/health"
+              href="/tools/category/health-fitness-calculators"
               className="hover:text-green-600 transition-colors"
             >
               Health Tools

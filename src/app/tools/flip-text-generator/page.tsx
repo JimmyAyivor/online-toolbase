@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const FlipTextGeneratorClient = dynamic(
   () => import("./FlipTextGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,7 +16,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "flip-text-generator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Flip Text Generator — Upside Down & Reversed Text",
@@ -146,7 +145,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "The bold text option converts standard Latin letters to their Unicode Mathematical Bold equivalents — characters in the Mathematical Alphanumeric Symbols Unicode block (U+1D400 onwards). These look bold but are technically different characters, which means they render in bold appearance wherever Unicode is rendered, regardless of whether the platform supports bold formatting. This is why bold text in social media bios and posts works even where markdown formatting is not supported.",
       },
-    }
+    },
   ],
 };
 
@@ -154,7 +153,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Flip Text Generator",
-  description: "Step-by-step guide to using the free Flip Text Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Flip Text Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -173,7 +173,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -208,7 +208,7 @@ export default function FlipTextGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/text"
+              href="/tools/category/writing-text-tools"
               className="hover:text-purple-600 transition-colors"
             >
               Text Tools

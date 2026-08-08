@@ -3,25 +3,20 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
 const tool = tools.find((t) => t.slug === "rhyme-finder");
-const RhymeFinderClient = dynamic(
-  () => import("./RhymeFinderClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const RhymeFinderClient = dynamic(() => import("./RhymeFinderClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Rhyme Finder — Rhyming Words for Poetry & Songs",
+  title: "Free Rhyme Finder — Rhyming Words for Poetry & Songs",
   description:
     "Find perfect rhyming words for poetry, song lyrics, and creative writing. Built-in phonetic rhyme dictionary — no API, no signup, runs entirely in your browser.",
   keywords:
@@ -45,8 +40,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/rhyme-finder`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Rhyme Finder — Rhyming Words for Poetry & Songs",
+    title: "Free Rhyme Finder — Rhyming Words for Poetry & Songs",
     description:
       "Find perfect rhyming words for poetry, lyrics, and creative writing. Built-in phonetic rhyme dictionary. No API, no signup, runs in your browser.",
     images: [
@@ -62,8 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Rhyme Finder — Rhyming Words for Poetry & Songs",
+    title: "Free Rhyme Finder — Rhyming Words for Poetry & Songs",
     description:
       "Find perfect rhymes for poetry and lyrics. Built-in phonetic dictionary, no signup, instant results.",
   },
@@ -157,7 +150,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "A rhyme scheme is the pattern of end rhymes in a poem, typically denoted by assigning a letter to each new rhyme sound. ABAB is the most common — alternating rhymes across four lines, used in ballads, sonnets, and countless folk songs. AABB (couplets) rhymes successive pairs of lines and feels more immediate and conversational — used in heroic couplets, nursery rhymes, and rap punchlines. ABCB only rhymes the second and fourth lines, leaving the first and third free, which creates a more natural speech-like flow — very common in folk music and hymns...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +158,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Rhyme Finder",
-  description: "Step-by-step guide to using the free Rhyme Finder on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Rhyme Finder on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +178,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +213,7 @@ export default function RhymeFinderPage() {
           </li>
           <li>
             <a
-              href="/tools/category/writing"
+              href="/tools/category/writing-text-tools"
               className="hover:text-pink-600 transition-colors"
             >
               Writing Tools

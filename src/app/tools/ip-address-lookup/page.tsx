@@ -1,27 +1,22 @@
 // src/app/tools/ip-address-lookup/page.tsx
 import type { Metadata } from "next";
-import dynamic from "next/dynamic"; 
+import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
-const IpAddressLookupClient = dynamic(
-  () => import("./IpAddressLookupClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const IpAddressLookupClient = dynamic(() => import("./IpAddressLookupClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "ip-address-lookup");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free IP Address Lookup — Location & Network Info",
+  title: "Free IP Address Lookup — Location & Network Info",
   description:
     "Look up geolocation, ISP, ASN, and network information for any IP address instantly. Detects your own IP automatically. Free, no signup.",
   keywords:
@@ -45,8 +40,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/ip-address-lookup`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free IP Address Lookup — Location & Network Info",
+    title: "Free IP Address Lookup — Location & Network Info",
     description:
       "Look up geolocation, ISP, ASN, and network info for any IP instantly. Detects your own IP automatically. Free, no signup.",
     images: [
@@ -62,8 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free IP Address Lookup — Location & Network Info",
+    title: "Free IP Address Lookup — Location & Network Info",
     description:
       "Look up geolocation, ISP, ASN, and network info for any IP instantly. Free, no signup.",
   },
@@ -157,7 +150,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Yes — when you open the tool, it automatically detects and displays your current public IP address. This is the IP address that websites and servers see when you connect to them — it's assigned by your ISP and is different from your local network address (which starts with 192.168., 10., or 172.16–31.). If you're connected through a VPN, the tool will show the VPN's exit IP rather than your true IP. If you're on a mobile network, the IP shown may change as you move between cell towers or network segments...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +158,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the IP Address Lookup",
-  description: "Step-by-step guide to using the free IP Address Lookup on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free IP Address Lookup on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +178,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +213,7 @@ export default function IpAddressLookupPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Developer Tools

@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const LoremIpsumGeneratorClient = dynamic(
   () => import("./LoremIpsumGeneratorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,7 +16,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "lorem-ipsum-generator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Lorem Ipsum Generator — Free Placeholder Text Generator",
@@ -154,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "The standard lorem ipsum paragraph used in most style sheets and type specimens is the opening passage from De Finibus, which contains approximately 200 words across 5–6 sentences. For design purposes, a 'typical' body text paragraph is considered to be 50–150 words, or 3–6 sentences, with an average sentence length of 15–20 words. This generator uses 4–7 sentences per paragraph with 8–15 words per sentence, which produces paragraphs of roughly 60–100 words — a realistic proxy for body copy in blog posts, news articles, and marketing content...",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Lorem Ipsum Generator",
-  description: "Step-by-step guide to using the free Lorem Ipsum Generator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Lorem Ipsum Generator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +216,7 @@ export default function LoremIpsumGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/text"
+              href="/tools/category/writing-text-tools"
               className="hover:text-amber-600 transition-colors"
             >
               Text Tools

@@ -6,11 +6,10 @@ import { tools } from "@/lib/tools";
 const PayRaiseCalculatorClient = dynamic(
   () => import("./PayRaiseCalculatorClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
@@ -19,7 +18,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "pay-raise-calculator");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
 const SLOT_LEADERBOARD =
@@ -153,7 +152,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Most companies do annual performance reviews with accompanying salary adjustments. Some fast-growing companies or competitive roles review every 6 months. If you haven't received a raise in 18+ months and your performance is strong, it is entirely reasonable to proactively request a conversation. Changing jobs every 2–3 years remains the most reliably effective strategy for accelerating salary growth in many fields.",
       },
-    }
+    },
   ],
 };
 
@@ -161,7 +160,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Pay Raise Calculator",
-  description: "Step-by-step guide to using the free Pay Raise Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Pay Raise Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -180,7 +180,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -215,7 +215,7 @@ export default function PayRaiseCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Calculator Tools

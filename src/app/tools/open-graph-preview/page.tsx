@@ -6,11 +6,10 @@ import { tools } from "@/lib/tools";
 const OpenGraphPreviewClient = dynamic(
   () => import("./OpenGraphPreviewClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
@@ -19,7 +18,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "open-graph-preview");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
@@ -155,7 +154,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Social platforms cache link previews aggressively, sometimes for days. After updating your OG tags and deploying, you need to clear the cache using each platform's debug tool: Facebook's Sharing Debugger, Twitter's Card Validator, or LinkedIn's Post Inspector. Paste your URL into the tool and click the option to scrape/re-fetch — the platform will pull the latest version of your page and update the cached preview.",
       },
-    }
+    },
   ],
 };
 
@@ -163,7 +162,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Open Graph Preview",
-  description: "Step-by-step guide to using the free Open Graph Preview on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Open Graph Preview on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -182,7 +182,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -218,7 +218,7 @@ export default function OpenGraphPreviewPage() {
           </li>
           <li>
             <a
-              href="/tools/category/developer"
+              href="/tools/category/developer-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Developer Tools

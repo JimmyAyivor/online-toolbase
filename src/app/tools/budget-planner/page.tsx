@@ -2,22 +2,18 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
-const BudgetPlannerClient = dynamic(
-  () => import("./BudgetPlannerClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const BudgetPlannerClient = dynamic(() => import("./BudgetPlannerClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import AdSlot from "@/components/AdSlot";
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "budget-planner");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
 const SLOT_LEADERBOARD =
@@ -151,7 +147,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Review your budget monthly — compare actual bank and card spending against your plan and adjust category amounts based on reality. Do a bigger annual review each January to reset targets based on income changes, new financial goals, and lifestyle changes. Many budgeting apps sync with your accounts to automate the tracking; this planner is a great place to set the plan before importing it there.",
       },
-    }
+    },
   ],
 };
 
@@ -159,7 +155,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Budget Planner",
-  description: "Step-by-step guide to using the free Budget Planner on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Budget Planner on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -178,7 +175,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -213,7 +210,7 @@ export default function BudgetPlannerPage() {
           </li>
           <li>
             <a
-              href="/tools/category/finance"
+              href="/tools/category/finance-calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Finance Tools
@@ -233,7 +230,9 @@ export default function BudgetPlannerPage() {
         <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-1">
           Free Finance Tool · No Signup · Works Instantly
         </p>
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">Budget Planner — Free Online Budget Planner</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">
+          Budget Planner — Free Online Budget Planner
+        </h1>
         <p className="text-sm text-gray-500 max-w-2xl mb-2">
           Plan your monthly budget by tracking income and expenses across
           categories. See where your money goes. Free, no signup.

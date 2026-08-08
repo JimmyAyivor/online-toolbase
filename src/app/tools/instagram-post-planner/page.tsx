@@ -5,11 +5,10 @@ import { tools } from "@/lib/tools";
 const InstagramPostPlannerClient = dynamic(
   () => import("./InstagramPostPlannerClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -17,11 +16,10 @@ import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "instagram-post-planner");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
-  title:
-    "Free Instagram Post Planner — Captions & Hashtags",
+  title: "Free Instagram Post Planner — Captions & Hashtags",
   description:
     "Plan and organise Instagram posts with captions, hashtags, post type, status, and scheduled date — all in a visual content grid or list view. Export your plan as CSV. Free, no signup, runs in your browser.",
   keywords:
@@ -45,8 +43,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/instagram-post-planner`,
     siteName: SITE_NAME,
     locale: "en_US",
-    title:
-      "Free Instagram Post Planner — Captions & Hashtags",
+    title: "Free Instagram Post Planner — Captions & Hashtags",
     description:
       "Plan Instagram posts with captions, hashtags, post type, status, and scheduled date. Visual content grid, list view, CSV export. Free, no signup.",
     images: [
@@ -62,8 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@onlinetoolbase",
     creator: "@onlinetoolbase",
-    title:
-      "Free Instagram Post Planner — Captions & Hashtags",
+    title: "Free Instagram Post Planner — Captions & Hashtags",
     description:
       "Plan Instagram captions, hashtags, and post schedules in a visual content grid. CSV export. Free.",
   },
@@ -157,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Building a strategy from scratch involves a few key decisions. First, define your niche and content pillars — 3–5 core topics you'll consistently post about. This gives your account a clear identity and makes it easier for Instagram's algorithm to categorise and recommend your content to relevant audiences. Second, choose your content mix: most successful accounts use a rough formula like 40% educational/informational, 30% entertaining, 20% promotional, and 10% personal/behind-the-scenes...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Instagram Post Planner",
-  description: "Step-by-step guide to using the free Instagram Post Planner on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Instagram Post Planner on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -219,7 +216,7 @@ export default function InstagramPostPlannerPage() {
           </li>
           <li>
             <a
-              href="/tools/category/social-media"
+              href="/tools/category/social-media-tools"
               className="hover:text-pink-600 transition-colors"
             >
               Social Media Tools

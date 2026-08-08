@@ -6,11 +6,10 @@ import { tools } from "@/lib/tools";
 const NumberToWordsConverterClient = dynamic(
   () => import("./NumberToWordsConverterClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -18,7 +17,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "number-to-words-converter");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Free Number to Words Converter — Spell Any Number",
@@ -157,7 +156,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "In legal documents such as contracts, deeds, wills, and settlement agreements, the convention is to write both the numeric form and the word form — typically with the words first and the digits in parentheses, or vice versa. For example: 'the sum of Ten Thousand Dollars ($10,000)' or '$10,000 (ten thousand dollars)'. This double representation reduces the risk of fraud or misreading. Many jurisdictions have specific requirements for how amounts should be written in legal documents, so always check the relevant style guide or consult a legal professional for high-stakes documents...",
       },
-    }
+    },
   ],
 };
 
@@ -165,7 +164,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Number to Words Converter",
-  description: "Step-by-step guide to using the free Number to Words Converter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Number to Words Converter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -184,7 +184,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -220,7 +220,7 @@ export default function NumberToWordsConverterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/text"
+              href="/tools/category/writing-text-tools"
               className="hover:text-teal-600 transition-colors"
             >
               Text Tools

@@ -6,7 +6,8 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
 
 export const metadata: Metadata = {
-  title: "Advertise With Us — Reach Millions of Tool Users | Calculators, Pdf Tools & More",
+  title:
+    "Advertise With Us — Reach Millions of Tool Users | Calculators, Pdf Tools & More",
   description:
     "Reach a high-intent audience of professionals, students, and creators who actively use Calculators, Pdf Tools & More. Banner ads, sponsored placements, newsletter features and more. Request our media kit.",
   keywords:

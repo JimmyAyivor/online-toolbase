@@ -6,11 +6,10 @@ import { tools } from "@/lib/tools";
 const PdfMergerSplitterClient = dynamic(
   () => import("./PdfMergerSplitterClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
@@ -18,7 +17,7 @@ import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "pdf-merger-splitter");
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "PDF Merger & Splitter — Merge or Split PDF Files Free Online",
@@ -155,7 +154,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Merging and combining are the same operation — both terms describe taking multiple separate PDF files and joining them into a single PDF document. 'Merging' is more commonly used in the context of document management tools and enterprise software; 'combining' is used by Adobe in its product marketing. The end result is identical: all pages from all input PDFs, in the specified order, in a single output PDF file...",
       },
-    }
+    },
   ],
 };
 
@@ -163,7 +162,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the PDF Merger & Splitter",
-  description: "Step-by-step guide to using the free PDF Merger & Splitter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free PDF Merger & Splitter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -182,7 +182,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -217,7 +217,7 @@ export default function PdfMergerSplitterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/business"
+              href="/tools/category/business-productivity"
               className="hover:text-red-600 transition-colors"
             >
               Business Tools

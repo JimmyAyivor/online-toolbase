@@ -2,22 +2,18 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { tools } from "@/lib/tools";
-const GpaCalculatorClient = dynamic(
-  () => import("./GpaCalculatorClient"),
-  {
-    
-    loading: () => (
-      <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
-    ),
-  }
-);
+const GpaCalculatorClient = dynamic(() => import("./GpaCalculatorClient"), {
+  loading: () => (
+    <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
+  ),
+});
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "gpa-calculator");
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "GPA Calculator — Calculate Your GPA Free Online",
@@ -146,7 +142,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Grade replacement policies vary by institution. Some universities replace the original grade with the new grade in GPA calculations (grade forgiveness); others average both attempts; still others include both grades but only count the credits once. At most US institutions with grade replacement, retaking a course in which you received a low grade can significantly improve your GPA, since the failing or low grade is removed from the calculation entirely. Check your specific institution's academic policy on repeated courses before planning a retake strategy.",
       },
-    }
+    },
   ],
 };
 
@@ -154,7 +150,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the GPA Calculator",
-  description: "Step-by-step guide to using the free GPA Calculator on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free GPA Calculator on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -173,7 +170,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -208,7 +205,7 @@ export default function GpaCalculatorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/calculator"
+              href="/tools/category/calculators"
               className="hover:text-indigo-600 transition-colors"
             >
               Calculator Tools

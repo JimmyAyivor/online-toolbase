@@ -6,18 +6,17 @@ const tool = tools.find((t) => t.slug === "word-frequency-counter");
 const WordFrequencyCounterClient = dynamic(
   () => import("./WordFrequencyCounterClient"),
   {
-    
     loading: () => (
       <div className="min-h-[420px] bg-gray-50 rounded-2xl animate-pulse" />
     ),
-  }
+  },
 );
 import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const SITE_URL = "https://onlinetoolbase.com";
-const SITE_NAME = "Calculators, Pdf Tools & More";
+const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {
   title: "Word Frequency Counter — Count Most Common Words in Any Text",
@@ -154,7 +153,7 @@ const faqJsonLd = {
         "@type": "Answer",
         text: "Total words is the count of every word token in your text, including repetitions. If you write 'the cat sat on the mat', total words = 6. Unique words counts how many distinct words appear — in that example, 'the' appears twice, so unique words = 5 ('the', 'cat', 'sat', 'on', 'mat'). The ratio of unique words to total words is called the type-token ratio (TTR) and is used as a measure of lexical diversity. A higher TTR indicates more varied vocabulary. Academic and literary writing typically has a higher TTR than repetitive marketing copy or transcribed speech.",
       },
-    }
+    },
   ],
 };
 
@@ -162,7 +161,8 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to Use the Word Frequency Counter",
-  description: "Step-by-step guide to using the free Word Frequency Counter on Calculators, Pdf Tools & More.",
+  description:
+    "Step-by-step guide to using the free Word Frequency Counter on Calculators, Pdf Tools & More.",
   step: [
     {
       "@type": "HowToStep",
@@ -181,7 +181,7 @@ const howToJsonLd = {
       position: 3,
       name: "Copy or use your results",
       text: "Review your results and copy them to your clipboard with one click. Results are ready to use immediately.",
-    }
+    },
   ],
 };
 
@@ -216,7 +216,7 @@ export default function WordFrequencyCounterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/text"
+              href="/tools/category/writing-text-tools"
               className="hover:text-indigo-600 transition-colors"
             >
               Text Tools
