@@ -70,9 +70,9 @@ jobs:
               exit 1
             fi
 
-            set -a
-            source "$BASE_DIR/.env"
-            set +a
+            # safe env loading (no broken amp parsing)
+            export $(grep -v '^#' "$BASE_DIR/.env" | xargs)
+
 
             echo "📦 Node: $(node -v)"
             echo "📦 NPM: $(npm -v)"
