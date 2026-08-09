@@ -2903,6 +2903,262 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "was-my-password-in-a-data-breach-how-to-check-safely",
+    title:
+      "Was My Password in a Data Breach? How to Check Without Exposing It",
+    description:
+      "Have I Been Pwned tracks over 12 billion breached accounts. Here's how the k-anonymity method lets you check a password against that database without ever transmitting it, and what to actually do if it comes back compromised.",
+    category: "Security",
+    readingTime: "7 min read",
+    publishedAt: "2026-04-04",
+    coverEmoji: "🕵️",
+    tags: [
+      "password breach",
+      "data breach",
+      "cybersecurity",
+      "credential stuffing",
+      "online safety",
+    ],
+    relatedTools: [
+      {
+        label: "Password Breach Checker",
+        href: "/tools/password-breach-checker",
+      },
+      {
+        label: "Password Strength Checker",
+        href: "/tools/password-strength-checker",
+      },
+    ],
+  },
+  {
+    slug: "how-to-verify-a-file-checksum-and-why-it-matters",
+    title: "How to Verify a File Checksum (And Why It Actually Matters)",
+    description:
+      "That random string under a software download link isn't decoration — it's how you confirm a file wasn't corrupted or tampered with. Here's what MD5, SHA-1, SHA-256, and SHA-512 checksums actually verify, and when each one matters.",
+    category: "Security",
+    readingTime: "7 min read",
+    publishedAt: "2026-04-07",
+    coverEmoji: "🧾",
+    tags: [
+      "checksum",
+      "file integrity",
+      "SHA-256",
+      "MD5",
+      "cybersecurity",
+    ],
+    relatedTools: [
+      {
+        label: "File Checksum Verifier",
+        href: "/tools/file-checksum-verifier",
+      },
+      {
+        label: "Text Encryption Tool",
+        href: "/tools/text-encryption-tool",
+      },
+    ],
+  },
+  {
+    slug: "diceware-passphrases-vs-random-passwords-which-is-stronger",
+    title:
+      "Diceware Passphrases vs. Random Passwords: Which Is Actually Stronger?",
+    description:
+      "The old advice of mixing symbols and capitals into an 8-character password is outdated math. Here's why length beats complexity, how passphrase entropy is calculated, and how to build one that's genuinely random.",
+    category: "Security",
+    readingTime: "8 min read",
+    publishedAt: "2026-04-10",
+    coverEmoji: "🎲",
+    tags: [
+      "diceware",
+      "passphrase",
+      "password security",
+      "entropy",
+      "cybersecurity",
+    ],
+    relatedTools: [
+      {
+        label: "Diceware Passphrase Generator",
+        href: "/tools/diceware-passphrase-generator",
+      },
+      { label: "Password Generator", href: "/tools/password-generator" },
+    ],
+  },
+  {
+    slug: "how-to-encrypt-text-with-a-passphrase-aes-explained",
+    title: "How to Encrypt Text With a Passphrase: AES and PBKDF2 Explained",
+    description:
+      "Sending something sensitive through a channel you don't fully trust doesn't always need a dedicated encrypted app. Here's how AES-256-GCM and PBKDF2 work together to turn a memorable passphrase into real encryption.",
+    category: "Security",
+    readingTime: "7 min read",
+    publishedAt: "2026-04-13",
+    coverEmoji: "🔏",
+    tags: [
+      "encryption",
+      "AES",
+      "PBKDF2",
+      "cybersecurity",
+      "data privacy",
+    ],
+    relatedTools: [
+      {
+        label: "Text Encryption Tool",
+        href: "/tools/text-encryption-tool",
+      },
+      {
+        label: "Diceware Passphrase Generator",
+        href: "/tools/diceware-passphrase-generator",
+      },
+    ],
+  },
+  {
+    slug: "how-totp-two-factor-authentication-codes-actually-work",
+    title: "How TOTP Codes Actually Work (No Signal Required)",
+    description:
+      "Your authenticator app and a website's server never exchange a message, yet they agree on the same six digits every 30 seconds. Here's the shared-secret-plus-clock math behind TOTP, and why it beats SMS-based codes.",
+    category: "Security",
+    readingTime: "7 min read",
+    publishedAt: "2026-04-16",
+    coverEmoji: "⏱️",
+    tags: [
+      "TOTP",
+      "two-factor authentication",
+      "2FA",
+      "cybersecurity",
+      "authentication",
+    ],
+    relatedTools: [
+      {
+        label: "TOTP / 2FA Code Generator",
+        href: "/tools/totp-code-generator",
+      },
+      {
+        label: "Password Breach Checker",
+        href: "/tools/password-breach-checker",
+      },
+    ],
+  },
+  {
+    slug: "how-to-password-protect-and-redact-a-pdf-before-sharing",
+    title: "How to Password-Protect and Redact a PDF Before Sharing It",
+    description:
+      "Drawing a black box over text doesn't remove it — the original content is often still selectable underneath. Here's what actually protects a PDF versus what just hides content visually, and the right order to apply each one.",
+    category: "Document",
+    readingTime: "6 min read",
+    publishedAt: "2026-04-19",
+    coverEmoji: "🔒",
+    tags: ["PDF security", "redaction", "PDF password", "document security"],
+    relatedTools: [
+      { label: "Protect PDF", href: "/tools/protect-pdf" },
+      { label: "Redact PDF", href: "/tools/redact-pdf" },
+    ],
+  },
+  {
+    slug: "reorganizing-a-pdf-rotate-reorder-delete-crop-number-pages",
+    title:
+      "Reorganizing a PDF: Rotate, Reorder, Delete, Crop, and Number Pages",
+    description:
+      "Scanned documents almost always need cleanup — sideways pages, wrong order, stray blanks, crooked margins. Here are the six page-level operations that cover nearly every reorganization task without a full PDF editor.",
+    category: "Document",
+    readingTime: "6 min read",
+    publishedAt: "2026-04-22",
+    coverEmoji: "📄",
+    tags: ["PDF editing", "scanned documents", "page organization"],
+    relatedTools: [
+      { label: "Rotate PDF", href: "/tools/rotate-pdf" },
+      { label: "Reorder PDF Pages", href: "/tools/reorder-pdf-pages" },
+    ],
+  },
+  {
+    slug: "converting-files-to-and-from-pdf-a-practical-guide",
+    title: "Converting Files To and From PDF: A Practical Guide",
+    description:
+      "Word, Excel, TXT, and JPG all eventually need to become a PDF — or come back out of one. Here's what each conversion actually preserves, why formatting sometimes shifts, and why PDF-to-text fails on scanned documents.",
+    category: "Document",
+    readingTime: "7 min read",
+    publishedAt: "2026-04-25",
+    coverEmoji: "🔄",
+    tags: ["PDF conversion", "Word to PDF", "document formats"],
+    relatedTools: [
+      { label: "Word to PDF", href: "/tools/word-to-pdf" },
+      { label: "PDF to Text", href: "/tools/pdf-to-text" },
+    ],
+  },
+  {
+    slug: "filling-editing-and-extracting-data-from-pdfs",
+    title: "Filling, Editing, and Extracting Data From PDFs",
+    description:
+      "Filling out interactive form fields, cleaning up hidden metadata, and pulling full-resolution images out of a report are three specific, recurring PDF annoyances. Here's how each one actually works.",
+    category: "Document",
+    readingTime: "6 min read",
+    publishedAt: "2026-04-28",
+    coverEmoji: "🗂️",
+    tags: ["PDF forms", "PDF metadata", "document data"],
+    relatedTools: [
+      { label: "Fill PDF Form", href: "/tools/fill-pdf-form" },
+      { label: "Edit PDF Metadata", href: "/tools/edit-pdf-metadata" },
+    ],
+  },
+  {
+    slug: "compressing-comparing-and-flattening-pdfs-when-each-matters",
+    title:
+      "Compressing, Comparing, and Flattening PDFs: When Each One Matters",
+    description:
+      "Three PDF tasks that map to three specific moments in a document's life — shrinking it before sending, comparing versions during review, and locking it down once it's final. Here's when to reach for each.",
+    category: "Document",
+    readingTime: "6 min read",
+    publishedAt: "2026-05-01",
+    coverEmoji: "📉",
+    tags: ["PDF compression", "PDF comparison", "document workflow"],
+    relatedTools: [
+      { label: "PDF Compressor", href: "/tools/pdf-compressor" },
+      { label: "Compare PDFs", href: "/tools/compare-pdfs" },
+    ],
+  },
+  {
+    slug: "how-word-unscramblers-and-anagram-solvers-actually-work",
+    title: "How Word Unscramblers and Anagram Solvers Actually Work",
+    description:
+      "Word unscramblers, anagram solvers, and Scrabble finders all solve the same permutation-against-a-dictionary problem — with different rules about what counts as valid. Here's what actually separates them.",
+    category: "Fun",
+    readingTime: "6 min read",
+    publishedAt: "2026-05-04",
+    coverEmoji: "🔤",
+    tags: ["word games", "Scrabble", "anagram", "word unscrambler"],
+    relatedTools: [
+      { label: "Word Unscrambler", href: "/tools/word-unscrambler" },
+      { label: "Anagram Solver", href: "/tools/anagram-solver" },
+    ],
+  },
+  {
+    slug: "how-to-solve-wordle-faster-and-crack-any-crossword-clue",
+    title: "How to Solve Wordle Faster (And Crack Any Crossword Clue)",
+    description:
+      "Wordle and crosswords look nothing alike, but both reward the same skill: using constraints to eliminate possibilities. Here's how a Wordle solver reads green/yellow/gray feedback, and how pattern matching cracks a crossword clue.",
+    category: "Fun",
+    readingTime: "6 min read",
+    publishedAt: "2026-05-07",
+    coverEmoji: "🟩",
+    tags: ["Wordle", "crossword", "word games", "puzzle solving"],
+    relatedTools: [
+      { label: "Wordle Solver", href: "/tools/wordle-solver" },
+      { label: "Crossword Clue Finder", href: "/tools/crossword-clue-finder" },
+    ],
+  },
+  {
+    slug: "making-word-puzzles-for-classrooms-and-game-nights",
+    title: "Making Word Puzzles for Classrooms and Game Nights",
+    description:
+      "Teachers, party hosts, and writers all need generated word content for different reasons. Here's when a scramble beats a word search, why searches work for mixed-age groups, and where a plain random word generator fits in.",
+    category: "Fun",
+    readingTime: "6 min read",
+    publishedAt: "2026-05-10",
+    coverEmoji: "🧩",
+    tags: ["word search", "word scramble", "classroom activities", "party games"],
+    relatedTools: [
+      { label: "Word Scramble Maker", href: "/tools/word-scramble-maker" },
+      { label: "Word Search Maker", href: "/tools/word-search-maker" },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

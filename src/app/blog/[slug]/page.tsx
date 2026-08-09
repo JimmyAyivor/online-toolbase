@@ -166,6 +166,22 @@ import WhyLiveWordCountMakesYouAFasterWriter from "../content/why-live-word-coun
 import WordCountTargetsForEveryContentType from "../content/word-count-targets-for-every-content-type";
 import WordFrequencyAnalysisForBetterWriting from "../content/word-frequency-analysis-for-better-writing";
 import WritingCaptionsForSocialMedia from "../content/writing-captions-for-social-media";
+// ── New posts (security tools) ─────────────────────────────────────────────
+import WasMyPasswordInADataBreachHowToCheckSafely from "../content/was-my-password-in-a-data-breach-how-to-check-safely";
+import HowToVerifyAFileChecksumAndWhyItMatters from "../content/how-to-verify-a-file-checksum-and-why-it-matters";
+import DicewarePassphrasesVsRandomPasswordsWhichIsStronger from "../content/diceware-passphrases-vs-random-passwords-which-is-stronger";
+import HowToEncryptTextWithAPassphraseAesExplained from "../content/how-to-encrypt-text-with-a-passphrase-aes-explained";
+import HowTotpTwoFactorAuthenticationCodesActuallyWork from "../content/how-totp-two-factor-authentication-codes-actually-work";
+// ── New posts (Document / PDF cluster) ─────────────────────────────────────
+import HowToPasswordProtectAndRedactAPdfBeforeSharing from "../content/how-to-password-protect-and-redact-a-pdf-before-sharing";
+import ReorganizingAPdfRotateReorderDeleteCropNumberPages from "../content/reorganizing-a-pdf-rotate-reorder-delete-crop-number-pages";
+import ConvertingFilesToAndFromPdfAPracticalGuide from "../content/converting-files-to-and-from-pdf-a-practical-guide";
+import FillingEditingAndExtractingDataFromPdfs from "../content/filling-editing-and-extracting-data-from-pdfs";
+import CompressingComparingAndFlatteningPdfsWhenEachMatters from "../content/compressing-comparing-and-flattening-pdfs-when-each-matters";
+// ── New posts (Fun / word games cluster) ────────────────────────────────────
+import HowWordUnscramblersAndAnagramSolversActuallyWork from "../content/how-word-unscramblers-and-anagram-solvers-actually-work";
+import HowToSolveWordleFasterAndCrackAnyCrosswordClue from "../content/how-to-solve-wordle-faster-and-crack-any-crossword-clue";
+import MakingWordPuzzlesForClassroomsAndGameNights from "../content/making-word-puzzles-for-classrooms-and-game-nights";
 import SubscribeForm from "@/components/SubscribeForm";
 import Link from "next/link";
 
@@ -361,6 +377,35 @@ const CONTENT_MAP: Record<string, React.ComponentType> = {
   "word-frequency-analysis-for-better-writing":
     WordFrequencyAnalysisForBetterWriting,
   "writing-captions-for-social-media": WritingCaptionsForSocialMedia,
+  // ── New posts (security tools) ──────────────────────────────────────────
+  "was-my-password-in-a-data-breach-how-to-check-safely":
+    WasMyPasswordInADataBreachHowToCheckSafely,
+  "how-to-verify-a-file-checksum-and-why-it-matters":
+    HowToVerifyAFileChecksumAndWhyItMatters,
+  "diceware-passphrases-vs-random-passwords-which-is-stronger":
+    DicewarePassphrasesVsRandomPasswordsWhichIsStronger,
+  "how-to-encrypt-text-with-a-passphrase-aes-explained":
+    HowToEncryptTextWithAPassphraseAesExplained,
+  "how-totp-two-factor-authentication-codes-actually-work":
+    HowTotpTwoFactorAuthenticationCodesActuallyWork,
+  // ── New posts (Document / PDF cluster) ──────────────────────────────────
+  "how-to-password-protect-and-redact-a-pdf-before-sharing":
+    HowToPasswordProtectAndRedactAPdfBeforeSharing,
+  "reorganizing-a-pdf-rotate-reorder-delete-crop-number-pages":
+    ReorganizingAPdfRotateReorderDeleteCropNumberPages,
+  "converting-files-to-and-from-pdf-a-practical-guide":
+    ConvertingFilesToAndFromPdfAPracticalGuide,
+  "filling-editing-and-extracting-data-from-pdfs":
+    FillingEditingAndExtractingDataFromPdfs,
+  "compressing-comparing-and-flattening-pdfs-when-each-matters":
+    CompressingComparingAndFlatteningPdfsWhenEachMatters,
+  // ── New posts (Fun / word games cluster) ────────────────────────────────
+  "how-word-unscramblers-and-anagram-solvers-actually-work":
+    HowWordUnscramblersAndAnagramSolversActuallyWork,
+  "how-to-solve-wordle-faster-and-crack-any-crossword-clue":
+    HowToSolveWordleFasterAndCrackAnyCrosswordClue,
+  "making-word-puzzles-for-classrooms-and-game-nights":
+    MakingWordPuzzlesForClassroomsAndGameNights,
 };
 
 // ─── Key Takeaways ────────────────────────────────────────────────────────────
@@ -1375,11 +1420,103 @@ const KEY_TAKEAWAYS: Record<string, string[]> = {
     "Timestamps (00:00 Section name) appear as chapter markers in the player and improve watch time and search snippet features.",
     "External links in descriptions work fine — YouTube doesn't suppress them the way LinkedIn suppresses links in posts.",
   ],
+  "was-my-password-in-a-data-breach-how-to-check-safely": [
+    "Have I Been Pwned tracks over 12 billion breached accounts — being in one is nearly universal at this point.",
+    "The k-anonymity method sends only 5 characters of a hashed password, never the password or full hash itself.",
+    "A clean breach check doesn't mean a password is strong — it only means that exact string hasn't leaked yet.",
+    "If a password is found, treat it as burned everywhere, not just where you noticed it — don't just tweak it.",
+    "Credential stuffing (reusing leaked passwords against other sites) is why reuse is more dangerous than a single weak password.",
+  ],
+  "how-to-verify-a-file-checksum-and-why-it-matters": [
+    "A checksum confirms a file matches its source exactly — one changed bit produces a completely different hash.",
+    "MD5 and SHA-1 are broken for security purposes but still fine for catching accidental corruption.",
+    "SHA-256 and SHA-512 are the current standard for anything security-sensitive, with no known practical collisions.",
+    "A hash mismatch is most often caused by an incomplete download — re-download before assuming tampering.",
+    "Checksum verification and antivirus scanning solve different problems — a matching hash says nothing about whether the source file is malicious.",
+  ],
+  "diceware-passphrases-vs-random-passwords-which-is-stronger": [
+    "Length beats complexity for resisting brute-force attacks — a 5-word passphrase can out-entropy a 10-character complex password.",
+    "Each random word from a 750-word list adds about 9.5 bits of entropy; a 7,776-word Diceware list adds about 12.9 bits.",
+    "Passphrase security depends on true randomness — self-chosen memorable phrases are far weaker than machine-generated ones.",
+    "5–6 random words suits most accounts; 7–8 words is worth it for a password manager's master password.",
+    "Separators, capitalization, and a trailing digit or symbol satisfy legacy complexity rules without undermining the word-based approach.",
+  ],
+  "how-to-encrypt-text-with-a-passphrase-aes-explained": [
+    "PBKDF2 stretches a memorable passphrase into a proper 256-bit AES key using 100,000+ hashing iterations.",
+    "A random salt for every encryption prevents attackers from precomputing keys for common passphrases.",
+    "AES-GCM is authenticated encryption — tampering with the ciphertext causes decryption to fail outright, not silently corrupt.",
+    "Share the encrypted text and the passphrase through two different channels so one intercepted message doesn't expose both.",
+    "There's no recovery if the passphrase is lost — no backdoor, no reset, by design.",
+  ],
+  "how-totp-two-factor-authentication-codes-actually-work": [
+    "TOTP codes are computed independently on your device and the server from a one-time shared secret plus the current time.",
+    "Nothing is transmitted to generate a code, which is why TOTP resists SIM-swapping attacks that intercept SMS codes.",
+    "A device's clock drifting out of sync with the server is the most common reason codes stop matching.",
+    "Most services default to 6 digits, a 30-second window, and SHA-1 — changing these requires both sides to agree.",
+    "Losing the device that holds the secret means losing code generation — backup codes saved at setup are the usual recovery path.",
+  ],
+  "how-to-password-protect-and-redact-a-pdf-before-sharing": [
+    "Drawing a black box over text doesn't remove it — the original content is often still selectable underneath unless it's actually redacted.",
+    "Password protection controls who can open a file; redaction controls what's visible once it's open — they solve different problems.",
+    "Redact sensitive content first, sign next, watermark after that, and password-protect last, since a locked PDF blocks further edits.",
+    "A watermark deters redistribution and adds traceability but doesn't restrict access the way a password does.",
+    "A weak password on a protected PDF can be brute-forced — treat it like any other password: long and unique.",
+  ],
+  "reorganizing-a-pdf-rotate-reorder-delete-crop-number-pages": [
+    "Six operations — rotate, reorder, delete, crop, number, extract — cover nearly every PDF reorganization task.",
+    "Rotating or cropping a page doesn't reduce the underlying scan resolution — only recompression does.",
+    "Deleting keeps everything except the selected pages; extracting keeps only the selected pages as a new file.",
+    "Page reordering works across a merged document regardless of which source file each page originally came from.",
+    "Doing cleanup as separate small operations makes each change easy to verify, rather than one complex multi-step edit.",
+  ],
+  "converting-files-to-and-from-pdf-a-practical-guide": [
+    "Word to PDF is effectively a one-way trip — PDF doesn't retain the editable document structure needed to convert back reliably.",
+    "PDF-to-text extraction only works on digitally generated PDFs — a scanned image of text needs OCR instead.",
+    "Excel's print area and page breaks determine how a spreadsheet paginates once converted to PDF.",
+    "Most formatting loss during conversion comes down to fonts that aren't embedded and get substituted.",
+    "PDF-to-JPG renders at the document's native resolution, unlike a screen-resolution-limited screenshot.",
+  ],
+  "filling-editing-and-extracting-data-from-pdfs": [
+    "Form-filling tools only work on PDFs with actual interactive fields built in — not scanned images of forms.",
+    "PDF metadata (title, author, keywords, dates) is separate from page content and can inadvertently expose information if left unedited.",
+    "Extracting an embedded image pulls it at original resolution — copying from a viewer often grabs a lower-quality render.",
+    "A flattened PDF form has its fields converted to static content and can no longer be edited — that's usually deliberate.",
+    "Editing metadata never changes what's printed or displayed on the page itself.",
+  ],
+  "compressing-comparing-and-flattening-pdfs-when-each-matters": [
+    "PDF compression mainly recompresses embedded images — text stays sharp regardless of compression level since it's vector data.",
+    "Automated PDF comparison catches small, easy-to-miss changes — like an altered figure or date — that a skim-read often won't.",
+    "Flattening converts form fields and annotations into permanent static content, and the change isn't reversible.",
+    "These three tools map to a document's lifecycle: compare during review, flatten once final, compress before sending.",
+    "Comparing a scanned PDF against a digital one usually needs OCR first, since a scan has no directly readable text layer.",
+  ],
+  "how-word-unscramblers-and-anagram-solvers-actually-work": [
+    "Word unscramblers, anagram solvers, and Scrabble finders all run the same permutation-against-a-dictionary logic with different rules.",
+    "An anagram must use every provided letter exactly once — a partial match doesn't count, unlike a general word unscrambler.",
+    "Efficient solvers prune the search using the dictionary itself rather than generating every possible letter permutation first.",
+    "Which dictionary a tool checks against matters more than the algorithm — Scrabble word lists include valid plays a general dictionary wouldn't.",
+    "Word lists differ slightly between platforms, so a word valid in one game can come back as invalid in a generic checker.",
+  ],
+  "how-to-solve-wordle-faster-and-crack-any-crossword-clue": [
+    "Wordle feedback (green/yellow/gray) filters the full valid-word list down to only words consistent with everything guessed so far.",
+    "Repeated letters in Wordle answers trip up manual solving — a solver correctly handles a yellow letter that's also gray elsewhere.",
+    "Crossword pattern matching narrows candidates using known crossing letters, even before the clue's wordplay is solved.",
+    "A 5-letter English word is one of a few thousand realistic candidates, not one of 26⁵ possibilities, because letter patterns are constrained.",
+    "Pattern matching alone doesn't parse cryptic clue wordplay — it narrows the field while the solver works out the rest separately.",
+  ],
+  "making-word-puzzles-for-classrooms-and-game-nights": [
+    "Word scrambles require active recall of correct spelling, while word searches offer lower-pressure recognition-based reinforcement.",
+    "Word searches need no rules explanation, making them useful for mixed-age groups and waiting-room activities.",
+    "A random word generator is the open-ended building block behind writing prompts, party games, and custom scramble or search word lists.",
+    "Grid size and hidden-word directions control word search difficulty; word length and letter count control scramble difficulty.",
+    "Both the scramble and search makers accept a custom word list, useful for tying a puzzle to a specific lesson or vocabulary set.",
+  ],
 };
 
 // ─── Category styling ─────────────────────────────────────────────────────────
 const CATEGORY_COLORS: Record<string, { pill: string }> = {
   Security: { pill: "bg-red-100 text-red-700" },
+  Document: { pill: "bg-slate-100 text-slate-700" },
   Developer: { pill: "bg-indigo-100 text-indigo-700" },
   Writing: { pill: "bg-purple-100 text-purple-700" },
   "Social Media": { pill: "bg-pink-100 text-pink-700" },
