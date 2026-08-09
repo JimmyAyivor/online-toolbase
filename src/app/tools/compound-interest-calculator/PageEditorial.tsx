@@ -13,7 +13,7 @@ const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 
 const TOOL_URL =
-  "https://onlinetoolbase.com/tools/compound-interest-calculator";
+  "https://www.onlinetoolbase.com/tools/compound-interest-calculator";
 const TOOL_NAME = "Compound Interest Calculator";
 
 // ─── QR Modal ────────────────────────────────────────────────────────────────

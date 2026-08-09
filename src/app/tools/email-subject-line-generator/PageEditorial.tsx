@@ -8,7 +8,7 @@ const SLOT_BELOW_TOOL =
 const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 const TOOL_URL =
-  "https://onlinetoolbase.com/tools/email-subject-line-generator";
+  "https://www.onlinetoolbase.com/tools/email-subject-line-generator";
 const TOOL_NAME = "Email Subject Line Generator";
 
 function QRModal({ onClose }: { onClose: () => void }) {

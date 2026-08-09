@@ -16,7 +16,7 @@ import { tools } from "@/lib/tools";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "acronym-generator");
-const SITE_URL = "https://onlinetoolbase.com";
+const SITE_URL = "https://www.onlinetoolbase.com";
 const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {

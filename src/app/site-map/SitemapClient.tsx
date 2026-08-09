@@ -468,7 +468,7 @@ export default function SitemapClient({
         <div className="sm-hero">
           <h1>Visual Sitemap</h1>
           <p>
-            onlinetoolbase.com — {totalTools} tools across {totalCategories}{" "}
+            https://www.onlinetoolbase.com — {totalTools} tools across {totalCategories}{" "}
             categories
           </p>
         </div>
@@ -549,7 +549,7 @@ export default function SitemapClient({
           {/* ══ TREE VIEW ══════════════════════════════════════════════════ */}
           {view === "tree" && (
             <div className="tree-wrap">
-              <div className="tree-root">⚡ onlinetoolbase.com</div>
+              <div className="tree-root">⚡ https://www.onlinetoolbase.com</div>
               <div className="tree-vline" />
               <div className="tree-branch-row">
                 {displayedCategories.map((cat) => (

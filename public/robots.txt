@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://onlinetoolbase.com/sitemap.xml
+Sitemap: https://www.onlinetoolbase.com/sitemap.xml

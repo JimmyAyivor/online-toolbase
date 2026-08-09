@@ -6,11 +6,11 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import GlobalMonetization from "@/components/GlobalMonetization";
 import CookieBanner from "@/components/CookieBanner";
+import { tools } from "@/lib/tools";
 import "./globals.css";
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
-
+const TOOL_COUNT = tools.length;
+const SITE_URL = "https://www.onlinetoolbase.com";
 const SITE_NAME = "OnlineToolBase";
 const TWITTER = "@onlinetoolbase";
 
@@ -32,10 +32,6 @@ export const metadata: Metadata = {
   keywords:
     "Free Online Calculators, PDF Tools & More, free calculators, free converters, free generators, online utilities, BMI calculator, currency converter, QR code generator, password generator, word counter, unit converter",
 
-  alternates: {
-    canonical: SITE_URL,
-  },
-
   robots: {
     index: true,
     follow: true,
@@ -51,9 +47,9 @@ export const metadata: Metadata = {
     type: "website",
     siteName: SITE_NAME,
     url: SITE_URL,
-    title: `${SITE_NAME} — 162+ Free Calculators, Converters & Generators`,
+    title: `${SITE_NAME} — ${TOOL_COUNT}+ Free Calculators, Converters & Generators`,
     description:
-      "130+ free browser-based tools. No signup, no download, no cost — ever.",
+      `${TOOL_COUNT} free browser-based tools. No signup, no download, no cost — ever.`,
     locale: "en_US",
     images: [
       {
@@ -69,9 +65,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: TWITTER,
     creator: TWITTER,
-    title: `${SITE_NAME} — 162+ Free Calculators, PDF Tools, Converters & Generators`,
+    title: `${SITE_NAME} — ${TOOL_COUNT}+ Free Calculators, PDF Tools, Converters & Generators`,
     description:
-      "162+ Calculators, PDF Tools & More. No signup required.",
+      `${TOOL_COUNT}+ Calculators, PDF Tools & More. No signup required.`,
   },
 
   authors: [{ name: SITE_NAME, url: SITE_URL }],

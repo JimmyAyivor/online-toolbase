@@ -16,7 +16,7 @@ import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "hourly-to-salary-calculator");
-const SITE_URL = "https://onlinetoolbase.com";
+const SITE_URL = "https://www.onlinetoolbase.com";
 const SITE_NAME = "OnlineToolBase";
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";

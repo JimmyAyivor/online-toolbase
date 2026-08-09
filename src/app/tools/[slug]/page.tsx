@@ -19,7 +19,7 @@ interface Props {
 /* ─── Helpers ────────────────────────────────────────────────────────────── */
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
+  process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.onlinetoolbase.com";
 const SITE_NAME = "OnlineToolBase";
 
 function slugify(str: string) {

@@ -1,7 +1,7 @@
 // src/app/category/page.tsx
 import type { Metadata } from "next";
 import Link from "next/link";
-const SITE_URL = "https://onlinetoolbase.com";
+const SITE_URL = "https://www.onlinetoolbase.com";
 const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {

@@ -16,7 +16,7 @@ import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "percentage-calculator");
 
-const SITE_URL = "https://onlinetoolbase.com";
+const SITE_URL = "https://www.onlinetoolbase.com";
 const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import AboutClient from "./AboutClient";
 import { tools } from "@/lib/tools";
 const SITE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
+  process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.onlinetoolbase.com";
 const TOOL_COUNT = tools.length;
 export const metadata: Metadata = {
   title: "About Us",

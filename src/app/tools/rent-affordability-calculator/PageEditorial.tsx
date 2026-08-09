@@ -6,7 +6,7 @@ const SLOT_BELOW_TOOL =
 const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 const TOOL_URL =
-  "https://onlinetoolbase.com/tools/rent-affordability-calculator";
+  "https://www.onlinetoolbase.com/tools/rent-affordability-calculator";
 const TOOL_NAME = "Rent Affordability Calculator";
 function QRModal({ onClose }: { onClose: () => void }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -54,7 +54,7 @@ function ShareBar() {
   const [qrOpen, setQrOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const shareText = encodeURIComponent(
-    "Free rent affordability calculator at onlinetoolbase.com",
+    "Free rent affordability calculator at https://www.onlinetoolbase.com",
   );
   const shareUrl = encodeURIComponent(TOOL_URL);
   const copyLink = () => {

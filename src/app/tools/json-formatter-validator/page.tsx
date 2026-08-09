@@ -16,7 +16,7 @@ import { tools } from "@/lib/tools";
 
 const tool = tools.find((t) => t.slug === "json-formatter-validator");
 
-const SITE_URL = "https://onlinetoolbase.com";
+const SITE_URL = "https://www.onlinetoolbase.com";
 const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {

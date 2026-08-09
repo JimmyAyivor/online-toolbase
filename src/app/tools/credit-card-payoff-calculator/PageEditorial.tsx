@@ -8,7 +8,7 @@ const SLOT_BELOW_TOOL =
 const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 const TOOL_URL =
-  "https://onlinetoolbase.com/tools/credit-card-payoff-calculator";
+  "https://www.onlinetoolbase.com/tools/credit-card-payoff-calculator";
 const TOOL_NAME = "Credit Card Payoff Calculator";
 
 function QRModal({ onClose }: { onClose: () => void }) {

@@ -32,7 +32,7 @@ import { blogPosts } from "@/app/blog/blog-posts";
 // ─── Config ───────────────────────────────────────────────────────────────────
 
 const SITE_URL = (
-  process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com"
+  process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.onlinetoolbase.com"
 ).replace(/\/$/, "");
 const INDEX_KEY = process.env.INDEXNOW_KEY ?? "";
 const KEY_FILE = `${SITE_URL}/${INDEX_KEY}.txt`;

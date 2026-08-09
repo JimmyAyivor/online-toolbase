@@ -7,7 +7,7 @@ const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
 const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
-const TOOL_URL = "https://onlinetoolbase.com/tools/meeting-cost-calculator";
+const TOOL_URL = "https://www.onlinetoolbase.com/tools/meeting-cost-calculator";
 const TOOL_NAME = "Meeting Cost Calculator";
 
 function QRModal({ onClose }: { onClose: () => void }) {
@@ -57,7 +57,7 @@ function ShareBar() {
   const [qrOpen, setQrOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const shareText = encodeURIComponent(
-    "Free meeting cost calculator — try it at onlinetoolbase.com",
+    "Free meeting cost calculator — try it at https://www.onlinetoolbase.com",
   );
   const shareUrl = encodeURIComponent(TOOL_URL);
   const copyLink = () => {

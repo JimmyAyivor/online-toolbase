@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const SITE_URL = "https://onlinetoolbase.com";
+const SITE_URL = "https://www.onlinetoolbase.com";
 const SITE_NAME = "OnlineToolBase";
 const LAST_UPDATED = "1 March 2026";
 const CONTACT_EMAIL = "privacy@onlinetoolbase.com";

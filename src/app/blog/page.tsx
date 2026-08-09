@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { blogPosts } from "./blog-posts";
 
-const SITE_URL = "https://onlinetoolbase.com";
+const SITE_URL = "https://www.onlinetoolbase.com";
 const SITE_NAME = "OnlineToolBase";
 
 export const metadata: Metadata = {

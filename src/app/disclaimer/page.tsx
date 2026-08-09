@@ -9,7 +9,7 @@ import LegalLayout, {
 } from "@/components/LegalLayout";
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
-const SITE_URL = "https://onlinetoolbase.com";
+const SITE_URL = "https://www.onlinetoolbase.com";
 const SITE_NAME = "OnlineToolBase";
 const LAST_UPDATED = "January 22, 2024";
 

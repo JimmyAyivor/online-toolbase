@@ -3,8 +3,7 @@ import type { MetadataRoute } from "next";
 import { tools } from "@/lib/tools";
 import { blogPosts } from "@/app/blog/blog-posts";
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-if (!baseUrl) throw new Error("NEXT_PUBLIC_BASE_URL is not set");
+const baseUrl = "https://www.onlinetoolbase.com";
 
 // Tool pages get a stable last-modified date rather than `new Date()` on every
 // build — Google ignores lastModified when it changes on every crawl.

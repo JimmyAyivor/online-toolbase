@@ -5,7 +5,7 @@ const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
 const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
-const TOOL_URL = "https://onlinetoolbase.com/tools/flip-text-generator";
+const TOOL_URL = "https://www.onlinetoolbase.com/tools/flip-text-generator";
 const TOOL_NAME = "Flip Text Generator";
 function QRModal({ onClose }: { onClose: () => void }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -53,7 +53,7 @@ function ShareBar() {
   const [qrOpen, setQrOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const shareText = encodeURIComponent(
-    "Free flip text generator at onlinetoolbase.com",
+    "Free flip text generator at https://www.onlinetoolbase.com",
   );
   const shareUrl = encodeURIComponent(TOOL_URL);
   const copyLink = () => {

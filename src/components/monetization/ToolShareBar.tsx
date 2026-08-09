@@ -15,7 +15,7 @@
 
 import { useState, useEffect } from "react";
 
-const SITE_URL = "https://onlinetoolbase.com";
+const SITE_URL = "https://www.onlinetoolbase.com";
 
 interface Props {
   toolSlug: string;

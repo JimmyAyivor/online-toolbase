@@ -9,7 +9,7 @@ const SLOT_BELOW_TOOL =
 const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
 const TOOL_URL =
-  "https://onlinetoolbase.com/tools/youtube-title-description-generator";
+  "https://www.onlinetoolbase.com/tools/youtube-title-description-generator";
 const TOOL_NAME = "YouTube Title & Description Generator";
 
 // ─── QR Modal ────────────────────────────────────────────────────────────────

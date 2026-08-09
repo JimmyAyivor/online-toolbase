@@ -1,10 +1,10 @@
 // src/app/feed.xml/route.ts
 // Generates a valid RSS 2.0 feed from all blog posts.
-// Accessible at: https://onlinetoolbase.com/feed.xml
+// Accessible at: https://www.onlinetoolbase.com/feed.xml
 
 import { blogPosts } from "@/app/blog/blog-posts";
 
-const SITE_URL = "https://onlinetoolbase.com";
+const SITE_URL = "https://www.onlinetoolbase.com";
 const SITE_NAME = "OnlineToolBase";
 const SITE_DESCRIPTION =
   "Practical guides on productivity, writing, security, developer tools, social media, finance, health, and more — written to help you work smarter with Calculators, Pdf Tools & More.";

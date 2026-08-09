@@ -1,0 +1,633 @@
+name: 🚀 Deploy (OCI Standalone)
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: 20
+  APP_NAME: online-tool-base
+  BASE_DIR: /home/opc/apps
+  RELEASES_DIR: /home/opc/apps/releases
+  CURRENT_LINK: /home/opc/apps/current
+  ECOSYSTEM_FILE: /home/opc/apps/ecosystem.config.js
+
+jobs:
+  # ============================================================
+  # 1. TYPECHECK
+  # ============================================================
+  typecheck:
+    name: 🔍 TypeScript Check
+    runs-on: ubuntu-latest
+
+    env:
+      NEXT_PUBLIC_BASE_URL: https://www.onlinetoolbase.com
+
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: 📦 Install dependencies
+        run: |
+          npm ci \
+            --include=dev \
+            --legacy-peer-deps \
+            --no-audit \
+            --no-fund
+
+      - name: 🔍 TypeScript
+        run: npm run typecheck
+
+  # ============================================================
+  # 2. BUILD
+  # ============================================================
+  build:
+    name: 🏗 Build Production
+    needs: typecheck
+    runs-on: ubuntu-latest
+
+    env:
+      NEXT_PUBLIC_BASE_URL: https://www.onlinetoolbase.com
+      NODE_OPTIONS: --max-old-space-size=4096
+
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: 📦 Install dependencies
+        run: |
+          npm ci \
+            --include=dev \
+            --legacy-peer-deps \
+            --no-audit \
+            --no-fund
+
+      - name: 🔎 Verify TypeScript
+        run: |
+          set -euo pipefail
+
+          echo "Node: $(node --version)"
+          echo "NPM:  $(npm --version)"
+
+          npm ls typescript
+
+          test -x node_modules/.bin/tsc
+
+          echo "TypeScript:"
+          node -e "console.log(require('typescript').version)"
+
+      - name: 🏗 Build Next.js
+        env:
+          NODE_ENV: production
+        run: npm run build -- --webpack
+
+      - name: 🔎 Validate standalone build
+        run: |
+          set -euo pipefail
+
+          echo "Checking standalone output..."
+
+          test -d .next/standalone
+          test -f .next/standalone/server.js
+          test -d .next/static
+
+          echo "✅ .next/standalone"
+          echo "✅ server.js"
+          echo "✅ .next/static"
+
+      # ========================================================
+      # Prepare minimal production artifact
+      # ========================================================
+      - name: 📦 Prepare deployment artifact
+        run: |
+          set -euo pipefail
+
+          rm -rf deploy
+          mkdir -p deploy/.next
+
+          echo "Copying standalone server..."
+          cp -a .next/standalone/. deploy/
+
+          echo "Copying static assets..."
+          cp -a .next/static deploy/.next/static
+
+          if [ -d public ]; then
+            echo "Copying public assets..."
+            cp -a public deploy/public
+          fi
+
+          echo ""
+          echo "Validating artifact..."
+
+          test -f deploy/server.js
+          test -d deploy/.next/static
+
+          if [ -d public ]; then
+            test -d deploy/public
+          fi
+
+          echo ""
+          echo "Artifact size:"
+          du -sh deploy
+
+      - name: 🗜 Compress artifact
+        run: |
+          set -euo pipefail
+
+          tar \
+            -C deploy \
+            -czf release.tar.gz \
+            .
+
+          ls -lh release.tar.gz
+
+      - name: 📤 Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-release
+          path: release.tar.gz
+          retention-days: 1
+
+  # ============================================================
+  # 3. DEPLOY TO OCI
+  # ============================================================
+  deploy:
+    name: 🚀 Deploy to OCI
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: production-release
+
+      - name: 🔐 Prepare SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+          ssh-keyscan -H "${{ secrets.SSH_HOST }}" \
+            >> ~/.ssh/known_hosts
+
+      - name: 🆔 Generate release ID
+        run: |
+          RELEASE_ID="$(date -u +%Y%m%d%H%M%S)-${GITHUB_SHA::7}"
+          echo "RELEASE_ID=$RELEASE_ID" >> "$GITHUB_ENV"
+
+          echo "Release: $RELEASE_ID"
+
+      # ========================================================
+      # Upload
+      # ========================================================
+      - name: 📤 Upload release
+        run: |
+          set -euo pipefail
+
+          ssh \
+            -i ~/.ssh/deploy_key \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "mkdir -p '${BASE_DIR}/incoming/${RELEASE_ID}'"
+
+          scp \
+            -i ~/.ssh/deploy_key \
+            release.tar.gz \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${BASE_DIR}/incoming/${RELEASE_ID}/release.tar.gz"
+
+      # ========================================================
+      # Deploy
+      # ========================================================
+      - name: 🚀 Activate standalone release
+        run: |
+          set -euo pipefail
+
+          ssh \
+            -i ~/.ssh/deploy_key \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "RELEASE_ID='${RELEASE_ID}' \
+             BASE_DIR='${BASE_DIR}' \
+             RELEASES_DIR='${RELEASES_DIR}' \
+             CURRENT_LINK='${CURRENT_LINK}' \
+             ECOSYSTEM_FILE='${ECOSYSTEM_FILE}' \
+             APP_NAME='${APP_NAME}' \
+             bash -s" <<'EOF'
+
+          set -euo pipefail
+
+          NEW_RELEASE="$RELEASES_DIR/$RELEASE_ID"
+          INCOMING="$BASE_DIR/incoming/$RELEASE_ID"
+          RELEASE_TARBALL="$INCOMING/release.tar.gz"
+
+          PREVIOUS_RELEASE=""
+          PREVIOUS_PM2_MODE="unknown"
+
+          echo "========================================"
+          echo "OCI DEPLOYMENT"
+          echo "========================================"
+
+          echo "Release:"
+          echo "$RELEASE_ID"
+
+          # ----------------------------------------------------
+          # Capture previous release
+          # ----------------------------------------------------
+
+          if [ -L "$CURRENT_LINK" ]; then
+            PREVIOUS_RELEASE="$(readlink -f "$CURRENT_LINK" || true)"
+          fi
+
+          echo ""
+          echo "Previous release:"
+          echo "${PREVIOUS_RELEASE:-none}"
+
+          # ----------------------------------------------------
+          # Detect current PM2 definition
+          # ----------------------------------------------------
+
+          if pm2 describe "$APP_NAME" > /dev/null 2>&1; then
+
+            CURRENT_SCRIPT="$(pm2 jlist | node -e '
+              let data="";
+              process.stdin.on("data",d=>data+=d);
+              process.stdin.on("end",()=>{
+                const apps=JSON.parse(data);
+                const app=apps.find(a=>a.name==="online-tool-base");
+                console.log(app?.pm2_env?.pm_exec_path || "");
+              });
+            ')"
+
+            if [ "$CURRENT_SCRIPT" = "/usr/bin/npm" ]; then
+              PREVIOUS_PM2_MODE="npm"
+            else
+              PREVIOUS_PM2_MODE="standalone"
+            fi
+
+            echo ""
+            echo "Previous PM2 script:"
+            echo "${CURRENT_SCRIPT:-unknown}"
+
+            echo "Previous PM2 mode:"
+            echo "$PREVIOUS_PM2_MODE"
+
+          else
+            echo ""
+            echo "No PM2 process currently exists."
+          fi
+
+          # ----------------------------------------------------
+          # Failure cleanup
+          # ----------------------------------------------------
+
+          cleanup_failed_release() {
+            echo ""
+            echo "❌ Deployment failed."
+
+            rm -rf "$NEW_RELEASE"
+            rm -rf "$INCOMING"
+
+            echo "Incomplete release removed."
+          }
+
+          trap cleanup_failed_release ERR
+
+          # ----------------------------------------------------
+          # Validate environment
+          # ----------------------------------------------------
+
+          if [ ! -f "$BASE_DIR/.env" ]; then
+            echo "❌ Missing $BASE_DIR/.env"
+            exit 1
+          fi
+
+          if [ ! -f "$ECOSYSTEM_FILE" ]; then
+            echo "❌ Missing $ECOSYSTEM_FILE"
+            exit 1
+          fi
+
+          # ----------------------------------------------------
+          # Create release
+          # ----------------------------------------------------
+
+          mkdir -p "$RELEASES_DIR"
+          mkdir -p "$NEW_RELEASE"
+
+          echo ""
+          echo "📦 Extracting release..."
+
+          tar \
+            -xzf "$RELEASE_TARBALL" \
+            -C "$NEW_RELEASE"
+
+          # ----------------------------------------------------
+          # Validate artifact
+          # ----------------------------------------------------
+
+          echo ""
+          echo "========================================"
+          echo "RELEASE VALIDATION"
+          echo "========================================"
+
+          test -f "$NEW_RELEASE/server.js"
+          test -d "$NEW_RELEASE/.next/static"
+
+          echo "✅ server.js found"
+          echo "✅ .next/static found"
+
+          if [ -d "$NEW_RELEASE/public" ]; then
+            echo "✅ public directory found"
+          fi
+
+          echo ""
+          echo "Release size:"
+          du -sh "$NEW_RELEASE"
+
+          # ----------------------------------------------------
+          # Switch current
+          # ----------------------------------------------------
+
+          echo ""
+          echo "🔗 Switching current..."
+
+          ln -sfn "$NEW_RELEASE" "$CURRENT_LINK"
+
+          echo "Current:"
+          readlink -f "$CURRENT_LINK"
+
+          test -f "$CURRENT_LINK/server.js"
+
+          # ----------------------------------------------------
+          # IMPORTANT:
+          # Recreate PM2 process definition.
+          #
+          # This is necessary because an existing PM2 process
+          # previously created with npm start will NOT change
+          # its script simply because ecosystem.config.js changed.
+          # ----------------------------------------------------
+
+          echo ""
+          echo "🚀 Migrating PM2 to standalone server..."
+
+          pm2 delete "$APP_NAME" 2>/dev/null || true
+
+          pm2 start "$ECOSYSTEM_FILE"
+
+          pm2 save
+
+          # ----------------------------------------------------
+          # Local health check
+          # ----------------------------------------------------
+
+          echo ""
+          echo "========================================"
+          echo "LOCAL HEALTH CHECK"
+          echo "========================================"
+
+          HEALTHY=0
+
+          for i in $(seq 1 20); do
+
+            HTTP_CODE="$(
+              curl \
+                -s \
+                -o /dev/null \
+                -w "%{http_code}" \
+                --max-time 5 \
+                http://127.0.0.1:3000/ \
+                || true
+            )"
+
+            if [ "$HTTP_CODE" = "200" ]; then
+              echo "✅ Local health check passed"
+              HEALTHY=1
+              break
+            fi
+
+            echo "Attempt $i/20: HTTP $HTTP_CODE"
+
+            sleep 2
+          done
+
+          # ----------------------------------------------------
+          # Rollback
+          # ----------------------------------------------------
+
+          if [ "$HEALTHY" -ne 1 ]; then
+
+            echo ""
+            echo "❌ Standalone release failed."
+
+            echo ""
+            echo "PM2 logs:"
+            pm2 logs "$APP_NAME" --lines 50 --nostream || true
+
+            # --------------------------------------------------
+            # Restore previous release
+            # --------------------------------------------------
+
+            if [ -n "$PREVIOUS_RELEASE" ] && \
+               [ -d "$PREVIOUS_RELEASE" ]; then
+
+              echo ""
+              echo "↩️ Restoring previous release..."
+
+              ln -sfn \
+                "$PREVIOUS_RELEASE" \
+                "$CURRENT_LINK"
+
+              # ------------------------------------------------
+              # Restore old PM2 process
+              # ------------------------------------------------
+
+              pm2 delete "$APP_NAME" 2>/dev/null || true
+
+              if [ "$PREVIOUS_PM2_MODE" = "npm" ]; then
+
+                echo "Restoring npm start process..."
+
+                pm2 start npm \
+                  --name "$APP_NAME" \
+                  --cwd "$CURRENT_LINK" \
+                  -- start
+
+              else
+
+                echo "Restoring standalone PM2 process..."
+
+                pm2 start "$ECOSYSTEM_FILE"
+
+              fi
+
+              pm2 save
+
+              # ------------------------------------------------
+              # Verify rollback
+              # ------------------------------------------------
+
+              echo ""
+              echo "⏳ Checking rollback..."
+
+              ROLLBACK_HEALTHY=0
+
+              for i in $(seq 1 15); do
+
+                HTTP_CODE="$(
+                  curl \
+                    -s \
+                    -o /dev/null \
+                    -w "%{http_code}" \
+                    --max-time 5 \
+                    http://127.0.0.1:3000/ \
+                    || true
+                )"
+
+                if [ "$HTTP_CODE" = "200" ]; then
+                  echo "✅ Rollback successful"
+                  ROLLBACK_HEALTHY=1
+                  break
+                fi
+
+                echo "Rollback attempt $i/15: HTTP $HTTP_CODE"
+
+                sleep 2
+              done
+
+              if [ "$ROLLBACK_HEALTHY" -ne 1 ]; then
+                echo "❌ ROLLBACK FAILED"
+                exit 1
+              fi
+
+            else
+
+              echo "⚠️ No previous release available."
+
+            fi
+
+            rm -rf "$NEW_RELEASE"
+            rm -rf "$INCOMING"
+
+            exit 1
+          fi
+
+          # ----------------------------------------------------
+          # Successful deployment
+          # ----------------------------------------------------
+
+          echo ""
+          echo "========================================"
+          echo "DEPLOYMENT HEALTHY"
+          echo "========================================"
+
+          pm2 status "$APP_NAME"
+
+          echo ""
+          echo "Active release:"
+          readlink -f "$CURRENT_LINK"
+
+          # ----------------------------------------------------
+          # Cleanup upload
+          # ----------------------------------------------------
+
+          rm -rf "$INCOMING"
+
+          # ----------------------------------------------------
+          # Keep 3 releases
+          # ----------------------------------------------------
+
+          echo ""
+          echo "🧹 Cleaning old releases..."
+
+          cd "$RELEASES_DIR"
+
+          ls -dt -- */ 2>/dev/null \
+            | tail -n +4 \
+            | xargs -r rm -rf
+
+          echo ""
+          echo "✅ Deployment completed successfully."
+
+          EOF
+
+      # ========================================================
+      # 4. EXTERNAL HEALTH CHECK
+      # ========================================================
+      - name: 🌐 External Health Check
+        run: |
+          set -euo pipefail
+
+          echo "========================================"
+          echo "EXTERNAL HEALTH CHECK"
+          echo "========================================"
+
+          for i in $(seq 1 12); do
+
+            HTTP="$(
+              curl \
+                -L \
+                -s \
+                -o /dev/null \
+                -w "%{http_code}" \
+                --max-time 15 \
+                "${{ secrets.SITE_URL }}" \
+                || true
+            )"
+
+            if [ "$HTTP" = "200" ]; then
+              echo "✅ Production site healthy"
+              exit 0
+            fi
+
+            echo "Attempt $i/12: HTTP $HTTP"
+
+            sleep 5
+          done
+
+          echo "❌ External health check failed"
+
+          exit 1
+
+      # ========================================================
+      # 5. INDEXNOW
+      # ========================================================
+      - name: 📣 Notify IndexNow
+        if: success()
+        run: |
+          set -euo pipefail
+
+          echo "📣 Notifying IndexNow..."
+
+          curl \
+            --fail-with-body \
+            --max-time 30 \
+            -X POST \
+            "${{ secrets.SITE_URL }}/api/indexnow" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.INDEXNOW_API_SECRET }}" \
+            -d '{"mode":"full-site"}' \
+            || echo "⚠️ IndexNow notification failed; deployment remains successful."

@@ -14,7 +14,7 @@ const BmiCalculatorClient = dynamic(() => import("./BmiCalculatorClient"), {
 });
 
 const tool = tools.find((t) => t.slug === "bmi-calculator");
-const SITE_URL = "https://onlinetoolbase.com";
+const SITE_URL = "https://www.onlinetoolbase.com";
 const SITE_NAME = "OnlineToolBase";
 
 // ─── Slot IDs from env ────────────────────────────────────────────────────────

@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Advertise on Calculators, Pdf Tools & More — Reach 130+ Tool Pages",
   description:
-    "Sponsor a placement on onlinetoolbase.com. Reach developers, writers, finance professionals, and productivity enthusiasts using our 130+ free tools.",
+    "Sponsor a placement on https://www.onlinetoolbase.com. Reach developers, writers, finance professionals, and productivity enthusiasts using our 130+ free tools.",
   robots: { index: true, follow: true },
 };
 

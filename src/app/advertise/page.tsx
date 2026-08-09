@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import AdvertiseClient from "./AdvertiseClient";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
+  process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.onlinetoolbase.com";
 
 export const metadata: Metadata = {
   title:

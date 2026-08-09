@@ -1,6 +1,6 @@
 // src/ads/ad-config.ts
 //
-// Sponsored ad configuration for onlinetoolbase.com
+// Sponsored ad configuration for https://www.onlinetoolbase.com
 //
 // ── Revenue model ────────────────────────────────────────────────────────────
 // Charge brands a flat monthly CPM or fixed weekly fee for placement.

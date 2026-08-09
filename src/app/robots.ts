@@ -1,8 +1,7 @@
 // src/app/robots.ts
 import type { MetadataRoute } from "next";
 
-const baseUrl =
-  process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
+const baseUrl = "https://www.onlinetoolbase.com";
 
 export default function robots(): MetadataRoute.Robots {
   return {

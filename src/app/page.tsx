@@ -10,7 +10,7 @@ import RecentBlogPosts from "@/components/RecentBlogPosts";
 /* ─── Config ─────────────────────────────────────────────────────────────── */
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
+  process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.onlinetoolbase.com";
 const SITE_NAME = "OnlineToolBase";
 const TWITTER = "@onlinetoolbase";
 const TOOL_COUNT = tools.length; // real count, not hardcoded
