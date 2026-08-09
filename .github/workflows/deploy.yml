@@ -1,4 +1,4 @@
-name: 🚀 Deploy (Fast Standalone)
+name: 🚀 Deploy (OCI Standalone)
 
 on:
   push:
@@ -42,16 +42,21 @@ jobs:
           cache: npm
 
       - name: 📦 Install dependencies
-        run: npm ci --include=dev --legacy-peer-deps --no-audit --no-fund
+        run: |
+          npm ci \
+            --include=dev \
+            --legacy-peer-deps \
+            --no-audit \
+            --no-fund
 
       - name: 🔍 TypeScript
         run: npm run typecheck
 
   # ============================================================
-  # 2. BUILD PRODUCTION ARTIFACT
+  # 2. BUILD
   # ============================================================
   build:
-    name: 🏗 Build Production Artifact
+    name: 🏗 Build Production
     needs: typecheck
     runs-on: ubuntu-latest
 
@@ -70,29 +75,25 @@ jobs:
           cache: npm
 
       - name: 📦 Install dependencies
-        run: npm ci --include=dev --legacy-peer-deps --no-audit --no-fund
+        run: |
+          npm ci \
+            --include=dev \
+            --legacy-peer-deps \
+            --no-audit \
+            --no-fund
 
-      - name: 🔎 Verify build dependencies
+      - name: 🔎 Verify TypeScript
         run: |
           set -euo pipefail
 
-          echo "========================================"
-          echo "Environment"
-          echo "========================================"
-
           echo "Node: $(node --version)"
           echo "NPM:  $(npm --version)"
-
-          echo ""
-          echo "========================================"
-          echo "TypeScript"
-          echo "========================================"
 
           npm ls typescript
 
           test -x node_modules/.bin/tsc
 
-          echo "TypeScript version:"
+          echo "TypeScript:"
           node -e "console.log(require('typescript').version)"
 
       - name: 🏗 Build Next.js
@@ -100,50 +101,43 @@ jobs:
           NODE_ENV: production
         run: npm run build -- --webpack
 
-      - name: 🔎 Validate Next.js standalone output
+      - name: 🔎 Validate standalone build
         run: |
           set -euo pipefail
 
-          echo "========================================"
-          echo "Validating standalone build"
-          echo "========================================"
+          echo "Checking standalone output..."
 
           test -d .next/standalone
           test -f .next/standalone/server.js
           test -d .next/static
 
-          echo "✅ .next/standalone exists"
-          echo "✅ server.js exists"
-          echo "✅ .next/static exists"
+          echo "✅ .next/standalone"
+          echo "✅ server.js"
+          echo "✅ .next/static"
 
+      # ========================================================
+      # Prepare minimal production artifact
+      # ========================================================
       - name: 📦 Prepare deployment artifact
-        shell: bash
         run: |
           set -euo pipefail
-
-          echo "========================================"
-          echo "Preparing deployment artifact"
-          echo "========================================"
 
           rm -rf deploy
           mkdir -p deploy/.next
 
-          echo "📦 Copying standalone server..."
+          echo "Copying standalone server..."
           cp -a .next/standalone/. deploy/
 
-          echo "📦 Copying static assets..."
+          echo "Copying static assets..."
           cp -a .next/static deploy/.next/static
 
-          echo "📦 Copying public assets..."
-
           if [ -d public ]; then
+            echo "Copying public assets..."
             cp -a public deploy/public
           fi
 
           echo ""
-          echo "========================================"
-          echo "Final artifact validation"
-          echo "========================================"
+          echo "Validating artifact..."
 
           test -f deploy/server.js
           test -d deploy/.next/static
@@ -152,18 +146,11 @@ jobs:
             test -d deploy/public
           fi
 
-          echo "✅ server.js found"
-          echo "✅ .next/static found"
-
-          if [ -d public ]; then
-            echo "✅ public directory found"
-          fi
-
           echo ""
           echo "Artifact size:"
           du -sh deploy
 
-      - name: 🗜 Compress deployment artifact
+      - name: 🗜 Compress artifact
         run: |
           set -euo pipefail
 
@@ -172,13 +159,9 @@ jobs:
             -czf release.tar.gz \
             .
 
-          echo "========================================"
-          echo "Compressed artifact"
-          echo "========================================"
-
           ls -lh release.tar.gz
 
-      - name: 📤 Upload production artifact
+      - name: 📤 Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: production-release
@@ -194,7 +177,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Download production artifact
+      - name: 📥 Download artifact
         uses: actions/download-artifact@v4
         with:
           name: production-release
@@ -214,16 +197,17 @@ jobs:
           ssh-keyscan -H "${{ secrets.SSH_HOST }}" \
             >> ~/.ssh/known_hosts
 
-      - name: 📦 Generate release ID
+      - name: 🆔 Generate release ID
         run: |
           RELEASE_ID="$(date -u +%Y%m%d%H%M%S)-${GITHUB_SHA::7}"
-
           echo "RELEASE_ID=$RELEASE_ID" >> "$GITHUB_ENV"
 
-          echo "Release:"
-          echo "$RELEASE_ID"
+          echo "Release: $RELEASE_ID"
 
-      - name: 📁 Prepare OCI upload directory
+      # ========================================================
+      # Upload
+      # ========================================================
+      - name: 📤 Upload release
         run: |
           set -euo pipefail
 
@@ -232,23 +216,15 @@ jobs:
             "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
             "mkdir -p '${BASE_DIR}/incoming/${RELEASE_ID}'"
 
-      - name: 📤 Upload release to OCI
-        run: |
-          set -euo pipefail
-
-          echo "Uploading release artifact..."
-
           scp \
             -i ~/.ssh/deploy_key \
             release.tar.gz \
             "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${BASE_DIR}/incoming/${RELEASE_ID}/release.tar.gz"
 
-          echo "✅ Upload complete"
-
       # ========================================================
-      # 4. ACTIVATE RELEASE
+      # Deploy
       # ========================================================
-      - name: 🚀 Activate release
+      - name: 🚀 Activate standalone release
         run: |
           set -euo pipefail
 
@@ -269,59 +245,89 @@ jobs:
           INCOMING="$BASE_DIR/incoming/$RELEASE_ID"
           RELEASE_TARBALL="$INCOMING/release.tar.gz"
 
+          PREVIOUS_RELEASE=""
+          PREVIOUS_PM2_MODE="unknown"
+
           echo "========================================"
-          echo "OCI Deployment"
+          echo "OCI DEPLOYMENT"
           echo "========================================"
 
           echo "Release:"
           echo "$RELEASE_ID"
 
-          echo "Target:"
-          echo "$NEW_RELEASE"
+          # ----------------------------------------------------
+          # Capture previous release
+          # ----------------------------------------------------
+
+          if [ -L "$CURRENT_LINK" ]; then
+            PREVIOUS_RELEASE="$(readlink -f "$CURRENT_LINK" || true)"
+          fi
+
+          echo ""
+          echo "Previous release:"
+          echo "${PREVIOUS_RELEASE:-none}"
 
           # ----------------------------------------------------
-          # Safety cleanup on failure
+          # Detect current PM2 definition
+          # ----------------------------------------------------
+
+          if pm2 describe "$APP_NAME" > /dev/null 2>&1; then
+
+            CURRENT_SCRIPT="$(pm2 jlist | node -e '
+              let data="";
+              process.stdin.on("data",d=>data+=d);
+              process.stdin.on("end",()=>{
+                const apps=JSON.parse(data);
+                const app=apps.find(a=>a.name==="online-tool-base");
+                console.log(app?.pm2_env?.pm_exec_path || "");
+              });
+            ')"
+
+            if [ "$CURRENT_SCRIPT" = "/usr/bin/npm" ]; then
+              PREVIOUS_PM2_MODE="npm"
+            else
+              PREVIOUS_PM2_MODE="standalone"
+            fi
+
+            echo ""
+            echo "Previous PM2 script:"
+            echo "${CURRENT_SCRIPT:-unknown}"
+
+            echo "Previous PM2 mode:"
+            echo "$PREVIOUS_PM2_MODE"
+
+          else
+            echo ""
+            echo "No PM2 process currently exists."
+          fi
+
+          # ----------------------------------------------------
+          # Failure cleanup
           # ----------------------------------------------------
 
           cleanup_failed_release() {
             echo ""
             echo "❌ Deployment failed."
-            echo "🧹 Cleaning incomplete release..."
 
             rm -rf "$NEW_RELEASE"
+            rm -rf "$INCOMING"
 
-            echo "ℹ️ Existing current release was NOT changed."
+            echo "Incomplete release removed."
           }
 
           trap cleanup_failed_release ERR
 
           # ----------------------------------------------------
-          # Validate upload
-          # ----------------------------------------------------
-
-          if [ ! -f "$RELEASE_TARBALL" ]; then
-            echo "❌ Release artifact not found:"
-            echo "$RELEASE_TARBALL"
-            exit 1
-          fi
-
-          # ----------------------------------------------------
-          # Validate production environment
+          # Validate environment
           # ----------------------------------------------------
 
           if [ ! -f "$BASE_DIR/.env" ]; then
-            echo "❌ Missing production environment:"
-            echo "$BASE_DIR/.env"
+            echo "❌ Missing $BASE_DIR/.env"
             exit 1
           fi
 
-          # ----------------------------------------------------
-          # Validate PM2 ecosystem file
-          # ----------------------------------------------------
-
           if [ ! -f "$ECOSYSTEM_FILE" ]; then
-            echo "❌ Missing PM2 ecosystem file:"
-            echo "$ECOSYSTEM_FILE"
+            echo "❌ Missing $ECOSYSTEM_FILE"
             exit 1
           fi
 
@@ -332,6 +338,7 @@ jobs:
           mkdir -p "$RELEASES_DIR"
           mkdir -p "$NEW_RELEASE"
 
+          echo ""
           echo "📦 Extracting release..."
 
           tar \
@@ -339,23 +346,16 @@ jobs:
             -C "$NEW_RELEASE"
 
           # ----------------------------------------------------
-          # Validate extracted artifact
+          # Validate artifact
           # ----------------------------------------------------
 
           echo ""
           echo "========================================"
-          echo "Release Validation"
+          echo "RELEASE VALIDATION"
           echo "========================================"
 
-          if [ ! -f "$NEW_RELEASE/server.js" ]; then
-            echo "❌ server.js missing"
-            exit 1
-          fi
-
-          if [ ! -d "$NEW_RELEASE/.next/static" ]; then
-            echo "❌ .next/static missing"
-            exit 1
-          fi
+          test -f "$NEW_RELEASE/server.js"
+          test -d "$NEW_RELEASE/.next/static"
 
           echo "✅ server.js found"
           echo "✅ .next/static found"
@@ -369,48 +369,34 @@ jobs:
           du -sh "$NEW_RELEASE"
 
           # ----------------------------------------------------
-          # Record previous release
-          # ----------------------------------------------------
-
-          PREVIOUS_RELEASE=""
-
-          if [ -L "$CURRENT_LINK" ]; then
-            PREVIOUS_RELEASE="$(readlink -f "$CURRENT_LINK" || true)"
-          fi
-
-          if [ -n "$PREVIOUS_RELEASE" ]; then
-            echo ""
-            echo "Previous release:"
-            echo "$PREVIOUS_RELEASE"
-          else
-            echo ""
-            echo "No previous release detected."
-          fi
-
-          # ----------------------------------------------------
-          # Atomic activation
+          # Switch current
           # ----------------------------------------------------
 
           echo ""
-          echo "🔗 Activating new release..."
+          echo "🔗 Switching current..."
 
           ln -sfn "$NEW_RELEASE" "$CURRENT_LINK"
 
-          echo "Current release:"
+          echo "Current:"
           readlink -f "$CURRENT_LINK"
 
+          test -f "$CURRENT_LINK/server.js"
+
           # ----------------------------------------------------
-          # Reload PM2
+          # IMPORTANT:
+          # Recreate PM2 process definition.
+          #
+          # This is necessary because an existing PM2 process
+          # previously created with npm start will NOT change
+          # its script simply because ecosystem.config.js changed.
           # ----------------------------------------------------
 
           echo ""
-          echo "🚀 Restarting PM2..."
+          echo "🚀 Migrating PM2 to standalone server..."
 
-          if pm2 describe "$APP_NAME" > /dev/null 2>&1; then
-            pm2 reload "$ECOSYSTEM_FILE" --update-env
-          else
-            pm2 start "$ECOSYSTEM_FILE"
-          fi
+          pm2 delete "$APP_NAME" 2>/dev/null || true
+
+          pm2 start "$ECOSYSTEM_FILE"
 
           pm2 save
 
@@ -420,7 +406,7 @@ jobs:
 
           echo ""
           echo "========================================"
-          echo "Local Health Check"
+          echo "LOCAL HEALTH CHECK"
           echo "========================================"
 
           HEALTHY=0
@@ -443,38 +429,71 @@ jobs:
               break
             fi
 
-            echo "Attempt $i/20 failed: HTTP $HTTP_CODE"
+            echo "Attempt $i/20: HTTP $HTTP_CODE"
 
             sleep 2
           done
 
           # ----------------------------------------------------
-          # Automatic rollback
+          # Rollback
           # ----------------------------------------------------
 
           if [ "$HEALTHY" -ne 1 ]; then
 
             echo ""
-            echo "❌ New release failed health check."
+            echo "❌ Standalone release failed."
+
+            echo ""
+            echo "PM2 logs:"
+            pm2 logs "$APP_NAME" --lines 50 --nostream || true
+
+            # --------------------------------------------------
+            # Restore previous release
+            # --------------------------------------------------
 
             if [ -n "$PREVIOUS_RELEASE" ] && \
                [ -d "$PREVIOUS_RELEASE" ]; then
 
-              echo "↩️ Rolling back..."
-              echo "$PREVIOUS_RELEASE"
+              echo ""
+              echo "↩️ Restoring previous release..."
 
               ln -sfn \
                 "$PREVIOUS_RELEASE" \
                 "$CURRENT_LINK"
 
-              pm2 reload \
-                "$ECOSYSTEM_FILE" \
-                --update-env \
-                || pm2 restart "$APP_NAME"
+              # ------------------------------------------------
+              # Restore old PM2 process
+              # ------------------------------------------------
+
+              pm2 delete "$APP_NAME" 2>/dev/null || true
+
+              if [ "$PREVIOUS_PM2_MODE" = "npm" ]; then
+
+                echo "Restoring npm start process..."
+
+                pm2 start npm \
+                  --name "$APP_NAME" \
+                  --cwd "$CURRENT_LINK" \
+                  -- start
+
+              else
+
+                echo "Restoring standalone PM2 process..."
+
+                pm2 start "$ECOSYSTEM_FILE"
+
+              fi
 
               pm2 save
 
+              # ------------------------------------------------
+              # Verify rollback
+              # ------------------------------------------------
+
+              echo ""
               echo "⏳ Checking rollback..."
+
+              ROLLBACK_HEALTHY=0
 
               for i in $(seq 1 15); do
 
@@ -490,16 +509,24 @@ jobs:
 
                 if [ "$HTTP_CODE" = "200" ]; then
                   echo "✅ Rollback successful"
+                  ROLLBACK_HEALTHY=1
                   break
                 fi
 
-                echo "Rollback attempt $i/15 failed"
+                echo "Rollback attempt $i/15: HTTP $HTTP_CODE"
 
                 sleep 2
               done
 
+              if [ "$ROLLBACK_HEALTHY" -ne 1 ]; then
+                echo "❌ ROLLBACK FAILED"
+                exit 1
+              fi
+
             else
-              echo "⚠️ No previous release available for rollback."
+
+              echo "⚠️ No previous release available."
+
             fi
 
             rm -rf "$NEW_RELEASE"
@@ -509,16 +536,28 @@ jobs:
           fi
 
           # ----------------------------------------------------
-          # Cleanup upload
+          # Successful deployment
           # ----------------------------------------------------
 
           echo ""
-          echo "🧹 Removing temporary upload..."
+          echo "========================================"
+          echo "DEPLOYMENT HEALTHY"
+          echo "========================================"
+
+          pm2 status "$APP_NAME"
+
+          echo ""
+          echo "Active release:"
+          readlink -f "$CURRENT_LINK"
+
+          # ----------------------------------------------------
+          # Cleanup upload
+          # ----------------------------------------------------
 
           rm -rf "$INCOMING"
 
           # ----------------------------------------------------
-          # Keep last 3 releases
+          # Keep 3 releases
           # ----------------------------------------------------
 
           echo ""
@@ -530,40 +569,20 @@ jobs:
             | tail -n +4 \
             | xargs -r rm -rf
 
-          # ----------------------------------------------------
-          # Final PM2 status
-          # ----------------------------------------------------
-
           echo ""
-          echo "========================================"
-          echo "PM2 Status"
-          echo "========================================"
-
-          pm2 status "$APP_NAME"
-
-          echo ""
-          echo "========================================"
-          echo "Active Release"
-          echo "========================================"
-
-          readlink -f "$CURRENT_LINK"
-
-          echo ""
-          echo "========================================"
-          echo "Deployment Complete"
-          echo "========================================"
+          echo "✅ Deployment completed successfully."
 
           EOF
 
       # ========================================================
-      # 5. EXTERNAL HEALTH CHECK
+      # 4. EXTERNAL HEALTH CHECK
       # ========================================================
       - name: 🌐 External Health Check
         run: |
           set -euo pipefail
 
           echo "========================================"
-          echo "Production Health Check"
+          echo "EXTERNAL HEALTH CHECK"
           echo "========================================"
 
           for i in $(seq 1 12); do
@@ -580,21 +599,21 @@ jobs:
             )"
 
             if [ "$HTTP" = "200" ]; then
-              echo "✅ Production site is healthy"
+              echo "✅ Production site healthy"
               exit 0
             fi
 
-            echo "Attempt $i/12 returned HTTP $HTTP"
+            echo "Attempt $i/12: HTTP $HTTP"
 
             sleep 5
           done
 
-          echo "❌ Production health check failed"
+          echo "❌ External health check failed"
 
           exit 1
 
       # ========================================================
-      # 6. INDEXNOW
+      # 5. INDEXNOW
       # ========================================================
       - name: 📣 Notify IndexNow
         if: success()
