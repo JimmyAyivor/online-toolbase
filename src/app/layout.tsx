@@ -10,26 +10,31 @@ import "./globals.css";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://onlinetoolbase.com";
+
 const SITE_NAME = "OnlineToolBase";
 const TWITTER = "@onlinetoolbase";
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const ADSENSE_PUB_ID = process.env.NEXT_PUBLIC_ADSENSE_PUB_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
-  // Fallback title — individual pages override this with their own title.
-  // Template appends site name: "Age Calculator — Free Online Tool | Calculators, Pdf Tools & More"
   title: {
-    default: `${SITE_NAME} : Free Online Calculators - Math, Fitness, Finance, Science, Pdf Tools`,
+    default:
+      `${SITE_NAME} : Free Online Calculators - Math, Fitness, Finance, Science, PDF Tools`,
     template: `%s | ${SITE_NAME}`,
   },
 
   description:
-    "Free Online Calculators, Pdf Tools & More — free calculators, converters, generators and more. BMI calculator, QR code generator, password generator, currency converter, and hundreds more. No signup, no download, 100% free.",
+    "Free Online Calculators, PDF Tools & More — free calculators, converters, generators and more. BMI calculator, QR code generator, password generator, currency converter, and hundreds more. No signup, no download, 100% free.",
 
   keywords:
-    "Free Online Calculators, Pdf Tools & More, free calculators, free converters, free generators, online utilities, BMI calculator, currency converter, QR code generator, password generator, word counter, unit converter",
+    "Free Online Calculators, PDF Tools & More, free calculators, free converters, free generators, online utilities, BMI calculator, currency converter, QR code generator, password generator, word counter, unit converter",
 
-  alternates: { canonical: SITE_URL },
+  alternates: {
+    canonical: SITE_URL,
+  },
 
   robots: {
     index: true,
@@ -55,7 +60,7 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: `${SITE_NAME} — Calculators, Pdf Tools & More`,
+        alt: `${SITE_NAME} — Calculators, PDF Tools & More`,
       },
     ],
   },
@@ -64,49 +69,69 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: TWITTER,
     creator: TWITTER,
-    title: `${SITE_NAME} — 162+ Free Calculators, Pdf Tools, Converters & Generators`,
-    description: "162+ Calculators, Pdf Tools & More. No signup required.",
+    title: `${SITE_NAME} — 162+ Free Calculators, PDF Tools, Converters & Generators`,
+    description:
+      "162+ Calculators, PDF Tools & More. No signup required.",
   },
 
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
-
-  // Uncomment and fill in once you verify in Google Search Console:
-  // verification: {
-  //   google: "your-google-site-verification-token",
-  //   yandex: "your-yandex-token",
-  //   bing:   "your-bing-token",
-  // },
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased bg-gray-50">
+      <body>
         <SiteHeader />
-        {children}
+
+        <main>{children}</main>
+
         <SiteFooter />
+
         <GlobalMonetization />
-        <Script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_PUB_ID}`}
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
-          `}
-        </Script>
+
         <CookieBanner />
+
+        {/* Google Analytics — intentionally delayed until browser idle */}
+        {GA_ID && (
+          <>
+            <Script
+              id="google-analytics"
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="lazyOnload"
+            />
+
+            <Script
+              id="google-analytics-config"
+              strategy="lazyOnload"
+            >
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}', {
+                  send_page_view: true
+                });
+              `}
+            </Script>
+          </>
+        )}
+
+        {/* AdSense — delayed until browser idle */}
+        {ADSENSE_PUB_ID && (
+          <Script
+            id="google-adsense"
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUB_ID}`}
+            crossOrigin="anonymous"
+            strategy="lazyOnload"
+          />
+        )}
       </body>
     </html>
   );

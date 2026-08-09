@@ -1,4 +1,4 @@
-name: Deploy to Production
+name: 🚀 Deploy (OCI Optimized)
 
 on:
   push:
@@ -10,73 +10,124 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy to server
+      - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          command_timeout: 190m
+          command_timeout: 400m
+
           script: |
-            cd /home/opc/online-tool-base
-            echo "📥 Pulling latest code..."
-            git reset --hard
-            git clean -fd
-            git pull origin main
+            set -euo pipefail
 
-            echo "🧹 Resetting dependencies..."
-            rm -rf node_modules .next package-lock.json
-            npm install --legacy-peer-deps
+            BASE_DIR="/home/opc/apps"
+            RELEASES_DIR="$BASE_DIR/releases"
+            CURRENT_LINK="$BASE_DIR/current"
 
-            echo "⚙️ Setting build environment..."
-            export NODE_OPTIONS="--max-old-space-size=2048"
-            export NEXT_DISABLE_TURBOPACK=1
-            export NEXT_PUBLIC_BASE_URL="${{ secrets.NEXT_PUBLIC_BASE_URL }}"
+            NEW_RELEASE="$RELEASES_DIR/$(date +%Y%m%d%H%M%S)"
 
-            echo "🏗 Building Next.js..."
-            if npm run build; then
-              echo "🚀 Starting or restarting PM2..."
-              if pm2 describe online-tool-base > /dev/null; then
-                pm2 restart online-tool-base --update-env
-              else
-                pm2 start npm --name online-tool-base -- start
-              fi
-              pm2 save
-              echo "✅ Deploy successful"
-            else
-              echo "❌ Build failed — site still serving previous build"
+            trap 'echo "❌ Deploy failed. Cleaning up..."; rm -rf "$NEW_RELEASE"' ERR
+
+            if [ -d "$NEW_RELEASE" ]; then
+              echo "⚠️ Release already exists, removing..."
+              rm -rf "$NEW_RELEASE"
+            fi
+
+            echo "📥 Cloning repo..."
+            git clone --depth=1 git@github.com:JimmyAyivor/online-toolbase.git "$NEW_RELEASE"
+
+            cd "$NEW_RELEASE"
+
+            echo "📦 Installing dependencies..."
+            npm ci --legacy-peer-deps --no-audit --no-fund
+
+            echo "⚙️ Loading environment..."
+            if [ ! -f "$BASE_DIR/.env" ]; then
+              echo "❌ Missing .env file at $BASE_DIR/.env"
               exit 1
             fi
 
-      - name: Wait for server to be ready
+            # safe env loading (no broken amp parsing)
+            export $(grep -v '^#' "$BASE_DIR/.env" | xargs)
+
+            echo "📦 Node: $(node -v)"
+            echo "📦 NPM: $(npm -v)"
+
+            export NODE_OPTIONS="--max-old-space-size=4096"
+            export NEXT_PRIVATE_BUILD_WORKERS=$(nproc)
+            export NEXT_DISABLE_TURBOPACK=1
+
+            echo "🏗 Building app..."
+            NODE_ENV=production npm run build
+
+            echo "🧹 Pruning dev dependencies..."
+            npm prune --omit=dev
+
+            echo "🔗 Switching release atomically..."
+            ln -sfn "$NEW_RELEASE" "$CURRENT_LINK"
+
+            echo "🚀 Restarting PM2 from CURRENT"
+            cd "$CURRENT_LINK"
+
+            if pm2 describe online-tool-base > /dev/null 2>&1; then
+              pm2 reload "$CURRENT_LINK/ecosystem.config.js" --update-env
+            else
+              pm2 start "$CURRENT_LINK/ecosystem.config.js"
+            fi
+
+            pm2 save
+
+            echo "🧹 Cleaning old releases (keep 3)..."
+            cd "$RELEASES_DIR"
+            ls -dt */ | tail -n +4 | xargs -r rm -rf
+
+      - name: Health Check + Auto Rollback
         run: |
-          echo "Waiting for server to come online..."
+          echo "⏳ Checking site health..."
+
           for i in $(seq 1 12); do
             HTTP=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.SITE_URL }}")
+
             if [ "$HTTP" = "200" ]; then
-              echo "✅ Server ready (HTTP 200) after $((i * 5))s"
+              echo "✅ App is healthy"
+
+              curl -X POST "${{ secrets.SITE_URL }}/api/indexnow" \
+                -H "Content-Type: application/json" \
+                -H "Authorization: Bearer ${{ secrets.INDEXNOW_API_SECRET }}" \
+                -d '{"mode":"full-site"}' || true
+
               exit 0
             fi
-            echo "  attempt $i/12 — got HTTP $HTTP, retrying in 5s..."
+
+            echo "Attempt $i failed (HTTP $HTTP)... retrying"
             sleep 5
           done
-          echo "⚠️ Server did not respond with 200 after 60s — proceeding anyway"
 
-      - name: Submit URLs to IndexNow
-        run: |
-          RESPONSE=$(curl -s -w "\n%{http_code}" \
-            -X POST "${{ secrets.SITE_URL }}/api/indexnow" \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer ${{ secrets.INDEXNOW_API_SECRET }}" \
-            -d '{"mode": "all-tools"}')
+          echo "❌ Health check failed — rolling back..."
 
-          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
-          BODY=$(echo "$RESPONSE" | head -n -1)
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+            set -euo pipefail
 
-          echo "Response: $BODY"
+            BASE_DIR="/home/opc/apps"
+            RELEASES_DIR="$BASE_DIR/releases"
+            CURRENT_LINK="$BASE_DIR/current"
 
-          if [ "$HTTP_CODE" = "200" ]; then
-            echo "✅ IndexNow: submitted successfully"
-          else
-            echo "⚠️ IndexNow: submission returned HTTP $HTTP_CODE — deploy still succeeded"
-          fi
+            PREVIOUS=$(find "$RELEASES_DIR" -mindepth 1 -maxdepth 1 -type d \
+              | sort -r \
+              | sed -n '2p')
+
+            if [ -z "$PREVIOUS" ]; then
+              echo "No previous release found"
+              exit 1
+            fi
+
+            echo "↩️ Rolling back to $PREVIOUS"
+            ln -sfn "$PREVIOUS" "$CURRENT_LINK"
+
+            cd "$CURRENT_LINK"
+            pm2 reload "$CURRENT_LINK/ecosystem.config.js" --update-env || pm2 restart online-tool-base
+            pm2 save
+          EOF
+
+          exit 1

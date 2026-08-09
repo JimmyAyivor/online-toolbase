@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import {
   DollarSign,
   RefreshCw,
@@ -7,6 +7,8 @@ import {
   ArrowRight,
   Globe,
   Star,
+  AlertTriangle,
+  CheckCircle2,
 } from "lucide-react";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -24,10 +26,21 @@ interface CurrencyPair {
 }
 
 type ExchangeRates = Record<string, number>;
+type RateSource = "live" | "cached" | "fallback";
+
+interface StoredRates {
+  base: string;
+  rates: ExchangeRates;
+  fetchedAt: number; // epoch ms
+}
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
-const exchangeRates: ExchangeRates = {
+// Hardcoded rates are a last-resort fallback ONLY — used if a live fetch has
+// never succeeded and there's nothing usable in localStorage either. They are
+// never shown to the user as if they were current; the UI always discloses
+// when it's relying on this data.
+const FALLBACK_RATES: ExchangeRates = {
   USD: 1,
   EUR: 0.92,
   GBP: 0.79,
@@ -102,13 +115,29 @@ const popularPairs: CurrencyPair[] = [
   { from: "USD", to: "CAD" },
 ];
 
+const RATES_API_URL = "https://open.er-api.com/v6/latest/USD";
+const LOCAL_STORAGE_KEY = "occ_currency_rates_v1";
+const BASE_CURRENCY = "USD";
+
+// Rates auto-refresh on this cadence while the tab is open...
+const AUTO_REFRESH_MS = 5 * 60 * 1000; // 5 minutes
+// ...and are treated as stale (prompting an immediate refetch + warning if
+// that refetch fails) once they're older than this.
+const STALE_AFTER_MS = 15 * 60 * 1000; // 15 minutes
+// Cached rates from localStorage are only trusted as a fetch fallback if
+// they're younger than this — otherwise they're too old to be useful and we
+// fall through to the hardcoded reference rates instead.
+const CACHE_MAX_AGE_MS = 24 * 60 * 60 * 1000; // 24 hours
+const FETCH_RETRY_COUNT = 2;
+const FETCH_RETRY_DELAY_MS = 1200;
+
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 const getCurrency = (code: string): Currency | undefined =>
   currencies.find((c) => c.code === code);
 
-const getRate = (from: string, to: string): number =>
-  (exchangeRates[to] ?? 1) / (exchangeRates[from] ?? 1);
+const getRate = (rates: ExchangeRates, from: string, to: string): number =>
+  (rates[to] ?? 1) / (rates[from] ?? 1);
 
 const formatNumber = (num: number): string =>
   new Intl.NumberFormat("en-US", {
@@ -116,14 +145,81 @@ const formatNumber = (num: number): string =>
     maximumFractionDigits: 2,
   }).format(num);
 
+function readCachedRates(): StoredRates | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = window.localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as StoredRates;
+    if (!parsed?.rates || !parsed?.fetchedAt) return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
+function writeCachedRates(entry: StoredRates): void {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(entry));
+  } catch {
+    // Storage full or unavailable (e.g. private browsing) — safe to ignore,
+    // rates just won't survive a reload.
+  }
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function fetchLiveRates(): Promise<ExchangeRates> {
+  let lastError: unknown = null;
+  for (let attempt = 0; attempt <= FETCH_RETRY_COUNT; attempt++) {
+    try {
+      const res = await fetch(RATES_API_URL, { cache: "no-store" });
+      if (!res.ok) throw new Error(`Rate API responded ${res.status}`);
+      const data = await res.json();
+      if (data?.result !== "success" || !data?.rates) {
+        throw new Error("Rate API returned an unexpected payload");
+      }
+      // Keep only the currencies this converter supports, plus the base.
+      const rates: ExchangeRates = { [BASE_CURRENCY]: 1 };
+      for (const currency of currencies) {
+        if (typeof data.rates[currency.code] === "number") {
+          rates[currency.code] = data.rates[currency.code];
+        }
+      }
+      return rates;
+    } catch (err) {
+      lastError = err;
+      if (attempt < FETCH_RETRY_COUNT) {
+        await sleep(FETCH_RETRY_DELAY_MS * (attempt + 1));
+      }
+    }
+  }
+  throw lastError instanceof Error
+    ? lastError
+    : new Error("Failed to fetch exchange rates");
+}
+
+function formatRelativeTime(fromMs: number, nowMs: number): string {
+  const diffSeconds = Math.max(0, Math.round((nowMs - fromMs) / 1000));
+  if (diffSeconds < 10) return "just now";
+  if (diffSeconds < 60) return `${diffSeconds}s ago`;
+  const diffMinutes = Math.round(diffSeconds / 60);
+  if (diffMinutes < 60) return `${diffMinutes} min ago`;
+  const diffHours = Math.round(diffMinutes / 60);
+  if (diffHours < 24) return `${diffHours}h ago`;
+  const diffDays = Math.round(diffHours / 24);
+  return `${diffDays}d ago`;
+}
+
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export default function CurrencyConverterClient() {
-  const [amount, setAmount] = useState<number>("100" as unknown as number);
+  const [amount, setAmount] = useState<number>(100);
   const [fromCurrency, setFromCurrency] = useState<string>("USD");
   const [toCurrency, setToCurrency] = useState<string>("EUR");
-  const [result, setResult] = useState<number>(0);
-  const [rate, setRate] = useState<number>(0);
   const [favorites, setFavorites] = useState<string[]>([
     "USD",
     "EUR",
@@ -131,16 +227,89 @@ export default function CurrencyConverterClient() {
     "JPY",
   ]);
 
-  const convert = (): void => {
-    const exchangeRate = getRate(fromCurrency, toCurrency);
-    const convertedAmount = (amount || 0) * exchangeRate;
-    setResult(convertedAmount);
-    setRate(exchangeRate);
-  };
+  const [rates, setRates] = useState<ExchangeRates>(FALLBACK_RATES);
+  const [rateSource, setRateSource] = useState<RateSource>("fallback");
+  const [fetchedAt, setFetchedAt] = useState<number | null>(null);
+  const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
+  const [fetchError, setFetchError] = useState<string | null>(null);
+  const [nowTick, setNowTick] = useState<number>(Date.now());
 
+  const refreshTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const hasLoadedCacheRef = useRef<boolean>(false);
+
+  const refreshRates = useCallback(async (): Promise<void> => {
+    setIsRefreshing(true);
+    try {
+      const liveRates = await fetchLiveRates();
+      const now = Date.now();
+      setRates(liveRates);
+      setRateSource("live");
+      setFetchedAt(now);
+      setFetchError(null);
+      writeCachedRates({ base: BASE_CURRENCY, rates: liveRates, fetchedAt: now });
+    } catch (err) {
+      // A failed refresh never silently keeps showing rates as if they were
+      // still live — either we still have a recent cache/live value (fine,
+      // just flag the error) or we fall back to reference rates and say so.
+      setFetchError(
+        err instanceof Error ? err.message : "Couldn't reach the rates service",
+      );
+      setRateSource((prevSource) => (prevSource === "live" ? "cached" : prevSource));
+    } finally {
+      setIsRefreshing(false);
+    }
+  }, []);
+
+  // On mount: show cached rates immediately if they're reasonably fresh, then
+  // always kick off a live fetch in the background so the screen never sits
+  // on stale numbers longer than it takes to load.
   useEffect(() => {
-    convert();
-  }, [amount, fromCurrency, toCurrency]);
+    if (!hasLoadedCacheRef.current) {
+      hasLoadedCacheRef.current = true;
+      const cached = readCachedRates();
+      if (cached && Date.now() - cached.fetchedAt < CACHE_MAX_AGE_MS) {
+        setRates(cached.rates);
+        setFetchedAt(cached.fetchedAt);
+        setRateSource("cached");
+      }
+    }
+    refreshRates();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Auto-refresh on a timer while the tab is open.
+  useEffect(() => {
+    refreshTimerRef.current = setInterval(refreshRates, AUTO_REFRESH_MS);
+    return () => {
+      if (refreshTimerRef.current) clearInterval(refreshTimerRef.current);
+    };
+  }, [refreshRates]);
+
+  // If the user comes back to this tab after it's been idle, refresh
+  // immediately when the current rates are old enough to be stale.
+  useEffect(() => {
+    const handleVisibility = () => {
+      if (document.visibilityState !== "visible") return;
+      if (!fetchedAt || Date.now() - fetchedAt > STALE_AFTER_MS) {
+        refreshRates();
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () =>
+      document.removeEventListener("visibilitychange", handleVisibility);
+  }, [fetchedAt, refreshRates]);
+
+  // Tick every 15s so the "Updated Xm ago" label stays accurate without
+  // needing a network call.
+  useEffect(() => {
+    const tick = setInterval(() => setNowTick(Date.now()), 15000);
+    return () => clearInterval(tick);
+  }, []);
+
+  const isStale = fetchedAt !== null && nowTick - fetchedAt > STALE_AFTER_MS;
+
+  const rate = getRate(rates, fromCurrency, toCurrency);
+  const result = (amount || 0) * rate;
 
   const handleSwap = (): void => {
     setFromCurrency(toCurrency);
@@ -161,7 +330,7 @@ export default function CurrencyConverterClient() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50 p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-600 to-teal-600 rounded-2xl mb-4 shadow-lg">
             <DollarSign className="w-8 h-8 text-white" />
           </div>
@@ -171,6 +340,56 @@ export default function CurrencyConverterClient() {
           <p className="text-gray-500">
             Convert between 30+ world currencies with live exchange rates
           </p>
+        </div>
+
+        {/* ── Rate freshness banner ── */}
+        <div
+          className={`max-w-2xl mx-auto mb-6 rounded-xl border-2 px-4 py-3 flex items-center justify-between gap-3 text-sm ${
+            rateSource === "live" && !isStale
+              ? "bg-emerald-50 border-emerald-200 text-emerald-800"
+              : "bg-amber-50 border-amber-200 text-amber-800"
+          }`}
+        >
+          <div className="flex items-center gap-2">
+            {rateSource === "live" && !isStale ? (
+              <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
+            ) : (
+              <AlertTriangle className="w-4 h-4 flex-shrink-0" />
+            )}
+            <span>
+              {rateSource === "fallback" && !fetchedAt && (
+                <>Loading live rates…</>
+              )}
+              {rateSource === "fallback" && fetchedAt && (
+                <>
+                  Couldn't load live rates — showing built-in reference rates,
+                  which may not reflect the current market.
+                </>
+              )}
+              {rateSource === "cached" && fetchedAt && (
+                <>
+                  {fetchError ? "Couldn't refresh — showing " : "Showing "}
+                  rates from {formatRelativeTime(fetchedAt, nowTick)}.
+                </>
+              )}
+              {rateSource === "live" && fetchedAt && !isStale && (
+                <>Live rates — updated {formatRelativeTime(fetchedAt, nowTick)}.</>
+              )}
+              {rateSource === "live" && fetchedAt && isStale && (
+                <>Rates are {formatRelativeTime(fetchedAt, nowTick)} old — refreshing…</>
+              )}
+            </span>
+          </div>
+          <button
+            onClick={refreshRates}
+            disabled={isRefreshing}
+            className="flex items-center gap-1.5 font-semibold whitespace-nowrap hover:underline disabled:opacity-60"
+          >
+            <RefreshCw
+              className={`w-3.5 h-3.5 ${isRefreshing ? "animate-spin" : ""}`}
+            />
+            {isRefreshing ? "Refreshing" : "Refresh now"}
+          </button>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6">
@@ -282,7 +501,7 @@ export default function CurrencyConverterClient() {
                 {popularPairs.map((pair) => {
                   const fromData = getCurrency(pair.from);
                   const toData = getCurrency(pair.to);
-                  const pairRate = getRate(pair.from, pair.to);
+                  const pairRate = getRate(rates, pair.from, pair.to);
 
                   return (
                     <button
@@ -320,7 +539,11 @@ export default function CurrencyConverterClient() {
               <div className="grid md:grid-cols-2 gap-3 max-h-96 overflow-y-auto">
                 {currencies.map((currency) => {
                   if (currency.code === fromCurrency) return null;
-                  const conversionRate = getRate(fromCurrency, currency.code);
+                  const conversionRate = getRate(
+                    rates,
+                    fromCurrency,
+                    currency.code,
+                  );
                   const isFavorite = favorites.includes(currency.code);
 
                   return (
@@ -386,7 +609,7 @@ export default function CurrencyConverterClient() {
                 <div className="space-y-3">
                   {favorites.map((code) => {
                     const currency = getCurrency(code);
-                    const conversionRate = getRate(fromCurrency, code);
+                    const conversionRate = getRate(rates, fromCurrency, code);
 
                     return (
                       <div
@@ -435,7 +658,8 @@ export default function CurrencyConverterClient() {
                     color: "bg-teal-600",
                     text: (
                       <>
-                        <strong>Live Rates:</strong> Updated exchange rates
+                        <strong>Live Rates:</strong> Refreshed automatically
+                        every 5 minutes
                       </>
                     ),
                   },

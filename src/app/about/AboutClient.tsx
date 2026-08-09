@@ -2,7 +2,28 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
+import { tools } from "@/lib/tools";
+import {
+  categories,
+  getCategoryBySlug,
+  getToolsForCategory,
+  getRelatedCategories,
+} from "@/lib/categories";
+const TOOL_COUNT = tools.length
+const CATEGORY_COUNT = categories.length
 
+const TOOL_CAT1_COUNT = getToolsForCategory('writing-text-tools').length
+const TOOL_CAT2_COUNT = getToolsForCategory('developer-tools').length
+const TOOL_CAT3_COUNT = getToolsForCategory('calculators').length
+const TOOL_CAT4_COUNT = getToolsForCategory('finance-calculators').length
+const TOOL_CAT5_COUNT = getToolsForCategory('health-fitness-calculators').length
+const TOOL_CAT6_COUNT = getToolsForCategory('social-media-tools').length
+const TOOL_CAT7_COUNT = getToolsForCategory('image-design-tools').length
+const TOOL_CAT8_COUNT = getToolsForCategory('business-productivity').length
+const TOOL_CAT9_COUNT = getToolsForCategory('security-tools').length
+const TOOL_CAT10_COUNT = getToolsForCategory('fun-generators').length
+const TOOL_CAT11_COUNT = getToolsForCategory('marketing-seo-tools').length
+const TOOL_CAT12_COUNT = getToolsForCategory('business-productivity').length
 /* ─── Hooks ──────────────────────────────────────────────────────────────── */
 
 function useInView(threshold = 0.15) {
@@ -155,18 +176,18 @@ const PRINCIPLES = [
 ];
 
 const CATEGORIES = [
-  { emoji: "✍️", name: "Writing & Text", count: 20, category: "writing" },
-  { emoji: "💻", name: "Developer", count: 20, category: "developer" },
-  { emoji: "🔢", name: "Calculators", count: 17, category: "calculator" },
-  { emoji: "💰", name: "Finance", count: 11, category: "finance" },
-  { emoji: "❤️", name: "Health", count: 12, category: "health" },
-  { emoji: "📱", name: "Social Media", count: 12, category: "social-media" },
-  { emoji: "🎨", name: "Design & Image", count: 12, category: "design" },
-  { emoji: "⏱️", name: "Productivity", count: 5, category: "productivity" },
-  { emoji: "🔒", name: "Security", count: 2, category: "security" },
-  { emoji: "🎲", name: "Fun & Utilities", count: 5, category: "fun" },
-  { emoji: "📣", name: "Marketing", count: 4, category: "marketing" },
-  { emoji: "💼", name: "Business", count: 4, category: "business" },
+  { emoji: "✍️", name: "Writing & Text", count: TOOL_CAT1_COUNT, category: "writing-text-tools" },
+  { emoji: "💻", name: "Developer", count: TOOL_CAT2_COUNT, category: "developer-tools" },
+  { emoji: "🔢", name: "Calculators", count: TOOL_CAT3_COUNT, category: "calculators" },
+  { emoji: "💰", name: "Finance", count: TOOL_CAT4_COUNT, category: "finance-calculators" },
+  { emoji: "❤️", name: "Health", count: TOOL_CAT5_COUNT, category: "health-fitness-calculators" },
+  { emoji: "📱", name: "Social Media", count: TOOL_CAT6_COUNT, category: "social-media-tools" },
+  { emoji: "🎨", name: "Design & Image", count: TOOL_CAT7_COUNT, category: "image-design-tools" },
+  { emoji: "⏱️", name: "Productivity", count: TOOL_CAT8_COUNT, category: "business-productivity" },
+  { emoji: "🔒", name: "Security", count: TOOL_CAT9_COUNT, category: "security-tools" },
+  { emoji: "🎲", name: "Fun & Utilities", count: TOOL_CAT10_COUNT, category: "fun-generators" },
+  { emoji: "📣", name: "Marketing", count: TOOL_CAT11_COUNT, category: "marketing-seo-tools" },
+  { emoji: "💼", name: "Business", count: TOOL_CAT12_COUNT, category: "business-productivity" },
 ];
 
 /* ─── Component ──────────────────────────────────────────────────────────── */
@@ -175,7 +196,7 @@ export default function AboutClient() {
   /* Ticker for the hero number */
   const [heroVisible, setHeroVisible] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
-  const heroCount = useCountUp(130, 2000, heroVisible);
+  const heroCount = useCountUp(TOOL_COUNT, 2000, heroVisible);
 
   useEffect(() => {
     const el = heroRef.current;
@@ -224,7 +245,7 @@ export default function AboutClient() {
             style={{ animation: "fadeUp 0.6s ease 0.1s forwards" }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-            About Calculators, Pdf Tools & More
+            About OnlineToolBase
           </div>
 
           {/* Main heading */}
@@ -271,7 +292,7 @@ export default function AboutClient() {
               We believe every person deserves professional-grade tools —
               without signing up, paying up, or giving up their data. So we
               built{" "}
-              <span className="text-white font-semibold">130+ of them</span> and
+              <span className="text-white font-semibold"> {TOOL_COUNT} of them</span> and
               made them free. Forever.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
@@ -324,14 +345,14 @@ export default function AboutClient() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <StatCard
-            value={130}
+            value={TOOL_COUNT}
             suffix="+"
             label="Free Tools"
             description="Across writing, finance, health, developer, design, social media, and more."
             delay={0}
           />
           <StatCard
-            value={15}
+            value={CATEGORY_COUNT}
             suffix=""
             label="Categories"
             description="Something useful for developers, students, marketers, and everyday people alike."
@@ -398,7 +419,7 @@ export default function AboutClient() {
                 </p>
                 <p>
                   Users found us, requested more tools, and we kept building.
-                  130+ tools later, the rule hasn&apos;t changed. The commitment
+                  {TOOL_COUNT}  tools later, the rule hasn&apos;t changed. The commitment
                   is the same. And we&apos;re nowhere close to done.
                 </p>
               </div>

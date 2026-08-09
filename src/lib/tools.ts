@@ -818,7 +818,44 @@ export const tools: Tool[] = [
     description: "Check the strength of any password and get improvement tips.",
     category: "Security",
   },
-
+  {
+    slug: "diceware-passphrase-generator",
+    name: "Diceware Passphrase Generator",
+    description:
+      "Generate secure, memorable passphrases using the Diceware method with randomly selected words.",
+    category: "Security",
+  },
+  
+  {
+    slug: "file-checksum-verifier",
+    name: "File Checksum Verifier",
+    description:
+      "Verify file integrity by calculating and comparing MD5, SHA-1, SHA-256, SHA-384, and SHA-512 checksums.",
+    category: "Security",
+  },
+  
+  {
+    slug: "text-encryption-tool",
+    name: "Text Encryption Tool",
+    description:
+      "Encrypt and decrypt text securely in your browser using modern encryption without uploading your data.",
+    category: "Security",
+  },
+  
+  {
+    slug: "totp-code-generator",
+    name: "TOTP Code Generator",
+    description:
+      "Generate time-based one-time passwords for two-factor authentication using a TOTP secret or authenticator URI.",
+    category: "Security",
+  },
+  {
+    slug: "password-breach-checker",
+    name: "Password Breach Checker",
+    description:
+      "Check whether a password has appeared in known data breaches without sending the password to a server.",
+    category: "Security",
+  },
   // ── Document ──────────────────────────────────────────────────────────────
   {
     slug: "pdf-merger-splitter",

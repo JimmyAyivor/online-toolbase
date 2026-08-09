@@ -77,7 +77,7 @@ export const categories: Category[] = [
       "business-productivity",
       "marketing-seo-tools",
     ],
-    rawCategories: ["Developer"],
+    rawCategories: ["Developer", "Security"],
   },
   {
     slug: "calculators",
