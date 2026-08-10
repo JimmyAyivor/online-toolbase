@@ -92,7 +92,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Design Tools",
-      item: `${SITE_URL}/tools/category/design`,
+      item: `${SITE_URL}/tools/category/image-design-tools`,
     },
     {
       "@type": "ListItem",
@@ -209,7 +209,7 @@ export default function GradientGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/design"
+              href="/tools/category/image-design-tools"
               className="hover:text-fuchsia-600 transition-colors"
             >
               Design Tools

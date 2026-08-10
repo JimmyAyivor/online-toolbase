@@ -209,7 +209,7 @@ export default function ColorCodeConverterPage() {
           </li>
           <li>
             <a
-              href="/tools/category/design"
+              href="/tools/category/image-design-tools"
               className="hover:text-pink-600 transition-colors"
             >
               Design Tools
