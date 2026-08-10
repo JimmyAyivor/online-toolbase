@@ -325,7 +325,7 @@ export default function TermsOfServicePage() {
           <p className="text-gray-700">
             These Terms, together with our{" "}
             <Link
-              href="/privacy-policy"
+              href="/privacy"
               className="text-indigo-600 hover:underline"
             >
               Privacy Policy

@@ -224,7 +224,7 @@ export default function AcronymGeneratorPage() {
           </li>
           <li>
             <a
-              href="/tools/category/writing-text-tools-text-tools"
+              href="/tools/category/writing-text-tools"
               className="hover:text-sky-600 transition-colors"
             >
               Text Tools

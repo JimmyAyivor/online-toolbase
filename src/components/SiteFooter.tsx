@@ -127,11 +127,11 @@ export default function SiteFooter() {
 
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
           <p>
-            &copy; {new Date().getFullYear()} Calculators, Pdf Tools & More. All
+            &copy; {new Date().getFullYear()} OnlineToolBase.com All
             rights reserved.
           </p>
           <p className="mt-2 text-gray-600">
-            Free Online tools — calculators, converters, generators &amp; more.
+            Free Online tools — PDF tools, Financial calculators, Unit converters, word generators &amp; more.
             No signup required.
           </p>
         </div>

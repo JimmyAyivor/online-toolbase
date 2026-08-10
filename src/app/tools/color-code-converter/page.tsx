@@ -92,7 +92,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Design Tools",
-      item: `${SITE_URL}/tools/category/design`,
+      item: `${SITE_URL}/tools/category/image-design-tools`,
     },
     {
       "@type": "ListItem",
