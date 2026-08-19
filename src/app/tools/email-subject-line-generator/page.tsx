@@ -15,8 +15,9 @@ import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "email-subject-line-generator");
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 export const metadata: Metadata = {
   title: "Email Subject Line Generator — High Open-Rate Subject Lines",
@@ -57,8 +58,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
+    site: "@utilvia",
+    creator: "@utilvia",
     title: "Email Subject Line Generator",
     description:
       "Generate compelling email subject lines for any campaign. Free.",

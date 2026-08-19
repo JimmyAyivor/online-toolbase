@@ -12,8 +12,9 @@ import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 export const metadata: Metadata = {
   title: "Text Repeater — Free Online Text Repeater",
@@ -54,8 +55,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
+    site: "@utilvia",
+    creator: "@utilvia",
     title: "Text Repeater — Free Online Text Repeater",
     description:
       "Repeat any text multiple times with custom separators. Free, instant.",

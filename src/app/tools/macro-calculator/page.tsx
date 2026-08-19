@@ -12,8 +12,9 @@ import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "macro-calculator");
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 export const metadata: Metadata = {
   title: "Macro Calculator — Daily Protein, Carb & Fat Targets",
@@ -54,8 +55,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
+    site: "@utilvia",
+    creator: "@utilvia",
     title: "Macro Calculator — Daily Protein, Carb & Fat Targets",
     description:
       "Calculate your daily macronutrient targets (protein, carbs, fat) based on your TDEE and fitness goal. Free, instant.",

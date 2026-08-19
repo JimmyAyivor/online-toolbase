@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import AdvertiseClient from "./AdvertiseClient";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.onlinetoolbase.com";
+  process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.utilvia.com";
 
 export const metadata: Metadata = {
   title:
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@onlinetoolbase",
+    site: "@utilvia",
     title: "Advertise With Us — Calculators, Pdf Tools & More",
     description:
       "Reach millions of high-intent users. Banner ads, sponsored placements, newsletter features. Request our media kit.",

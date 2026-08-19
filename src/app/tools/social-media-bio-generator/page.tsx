@@ -15,8 +15,9 @@ import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 export const metadata: Metadata = {
   title: "Free Social Media Bio Generator — All Platforms",
@@ -57,8 +58,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
+    site: "@utilvia",
+    creator: "@utilvia",
     title: "Free Social Media Bio Generator — All Platforms",
     description:
       "Generate bios for Instagram, LinkedIn, Twitter/X, TikTok, and YouTube. Choose tone and keywords. Free.",

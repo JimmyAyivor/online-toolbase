@@ -15,8 +15,9 @@ import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "keyword-density-checker");
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 export const metadata: Metadata = {
   title: "Free Keyword Density Checker — Analyse Any Text",
@@ -57,8 +58,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
+    site: "@utilvia",
+    creator: "@utilvia",
     title: "Free Keyword Density Checker — Analyse Any Text",
     description: "Check keyword density and frequency in any text. Free.",
   },
@@ -206,7 +207,7 @@ export default function KeywordDensityCheckerPage() {
           </li>
           <li>
             <a
-              href="/tools/category/seo"
+              href="/tools/category/marketing-seo-tools"
               className="hover:text-teal-600 transition-colors"
             >
               SEO Tools

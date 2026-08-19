@@ -15,8 +15,9 @@ import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 export const metadata: Metadata = {
   title: "Pregnancy Due Date Calculator — Calculate Your Baby's Due Date",
@@ -57,8 +58,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
+    site: "@utilvia",
+    creator: "@utilvia",
     title: "Pregnancy Due Date Calculator — Calculate Your Baby's Due Date",
     description:
       "Calculate your estimated due date (EDD) based on your last menstrual period or conception date. See trimesters and key milestones. Free.",

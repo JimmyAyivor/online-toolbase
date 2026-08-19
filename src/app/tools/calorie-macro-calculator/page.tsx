@@ -15,8 +15,9 @@ import SidebarAdLayout from "@/components/SidebarAdLayout";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "calorie-macro-calculator");
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 // ─── Slot IDs from env ────────────────────────────────────────────────────────
 const SLOT_BELOW_TOOL =
@@ -63,8 +64,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
+    site: "@utilvia",
+    creator: "@utilvia",
     title: "Free Calorie & Macro Calculator — TDEE + Macros",
     description:
       "Calculate your daily calorie needs and macronutrient targets for any goal.",

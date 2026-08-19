@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      NEXT_PUBLIC_BASE_URL: https://www.onlinetoolbase.com
+      NEXT_PUBLIC_BASE_URL: https://www.utilvia.com
 
     steps:
       - name: 📥 Checkout
@@ -61,7 +61,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      NEXT_PUBLIC_BASE_URL: https://www.onlinetoolbase.com
+      NEXT_PUBLIC_BASE_URL: https://www.utilvia.com
+
       NODE_OPTIONS: --max-old-space-size=4096
 
     steps:

@@ -2,10 +2,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 const LAST_UPDATED = "1 March 2026";
-const CONTACT_EMAIL = "privacy@onlinetoolbase.com";
+const CONTACT_EMAIL = "privacy@utilvia.com";
 
 export const metadata: Metadata = {
   title: "Cookie Policy | Online Tool Base",

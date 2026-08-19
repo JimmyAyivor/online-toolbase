@@ -4,8 +4,9 @@ import Link from "next/link";
 import LegalLayout, { Section, InfoBox } from "@/components/LegalLayout";
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 const LAST_UPDATED = "January 22, 2024";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -46,17 +47,17 @@ const orgJsonLd = {
   contactPoint: [
     {
       "@type": "ContactPoint",
-      email: "support@onlinetoolbase.com",
+      email: "support@utilvia.com",
       contactType: "customer support",
     },
     {
       "@type": "ContactPoint",
-      email: "bugs@onlinetoolbase.com",
+      email: "bugs@utilvia.com",
       contactType: "technical support",
     },
     {
       "@type": "ContactPoint",
-      email: "business@onlinetoolbase.com",
+      email: "business@utilvia.com",
       contactType: "business",
     },
   ],
@@ -143,7 +144,7 @@ export default function ContactPage() {
                 bgColor="bg-indigo-100"
                 iconColor="text-indigo-600"
                 title="General Support"
-                email="support@onlinetoolbase.com"
+                email="support@utilvia.com"
                 note="We typically respond within 24–48 hours."
               />
               <ContactCard
@@ -151,7 +152,7 @@ export default function ContactPage() {
                 bgColor="bg-red-100"
                 iconColor="text-red-600"
                 title="Report a Bug"
-                email="bugs@onlinetoolbase.com"
+                email="bugs@utilvia.com"
                 note="Include the tool name, browser, and steps to reproduce."
               />
               <ContactCard
@@ -159,7 +160,7 @@ export default function ContactPage() {
                 bgColor="bg-green-100"
                 iconColor="text-green-600"
                 title="Feature Requests"
-                email="features@onlinetoolbase.com"
+                email="features@utilvia.com"
                 note="Suggest new tools or improvements to existing ones."
               />
               <ContactCard
@@ -167,7 +168,7 @@ export default function ContactPage() {
                 bgColor="bg-purple-100"
                 iconColor="text-purple-600"
                 title="Privacy &amp; Legal"
-                email="privacy@onlinetoolbase.com"
+                email="privacy@utilvia.com"
                 note="GDPR requests, CCPA opt-outs, copyright concerns."
               />
               <ContactCard
@@ -175,7 +176,7 @@ export default function ContactPage() {
                 bgColor="bg-gray-100"
                 iconColor="text-gray-600"
                 title="Legal &amp; Terms"
-                email="legal@onlinetoolbase.com"
+                email="legal@utilvia.com"
                 note="Terms of service questions, takedown requests."
               />
             </div>
@@ -201,11 +202,11 @@ export default function ContactPage() {
               />
               <FaqItem
                 question="Can I suggest a new tool?"
-                answer="Absolutely! Send your ideas to features@onlinetoolbase.com — we love hearing what tools people need."
+                answer="Absolutely! Send your ideas to features@utilvia.com — we love hearing what tools people need."
               />
               <FaqItem
                 question="How do I report a bug?"
-                answer="Email bugs@onlinetoolbase.com with the tool name, your browser and OS, and steps to reproduce the issue."
+                answer="Email bugs@utilvia.com with the tool name, your browser and OS, and steps to reproduce the issue."
               />
               <FaqItem
                 question="Are the social media tools guaranteed to improve my results?"
@@ -231,10 +232,10 @@ export default function ContactPage() {
               business-related enquiries, please contact:
             </p>
             <a
-              href="mailto:business@onlinetoolbase.com"
+              href="mailto:business@utilvia.com"
               className="text-lg font-semibold text-blue-800 underline hover:text-blue-900"
             >
-              business@onlinetoolbase.com
+              business@utilvia.com
             </a>
           </InfoBox>
         </div>

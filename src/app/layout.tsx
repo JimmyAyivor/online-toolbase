@@ -10,9 +10,9 @@ import { tools } from "@/lib/tools";
 import "./globals.css";
 
 const TOOL_COUNT = tools.length;
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
-const TWITTER = "@onlinetoolbase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+const TWITTER = "@utilvia";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 const ADSENSE_PUB_ID = process.env.NEXT_PUBLIC_ADSENSE_PUB_ID;

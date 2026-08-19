@@ -49,7 +49,7 @@ export default function SiteFooter() {
                 </svg>
               </div>
               <span className="text-xl font-bold">
-                Calculators, Pdf Tools & More
+                Utilvia
               </span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
@@ -127,8 +127,7 @@ export default function SiteFooter() {
 
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
           <p>
-            &copy; {new Date().getFullYear()} OnlineToolBase.com All
-            rights reserved.
+            &copy; {new Date().getFullYear()} Utilvia.com All rights reserved.
           </p>
           <p className="mt-2 text-gray-600">
             Free Online tools — PDF tools, Financial calculators, Unit converters, word generators &amp; more.

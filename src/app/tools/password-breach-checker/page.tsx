@@ -16,8 +16,9 @@ import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "password-breach-checker");
 
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 export const metadata: Metadata = {
   title: "Password Breach Checker — Has Your Password Been Leaked?",
@@ -58,8 +59,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
+    site: "@utilvia",
+    creator: "@utilvia",
     title: "Password Breach Checker — Has Your Password Been Leaked?",
     description:
       "Check if a password has appeared in a known data breach. Privacy-safe k-anonymity lookup. Free.",

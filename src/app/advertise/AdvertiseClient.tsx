@@ -1030,7 +1030,7 @@ export default function AdvertiseClient() {
                   {
                     icon: "📬",
                     title: "Email us directly",
-                    detail: "business@onlinetoolbase.com",
+                    detail: "business@utilvia.com",
                   },
                   {
                     icon: "⚡",

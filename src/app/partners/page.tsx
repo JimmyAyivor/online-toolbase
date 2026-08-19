@@ -9,8 +9,9 @@ import {
   getPartnersByCategory,
 } from "@/lib/partners";
 
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 export const metadata: Metadata = {
   title: "Partners & Resources | Online Tool Base",

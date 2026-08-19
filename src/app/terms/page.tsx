@@ -8,8 +8,9 @@ import LegalLayout, {
 } from "@/components/LegalLayout";
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 const LAST_UPDATED = "January 22, 2024";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -351,10 +352,10 @@ export default function TermsOfServicePage() {
             <p className="text-gray-700">
               <strong>Legal enquiries:</strong>{" "}
               <a
-                href="mailto:legal@onlinetoolbase.com"
+                href="mailto:legal@utilvia.com"
                 className="text-indigo-600 hover:underline"
               >
-                legal@onlinetoolbase.com
+                legal@utilvia.com
               </a>
             </p>
             <p className="text-gray-700">

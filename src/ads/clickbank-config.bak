@@ -1,6 +1,7 @@
 // src/ads/clickbank-config.ts
 //
-// ClickBank affiliate product catalog for https://www.onlinetoolbase.com
+// ClickBank affiliate product catalog for https://www.utilvia.com
+
 //
 // ── How ClickBank hoplinks work ───────────────────────────────────────────────
 // Format: https://[YOUR_AFFILIATE_ID].[VENDOR_ID].hop.clickbank.net/

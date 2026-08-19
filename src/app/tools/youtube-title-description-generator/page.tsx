@@ -17,8 +17,9 @@ import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 // Title: 57 chars — fits Google's ~60 char display limit without truncation
@@ -65,8 +66,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
+    site: "@utilvia",
+    creator: "@utilvia",
     title: "Free YouTube Title & Description Generator — SEO Optimised",
     description:
       "Generate SEO-optimised YouTube titles and descriptions. 6 styles, chapters, hashtags. Free.",

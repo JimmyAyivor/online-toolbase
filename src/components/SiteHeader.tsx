@@ -39,7 +39,8 @@ export default function SiteHeader() {
             </svg>
           </div>
           <span className="text-2xl font-extrabold bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent hidden sm:block">
-            OnlineToolBase
+            Utilvia
+
           </span>
         </Link>
 

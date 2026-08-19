@@ -39,7 +39,7 @@ import { blogPosts } from "@/app/blog/blog-posts";
 // ─── Config ───────────────────────────────────────────────────────────────────
 
 const SITE_URL = (
-  process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.onlinetoolbase.com"
+  process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.utilvia.com"
 ).replace(/\/$/, "");
 const SITE_HOST = new URL(SITE_URL).hostname;
 const INDEX_KEY = process.env.INDEXNOW_KEY ?? "";

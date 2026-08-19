@@ -14,8 +14,9 @@ import SidebarAdLayout from "@/components/SidebarAdLayout";
 import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 import { tools } from "@/lib/tools";
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 const tool = tools.find((t) => t.slug === "sales-tax-calculator");
 
@@ -58,8 +59,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
+    site: "@utilvia",
+    creator: "@utilvia",
     title: "Free Sales Tax Calculator — All 50 US States | Instant",
     description:
       "Calculate sales tax by US state or custom rate — single item or multi-item cart. Free.",

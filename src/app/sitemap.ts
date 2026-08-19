@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 import { tools } from "@/lib/tools";
 import { blogPosts } from "@/app/blog/blog-posts";
 
-const baseUrl = "https://www.onlinetoolbase.com";
+const baseUrl = "https://www.utilvia.com";
 
 // Tool pages get a stable last-modified date rather than `new Date()` on every
 // build — Google ignores lastModified when it changes on every crawl.

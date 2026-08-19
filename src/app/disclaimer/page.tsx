@@ -9,8 +9,9 @@ import LegalLayout, {
 } from "@/components/LegalLayout";
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 const LAST_UPDATED = "January 22, 2024";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────

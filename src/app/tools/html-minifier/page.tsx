@@ -13,8 +13,9 @@ import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "html-minifier");
 
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
@@ -60,8 +61,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
+    site: "@utilvia",
+    creator: "@utilvia",
     title: "HTML Minifier — Free Online HTML Minifier",
     description: "Minify and compress HTML code instantly. Free, no signup.",
   },

@@ -1,11 +1,12 @@
 // src/app/feed.xml/route.ts
 // Generates a valid RSS 2.0 feed from all blog posts.
-// Accessible at: https://www.onlinetoolbase.com/feed.xml
+// Accessible at: https://www.utilvia.com/feed.xml
 
 import { blogPosts } from "@/app/blog/blog-posts";
 
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 const SITE_DESCRIPTION =
   "Practical guides on productivity, writing, security, developer tools, social media, finance, health, and more — written to help you work smarter with Calculators, Pdf Tools & More.";
 
@@ -43,7 +44,7 @@ export async function GET() {
     <guid isPermaLink="true">${url}</guid>
     <description>${escapeXml(post.description)}</description>
     <pubDate>${pubDate}</pubDate>
-    <author>editorial@onlinetoolbase.com (${SITE_NAME})</author>
+    <author>editorial@utilvia.com (${SITE_NAME})</author>
     <category>${escapeXml(post.category)}</category>
 ${categories}
   </item>`;

@@ -16,8 +16,9 @@ import PageEditorial from "./PageEditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "text-encryption-tool");
 
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 export const metadata: Metadata = {
   title: "Text Encryption Tool — Encrypt & Decrypt with a Passphrase",
@@ -58,8 +59,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
+    site: "@utilvia",
+    creator: "@utilvia",
     title: "Text Encryption Tool — Encrypt & Decrypt with a Passphrase",
     description:
       "Encrypt or decrypt text with a passphrase using AES-256-GCM, entirely client-side. Free.",

@@ -13,8 +13,9 @@ import PageEditorial from "./Pageeditorial";
 import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "online-stopwatch");
 
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 export const metadata: Metadata = {
   title: "Online Stopwatch — Free Stopwatch with Lap Timer",
@@ -55,8 +56,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
+    site: "@utilvia",
+    creator: "@utilvia",
     title: "Online Stopwatch — Free Stopwatch with Lap Timer",
     description:
       "Free online stopwatch with start, stop, reset, and lap timer. No signup, works instantly in any browser.",

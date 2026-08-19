@@ -9,8 +9,9 @@ import LegalLayout, {
 } from "@/components/LegalLayout";
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 const LAST_UPDATED = "January 22, 2024";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -251,10 +252,10 @@ export default function PrivacyPolicyPage() {
           <p className="text-gray-700">
             To exercise any of these rights, please contact us at{" "}
             <a
-              href="mailto:privacy@onlinetoolbase.com"
+              href="mailto:privacy@utilvia.com"
               className="text-indigo-600 hover:underline"
             >
-              privacy@onlinetoolbase.com
+              privacy@utilvia.com
             </a>
             .
           </p>
@@ -297,10 +298,10 @@ export default function PrivacyPolicyPage() {
               We do not sell personal information. To submit a CCPA request,
               email{" "}
               <a
-                href="mailto:privacy@onlinetoolbase.com"
+                href="mailto:privacy@utilvia.com"
                 className="text-indigo-600 hover:underline"
               >
-                privacy@onlinetoolbase.com
+                privacy@utilvia.com
               </a>
               .
             </p>
@@ -349,10 +350,10 @@ export default function PrivacyPolicyPage() {
             <p className="text-gray-700">
               <strong>Privacy enquiries:</strong>{" "}
               <a
-                href="mailto:privacy@onlinetoolbase.com"
+                href="mailto:privacy@utilvia.com"
                 className="text-indigo-600 hover:underline"
               >
-                privacy@onlinetoolbase.com
+                privacy@utilvia.com
               </a>
             </p>
             <p className="text-gray-700">

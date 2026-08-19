@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { tools } from "@/lib/tools";
 import { categories } from "@/lib/categories";
 // ─────────────────────────────────────────────────────────────────────────
-// OnlineToolBase — 404 page, built as "Tool #000 · Page Locator"
+// Utilvia— 404 page, built as "Tool #000 · Page Locator"
 //
 // The core idea: this site's whole product is small, single-purpose tools.
 // Instead of a generic sorry-page, the 404 behaves like one more tool —

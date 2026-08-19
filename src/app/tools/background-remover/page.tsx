@@ -15,8 +15,9 @@ import SidebarAdLayout from "@/components/SidebarAdLayout";
 import ToolEngagement from "@/components/ToolEngagement";
 
 const tool = tools.find((t) => t.slug === "background-remover");
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 // ─── Slot IDs from env ────────────────────────────────────────────────────────
 const SLOT_BELOW_TOOL =
@@ -63,8 +64,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
+    site: "@utilvia",
+    creator: "@utilvia",
     title: "Background Remover — Free Online Background Remover",
     description:
       "Remove image backgrounds automatically with AI-powered precision.",

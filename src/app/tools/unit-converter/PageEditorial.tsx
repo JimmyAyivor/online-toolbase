@@ -7,7 +7,7 @@ const SLOT_BELOW_TOOL =
   process.env.NEXT_PUBLIC_AD_SLOT_BELOW_TOOL ?? "0000000000";
 const SLOT_LEADERBOARD =
   process.env.NEXT_PUBLIC_AD_SLOT_LEADERBOARD ?? "0000000000";
-const TOOL_URL = "https://www.onlinetoolbase.com/tools/unit-converter";
+const TOOL_URL ="https://www.utilvia.com/tools/unit-converter";
 const TOOL_NAME = "Unit Converter";
 
 function QRModal({ onClose }: { onClose: () => void }) {

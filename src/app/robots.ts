@@ -1,7 +1,7 @@
 // src/app/robots.ts
 import type { MetadataRoute } from "next";
 
-const baseUrl = "https://www.onlinetoolbase.com";
+const baseUrl = "https://www.utilvia.com";
 
 export default function robots(): MetadataRoute.Robots {
   return {

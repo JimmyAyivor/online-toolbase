@@ -12,8 +12,9 @@ import SidebarAdLayout from "@/components/SidebarAdLayout";
 import ToolEngagement from "@/components/ToolEngagement";
 const tool = tools.find((t) => t.slug === "age-calculator");
 
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 // ─── Slot IDs from env ────────────────────────────────────────────────────────
 const SLOT_BELOW_TOOL =
@@ -60,8 +61,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@onlinetoolbase",
-    creator: "@onlinetoolbase",
+    site: "@utilvia",
+    creator: "@utilvia",
     title: "Age Calculator — Free Online Age Calculator",
     description:
       "Calculate your exact age in years, months, days, hours, and minutes from any birth date instantly.",

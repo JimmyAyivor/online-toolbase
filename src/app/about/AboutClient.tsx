@@ -245,7 +245,8 @@ export default function AboutClient() {
             style={{ animation: "fadeUp 0.6s ease 0.1s forwards" }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-            About OnlineToolBase
+            About Utilvia
+
           </div>
 
           {/* Main heading */}

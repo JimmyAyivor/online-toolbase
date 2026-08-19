@@ -138,7 +138,7 @@ export default function SponsoredAd({
                 </button>
                 <a
                   role="menuitem"
-                  href="mailto:ads@onlinetoolbase.com?subject=Ad%20Report"
+                  href="mailto:ads@utilvia.com?subject=Ad%20Report"
                   className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
                   onClick={() => setMenuOpen(false)}
                 >

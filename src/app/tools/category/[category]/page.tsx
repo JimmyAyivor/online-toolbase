@@ -31,7 +31,7 @@ type Props = {
   params: Promise<{ category: string }>;
 };
 
-const SITE_URL = "https://www.onlinetoolbase.com";
+const SITE_URL = "https://www.utilvia.com";
 
 // ─────────────────────────────────────────────────────────────────────────
 // Static generation — one page per category at build time.

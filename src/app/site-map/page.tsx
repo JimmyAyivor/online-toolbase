@@ -7,7 +7,7 @@ import { tools } from "@/lib/tools";
 import SitemapClient from "./SitemapClient";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.onlinetoolbase.com";
+  process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.utilvia.com";
 
 export const metadata: Metadata = {
   title: "Visual Sitemap — Calculators, Pdf Tools & More",

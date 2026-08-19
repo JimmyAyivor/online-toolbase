@@ -19,8 +19,9 @@ interface Props {
 /* ─── Helpers ────────────────────────────────────────────────────────────── */
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+  process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 function slugify(str: string) {
   return str
@@ -154,8 +155,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     twitter: {
       card: "summary_large_image",
-      site: "@onlinetoolbase",
-      creator: "@onlinetoolbase",
+      site: "@utilvia",
+      creator: "@utilvia",
       title: `${tool.name} — Free Online ${tool.name}`,
       description: `Free online ${tool.name.toLowerCase()}. ${tool.description} No signup needed.`,
     },

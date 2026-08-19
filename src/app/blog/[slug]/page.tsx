@@ -1535,8 +1535,9 @@ const CATEGORY_COLORS: Record<string, { pill: string }> = {
   Fun: { pill: "bg-amber-100 text-amber-800" },
 };
 
-const SITE_URL = "https://www.onlinetoolbase.com";
-const SITE_NAME = "OnlineToolBase";
+const SITE_URL = "https://www.utilvia.com";
+const SITE_NAME = "Utilvia";
+
 
 // ─── Static params ────────────────────────────────────────────────────────────
 export function generateStaticParams() {

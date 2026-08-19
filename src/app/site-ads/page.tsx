@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Advertise on Calculators, Pdf Tools & More — Reach 130+ Tool Pages",
   description:
-    "Sponsor a placement on https://www.onlinetoolbase.com. Reach developers, writers, finance professionals, and productivity enthusiasts using our 130+ free tools.",
+    "Sponsor a placement on https://www.utilvia.com. Reach developers, writers, finance professionals, and productivity enthusiasts using our 130+ free tools.",
   robots: { index: true, follow: true },
 };
 
@@ -201,10 +201,10 @@ export default function AdvertisePage() {
           pricing.
         </p>
         <a
-          href="mailto:ads@onlinetoolbase.com?subject=Advertising%20inquiry&body=Brand%20name%3A%0ATarget%20categories%3A%0AHeadline%20idea%3A%0AWebsite%3A"
+          href="mailto:ads@utilvia.com?subject=Advertising%20inquiry&body=Brand%20name%3A%0ATarget%20categories%3A%0AHeadline%20idea%3A%0AWebsite%3A"
           className="inline-flex items-center gap-2 bg-white text-indigo-700 font-bold text-sm px-6 py-3 rounded-xl hover:bg-indigo-50 transition-colors"
         >
-          Email ads@onlinetoolbase.com →
+          Email ads@utilvia.com →
         </a>
       </div>
     </main>
