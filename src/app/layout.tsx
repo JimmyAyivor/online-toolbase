@@ -117,17 +117,8 @@ export default function RootLayout({
             </Script>
           </>
         )}
-
-        {/* AdSense — delayed until browser idle */}
-        {ADSENSE_PUB_ID && (
-          <Script
-            id="google-adsense"
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUB_ID}`}
-            crossOrigin="anonymous"
-            strategy="lazyOnload"
-          />
-        )}
+<script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1535420"></script>
+<script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1535466"></script>
       </body>
     </html>
   );
