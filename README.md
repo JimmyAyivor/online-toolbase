@@ -34,3 +34,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Advertising delivery
+
+Public placement names live in `src/ads/placements.ts`. Configure the public
+Revive delivery URL and zone IDs shown in `.env.example`; never put the Revive
+admin or XML-RPC credentials in this repository.
+
+Each `AdPlacement` requests Revive first. Configure the corresponding Revive
+zone with direct campaigns at higher priority and the existing network unit as
+its remnant banner. The React fallback is used only when that placement has no
+valid Revive configuration, so direct and network requests are not fired in
+parallel.
+
+The `/advertise` page links advertisers to the self-serve studio at
+`https://ads.utilvia.com`; publisher pages do not share Ad Studio credentials or
+database access.
+
+Run `npm run test:pagespeed` against the deployed site before and after changing
+ad delivery. Set `PAGESPEED_URL` to test a preview deployment and optionally set
+`PAGESPEED_API_KEY` when the public API quota requires it.

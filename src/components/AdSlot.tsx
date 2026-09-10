@@ -53,6 +53,7 @@ interface AdSlotProps {
 // ─── AdSense publisher ID — set via env var ───────────────────────────────────
 // Add NEXT_PUBLIC_ADSENSE_PUB_ID=ca-pub-XXXXXXXXXXXXXXXXX to .env.local
 const PUB_ID = process.env.NEXT_PUBLIC_ADSENSE_PUB_ID ?? "";
+const ADSENSE_APPROVED = process.env.NEXT_PUBLIC_ADSENSE_APPROVED === "true";
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
@@ -63,7 +64,7 @@ export default function AdSlot({
   sticky = false,
 }: AdSlotProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [loaded, setLoaded] = useState<boolean>(false);
+  const loadedRef = useRef(false);
   const [visible, setVisible] = useState<boolean>(false);
   const [closed, setClosed] = useState<boolean>(false);
 
@@ -79,11 +80,14 @@ export default function AdSlot({
   const cfg = SLOT_CONFIGS[resolvedVariant];
 
   // ── Only render ads in production and when PUB_ID is set ─────────────────
-  const isEnabled = Boolean(PUB_ID) && process.env.NODE_ENV === "production";
+  const isEnabled =
+    ADSENSE_APPROVED &&
+    Boolean(PUB_ID) &&
+    process.env.NODE_ENV === "production";
 
   // ── Lazy-load: fire the AdSense push only when the slot enters the viewport
   useEffect(() => {
-    if (!isEnabled || loaded) return;
+    if (!isEnabled || loadedRef.current) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -97,42 +101,30 @@ export default function AdSlot({
 
     if (containerRef.current) observer.observe(containerRef.current);
     return () => observer.disconnect();
-  }, [isEnabled, loaded]);
+  }, [isEnabled]);
 
   // ── Push the ad unit once visible ────────────────────────────────────────
   useEffect(() => {
-    if (!visible || loaded) return;
+    if (!visible || loadedRef.current) return;
     try {
       // AdSense global push
       window.adsbygoogle = window.adsbygoogle ?? [];
       window.adsbygoogle.push({});
-      setLoaded(true);
+      loadedRef.current = true;
     } catch {
       // Silently fail — ad blocker or script not yet loaded
     }
-  }, [visible, loaded]);
+  }, [visible]);
 
   // ── Don't render on server or in dev ─────────────────────────────────────
   if (!isEnabled) {
-    return (
-      <AdPlaceholder
-        variant={resolvedVariant}
-        cfg={cfg}
-        className={className}
-        sticky={sticky}
-      />
-    );
+    return <AdPlaceholder cfg={cfg} className={className} sticky={sticky} />;
   }
 
   if (closed) return null;
 
-  // ── Kill switch until AdSense approved ──────────────────────────────────
-  const ADSENSE_APPROVED = "false";
-  if (!ADSENSE_APPROVED) return null;
-
   return (
     <AdWrapper
-      variant={resolvedVariant}
       cfg={cfg}
       className={className}
       sticky={sticky}
@@ -162,12 +154,10 @@ export default function AdSlot({
 // ─── Dev / preview placeholder (shown when NEXT_PUBLIC_ADSENSE_PUB_ID not set) ─
 
 function AdPlaceholder({
-  variant,
   cfg,
   className,
   sticky,
 }: {
-  variant: SlotVariant;
   cfg: SlotConfig;
   className: string;
   sticky: boolean;
@@ -177,7 +167,6 @@ function AdPlaceholder({
 
   return (
     <AdWrapper
-      variant={variant}
       cfg={cfg}
       className={className}
       sticky={sticky}
@@ -200,14 +189,12 @@ function AdPlaceholder({
 // ─── Shared wrapper (label + CLS reservation + sticky shell) ─────────────────
 
 function AdWrapper({
-  variant,
   cfg,
   className,
   sticky,
   onClose,
   children,
 }: {
-  variant: SlotVariant;
   cfg: SlotConfig;
   className: string;
   sticky: boolean;

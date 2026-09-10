@@ -6,6 +6,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import GlobalMonetization from "@/components/GlobalMonetization";
 import CookieBanner from "@/components/CookieBanner";
+import MobileStickyAd from "@/components/MobileStickyAd";
 import { tools } from "@/lib/tools";
 import "./globals.css";
 
@@ -15,14 +16,12 @@ const SITE_NAME = "Utilvia";
 const TWITTER = "@utilvia";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
-const ADSENSE_PUB_ID = process.env.NEXT_PUBLIC_ADSENSE_PUB_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default:
-      `${SITE_NAME} : Free Online Calculators - Math, Fitness, Finance, Science, PDF Tools`,
+    default: `${SITE_NAME} : Free Online Calculators - Math, Fitness, Finance, Science, PDF Tools`,
     template: `%s | ${SITE_NAME}`,
   },
 
@@ -48,8 +47,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     url: SITE_URL,
     title: `${SITE_NAME} — ${TOOL_COUNT}+ Free Calculators, Converters & Generators`,
-    description:
-      `${TOOL_COUNT} free browser-based tools. No signup, no download, no cost — ever.`,
+    description: `${TOOL_COUNT} free browser-based tools. No signup, no download, no cost — ever.`,
     locale: "en_US",
     images: [
       {
@@ -66,8 +64,7 @@ export const metadata: Metadata = {
     site: TWITTER,
     creator: TWITTER,
     title: `${SITE_NAME} — ${TOOL_COUNT}+ Free Calculators, PDF Tools, Converters & Generators`,
-    description:
-      `${TOOL_COUNT}+ Calculators, PDF Tools & More. No signup required.`,
+    description: `${TOOL_COUNT}+ Calculators, PDF Tools & More. No signup required.`,
   },
 
   authors: [{ name: SITE_NAME, url: SITE_URL }],
@@ -75,11 +72,7 @@ export const metadata: Metadata = {
   publisher: SITE_NAME,
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
@@ -93,6 +86,8 @@ export default function RootLayout({
 
         <CookieBanner />
 
+        <MobileStickyAd />
+
         {/* Google Analytics — intentionally delayed until browser idle */}
         {GA_ID && (
           <>
@@ -102,10 +97,7 @@ export default function RootLayout({
               strategy="lazyOnload"
             />
 
-            <Script
-              id="google-analytics-config"
-              strategy="lazyOnload"
-            >
+            <Script id="google-analytics-config" strategy="lazyOnload">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
@@ -117,8 +109,7 @@ export default function RootLayout({
             </Script>
           </>
         )}
-<script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1535420"></script>
-<script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1535466"></script>
+
       </body>
     </html>
   );

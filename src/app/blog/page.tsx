@@ -1,10 +1,10 @@
 // src/app/blog/page.tsx
 import type { Metadata } from "next";
+import AdPlacement from "@/components/advertising/AdPlacement";
 import { blogPosts } from "./blog-posts";
 
 const SITE_URL = "https://www.utilvia.com";
 const SITE_NAME = "Utilvia";
-
 
 export const metadata: Metadata = {
   title: "Blog — Tips, Guides & How-Tos | Online Tool Base",
@@ -65,6 +65,11 @@ export default function BlogIndexPage() {
         </div>
       </div>
 
+      <AdPlacement
+        className="hidden px-4 py-8 md:flex"
+        placement="blog-header-leaderboard"
+      />
+
       <div className="max-w-6xl mx-auto px-4 py-12">
         {/* Featured post */}
         <a
@@ -103,6 +108,11 @@ export default function BlogIndexPage() {
             </div>
           </div>
         </a>
+
+        <AdPlacement
+          className="mb-12 hidden md:flex"
+          placement="blog-sponsored-card"
+        />
 
         {/* Post grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

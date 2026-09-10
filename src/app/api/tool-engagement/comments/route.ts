@@ -27,24 +27,32 @@ export async function GET(req: NextRequest) {
 
   const offset = page * PAGE_SIZE;
 
-  const comments = await query<{
-    id: string;
-    name: string;
-    body: string;
-    created_at: string;
-  }>(
-    `select id, name, body, created_at
-     from tool_comments
-     where tool_slug = $1
-     order by created_at desc
-     limit $2 offset $3`,
-    [slug, PAGE_SIZE + 1, offset],
-  );
+  try {
+    const comments = await query<{
+      id: string;
+      name: string;
+      body: string;
+      created_at: string;
+    }>(
+      `select id, name, body, created_at
+       from tool_comments
+       where tool_slug = $1
+       order by created_at desc
+       limit $2 offset $3`,
+      [slug, PAGE_SIZE + 1, offset],
+    );
 
-  const hasMore = comments.length > PAGE_SIZE;
-  if (hasMore) comments.pop();
+    const hasMore = comments.length > PAGE_SIZE;
+    if (hasMore) comments.pop();
 
-  return NextResponse.json({ comments, hasMore });
+    return NextResponse.json({ comments, hasMore });
+  } catch (error) {
+    console.error("Comments database unavailable", error);
+    return NextResponse.json(
+      { error: "Comments are temporarily unavailable. Please try again shortly." },
+      { status: 503 },
+    );
+  }
 }
 
 // ── POST /api/tool-engagement/comments ───────────────────────────────────────
@@ -83,18 +91,25 @@ export async function POST(req: NextRequest) {
 
   const cleanBody = commentBody.trim().slice(0, MAX_BODY);
 
-  // Abuse checks
-  if (looksLikeSpam(name) || looksLikeSpam(cleanBody))
-    return forbidden("Your submission was flagged as spam.");
-  if (await isRateLimited(ip)) return tooManyRequests();
-  if (await isDuplicateContent(cleanBody, "tool_comments"))
-    return forbidden("This comment has already been submitted.");
+  try {
+    if (looksLikeSpam(name) || looksLikeSpam(cleanBody))
+      return forbidden("Your submission was flagged as spam.");
+    if (await isRateLimited(ip)) return tooManyRequests();
+    if (await isDuplicateContent(cleanBody, "tool_comments"))
+      return forbidden("This comment has already been submitted.");
 
-  await query(
-    `insert into tool_comments (tool_slug, name, body, ip_address)
-     values ($1, $2, $3, $4)`,
-    [slug, name.trim().slice(0, MAX_NAME), cleanBody, ip],
-  );
+    await query(
+      `insert into tool_comments (tool_slug, name, body, ip_address)
+       values ($1, $2, $3, $4)`,
+      [slug, name.trim().slice(0, MAX_NAME), cleanBody, ip],
+    );
 
-  return NextResponse.json({ ok: true }, { status: 201 });
+    return NextResponse.json({ ok: true }, { status: 201 });
+  } catch (error) {
+    console.error("Comment submission database unavailable", error);
+    return NextResponse.json(
+      { error: "Comments are temporarily unavailable. Please try again shortly." },
+      { status: 503 },
+    );
+  }
 }

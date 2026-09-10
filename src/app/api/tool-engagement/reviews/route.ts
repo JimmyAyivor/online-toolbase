@@ -28,7 +28,8 @@ export async function GET(req: NextRequest) {
 
   const offset = page * PAGE_SIZE;
 
-  const [reviews, summaryRows] = await Promise.all([
+  try {
+    const [reviews, summaryRows] = await Promise.all([
     query<{
       id: string;
       name: string;
@@ -57,26 +58,33 @@ export async function GET(req: NextRequest) {
        ) t`,
       [slug],
     ),
-  ]);
+    ]);
 
-  const hasMore = reviews.length > PAGE_SIZE;
-  if (hasMore) reviews.pop();
+    const hasMore = reviews.length > PAGE_SIZE;
+    if (hasMore) reviews.pop();
 
-  const raw = summaryRows[0];
-  const distMap: Record<string, string> = raw?.dist ?? {};
-  const distribution = [1, 2, 3, 4, 5].map((s) =>
-    parseInt(distMap[String(s)] ?? "0", 10),
-  );
+    const raw = summaryRows[0];
+    const distMap: Record<string, string> = raw?.dist ?? {};
+    const distribution = [1, 2, 3, 4, 5].map((s) =>
+      parseInt(distMap[String(s)] ?? "0", 10),
+    );
 
-  return NextResponse.json({
-    reviews,
-    hasMore,
-    summary: {
-      total: parseInt(raw?.total ?? "0", 10),
-      average: parseFloat(parseFloat(raw?.avg_rating ?? "0").toFixed(2)),
-      distribution,
-    },
-  });
+    return NextResponse.json({
+      reviews,
+      hasMore,
+      summary: {
+        total: parseInt(raw?.total ?? "0", 10),
+        average: parseFloat(parseFloat(raw?.avg_rating ?? "0").toFixed(2)),
+        distribution,
+      },
+    });
+  } catch (error) {
+    console.error("Reviews database unavailable", error);
+    return NextResponse.json(
+      { error: "Reviews are temporarily unavailable. Please try again shortly." },
+      { status: 503 },
+    );
+  }
 }
 
 // ── POST /api/tool-engagement/reviews ────────────────────────────────────────
@@ -115,20 +123,27 @@ export async function POST(req: NextRequest) {
       { status: 422 },
     );
 
-  // Abuse checks
-  if (looksLikeSpam(name) || looksLikeSpam(cleanBody))
-    return forbidden("Your submission was flagged as spam.");
-  if (await isRateLimited(ip)) return tooManyRequests();
-  if (await hasAlreadyReviewed(ip, slug))
-    return forbidden("You have already reviewed this tool.");
-  if (cleanBody && (await isDuplicateContent(cleanBody, "tool_reviews")))
-    return forbidden("This review has already been submitted.");
+  try {
+    if (looksLikeSpam(name) || looksLikeSpam(cleanBody))
+      return forbidden("Your submission was flagged as spam.");
+    if (await isRateLimited(ip)) return tooManyRequests();
+    if (await hasAlreadyReviewed(ip, slug))
+      return forbidden("You have already reviewed this tool.");
+    if (cleanBody && (await isDuplicateContent(cleanBody, "tool_reviews")))
+      return forbidden("This review has already been submitted.");
 
-  await query(
-    `insert into tool_reviews (tool_slug, name, rating, body, ip_address)
-     values ($1, $2, $3, $4, $5)`,
-    [slug, name.trim().slice(0, MAX_NAME), rating, cleanBody, ip],
-  );
+    await query(
+      `insert into tool_reviews (tool_slug, name, rating, body, ip_address)
+       values ($1, $2, $3, $4, $5)`,
+      [slug, name.trim().slice(0, MAX_NAME), rating, cleanBody, ip],
+    );
 
-  return NextResponse.json({ ok: true }, { status: 201 });
+    return NextResponse.json({ ok: true }, { status: 201 });
+  } catch (error) {
+    console.error("Review submission database unavailable", error);
+    return NextResponse.json(
+      { error: "Reviews are temporarily unavailable. Please try again shortly." },
+      { status: 503 },
+    );
+  }
 }

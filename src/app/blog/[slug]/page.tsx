@@ -13,6 +13,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getBlogPost, blogPosts } from "../blog-posts";
 import BlogPostClient from "./BlogPostClient";
+import AdPlacement from "@/components/advertising/AdPlacement";
 import SidebarPromoWidgets from "@/components/SidebarPromoWidgets";
 import { tools } from "@/lib/tools";
 const tool = tools.find((t) => t.slug === "age-calculator");
@@ -1538,7 +1539,6 @@ const CATEGORY_COLORS: Record<string, { pill: string }> = {
 const SITE_URL = "https://www.utilvia.com";
 const SITE_NAME = "Utilvia";
 
-
 // ─── Static params ────────────────────────────────────────────────────────────
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -1604,11 +1604,6 @@ export default async function BlogPostPage({
   const takeaways = KEY_TAKEAWAYS[slug] ?? null;
   const postUrl = `${SITE_URL}/blog/${slug}`;
 
-  // The tool this post is primarily about — used for ClickBank/ad matching in
-  // the sidebar. post.relatedTools only carries {href, label}, so resolve the
-  // full tool record (slug, name, description, category) from the tools list.
-  const primaryToolHref = post.relatedTools[0]?.href;
-
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -1663,9 +1658,12 @@ export default async function BlogPostPage({
                 ›
               </li>
               <li>
-                <a href="/blog" className="hover:text-white transition-colors">
+                <Link
+                  href="/blog"
+                  className="hover:text-white transition-colors"
+                >
                   Blog
-                </a>
+                </Link>
               </li>
               <li className="text-slate-600" aria-hidden="true">
                 ›
@@ -1773,6 +1771,12 @@ export default async function BlogPostPage({
         </div>
       </div>
 
+      <AdPlacement
+        className="hidden bg-slate-50 px-4 py-8 md:flex"
+        context={{ category: post.category }}
+        placement="blog-header-leaderboard"
+      />
+
       {/* ── BODY ─────────────────────────────────────────────────────────── */}
       <div className="bg-slate-50 min-h-screen">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -1817,6 +1821,12 @@ export default async function BlogPostPage({
                 </div>
               )}
 
+              <AdPlacement
+                className="mb-8 hidden md:flex"
+                context={{ category: post.category }}
+                placement="blog-content-leaderboard"
+              />
+
               {/* Article prose */}
               <article
                 id="article-body"
@@ -1849,6 +1859,12 @@ export default async function BlogPostPage({
               >
                 <PostContent />
               </article>
+
+              <AdPlacement
+                className="mt-8 hidden md:flex"
+                context={{ category: post.category }}
+                placement="blog-sponsored-card"
+              />
 
               {/* Tags */}
               <div className="mt-6 flex flex-wrap gap-2">
@@ -1963,7 +1979,7 @@ export default async function BlogPostPage({
 
               {/* Back link */}
               <div className="mt-8 pb-2">
-                <a
+                <Link
                   href="/blog"
                   className="inline-flex items-center gap-2 text-sm text-indigo-600 hover:text-indigo-800 font-semibold transition-colors"
                 >
@@ -1981,14 +1997,25 @@ export default async function BlogPostPage({
                     />
                   </svg>
                   Back to all articles
-                </a>
+                </Link>
               </div>
+
+              <AdPlacement
+                className="mt-8 hidden md:flex"
+                context={{ category: post.category }}
+                placement="blog-footer-leaderboard"
+              />
             </div>
 
             {/* ── SIDEBAR ─────────────────────────────────────────────────── */}
             <aside className="hidden lg:block">
               {/* Sticky wrapper */}
               <div className="sticky top-6 space-y-5">
+                <AdPlacement
+                  context={{ category: post.category }}
+                  placement="blog-sidebar"
+                />
+
                 {/* Ad + Latest Articles + ClickBank recommendation */}
                 {tool && <SidebarPromoWidgets tool={tool} />}
 
@@ -2043,12 +2070,12 @@ export default async function BlogPostPage({
                     Calculators, converters, generators, Pdf Tools and more. No
                     account needed.
                   </p>
-                  <a
+                  <Link
                     href="/tools"
                     className="block text-center bg-indigo-500 hover:bg-indigo-400 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition-colors"
                   >
                     Browse All Tools →
-                  </a>
+                  </Link>
                 </div>
               </div>
             </aside>

@@ -365,6 +365,7 @@ export default function ToolEngagement({
   const [reviewsLoading, setReviewsLoading] = useState(true);
   const [reviewsPage, setReviewsPage] = useState(0);
   const [reviewsHasMore, setReviewsHasMore] = useState(false);
+  const [reviewsError, setReviewsError] = useState("");
   const [helpfulVoted, setHelpfulVoted] = useState<Set<string>>(new Set());
 
   const [wrName, setWrName] = useState("");
@@ -379,6 +380,7 @@ export default function ToolEngagement({
   const [commentsPage, setCommentsPage] = useState(0);
   const [commentsHasMore, setCommentsHasMore] = useState(false);
   const [commentsLoaded, setCommentsLoaded] = useState(false);
+  const [commentsError, setCommentsError] = useState("");
   const [cmName, setCmName] = useState("");
   const [cmBody, setCmBody] = useState("");
   const [cmSubmitting, setCmSubmitting] = useState(false);
@@ -388,6 +390,7 @@ export default function ToolEngagement({
   const loadReviews = useCallback(
     async (page = 0) => {
       setReviewsLoading(true);
+      setReviewsError("");
       try {
         const data = await apiFetch<{
           reviews: Review[];
@@ -402,8 +405,12 @@ export default function ToolEngagement({
         setReviewsHasMore(data.hasMore);
         setReviewsPage(page);
         if (page === 0) setSummary(data.summary);
-      } catch {
-        /* non-fatal */
+      } catch (error) {
+        setReviewsError(
+          error instanceof Error
+            ? error.message
+            : "Reviews are temporarily unavailable.",
+        );
       } finally {
         setReviewsLoading(false);
       }
@@ -414,6 +421,7 @@ export default function ToolEngagement({
   const loadComments = useCallback(
     async (page = 0) => {
       setCommentsLoading(true);
+      setCommentsError("");
       try {
         const data = await apiFetch<{ comments: Comment[]; hasMore: boolean }>(
           `/api/tool-engagement/comments?slug=${encodeURIComponent(toolSlug)}&page=${page}`,
@@ -424,8 +432,12 @@ export default function ToolEngagement({
         setCommentsHasMore(data.hasMore);
         setCommentsPage(page);
         setCommentsLoaded(true);
-      } catch {
-        /* non-fatal */
+      } catch (error) {
+        setCommentsError(
+          error instanceof Error
+            ? error.message
+            : "Comments are temporarily unavailable.",
+        );
       } finally {
         setCommentsLoading(false);
       }
@@ -586,6 +598,8 @@ export default function ToolEngagement({
         {summary.total > 0 && <RatingSummaryPanel summary={summary} />}
         {reviewsLoading && reviews.length === 0 ? (
           <Spinner />
+        ) : reviewsError && reviews.length === 0 ? (
+          <EmptyState message={reviewsError} />
         ) : reviews.length === 0 ? (
           <EmptyState message="No reviews yet — be the first to review this tool." />
         ) : (
@@ -786,6 +800,8 @@ export default function ToolEngagement({
 
         {commentsLoading && comments.length === 0 ? (
           <Spinner />
+        ) : commentsError && comments.length === 0 ? (
+          <EmptyState message={commentsError} />
         ) : comments.length === 0 ? (
           <EmptyState message="No comments yet — start the conversation!" />
         ) : (

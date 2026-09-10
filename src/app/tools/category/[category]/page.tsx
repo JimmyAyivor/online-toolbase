@@ -20,12 +20,7 @@ import {
   getToolsForCategory,
   getRelatedCategories,
 } from "@/lib/categories";
-import AdSlot from "@/components/AdSlot";
-
-const SLOT_A = process.env.NEXT_PUBLIC_AD_SLOT_HOMEPAGE_A ?? "0000000000";
-const SLOT_B = process.env.NEXT_PUBLIC_AD_SLOT_HOMEPAGE_B ?? "0000000000";
-const SLOT_D = process.env.NEXT_PUBLIC_AD_SLOT_HOMEPAGE_D ?? "0000000000";
-const SLOT_E = process.env.NEXT_PUBLIC_AD_SLOT_HOMEPAGE_E ?? "0000000000";
+import AdPlacement from "@/components/advertising/AdPlacement";
 
 type Props = {
   params: Promise<{ category: string }>;
@@ -190,18 +185,11 @@ export default async function CategoryPage({ params }: Props) {
             <p key={i}>{paragraph}</p>
           ))}
         </div>
-        <div className="flex justify-center px-4 py-4">
-          <AdSlot
-            variant="leaderboard"
-            slotId={SLOT_A}
-            className="hidden sm:flex"
-          />
-          <AdSlot
-            variant="mediumrectangle"
-            slotId={SLOT_A}
-            className="flex sm:hidden"
-          />
-        </div>
+        <AdPlacement
+          className="hidden px-4 py-4 md:flex"
+          context={{ category: category.slug }}
+          placement="category-page-leaderboard"
+        />
 
         {/* Tool grid */}
         <section aria-label={`${category.name} tools`} className="mt-8">
@@ -219,18 +207,11 @@ export default async function CategoryPage({ params }: Props) {
           </div>
         </section>
 
-        <div className="flex justify-center px-4 py-4">
-          <AdSlot
-            variant="leaderboard"
-            slotId={SLOT_B}
-            className="hidden sm:flex"
-          />
-          <AdSlot
-            variant="mediumrectangle"
-            slotId={SLOT_B}
-            className="flex sm:hidden"
-          />
-        </div>
+        <AdPlacement
+          className="mt-10 hidden px-4 py-4 md:flex"
+          context={{ category: category.slug }}
+          placement="sponsored-tool-card"
+        />
 
         {/* FAQ */}
         <section aria-label="Frequently asked questions" className="mt-12">

@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import { tools } from "@/lib/tools";
 import Link from "next/link";
 import { toolClientComponents } from "./tool-clients";
+import AdPlacement from "@/components/advertising/AdPlacement";
 
 /* ─── Types ──────────────────────────────────────────────────────────────── */
 
@@ -18,10 +19,8 @@ interface Props {
 
 /* ─── Helpers ────────────────────────────────────────────────────────────── */
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.utilvia.com";
+const SITE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.utilvia.com";
 const SITE_NAME = "Utilvia";
-
 
 function slugify(str: string) {
   return str
@@ -287,6 +286,12 @@ export default async function ToolPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
+      <AdPlacement
+        className="mx-auto hidden max-w-5xl px-4 py-4 md:flex"
+        context={{ category: tool.category, toolSlug: tool.slug }}
+        placement="tool-page-leaderboard"
+      />
+
       {/* ── Tool component ────────────────────────────────────────────── */}
       {ToolClient ? (
         <ToolClient />
@@ -295,6 +300,18 @@ export default async function ToolPage({ params }: Props) {
           <p>This tool is coming soon. Check back later!</p>
         </div>
       )}
+
+      <AdPlacement
+        className="mx-auto hidden max-w-5xl px-4 py-6 md:flex"
+        context={{ category: tool.category, toolSlug: tool.slug }}
+        placement="below-tool"
+      />
+
+      <AdPlacement
+        className="mx-auto hidden max-w-5xl px-4 py-6 md:flex"
+        context={{ category: tool.category, toolSlug: tool.slug }}
+        placement="tool-inline-card"
+      />
 
       {/* ── SEO content block (visible, crawlable, below the tool) ────── */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -385,6 +402,12 @@ export default async function ToolPage({ params }: Props) {
           </Link>
         </div>
       </section>
+
+      <AdPlacement
+        className="mx-auto hidden max-w-5xl px-4 py-6 md:flex"
+        context={{ category: tool.category, toolSlug: tool.slug }}
+        placement="tool-footer-leaderboard"
+      />
     </>
   );
 }

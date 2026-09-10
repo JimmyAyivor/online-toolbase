@@ -7,10 +7,10 @@ import type { Metadata } from "next";
 import { tools } from "@/lib/tools";
 import HomeClient from "./HomeClient";
 import RecentBlogPosts from "@/components/RecentBlogPosts";
+import AdPlacement from "@/components/advertising/AdPlacement";
 /* ─── Config ─────────────────────────────────────────────────────────────── */
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.utilvia.com";
+const SITE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.utilvia.com";
 const SITE_NAME = "Utilvia";
 
 const TWITTER = "@utilvia";
@@ -232,6 +232,11 @@ export default function HomePage() {
             ))}
           </dl>
         </section>
+
+        <AdPlacement
+          className="hidden px-4 py-5 lg:flex"
+          placement="homepage-leaderboard"
+        />
 
         {/* ── Client shell: category filter + tools grid ───────────────── */}
         <HomeClient />

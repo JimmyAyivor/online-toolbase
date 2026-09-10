@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 
 /* ─── Animated counter hook ─────────────────────────────────────────────── */
 
@@ -679,7 +678,7 @@ export default function AdvertiseClient() {
 
           <Reveal delay={150}>
             <div className="space-y-3">
-              {BENEFITS.map((b, i) => (
+              {BENEFITS.map((b) => (
                 <div
                   key={b.title}
                   className="flex gap-4 p-5 bg-gray-50 hover:bg-white border border-gray-100 hover:border-indigo-100 rounded-2xl hover:shadow-lg transition-all duration-300 group"
@@ -724,7 +723,7 @@ export default function AdvertiseClient() {
             {/* Audience segments */}
             <Reveal>
               <div className="space-y-4">
-                {AUDIENCE_SEGMENTS.map((seg, i) => (
+                {AUDIENCE_SEGMENTS.map((seg) => (
                   <div
                     key={seg.label}
                     className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm"
@@ -937,7 +936,7 @@ export default function AdvertiseClient() {
                 <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
                   {/* Quote marks */}
                   <div className="text-6xl font-black text-indigo-100 leading-none mb-4 select-none">
-                    "
+                    &ldquo;
                   </div>
                   <p className="text-gray-700 leading-relaxed flex-1 italic mb-6 -mt-4">
                     {t.quote}
@@ -981,10 +980,10 @@ export default function AdvertiseClient() {
                 placement specs, rate card, and campaign case studies.
               </p>
               <a
-                href="#contact"
+                href="https://ads.utilvia.com"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white text-indigo-700 font-black rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-200 text-base"
               >
-                Get the Media Kit
+                Start a Campaign
                 <svg
                   className="w-5 h-5"
                   fill="none"

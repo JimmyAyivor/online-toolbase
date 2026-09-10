@@ -8,6 +8,8 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "lint": "eslint",
+    "test": "tsx --test tests/ads.test.ts",
+    "test:pagespeed": "tsx tests/pagespeed-regression.ts",
     "inject-tool-engagement": "tsx scripts/inject-tool-engagement.ts",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
@@ -21,14 +23,14 @@
     "lodash": "^4.17.23",
     "lucide-react": "^0.574.0",
     "mammoth": "^1.12.0",
-    "next": "16.1.6",
-    "pdfjs-dist": "^5.6.205",
+    "next": "16.3.4",
+    "pdfjs-dist": "^6.2.108",
     "pg": "^8.20.0",
     "qrcode": "^1.5.4",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "recharts": "^3.7.0",
-    "xlsx": "^0.18.5"
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -37,11 +39,30 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.1.6",
+    "eslint-config-next": "16.3.4",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.6.2",
     "tailwindcss": "^4",
-    "tsx": "^4.21.0",
+    "tsx": "^4.22.0",
     "typescript": "^5"
+  },
+  "optionalDependencies": {
+    "@esbuild/darwin-arm64": "0.28.2",
+    "@esbuild/darwin-x64": "0.28.2",
+    "@next/swc-darwin-arm64": "16.3.4",
+    "@next/swc-darwin-x64": "16.3.4",
+    "lightningcss-darwin-arm64": "1.31.1",
+    "lightningcss-darwin-x64": "1.31.1"
+  },
+  "overrides": {
+    "@babel/core": "^7.29.6",
+    "@humanfs/node": "^0.16.8",
+    "@xmldom/xmldom": "^0.9.12",
+    "brace-expansion": "^1.1.18",
+    "browserslist": "^4.28.7",
+    "js-yaml": "^4.3.1",
+    "nanoid": "^3.3.17",
+    "postcss": "^8.5.23",
+    "sharp": "^0.35.0"
   }
 }

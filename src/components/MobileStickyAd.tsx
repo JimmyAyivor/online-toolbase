@@ -15,18 +15,23 @@
 //     <MobileStickyAd />
 //   </body>
 
-import AdSlot from "./AdSlot";
+"use client";
 
-// Slot ID — replace with your real AdSense slot ID
-const MOBILE_STICKY_SLOT_ID =
-  process.env.NEXT_PUBLIC_AD_SLOT_MOBILE_STICKY ?? "0000000000";
+import { usePathname } from "next/navigation";
+
+import AdPlacement from "./advertising/AdPlacement";
 
 export default function MobileStickyAd() {
+  const pathname = usePathname();
+  const placement = pathname.startsWith("/tools/")
+    ? "mobile-sticky"
+    : pathname === "/blog" || pathname.startsWith("/blog/")
+      ? "blog-mobile-sticky"
+      : null;
+  if (!placement) return null;
   return (
-    // lg:hidden — only rendered when viewport is < 1024px
-    // The AdSlot itself handles close state and position:fixed
     <div className="lg:hidden">
-      <AdSlot variant="mobilebanner" slotId={MOBILE_STICKY_SLOT_ID} sticky />
+      <AdPlacement placement={placement} sticky />
     </div>
   );
 }

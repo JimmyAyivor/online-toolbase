@@ -21,7 +21,7 @@
 //   3. ClickBankSidebar (affiliate product card)
 //   Main content column (AffiliateSection, SponsoredAd, ClickBankOffer) is unchanged either way.
 
-import AdSlot from "./AdSlot";
+import AdPlacement from "./advertising/AdPlacement";
 import AffiliateSection from "./AffiliateSection";
 import SidebarRecentPosts from "./SidebarRecentPosts";
 import SponsoredAdWrapper from "./SponsoredAdWrapper";
@@ -29,8 +29,6 @@ import ClickBankWrapper from "./ClickBankWrapper";
 import SubscribeForm from "./SubscribeForm";
 import { selectAdForTool } from "@/ads/ad-config";
 import { selectClickBankProduct } from "@/ads/clickbank-config";
-
-const SIDEBAR_SLOT_ID = process.env.NEXT_PUBLIC_AD_SLOT_SIDEBAR ?? "0000000000";
 
 interface SidebarAdLayoutProps {
   children?: React.ReactNode;
@@ -58,7 +56,31 @@ export default function SidebarAdLayout({
       <div className="flex gap-6 items-start">
         {/* ── Main content column ──────────────────────────────────────────── */}
         <div className="flex-1 min-w-0">
+          {tool && (
+            <AdPlacement
+              className="mb-6 hidden md:flex"
+              context={{ category: tool.category, toolSlug: tool.slug }}
+              placement="tool-page-leaderboard"
+            />
+          )}
+
           {sidebarVariant !== "minimal" && children}
+
+          {tool && (
+            <AdPlacement
+              className="mt-8 hidden md:flex"
+              context={{ category: tool.category, toolSlug: tool.slug }}
+              placement="below-tool"
+            />
+          )}
+
+          {tool && (
+            <AdPlacement
+              className="mt-8 hidden md:flex"
+              context={{ category: tool.category, toolSlug: tool.slug }}
+              placement="tool-inline-card"
+            />
+          )}
 
           {/* Affiliate section (existing SaaS offers) */}
           {tool && (
@@ -86,6 +108,14 @@ export default function SidebarAdLayout({
               delayMs={1200}
             />
           )}
+
+          {tool && (
+            <AdPlacement
+              className="mt-10 hidden md:flex"
+              context={{ category: tool.category, toolSlug: tool.slug }}
+              placement="tool-footer-leaderboard"
+            />
+          )}
         </div>
 
         {/* ── Sticky sidebar — desktop only ─────────────────────────────────── */}
@@ -97,7 +127,14 @@ export default function SidebarAdLayout({
             {sidebarVariant === "minimal" ? (
               <>
                 {/* Google AdSense */}
-                <AdSlot variant="halfpage" slotId={SIDEBAR_SLOT_ID} />
+                <AdPlacement
+                  context={
+                    tool
+                      ? { category: tool.category, toolSlug: tool.slug }
+                      : undefined
+                  }
+                  placement="tool-sidebar"
+                />
 
                 {/* Latest Articles */}
                 <SidebarRecentPosts />
@@ -114,7 +151,14 @@ export default function SidebarAdLayout({
             ) : (
               <>
                 {/* Google AdSense */}
-                <AdSlot variant="halfpage" slotId={SIDEBAR_SLOT_ID} />
+                <AdPlacement
+                  context={
+                    tool
+                      ? { category: tool.category, toolSlug: tool.slug }
+                      : undefined
+                  }
+                  placement="tool-sidebar"
+                />
 
                 {/* Direct sponsor card */}
                 {sponsoredAd && tool && (
