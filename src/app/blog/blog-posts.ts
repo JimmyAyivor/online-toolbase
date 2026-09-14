@@ -19,7 +19,7 @@ export const blogPosts: BlogPost[] = [
     slug: "how-to-create-a-strong-password",
     title: "How to Create a Strong Password That's Actually Hard to Crack",
     description:
-      "Most people think they have a strong password. Most of them are wrong. Here's what actually makes a password secure in 2025 — and why 'P@ssw0rd' stopped working years ago.",
+      "Most people think they have a strong password. Most of them are wrong. Here's what actually makes a password secure in 2025 — and why 'P@ssw0rd' stopped working manyyears ago.",
     category: "Security",
     readingTime: "8 min read",
     publishedAt: "2025-01-06",
